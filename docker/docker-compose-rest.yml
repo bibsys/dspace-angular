@@ -67,6 +67,9 @@ services:
     container_name: dspacedb
     environment:
       PGDATA: /pgdata
+      POSTGRES_USER: dspace
+      POSTGRES_DB: dspace
+      POSTGRES_PASSWORD: dspace
     image: "${DOCKER_OWNER:-dspace}/dspace-postgres-pgcrypto:${DSPACE_VER:-latest}"
     networks:
       - dspacenet
