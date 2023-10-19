@@ -71,6 +71,8 @@ services:
     image: "${DOCKER_REGISTRY:-docker.io}/${DOCKER_OWNER:-dspace}/dspace-postgres-pgcrypto:${DSPACE_VER:-dspace-8_x}"
     environment:
       PGDATA: /pgdata
+      POSTGRES_USER: dspace
+      POSTGRES_DB: dspace
       POSTGRES_PASSWORD: dspace
     networks:
       - dspacenet
