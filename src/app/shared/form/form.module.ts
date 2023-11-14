@@ -58,6 +58,8 @@ import { NumberPickerComponent } from './number-picker/number-picker.component';
 import { VocabularyTreeviewComponent } from './vocabulary-treeview/vocabulary-treeview.component';
 import { VocabularyTreeviewModalComponent } from './vocabulary-treeview-modal/vocabulary-treeview-modal.component';
 import { CustomCheckboxComponent } from './builder/ds-dynamic-form-ui/models/checkbox/checkbox.component';
+import { FormDynamicUpdateService } from './dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from './dynamic-fields/form.dynamic-update-request.service';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -129,6 +131,8 @@ const DIRECTIVES = [
     DynamicFormService,
     DynamicFormValidationService,
     FormBuilderService,
+    FormDynamicUpdateService,
+    FormDynamicUpdateRequestService,
     DsDynamicTypeBindRelationService,
     FormService,
   ],

@@ -7,3 +7,40 @@ ui:
   ssl: false
 themes:
   - name: uclouvain
+submission:
+  # Trigger an autosave when changing a given metadata field
+  # Works with all metadata schemas
+  # However does not seem to work in form groups 
+  autosave: 
+    metadata: [
+      # 'authors.identifier.fgs', 
+      'dc.contributor.author', 
+      # 'dc.identifier.doi',
+      # 'masterthesis.degree.code', 
+      # 'masterthesis.faculty.code'
+    ]
+  dynamicFields: 
+    # * Dynamic voc config must contain:
+    # *   -> The field that will trigger an API call 
+    # *   -> The API endpoint to contact 
+    # *   -> A list of data to include in the GET request
+    # *
+    # * The response will contain a JSON:
+    # *   -> {
+    # *   ->    'data-dc.degree.code': {
+    # *   ->      'value': 'xxx',
+    # *   ->      'options': ['xxx', 'yyy'],
+    # *   ->    }
+    # *   -> }
+    # * (Config example below)
+
+    # The field that will trigger an API call
+    - triggeringField: 'dc.contributor.author'
+      # The DSpace endpoint to contact (GET Request)
+      endpoint: '/api/uclouvain/osis/students/info/degree'
+      # Params to send with the request, len(keys) should be = to len(values)
+      # We have 2 types of data: Dynamic and fixed (fixed => starts with 'raw-'')
+      params: 
+        paramKeys: ['fgs', 'degreeTypeFilter']
+        metadataFields: ['authors.identifier.fgs', 'raw-Master']
+      targetFields: ['masterthesis.degree.code']
