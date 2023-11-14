@@ -34,7 +34,7 @@ import { VocabularyService } from '../../../../../core/submission/vocabularies/v
 import { SubmissionService } from '../../../../../submission/submission.service';
 import {
   hasValue,
-  isEmpty,
+  isUndefined,
   isNotEmpty,
 } from '../../../../empty.util';
 import { VocabularyExternalSourceComponent } from '../../../../vocabulary-external-source/vocabulary-external-source.component';
@@ -219,8 +219,8 @@ export abstract class DsDynamicVocabularyComponent extends DynamicFormControlCom
    */
   dispatchUpdate(updateValue: any) {
     this.model.value = updateValue;
-    this.change.emit(updateValue);
     this.updateOtherInformation(updateValue);
+    this.change.emit(updateValue);
   }
 
   /**
@@ -297,8 +297,16 @@ export abstract class DsDynamicVocabularyComponent extends DynamicFormControlCom
   }
 
   getOtherInformationValue(value: string, key: string): FormFieldMetadataValueObject {
-    if (isEmpty(value) || key === 'alternative-names' ) {
+    if (key === 'alternative-names' ) {
       return null;
+    } else if (isUndefined(value)) {
+      // Allow using undefined values to empty a field
+      return new FormFieldMetadataValueObject(
+        '',
+        null,
+        null,
+        ''
+      );
     }
 
     let returnValue;
