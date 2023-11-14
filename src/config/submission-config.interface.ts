@@ -48,6 +48,18 @@ export interface SubmissionDropdownHintEnabled {
 
 }
 
+export interface DynamicFieldsConfig extends Config {
+  triggeringField: string;
+  endpoint: string;
+  params: DynamicFieldEndpointConfig;
+  targetFields: string[];
+}
+
+export interface DynamicFieldEndpointConfig extends Config {
+  paramKeys: string[];
+  metadataFields: string[];
+}
+
 export interface SubmissionConfig extends Config {
   autosave: AutosaveConfig;
   duplicateDetection: DuplicateDetectionConfig;
@@ -55,5 +67,6 @@ export interface SubmissionConfig extends Config {
   icons: IconsConfig;
   detectDuplicate: DetectDuplicateConfig;
   dropdownHintEnabled?: SubmissionDropdownHintEnabled;
+  dynamicFields: DynamicFieldsConfig[];
   enableShortcutPanelFor?: string[];  // must contain the collection UUID for which the shortcut panel should be enabled
 }
