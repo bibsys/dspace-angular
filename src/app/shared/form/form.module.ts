@@ -65,6 +65,8 @@ import { CustomCheckboxComponent } from './builder/ds-dynamic-form-ui/models/che
 import { requiredIfVisibleValidator } from './validator/required-if-visible-field.validator';
 import { NG_VALIDATORS } from '@angular/forms';
 import { DsYearPickerComponent } from './builder/ds-dynamic-form-ui/models/year-picker/year-picker.component';
+import { FormDynamicUpdateService } from './dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from './dynamic-fields/form.dynamic-update-request.service';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -151,6 +153,8 @@ const DIRECTIVES = [
     DynamicFormService,
     DynamicFormValidationService,
     FormBuilderService,
+    FormDynamicUpdateService,
+    FormDynamicUpdateRequestService,
     DsDynamicTypeBindRelationService,
     FormService,
   ],
