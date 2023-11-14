@@ -184,7 +184,8 @@ export const environment: BuildConfig = {
       metadataDetailsList: [
         { label: 'Document type', name: 'dc.type' }
       ]
-    }
+    },
+    dynamicFields: []
   },
 
   // NOTE: will log all redux actions and transfers in console
