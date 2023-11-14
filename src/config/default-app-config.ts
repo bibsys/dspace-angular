@@ -256,7 +256,8 @@ export class DefaultAppConfig implements AppConfig {
       metadataDetailsList: [
         { label: 'Document type', name: 'dc.type' }
       ]
-    }
+    },
+    dynamicFields: []
   };
 
   // Default Language in which the UI will be rendered if the user's browser language is not an active language

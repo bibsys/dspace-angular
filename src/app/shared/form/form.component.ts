@@ -308,6 +308,7 @@ export class FormComponent implements OnDestroy, OnInit {
     if (control.valid) {
       this.formService.removeError(this.formId, event.model.id, fieldIndex);
     }
+    this.formBuilderService.checkForDynamicFieldsEvent(event.model.id, event.control.value);
   }
 
   /**
