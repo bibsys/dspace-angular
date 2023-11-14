@@ -13,7 +13,7 @@ import { Observable, of as observableOf } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { VocabularyService } from '../../../../../core/submission/vocabularies/vocabulary.service';
-import { hasValue, isEmpty, isNotEmpty } from '../../../../empty.util';
+import { hasValue, isNotEmpty, isUndefined } from '../../../../empty.util';
 import { FormFieldMetadataValueObject } from '../../models/form-field-metadata-value.model';
 import { VocabularyEntry } from '../../../../../core/submission/vocabularies/models/vocabulary-entry.model';
 import { DsDynamicInputModel } from './ds-dynamic-input.model';
@@ -193,8 +193,8 @@ export abstract class DsDynamicVocabularyComponent extends DynamicFormControlCom
    */
   dispatchUpdate(updateValue: any) {
     this.model.value = updateValue;
-    this.change.emit(updateValue);
     this.updateOtherInformation(updateValue);
+    this.change.emit(updateValue);
   }
 
   /**
@@ -271,8 +271,14 @@ export abstract class DsDynamicVocabularyComponent extends DynamicFormControlCom
   }
 
   getOtherInformationValue(value: string): FormFieldMetadataValueObject {
-    if (isEmpty(value)) {
-      return null;
+    // Allow using undefined values to empty a field
+    if (isUndefined(value)) {
+      return new FormFieldMetadataValueObject(
+        '',
+        null,
+        null,
+        ''
+      );
     }
 
     let returnValue;

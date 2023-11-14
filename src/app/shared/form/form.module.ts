@@ -44,6 +44,8 @@ import { ThemedDynamicLookupRelationSearchTabComponent } from './builder/ds-dyna
 import { ThemedDynamicLookupRelationExternalSourceTabComponent } from './builder/ds-dynamic-form-ui/relation-lookup-modal/external-source-tab/themed-dynamic-lookup-relation-external-source-tab.component';
 import { DsDynamicRelationGroupModalComponent } from './builder/ds-dynamic-form-ui/models/relation-group/modal/dynamic-relation-group-modal.components';
 import { DsDynamicRelationInlineGroupComponent } from './builder/ds-dynamic-form-ui/models/relation-inline-group/dynamic-relation-inline-group.components';
+import { FormDynamicUpdateService } from './dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from './dynamic-fields/form.dynamic-update-request.service';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -114,6 +116,8 @@ const DIRECTIVES = [
     DynamicFormService,
     DynamicFormValidationService,
     FormBuilderService,
+    FormDynamicUpdateService,
+    FormDynamicUpdateRequestService,
     DsDynamicTypeBindRelationService,
     FormService,
   ]

@@ -22,7 +22,8 @@ import { FormFieldMetadataValueObject } from '../../../models/form-field-metadat
 import { FormBuilderService } from '../../../form-builder.service';
 import { SubmissionService } from '../../../../../../submission/submission.service';
 import { RemoteData } from '../../../../../../core/data/remote-data';
-
+import { FormDynamicUpdateService } from 'src/app/shared/form/dynamic-fields/form.dynamic-update.service';
+import { replaceAll } from 'src/app/shared/form/dynamic-fields/string.util';
 /**
  * Component representing a dropdown input field
  */
@@ -46,6 +47,16 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
   public pageInfo: PageInfo;
   public optionsList: VocabularyEntry[] = [];
 
+  /**
+   * Disables the search bar when needed has it could break dynamic field functionality.
+   * This boolean is used in the template (html file) of this component with a "ngIf".
+   */
+  public disableSearch = false;
+
+  /**
+   * Stores subscriptions made during "ngOnInit"
+   */
+  private _subscriptions = new Subscription();
 
   /**
    * The text that is being searched
@@ -68,13 +79,15 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
               protected validationService: DynamicFormValidationService,
               protected formBuilderService: FormBuilderService,
               protected modalService: NgbModal,
-              protected submissionService: SubmissionService
+              protected submissionService: SubmissionService,
+              protected formDynamicUpdateService: FormDynamicUpdateService
+
   ) {
     super(vocabularyService, layoutService, validationService, formBuilderService, modalService, submissionService);
   }
 
   /**
-   * Initialize the component, setting up the init form value
+   * Initialize the component, setting up the init form value and observing for dynamic field updates
    */
   ngOnInit() {
     if (this.model.metadataValue) {
@@ -89,8 +102,30 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
         this.setCurrentValue(value, true);
       });
     this.initFilterSubscriber();
+    this._subscriptions.add(this.formDynamicUpdateService.dynamicFieldUpdateEvent.subscribe((data: any) => {
+      let relevantData = data['data-' + replaceAll(this.model.id, '_', '.')];
+      // If there is relevant data for the current field
+      if (relevantData) {
+        // Update value
+        if (relevantData.value.value) {
+          this.dispatchUpdate(this.generateVocabularyEntry(relevantData.value));
+          this.setCurrentValue(this.generateVocabularyEntry(relevantData.value));
+        }
+
+        // Update options
+        // Retrieve the "options" key from the "relevantData" object
+        let { options } = relevantData;
+        this.optionsList = options.map((option) => this.generateVocabularyEntry(option));
+
+        // Disable search on remote vocabulary since it is empty
+        this.disableSearch = true;
+      }
+    }));
   }
 
+  generateVocabularyEntry(option: {value: string, displayed: string}): VocabularyEntry {
+    return Object.assign(new VocabularyEntry(), { display: option.displayed, value: option.value });
+  }
 
   /**
    * Start subscription for filterTextChange to detect change and implement debounce
@@ -242,6 +277,7 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
 
   ngOnDestroy() {
     this.subSearch.unsubscribe();
+    this._subscriptions.unsubscribe();
   }
 
 }
