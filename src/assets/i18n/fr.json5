@@ -3963,6 +3963,12 @@
   // TODO New key - Add a translation
   "form.other-information.institution-affiliation-name": "Affiliation(s)",
 
+  // ----------------- MASTER THESIS -----------------
+
+  "form.other-information.institution-entity-name": "Entité(s)",
+
+  // -------------------------------------------------
+
   // "form.other-information.dc_relation_grantno": "Grant Number",
   // TODO New key - Add a translation
   "form.other-information.dc_relation_grantno": "Grant Number",
@@ -10502,6 +10508,12 @@
   // "submission.sections.submit.progressbar.describe.project": "Project basic information",
   // TODO New key - Add a translation
   "submission.sections.submit.progressbar.describe.project": "Project basic information",
+
+  // --------------------------- Master thesis ---------------------------
+
+  "submission.sections.submit.progressbar.describe.masterthesis": "Informations sur le mémoire",
+
+  // ---------------------------------------------------------------------
 
   // "submission.sections.submit.progressbar.describe.publication": "Publication basic information",
   // TODO New key - Add a translation
