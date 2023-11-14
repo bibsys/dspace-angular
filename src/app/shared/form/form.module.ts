@@ -64,6 +64,8 @@ import { VocabularyTreeviewModalComponent } from './vocabulary-treeview-modal/vo
 import { CustomCheckboxComponent } from './builder/ds-dynamic-form-ui/models/checkbox/checkbox.component';
 import { requiredIfVisibleValidator } from './validator/required-if-visible-field.validator';
 import { NG_VALIDATORS } from '@angular/forms';
+import { FormDynamicUpdateService } from './dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from './dynamic-fields/form.dynamic-update-request.service';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -149,6 +151,8 @@ const DIRECTIVES = [
     DynamicFormService,
     DynamicFormValidationService,
     FormBuilderService,
+    FormDynamicUpdateService,
+    FormDynamicUpdateRequestService,
     DsDynamicTypeBindRelationService,
     FormService,
   ],
