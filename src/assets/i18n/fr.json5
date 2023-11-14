@@ -2618,6 +2618,12 @@
   // "form.no-value": "No value entered",
   "form.no-value": "Aucune valeur entrée",
 
+  // ----------------- MASTER THESIS -----------------
+
+  "form.other-information.institution-entity-name": "Entité(s)",
+
+  // -------------------------------------------------
+
   // "form.remove": "Remove",
   "form.remove": "Supprimer",
 
@@ -6209,6 +6215,12 @@
 
   // "submission.sections.submit.progressbar.CClicense": "Creative commons license",
   "submission.sections.submit.progressbar.CClicense": "Licence Creative Commons",
+
+  // --------------------------- Master thesis ---------------------------
+
+  "submission.sections.submit.progressbar.describe.masterthesis": "Informations sur le mémoire",
+
+  // ---------------------------------------------------------------------
 
   // "submission.sections.submit.progressbar.describe.recycle": "Recycle",
   "submission.sections.submit.progressbar.describe.recycle": "Recycler",
