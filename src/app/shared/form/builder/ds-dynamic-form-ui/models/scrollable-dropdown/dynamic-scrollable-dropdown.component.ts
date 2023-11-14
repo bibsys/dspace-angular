@@ -72,6 +72,8 @@ import {
 import { FormFieldMetadataValueObject } from '../../../models/form-field-metadata-value.model';
 import { DsDynamicVocabularyComponent } from '../dynamic-vocabulary.component';
 import { DynamicScrollableDropdownModel } from './dynamic-scrollable-dropdown.model';
+import { FormDynamicUpdateService } from '../../../../dynamic-fields/form.dynamic-update.service';
+import { replaceAll } from '../../../../dynamic-fields/string.util';
 
 /**
  * Component representing a dropdown input field
@@ -112,6 +114,17 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
   public acceptableKeys = ['Space', 'NumpadMultiply', 'NumpadAdd', 'NumpadSubtract', 'NumpadDecimal', 'Semicolon', 'Equal', 'Comma', 'Minus', 'Period', 'Quote', 'Backquote'];
 
   /**
+   * Disables the search bar when needed has it could break dynamic field functionality.
+   * This boolean is used in the template (html file) of this component with a "ngIf".
+   */
+  public disableSearch = false;
+
+  /**
+   * Stores subscriptions made during "ngOnInit"
+   */
+  private _subscriptions = new Subscription();
+
+  /**
    * The text that is being searched
    */
   searchText: string = null;
@@ -141,22 +154,22 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
    */
   private findAllService: FindAllData<CacheableObject>;
 
-  constructor(
-    protected vocabularyService: VocabularyService,
-    protected cdr: ChangeDetectorRef,
-    protected layoutService: DynamicFormLayoutService,
-    protected validationService: DynamicFormValidationService,
-    protected formBuilderService: FormBuilderService,
-    protected modalService: NgbModal,
-    protected submissionService: SubmissionService,
-    protected parentInjector: Injector,
-    @Inject(APP_DATA_SERVICES_MAP) private dataServiceMap: LazyDataServicesMap,
+  constructor(protected vocabularyService: VocabularyService,
+              protected cdr: ChangeDetectorRef,
+              protected layoutService: DynamicFormLayoutService,
+              protected validationService: DynamicFormValidationService,
+              protected formBuilderService: FormBuilderService,
+              protected modalService: NgbModal,
+              protected submissionService: SubmissionService,
+              protected formDynamicUpdateService: FormDynamicUpdateService,
+              protected parentInjector: Injector,
+              @Inject(APP_DATA_SERVICES_MAP) private dataServiceMap: LazyDataServicesMap,
   ) {
     super(vocabularyService, layoutService, validationService, formBuilderService, modalService, submissionService);
   }
 
   /**
-   * Initialize the component, setting up the init form value
+   * Initialize the component, setting up the init form value and observing for dynamic field updates
    */
   ngOnInit() {
     const lazyProvider$: Observable<Cache> = hasValue(this.model.resourceType) ?
@@ -178,6 +191,29 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
         this.setCurrentValue(value, true);
       });
     this.initFilterSubscriber();
+    this._subscriptions.add(this.formDynamicUpdateService.dynamicFieldUpdateEvent.subscribe((data: any) => {
+      let relevantData = data['data-' + replaceAll(this.model.id, '_', '.')];
+      // If there is relevant data for the current field
+      if (relevantData) {
+        // Update value
+        if (relevantData.value.value) {
+          this.dispatchUpdate(this.generateVocabularyEntry(relevantData.value));
+          this.setCurrentValue(this.generateVocabularyEntry(relevantData.value));
+        }
+
+        // Update options
+        // Retrieve the "options" key from the "relevantData" object
+        let { options } = relevantData;
+        this.optionsList = options.map((option) => this.generateVocabularyEntry(option));
+
+        // Disable search on remote vocabulary since it is empty
+        this.disableSearch = true;
+      }
+    }));
+  }
+
+  generateVocabularyEntry(option: {value: string, displayed: string}): CacheableObject {
+    return Object.assign(new CacheableObject(), { display: option.displayed, value: option.value });
   }
 
   /**
@@ -403,6 +439,7 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
 
   ngOnDestroy() {
     this.subSearch.unsubscribe();
+    this._subscriptions.unsubscribe();
   }
 
 }
