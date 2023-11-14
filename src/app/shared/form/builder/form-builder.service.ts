@@ -74,6 +74,7 @@ import { DYNAMIC_FORM_CONTROL_TYPE_TAG } from './ds-dynamic-form-ui/models/tag/d
 import { FormFieldMetadataValueObject } from './models/form-field-metadata-value.model';
 import { RowParser } from './parsers/row-parser';
 import { DynamicHiddenModel } from './ds-dynamic-form-ui/models/hidden/dynamic-hidden.model';
+import { FormDynamicUpdateService } from '../dynamic-fields/form.dynamic-update.service';
 
 @Injectable({ providedIn: 'root' })
 export class FormBuilderService extends DynamicFormService {
@@ -100,10 +101,13 @@ export class FormBuilderService extends DynamicFormService {
   // Subject to notify of typeBindModels config update.
   private typeBindFieldsChange$ = new Subject<void>();
 
+  public dynamicFieldUpdate: Subject<any> = new Subject();
+
   constructor(
     componentService: DynamicFormComponentService,
     validationService: DynamicFormValidationService,
     protected rowParser: RowParser,
+    protected formDynamicUpdateService: FormDynamicUpdateService,
     @Optional() protected configService: ConfigurationDataService,
   ) {
     super(componentService, validationService);
@@ -603,6 +607,48 @@ export class FormBuilderService extends DynamicFormService {
     if (this.formGroups.has(id)) {
       this.formGroups.delete(id);
     }
+  }
+
+  /**
+   * Triggers a dynamic event check in 'FormDynamicUpdateService'
+   *
+   * @param fieldId the id of the updated field
+   * @param value the new value of the updated field
+   */
+  checkForDynamicFieldsEvent(fieldId: string, value: any): void{
+    this.formDynamicUpdateService.checkForDynamicFieldsEvent(fieldId, value, this);
+  }
+
+  /**
+   * Extract data value object from a given fieldId
+   *
+   * @param fieldId id of field to retrieve
+   * @return the form field model or null if not found
+   */
+  getMetadataFieldValueObjectById(fieldId: string): any {
+    const metadataField = this.getMetadataFieldFromId(fieldId);
+    if (isNotNull(metadataField)) {
+      return metadataField.value;
+    }
+    return null;
+  }
+
+  /**
+   * This method searches a field in all forms instantiated
+   * by form.component and, if found, it returns it
+   *
+   * @param fieldId id of field to retrieve
+   * @return the form field model
+   */
+  getMetadataFieldFromId(fieldId: string) {
+    let returnModel = null;
+    this.formModels.forEach((models) => {
+      const fieldModel: DynamicFormControlModel = this.findById(fieldId, models);
+      if (hasValue(fieldModel)) {
+        returnModel = fieldModel;
+      }
+    });
+    return returnModel;
   }
 
   /**
