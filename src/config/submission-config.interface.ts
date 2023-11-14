@@ -38,9 +38,22 @@ interface DetectDuplicateConfig extends Config {
   metadataDetailsList: DuplicateMatchMetadataDetailConfig[];
 }
 
+export interface DynamicFieldsConfig extends Config {
+  triggeringField: string;
+  endpoint: string;
+  params: DynamicFieldEndpointConfig;
+  targetFields: string[];
+}
+
+export interface DynamicFieldEndpointConfig extends Config {
+  paramKeys: string[];
+  metadataFields: string[];
+}
+
 export interface SubmissionConfig extends Config {
   autosave: AutosaveConfig;
   typeBind: TypeBindConfig;
   icons: IconsConfig;
   detectDuplicate: DetectDuplicateConfig;
+  dynamicFields: DynamicFieldsConfig[];
 }
