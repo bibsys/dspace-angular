@@ -2463,6 +2463,12 @@
 
   "form.other-information.institution-affiliation-name": "Affiliation(s)",
 
+  // ----------------- MASTER THESIS -----------------
+
+  "form.other-information.institution-entity-name": "Entity",
+
+  // -------------------------------------------------
+
   "form.other-information.dc_relation_grantno": "Grant Number",
 
   "form.other-information.not-available": "Not available",
@@ -6292,6 +6298,12 @@
   "submission.sections.submit.progressbar.describe.product_references": "Product references",
 
   "submission.sections.submit.progressbar.describe.project": "Project basic information",
+
+  // --------------------------- Master thesis ---------------------------
+
+  "submission.sections.submit.progressbar.describe.masterthesis": "Master thesis basic information",
+
+  // ---------------------------------------------------------------------
 
   "submission.sections.submit.progressbar.describe.publication": "Publication basic information",
 
