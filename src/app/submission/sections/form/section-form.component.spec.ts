@@ -49,6 +49,9 @@ import {
   SubmissionVisibilityValue
 } from '../../../core/config/models/config-submission-section.model';
 import { SubmissionScopeType } from '../../../core/submission/submission-scope-type';
+import { FormDynamicUpdateService } from '../../../shared/form/dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../../shared/form/dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 function getMockSubmissionFormsConfigService(): SubmissionFormsConfigDataService {
   return jasmine.createSpyObj('FormOperationsService', {
@@ -193,7 +196,11 @@ describe('SubmissionSectionFormComponent test suite', () => {
         { provide: 'entityType', useValue: 'Publication' },
         { provide: SubmissionObjectDataService, useValue: { getHrefByID: () => observableOf('testUrl'), findById: () => createSuccessfulRemoteDataObject$(new WorkspaceItem()) } },
         ChangeDetectorRef,
-        SubmissionSectionFormComponent
+        SubmissionSectionFormComponent,
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
+        HttpClient,
+        HttpHandler,
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents().then();

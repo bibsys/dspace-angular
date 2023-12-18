@@ -46,8 +46,6 @@ import { CONCAT_GROUP_SUFFIX, DynamicConcatModel } from './ds-dynamic-form-ui/mo
 import { VIRTUAL_METADATA_PREFIX } from '../../../core/shared/metadata.models';
 import { ConfigurationDataService } from '../../../core/data/configuration-data.service';
 import { getFirstCompletedRemoteData } from '../../../core/shared/operators';
-import { Subject } from 'rxjs';
-import { FormDynamicUpdateService } from '../dynamic-fields/form.dynamic-update.service';
 
 @Injectable()
 export class FormBuilderService extends DynamicFormService {
@@ -69,13 +67,10 @@ export class FormBuilderService extends DynamicFormService {
    */
   private typeField: string;
 
-  public dynamicFieldUpdate: Subject<any> = new Subject();
-
   constructor(
     componentService: DynamicFormComponentService,
     validationService: DynamicFormValidationService,
     protected rowParser: RowParser,
-    protected formDynamicUpdateService: FormDynamicUpdateService,
     @Optional() protected configService: ConfigurationDataService,
   ) {
     super(componentService, validationService);
@@ -506,9 +501,9 @@ export class FormBuilderService extends DynamicFormService {
    * @param fieldId the id of the updated field
    * @param value the new value of the updated field
    */
-  checkForDynamicFieldsEvent(fieldId: string, value: any): void{
-    this.formDynamicUpdateService.checkForDynamicFieldsEvent(fieldId, value, this);
-  }
+  // checkForDynamicFieldsEvent(fieldId: string, value: any): void{
+  //   this.formDynamicUpdateService.checkForDynamicFieldsEvent(fieldId, value, this);
+  // }
 
   /**
    * Extract data value object from a given fieldId

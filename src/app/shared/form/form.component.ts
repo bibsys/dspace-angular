@@ -23,6 +23,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import {
   DynamicScrollableDropdownModel
 } from './builder/ds-dynamic-form-ui/models/scrollable-dropdown/dynamic-scrollable-dropdown.model';
+import { FormDynamicUpdateService } from './dynamic-fields/form.dynamic-update.service';
 
 /**
  * The default form component.
@@ -117,7 +118,8 @@ export class FormComponent implements OnDestroy, OnInit {
 
   constructor(private formService: FormService,
               protected changeDetectorRef: ChangeDetectorRef,
-              private formBuilderService: FormBuilderService) {
+              private formBuilderService: FormBuilderService,
+              protected formDynamicUpdateService: FormDynamicUpdateService) {
   }
 
   /**
@@ -308,7 +310,7 @@ export class FormComponent implements OnDestroy, OnInit {
     if (control.valid) {
       this.formService.removeError(this.formId, event.model.id, fieldIndex);
     }
-    this.formBuilderService.checkForDynamicFieldsEvent(event.model.id, event.control.value);
+    this.formDynamicUpdateService.checkForDynamicFieldsEvent(event.model.id, event.control.value, this.formBuilderService);
   }
 
   /**

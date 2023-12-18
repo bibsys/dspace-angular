@@ -26,6 +26,9 @@ import { SubmissionServiceStub } from '../../../../../testing/submission-service
 import { createSuccessfulRemoteDataObject$ } from '../../../../../remote-data.utils';
 import { buildPaginatedList } from '../../../../../../core/data/paginated-list.model';
 import { PageInfo } from '../../../../../../core/shared/page-info.model';
+import { FormDynamicUpdateService } from '../../../../dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../../../dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 export const SD_TEST_GROUP = new UntypedFormGroup({
   dropdown: new UntypedFormControl(),
@@ -88,7 +91,11 @@ describe('Dynamic Dynamic Scrollable Dropdown component', () => {
         { provide: DynamicFormValidationService, useValue: mockDynamicFormValidationService },
         { provide: FormBuilderService },
         { provide: SubmissionService, useClass: SubmissionServiceStub },
-        NgbModal
+        NgbModal,
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
+        HttpClient,
+        HttpHandler,
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });

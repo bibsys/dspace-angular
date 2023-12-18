@@ -39,6 +39,9 @@ import {
   VocabularyEntryDetail
 } from '../../../../../../../core/submission/vocabularies/models/vocabulary-entry-detail.model';
 import { DsDynamicRelationGroupModalComponent } from './dynamic-relation-group-modal.components';
+import { FormDynamicUpdateService } from '../../../../../dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../../../../dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 export let FORM_GROUP_TEST_MODEL_CONFIG;
 
@@ -187,6 +190,10 @@ describe('DsDynamicRelationGroupModelComponent test suite', () => {
         DynamicFormLayoutService,
         FormBuilderService,
         FormComponent,
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
+        HttpClient,
+        HttpHandler,
         FormService,
         NgbModal,
         { provide: VocabularyService, useValue: vocabularyService },

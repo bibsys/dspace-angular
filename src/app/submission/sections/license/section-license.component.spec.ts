@@ -38,6 +38,9 @@ import { Collection } from '../../../core/shared/collection.model';
 import { License } from '../../../core/shared/license.model';
 import { FormFieldMetadataValueObject } from '../../../shared/form/builder/models/form-field-metadata-value.model';
 import { cold } from 'jasmine-marbles';
+import { FormDynamicUpdateService } from '../../../shared/form/dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../../shared/form/dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 const collectionId = mockSubmissionCollectionId;
 const licenseText = 'License text';
@@ -141,7 +144,11 @@ describe('SubmissionSectionLicenseComponent test suite', () => {
         { provide: 'submissionIdProvider', useValue: submissionId },
         ChangeDetectorRef,
         FormBuilderService,
-        SubmissionSectionLicenseComponent
+        SubmissionSectionLicenseComponent,
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
+        HttpClient,
+        HttpHandler,
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents().then();

@@ -44,6 +44,9 @@ import { getMockFormService } from '../../../shared/mocks/form-service.mock';
 import { mockAccessesFormData } from '../../../shared/mocks/submission.mock';
 import { accessConditionChangeEvent, checkboxChangeEvent } from '../../../shared/testing/form-event.stub';
 import { createSuccessfulRemoteDataObject$ } from '../../../shared/remote-data.utils';
+import { FormDynamicUpdateService } from '../../../shared/form/dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../../shared/form/dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('SubmissionSectionAccessesComponent', () => {
   let component: SubmissionSectionAccessesComponent;
@@ -103,7 +106,11 @@ describe('SubmissionSectionAccessesComponent', () => {
           { provide: SubmissionJsonPatchOperationsService, useValue: SubmissionJsonPatchOperationsServiceStub },
           { provide: 'sectionDataProvider', useValue: sectionData },
           { provide: 'submissionIdProvider', useValue: '1508' },
-          FormBuilderService
+          FormBuilderService,
+          FormDynamicUpdateService,
+          FormDynamicUpdateRequestService,
+          HttpClient,
+          HttpHandler,
         ]
       })
         .compileComponents();
@@ -249,6 +256,11 @@ describe('SubmissionSectionAccessesComponent', () => {
           { provide: SubmissionJsonPatchOperationsService, useValue: SubmissionJsonPatchOperationsServiceStub },
           { provide: 'sectionDataProvider', useValue: sectionData },
           { provide: 'submissionIdProvider', useValue: '1508' },
+          FormBuilderService,
+          FormDynamicUpdateService,
+          FormDynamicUpdateRequestService,
+          HttpClient,
+          HttpHandler,
         ]
       })
         .compileComponents();

@@ -29,6 +29,9 @@ import { SubmissionServiceStub } from '../../../../../testing/submission-service
 import { Vocabulary } from '../../../../../../core/submission/vocabularies/models/vocabulary.model';
 import { MetadataSecurityConfigurationService } from '../../../../../../core/submission/metadatasecurityconfig-data.service';
 import { of as observableOf } from 'rxjs';
+import { FormDynamicUpdateService } from '../../../../dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../../../dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 export let FORM_GROUP_TEST_MODEL_CONFIG;
 
@@ -188,6 +191,10 @@ describe('DsDynamicRelationGroupComponent test suite', () => {
         DynamicFormLayoutService,
         FormBuilderService,
         FormComponent,
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
+        HttpClient,
+        HttpHandler,
         FormService,
         MetadataSecurityConfigurationService,
         NgbModal,

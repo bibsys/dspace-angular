@@ -21,6 +21,9 @@ import { FormComponent } from '../../../shared/form/form.component';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormFieldMetadataValueObject } from '../../../shared/form/builder/models/form-field-metadata-value.model';
 import SpyObj = jasmine.SpyObj;
+import { FormDynamicUpdateService } from '../../../shared/form/dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../../shared/form/dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('SubmissionSectionCustomUrlComponent', () => {
 
@@ -128,6 +131,10 @@ describe('SubmissionSectionCustomUrlComponent', () => {
         { provide: 'collectionIdProvider', useValue: 'test collection id' },
         { provide: 'sectionDataProvider', useValue: Object.assign({}, sectionObject) },
         { provide: 'submissionIdProvider', useValue: 'test submission id' },
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
+        HttpClient,
+        HttpHandler,
       ],
     })
       .compileComponents();

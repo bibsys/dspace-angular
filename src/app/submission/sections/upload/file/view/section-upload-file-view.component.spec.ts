@@ -10,6 +10,9 @@ import { TruncatePipe } from '../../../../../shared/utils/truncate.pipe';
 import { Metadata } from '../../../../../core/shared/metadata.utils';
 import { createTestComponent } from '../../../../../shared/testing/utils.test';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormDynamicUpdateService } from '../../../../../shared/form/dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../../../../shared/form/dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('SubmissionSectionUploadFileViewComponent test suite', () => {
 
@@ -32,7 +35,11 @@ describe('SubmissionSectionUploadFileViewComponent test suite', () => {
         TestComponent
       ],
       providers: [
-        SubmissionSectionUploadFileViewComponent
+        SubmissionSectionUploadFileViewComponent,
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
+        HttpClient,
+        HttpHandler,
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents().then();

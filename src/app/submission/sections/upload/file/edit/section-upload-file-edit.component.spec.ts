@@ -47,6 +47,9 @@ import {
 } from '../../../../../core/json-patch/builder/json-patch-operation-path-combiner';
 import { dateToISOFormat } from '../../../../../shared/date.util';
 import { of } from 'rxjs';
+import { FormDynamicUpdateService } from '../../../../../shared/form/dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../../../../shared/form/dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 const jsonPatchOpBuilder: any = jasmine.createSpyObj('jsonPatchOpBuilder', {
   add: jasmine.createSpy('add'),
@@ -106,6 +109,10 @@ describe('SubmissionSectionUploadFileEditComponent test suite', () => {
         NgbModal,
         NgbActiveModal,
         FormComponent,
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
+        HttpClient,
+        HttpHandler,
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents().then();

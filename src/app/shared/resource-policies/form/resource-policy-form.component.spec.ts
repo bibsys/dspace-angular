@@ -39,6 +39,9 @@ import { PaginationServiceStub } from '../../testing/pagination-service.stub';
 import { PaginationService } from '../../../core/pagination/pagination.service';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreMock } from '../../testing/store.mock';
+import { FormDynamicUpdateService } from '../../form/dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../form/dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 export const mockResourcePolicyFormData = {
   name: [
@@ -202,7 +205,11 @@ describe('ResourcePolicyFormComponent test suite', () => {
         { provide: RequestService, useValue: getMockRequestService() },
         FormBuilderService,
         ChangeDetectorRef,
-        ResourcePolicyFormComponent
+        ResourcePolicyFormComponent,
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
+        HttpClient,
+        HttpHandler,
       ],
       schemas: [
         NO_ERRORS_SCHEMA

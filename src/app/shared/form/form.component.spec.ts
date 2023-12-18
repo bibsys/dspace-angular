@@ -31,6 +31,9 @@ import {
   DynamicScrollableDropdownModelConfig
 } from './builder/ds-dynamic-form-ui/models/scrollable-dropdown/dynamic-scrollable-dropdown.model';
 import { DynamicFormGroupModelConfig } from '@ng-dynamic-forms/core/lib/model/form-group/dynamic-form-group.model';
+import { FormDynamicUpdateService } from './dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from './dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 let TEST_FORM_MODEL;
 
@@ -161,8 +164,12 @@ describe('FormComponent test suite', () => {
         ChangeDetectorRef,
         DynamicFormValidationService,
         FormBuilderService,
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
         FormComponent,
         FormService,
+        HttpClient,
+        HttpHandler,
         { provide: Store, useClass: StoreMock }
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

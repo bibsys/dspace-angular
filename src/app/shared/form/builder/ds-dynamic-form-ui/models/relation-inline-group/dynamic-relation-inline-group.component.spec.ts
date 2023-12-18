@@ -35,6 +35,9 @@ import { PLACEHOLDER_PARENT_METADATA } from '../../ds-dynamic-form-constants';
 import {SubmissionService} from '../../../../../../submission/submission.service';
 import {SubmissionServiceStub} from '../../../../../testing/submission-service.stub';
 import {of as observableOf} from 'rxjs';
+import { FormDynamicUpdateService } from '../../../../dynamic-fields/form.dynamic-update.service';
+import { FormDynamicUpdateRequestService } from '../../../../dynamic-fields/form.dynamic-update-request.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 export let FORM_GROUP_TEST_MODEL_CONFIG;
 
@@ -151,6 +154,10 @@ describe('DsDynamicRelationInlineGroupComponent test suite', () => {
         DynamicFormLayoutService,
         FormBuilderService,
         FormComponent,
+        FormDynamicUpdateService,
+        FormDynamicUpdateRequestService,
+        HttpClient,
+        HttpHandler,
         FormService,
         { provide: Store, useClass: StoreMock },
         { provide: SubmissionService, useClass: SubmissionServiceStub}
