@@ -21,6 +21,7 @@ import { OrcidViewPageMenuComponent } from './orcid-view-page/orcid-view-page-me
 import { RequestCorrectionMenuComponent } from './request-correction/request-correction-menu.component';
 import { StatisticsMenuComponent } from './statistics/statistics-menu.component';
 import { SubscriptionMenuComponent } from './subscription/subscription-menu.component';
+import { PDFAttestationMenuComponent } from './pdf-attestation/pdf-attestation-menu.component';
 
 const COMPONENTS = [
   BulkImportMenuComponent,
@@ -38,6 +39,7 @@ const COMPONENTS = [
   ItemVersionMenuComponent,
   FullItemMenuComponent,
   OrcidViewPageMenuComponent,
+  PDFAttestationMenuComponent,
 ];
 
 const ENTRY_COMPONENTS = [
@@ -55,6 +57,7 @@ const ENTRY_COMPONENTS = [
   ItemVersionMenuComponent,
   FullItemMenuComponent,
   OrcidViewPageMenuComponent,
+  PDFAttestationMenuComponent,
 ];
 
 const MODULE = [

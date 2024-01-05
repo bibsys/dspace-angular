@@ -242,6 +242,7 @@ import { TaskObject } from './tasks/models/task-object.model';
 import { WorkflowAction } from './tasks/models/workflow-action-object.model';
 import { PoolTaskDataService } from './tasks/pool-task-data.service';
 import { TaskResponseParsingService } from './tasks/task-response-parsing.service';
+import { PdfAttestationDownloadService } from './data/pdf-attestation-download.service';
 
 /**
  * When not in production, endpoint responses can be mocked for testing purposes
@@ -385,6 +386,7 @@ const PROVIDERS = [
   WorkflowStepStatisticsDataService,
   WorkflowOwnerStatisticsDataService,
   LoginStatisticsService,
+  PdfAttestationDownloadService,
 ];
 
 const SCHEMA_PROVIDERS = [
