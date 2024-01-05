@@ -245,6 +245,7 @@ import { PoolTaskDataService } from './tasks/pool-task-data.service';
 import { TaskResponseParsingService } from './tasks/task-response-parsing.service';
 import { CommentDataService } from './comment/comment-data.service';
 import { CommentService } from './comment/comment.service';
+import { PdfAttestationDownloadService } from './data/pdf-attestation-download.service';
 
 /**
  * When not in production, endpoint responses can be mocked for testing purposes
@@ -390,6 +391,7 @@ const PROVIDERS = [
   LoginStatisticsService,
   CommentService,
   CommentDataService,
+  PdfAttestationDownloadService,
 ];
 
 const SCHEMA_PROVIDERS = [
