@@ -6590,6 +6590,12 @@
 
   "submission.submit.title": "New submission",
 
+  "submission.workflow.generic.attestation.label": "Download attestation",
+
+  "submission.workflow.generic.attestation.error.title": "Something went wrong !",
+
+  "submission.workflow.generic.attestation.error.content": "Could not generate the PDF attestation for the given submission.",
+
   "submission.workflow.generic.delete": "Delete",
 
   "submission.workflow.generic.delete-help": "Select this option to discard this item. You will then be asked to confirm it.",
@@ -6747,6 +6753,8 @@
   "subscriptions.table.not-available-message": "The subscribed item has been deleted, or you don't currently have the permission to view it",
 
   "subscriptions.table.empty.message": "You do not have any subscriptions at this time. To subscribe to email updates for a Community or Collection, use the subscription button on the object's page.",
+
+  "thesis.page.titleprefix": "Thesis:",
 
   "thumbnail.default.alt": "Thumbnail Image",
 
