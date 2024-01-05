@@ -10791,7 +10791,14 @@
   // "submission.submit.title": "New submission",
   "submission.submit.title": "Nouvelle soumission",
 
+  // "submission.workflow.generic.attestation.label": "Download attestation"
+  "submission.workflow.generic.attestation.label": "Télécharger l'attestation",
 
+  // "submission.workflow.generic.attestation.error.title": "Something went wrong !",
+  "submission.workflow.generic.attestation.error.title": "Une erreur s'est produite !",
+
+  // "submission.workflow.generic.attestation.error.content": "Could not generate the PDF attestation for the given submission.",
+  "submission.workflow.generic.attestation.error.content": "Impossible de générer l'attestation PDF pour cette soumission.",
 
   // "submission.workflow.generic.delete": "Delete",
   "submission.workflow.generic.delete": "Supprimer",
@@ -11057,6 +11064,9 @@
   // TODO New key - Add a translation
   "subscriptions.table.empty.message": "You do not have any subscriptions at this time. To subscribe to email updates for a Community or Collection, use the subscription button on the object's page.",
 
+
+  // "thesis.page.titleprefix" : "Thesis:"
+  "thesis.page.titleprefix": "Mémoire:",
 
   // "thumbnail.default.alt": "Thumbnail Image",
   "thumbnail.default.alt": "Vignette d'image",
