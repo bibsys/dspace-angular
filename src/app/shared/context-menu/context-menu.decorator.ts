@@ -16,6 +16,7 @@ import { RequestCorrectionMenuComponent } from './request-correction/request-cor
 import { StatisticsMenuComponent } from './statistics/statistics-menu.component';
 import { SubscriptionMenuComponent } from './subscription/subscription-menu.component';
 import { CommentItemMenuComponent } from './comment-item/comment-item-menu.component';
+import { PDFAttestationMenuComponent } from './pdf-attestation/pdf-attestation-menu.component';
 
 export interface ContextMenuEntryRenderOptions {
   componentRef: GenericConstructor<ContextMenuEntryComponent>;
@@ -75,7 +76,11 @@ contextMenuEntriesMap.set(DSpaceObjectType.ITEM, [
   },
   {
     componentRef: CommentItemMenuComponent,
-    isStandAlone: false
+    isStandAlone: false,
+  },
+  {
+    componentRef: PDFAttestationMenuComponent,
+    isStandAlone: true,
   }
 ]);
 contextMenuEntriesMap.set(DSpaceObjectType.COMMUNITY, [

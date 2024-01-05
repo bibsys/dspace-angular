@@ -123,6 +123,7 @@ import { TruncatableComponent } from '../../shared/truncatable/truncatable.compo
 import { TruncatablePartComponent } from '../../shared/truncatable/truncatable-part/truncatable-part.component';
 import { ThemedThumbnailComponent } from '../../thumbnail/themed-thumbnail.component';
 import { ThumbnailComponent } from '../../thumbnail/thumbnail.component';
+import { PdfAttestationActionComponent } from 'src/app/shared/mydspace-actions/pdf-attestation-action/pdf-attestation-action.component';
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -234,6 +235,7 @@ const ENTRY_COMPONENTS = [
     ThemedMetadataRepresentationListComponent,
     ClaimedTaskActionsComponent,
     WorkflowitemActionsComponent,
+    PdfAttestationActionComponent,
     ItemAdminSearchResultActionsComponent,
     MetadataFieldWrapperComponent,
     ThemedThumbnailComponent,
