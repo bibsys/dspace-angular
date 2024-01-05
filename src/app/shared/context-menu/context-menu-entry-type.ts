@@ -14,4 +14,5 @@ export enum ContextMenuEntryType {
   ItemVersion = 'itemversion',
   FullItem = 'fullitem',
   OrcidView = 'orcidview',
+  PdfAttestation = 'pdfattestation',
 }

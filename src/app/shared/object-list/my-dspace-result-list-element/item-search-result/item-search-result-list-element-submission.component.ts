@@ -12,6 +12,7 @@ import { ItemSearchResult } from '../../../object-collection/shared/item-search-
 import { listableObjectComponent } from '../../../object-collection/shared/listable-object/listable-object.decorator';
 import { SearchResultListElementComponent } from '../../search-result-list-element/search-result-list-element.component';
 import { ThemedItemListPreviewComponent } from '../item-list-preview/themed-item-list-preview.component';
+import { PdfAttestationActionComponent } from 'src/app/shared/mydspace-actions/pdf-attestation-action/pdf-attestation-action.component';
 
 /**
  * This component renders item object for the search result in the list view for submission.
@@ -21,7 +22,7 @@ import { ThemedItemListPreviewComponent } from '../item-list-preview/themed-item
   styleUrls: ['../../search-result-list-element/search-result-list-element.component.scss', './item-search-result-list-element-submission.component.scss'],
   templateUrl: './item-search-result-list-element-submission.component.html',
   standalone: true,
-  imports: [ThemedItemListPreviewComponent, NgClass, ItemActionsComponent],
+  imports: [ThemedItemListPreviewComponent, NgClass, ItemActionsComponent, PdfAttestationActionComponent],
 })
 
 @listableObjectComponent(ItemSearchResult, ViewMode.ListElement, Context.Workspace)
