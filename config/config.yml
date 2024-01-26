@@ -44,3 +44,8 @@ submission:
         paramKeys: ['fgs', 'degreeTypeFilter']
         metadataFields: ['authors.identifier.fgs', 'raw-Master']
       targetFields: ['masterthesis.degree.code']
+form:
+  fields:
+    year:
+      minYearDelta: 100
+      maxYearDelta: 2
