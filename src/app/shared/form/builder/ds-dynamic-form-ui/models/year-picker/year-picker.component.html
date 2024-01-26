@@ -1,0 +1,27 @@
+<div>
+    <fieldset class="d-flex flex-wrap justify-content-start">
+        <legend *ngIf="model.legend"
+        [id]="'legend_' + model.id"
+        [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]">
+            {{model.placeholder}} <span *ngIf="model.required">*</span>
+        </legend>
+        <ds-number-picker
+            tabindex="1"
+            [id]="model.id"
+            [disabled]="model.disabled"
+            [min]="minYear"
+            [max]="maxYear"
+            [name]="'year'"
+            [size]="4"
+            [(ngModel)]="initialYear"
+            [value]="year"
+            [invalid]="showErrorMessages"
+            [placeholder]='yearPlaceholder'
+            [widthClass]="'four-digits'"
+            (blur)="onBlur($event)"
+            (change)="onChange($event)"
+            (focus)="onFocus($event)"
+        >
+        </ds-number-picker>
+    </fieldset>
+</div>
