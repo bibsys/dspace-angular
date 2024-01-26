@@ -66,6 +66,7 @@ import { requiredIfVisibleValidator } from './validator/required-if-visible-fiel
 import { NG_VALIDATORS } from '@angular/forms';
 import { FormDynamicUpdateService } from './dynamic-fields/form.dynamic-update.service';
 import { FormDynamicUpdateRequestService } from './dynamic-fields/form.dynamic-update-request.service';
+import { DsYearPickerComponent } from './builder/ds-dynamic-form-ui/models/year-picker/year-picker.component';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -88,6 +89,7 @@ const COMPONENTS = [
   DsDynamicOneboxComponent,
   DsDynamicRelationGroupComponent,
   DsDatePickerComponent,
+  DsYearPickerComponent,
   DsDynamicFormGroupComponent,
   DsDynamicFormArrayComponent,
   DsDatePickerInlineComponent,

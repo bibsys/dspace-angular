@@ -155,6 +155,12 @@ export class DefaultAppConfig implements AppConfig {
       required: 'required',
       regex: 'pattern',
     },
+    fields: {
+      year: {
+        minYearDelta: 100,
+        maxYearDelta: 2
+      }
+    }
   };
 
   // Notifications
