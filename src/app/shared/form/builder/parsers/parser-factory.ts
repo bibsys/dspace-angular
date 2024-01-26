@@ -23,6 +23,7 @@ import { NumberFieldParser } from './number-field-parser';
 import { CalendarFieldParser } from './calendar-field-parser';
 import { DisabledFieldParser } from './disabled-field-parser';
 import { LinkFieldParser } from './link-field-parser';
+import { YearFieldParser } from './year-field-parser';
 
 const fieldParserDeps = [
   SUBMISSION_ID,
@@ -135,6 +136,13 @@ export class ParserFactory {
           provide: FieldParser,
           useClass: LinkFieldParser,
           deps: [...fieldParserDeps]
+        };
+      }
+      case ParserType.Year: {
+        return {
+            provide: FieldParser,
+            useClass: YearFieldParser,
+            deps: [...fieldParserDeps]
         };
       }
       case undefined: {
