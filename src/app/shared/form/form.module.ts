@@ -12,6 +12,7 @@ import { DsDynamicTagComponent } from './builder/ds-dynamic-form-ui/models/tag/d
 import { DsDynamicOneboxComponent } from './builder/ds-dynamic-form-ui/models/onebox/dynamic-onebox.component';
 import { DsDynamicRelationGroupComponent } from './builder/ds-dynamic-form-ui/models/relation-group/dynamic-relation-group.components';
 import { DsDatePickerComponent } from './builder/ds-dynamic-form-ui/models/date-picker/date-picker.component';
+import { DsYearPickerComponent } from './builder/ds-dynamic-form-ui/models/year-picker/year-picker.component';
 import { DsDynamicFormGroupComponent } from './builder/ds-dynamic-form-ui/models/form-group/dynamic-form-group.component';
 import { DsDynamicFormArrayComponent } from './builder/ds-dynamic-form-ui/models/array-group/dynamic-form-array.component';
 import { DsDatePickerInlineComponent } from './builder/ds-dynamic-form-ui/models/date-picker-inline/dynamic-date-picker-inline.component';
@@ -67,6 +68,7 @@ const COMPONENTS = [
   DsDynamicOneboxComponent,
   DsDynamicRelationGroupComponent,
   DsDatePickerComponent,
+  DsYearPickerComponent,
   DsDynamicFormGroupComponent,
   DsDynamicFormArrayComponent,
   DsDatePickerInlineComponent,
