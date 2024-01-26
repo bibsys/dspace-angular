@@ -99,6 +99,12 @@ export const environment: BuildConfig = {
     validatorMap: {
       required: 'required',
       regex: 'pattern'
+    },
+    fields: {
+      year: {
+        minYearDelta: 100,
+        maxYearDelta: 2
+      }
     }
   },
 
