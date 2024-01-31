@@ -2465,6 +2465,8 @@
 
   "form.other-information.institution-entity-name": "Entity",
 
+  "form.other-information.authors-identifier-noma": "NOMA",
+
   // -------------------------------------------------
 
   "form.other-information.dc_relation_grantno": "Grant Number",
