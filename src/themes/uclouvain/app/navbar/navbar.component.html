@@ -15,6 +15,10 @@
         <li *ngFor="let section of (sections | async)" class="nav-sections">
           <ng-container *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component; injector: (sectionMap$ | async).get(section.id)?.injector;"></ng-container>
         </li>
+        <!-- Submit button -->
+        <li class="submit-btn">
+          <ds-new-submission-button></ds-new-submission-button>
+        </li>
       </ul>
     </div>
     <div class="navbar-buttons d-flex align-items-center gapx-1">
