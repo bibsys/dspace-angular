@@ -23,6 +23,9 @@ nav.navbar {
       border-bottom: 5px var(--ds-header-navbar-border-bottom-color) solid; // open navbar covers header-navbar-wrapper border
     }
   }
+  .submit-btn {
+    margin-left: -1rem !important;
+  }
 }
 
 @media screen and (min-width: map-get($grid-breakpoints, md)) {
@@ -92,4 +95,10 @@ a.navbar-brand:focus {
       color: var(--ds-navbar-link-color-hover);
     }
   }
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
