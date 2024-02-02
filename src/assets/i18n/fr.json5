@@ -12166,4 +12166,7 @@
 
   // "home-info.list-advantage-5": "Struggle against plagiarism",
   "home-info.list-advantage-5": "Difficultés face au plagiarisme",
+
+  // "submission-button.add.message": "Add a submission",
+  "submission-button.add.message": "Soumettre",
 }
