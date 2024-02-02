@@ -42,6 +42,7 @@ export enum FeatureID {
   ShowClaimItem = 'showClaimItem',
   CanCorrectItem = 'canCorrectItem',
   CanViewInWorkflowSinceStatistics = 'canViewInWorkflowSinceStatistics',
+  CanCreateSubmission = 'canCreateSubmission',
   CanSeeComment = 'canSeeComment',
   CanCreateComment = 'canCreateComment',
   CanDeleteComment = 'canDeleteComment',
