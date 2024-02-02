@@ -11,6 +11,7 @@ import { ContextHelpToggleComponent } from 'src/app/header/context-help-toggle/c
 import { ThemedAuthNavMenuComponent } from 'src/app/shared/auth-nav-menu/themed-auth-nav-menu.component';
 import { ImpersonateNavbarComponent } from 'src/app/shared/impersonate-navbar/impersonate-navbar.component';
 import { RouterLink } from '@angular/router';
+import { NewSubmissionButtonComponent } from 'src/app/shared/new-submission-button/new-submission-button.component';
 
 /**
  * Component representing the public navbar
@@ -35,6 +36,7 @@ import { RouterLink } from '@angular/router';
     ContextHelpToggleComponent,
     ThemedAuthNavMenuComponent,
     ImpersonateNavbarComponent,
+    NewSubmissionButtonComponent,
   ],
   standalone: true,
 })
