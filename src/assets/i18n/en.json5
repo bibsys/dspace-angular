@@ -4029,6 +4029,8 @@
 
   "mydspace.new-submission": "New submission",
 
+  "mydspace.new-submission.not-available": "A thesis has already been submitted and is still in validation workflow. Please contact your faculty manager to resolve the problem.",
+
   "mydspace.new-bulk-import": "New bulk import",
 
   "mydspace.new-submission-external": "Import metadata from external source",
@@ -7411,6 +7413,8 @@
   "home-info.list-advantage-4": "Environmental benefits and saving in stack spaces",
 
   "home-info.list-advantage-5": "Struggle against plagiarism",
+
+  "submission-button.add.message": "Add a submission",
 
   "access.condition.value.UCLouvain networks restriction": "Restricted Access"
 }
