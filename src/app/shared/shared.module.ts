@@ -230,6 +230,7 @@ import { TruncatePipe } from './utils/truncate.pipe';
 import { VarDirective } from './utils/var.directive';
 import { ViewModeSwitchComponent } from './view-mode-switch/view-mode-switch.component';
 import { VocabularyExternalSourceComponent } from './vocabulary-external-source/vocabulary-external-source.component';
+import { NewSubmissionButtonComponent } from './new-submission-button/new-submission-button.component';
 
 const MODULES = [
   CommonModule,
@@ -391,6 +392,7 @@ const COMPONENTS = [
   ItemListPreviewComponent,
   ThemedItemListPreviewComponent,
   ItemCollectionComponent,
+  NewSubmissionButtonComponent
 ];
 
 const ENTRY_COMPONENTS = [
