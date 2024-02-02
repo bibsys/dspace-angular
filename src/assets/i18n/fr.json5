@@ -6779,6 +6779,9 @@
   // "mydspace.new-submission": "New submission",
   "mydspace.new-submission": "Nouveau dépôt",
 
+  // "mydspace.new-submission.not-available": "A thesis has already been submitted and is still in validation workflow. Please contact your faculty manager to resolve the problem.",
+  "mydspace.new-submission.not-available": "Un mémoire a déjà été soumis et est toujours en cours de validation. Veuillez contacter votre gestionnaire en faculté pour résoudre le problème.",
+
   // "mydspace.new-bulk-import": "New bulk import",
   // TODO New key - Add a translation
   "mydspace.new-bulk-import": "New bulk import",
@@ -12280,6 +12283,7 @@
   "access.condition.value.administrator": "Accès interdit",
   //"access.condition.value.lease": "Accès embargo",
   "access.condition.value.lease": "Accès embargo jusque",
-  //"access.condition.value.UCLouvain networks restriction": "Restricted Access",
-  "access.condition.value.UCLouvain networks restriction": "Accès restreint UCLouvain"
+
+  //"submission-button.add.message": "Add a submission",
+  "submission-button.add.message": "Soumettre",
 }
