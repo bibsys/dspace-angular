@@ -1,0 +1,11 @@
+.add {
+    button {
+        font-family: "Mukta";
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    button:hover {
+		background-color: var(--bs-primary);
+		color: var(--bs-white) !important;
+	}
+}
