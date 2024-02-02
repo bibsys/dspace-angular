@@ -5,3 +5,5 @@ rest:
   nameSpace: /server
 ui:
   ssl: false
+themes:
+  - name: uclouvain
