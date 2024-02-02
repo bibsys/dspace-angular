@@ -352,6 +352,7 @@ import {
 import { ItemCollectionComponent } from './object-collection/shared/mydspace-item-collection/item-collection.component';
 import { ThemedItemListPreviewComponent } from './object-list/my-dspace-result-list-element/item-list-preview/themed-item-list-preview.component';
 import { ItemListPreviewComponent } from './object-list/my-dspace-result-list-element/item-list-preview/item-list-preview.component';
+import { NewSubmissionButtonComponent } from './new-submission-button/new-submission-button.component';
 
 const MODULES = [
   CommonModule,
@@ -508,7 +509,8 @@ const COMPONENTS = [
   SearchChartBarHorizontalComponent,
   ItemListPreviewComponent,
   ThemedItemListPreviewComponent,
-  ItemCollectionComponent
+  ItemCollectionComponent,
+  NewSubmissionButtonComponent
 ];
 
 const ENTRY_COMPONENTS = [
