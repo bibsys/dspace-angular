@@ -1,20 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '../../app/shared/shared.module';
-import { RootModule } from '../../app/root.module';
-import { NavbarModule } from '../../app/navbar/navbar.module';
-import { SharedBrowseByModule } from '../../app/shared/browse-by/shared-browse-by.module';
-import { ResultsBackButtonModule } from '../../app/shared/results-back-button/results-back-button.module';
 import { ExploreModule } from '../../app/shared/explore/explore.module';
+import { FooterModule } from '../../app/footer/footer.module';
+import { NavbarModule } from '../../app/navbar/navbar.module';
+import { ResultsBackButtonModule } from '../../app/shared/results-back-button/results-back-button.module';
+import { RootModule } from '../../app/root.module';
+import { SharedBrowseByModule } from '../../app/shared/browse-by/shared-browse-by.module';
+import { SharedModule } from '../../app/shared/shared.module';
+
+import { FooterComponent } from './app/footer/footer.component';
+import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
+import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
+import { NavbarComponent } from './app/navbar/navbar.component';
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
  * This will ensure that decorator gets picked up when the app loads
  */
-const ENTRY_COMPONENTS = [];
+const ENTRY_COMPONENTS = [
+];
 
 const DECLARATIONS = [
   ...ENTRY_COMPONENTS,
+  FooterComponent,
+  HeaderNavbarWrapperComponent,
+  HomeNewsComponent,
+  NavbarComponent,
 ];
 
 @NgModule({
@@ -25,7 +36,8 @@ const DECLARATIONS = [
     ResultsBackButtonModule,
     RootModule,
     NavbarModule,
-    ExploreModule
+    ExploreModule,
+    FooterModule,
   ],
   declarations: DECLARATIONS,
   providers: [
