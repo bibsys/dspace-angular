@@ -1,0 +1,12 @@
+<ds-themed-status-badge [object]="object"></ds-themed-status-badge>
+<ng-container *ngIf="isMyDSpaceStatus">
+    <ds-themed-my-dspace-status-badge [context]="context"></ds-themed-my-dspace-status-badge>
+    <span *ngIf="!isInWorkspace" class="text-light badge badge-workspace ">
+        {{ 'mydspace.status.submitted' | translate }}
+    </span>
+</ng-container>
+<div>
+    <ng-container *ngIf="showAccessStatus">
+        <ds-themed-access-status-badge [object]="object"></ds-themed-access-status-badge>
+    </ng-container>
+</div>
