@@ -1,11 +1,34 @@
 // Override or add CSS variables for your theme here
 
 :root {
-  --ds-header-logo-height: 40px;
+  --ds-admin-sidebar-logo-height: 1rem;
+
+  --ds-header-logo-height: 100px;
+  
   --ds-banner-text-background: rgba(0, 0, 0, 0.45);
   --ds-banner-background-gradient-width: 300px;
+  
   --ds-home-news-link-color: #{$green};
   --ds-home-news-link-hover-color: #{darken($green, 15%)};
-  --ds-header-navbar-border-bottom-color: #{$green};
+  
+  --ds-header-icon-color-hover: #{$burgundy};
+  --ds-header-icon-color: #{$gray-800};
+  --ds-header-navbar-border-bottom-color: #{$primary}; 
+
+  --ds-admin-sidebar-bg: #{$dark};
+  --ds-admin-sidebar-header-bg: #{$white};
+  --ds-admin-sidebar-header-color: #{$bright-gray};
+  --ds-admin-sidebar-active-bg: #1e222b;
+
+  --ds-top-footer-bg: #FFFFFF;
+
+  --ds-navbar-link-color: #{$dark};
+  --ds-navbar-link-color-hover: #{$burgundy};
+
+  --ds-breadcrumb-bg: #{$gray-150};
+  --ds-breadcrumb-link-color: #{$burgundy};
+
+  // Bootstrap variables
+  --bs-primary-bg: #{$burgundy};
 }
 

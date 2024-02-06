@@ -9,4 +9,12 @@ export interface SearchConfig extends Config {
      */
     advancedFilters: AdvancedSearchConfig;
 
+    /**
+     * List of settings used to build the search page (showCharts, trackStatistics, ...)
+     */
+    settings?: SearchSettingConfig;
+}
+
+export interface SearchSettingConfig {
+  [key: string]: boolean;
 }
