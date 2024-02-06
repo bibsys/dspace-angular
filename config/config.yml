@@ -13,3 +13,57 @@ ui:
   googleOwnershipTagValue: 'placeholder'
 themes:
   - name: uclouvain
+    headTags:
+      - tagName: link
+        attributes:
+          rel: icon
+          href: assets/uclouvain/images/favicons/uclouvain-favicon.png
+          type: image/png
+
+layout:
+  navbar:
+    showCommunityCollection: false
+    showStatistics: false
+
+search:
+  settings:
+    renderOnServerSide: false
+    showCharts: true
+    showCsvExport: true
+    showExport: true
+    trackStatistics: true
+    showSwitchConfiguration: true
+    showInPlaceSearchSetting: true
+
+submission:
+  # Trigger an autosave when changing a given metadata field
+  # Works with all metadata schemas
+  # However does not seem to work in form groups
+  autosave:
+    metadata: [
+      # 'authors.identifier.fgs',
+      'dc.contributor.author',
+      # 'dc.identifier.doi',
+      # 'masterthesis.degree.code',
+      # 'masterthesis.faculty.code'
+    ]
+  dynamicFields:
+    # * Dynamic voc config must contain:
+    # *   -> The field that will trigger an API call
+    # *   -> The API endpoint to contact
+    # *   -> A list of data to include in the GET request
+    # *
+    # * The response will contain a JSON:
+    # *   -> {
+    # *   ->    'data-dc.degree.code': {
+    # *   ->      'value': 'xxx',
+    # *   ->      'options': ['xxx', 'yyy'],
+    # *   ->    }
+    # *   -> }
+    # * (Config example below)
+
+form:
+  fields:
+    year:
+      minYearDelta: 100
+      maxYearDelta: 2
