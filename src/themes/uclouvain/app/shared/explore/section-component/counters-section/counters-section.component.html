@@ -1,0 +1,25 @@
+<div>
+    <div class="card border-0">
+      <div class = "row d-flex justify-content-center px-5">
+        <div *ngIf="isLoading$ | async">
+          <ds-loading message="{{'loading.default' | translate}}"></ds-loading>
+        </div>
+        <div *ngFor="let counter of (counterData$ | async)" class="d-flex" style="flex: 1 0 100px;">
+          <div class="stat-circle rounded mx-4 p-4" (click)="goToLink(counter.link)">
+            <div [ngStyle]="{'cursor': counter.link? 'pointer' : 'inherit'}"
+                  class="col stat-circle-element">
+              <i [ngClass]="counter.icon"></i>
+            </div>
+            <div [ngStyle]="{'cursor': counter.link? 'pointer' : 'inherit'}"
+                  class="col stat-circle-element">
+              {{'explore.counters-section.' + counter.label | translate}}
+            </div>
+            <div [ngStyle]="{'cursor': counter.link? 'pointer' : 'inherit'}"
+                  class="col stat-circle-element">
+              <b>{{counter.count}}</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
