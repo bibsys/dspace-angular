@@ -1,0 +1,59 @@
+<ng-container *ngIf="fileData">
+    <div>
+      <div class="py-2">
+        <div class="d-flex align-items-center border-2 border-bottom mb-2 pb-1">
+          <div class="d-flex flex-grow align-items-center">
+            <h3 class="m-0 text-primary">{{fileName}} <span class="text-muted">({{fileData?.sizeBytes | dsFileSize}})</span></h3>
+            <ng-container *ngIf="fileData.accessConditions && fileData.accessConditions.length">
+              <i *ngIf="fileData.accessConditions[0].name == 'restricted'" class="ml-2 fa fa-lock text-danger"></i>
+              <i *ngIf="fileData.accessConditions[0].name == 'embargo'" class="ml-2 fa fa-lock text-warning"></i>
+              <i *ngIf="fileData.accessConditions[0].name == 'openaccess'" class="ml-2 fa fa-lock-open text-success"></i>
+            </ng-container>
+          </div>
+          <div *ngIf="!readOnly" class="action-list">
+            <ng-container>
+              <ds-themed-file-download-link [cssClasses]="'btn btn-link-focus py-0'" [isBlank]="true"
+                                            [bitstream]="getBitstream()" [enableRequestACopy]="false">
+                <i class="fa fa-download text-normal" aria-hidden="true"></i>
+              </ds-themed-file-download-link>
+              <button class="btn btn-link-focus action-btn py-0"
+                      [attr.aria-label]="'submission.sections.upload.edit.title' | translate"
+                      title="{{ 'submission.sections.upload.edit.title' | translate }}"
+                      (click)="$event.preventDefault();editBitstreamData();">
+                <i class="fa fa-edit text-normal"></i>
+              </button>
+              <button class="btn btn-link-focus action-btn py-0"
+                      [attr.aria-label]="'submission.sections.upload.delete.confirm.title' | translate"
+                      title="{{ 'submission.sections.upload.delete.confirm.title' | translate }}"
+                      [disabled]="(processingDelete$ | async)"
+                      (click)="$event.preventDefault();confirmDelete(content);">
+                <i *ngIf="(processingDelete$ | async)" class="fas fa-circle-notch fa-spin text-danger"></i>
+                <i *ngIf="!(processingDelete$ | async)" class="fa fa-trash text-danger"></i>
+              </button>
+            </ng-container>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <ds-themed-submission-section-upload-file-view [fileData]="fileData"></ds-themed-submission-section-upload-file-view>
+      </div>
+    </div>
+  </ng-container>
+  
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title text-danger">{{ 'submission.sections.upload.delete.confirm.title' | translate }}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('cancel')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>{{ 'submission.sections.upload.delete.confirm.info' | translate }}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary"
+              (click)="c('cancel')">{{ 'submission.sections.upload.delete.confirm.cancel' | translate }}</button>
+      <button type="button" class="btn btn-danger"
+              (click)="c('ok')">{{ 'submission.sections.upload.delete.confirm.submit' | translate }}</button>
+    </div>
+  </ng-template>
+  
