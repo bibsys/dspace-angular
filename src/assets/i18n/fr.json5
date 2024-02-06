@@ -3476,7 +3476,7 @@
 
   // "explore.index.dc.date.accessioned" : "Recent Additions",
   // TODO New key - Add a translation
-  "explore.index.dc.date.accessioned": "Recent Additions",
+  "explore.index.dc.date.accessioned": "Dépots récents",
 
   // "explore.index.dc.title" : "Title",
   // TODO New key - Add a translation
@@ -3748,7 +3748,7 @@
 
   // "footer.built-with":"Built with",
   // TODO New key - Add a translation
-  "footer.built-with": "Built with",
+  "footer.built-with": "Construit à partir du",
 
   // "footer.copyright": "copyright © 2002-{{ year }}",
   "footer.copyright": "copyright © 2002-{{ year }}",
@@ -3766,7 +3766,7 @@
 
   // "footer.link.dspace-cris": "DSpace-CRIS software",
   // TODO New key - Add a translation
-  "footer.link.dspace-cris": "DSpace-CRIS software",
+  "footer.link.dspace-cris": "logiciel DSpace-CRIS",
 
   // "footer.link.lyrasis": "LYRASIS",
   "footer.link.lyrasis": "LYRASIS",
@@ -3783,14 +3783,15 @@
   // "footer.link.feedback":"Send Feedback",
   "footer.link.feedback": "Envoyer un commentaire",
 
-
+  // "footer.developed-by": "Application developed by",
+  "footer.developed-by": "Application développé par",
 
   // "forgot-email.form.header": "Forgot Password",
   "forgot-email.form.header": "Mot de passe oublié",
 
   // "forgot-email.form.info": "Enter the email address associated with the account.",
   // TODO Source message changed - Revise the translation
-  "forgot-email.form.info": "Créer un compte pour vous abonner à des collections afin de recevoir des mises à jour via courrier électronique ainsi que pour déposer de nouveaux Items dans DSpace.",
+  "forgot-email.form.info": "Créer un compte pour vous abonner à des collections afin de recevoir des mises à jour via courrier électronique ainsi que pour déposer de nouveaux Items dans DIAL.mem.",
 
   // "forgot-email.form.email": "Email Address *",
   "forgot-email.form.email": "Adresse électronique *",
@@ -4175,7 +4176,7 @@
 
   // "home.top-level-communities.head": "Communities in DSpace Cris",
   // TODO Source message changed - Revise the translation
-  "home.top-level-communities.head": "Communautés dans DSpace",
+  "home.top-level-communities.head": "Communautés dans DIAL.mem",
 
   // "home.top-level-communities.help": "Search for a collection",
   // TODO Source message changed - Revise the translation
@@ -6043,7 +6044,7 @@
   "login.form.forgot-password": "Mot de passe oublié?",
 
   // "login.form.header": "Please log in to DSpace",
-  "login.form.header": "Se connecter à DSpace",
+  "login.form.header": "Se connecter à DIAL.mem",
 
   // "login.form.new-user": "New user? Click here to register.",
   "login.form.new-user": "Pas encore de compte? Cliquer ici pour vous enregistrer.",
@@ -6076,7 +6077,7 @@
 
 
   // "logout.form.header": "Log out from DSpace",
-  "logout.form.header": "Se déconnecter de DSpace",
+  "logout.form.header": "Se déconnecter de DIAL.mem",
 
   // "logout.form.submit": "Log out",
   "logout.form.submit": "Se déconnecter",
@@ -6357,7 +6358,8 @@
   // "menu.section.import_metadata": "Metadata",
   "menu.section.import_metadata": "Métadonnées",
 
-
+  // "menu.section.mydspace_shortcut": "MyDial.mem",
+  "menu.section.mydspace_shortcut": "MyDIAL",
 
   // "menu.section.new": "New",
   "menu.section.new": "Créer",
@@ -6730,7 +6732,7 @@
 
 
   // "mydspace.breadcrumbs": "MyDSpace",
-  "mydspace.breadcrumbs": "Mon compte DSpace",
+  "mydspace.breadcrumbs": "Mon compte DIAL.mem",
 
   // "mydspace.description": "",
   "mydspace.description": "",
@@ -6818,8 +6820,8 @@
   // TODO New key - Add a translation
   "mydspace.results.is-correction": "Is a request of correction",
 
-  // "mydspace.search-form.placeholder": "Search in mydspace...",
-  "mydspace.search-form.placeholder": "Rechercher dans mon compte DSpace...",
+  // "mydspace.search-form.placeholder": "Search in myDIAL.mem ...",
+  "mydspace.search-form.placeholder": "Rechercher dans mon compte DIAL.mem...",
 
   // "mydspace.show.workflow": "Workflow tasks",
   "mydspace.show.workflow": "Tableau de suivi",
@@ -6847,13 +6849,16 @@
   "mydspace.status.mydspaceWaitingController": "En attente d'assignation",
 
   // "mydspace.status.mydspaceWorkflow": "Workflow",
-  "mydspace.status.mydspaceWorkflow": "En traitement",
+  "mydspace.status.mydspaceWorkflow": "En attente de validation",
 
   // "mydspace.status.mydspaceWorkspace": "Workspace",
   "mydspace.status.mydspaceWorkspace": "Dépôts en cours",
 
+  // "mydspace.status.submitted": "Submitted",
+  "mydspace.status.submitted": "Soumit",
+
   // "mydspace.title": "MyDSpace",
-  "mydspace.title": "Mon compte DSpace",
+  "mydspace.title": "Mon compte DIAL.mem",
 
   // "mydspace.upload.upload-failed": "Error creating new workspace. Please verify the content uploaded before retry.",
   "mydspace.upload.upload-failed": "Erreur à la création de l'espace de travail. Veuillez vérifier le contenu téléchargé avant de réessayer.",
@@ -6883,7 +6888,7 @@
   "mydspace.notification.suggestion.page": "We found <b>{{count}} {{type}}</b> in the {{source}} that seems to be related to your profile. Please <a href='/suggestions/{{suggestionId}}'>review the suggestions.</a>",
 
   // "nav.browse.header": "All of DSpace",
-  "nav.browse.header": "Tout Dspace",
+  "nav.browse.header": "Tout DIAL.mem",
 
   // "nav.community-browse.header": "By Community",
   "nav.community-browse.header": "Par communauté",
@@ -6910,7 +6915,7 @@
   "nav.main.description": "Barre de navigation principale",
 
   // "nav.mydspace": "MyDSpace",
-  "nav.mydspace": "Mon compte DSpace",
+  "nav.mydspace": "Mon compte DIAL.mem",
 
   // "nav.profile": "Profile",
   "nav.profile": "Profil",
@@ -8061,7 +8066,7 @@
   "register-page.registration.header": "Inscription d'un nouvel utilisateur",
 
   // "register-page.registration.info": "Register an account to subscribe to collections for email updates, and submit new items to DSpace.",
-  "register-page.registration.info": "Créer un compte pour pouvoir vous abonner aux collections et recevoir les nouveautés via courrier électronique ainsi que déposer de nouveaux Items dans DSpace.",
+  "register-page.registration.info": "Créer un compte pour pouvoir vous abonner aux collections et recevoir les nouveautés via courrier électronique ainsi que déposer de nouveaux Items dans DIAL.mem.",
 
   // "register-page.registration.email": "Email Address *",
   "register-page.registration.email": "Adresse électronique *",
@@ -8989,10 +8994,10 @@
   "search.form.search": "Recherche",
 
   // "search.form.search_dspace": "All repository",
-  "search.form.search_dspace": "Recherche dans DSpace",
+  "search.form.search_dspace": "Partout",
 
   // "search.form.scope.all": "All of DSpace",
-  "search.form.scope.all": "Tout le dépôt DSpace",
+  "search.form.scope.all": "Tout le dépôt",
 
 
 
@@ -9632,7 +9637,7 @@
   "submission.import-external.page.noentity": "An entity type must be selected in order to use this page. Select it using the 'Import metadata from an external source' button in 'MyDspace' page.",
 
   // "submission.import-external.back-to-my-dspace": "Back to MyDSpace",
-  "submission.import-external.back-to-my-dspace": "Retour à mon compte DSpace",
+  "submission.import-external.back-to-my-dspace": "Retour à mon compte DIAL.mem",
 
   // "submission.import-external.search.placeholder": "Search the external source",
   "submission.import-external.search.placeholder": "Recherche de la source externe",
@@ -10471,6 +10476,9 @@
   // TODO New key - Add a translation
   "submission.sections.submit.progressbar.describe.journal": "Journal basic information",
 
+  // "submission.sections.submit.progressbar.describe.masterthesis": "Theses basic information",
+  "submission.sections.submit.progressbar.describe.masterthesis": "Informations sur le mémoire",
+
   // "submission.sections.submit.progressbar.describe.orgunit": "Org Unit basic information",
   // TODO New key - Add a translation
   "submission.sections.submit.progressbar.describe.orgunit": "Org Unit basic information",
@@ -11155,6 +11163,8 @@
   // TODO New key - Add a translation
   "subscriptions.table.empty.message": "You do not have any subscriptions at this time. To subscribe to email updates for a Community or Collection, use the subscription button on the object's page.",
 
+  // "thesis.listelement.badge": "Thesis",
+  "thesis.listelement.badge": "Mémoire",
 
   // "thesis.page.titleprefix" : "Thesis:"
   "thesis.page.titleprefix": "Mémoire:",
@@ -12229,4 +12239,35 @@
   // TODO New key - Add a translation
   "listable-notification-object.default-message": "This object couldn't be retrieved",
 
+  // --- UCLOUVAIN Additions ---
+
+  // "home-news.main-title": "DIAL.mem",
+  "home-news.main-title": "DIAL.mem",
+
+  // "home-news.second-title": "UCLouvain's electronic master theses repository",
+  "home-news.second-title": "Dépôt électronique des mémoires de Master de l'UCLouvain",
+
+  // "home-info.what-is": "What is DIAL.mem ?",
+  "home-info.what-is": "Qu'est ce que DIAL.mem ?",
+
+  // "home-info.project-description" : "DIAL.mem is the institutional repository for the Master theses of the UCLouvain. \nIt aims at archiving a digital copy of all successful Master theses. \nAccess to those copies is given where both the student and the institution have approved it. \nDIAL.mem is part of DIAL 'Digital Access to Libraries' – the gateway to the electronic resources of the UCLouvain Libraries.",
+  "home-info.project-description": "DIAL.mem est le lieu de conservation de tous les mémoires électroniques de l'UCLouvain et de consultation des mémoires électroniques dont l'auteur et l'institution ont choisi d’autoriser la diffusion. Il constitue une partie du portail des ressources numériques des bibliothèques de l'UCLouvain : \"DIAL\" (DIgital Access to Libraries).",
+
+  // "home-info.list-intro": "Digital preservation and use of Master theses entail many advantages for their authors, the users, and the university:",
+  "home-info.list-intro": "L'archivage et la consultation en version électronique présentent plusieurs avantages pour le public, les auteurs et l'institution :",
+
+  // "home-info.list-advantage-1": "Greater promotion and 24/7 accessibility",
+  "home-info.list-advantage-1": "Meilleure visibilité et disponibilité 24/7",
+
+  // "home-info.list-advantage-2": "Direct and unique access for both the text and the appendices (in whatever file format)",
+  "home-info.list-advantage-2": "Mode d'accès unique et immédiat pour le texte et les annexes, quel qu'en soit le format",
+
+  // "home-info.list-advantage-3": "Advanced research options, including on the full text",
+  "home-info.list-advantage-3": "Des possibilités de recherche plus poussées, notamment sur le \"full text\"",
+
+  // "home-info.list-advantage-4": "Environmental benefits and saving in stack spaces",
+  "home-info.list-advantage-4": "Bénéfices environnementaux et économie d'espace de stockage",
+
+  // "home-info.list-advantage-5": "Struggle against plagiarism",
+  "home-info.list-advantage-5": "Lutte contre le plagiat",
 }

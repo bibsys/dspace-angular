@@ -52,6 +52,7 @@ import { environment } from '../environments/environment';
 import { SectionDataService } from './core/layout/section-data.service';
 import { Section } from './core/layout/models/section.model';
 import { NOTIFICATIONS_RECITER_SUGGESTION_PATH } from './admin/admin-notifications/admin-notifications-routing-paths';
+import { AuthService } from './core/auth/auth.service';
 
 /**
  * Creates all of the app's menus
@@ -67,6 +68,7 @@ export class MenuResolver implements Resolve<boolean> {
     protected route: ActivatedRoute,
     protected menuService: MenuService,
     protected authorizationService: AuthorizationDataService,
+    protected authService: AuthService,
     protected modalService: NgbModal,
     protected scriptDataService: ScriptDataService,
     protected sectionDataService: SectionDataService,
@@ -172,6 +174,25 @@ export class MenuResolver implements Resolve<boolean> {
     });
 
     this.createStatisticsMenu();
+
+    // Add a link to the myDSpacePage
+    const myDialLinkModel = Object.assign(
+      {
+        id: `mydspace_shortcut`,
+        active: false,
+        visible: false,
+        index: 0,
+        model: {
+          type: MenuItemType.LINK,
+          text: `menu.section.mydspace_shortcut`,
+          link: `/mydspace`
+        } as LinkMenuItemModel
+      },
+      {shouldPersistOnRouteChange: true}
+    );
+    this.authService.isAuthenticated().subscribe(v => myDialLinkModel.visible = v);
+    this.menuService.addSection(MenuID.PUBLIC, myDialLinkModel);
+
     return this.waitForMenu$(MenuID.PUBLIC);
   }
 
@@ -231,7 +252,7 @@ export class MenuResolver implements Resolve<boolean> {
           {
             id: 'statistics',
             active: false,
-            visible: true,
+            visible: environment.layout.navbar.showStatistics,
             index: 1,
             model: {
               type: MenuItemType.TEXT,
