@@ -1,0 +1,21 @@
+:host {
+  footer {
+    background-color: var(--bs-primary);
+    background-image: url("../../assets/images/footer-background.jpg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    margin-top: 3rem;
+    padding: 2rem;
+
+    .list-title {
+      color: var(--bs-gray-500);
+      font-weight: bold;
+    }
+
+    ul li {
+      margin-bottom: .5rem;
+    }
+  }
+}
+
+

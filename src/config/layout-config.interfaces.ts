@@ -36,6 +36,7 @@ export interface CrisLayoutTypeConfig {
 
 export interface NavbarConfig extends Config {
   showCommunityCollection: boolean;
+  showStatistics: boolean;
 }
 
 export interface BreadcrumbsConfig extends Config {
