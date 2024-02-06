@@ -1,4 +1,10 @@
 import { NgModule } from '@angular/core';
+
+import { SubmissionSectionUploadFileComponent } from './app/submission/sections/upload/file/section-upload-file.component';
+import { SubmissionSectionUploadFileViewComponent } from './app/submission/sections/upload/file/view/section-upload-file-view.component';
+import { SubmissionSectionUploadAccessConditionsComponent } from './app/submission/sections/upload/accessConditions/submission-section-upload-access-conditions.component';
+import { SubmissionSectionUploadComponent } from './app/submission/sections/upload/section-upload.component';
+
 import { CommonModule } from '@angular/common';
 import { AdminRegistriesModule } from '../../app/admin/admin-registries/admin-registries.module';
 import { AdminSearchModule } from '../../app/admin/admin-search-page/admin-search.module';
@@ -55,6 +61,10 @@ import { ContextMenuModule } from '../../app/shared/context-menu/context-menu.mo
 import { SocialModule } from '../../app/social/social.module';
 
 const DECLARATIONS = [
+  SubmissionSectionUploadFileComponent,
+  SubmissionSectionUploadFileViewComponent,
+  SubmissionSectionUploadAccessConditionsComponent,
+  SubmissionSectionUploadComponent
 ];
 
 @NgModule({
