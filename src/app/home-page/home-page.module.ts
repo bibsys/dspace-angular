@@ -16,6 +16,7 @@ import { RecentItemListComponent } from './recent-item-list/recent-item-list.com
 import { ThemedHomePageComponent } from './themed-home-page.component';
 import { ThemedTopLevelCommunityListComponent } from './top-level-community-list/themed-top-level-community-list.component';
 import { TopLevelCommunityListComponent } from './top-level-community-list/top-level-community-list.component';
+import { HomeInfoComponent } from './home-info/home-info.component';
 
 const DECLARATIONS = [
   HomePageComponent,
@@ -25,6 +26,7 @@ const DECLARATIONS = [
   ThemedHomeNewsComponent,
   HomeNewsComponent,
   RecentItemListComponent,
+  HomeInfoComponent,
 ];
 
 @NgModule({
