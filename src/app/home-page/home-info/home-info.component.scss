@@ -1,0 +1,25 @@
+p, li {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+li::marker {
+    color: var(--bs-primary);
+    content: "▹";
+    font-weight: 800;
+    padding-inline: 5px;
+    left: -5px;
+}
+
+li {
+    padding-left: 15px;
+}
+
+.main-header {
+    display: flex;
+    justify-content: center;
+    h1 {
+        width: fit-content;
+        text-align: center;
+    }
+}
