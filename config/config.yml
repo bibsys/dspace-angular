@@ -7,3 +7,93 @@ ui:
   ssl: false
 themes:
   - name: uclouvain
+    headTags: 
+      - tagName: link
+        attributes:
+          rel: icon
+          href: assets/uclouvain/images/favicons/uclouvain-favicon.png
+          type: image/png
+languages:
+  - code: en
+    label: English
+    active: true
+  - code: ca
+    label: Català
+    active: false
+  - code: cs
+    label: Čeština
+    active: false
+  - code: de
+    label: Deutsch
+    active: false
+  - code: es
+    label: Español
+    active: false
+  - code: fr
+    label: Français
+    active: true
+  - code: gd
+    label: Gàidhlig
+    active: false
+  - code: it
+    label: Italiano
+    active: false
+  - code: it
+    label: Italiano
+    active: false
+  - code: lv
+    label: Latviešu
+    active: false
+  - code: hu
+    label: Magyar
+    active: false
+  - code: nl
+    label: Nederlands
+    active: false
+  - code: pl
+    label: Polski
+    active: false
+  - code: pt-PT
+    label: Português
+    active: false
+  - code: pt-BR
+    label: Português do Brasil
+    active: false
+  - code: sr-lat
+    label: Srpski (lat)
+    active: false
+  - code: fi
+    label: Suomi
+    active: false
+  - code: sv
+    label: Svenska
+    active: false
+  - code: tr
+    label: Türkçe
+    active: false
+  - code: vi
+    label: Tiếng Việt
+    active: false
+  - code: kk
+    label: Қазақ
+    active: false
+  - code: bn
+    label: বাংলা
+    active: false
+  - code: hi
+    label: हिंदी
+    active: false
+  - code: el
+    label: Ελληνικά
+    active: false
+  - code: sr-cyr
+    label: Српски
+    active: false
+  - code: uk
+    label: Yкраї́нська
+    active: false
+
+layout:
+  navbar:
+    showCommunityCollection: false
+    showStatistics: false

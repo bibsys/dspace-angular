@@ -172,6 +172,23 @@ export class MenuResolver implements Resolve<boolean> {
     });
 
     this.createStatisticsMenu();
+
+    // Add a link to the myDSpacePage
+    this.menuService.addSection(MenuID.PUBLIC, Object.assign(
+      {
+        id: `mydspace_shortcut`,
+        active: false,
+        visible: true,
+        index: 0,
+        model: {
+          type: MenuItemType.LINK,
+          text: `menu.section.mydspace_shortcut`,
+          link: `/mydspace`
+        } as LinkMenuItemModel
+      },
+      {shouldPersistOnRouteChange: true}
+    ));
+
     return this.waitForMenu$(MenuID.PUBLIC);
   }
 
@@ -231,7 +248,7 @@ export class MenuResolver implements Resolve<boolean> {
           {
             id: 'statistics',
             active: false,
-            visible: true,
+            visible: environment.layout.navbar.showStatistics,
             index: 1,
             model: {
               type: MenuItemType.TEXT,
