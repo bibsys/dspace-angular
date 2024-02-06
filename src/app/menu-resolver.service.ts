@@ -1,28 +1,9 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  Inject,
-  Injectable,
-  PLATFORM_ID,
-} from '@angular/core';
-import {
-  ActivatedRoute,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { Inject, Injectable, PLATFORM_ID, } from '@angular/core';
+import { ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot, } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {
-  combineLatest as observableCombineLatest,
-  mergeMap,
-  Observable,
-  of,
-} from 'rxjs';
-import {
-  filter,
-  find,
-  map,
-  switchMap,
-  take,
-} from 'rxjs/operators';
+import { combineLatest as observableCombineLatest, mergeMap, Observable, of, } from 'rxjs';
+import { filter, find, map, switchMap, take, } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 import { PUBLICATION_CLAIMS_PATH } from './admin/admin-notifications/admin-notifications-routing-paths';
@@ -41,26 +22,41 @@ import { Section } from './core/layout/models/section.model';
 import { SectionDataService } from './core/layout/section-data.service';
 import { ConfigurationProperty } from './core/shared/configuration-property.model';
 import { getFirstCompletedRemoteData } from './core/shared/operators';
-import { ThemedCreateCollectionParentSelectorComponent } from './shared/dso-selector/modal-wrappers/create-collection-parent-selector/themed-create-collection-parent-selector.component';
-import { ThemedCreateCommunityParentSelectorComponent } from './shared/dso-selector/modal-wrappers/create-community-parent-selector/themed-create-community-parent-selector.component';
-import { ThemedCreateItemParentSelectorComponent } from './shared/dso-selector/modal-wrappers/create-item-parent-selector/themed-create-item-parent-selector.component';
-import { ThemedEditCollectionSelectorComponent } from './shared/dso-selector/modal-wrappers/edit-collection-selector/themed-edit-collection-selector.component';
-import { ThemedEditCommunitySelectorComponent } from './shared/dso-selector/modal-wrappers/edit-community-selector/themed-edit-community-selector.component';
-import { ThemedEditItemSelectorComponent } from './shared/dso-selector/modal-wrappers/edit-item-selector/themed-edit-item-selector.component';
-import { ExportBatchSelectorComponent } from './shared/dso-selector/modal-wrappers/export-batch-selector/export-batch-selector.component';
-import { ExportMetadataCsvSelectorComponent } from './shared/dso-selector/modal-wrappers/export-metadata-csv-selector/export-metadata-csv-selector.component';
-import { ExportMetadataXlsSelectorComponent } from './shared/dso-selector/modal-wrappers/export-metadata-xls-selector/export-metadata-xls-selector.component';
 import {
-  hasValue,
-  isNotEmpty,
-} from './shared/empty.util';
-import { MenuService } from './shared/menu/menu.service';
+  ThemedCreateCollectionParentSelectorComponent
+} from './shared/dso-selector/modal-wrappers/create-collection-parent-selector/themed-create-collection-parent-selector.component';
+import {
+  ThemedCreateCommunityParentSelectorComponent
+} from './shared/dso-selector/modal-wrappers/create-community-parent-selector/themed-create-community-parent-selector.component';
+import {
+  ThemedCreateItemParentSelectorComponent
+} from './shared/dso-selector/modal-wrappers/create-item-parent-selector/themed-create-item-parent-selector.component';
+import {
+  ThemedEditCollectionSelectorComponent
+} from './shared/dso-selector/modal-wrappers/edit-collection-selector/themed-edit-collection-selector.component';
+import {
+  ThemedEditCommunitySelectorComponent
+} from './shared/dso-selector/modal-wrappers/edit-community-selector/themed-edit-community-selector.component';
+import {
+  ThemedEditItemSelectorComponent
+} from './shared/dso-selector/modal-wrappers/edit-item-selector/themed-edit-item-selector.component';
+import {
+  ExportBatchSelectorComponent
+} from './shared/dso-selector/modal-wrappers/export-batch-selector/export-batch-selector.component';
+import {
+  ExportMetadataCsvSelectorComponent
+} from './shared/dso-selector/modal-wrappers/export-metadata-csv-selector/export-metadata-csv-selector.component';
+import {
+  ExportMetadataXlsSelectorComponent
+} from './shared/dso-selector/modal-wrappers/export-metadata-xls-selector/export-metadata-xls-selector.component';
+import { hasValue, isNotEmpty, } from './shared/empty.util';
 import { MenuID } from './shared/menu/menu-id.model';
+import { MenuItemType } from './shared/menu/menu-item-type.model';
 import { LinkMenuItemModel } from './shared/menu/menu-item/models/link.model';
 import { OnClickMenuItemModel } from './shared/menu/menu-item/models/onclick.model';
 import { TextMenuItemModel } from './shared/menu/menu-item/models/text.model';
-import { MenuItemType } from './shared/menu/menu-item-type.model';
 import { MenuState } from './shared/menu/menu-state.model';
+import { MenuService } from './shared/menu/menu.service';
 
 /**
  * Creates all the app's menus
@@ -76,10 +72,10 @@ export class MenuResolverService  {
     protected route: ActivatedRoute,
     protected menuService: MenuService,
     protected authorizationService: AuthorizationDataService,
+    protected authService: AuthService,
     protected modalService: NgbModal,
     protected scriptDataService: ScriptDataService,
     protected configurationDataService: ConfigurationDataService,
-    protected authService: AuthService,
     protected sectionDataService: SectionDataService,
     protected configService: ConfigurationDataService,
   ) {
@@ -187,6 +183,25 @@ export class MenuResolverService  {
     });
 
     this.createStatisticsMenu();
+
+    // Add a link to the myDSpacePage
+    const myDialLinkModel = Object.assign(
+      {
+        id: `mydspace_shortcut`,
+        active: false,
+        visible: false,
+        index: 0,
+        model: {
+          type: MenuItemType.LINK,
+          text: `menu.section.mydspace_shortcut`,
+          link: `/mydspace`
+        } as LinkMenuItemModel
+      },
+      {shouldPersistOnRouteChange: true}
+    );
+    this.authService.isAuthenticated().subscribe(v => myDialLinkModel.visible = v);
+    this.menuService.addSection(MenuID.PUBLIC, myDialLinkModel);
+
     return this.waitForMenu$(MenuID.PUBLIC);
   }
 
@@ -246,7 +261,7 @@ export class MenuResolverService  {
           {
             id: 'statistics',
             active: false,
-            visible: true,
+            visible: environment.layout.navbar.showStatistics,
             index: 1,
             model: {
               type: MenuItemType.TEXT,

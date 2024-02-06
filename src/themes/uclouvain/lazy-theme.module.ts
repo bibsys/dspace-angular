@@ -10,8 +10,30 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { RootModule } from '../../app/root.module';
+import { AdvancedSearchComponent } from '../../app/shared/search/advanced-search/advanced-search.component';
+import { SearchFilterComponent } from '../../app/shared/search/search-filters/search-filter/search-filter.component';
+
+import { AdminSidebarComponent } from './app/admin/admin-sidebar/admin-sidebar.component';
+import { ConfigurationSearchPageComponent } from './app/search-page/configuration-search-page.component';
+import { LoginPageComponent } from './app/login-page/login-page.component';
+import { MyDSpacePageComponent } from './app/my-dspace-page/my-dspace-page.component';
+import { SearchComponent } from './app/shared/search/search.component';
+import { SearchFiltersComponent } from './app/shared/search/search-filters/search-filters.component';
+import { SearchFormComponent } from './app/shared/search-form/search-form.component';
+import { SearchPageComponent } from './app/search-page/search-page.component';
+import { SearchSidebarComponent } from './app/shared/search/search-sidebar/search-sidebar.component';
+
 
 const DECLARATIONS = [
+  AdminSidebarComponent,
+  ConfigurationSearchPageComponent,
+  LoginPageComponent,
+  MyDSpacePageComponent,
+  SearchComponent,
+  SearchFiltersComponent,
+  SearchFormComponent,
+  SearchPageComponent,
+  SearchSidebarComponent
 ];
 
 @NgModule({
@@ -28,8 +50,16 @@ const DECLARATIONS = [
     StoreRouterConnectingModule,
     TranslateModule,
     FormsModule,
+    SearchFilterComponent,
+    AdvancedSearchComponent,
+    ...DECLARATIONS,
   ],
-  declarations: DECLARATIONS,
+  exports: [
+    SearchFormComponent,
+    SearchComponent,
+    SearchSidebarComponent,
+    SearchFiltersComponent
+  ]
 })
 
 /**
