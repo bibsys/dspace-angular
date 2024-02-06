@@ -1,0 +1,92 @@
+:host {
+  display: block;
+
+  div.background-image-container {
+    color: white;
+    position: relative;
+    background-color: var(--bs-blue);
+
+    .background-image > img {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.55;
+    }
+
+    .container {
+      position: relative;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+      background-color: rgba($color: #000000, $alpha: 0.05);
+      z-index: 3;
+
+      &:before, &:after {
+        content: '';
+        display: block;
+        width: var(--ds-banner-background-gradient-width);
+        height: 100%;
+        top: 0;
+        position: absolute;
+      }
+
+      &:before {
+        background: linear-gradient(to left, var(--ds-banner-text-background), transparent);
+        left: calc(-1 * var(--ds-banner-background-gradient-width));
+        z-index: 3;
+      }
+
+      &:after {
+        background: linear-gradient(to right, var(--ds-banner-text-background), transparent);
+        right: calc(-1 * var(--ds-banner-background-gradient-width));
+        z-index: 3;
+      }
+
+      background-color: var(--ds-banner-text-background);
+    }
+
+
+    small.credits {
+      a {
+        color: inherit;
+      }
+
+      opacity: 0.3;
+      z-index: 3;
+      position: absolute;
+      right: var(--bs-spacer);
+      bottom: 0;
+    }
+  }
+
+  .jumbotron {
+    background-color: transparent;
+    margin: 0;
+  }
+
+  a {
+    color: var(--ds-home-news-link-color);
+
+    @include hover {
+      color: var(--ds-home-news-link-hover-color);
+    }
+  }
+}
+
+.display-3 {
+  font-size: 4.0rem;
+  text-align: center;
+  margin: 0;
+  font-weight: 400;
+}
+
+.lead {
+  font-size: 1.1rem;
+}
+
+.main-head {
+  font-family: Nunito;
+}

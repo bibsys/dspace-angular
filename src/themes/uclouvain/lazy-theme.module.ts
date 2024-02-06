@@ -1,4 +1,16 @@
 import { NgModule } from '@angular/core';
+
+import { HomePageComponent } from './app/home-page/home-page.component';
+import { SearchFormComponent } from './app/shared/search-form/search-form.component';
+import { CountersSectionComponent } from './app/shared/explore/section-component/counters-section/counters-section.component';
+import { SearchPageComponent } from './app/search-page/search-page.component';
+import { ConfigurationSearchPageComponent } from './app/search-page/configuration-search-page.component';
+import { MyDSpaceStatusBadgeComponent } from './app/shared/object-collection/shared/badges/my-dspace-status-badge/my-dspace-status-badge.component';
+import { BadgesComponent } from './app/shared/object-collection/shared/badges/badges.component';
+import { BrowseMostElementsComponent } from './app/browse-most-elements/browse-most-elements.component';
+import { ItemListPreviewComponent } from './app/shared/object-list/my-dspace-result-list-element/item-list-preview/item-list-preview.component';
+import { LoginPageComponent } from './app/login-page/login-page.component';
+
 import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
@@ -10,8 +22,23 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { RootModule } from '../../app/root.module';
+import { AdminSidebarComponent } from './app/admin/admin-sidebar/admin-sidebar.component';
+import { DefaultBrowseElementsComponent } from './app/browse-most-elements/default-browse-elements/default-browse-elements.component';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 const DECLARATIONS = [
+  HomePageComponent,
+  SearchFormComponent,
+  CountersSectionComponent,
+  SearchPageComponent,
+  ConfigurationSearchPageComponent,
+  MyDSpaceStatusBadgeComponent,
+  BadgesComponent,
+  BrowseMostElementsComponent,
+  DefaultBrowseElementsComponent,
+  ItemListPreviewComponent,
+  LoginPageComponent,
+  AdminSidebarComponent
 ];
 
 @NgModule({
@@ -28,8 +55,12 @@ const DECLARATIONS = [
     StoreRouterConnectingModule,
     TranslateModule,
     FormsModule,
+    NgxGalleryModule,
+    ...DECLARATIONS,
   ],
-  declarations: DECLARATIONS,
+  exports: [
+    ConfigurationSearchPageComponent,
+  ],
 })
 
 /**

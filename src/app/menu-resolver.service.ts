@@ -187,6 +187,25 @@ export class MenuResolverService  {
     });
 
     this.createStatisticsMenu();
+
+    // Add a link to the myDSpacePage
+    const myDialLinkModel = Object.assign(
+      {
+        id: `mydspace_shortcut`,
+        active: false,
+        visible: false,
+        index: 0,
+        model: {
+          type: MenuItemType.LINK,
+          text: `menu.section.mydspace_shortcut`,
+          link: `/mydspace`
+        } as LinkMenuItemModel
+      },
+      {shouldPersistOnRouteChange: true}
+    );
+    this.authService.isAuthenticated().subscribe(v => myDialLinkModel.visible = v);
+    this.menuService.addSection(MenuID.PUBLIC, myDialLinkModel);
+
     return this.waitForMenu$(MenuID.PUBLIC);
   }
 
@@ -246,7 +265,7 @@ export class MenuResolverService  {
           {
             id: 'statistics',
             active: false,
-            visible: true,
+            visible: environment.layout.navbar.showStatistics,
             index: 1,
             model: {
               type: MenuItemType.TEXT,
