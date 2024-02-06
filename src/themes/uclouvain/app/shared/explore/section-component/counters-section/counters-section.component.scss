@@ -1,0 +1,23 @@
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid var(--bs-blue);
+    flex: 1 0 100px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.stat:hover {
+    background: var(--bs-primary);
+    color: white;
+    transition: 0.15s ease;
+}
+
+.stat-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

@@ -26,3 +26,28 @@ ds-metric-donuts a {
   background-size: contain;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #{$dark};
+  border: 1px solid white;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #{$dark};
+}
+
+.lead {
+	font-weight: 400;
+}

@@ -1,0 +1,10 @@
+ul {
+  li {
+    padding-left: 1rem;
+    &::marker {
+      color: var(--bs-info);
+      content: "▹";
+      font-weight: bold;
+    }
+  }
+}
