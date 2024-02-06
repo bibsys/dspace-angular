@@ -1,0 +1,33 @@
+<footer class="text-lg-start">
+    <div class="bottom-footer p-1 d-flex justify-content-center align-items-center text-white">
+      <div class="content-container">
+        <p class="m-0">
+          {{ 'footer.built-with' | translate }}
+          <a class="text-white" href="https://wiki.lyrasis.org/display/DSPACECRIS/">{{ 'footer.link.dspace-cris' | translate}}</a>
+           - {{ 'footer.developed-by' | translate }}
+          <a class="text-white" href="https://www.uclouvain.be">
+            <img src="assets/uclouvain/images/uclouvain-logo-white.png" alt="{{ 'footer.link.4science' | translate}}" style="max-width: 150px;"/>
+          </a>
+        </p>
+        <ul class="footer-info list-unstyled small d-flex justify-content-center mb-0">
+          <li>
+              <a class="text-white" href="javascript:void(0);"
+               (click)="showCookieSettings()">{{ 'footer.link.cookies' | translate}}</a>
+          </li>
+          <li *ngIf="showPrivacyPolicy">
+            <a class="text-white"
+               routerLink="info/privacy">{{ 'footer.link.privacy-policy' | translate}}</a>
+          </li>
+          <li *ngIf="showEndUserAgreement">
+            <a class="text-white"
+               routerLink="info/end-user-agreement">{{ 'footer.link.end-user-agreement' | translate}}</a>
+          </li>
+          <li *ngIf="showSendFeedback$ | async">
+            <a class="text-white"
+               routerLink="info/feedback">{{ 'footer.link.feedback' | translate}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  
