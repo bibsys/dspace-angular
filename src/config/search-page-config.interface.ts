@@ -15,4 +15,13 @@ export interface SearchConfig extends Config {
      * For instance if we set 5 then 5 loading skeletons will be visualized before the actual filters are retrieved.
      */
     filterPlaceholdersCount?: number;
+
+    /**
+     * List of settings used to build the search page (showCharts, trackStatistics, ...)
+     */
+    settings?: SearchSettingConfig;
+}
+
+export interface SearchSettingConfig {
+  [key: string]: boolean;
 }
