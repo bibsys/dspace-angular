@@ -73,6 +73,10 @@ import { SectionFormOperationsService } from './sections/form/section-form-opera
 import { SubmissionSectionIdentifiersComponent } from './sections/identifiers/section-identifiers.component';
 import { SubmissionSectionCorrectionComponent } from './sections/correction/section-correction.component';
 import { MyDspaceSearchModule } from '../my-dspace-page/my-dspace-search.module';
+import { ThemedSubmissionSectionUploadFileViewComponent } from './sections/upload/file/view/themed-section-upload-file-view.component';
+import { ThemedSubmissionSectionUploadAccessConditionsComponent } from './sections/upload/accessConditions/themed-submission-section-upload-access-conditions.component';
+import { SubmissionSectionUploadFileLicenseTypeComponent } from './sections/upload/file/license-type/section-upload-file-license-type.component';
+import { ThemedSubmissionSectionUploadComponent } from './sections/upload/themed-section-upload.component';
 
 const ENTRY_COMPONENTS = [
   // put only entry components that use custom decorator
@@ -115,6 +119,10 @@ const DECLARATIONS = [
   PublicationInformationComponent,
   MetadataInformationComponent,
   ThemedSubmissionSectionUploadFileComponent,
+  ThemedSubmissionSectionUploadFileViewComponent,
+  ThemedSubmissionSectionUploadAccessConditionsComponent,
+  ThemedSubmissionSectionUploadComponent,
+  SubmissionSectionUploadFileLicenseTypeComponent,
   DuplicateMatchComponent
 ];
 

@@ -6342,6 +6342,8 @@
 
   "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
 
+  "submission.sections.upload.license.type": "License type",
+
   "submission.sections.upload.no-entry": "No",
 
   "submission.sections.upload.no-file-uploaded": "No file uploaded yet.",

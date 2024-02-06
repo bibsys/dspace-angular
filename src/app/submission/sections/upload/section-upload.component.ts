@@ -12,8 +12,8 @@ import { ResourcePolicyDataService } from '../../../core/resource-policy/resourc
 import { SubmissionUploadsConfigDataService } from '../../../core/config/submission-uploads-config-data.service';
 import { SubmissionUploadsModel } from '../../../core/config/models/config-submission-uploads.model';
 import { SubmissionFormsModel } from '../../../core/config/models/config-submission-forms.model';
-import { SectionsType } from '../sections-type';
-import { renderSectionFor } from '../sections-decorator';
+// import { SectionsType } from '../sections-type';
+// import { renderSectionFor } from '../sections-decorator';
 import { SectionDataObject } from '../models/section-data.model';
 import { SubmissionObjectEntry } from '../../objects/submission-objects.reducer';
 import { AlertType } from '../../../shared/alert/alert-type';
@@ -44,7 +44,7 @@ export interface AccessConditionGroupsMapEntry {
   styleUrls: ['./section-upload.component.scss'],
   templateUrl: './section-upload.component.html',
 })
-@renderSectionFor(SectionsType.Upload)
+// @renderSectionFor(SectionsType.Upload)
 export class SubmissionSectionUploadComponent extends SectionModelComponent {
 
   /**

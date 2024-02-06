@@ -12,6 +12,10 @@ import { BadgesComponent } from './app/shared/object-collection/shared/badges/ba
 import { BrowseMostElementsComponent } from './app/browse-most-elements/browse-most-elements.component';
 import { ItemListPreviewComponent } from './app/shared/object-list/my-dspace-result-list-element/item-list-preview/item-list-preview.component';
 import { LoginPageComponent } from './app/login-page/login-page.component';
+import { SubmissionSectionUploadFileComponent } from './app/submission/sections/upload/file/section-upload-file.component';
+import { SubmissionSectionUploadFileViewComponent } from './app/submission/sections/upload/file/view/section-upload-file-view.component';
+import { SubmissionSectionUploadAccessConditionsComponent } from './app/submission/sections/upload/accessConditions/submission-section-upload-access-conditions.component';
+import { SubmissionSectionUploadComponent } from './app/submission/sections/upload/section-upload.component';
 
 import { CommonModule } from '@angular/common';
 import { AdminRegistriesModule } from '../../app/admin/admin-registries/admin-registries.module';
@@ -80,7 +84,11 @@ const DECLARATIONS = [
   BadgesComponent,
   BrowseMostElementsComponent,
   ItemListPreviewComponent,
-  LoginPageComponent
+  LoginPageComponent,
+  SubmissionSectionUploadFileComponent,
+  SubmissionSectionUploadFileViewComponent,
+  SubmissionSectionUploadAccessConditionsComponent,
+  SubmissionSectionUploadComponent
 ];
 
 @NgModule({

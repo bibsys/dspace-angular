@@ -1,0 +1,35 @@
+<div class="position-relative">
+  <ds-themed-submission-section-upload-access-conditions [accessConditions]="fileData.accessConditions"></ds-themed-submission-section-upload-access-conditions>
+
+  <div class="my-1">
+    <ng-container *ngIf="metadata">
+      <ng-container *ngFor="let entry of getAllMetadataValue(fileDescrKey)">
+        <ng-container *ngIf="entry.value !== ''">
+          <span class="font-italic">
+            {{entry.value | dsTruncate:['150']}}
+          </span>
+        </ng-container>
+        <ng-container *ngIf="entry.value === ''">
+          <span *ngIf="metadata[fileDescrKey].indexOf(entry) === 0"
+                class="text-muted">{{'submission.sections.upload.no-entry' | translate}} {{fileDescrKey}}</span>
+        </ng-container>
+        <span class="clearfix"></span>
+      </ng-container>
+    </ng-container>
+  
+    <div *ngIf="fileFormat">
+      <span class="font-weight-bold">{{'submission.sections.upload.format' | translate}} :</span><span> {{fileFormat}} </span>
+    </div>
+    <ng-container *ngFor="let entry of getAllMetadataValue(fileLicenseTypeKey)">
+      <ng-container *ngIf="entry.value !== ''">
+        <div class="d-flex">
+          <span class="font-weight-bold mr-1">{{ 'submission.sections.upload.license.type' | translate }} :</span>
+          <span [innerHTML]="getLicenseType(entry.value)"></span>
+        </div>
+        <div class="file-license-type">
+          <ds-submission-section-upload-file-license-type [licenseTypeURI]="entry.value" maxHeight="40"></ds-submission-section-upload-file-license-type>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
