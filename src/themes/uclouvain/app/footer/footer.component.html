@@ -1,0 +1,47 @@
+<footer class="text-lg-start">
+    <div class="d-flex justify-content-center text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <a href="https://www.uclouvain.be">
+                        <img src="assets/uclouvain/images/logo-uclouvain-2.png"
+                             alt="UCLouvain"
+                             style="max-width: 300px;"
+                        />
+                    </a>
+                </div>
+                <div class="col-12 col-lg-4 small text-lg-left">
+                    <div class="text-uppercase mb-3 list-title">
+                        {{ 'Quick links' | translate }}
+                    </div>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="text-white" href="javascript:void(0);"
+                               (click)="showCookieSettings()">{{ 'footer.link.cookies' | translate}}</a>
+                        </li>
+                        <li *ngIf="showPrivacyPolicy">
+                            <a class="text-white"
+                               routerLink="info/privacy">{{ 'footer.link.privacy-policy' | translate}}</a>
+                        </li>
+                        <li *ngIf="showEndUserAgreement">
+                            <a class="text-white"
+                               routerLink="info/end-user-agreement">{{ 'footer.link.end-user-agreement' | translate}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-4 small text-lg-left">
+                    <div class="text-uppercase mb-3 list-title">
+                        {{ 'Help' | translate }}
+                    </div>
+                    <ul class="list-unstyled">
+                        <li *ngIf="showSendFeedback$ | async">
+                            <a class="text-white"
+                               routerLink="info/feedback">{{ 'footer.link.feedback' | translate}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+  
