@@ -1,0 +1,14 @@
+<div [class.d-none]="(availableFilters$ | async) === false">
+    <div *ngIf="(filters | async)?.hasSucceeded">
+        <div #searchFilter *ngFor="let filter of (filters | async)?.payload; trackBy: trackUpdate">
+            <ds-search-filter [filter]="filter" [inPlaceSearch]="inPlaceSearch" [refreshFilters]="refreshFilters" [scope]="currentScope"></ds-search-filter>
+        </div>
+    </div>
+    <a class="btn btn-primary"
+       [routerLink]="[searchLink]"
+       [queryParams]="clearParams | async"
+       queryParamsHandling="merge"
+       role="button">
+        <i class="fas fa-undo"></i> {{"search.filters.reset" | translate}}
+    </a>
+</div>
