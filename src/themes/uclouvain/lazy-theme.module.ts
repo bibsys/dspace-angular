@@ -54,7 +54,28 @@ import { FooterModule } from '../../app/footer/footer.module';
 import { ContextMenuModule } from '../../app/shared/context-menu/context-menu.module';
 import { SocialModule } from '../../app/social/social.module';
 
+import { AdminSidebarComponent } from './app/admin/admin-sidebar/admin-sidebar.component';
+import { ConfigurationSearchPageComponent } from './app/search-page/configuration-search-page.component';
+import { LoginPageComponent } from './app/login-page/login-page.component';
+import { MyDSpacePageComponent } from './app/my-dspace-page/my-dspace-page.component';
+import { SearchComponent } from './app/shared/search/search.component';
+import { SearchFiltersComponent } from './app/shared/search/search-filters/search-filters.component';
+import { SearchFormComponent } from './app/shared/search-form/search-form.component';
+import { SearchPageComponent } from './app/search-page/search-page.component';
+import { SearchSidebarComponent } from './app/shared/search/search-sidebar/search-sidebar.component';
+import { NotificationsModule } from '../../app/notifications/notifications.module';
+
+
 const DECLARATIONS = [
+  AdminSidebarComponent,
+  ConfigurationSearchPageComponent,
+  LoginPageComponent,
+  MyDSpacePageComponent,
+  SearchComponent,
+  SearchFiltersComponent,
+  SearchFormComponent,
+  SearchPageComponent,
+  SearchSidebarComponent
 ];
 
 @NgModule({
@@ -114,7 +135,8 @@ const DECLARATIONS = [
     MiradorViewerModule,
     FooterModule,
     ExploreModule,
-    SocialModule
+    SocialModule,
+    NotificationsModule
   ],
   declarations: DECLARATIONS,
 })
