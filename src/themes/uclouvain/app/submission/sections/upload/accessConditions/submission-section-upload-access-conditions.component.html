@@ -1,0 +1,10 @@
+<div class="d-flex mt-2">
+    <ng-container *ngFor="let accessCondition of accessConditionsList; let last = last">
+        <span *ngIf="accessCondition.action == 'DEFAULT_BITSTREAM_READ'" class="badge badge-primary mr-2 p-2">
+          {{accessCondition.name}} {{accessCondition.startDate}} {{accessCondition.endDate}}<br>
+        </span>
+        <span *ngIf="accessCondition.name == 'lease'" class="badge badge-primary mr-2 p-2">{{accessCondition.name}} from {{accessCondition.endDate}}<br></span>
+        <span *ngIf="accessCondition.name == 'embargo'" class="badge badge-warning mr-2 p-2">{{accessCondition.name}} until {{accessCondition.startDate}}<br></span>
+    </ng-container>
+</div>
+  
