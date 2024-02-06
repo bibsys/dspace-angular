@@ -2629,6 +2629,8 @@
 
   "footer.link.feedback": "Send Feedback",
 
+  "footer.developed-by": "Application developed by",
+
   "forgot-email.form.header": "Forgot Password",
 
   "forgot-email.form.info": "Enter the email address associated with the account.",
@@ -4144,7 +4146,7 @@
 
   "login.form.forgot-password": "Have you forgotten your password?",
 
-  "login.form.header": "Please log in to DSpace",
+  "login.form.header": "Please log in to DIAL.pr",
 
   "login.form.new-user": "New user? Click here to register.",
 
@@ -4162,7 +4164,7 @@
 
   "login.breadcrumbs": "Login",
 
-  "logout.form.header": "Log out from DSpace",
+  "logout.form.header": "Log out from DIAL.pr",
 
   "logout.form.submit": "Log out",
 
@@ -4345,6 +4347,8 @@
 
   "menu.section.import_metadata": "Metadata",
 
+  "menu.section.mydspace_shortcut": "MyDial.pr",
+
   "menu.section.new": "New",
 
   "menu.section.new_collection": "Collection",
@@ -4446,7 +4450,7 @@
   "metric-badges.download": "<span class=\"fa fa-download\" title=\"Downloads\">&nbsp;</span>",
 
 
-  "mydspace.breadcrumbs": "MyDSpace",
+  "mydspace.breadcrumbs": "MyDIAL.pr",
 
   "mydspace.description": "",
 
@@ -4504,7 +4508,7 @@
 
   "mydspace.results.is-correction": "Is a request of correction",
 
-  "mydspace.search-form.placeholder": "Search in MyDSpace...",
+  "mydspace.search-form.placeholder": "Search in MyDIAL.pr...",
 
   "mydspace.show.workflow": "Workflow tasks",
 
@@ -4520,11 +4524,13 @@
 
   "mydspace.status.mydspaceWaitingController": "Waiting for reviewer",
 
-  "mydspace.status.mydspaceWorkflow": "Workflow",
+  "mydspace.status.mydspaceWorkflow": "Awaiting validation",
 
   "mydspace.status.mydspaceWorkspace": "Workspace",
 
-  "mydspace.title": "MyDSpace",
+  "mydspace.status.submitted": "Submitted",
+
+  "mydspace.title": "MyDIAL.pr",
 
   "mydspace.upload.upload-failed": "Error creating new workspace. Please verify the content uploaded before retry.",
 
@@ -4551,7 +4557,7 @@
 
   "notification.suggestion.please": "Please",
 
-  "nav.browse.header": "All of DSpace",
+  "nav.browse.header": "All of DIAL.pr",
 
   "nav.community-browse.header": "By Community",
 
@@ -4567,7 +4573,7 @@
 
   "nav.main.description": "Main navigation bar",
 
-  "nav.mydspace": "MyDSpace",
+  "nav.mydspace": "MyDIAL.pr",
 
   "nav.profile": "Profile",
 
@@ -5285,7 +5291,7 @@
 
   "register-page.registration.header": "New user registration",
 
-  "register-page.registration.info": "Register an account to subscribe to collections for email updates, and submit new items to DSpace.",
+  "register-page.registration.info": "Register an account to subscribe to collections for email updates, and submit new items to DIAL.pr.",
 
   "register-page.registration.email": "Email Address *",
 
@@ -5851,7 +5857,7 @@
 
   "search.form.search_dspace": "All repository",
 
-  "search.form.scope.all": "All items",
+  "search.form.scope.all": "All of DIAL.pr",
 
   "search.results.head": "Search Results",
 
@@ -6360,11 +6366,11 @@
 
   "submission.import-external.title.Product": "Import a product from an external source",
 
-  "submission.import-external.page.hint": "Enter a query above to find items from the web to import in to DSpace.",
+  "submission.import-external.page.hint": "Enter a query above to find items from the web to import in to DIAL.pr.",
 
-  "submission.import-external.page.noentity": "An entity type must be selected in order to use this page. Select it using the 'Import metadata from an external source' button in 'MyDspace' page.",
+  "submission.import-external.page.noentity": "An entity type must be selected in order to use this page. Select it using the 'Import metadata from an external source' button in 'MyDIAL.pr' page.",
 
-  "submission.import-external.back-to-my-dspace": "Back to MyDSpace",
+  "submission.import-external.back-to-my-dspace": "Back to MyDIAL.pr",
 
   "submission.import-external.search.placeholder": "Search the external source",
 
@@ -9039,4 +9045,9 @@
   // Do not add new labels below layout ones
   // All new labels should be placed together with similar ones, or in alphabetical orders
 
+  // --- UCLOUVAIN Additions ---
+  "home-news.main-title": "DIAL.pr",
+  "home-news.second-title": "Digital access to libraries - Research publications",
+  "home-info.what-is": "What is DIAL.pr ?",
+  "home-info.project-description": "DIAL.pr aims to provide researchers and teachers from UCLouvain with tools enabling them to permanently host their scientific production, while ensuring online promotion and dissemination. The institutional repository can host any scientific work written by at least one author from UCLouvain, with different types of accesses to the texts.",
 }

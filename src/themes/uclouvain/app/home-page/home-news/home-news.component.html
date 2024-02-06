@@ -1,0 +1,36 @@
+<div class="background-image-container mt-ncs bg-blue">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <ds-themed-text-section
+                    *ngIf="hasHomeNewsMetadata; else dsDefaultHomeNews"
+                    [sectionId]="'site'"
+                    [textRowSection]="homeNewsSection"
+                    [site]="(site$ | async)">
+            </ds-themed-text-section>
+        </div>
+    </div>
+    <picture class="background-image">
+        <source type="image/jpg" srcset="assets/uclouvain/images/banner.png">
+        <img alt="" [src]="'assets/uclouvain/images/banner.png'"/>
+        <!-- without the []="''" Firefox downloads both the fallback and the resolved image -->
+    </picture>
+</div>
+<div class="container py-4">
+    <h2 class="text-center pb-3">{{ 'home-info.what-is' | translate }}</h2>
+    <p class="text-justify">{{ 'home-info.project-description' | translate }}</p>
+</div>
+
+<ng-template #dsDefaultHomeNews>
+    <div class="d-flex flex-wrap justify-content-center main-head">
+        <div>
+            <h1 class="display-3">{{ 'home-news.main-title' | translate }}</h1>
+            <h3 class="text-center mb-3">{{ 'home-news.second-title' | translate }}</h3>
+        </div>
+    </div>
+    <div class="mx-5">
+        <ds-themed-search-form
+                [inPlaceSearch]="false"
+                [searchPlaceholder]="'search.search-form.placeholder' | translate"
+                [showScopeSelector]="false"/>
+    </div>
+</ng-template>

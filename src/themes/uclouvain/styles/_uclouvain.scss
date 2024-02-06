@@ -1,0 +1,12 @@
+html {
+  font-size: 15px;
+}
+
+:root {
+  --uclouvain-publication-title-font: 'Nunito', sans-serif;
+
+  --search-form-spacing: .6rem;
+  --search-form-background-opacity: .35;
+  --search-form-btn-color: #{$gray-700};
+  --search-form-highlight-input-border-color: #{$gray-200};
+}
