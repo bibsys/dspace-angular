@@ -10612,6 +10612,9 @@
   // "submission.sections.toggle.aria.close": "Collapse {{sectionHeader}} section",
   "submission.sections.toggle.aria.close": "Réduire la section {{sectionHeader}}",
 
+  // "submission.sections.upload.format": "Bitstream format",
+  "submission.sections.upload.format": "Format du Bitstream",
+
   // "submission.sections.upload.checksum": "Checksum",
   // TODO New key - Add a translation
   "submission.sections.upload.checksum": "Checksum",
@@ -10687,6 +10690,9 @@
 
   // "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
   "submission.sections.upload.info": "Vous trouverez ici tous les fichiers actuellement associés à l'Item. Vous pouvez éditer les métadonnés et les niveaux d'accès de ce(s) fichier(s) ou <strong>télécharger des fichiers complémentaires simplement en les glissant n'importe où sur cette page</strong>",
+
+  // "submission.sections.upload.license.type": "License type",
+  "submission.sections.upload.license.type": "Type de license",
 
   // "submission.sections.upload.no-entry": "No",
   "submission.sections.upload.no-entry": "Non",
