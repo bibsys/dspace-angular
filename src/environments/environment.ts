@@ -19,6 +19,21 @@ export const environment: Partial<BuildConfig> = {
     enableSearchComponent: false,
     enableBrowseComponent: false,
   },
+
+  // Languages. DSpace Angular holds a message catalog for each of the following languages.
+  // When set to active, users will be able to switch to the use of this language in the user interface.
+  languages: [
+    {code: 'en', label: 'English', active: true},
+    {code: 'de', label: 'Deutsch', active: false},
+    {code: 'fr', label: 'Français', active: true}
+  ],
+
+  layout: {
+    navbar: {
+      showCommunityCollection: false,
+      showStatistics: false,
+    }
+  },
 };
 
 /*
