@@ -16,6 +16,10 @@ import { SubmissionSectionUploadFileComponent } from './app/submission/sections/
 import { SubmissionSectionUploadFileViewComponent } from './app/submission/sections/upload/file/view/section-upload-file-view.component';
 import { SubmissionSectionUploadAccessConditionsComponent } from './app/submission/sections/upload/accessConditions/submission-section-upload-access-conditions.component';
 import { SubmissionSectionUploadComponent } from './app/submission/sections/upload/section-upload.component';
+import { SubmissionSectionContainerComponent } from './app/submission/sections/container/section-container.component';
+import { ChipsComponent } from './app/shared/form/chips/chips.component';
+import { SubmissionFormComponent } from './app/submission/form/submission-form.component';
+import { SubmissionFormFooterComponent } from './app/submission/form/footer/submission-form-footer.component';
 
 import { CommonModule } from '@angular/common';
 import { AdminRegistriesModule } from '../../app/admin/admin-registries/admin-registries.module';
@@ -71,6 +75,7 @@ import { ExploreModule } from '../../app/shared/explore/explore.module';
 import { FooterModule } from '../../app/footer/footer.module';
 import { ContextMenuModule } from '../../app/shared/context-menu/context-menu.module';
 import { SocialModule } from '../../app/social/social.module';
+import { SortablejsModule } from 'ngx-sortablejs';
 
 const DECLARATIONS = [
   AdminSidebarComponent,
@@ -88,7 +93,11 @@ const DECLARATIONS = [
   SubmissionSectionUploadFileComponent,
   SubmissionSectionUploadFileViewComponent,
   SubmissionSectionUploadAccessConditionsComponent,
-  SubmissionSectionUploadComponent
+  SubmissionSectionUploadComponent,
+  SubmissionSectionContainerComponent,
+  ChipsComponent,
+  SubmissionFormComponent,
+  SubmissionFormFooterComponent
 ];
 
 @NgModule({
@@ -148,7 +157,8 @@ const DECLARATIONS = [
     MiradorViewerModule,
     FooterModule,
     ExploreModule,
-    SocialModule
+    SocialModule,
+    SortablejsModule
   ],
   declarations: DECLARATIONS,
 })

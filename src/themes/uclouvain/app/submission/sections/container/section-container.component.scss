@@ -1,0 +1,63 @@
+:host ::ng-deep .card {
+    margin-bottom: var(--ds-submission-sections-margin-bottom);
+    overflow: unset;
+}
+
+.section-title {
+    font-size: 16px;
+    text-align: left;
+    flex-grow: 1;
+    color: white;
+}
+
+.section-focus {
+    border-radius: none;
+    box-shadow: none;
+}
+  
+:host ::ng-deep .card:first-of-type {
+    // border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color) !important;
+    // border-bottom-left-radius: var(--bs-card-border-radius) !important;
+    // border-bottom-right-radius: var(--bs-card-border-radius) !important;
+    border: 1px solid var(--bs-semi-dark-bg);
+    border-radius: 4px;
+}
+
+:host ::ng-deep .card-header {
+    border-radius: 2px !important;
+    border-bottom-left-radius: 1px !important;
+    border-bottom-right-radius: 1px !important;
+    border-bottom: 0;
+    background: var(--bs-semi-dark-bg);
+    padding: 0 !important;
+    display: flex;
+    button {
+        flex-grow: 1;
+        box-shadow: none !important;
+        outline: none;
+        text-decoration: none;
+        margin: 0.5rem;
+    }
+}
+
+:host ::ng-deep .card-body {
+    padding: 1.25rem 1rem;
+}
+
+.spinner-div {
+    transition: 0.25s ease;
+}
+
+.arrow-up {
+    transform: rotate(180deg);
+    color: white !important;
+}
+
+.arrow-down {
+    transform: rotate(0);
+    color: white !important;
+}
+
+.closer {
+    font-size: 15px;
+}

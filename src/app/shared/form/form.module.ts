@@ -28,6 +28,7 @@ import { ExternalSourceEntryImportModalComponent } from './builder/ds-dynamic-fo
 import { CustomSwitchComponent } from './builder/ds-dynamic-form-ui/models/custom-switch/custom-switch.component';
 import { DynamicFormsNGBootstrapUIModule } from '@ng-dynamic-forms/ui-ng-bootstrap';
 import { ChipsComponent } from './chips/chips.component';
+import { ThemedChipsComponent } from './chips/themed-chips.component';
 import { NumberPickerComponent } from './number-picker/number-picker.component';
 import { AuthorityConfidenceStateDirective } from './directives/authority-confidence-state.directive';
 import { SortablejsModule } from 'ngx-sortablejs';
@@ -73,6 +74,7 @@ const COMPONENTS = [
   ExternalSourceEntryImportModalComponent,
   FormComponent,
   ChipsComponent,
+  ThemedChipsComponent,
   NumberPickerComponent,
   VocabularyTreeviewComponent,
   VocabularyTreeviewModalComponent,

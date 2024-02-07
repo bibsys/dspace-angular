@@ -8,12 +8,12 @@
              tabindex="-1"
              value="{{'form.no-value' | translate}}">
     </div>
-    <ds-chips
+    <ds-themed-chips
       *ngIf="chips && chips.hasItems()"
       [chips]="chips"
       [editable]="!model.readOnly"
       [showIcons]="true"
-      (selected)="onChipSelected($event)"></ds-chips>
+      (selected)="onChipSelected($event)"></ds-themed-chips>
     <button type="button" class="ds-form-add-more btn btn-link"
             title="{{'form.add' | translate}}"
             [disabled]="model.readOnly"
