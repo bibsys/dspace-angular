@@ -7,7 +7,9 @@ import { SectionsDirective } from './sections/sections.directive';
 import { SectionsService } from './sections/sections.service';
 import { SubmissionFormCollectionComponent } from './form/collection/submission-form-collection.component';
 import { SubmissionFormFooterComponent } from './form/footer/submission-form-footer.component';
+import { ThemedSubmissionFormFooterComponent } from './form/footer/themed-submission-form-footer.component';
 import { SubmissionFormComponent } from './form/submission-form.component';
+import { ThemedSubmissionFormComponent } from './form/themed-submission-form.component';
 import { SubmissionFormSectionAddComponent } from './form/section-add/submission-form-section-add.component';
 import { SubmissionSectionContainerComponent } from './sections/container/section-container.component';
 import { CommonModule } from '@angular/common';
@@ -77,6 +79,7 @@ import { ThemedSubmissionSectionUploadFileViewComponent } from './sections/uploa
 import { ThemedSubmissionSectionUploadAccessConditionsComponent } from './sections/upload/accessConditions/themed-submission-section-upload-access-conditions.component';
 import { SubmissionSectionUploadFileLicenseTypeComponent } from './sections/upload/file/license-type/section-upload-file-license-type.component';
 import { ThemedSubmissionSectionUploadComponent } from './sections/upload/themed-section-upload.component';
+import { ThemedSubmissionSectionContainerComponent } from './sections/container/themed-section-container.component';
 
 const ENTRY_COMPONENTS = [
   // put only entry components that use custom decorator
@@ -99,7 +102,9 @@ const DECLARATIONS = [
   SubmissionFormSectionAddComponent,
   SubmissionFormCollectionComponent,
   SubmissionFormComponent,
+  ThemedSubmissionFormComponent,
   SubmissionFormFooterComponent,
+  ThemedSubmissionFormFooterComponent,
   SubmissionSubmitComponent,
   ThemedSubmissionSubmitComponent,
   SubmissionUploadFilesComponent,
@@ -123,7 +128,8 @@ const DECLARATIONS = [
   ThemedSubmissionSectionUploadAccessConditionsComponent,
   ThemedSubmissionSectionUploadComponent,
   SubmissionSectionUploadFileLicenseTypeComponent,
-  DuplicateMatchComponent
+  DuplicateMatchComponent,
+  ThemedSubmissionSectionContainerComponent
 ];
 
 @NgModule({

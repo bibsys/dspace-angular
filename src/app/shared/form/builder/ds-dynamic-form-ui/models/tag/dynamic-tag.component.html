@@ -3,7 +3,7 @@
 </ng-template>
 
 
-  <ds-chips [chips]="chips"
+  <ds-themed-chips [chips]="chips"
             [editable]="!model.readOnly"
             [showIcons]="model.hasAuthority"
             [wrapperClass]="'border-bottom border-light'">
@@ -48,5 +48,5 @@
            (keyup)="onKeyUp($event)"
            #instance="ngbTypeahead"/>
     </div>
-  </ds-chips>
+  </ds-themed-chips>
 
