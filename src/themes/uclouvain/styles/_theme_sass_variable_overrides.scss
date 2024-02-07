@@ -17,11 +17,12 @@ $border-radius-sm: 1px;
 
 /* Reassign color vars to semantic color scheme */
 $blue: #2A4494 !default;
-$green: #92C642 !default;
+$green: #6fcf1b !default;
 $cyan: #2A4494 !default;
-$yellow: #ec9433 !default;
+$yellow: #e99b48 !default;
 $red: #CF4444 !default;
 $dark: #171A21 !default;
+$light-dark: #2b2f37 !default;
 $purple: #52489C !default;
 
 $gray-800: #343a40 !default;
@@ -38,7 +39,7 @@ $yiq-contrasted-threshold:  170 !default;
 
 $theme-colors: (
         primary: $blue,
-        secondary: $dark,
+        secondary: $light-dark,
         success: $green,
         info: $cyan,
         warning: $yellow,
