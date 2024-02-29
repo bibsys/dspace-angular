@@ -57,6 +57,8 @@ import { DsYearPickerComponent } from './models/year-picker/year-picker.componen
 import { DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER } from './models/year-picker/year-picker.model';
 import { DYNAMIC_FROM_CONTROL_TYPE_HIDDEN } from './models/hidden/dynamic-hidden.model';
 import { DsDynamicHiddenComponent } from './models/hidden/dynamic-hidden.component';
+import { DYNAMIC_FROM_CONTROL_TYPE_EMPTY_SELECT } from './models/empty-select/dynamic-empty-select.model';
+import { DsDynamicEmptySelectComponent } from './models/empty-select/dynamic-empty-select.component';
 
 export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<DynamicFormControl> | null {
   const datepickerModel = model as DynamicDatePickerModel;
@@ -95,6 +97,9 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FROM_CONTROL_TYPE_HIDDEN:
       return DsDynamicHiddenComponent;
+
+    case DYNAMIC_FROM_CONTROL_TYPE_EMPTY_SELECT:
+      return DsDynamicEmptySelectComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_TEXTAREA:
       return DynamicNGBootstrapTextAreaComponent;
