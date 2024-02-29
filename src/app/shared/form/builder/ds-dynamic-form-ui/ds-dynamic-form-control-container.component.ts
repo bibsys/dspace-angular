@@ -126,6 +126,7 @@ import { DynamicConcatModel } from './models/ds-dynamic-concat.model';
 import { Metadata } from '../../../../core/shared/metadata.utils';
 import { DynamicLinkModel } from './models/ds-dynamic-link.model';
 import { DsYearPickerComponent } from './models/year-picker/year-picker.component';
+import { DsDynamicEmptySelectComponent } from './models/empty-select/dynamic-empty-select.component';
 import { CustomCheckboxComponent } from './models/checkbox/checkbox.component';
 import { DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX } from './models/checkbox/checkbox.model';
 
@@ -160,6 +161,9 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FORM_CONTROL_TYPE_SELECT:
       return DynamicNGBootstrapSelectComponent;
+
+    case DYNAMIC_FROM_CONTROL_TYPE_EMPTY_SELECT:
+      return DsDynamicEmptySelectComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_TEXTAREA:
       return DynamicNGBootstrapTextAreaComponent;
