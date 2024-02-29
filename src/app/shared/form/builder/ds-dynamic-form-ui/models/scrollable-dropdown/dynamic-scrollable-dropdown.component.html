@@ -33,7 +33,7 @@
        [attr.aria-label]="model.placeholder">
 
     <div>
-      <input *ngIf="!disableSearch" class="form-control scrollable-dropdown-search-input" type="text"
+      <input class="form-control scrollable-dropdown-search-input" type="text"
                     [placeholder]="'form.scrollable-input.search' | translate"
                     (input)="filter($event?.target?.value)">
     </div>
