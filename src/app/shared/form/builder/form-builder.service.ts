@@ -30,7 +30,7 @@ import isString from 'lodash/isString';
 import mergeWith from 'lodash/mergeWith';
 import {
   BehaviorSubject,
-  Observable, Subject,
+  Observable,
 } from 'rxjs';
 import {
   distinctUntilChanged,
@@ -92,8 +92,6 @@ export class FormBuilderService extends DynamicFormService {
    * This is the field to use for type binding
    */
   private typeField: string;
-
-  public dynamicFieldUpdate: Subject<any> = new Subject();
 
   constructor(
     componentService: DynamicFormComponentService,
