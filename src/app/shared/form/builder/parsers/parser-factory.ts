@@ -25,6 +25,7 @@ import { DisabledFieldParser } from './disabled-field-parser';
 import { LinkFieldParser } from './link-field-parser';
 import { YearFieldParser } from './year-field-parser';
 import { CheckboxFieldParser } from './custom-checkbox-field.parser';
+import { EmptySelectFieldParser } from './empty-select-field-parser';
 
 const fieldParserDeps = [
   SUBMISSION_ID,
@@ -143,6 +144,13 @@ export class ParserFactory {
         return {
             provide: FieldParser,
             useClass: YearFieldParser,
+            deps: [...fieldParserDeps]
+        };
+      }
+      case ParserType.EmptySelect: {
+        return {
+            provide: FieldParser,
+            useClass: EmptySelectFieldParser,
             deps: [...fieldParserDeps]
         };
       }
