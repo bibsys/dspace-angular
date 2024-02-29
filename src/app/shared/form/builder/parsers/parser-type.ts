@@ -14,5 +14,6 @@ export enum ParserType {
   Textarea = 'textarea',
   Number = 'number',
   Calendar = 'calendar',
-  Year = 'year'
+  Year = 'year',
+  EmptySelect = 'empty_select'
 }
