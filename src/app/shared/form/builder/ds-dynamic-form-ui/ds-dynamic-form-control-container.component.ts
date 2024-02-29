@@ -158,6 +158,8 @@ import { CustomCheckboxComponent } from './models/checkbox/checkbox.component';
 import { DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX } from './models/checkbox/checkbox.model';
 import { DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER } from './models/year-picker/year-picker.model';
 import { DsYearPickerComponent } from './models/year-picker/year-picker.component';
+import { DYNAMIC_FROM_CONTROL_TYPE_EMPTY_SELECT } from './models/empty-select/dynamic-empty-select.model';
+import { DsDynamicEmptySelectComponent } from './models/empty-select/dynamic-empty-select.component';
 
 export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<DynamicFormControl> | null {
   switch (model.type) {
@@ -188,6 +190,9 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FORM_CONTROL_TYPE_SELECT:
       return DynamicNGBootstrapSelectComponent;
+
+    case DYNAMIC_FROM_CONTROL_TYPE_EMPTY_SELECT:
+      return DsDynamicEmptySelectComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_TEXTAREA:
       return DynamicNGBootstrapTextAreaComponent;
