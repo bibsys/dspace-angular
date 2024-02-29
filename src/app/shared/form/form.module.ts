@@ -61,6 +61,9 @@ import { CustomCheckboxComponent } from './builder/ds-dynamic-form-ui/models/che
 import { FormDynamicUpdateService } from './dynamic-fields/form.dynamic-update.service';
 import { FormDynamicUpdateRequestService } from './dynamic-fields/form.dynamic-update-request.service';
 import { DsYearPickerComponent } from './builder/ds-dynamic-form-ui/models/year-picker/year-picker.component';
+import {
+  DsDynamicEmptySelectComponent
+} from './builder/ds-dynamic-form-ui/models/empty-select/dynamic-empty-select.component';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -83,6 +86,7 @@ const COMPONENTS = [
   DsDynamicRelationGroupComponent,
   DsDatePickerComponent,
   DsYearPickerComponent,
+  DsDynamicEmptySelectComponent,
   DsDynamicFormGroupComponent,
   DsDynamicFormArrayComponent,
   DsDatePickerInlineComponent,
