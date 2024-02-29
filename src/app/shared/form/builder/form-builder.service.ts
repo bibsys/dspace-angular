@@ -46,7 +46,6 @@ import { CONCAT_GROUP_SUFFIX, DynamicConcatModel } from './ds-dynamic-form-ui/mo
 import { VIRTUAL_METADATA_PREFIX } from '../../../core/shared/metadata.models';
 import { ConfigurationDataService } from '../../../core/data/configuration-data.service';
 import { getFirstCompletedRemoteData } from '../../../core/shared/operators';
-import { Subject } from 'rxjs';
 import { FormDynamicUpdateService } from '../dynamic-fields/form.dynamic-update.service';
 
 @Injectable()
@@ -69,7 +68,6 @@ export class FormBuilderService extends DynamicFormService {
    */
   private typeField: string;
 
-  public dynamicFieldUpdate: Subject<any> = new Subject();
 
   constructor(
     componentService: DynamicFormComponentService,

@@ -193,8 +193,8 @@ export abstract class DsDynamicVocabularyComponent extends DynamicFormControlCom
    */
   dispatchUpdate(updateValue: any) {
     this.model.value = updateValue;
-    this.updateOtherInformation(updateValue);
     this.change.emit(updateValue);
+    this.updateOtherInformation(updateValue);
   }
 
   /**
@@ -273,12 +273,7 @@ export abstract class DsDynamicVocabularyComponent extends DynamicFormControlCom
   getOtherInformationValue(value: string): FormFieldMetadataValueObject {
     // Allow using undefined values to empty a field
     if (isUndefined(value)) {
-      return new FormFieldMetadataValueObject(
-        '',
-        null,
-        null,
-        ''
-      );
+      return undefined;
     }
 
     let returnValue;

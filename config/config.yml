@@ -35,7 +35,7 @@ submission:
     # * (Config example below)
 
     # The field that will trigger an API call
-    - triggeringField: 'dc.contributor.author'
+    - triggeringField: 'authors.identifier.fgs'
       # The DSpace endpoint to contact (GET Request)
       endpoint: '/api/uclouvain/osis/students/info/degree'
       # Params to send with the request, len(keys) should be = to len(values)
