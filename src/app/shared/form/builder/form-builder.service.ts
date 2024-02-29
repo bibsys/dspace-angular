@@ -101,8 +101,6 @@ export class FormBuilderService extends DynamicFormService {
   // Subject to notify of typeBindModels config update.
   private typeBindFieldsChange$ = new Subject<void>();
 
-  public dynamicFieldUpdate: Subject<any> = new Subject();
-
   constructor(
     componentService: DynamicFormComponentService,
     validationService: DynamicFormValidationService,
