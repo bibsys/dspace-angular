@@ -5,9 +5,18 @@
           <div class="d-flex flex-grow align-items-center">
             <h3 class="m-0 text-primary">{{fileName}} <span class="text-muted">({{fileData?.sizeBytes | dsFileSize}})</span></h3>
             <ng-container *ngIf="fileData.accessConditions && fileData.accessConditions.length">
-              <i *ngIf="fileData.accessConditions[0].name == 'restricted'" class="ml-2 fa fa-lock text-danger"></i>
-              <i *ngIf="fileData.accessConditions[0].name == 'embargo'" class="ml-2 fa fa-lock text-warning"></i>
-              <i *ngIf="fileData.accessConditions[0].name == 'openaccess'" class="ml-2 fa fa-lock-open text-success"></i>
+              <i *ngIf="fileData.accessConditions[0].name == 'UCLouvain networks restriction'" 
+                  class="ml-2 fa fa-lock text-warning"
+                  [attr.aria-label]="'access.condition.value.UCLouvain networks restriction' | translate"
+                  title="{{ 'access.condition.value.UCLouvain networks restriction' | translate }}"></i>
+              <i *ngIf="fileData.accessConditions[0].name == 'embargo'" 
+                  class="ml-2 fa fa-lock text-warning" 
+                  [attr.aria-label]="'access.condition.value.embargo' | translate"
+                  title="{{ 'access.condition.value.embargo' | translate }}"></i>
+              <i *ngIf="fileData.accessConditions[0].name == 'openaccess'"
+                  class="ml-2 fa fa-lock-open text-success"
+                  [attr.aria-label]="'access.condition.value.openaccess' | translate"
+                  title="{{ 'access.condition.value.openaccess' | translate }}"></i>
             </ng-container>
           </div>
           <div *ngIf="!readOnly" class="action-list">

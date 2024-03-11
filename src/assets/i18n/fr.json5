@@ -12252,4 +12252,7 @@
 
   // "home-info.list-advantage-5": "Struggle against plagiarism",
   "home-info.list-advantage-5": "Difficultés face au plagiarisme",
+
+  // "access.condition.value.UCLouvain networks restriction": "Restricted Access"
+  "access.condition.value.UCLouvain networks restriction": "Accès restreint"
 }
