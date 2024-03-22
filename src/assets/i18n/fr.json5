@@ -8628,6 +8628,23 @@
 
 
 
+  // "search.filters.filter.accessType.head": "Access type",
+  "search.filters.filter.accessType.head": "Type d'accès",
+
+  // "search.filters.filter.accessType.placeholder": "Access type",
+  "search.filters.filter.accessType.placeholder": "Type d'accès",
+
+  // "search.filters.filter.accessType.label": "Search access type",
+  "search.filters.filter.accessType.label": "Rechercher un type d'accès",
+
+  //"search.filters.filter.advisor.head": "Promoter",
+  "search.filters.filter.advisor.head": "Promoteur",
+
+  //"search.filters.filter.advisor.placeholder": "Promoter name",
+  "search.filters.filter.advisor.placeholder": "Nom du promoteur",
+
+  //"search.filters.filter.advisor.label": "Search promoter name",
+  "search.filters.filter.advisor.label": "Rechercher un promoteur",
 
   // "search.filters.filter.author.head": "Author",
   "search.filters.filter.author.head": "Auteur",
@@ -8718,6 +8735,15 @@
   // "search.filters.filter.dateSubmitted.label": "Search date submitted",
   "search.filters.filter.dateSubmitted.label": "Recherche d'une date de dépôt",
 
+  "search.filters.filter.degreecode.head": "Degree",
+  "search.filters.filter.degreecode.head": "Code diplôme",
+
+  "search.filters.filter.degreecode.placeholder": "Degree code",
+  "search.filters.filter.degreecode.placeholder": "Code diplôme",
+
+  "search.filters.filter.degreecode.label": "Search degree code",
+  "search.filters.filter.degreecode.label": "Rechercher un code diplôme",
+
   // "search.filters.filter.discoverable.head": "Non-discoverable",
   // TODO Source message changed - Revise the translation
   "search.filters.filter.discoverable.head": "Privé",
@@ -8764,6 +8790,15 @@
   // "search.filters.filter.eqorgunit.placeholder": "Organization",
   // TODO New key - Add a translation
   "search.filters.filter.eqorgunit.placeholder": "Organization",
+
+  //"search.filters.filter.facultyname.head": "Faculty",
+  "search.filters.filter.facultyname.head": "Faculté",
+
+  //"search.filters.filter.facultyname.placeholder": "Faculty name",
+  "search.filters.filter.facultyname.placeholder": "Nom de la faculté",
+
+  //"search.filters.filter.facultyname.label": "Search faculty name",
+  "search.filters.filter.facultyname.label": "Rechercher une faculté",
 
   // "search.filters.filter.funding.head": "Funding",
   // TODO New key - Add a translation
@@ -8911,6 +8946,24 @@
 
   // "search.filters.filter.organizationFoundingDate.label": "Search date founded",
   "search.filters.filter.organizationFoundingDate.label": "Recherche d'une date de fondation",
+
+  //"search.filters.filter.rootdegreelabel.head": "Degree label",
+  "search.filters.filter.rootdegreelabel.head": "Intitulé du diplôme",
+
+  //"search.filters.filter.rootdegreelabel.placeholder": "Degree label",
+  "search.filters.filter.rootdegreelabel.placeholder": "Intitulé du diplôme",
+
+  //"search.filters.filter.rootdegreelabel.label": "Search degree label",
+  "search.filters.filter.rootdegreelabel.label": "Rechercher un diplôme",
+
+  //"search.filters.filter.sessionyear.head": "Session year",
+  "search.filters.filter.sessionyear.head": "Session",
+
+  //"search.filters.filter.sessionyear.placeholder": "Session year",
+  "search.filters.filter.sessionyear.placeholder": "Session",
+
+  //"search.filters.filter.sessionyear.label": "Search session year",
+  "search.filters.filter.sessionyear.label": "Rechercher une session",
 
   // "search.filters.filter.scope.head": "Scope",
   "search.filters.filter.scope.head": "Portée",
