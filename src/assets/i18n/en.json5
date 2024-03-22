@@ -5005,6 +5005,17 @@
 
 
 
+  "search.filters.filter.accessType.head": "Access type",
+
+  "search.filters.filter.accessType.placeholder": "Access type",
+
+  "search.filters.filter.accessType.label": "Search access type",
+
+  "search.filters.filter.advisor.head": "Promoter",
+
+  "search.filters.filter.advisor.placeholder": "Promoter name",
+
+  "search.filters.filter.advisor.label": "Search promoter name",
 
   "search.filters.filter.author.head": "Author",
 
@@ -5064,6 +5075,12 @@
 
   "search.filters.filter.dateSubmitted.label": "Search date submitted",
 
+  "search.filters.filter.degreecode.head": "Degree",
+
+  "search.filters.filter.degreecode.placeholder": "Degree code",
+
+  "search.filters.filter.degreecode.label": "Search degree code",
+
   "search.filters.filter.discoverable.head": "Non-discoverable",
 
   "search.filters.filter.editor.head": "Editor",
@@ -5089,6 +5106,12 @@
   "search.filters.filter.eqorgunit.head": "Organization",
 
   "search.filters.filter.eqorgunit.placeholder": "Organization",
+
+  "search.filters.filter.facultyname.head": "Faculty",
+
+  "search.filters.filter.facultyname.placeholder": "Faculty name",
+
+  "search.filters.filter.facultyname.label": "Search faculty name",
 
   "search.filters.filter.funding.head": "Funding",
 
@@ -5175,6 +5198,18 @@
   "search.filters.filter.organizationFoundingDate.placeholder": "Date Founded",
 
   "search.filters.filter.organizationFoundingDate.label": "Search date founded",
+
+  "search.filters.filter.rootdegreelabel.head": "Degree label",
+
+  "search.filters.filter.rootdegreelabel.placeholder": "Degree label",
+
+  "search.filters.filter.rootdegreelabel.label": "Search degree label",
+
+  "search.filters.filter.sessionyear.head": "Session year",
+
+  "search.filters.filter.sessionyear.placeholder": "Session year",
+
+  "search.filters.filter.sessionyear.label": "Search session year",
 
   "search.filters.filter.scope.head": "Scope",
 
