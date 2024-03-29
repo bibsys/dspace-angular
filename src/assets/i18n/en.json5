@@ -4061,6 +4061,8 @@
 
   "mydspace.show.otherworkspace": "Other Workspace Submissions",
 
+  "mydspace.show.promoter": "Promoter View",
+
   "mydspace.status.mydspaceArchived": "Archived",
 
   "mydspace.status.mydspaceValidation": "Validation",
@@ -6784,6 +6786,8 @@
   "workflow.search.results.head": "Workflow tasks",
 
   "supervision.search.results.head": "Workflow and Workspace tasks",
+
+  "promoter.search.results.head": "Your managed thesis",
 
   "workflow-item.edit.breadcrumbs": "Edit workflowitem",
 
