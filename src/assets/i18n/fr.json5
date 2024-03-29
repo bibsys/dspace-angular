@@ -6998,6 +6998,9 @@
   // TODO New key - Add a translation
   "mydspace.show.otherworkspace": "Other Workspace Submissions",
 
+  // "mydspace.show.promoter": "Promoter View",
+  "mydspace.show.promoter": "Espace promoteur",
+
   // "mydspace.status.mydspaceArchived": "Archived",
   "mydspace.status.mydspaceArchived": "Archivés",
 
@@ -11703,6 +11706,9 @@
 
   // "supervision.search.results.head": "Workflow and Workspace tasks",
   "supervision.search.results.head": "Tableau de suivi et dépôts en cours",
+
+  // "promoter.search.results.head": "Item linked to your account",
+  "promoter.search.results.head": "Vos mémoires gérés",
 
   // "workflow-item.edit.breadcrumbs": "Edit workflowitem",
   "workflow-item.edit.breadcrumbs": "Éditer l'Item du Workflow",
