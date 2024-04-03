@@ -11283,6 +11283,27 @@
   // "submission.workflow.tasks.claimed.approve_help": "If you have reviewed the item and it is suitable for inclusion in the collection, select \"Approve\".",
   "submission.workflow.tasks.claimed.approve_help": "Si vous avez bien révisé cet Item et qu'il peut être ajouté à la collection, sélectionner « Approuver ».",
 
+  // "submission.workflow.tasks.claimed.approve-no-diffusion": "Approve without diffusion",
+  "submission.workflow.tasks.claimed.approve-no-diffusion": "Approuver sans diffusion",
+
+  // "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Approve but all the bitstreams will be in forbidden access."
+  "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Approuve mais tous les fichiers attachés seront placés en accès interdit.",
+
+  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Comment",
+  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Commentaire",
+
+  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.info": "Please enter a comment on why you choose to accept this item without diffusion.",
+  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.info": "Veuillez entrer un commentaire qui explique pourquoi accepter cette soumission sans diffusion.",
+
+  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.placeholder": "Add a comment",
+  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.placeholder": "Ajouter un commentaire",
+
+  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.submit": "Approve without diffusion",
+  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.submit": "Approuver sans diffusion",
+
+  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.default": "Diffusion of this thesis is not authorized by the institution.",
+  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.default": "La diffusion de ce mémoire n'est pas autorisée par l'institution.",
+
   // "submission.workflow.tasks.claimed.edit": "Edit",
   "submission.workflow.tasks.claimed.edit": "Éditer",
 
