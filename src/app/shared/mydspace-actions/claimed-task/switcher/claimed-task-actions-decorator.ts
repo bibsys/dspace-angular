@@ -13,6 +13,7 @@ import {
   ClaimedTaskActionsApproveComponent,
   WORKFLOW_TASK_OPTION_APPROVE,
 } from '../approve/claimed-task-actions-approve.component';
+import { ClaimedTaskActionsApproveNoDiffusionComponent, WORKFLOW_TASK_OPTION_APPROVE_NO_DIFFUSION } from '../approve_no_diffusion/claimed-task-actions-approve-no-diffusion.component';
 import {
   ClaimedTaskActionsDeclineTaskComponent,
   WORKFLOW_TASK_OPTION_DECLINE_TASK,
@@ -34,6 +35,7 @@ import { AdvancedClaimedTaskActionSelectReviewerComponent } from '../select-revi
 
 export type WorkflowTaskOptionComponent =
   typeof ClaimedTaskActionsApproveComponent |
+  typeof ClaimedTaskActionsApproveNoDiffusionComponent |
   typeof ClaimedTaskActionsDeclineTaskComponent |
   typeof ClaimedTaskActionsEditMetadataComponent |
   typeof AdvancedClaimedTaskActionRatingComponent |
@@ -47,6 +49,7 @@ export type AdvancedWorkflowTaskOptionComponent =
 
 export const WORKFLOW_TASK_OPTION_DECORATOR_MAP = new Map<string, WorkflowTaskOptionComponent>([
   [WORKFLOW_TASK_OPTION_APPROVE, ClaimedTaskActionsApproveComponent],
+  [WORKFLOW_TASK_OPTION_APPROVE_NO_DIFFUSION, ClaimedTaskActionsApproveNoDiffusionComponent],
   [WORKFLOW_TASK_OPTION_DECLINE_TASK, ClaimedTaskActionsDeclineTaskComponent],
   [WORKFLOW_TASK_OPTION_EDIT_METADATA, ClaimedTaskActionsEditMetadataComponent],
   [ADVANCED_WORKFLOW_TASK_OPTION_RATING, AdvancedClaimedTaskActionRatingComponent],
