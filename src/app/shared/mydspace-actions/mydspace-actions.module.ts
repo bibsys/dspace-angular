@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared.module';
 import { ClaimedTaskActionsApproveComponent } from './claimed-task/approve/claimed-task-actions-approve.component';
+import { ClaimedTaskActionsApproveNoDiffusionComponent } from './claimed-task/approve_no_diffusion/claimed-task-actions-approve-no-diffusion.component';
 import { ClaimedTaskActionsComponent } from './claimed-task/claimed-task-actions.component';
 import { ClaimedTaskActionsEditMetadataComponent } from './claimed-task/edit-metadata/claimed-task-actions-edit-metadata.component';
 import { ClaimedTaskActionsRejectComponent } from './claimed-task/reject/claimed-task-actions-reject.component';
@@ -22,6 +23,7 @@ import { WorkspaceitemActionsComponent } from './workspaceitem/workspaceitem-act
 
 const ENTRY_COMPONENTS = [
   ClaimedTaskActionsApproveComponent,
+  ClaimedTaskActionsApproveNoDiffusionComponent,
   ClaimedTaskActionsRejectComponent,
   ClaimedTaskActionsReturnToPoolComponent,
   ClaimedTaskActionsEditMetadataComponent,
