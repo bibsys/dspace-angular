@@ -18,4 +18,6 @@ export enum ParserType {
   Year = 'year',
   EmptySelect = 'empty_select',
   Checkbox = 'checkbox',
+  DegreeSelect = 'degree_select',
+  Hidden = 'hidden'
 }
