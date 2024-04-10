@@ -52,6 +52,7 @@ import { VIRTUAL_METADATA_PREFIX } from '../../../core/shared/metadata.models';
 import { ConfigurationDataService } from '../../../core/data/configuration-data.service';
 import { getFirstCompletedRemoteData } from '../../../core/shared/operators';
 import { FormDynamicUpdateService } from '../dynamic-fields/form.dynamic-update.service';
+import { DynamicHiddenModel } from './ds-dynamic-form-ui/models/hidden/dynamic-hidden.model';
 
 @Injectable()
 export class FormBuilderService extends DynamicFormService {
@@ -570,7 +571,7 @@ export class FormBuilderService extends DynamicFormService {
     [...this.formModels.keys()].forEach((formId) => {
       const models = this.formModels.get(formId);
       let fieldModel: any = this.findById(fieldId, models);
-      if (hasValue(fieldModel) && !fieldModel.hidden) {
+      if (hasValue(fieldModel) && (!fieldModel.hidden || fieldModel instanceof DynamicHiddenModel)) {
         const isIterable = (typeof value[Symbol.iterator] === 'function');
         if (isNotEmpty(value)) {
           if (fieldModel.repeatable && isNotEmpty(fieldModel.value) && !(!isIterable && fieldModel instanceof DynamicRelationGroupModel)) {
