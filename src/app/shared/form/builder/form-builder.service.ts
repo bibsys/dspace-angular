@@ -72,6 +72,7 @@ import { DYNAMIC_FORM_CONTROL_TYPE_TAG } from './ds-dynamic-form-ui/models/tag/d
 import { FormFieldMetadataValueObject } from './models/form-field-metadata-value.model';
 import { RowParser } from './parsers/row-parser';
 import { FormDynamicUpdateService } from '../dynamic-fields/form.dynamic-update.service';
+import { DynamicHiddenModel } from './ds-dynamic-form-ui/models/hidden/dynamic-hidden.model';
 
 @Injectable()
 export class FormBuilderService extends DynamicFormService {
@@ -594,7 +595,7 @@ export class FormBuilderService extends DynamicFormService {
     [...this.formModels.keys()].forEach((formId) => {
       const models = this.formModels.get(formId);
       let fieldModel: any = this.findById(fieldId, models);
-      if (hasValue(fieldModel) && !fieldModel.hidden) {
+      if (hasValue(fieldModel) && (!fieldModel.hidden || fieldModel instanceof DynamicHiddenModel)) {
         const isIterable = (typeof value[Symbol.iterator] === 'function');
         if (isNotEmpty(value)) {
           if (fieldModel.repeatable && isNotEmpty(fieldModel.value) && !(!isIterable && fieldModel instanceof DynamicRelationGroupModel)) {
