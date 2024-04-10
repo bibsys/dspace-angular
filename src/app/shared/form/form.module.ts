@@ -48,6 +48,8 @@ import { DsDynamicRelationInlineGroupComponent } from './builder/ds-dynamic-form
 import { FormDynamicUpdateService } from './dynamic-fields/form.dynamic-update.service';
 import { FormDynamicUpdateRequestService } from './dynamic-fields/form.dynamic-update-request.service';
 import { DsDynamicEmptySelectComponent } from './builder/ds-dynamic-form-ui/models/empty-select/dynamic-empty-select.component';
+import { DsDynamicHiddenComponent } from './builder/ds-dynamic-form-ui/models/hidden/dynamic-hidden.component';
+import { DsDynamicDegreeSelectComponent } from './builder/ds-dynamic-form-ui/models/degree-select/dynamic-degree-select.component';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -70,9 +72,11 @@ const COMPONENTS = [
   DsDynamicRelationGroupComponent,
   DsDatePickerComponent,
   DsYearPickerComponent,
+  DsDynamicDegreeSelectComponent,
   DsDynamicEmptySelectComponent,
   DsDynamicFormGroupComponent,
   DsDynamicFormArrayComponent,
+  DsDynamicHiddenComponent,
   DsDatePickerInlineComponent,
   ExistingMetadataListElementComponent,
   ExistingRelationListElementComponent,
