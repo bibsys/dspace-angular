@@ -67,9 +67,9 @@ import { NG_VALIDATORS } from '@angular/forms';
 import { DsYearPickerComponent } from './builder/ds-dynamic-form-ui/models/year-picker/year-picker.component';
 import { FormDynamicUpdateService } from './dynamic-fields/form.dynamic-update.service';
 import { FormDynamicUpdateRequestService } from './dynamic-fields/form.dynamic-update-request.service';
-import {
-  DsDynamicEmptySelectComponent
-} from './builder/ds-dynamic-form-ui/models/empty-select/dynamic-empty-select.component';
+import { DsDynamicEmptySelectComponent } from './builder/ds-dynamic-form-ui/models/empty-select/dynamic-empty-select.component';
+import { DsDynamicDegreeSelectComponent } from './builder/ds-dynamic-form-ui/models/degree-select/dynamic-degree-select.component';
+import { DsDynamicHiddenComponent } from './builder/ds-dynamic-form-ui/models/hidden/dynamic-hidden.component';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -93,9 +93,11 @@ const COMPONENTS = [
   DsDynamicRelationGroupComponent,
   DsDatePickerComponent,
   DsYearPickerComponent,
+  DsDynamicDegreeSelectComponent,
   DsDynamicEmptySelectComponent,
   DsDynamicFormGroupComponent,
   DsDynamicFormArrayComponent,
+  DsDynamicHiddenComponent,
   DsDatePickerInlineComponent,
   ExistingMetadataListElementComponent,
   ExistingRelationListElementComponent,
