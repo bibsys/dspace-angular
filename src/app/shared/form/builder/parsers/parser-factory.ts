@@ -27,6 +27,8 @@ import { TagFieldParser } from './tag-field-parser';
 import { TextareaFieldParser } from './textarea-field-parser';
 import { YearFieldParser } from './year-field-parser';
 import { EmptySelectFieldParser } from './empty-select-field-parser';
+import { HiddenFieldParser } from './hidden-field-parser';
+import { DegreeSelectFieldParser } from './degree-select-field-parser';
 
 const fieldParserDeps = [
   SUBMISSION_ID,
@@ -153,6 +155,20 @@ export class ParserFactory {
         return {
           provide: FieldParser,
           useClass: EmptySelectFieldParser,
+          deps: [...fieldParserDeps]
+        };
+      }
+      case ParserType.DegreeSelect: {
+        return {
+          provide: FieldParser,
+          useClass: DegreeSelectFieldParser,
+          deps: [...fieldParserDeps]
+        };
+      }
+      case ParserType.Hidden: {
+        return {
+          provide: FieldParser,
+          useClass: HiddenFieldParser,
           deps: [...fieldParserDeps]
         };
       }
