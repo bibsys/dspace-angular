@@ -16,5 +16,7 @@ export enum ParserType {
   Calendar = 'calendar',
   Link = 'link',
   Year = 'year',
-  EmptySelect = 'empty_select'
+  EmptySelect = 'empty_select',
+  DegreeSelect = 'degree_select',
+  Hidden = 'hidden'
 }

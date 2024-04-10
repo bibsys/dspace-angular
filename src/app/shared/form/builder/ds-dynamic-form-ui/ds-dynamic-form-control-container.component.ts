@@ -128,6 +128,11 @@ import { DynamicLinkModel } from './models/ds-dynamic-link.model';
 import { DsYearPickerComponent } from './models/year-picker/year-picker.component';
 import { DYNAMIC_FROM_CONTROL_TYPE_EMPTY_SELECT} from './models/empty-select/dynamic-empty-select.model';
 import { DsDynamicEmptySelectComponent } from './models/empty-select/dynamic-empty-select.component';
+import { DYNAMIC_FROM_CONTROL_TYPE_HIDDEN } from './models/hidden/dynamic-hidden.model';
+import { DsDynamicHiddenComponent } from './models/hidden/dynamic-hidden.component';
+import { DsDynamicDegreeSelectComponent } from './models/degree-select/dynamic-degree-select.component';
+import { DYNAMIC_FROM_CONTROL_TYPE_DEGREE_SELECT } from './models/degree-select/dynamic-degree-select.model';
+
 
 export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<DynamicFormControl> | null {
   switch (model.type) {
@@ -159,6 +164,12 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FROM_CONTROL_TYPE_EMPTY_SELECT:
       return DsDynamicEmptySelectComponent;
+
+    case DYNAMIC_FROM_CONTROL_TYPE_DEGREE_SELECT:
+      return DsDynamicDegreeSelectComponent;
+
+    case DYNAMIC_FROM_CONTROL_TYPE_HIDDEN:
+      return DsDynamicHiddenComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_TEXTAREA:
       return DynamicNGBootstrapTextAreaComponent;
