@@ -3,10 +3,13 @@
         role="combobox"
         [attr.aria-label]="model.label"
         [attr.aria-owns]="'combobox_' + id + '_listbox'">
-        <i *ngIf="!model.readOnly" ngbDropdownToggle class="position-absolute scrollable-dropdown-toggle"
-            aria-hidden="true"></i>
-        <i *ngIf="model.readOnly" class="dropdown-toggle position-absolute toggle-icon"
-          aria-hidden="true"></i>
+        <i *ngIf="!model.readOnly"
+           ngbDropdownToggle
+           class="position-absolute scrollable-dropdown-toggle"
+           aria-hidden="true"></i>
+        <i *ngIf="model.readOnly"
+           class="dropdown-toggle position-absolute toggle-icon"
+           aria-hidden="true"></i>
         <input class="form-control"
             [attr.aria-controls]="'combobox_' + id + '_listbox'"
             [attr.aria-activedescendant]="'combobox_' + id + '_selected'"
@@ -34,12 +37,18 @@
             role="listbox"
             [id]="'combobox_' + id + '_listbox'"
             [attr.aria-label]="model.placeholder">
-            <button class="dropdown-item disabled p-2" *ngIf="optionsList && optionsList.length == 0">{{'form.no-results' | translate}}</button>
-            <button class="dropdown-item collection-item text-truncate p-2" *ngFor="let listEntry of optionsList"
-                    (keydown.enter)="onSelect(listEntry); sdRef.close()" (mousedown)="onSelect(listEntry); sdRef.close()"
-                    title="{{ listEntry.display }}" role="option"
+            <button *ngIf="optionsList && optionsList.length == 0"
+                    class="dropdown-item disabled p-2">
+                {{ 'form.no-results' | translate }}
+            </button>
+            <button *ngFor="let listEntry of optionsList"
+                    class="dropdown-item collection-item text-truncate p-2"
+                    title="{{ listEntry.display }}"
+                    role="option"
+                    (keydown.enter)="onSelect(listEntry); sdRef.close()"
+                    (mousedown)="onSelect(listEntry); sdRef.close()"
                     [attr.id]="listEntry.display == (currentValue|async) ? ('combobox_' + id + '_selected') : null">
-                {{inputFormatter(listEntry)}}
+                {{ inputFormatter(listEntry) }}
             </button>
         </div>
     </div>
