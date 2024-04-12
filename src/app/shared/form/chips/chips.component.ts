@@ -181,4 +181,19 @@ export class ChipsComponent implements OnChanges {
     return text;
   }
 
+  /**
+   * Analyzes a chip to extract some additional information to display
+   * @param chip  the chip to analyze.
+   */
+  additionalContent(chip: ChipsItem): string {
+    // TODO :: try to find a way to be more generic or configurable
+    // For master-thesis publication, try to display the degree code related to an author.
+    let checkedFieldNames = ['dc.contributor.author', 'masterthesis.degree.code']
+    if (checkedFieldNames.every(v => chip.item.hasOwnProperty(v) && isNotEmpty(chip.item[v]))) {
+      return chip.item['masterthesis.degree.code'];
+    }
+
+    return null;
+  }
+
 }
