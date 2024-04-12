@@ -11,7 +11,7 @@
       <i class="fa fa-solid fa-circle-question pr-1 text-info"></i>
     </a>
     <label *ngIf="model.label" class="mb-1" [for]="id" [innerHTML]="model.label | translate"></label>
-    <span *ngIf="model.required" class="pl-1 text-danger font-weight-bold">*</span>
+    <small *ngIf="!model.required" class="ml-2 text-secondary font-italic">({{ 'optional' | translate }})</small>
   </div>
   <div class="d-flex">
     <div class="flex-grow-1">
