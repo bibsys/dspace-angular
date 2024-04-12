@@ -24,7 +24,7 @@
            [class.disabled]="!clickable || (editable && c.editMode) || dragged == i  "
            [class.chip-selected]="(editable && c.editMode) || dragged == i"
            (click)="chipsSelected($event, i);">
-          <span>
+          <span class="chip-content">
             <i *ngIf="showIcons && !c.isNestedItem()" dsAuthorityConfidenceState [authorityValue]="c.item" class="far fa-circle" aria-hidden="true">&nbsp;</i>
             <ng-container *ngIf="showIcons && c.hasVisibleIcons()">
               <span *ngFor="let icon of c.icons; let l = last" class="chip-stacked-icons">
@@ -55,8 +55,11 @@
               </span>
 
             </ng-container>
-           <p class="d-table-cell">{{textTruncate(c.display)}}</p>
-            <i *ngIf="editable" class="fas fa-times ml-2"
+            <p>
+                {{ textTruncate(c.display) }}
+                <small *ngIf="additionalContent(c) as info" class="additional-info">{{ info }}</small>
+            </p>
+            <i *ngIf="editable" class="fas fa-times ml-3"
                (click)="removeChips($event, i)"
                [title]="'chips.remove' | translate"></i>
           </span>
