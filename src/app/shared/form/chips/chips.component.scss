@@ -1,3 +1,20 @@
+.chip-content {
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0;
+
+    small.additional-info {
+      display: block;
+      text-align: right;
+      font-size: 0.7rem;
+      font-style: italic;
+      color: $gray-500;
+    }
+  }
+}
+
 .chip-selected {
   background-color: var(--bs-secondary) !important;
 }
