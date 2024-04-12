@@ -7,8 +7,10 @@
   <label *ngIf="!isCheckbox && hasLabel"
          [id]="'label_' + model.id"
          [for]="id"
-         [innerHTML]="(model.required && model.label) ? (model.label | translate) + ' *' : (model.label | translate)"
-         [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]"></label>
+         [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]">
+      {{ model.label | translate }}
+      <small *ngIf="!model.required" class="text-secondary ml-2 font-italic">({{ 'optional' | translate }})</small>
+  </label>
   <div class="d-flex">
     <div class="flex-grow-1">
       <ng-container *ngTemplateOutlet="startTemplate?.templateRef; context: { $implicit: model };"></ng-container>
