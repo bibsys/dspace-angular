@@ -1,0 +1,11 @@
+:host {
+  .file-panel {
+    background-color: var(--bs-light);
+    transition: background-color .5s ease;
+
+    &:hover {
+      transition: background-color .75s ease;
+      background-color: var(--bs-gray-200);
+    }
+  }
+}
