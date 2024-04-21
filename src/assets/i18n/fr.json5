@@ -14056,6 +14056,17 @@
   // "home-info.list-advantage-5": "Struggle against plagiarism",
   "home-info.list-advantage-5": "Lutte contre le plagiat",
 
+  //"access.condition.value.openaccess": "Open Access",
+  "access.condition.value.openaccess": "Open Access",
+  //"access.condition.value.embargo": "Embargo",
+  "access.condition.value.embargo": "Accès embargo depuis",
+  //"access.condition.value.administrator": "Administrator Only",
+  "access.condition.value.administrator": "Accès interdit",
+  //"access.condition.value.lease": "Accès embargo",
+  "access.condition.value.lease": "Accès embargo jusque",
+  //"access.condition.value.UCLouvain networks restriction": "Restricted Access",
+  "access.condition.value.UCLouvain networks restriction": "Accès restreint UCLouvain"
+
   "admin.item.comment.edit.content.label": "Contenu",
   "admin.item.comment.edit.content.hint": "Entrez le contenu du commentaire dans ce champ"
 
