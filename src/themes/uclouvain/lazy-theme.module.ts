@@ -25,6 +25,8 @@ import { RootModule } from '../../app/root.module';
 import { AdminSidebarComponent } from './app/admin/admin-sidebar/admin-sidebar.component';
 import { DefaultBrowseElementsComponent } from './app/browse-most-elements/default-browse-elements/default-browse-elements.component';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { SubmissionSectionUploadFileComponent } from './app/submission/sections/upload/file/section-upload-file.component';
+import { SubmissionSectionUploadFileLicenseComponent } from './app/submission/sections/upload/file/license/section-upload-file-license.component';
 
 const DECLARATIONS = [
   HomePageComponent,
@@ -38,7 +40,9 @@ const DECLARATIONS = [
   DefaultBrowseElementsComponent,
   ItemListPreviewComponent,
   LoginPageComponent,
-  AdminSidebarComponent
+  AdminSidebarComponent,
+  SubmissionSectionUploadFileComponent,
+  SubmissionSectionUploadFileLicenseComponent,
 ];
 
 @NgModule({
