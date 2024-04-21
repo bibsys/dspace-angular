@@ -6536,6 +6536,8 @@
 
   "access.condition.value.lease": "Lease",
 
+  "access.condition.value.UCLouvain networks restriction": "Restricted Access",
+
   "submission.sections.license.granted-label": "I confirm the license above",
 
   "submission.sections.license.required": "You must accept the license",

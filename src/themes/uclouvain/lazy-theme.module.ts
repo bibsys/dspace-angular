@@ -67,6 +67,10 @@ import { ExploreModule } from '../../app/shared/explore/explore.module';
 import { FooterModule } from '../../app/footer/footer.module';
 import { ContextMenuModule } from '../../app/shared/context-menu/context-menu.module';
 import { SocialModule } from '../../app/social/social.module';
+import { SubmissionSectionUploadFileComponent } from './app/submission/sections/upload/file/section-upload-file.component';
+import {
+  SubmissionSectionUploadFileLicenseComponent
+} from './app/submission/sections/upload/file/license/section-upload-file-license.component';
 
 const DECLARATIONS = [
   AdminSidebarComponent,
@@ -80,7 +84,9 @@ const DECLARATIONS = [
   BadgesComponent,
   BrowseMostElementsComponent,
   ItemListPreviewComponent,
-  LoginPageComponent
+  LoginPageComponent,
+  SubmissionSectionUploadFileComponent,
+  SubmissionSectionUploadFileLicenseComponent
 ];
 
 @NgModule({
