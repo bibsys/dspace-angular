@@ -1,0 +1,86 @@
+<div class="file-panel container-fluid border rounded shadow-sm mb-2 p-2">
+    <div class="row">
+        <div class="col d-flex">
+            <img [src]="getFileIcon()" [alt]="fileName" style="max-height:100px"/>
+            <div class="ml-2 d-flex flex-column">
+                <h4>{{ fileName }}</h4>
+                <div class="ml-4 flex-grow-1">
+                    <ng-container *ngTemplateOutlet="accessConditions"></ng-container>
+                    <p *ngIf="metadata[fileDescriptionKey] && isNotEmpty(metadata[fileDescriptionKey])"
+                       [innerHTML]="metadata[fileDescriptionKey]"
+                       class="m-0 small py-1 text-justify"></p>
+                    <ds-submission-upload-section-license
+                       *ngIf="isNotEmpty(metadata[fileLicenceKey])"
+                       [licenseUri]="metadata[fileLicenceKey][0].toString()"
+                       [height]="20"
+                    ></ds-submission-upload-section-license>
+                    <div class="text-muted font-italic small">({{ fileData?.sizeBytes | dsFileSize }})</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 text-right">
+            <ng-container *ngIf="!readOnly">
+                <ng-container *ngTemplateOutlet="action_buttons"></ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template #accessConditions>
+    <div *ngIf="fileData.accessConditions" class="access-conditions d-flex align-items-center">
+        <ng-container *ngFor="let access of fileData.accessConditions; let last=last">
+            <span class="badge px-2 py-1" [ngClass]="getAccessConditionBadgeColor(access)">
+                <i class="fa mr-1" [ngClass]="getAccessConditionIcon(access)"></i>
+                {{ 'access.condition.value.' + access.name | translate }}
+                <ng-container *ngIf="isNotEmpty(access.startDate)"> {{ 'from' | translate }} {{access.startDate}}</ng-container>
+                <ng-container *ngIf="isNotEmpty(access.endDate)"> {{ 'until' | translate }} {{access.endDate}}</ng-container>
+            </span>
+            <i *ngIf="!last" class="fa fa-arrow-circle-right text-dark mx-2" aria-hidden="true"></i>
+
+        </ng-container>
+    </div>
+</ng-template>
+
+<ng-template #action_buttons>
+    <ds-themed-file-download-link
+            [cssClasses]="'btn btn-success mr-1'"
+            [isBlank]="true"
+            [bitstream]="getBitstream()"
+            [enableRequestACopy]="false">
+        <i class="fa fa-download" aria-hidden="true"></i>
+    </ds-themed-file-download-link>
+    <button class="btn btn-primary mr-1"
+            [attr.aria-label]="'submission.sections.upload.edit.title' | translate"
+            title="{{ 'submission.sections.upload.edit.title' | translate }}"
+            (click)="$event.preventDefault();editBitstreamData();">
+        <i class="fa fa-edit text-normal"></i>
+    </button>
+    <button class="btn btn-danger"
+            [attr.aria-label]="'submission.sections.upload.delete.confirm.title' | translate"
+            title="{{ 'submission.sections.upload.delete.confirm.title' | translate }}"
+            [disabled]="(processingDelete$ | async)"
+            (click)="$event.preventDefault(); confirmDelete(content);">
+        <i *ngIf="(processingDelete$ | async)" class="fas fa-circle-notch fa-spin"></i>
+        <i *ngIf="!(processingDelete$ | async)" class="fa fa-trash"></i>
+    </button>
+</ng-template>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title text-danger">{{ 'submission.sections.upload.delete.confirm.title' | translate }}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('cancel')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>{{ 'submission.sections.upload.delete.confirm.info' | translate }}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="c('cancel')">
+            {{ 'submission.sections.upload.delete.confirm.cancel' | translate }}
+        </button>
+        <button type="button" class="btn btn-danger" (click)="c('ok')">
+            {{ 'submission.sections.upload.delete.confirm.submit' | translate }}
+        </button>
+    </div>
+</ng-template>
