@@ -11,13 +11,16 @@
     </button>
   </div>
   <div class="col text-right d-flex justify-content-end align-items-center">
-    <span *ngIf="!(hasUnsavedModification | async) && !(processingSaveStatus | async) && !(processingDepositStatus | async) && (submissionIsInvalid | async)">
+    <span *ngIf="!(hasUnsavedModification | async) && !(processingSaveStatus | async) && !(processingDepositStatus | async) && (submissionIsInvalid | async)"
+          class="text-warning">
       <i class="fas fa-warning"></i> {{'submission.general.info.invalid' | translate}}
     </span>
-    <span *ngIf="!(hasUnsavedModification | async) && !(processingSaveStatus | async) && !(processingDepositStatus | async) && !(submissionIsInvalid | async)">
+    <span *ngIf="!(hasUnsavedModification | async) && !(processingSaveStatus | async) && !(processingDepositStatus | async) && !(submissionIsInvalid | async)"
+          class="text-success">
       <i class="fas fa-check-circle"></i> {{'submission.general.info.saved' | translate}}
     </span>
-    <span *ngIf="(hasUnsavedModification | async) && !(processingSaveStatus | async) && !(processingDepositStatus | async)">
+    <span *ngIf="(hasUnsavedModification | async) && !(processingSaveStatus | async) && !(processingDepositStatus | async)"
+          class="text-warning">
       <i class="fas fa-exclamation-circle"></i> {{'submission.general.info.pending-changes' | translate}}
     </span>
     <div *ngIf="(processingSaveStatus | async) || (processingDepositStatus | async)" class="col d-flex justify-content-end align-items-center">
