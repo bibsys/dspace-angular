@@ -35,6 +35,7 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
   @Input() bindId = true;
   @Input() group: UntypedFormGroup;
   @Input() model: DynamicScrollableDropdownModel;
+  @Input() searchInputLimit: number = 10;  //options size limit beyond which the search input will be visible
 
   @Output() blur: EventEmitter<any> = new EventEmitter<any>();
   @Output() change: EventEmitter<any> = new EventEmitter<any>();
@@ -45,6 +46,7 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
   public loading = false;
   public pageInfo: PageInfo;
   public optionsList: VocabularyEntry[] = [];
+
 
 
   /**
