@@ -113,6 +113,7 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
   public acceptableKeys = ['Space', 'NumpadMultiply', 'NumpadAdd', 'NumpadSubtract', 'NumpadDecimal', 'Semicolon', 'Equal', 'Comma', 'Minus', 'Period', 'Quote', 'Backquote'];
 
 
+
   /**
    * The text that is being searched
    */
