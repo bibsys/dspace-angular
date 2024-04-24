@@ -33,6 +33,7 @@ import { NotificationsService } from '../../notifications/notifications.service'
 import { VarDirective } from '../../utils/var.directive';
 import { MyDSpaceActionsComponent } from '../mydspace-actions';
 import { ClaimedTaskActionsLoaderComponent } from './switcher/claimed-task-actions-loader.component';
+import { PdfAttestationActionComponent } from '../pdf-attestation-action/pdf-attestation-action.component';
 
 /**
  * This component represents actions related to ClaimedTask object.
@@ -42,7 +43,7 @@ import { ClaimedTaskActionsLoaderComponent } from './switcher/claimed-task-actio
   styleUrls: ['./claimed-task-actions.component.scss'],
   templateUrl: './claimed-task-actions.component.html',
   standalone: true,
-  imports: [VarDirective, NgFor, ClaimedTaskActionsLoaderComponent, NgbTooltipModule, RouterLink, AsyncPipe, TranslateModule],
+  imports: [VarDirective, NgFor, ClaimedTaskActionsLoaderComponent, NgbTooltipModule, RouterLink, AsyncPipe, TranslateModule, PdfAttestationActionComponent],
 })
 export class ClaimedTaskActionsComponent extends MyDSpaceActionsComponent<ClaimedTask, ClaimedTaskDataService> implements OnInit {
 
