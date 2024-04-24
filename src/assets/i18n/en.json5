@@ -575,7 +575,7 @@
   "chips.remove": "Remove chip",
   "chart.load-more": "Load more results",
   "claimed-approved-search-result-list-element.title": "Approved",
-  "claimed-declined-search-result-list-element.title": "Rejected, sent back to submitter",
+  "claimed-declined-search-result-list-element.title": "Rejected, the publication will only be visible by administrators",
   "claimed-declined-task-search-result-list-element.title": "Declined, sent back to Review Manager's workflow",
   "collection.create.head": "Create a Collection",
   "collection.create.notifications.success": "Successfully created the Collection",
