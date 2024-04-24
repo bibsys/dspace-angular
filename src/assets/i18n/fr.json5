@@ -1504,6 +1504,14 @@
   //"claimed-approved-search-result-list-element.title": "Approved",
   "claimed-approved-search-result-list-element.title": "Approuvé",
 
+  // "claimed-declined-search-result-list-element.title": "Rejected, sent back to submitter",
+  // TODO New key - Add a translation
+  "claimed-declined-search-result-list-element.title": "Rejeté, visible uniquement par les administrateurs",
+
+  // "claimed-declined-task-search-result-list-element.title": "Declined, sent back to Review Manager's workflow",
+  // TODO New key - Add a translation
+  "claimed-declined-task-search-result-list-element.title": "Declined, sent back to Review Manager's workflow",
+
   // "collection.create.head": "Create a Collection",
   "collection.create.head": "Créer une collection",
 
