@@ -171,6 +171,8 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
 
       if (this.model.metadataValue) {
         this.setCurrentValue(this.model.metadataValue, true);
+      } else if (this.model?.defaultValue) {
+        this.setCurrentValue(this.model.defaultValue, false);
       }
       this.updatePageInfo(this.model.maxOptions, 1);
       this.loadOptions(null, true);
