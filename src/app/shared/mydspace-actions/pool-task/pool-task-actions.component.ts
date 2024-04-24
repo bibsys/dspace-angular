@@ -37,6 +37,7 @@ import { getWorkflowItemViewRoute } from '../../../workflowitems-edit-page/workf
 import { BtnDisabledDirective } from '../../btn-disabled.directive';
 import { NotificationsService } from '../../notifications/notifications.service';
 import { MyDSpaceReloadableActionsComponent } from '../mydspace-reloadable-actions';
+import { PdfAttestationActionComponent } from '../pdf-attestation-action/pdf-attestation-action.component';
 
 /**
  * This component represents mydspace actions related to PoolTask object.
@@ -46,7 +47,7 @@ import { MyDSpaceReloadableActionsComponent } from '../mydspace-reloadable-actio
   styleUrls: ['./pool-task-actions.component.scss'],
   templateUrl: './pool-task-actions.component.html',
   standalone: true,
-  imports: [NgbTooltipModule, NgIf, RouterLink, AsyncPipe, TranslateModule, BtnDisabledDirective],
+  imports: [NgbTooltipModule, NgIf, RouterLink, AsyncPipe, TranslateModule, BtnDisabledDirective, PdfAttestationActionComponent],
 })
 export class PoolTaskActionsComponent extends MyDSpaceReloadableActionsComponent<PoolTask, PoolTaskDataService> implements OnDestroy {
 
