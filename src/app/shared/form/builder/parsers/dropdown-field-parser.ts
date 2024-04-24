@@ -11,7 +11,7 @@ import {
 import { DynamicFormControlLayout, } from '@ng-dynamic-forms/core';
 import {
   DynamicScrollableDropdownModel,
-  DynamicScrollableDropdownModelConfig
+  DynamicScrollableDropdownModelConfig, DynamicScrollableDropdownSessionModel
 } from '../ds-dynamic-form-ui/models/scrollable-dropdown/dynamic-scrollable-dropdown.model';
 import { isNotEmpty } from '../../../empty.util';
 import { FormFieldMetadataValueObject } from '../models/form-field-metadata-value.model';
@@ -44,7 +44,11 @@ export class DropdownFieldParser extends FieldParser {
           host: 'col'
         }
       };
-      const dropdownModel = new DynamicScrollableDropdownModel(dropdownModelConfig, layout);
+      //TODO :: Try to find a better way for 'masterthesis.session' config.
+      //        Checking backend remote config ?
+      const dropdownModel = (dropdownModelConfig.name === 'masterthesis.session')
+        ? new DynamicScrollableDropdownSessionModel(dropdownModelConfig, layout)
+        : new DynamicScrollableDropdownModel(dropdownModelConfig, layout);
       return dropdownModel;
     } else {
       throw  Error(`Controlled Vocabulary name is not available. Please check the form configuration file.`);

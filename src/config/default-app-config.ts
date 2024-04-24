@@ -143,12 +143,6 @@ export class DefaultAppConfig implements AppConfig {
     validatorMap: {
       required: 'required',
       regex: 'pattern'
-    },
-    fields: {
-      year: {
-        minYearDelta: 100,
-        maxYearDelta: 2
-      }
     }
   };
 
