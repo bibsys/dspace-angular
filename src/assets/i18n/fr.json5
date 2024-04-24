@@ -1797,7 +1797,7 @@
 
   // "claimed-declined-search-result-list-element.title": "Rejected, sent back to submitter",
   // TODO New key - Add a translation
-  "claimed-declined-search-result-list-element.title": "Rejected, sent back to submitter",
+  "claimed-declined-search-result-list-element.title": "Rejeté, visible uniquement par les administrateurs",
 
   // "claimed-declined-task-search-result-list-element.title": "Declined, sent back to Review Manager's workflow",
   // TODO New key - Add a translation
