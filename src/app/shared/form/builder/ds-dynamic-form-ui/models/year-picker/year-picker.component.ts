@@ -27,12 +27,9 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
     @Output() focus = new EventEmitter<any>();
 
     initialYear: number;
-
-    year: number;
     maxYear: number;
-    minYear = 0;
-
-    yearPlaceholder = 'year';
+    minYear: number;
+    yearPlaceholder: string = 'year';
 
     constructor(protected layoutService: DynamicFormLayoutService,
         protected validationService: DynamicFormValidationService,
@@ -41,15 +38,24 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
     }
 
     ngOnInit(): void {
-        const now = new Date();
-        this.initialYear = now.getFullYear();
-        if (this.model && this.model.value !== null && this.isYearValid(this.model.value.toString())) {
-            const value = this.model.value.toString();
-            this.initialYear = parseInt(value, 10);
-            this.year = this.initialYear;
-        }
-        this.maxYear = now.getUTCFullYear() + (environment.form.fields.year.maxYearDelta);
-        this.minYear = now.getUTCFullYear() - (environment.form.fields.year.minYearDelta);
+      const now = new Date();
+      this.initialYear = now.getFullYear();
+      if (this.model.value !== null && this.isYearValid(this.model.value.toString())) {
+        this.initialYear = parseInt(this.model.value.toString(), 10);
+        this.model.value = ''+this.initialYear;
+      } else if (this.model?.defaultValue) {
+        this.initialYear = this.model.defaultValue;
+        this.model.value = ''+this.initialYear;
+      }
+
+      this.maxYear = now.getUTCFullYear() + this.model.maxYearDelta;
+      if (this.initialYear && this.initialYear > this.maxYear) {
+        this.maxYear = this.initialYear;
+      }
+      this.minYear = now.getUTCFullYear() - this.model.minYearDelta;
+      if (this.initialYear && this.initialYear < this.minYear) {
+        this.minYear = this.initialYear;
+      }
     }
 
     onBlur($event: any): void {
@@ -58,7 +64,6 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
 
     onChange(event: any): void {
         if (this.isYearValid(event.value)){
-            this.year = event.value;
             this.model.value = event.value;
             this.change.emit(event.value);
         }

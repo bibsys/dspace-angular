@@ -7,12 +7,4 @@ export interface ValidatorMap {
 export interface FormConfig extends Config {
   spellCheck: boolean;
   validatorMap: ValidatorMap;
-  fields: FormFieldsConfig;
-}
-
-export interface FormFieldsConfig extends Config {
-  year: {
-    minYearDelta: number;
-    maxYearDelta: number;
-  };
 }
