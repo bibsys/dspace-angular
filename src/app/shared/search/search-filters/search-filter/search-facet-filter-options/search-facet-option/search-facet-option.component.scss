@@ -6,6 +6,19 @@ a {
     span.badge {
         vertical-align: text-top;
     }
+
+    label {
+        cursor: pointer;
+        transition: 0.1s ease;
+    }
+
+    small {
+        font-size: var(--ds-facet-font-size);
+    }
+
+    label:hover {
+        color: var(--blue);
+    }
 }
 
 .break-facet {
