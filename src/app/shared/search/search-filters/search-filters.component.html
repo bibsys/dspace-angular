@@ -1,6 +1,6 @@
 <div [class.d-none]="!availableFilters">
-    <h3 *ngIf="inPlaceSearch">{{filterLabel+'.filters.head' | translate}}</h3>
-    <h2 *ngIf="!inPlaceSearch">{{filterLabel+'.filters.head' | translate}}</h2>
+    <!--<h3 *ngIf="inPlaceSearch">{{filterLabel+'.filters.head' | translate}}</h3>
+    <h2 *ngIf="!inPlaceSearch">{{filterLabel+'.filters.head' | translate}}</h2>-->
       <div *ngIf="(filters | async)?.hasSucceeded">
           <div #searchFilter *ngFor="let filter of (filters | async)?.payload; trackBy: trackUpdate">
               <ds-search-filter [filter]="filter" [inPlaceSearch]="inPlaceSearch" [refreshFilters]="refreshFilters" [scope]="currentScope"></ds-search-filter>
