@@ -1,11 +1,11 @@
-<a class="d-flex flex-row"
+<a class="d-flex flex-row align-items-start"
    [tabIndex]="-1"
    [routerLink]="[searchLink]"
    [queryParams]="removeQueryParams" queryParamsHandling="merge">
   <label class="mb-0 d-flex w-100">
     <input type="checkbox" [checked]="true" class="my-1 align-self-stretch filter-checkbox"/>
-    <span class="filter-value pl-1 break-facet">
+    <small class="filter-value pl-2 break-facet">
         {{ 'search.filters.' + filterConfig.name + '.' + selectedValue.value | translate: {default: selectedValue.label} }}
-    </span>
+    </small>
   </label>
 </a>
