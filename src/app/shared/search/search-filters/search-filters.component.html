@@ -1,9 +1,9 @@
 <div [class.d-none]="(availableFilters$ | async) === false">
-  @if (inPlaceSearch) {
+  <!-- @if (inPlaceSearch) {
     <h3>{{filterLabel+'.filters.head' | translate}}</h3>
   } @else {
     <h2>{{filterLabel+'.filters.head' | translate}}</h2>
-  }
+  } -->
 
   @if ((filters | async)?.hasSucceeded) {
     <ng-container [class.visually-hidden]="getFinalFiltersComputed(this.currentConfiguration) !== (filters | async)?.payload?.length">
