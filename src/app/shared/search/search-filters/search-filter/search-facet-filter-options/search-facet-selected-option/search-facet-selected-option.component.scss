@@ -1,10 +1,14 @@
 a {
-    color: var(--bs-body-color);
+    color: var(--info);
     &:hover, &:focus {
         text-decoration: none;
     }
     span.badge {
         vertical-align: text-top;
+    }
+
+    small {
+        font-size: var(--ds-facet-font-size);
     }
 }
 
