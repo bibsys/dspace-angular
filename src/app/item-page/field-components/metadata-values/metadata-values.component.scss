@@ -1,0 +1,6 @@
+.metadata-language {
+  font-style: italic;
+  color: var(--bs-secondary);
+  &:before { content: '['; }
+  &:after { content: ']'; }
+}
