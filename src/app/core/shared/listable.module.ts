@@ -124,6 +124,9 @@ import { TruncatablePartComponent } from '../../shared/truncatable/truncatable-p
 import { ThemedThumbnailComponent } from '../../thumbnail/themed-thumbnail.component';
 import { ThumbnailComponent } from '../../thumbnail/thumbnail.component';
 import { PdfAttestationActionComponent } from 'src/app/shared/mydspace-actions/pdf-attestation-action/pdf-attestation-action.component';
+import { MasterThesisListElementComponent } from 'src/themes/uclouvain/app/entity-groups/master-thesis-entity/item-list-elements/master-thesis-list-element.component';
+import { MasterThesisPageComponent } from 'src/themes/uclouvain/app/entity-groups/master-thesis-entity/item-pages/master-thesis-page.component';
+import { MasterThesisSearchResultListElementComponent } from 'src/themes/uclouvain/app/entity-groups/master-thesis-entity/search-result-list-elements/master-thesis-search-result-list-element.component';
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -210,6 +213,9 @@ const ENTRY_COMPONENTS = [
   RelationshipsListComponent,
   PublicationComponent,
   UntypedItemComponent,
+  MasterThesisListElementComponent,
+  MasterThesisPageComponent,
+  MasterThesisSearchResultListElementComponent,
 ];
 
 @NgModule({
