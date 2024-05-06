@@ -7,6 +7,7 @@ import { HeaderComponent } from './app/header/header.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
 import { FooterComponent } from './app/footer/footer.component';
 import { ItemSearchResultListElementComponent } from './app/shared/object-list/search-result-list-element/item-search-result/item-types/item/item-search-result-list-element.component';
+import { MasterThesisModule } from './app/entity-groups/master-thesis-entity/master-thesis.module';
 
 import { RootModule } from '../../app/root.module';
 import { NavbarModule } from '../../app/navbar/navbar.module';
@@ -42,6 +43,7 @@ const DECLARATIONS = [
     NavbarModule,
     ExploreModule,
     FooterModule,
+    MasterThesisModule,
   ],
   declarations: DECLARATIONS,
   providers: [
