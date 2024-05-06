@@ -1,0 +1,78 @@
+<!-- CONTEXT MENU ========================================================= -->
+<div class="d-flex">
+    <ds-themed-results-back-button *ngIf="showBackButton | async" [back]="back"></ds-themed-results-back-button>
+    <ds-context-menu [contextMenuObject]="object" [contextMenuObjectType]="DspaceObjectType.ITEM" class="ml-auto"></ds-context-menu>
+</div>
+<!-- TITLE ================================================================ -->
+<div class="mt-3 mb-5">
+    <ds-themed-item-page-title-field [item]="object" class="d-flex flex-row"></ds-themed-item-page-title-field>
+    <ds-generic-item-page-field
+        [item]="object"
+        [fields]="['dc.contributor.author', 'dc.creator']"
+        [separator]="' ; '">
+    </ds-generic-item-page-field>
+    <ds-generic-item-page-field [item]="object" [fields]="['dc.date.issued']"></ds-generic-item-page-field>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-4">
+        <ng-container *ngIf="!(mediaViewer.image || mediaViewer.video)">
+          <ds-metadata-field-wrapper [hideIfNoTextContent]="false">
+            <ds-themed-thumbnail [thumbnail]="object?.thumbnail | async"></ds-themed-thumbnail>
+          </ds-metadata-field-wrapper>
+        </ng-container>
+        <div *ngIf="mediaViewer.image || mediaViewer.video" class="mb-2">
+          <ds-themed-media-viewer [item]="object"></ds-themed-media-viewer>
+        </div>
+        <ds-themed-item-page-file-section [item]="object"></ds-themed-item-page-file-section>
+        <ds-themed-metadata-representation-list
+              class="ds-item-page-mixed-author-field"
+              [parentItem]="object"
+              [itemType]="'Person'"
+              [metadataFields]="['dc.contributor.author', 'dc.creator']"
+              [label]="'relationships.isAuthorOf' | translate">
+        </ds-themed-metadata-representation-list>
+        <ds-themed-metadata-representation-list
+              class="ds-item-page-mixed-author-field"
+              [parentItem]="object"
+              [itemType]="'Person'"
+              [metadataFields]="['dc.contributor.advisor']"
+              [label]="'relationships.isPromoterOf' | translate">
+      </ds-themed-metadata-representation-list>
+  </div>
+  <div class="col-xs-12 col-md-8">
+    <ds-item-page-uri-field
+      [item]="object"
+      [fields]="['dc.identifier.uri']"
+      [label]="'item.page.uri'">
+    </ds-item-page-uri-field>
+    <ds-item-page-abstract-field
+        [item]="object"
+        [separator]="'<div class=&quot;my-3&quot;></div>'">
+    </ds-item-page-abstract-field>
+    <ds-tag-item-page-field
+        [item]="object"
+        [fields]="['dc.subject']"
+        [label]="'item.page.subject'">
+    </ds-tag-item-page-field>
+    <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.identifier.citation']"
+      [label]="'item.page.citation'">
+    </ds-generic-item-page-field>
+    <ds-list-item-page-field
+      [item]="object"
+      [fields]="['masterthesis.faculty.name']"
+      [label]="'item.page.faculty-name'">
+    </ds-list-item-page-field>
+    <ds-list-item-page-field
+      [item]="object"
+      [fields]="['masterthesis.degree.label']"
+      [label]="'item.page.degree-label'">
+    </ds-list-item-page-field>
+    <div>
+      <a class="btn btn-outline-primary" [routerLink]="[itemPageRoute + '/full']" role="button">
+        <i class="fas fa-info-circle"></i> {{"item.page.link.full" | translate}}
+      </a>
+    </div>
+  </div>
+</div>
