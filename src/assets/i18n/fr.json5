@@ -5359,6 +5359,12 @@
   // "item.listelement.badge": "Item",
   "item.listelement.badge": "Item",
 
+  // "item.page.faculty-name": "Faculty"
+  "item.page.faculty-name": "Faculté",
+
+  // "item.page.degree-label": "Degree label"
+  "item.page.degree-label": "Intitulé du diplôme",
+
   // "item.page.description": "Description",
   "item.page.description": "Description",
 
@@ -5426,6 +5432,9 @@
 
   // "item.page.author": "Authors",
   "item.page.author": "Auteurs",
+
+  //"item.page.promoter": "Promoters",
+  "item.page.promoter": "Promoteurs",
 
   // "item.page.citation": "Citation",
   "item.page.citation": "Citation",
@@ -7536,7 +7545,7 @@
   "pagination.showing.detail": "{{ range }} sur {{ total }}",
 
   // "pagination.showing.label": "Now showing ",
-  "pagination.showing.label": "Voici les éléments ",
+  "pagination.showing.label": "Résultats ",
 
   // "pagination.sort-direction": "Sort Options",
   "pagination.sort-direction": "Options de tri",
@@ -8243,6 +8252,9 @@
 
   // "relationships.isAuthorOf.OrgUnit": "Authors (organizational units)",
   "relationships.isAuthorOf.OrgUnit": "Collectivités-auteurs",
+
+  //"relationships.isPromoterOf": "Promoters",
+  "relationships.isPromoterOf": "Promoteurs",
 
   // "relationships.isIssueOf": "Journal Issues",
   "relationships.isIssueOf": "Numéros de revue",
