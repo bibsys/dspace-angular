@@ -1,0 +1,63 @@
+<div class="row">
+    <div *ngIf="showThumbnails" class="col-3 col-xl-2 pr-sm-0">
+        <a *ngIf="linkType != linkTypes.None"
+           [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
+           [attr.rel]="(linkType == linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
+           [routerLink]="[itemPageRoute]" class="lead item-list-title dont-break-out">
+            <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="true"></ds-thumbnail>
+        </a>
+        <span *ngIf="linkType == linkTypes.None" class="lead item-list-title dont-break-out">
+            <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="true"></ds-thumbnail>
+        </span>
+    </div>
+    <div [ngClass]="showThumbnails ? 'col-9 col-xl-10' : 'col-md-12'">
+        <ds-themed-badges *ngIf="showLabel" [object]="dso" [context]="context"></ds-themed-badges>
+        <ds-truncatable [id]="dso.id">
+            <!-- TITLE ==================================================== -->
+            <a *ngIf="linkType != linkTypes.None"
+               [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
+               [attr.rel]="(linkType == linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
+               [routerLink]="[itemPageRoute]"
+               [innerHTML]="dsoTitle"
+               class="lead item-list-title dont-break-out"></a>
+            <div *ngIf="linkType == linkTypes.None"
+                 class="lead item-list-title dont-break-out"
+                 [innerHTML]="dsoTitle"></div>
+            <div>
+                <!-- AUTHORS, PROMOTERS =================================== -->
+                <div *ngIf="dso.allMetadataValues(['dc.contributor.author']).length > 0" class="item-list-authors">
+                    <span class="mr-2">{{ 'item.page.author' | translate }}:</span>
+                    <span class="text-muted">
+                        <ng-container *ngFor="let author of dso.allMetadata(['dc.contributor.author']); let i=index; let last=last;">
+                            <ds-metadata-link-view [item]="dso"
+                                                   [metadata]="author"
+                                                   [metadataName]="authorMetadata">
+                            </ds-metadata-link-view>
+                            <span *ngIf="!last"> ; </span>
+                        </ng-container>
+                    </span>
+                </div>
+                <div *ngIf="dso.allMetadataValues(['dc.contributor.advisor']).length > 0" class="item-list-authors">
+                    <span class="mr-2">{{ 'item.page.promoter' | translate }}:</span>
+                    <span class="text-muted">
+                        <ng-container *ngFor="let promoter of dso.allMetadata(['dc.contributor.advisor']); let i=index; let last=last;">
+                            <ds-metadata-link-view [item]="dso"
+                                                   [metadata]="promoter"
+                                                   [metadataName]="authorMetadata">
+                            </ds-metadata-link-view>
+                            <span *ngIf="!last"> ; </span>
+                        </ng-container>
+                    </span>
+                </div>
+                <!-- DATE ================================================= -->
+                <div class="item-list-date-issued mr-2" *ngIf="dsoDate">
+                    ({{ dsoDate }})
+                </div>
+                <!-- FACULTY BADGES ======================================= -->
+                <div>
+                    <ds-master-thesis-faculty-badges [object]="dso"></ds-master-thesis-faculty-badges>
+                </div>
+            </div>
+        </ds-truncatable>
+    </div>
+</div>
