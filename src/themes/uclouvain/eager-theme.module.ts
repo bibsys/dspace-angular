@@ -12,6 +12,7 @@ import { NavbarComponent } from './app/navbar/navbar.component';
 import { FooterComponent } from './app/footer/footer.component';
 import { ItemSearchResultListElementComponent } from './app/shared/object-list/search-result-list-element/item-search-result/item-types/item/item-search-result-list-element.component';
 import { FooterModule } from '../../app/footer/footer.module';
+import { MasterThesisModule } from './app/entity-groups/master-thesis-entity/master-thesis.module';
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
@@ -39,6 +40,7 @@ const DECLARATIONS = [
     NavbarModule,
     ExploreModule,
     FooterModule,
+    MasterThesisModule,
   ],
   declarations: DECLARATIONS,
   providers: [
