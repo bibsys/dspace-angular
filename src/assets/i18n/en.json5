@@ -1834,7 +1834,9 @@
   "item.page.comment.modified": "modified",
   "item.page.comment.no-items": "No comment",
   "item.page.comment.on": "On: ",
+  "item.page.degree-label": "Degree label",
   "item.page.description": "Description",
+  "item.page.faculty-name": "Faculty",
   "item.page.journal-issn": "Journal ISSN",
   "item.page.journal-title": "Journal Title",
   "item.page.publisher": "Publisher",
@@ -1882,6 +1884,7 @@
 
   "item.page.abstract": "Abstract",
   "item.page.author": "Authors",
+  "item.page.promoter": "Promoters",
   "item.page.citation": "Citation",
   "item.page.collections": "Collections",
   "item.page.collections.loading": "Loading...",
@@ -2949,6 +2952,7 @@
   "relationships.isAuthorOf": "Authors",
   "relationships.isAuthorOf.Person": "Authors (persons)",
   "relationships.isAuthorOf.OrgUnit": "Authors (organizational units)",
+  "relationships.isPromoterOf": "Promoters",
   "relationships.isIssueOf": "Journal Issues",
 
   "relationships.isIssueOf.JournalIssue": "Journal Issue",

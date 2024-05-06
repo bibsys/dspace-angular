@@ -1,5 +1,11 @@
-<nav [ngClass]="{'open': !(menuCollapsed | async)}" [@slideMobileNav]="!(windowService.isXsOrSm() | async) ? 'default' : ((menuCollapsed | async) ? 'collapsed' : 'expanded')"
-  class="navbar navbar-expand-md navbar-light p-0 navbar-container bg-white" role="navigation" [attr.aria-label]="'nav.main.description' | translate">
+<nav [ngClass]="{'open': !(menuCollapsed | async)}"
+     [@slideMobileNav]="!(windowService.isXsOrSm() | async) ? 'default' : ((menuCollapsed | async) ? 'collapsed' : 'expanded')"
+     class="navbar navbar-expand-md navbar-light p-0 navbar-container bg-white"
+     role="navigation"
+     [attr.aria-label]="'nav.main.description' | translate">
+  <a *ngIf="!(isMobile$ | async)" href="https://uclouvain.be" target="_uclouvain_tab" class="my-auto mx-2">
+    <img src="assets/uclouvain/images/uclouvain-logo.png" [attr.alt]="'UCLouvain'" [height]="40"/>
+  </a>
   <div class="navbar-inner-container w-100 h-100" [class.container]="!(isMobile$ | async)">
     <a class="navbar-brand" routerLink="/home">
       DIAL.mem
