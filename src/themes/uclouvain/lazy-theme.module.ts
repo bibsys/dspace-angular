@@ -10,6 +10,12 @@ import { BadgesComponent } from './app/shared/object-collection/shared/badges/ba
 import { BrowseMostElementsComponent } from './app/browse-most-elements/browse-most-elements.component';
 import { ItemListPreviewComponent } from './app/shared/object-list/my-dspace-result-list-element/item-list-preview/item-list-preview.component';
 import { LoginPageComponent } from './app/login-page/login-page.component';
+import { MetadataRepresentationListComponent } from './app/item-page/simple/metadata-representation-list/metadata-representation-list.component';
+import { ObjectListComponent } from './app/shared/object-list/object-list.component'
+import { SearchResultsComponent } from './app/shared/search/search-results/search-results.component';
+import { SearchSidebarComponent } from './app/shared/search/search-sidebar/search-sidebar.component';
+import { SearchFiltersComponent } from './app/shared/search/search-filters/search-filters.component';
+import { SearchComponent } from './app/shared/search/search.component';
 
 import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -27,6 +33,7 @@ import { DefaultBrowseElementsComponent } from './app/browse-most-elements/defau
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { SubmissionSectionUploadFileComponent } from './app/submission/sections/upload/file/section-upload-file.component';
 import { SubmissionSectionUploadFileLicenseComponent } from './app/submission/sections/upload/file/license/section-upload-file-license.component';
+import { ItemPageTitleFieldComponent } from './app/item-page/simple/field-components/specific-field/title/item-page-title-field.component';
 
 const DECLARATIONS = [
   HomePageComponent,
@@ -43,6 +50,13 @@ const DECLARATIONS = [
   AdminSidebarComponent,
   SubmissionSectionUploadFileComponent,
   SubmissionSectionUploadFileLicenseComponent,
+  MetadataRepresentationListComponent,
+  SearchResultsComponent,
+  ObjectListComponent,
+  SearchSidebarComponent,
+  SearchFiltersComponent,
+  SearchComponent,
+  ItemPageTitleFieldComponent,
 ];
 
 @NgModule({

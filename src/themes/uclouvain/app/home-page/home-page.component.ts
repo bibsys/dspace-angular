@@ -7,7 +7,7 @@ import { ThemedTopSectionComponent } from 'src/app/shared/explore/section-compon
 import { ThemedBrowseSectionComponent } from 'src/app/shared/explore/section-component/browse-section/themed-browse-section.component';
 import { ThemedFacetSectionComponent } from 'src/app/shared/explore/section-component/facet-section/themed-facet-section.component';
 import { ThemedCountersSectionComponent } from 'src/app/shared/explore/section-component/counters-section/themed-counters-section.component';
-import { AsyncPipe, NgFor, NgIf, NgSwitch } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { ViewTrackerComponent } from 'src/app/statistics/angulartics/dspace/view-tracker.component';
 import { ThemedSearchSectionComponent } from 'src/app/shared/explore/section-component/search-section/themed-search-section.component';
 
@@ -27,6 +27,7 @@ import { ThemedSearchSectionComponent } from 'src/app/shared/explore/section-com
       NgIf,
       NgFor,
       NgSwitch,
+      NgSwitchCase,
       AsyncPipe,
     ],
     standalone: true,
