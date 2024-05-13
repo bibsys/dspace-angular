@@ -9,11 +9,12 @@
                     <p *ngIf="metadata[fileDescriptionKey] && isNotEmpty(metadata[fileDescriptionKey])"
                        [innerHTML]="metadata[fileDescriptionKey]"
                        class="m-0 small py-1 text-justify"></p>
-                    <ds-submission-upload-section-license
-                       *ngIf="isNotEmpty(metadata[fileLicenceKey])"
-                       [licenseUri]="metadata[fileLicenceKey][0].toString()"
-                       [height]="20"
-                    ></ds-submission-upload-section-license>
+                    <div class="pb-1" *ngIf="isNotEmpty(metadata[fileLicenceKey])">
+                        <ds-submission-upload-section-license
+                                [licenseUri]="metadata[fileLicenceKey][0].toString()"
+                                [height]="20"
+                        ></ds-submission-upload-section-license>
+                    </div>
                     <div class="text-muted font-italic small">({{ fileData?.sizeBytes | dsFileSize }})</div>
                 </div>
             </div>
@@ -27,9 +28,9 @@
 </div>
 
 <ng-template #accessConditions>
-    <div *ngIf="fileData.accessConditions" class="access-conditions d-flex align-items-center">
+    <div *ngIf="fileData.accessConditions" class="access-conditions d-flex align-items-center pb-1">
         <ng-container *ngFor="let access of fileData.accessConditions; let last=last">
-            <span class="badge px-2 py-1" [ngClass]="getAccessConditionBadgeColor(access)">
+            <span class="badge px-2" [ngClass]="getAccessConditionBadgeColor(access)">
                 <i class="fa mr-1" [ngClass]="getAccessConditionIcon(access)"></i>
                 {{ 'access.condition.value.' + access.name | translate }}
                 <ng-container *ngIf="isNotEmpty(access.startDate)"> {{ 'from' | translate }} {{access.startDate}}</ng-container>
