@@ -3,7 +3,6 @@ import { UntypedFormGroup } from '@angular/forms';
 import { DynamicFormControlComponent, DynamicFormLayoutService, DynamicFormValidationService } from '@ng-dynamic-forms/core';
 import { DynamicDsYearPickerModel } from './year-picker.model';
 import { isUndefined } from 'src/app/shared/empty.util';
-import { environment } from 'src/environments/environment';
 
 /**
  * A form field component representing a year.
@@ -42,11 +41,11 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
       this.initialYear = now.getFullYear();
       if (this.model.value !== null && this.isYearValid(this.model.value.toString())) {
         this.initialYear = parseInt(this.model.value.toString(), 10);
-        this.model.value = ''+this.initialYear;
       } else if (this.model?.defaultValue) {
         this.initialYear = this.model.defaultValue;
-        this.model.value = ''+this.initialYear;
       }
+      this.model.value = ''+this.initialYear;
+      this.change.emit(this.model.value);
 
       this.maxYear = now.getUTCFullYear() + this.model.maxYearDelta;
       if (this.initialYear && this.initialYear > this.maxYear) {
@@ -71,11 +70,10 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
 
     /**
      * Little method to check if a year is valid.
-     * The year is check here has a string. If the method returns true, we are sure that it will be convertible to a number.
-     * This method is used to deal with the incoming data from the backend.
-     *
-     * @param year: The year to check.
-     * @return: True if the year is defined and does not contain letters. false if not.
+     * The year is checked here has a string. If the method returns true, we are sure that it will be convertible to a
+     * number. This method is used to deal with the incoming data from the backend.
+     * @param year The year to check.
+     * @return True if the year is defined and does not contain letters. False if not.
      */
     isYearValid(year: string) {
         // 1XXX to 20XX are valid
