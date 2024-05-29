@@ -239,6 +239,8 @@ import { ProductDatasetSchemaType } from './metadata/schema-json-ld/schema-types
 import { PersonSchemaType } from './metadata/schema-json-ld/schema-types/Person/person-schema-type';
 import { InternalLinkService } from './services/internal-link.service';
 import { PdfAttestationDownloadService } from './data/pdf-attestation-download.service';
+import { BitstreamAccessConditionsDataService } from './data/bitstream-access-conditions-data.service';
+import { BitstreamAccessConditions } from './shared/bitstream-acces-conditions.model';
 
 /**
  * When not in production, endpoint responses can be mocked for testing purposes
@@ -283,6 +285,7 @@ const PROVIDERS = [
   ResourcePolicyDataService,
   RegistryService,
   BitstreamFormatDataService,
+  BitstreamAccessConditionsDataService,
   RemoteDataBuildService,
   EndpointMapResponseParsingService,
   FacetValueResponseParsingService,
@@ -401,6 +404,7 @@ export const models =
     Bundle,
     Bitstream,
     BitstreamFormat,
+    BitstreamAccessConditions,
     Item,
     Site,
     Collection,

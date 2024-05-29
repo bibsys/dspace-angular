@@ -14,7 +14,7 @@ import { PaginationService } from '../../../../../app/core/pagination/pagination
  */
 @Component({
   selector: 'ds-object-list',
-  styleUrls: ['../../../../../app/shared/object-list/object-list.component.scss'],
+  styleUrls: ['../../../../../app/shared/object-list/object-list.component.scss', './object-list.component.scss'],
   templateUrl: './object-list.component.html'
 })
 export class ObjectListComponent extends BaseComponent implements OnInit, OnDestroy {
@@ -36,6 +36,7 @@ export class ObjectListComponent extends BaseComponent implements OnInit, OnDest
 
   /** OnInit hook */
   ngOnInit() {
+    this.hasBorder = true;  // force border-bottom
     const configuration$: Observable<string> = this.searchConfigService
       .getCurrentConfiguration('')
       .pipe(distinctUntilChanged());

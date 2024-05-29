@@ -3,76 +3,100 @@
     <ds-themed-results-back-button *ngIf="showBackButton | async" [back]="back"></ds-themed-results-back-button>
     <ds-context-menu [contextMenuObject]="object" [contextMenuObjectType]="DspaceObjectType.ITEM" class="ml-auto"></ds-context-menu>
 </div>
-<!-- TITLE ================================================================ -->
-<div class="mt-3 mb-5">
-    <ds-themed-item-page-title-field [item]="object" class="d-flex flex-row"></ds-themed-item-page-title-field>
-    <ds-generic-item-page-field
-        [item]="object"
-        [fields]="['dc.contributor.author', 'dc.creator']"
-        [separator]="' ; '">
-    </ds-generic-item-page-field>
-    <ds-generic-item-page-field [item]="object" [fields]="['dc.date.issued']"></ds-generic-item-page-field>
+
+<div class="row mt-3 mb-5">
+    <article class="col-9">
+        <!-- HEADER :: Thumbnail + title, authors, date -->
+        <div class="clearfix pb-3 d-flex header">
+            <div class="pb-2 pr-3 thumbnail-or-media">
+                <ds-metadata-field-wrapper *ngIf="!(mediaViewer.image || mediaViewer.video)" [hideIfNoTextContent]="false">
+                    <ds-themed-thumbnail [thumbnail]="object?.thumbnail | async"></ds-themed-thumbnail>
+                </ds-metadata-field-wrapper>
+                <div *ngIf="mediaViewer.image || mediaViewer.video" class="mb-2">
+                    <ds-themed-media-viewer [item]="object"></ds-themed-media-viewer>
+                </div>
+            </div>
+            <div class="flex-grow-1">
+                <ds-themed-item-page-title-field [item]="object"></ds-themed-item-page-title-field>
+                <ds-generic-item-page-field [item]="object" [fields]="['dc.contributor.author']" [separator]="' ; '"></ds-generic-item-page-field>
+                <span *ngIf="dsoDate">({{ dsoDate }})</span>
+            </div>
+        </div>
+        <!-- DOWNLOADS -->
+        <ds-themed-item-page-file-section [item]="object"></ds-themed-item-page-file-section>
+        <!-- MAIN METADATA -->
+        <h2 class="mt-4 simple-view-element-header">Metadata</h2>
+        <dl>
+            <ng-container *ngIf="object.hasMetadata('dc.contributor.advisor')">
+                <dt>{{ "item.page.promoter" | translate }}</dt>
+                <dd><ds-generic-item-page-field
+                    [item]="object"
+                    [fields]="['dc.contributor.advisor']"
+                    [separator]="' ; '">
+                </ds-generic-item-page-field></dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('dc.description.abstract')">
+                <dt>{{ "item.page.abstract" | translate }}</dt>
+                <dd><ds-generic-item-page-field
+                    [item]="object"
+                    [fields]="['dc.description.abstract']"
+                    [separator]="'<div class=&quot;my-3&quot;></div>'">
+                </ds-generic-item-page-field></dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('masterthesis.faculty.name')">
+                <dt>{{ "item.page.faculty" | translate }}</dt>
+                <dd>
+                    <ds-list-item-page-field
+                            [item]="object"
+                            [fields]="['masterthesis.faculty.name']">
+                    </ds-list-item-page-field>
+                </dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('masterthesis.degree.label')">
+                <dt>{{ "item.page.degree-label" | translate }}</dt>
+                <dd>
+                    <ds-list-item-page-field
+                            [item]="object"
+                            [fields]="['masterthesis.degree.label']">
+                    </ds-list-item-page-field>
+                </dd>
+            </ng-container>
+        </dl>
+        <!-- CITATION -->
+    </article>
+    <!-- METADATA SIDEBAR -->
+    <aside class="additional-metadata col-3 p-3">
+        <dl class="d-flex flex-column" style="height: 100%">
+            <dt>{{ "item.page.uri" | translate }}</dt>
+            <dd><ds-metadata-uri-values [mdValues]="object?.allMetadata(['dc.identifier.uri'])" [separator]="' ; '"></ds-metadata-uri-values></dd>
+            <ng-container *ngIf="object.hasMetadata('masterthesis.faculty.code')">
+                <dt>{{ "item.page.faculty" | translate }}</dt>
+                <dd><ds-master-thesis-faculty-badges [object]="object"></ds-master-thesis-faculty-badges></dd>
+            </ng-container>
+            <ng-container *ngIf="object.firstMetadataValue('masterthesis.session') as session">
+                <dt>{{ "item.page.session" | translate }}</dt>
+                <dd>{{ "session."+session.toLowerCase() | translate }} {{ dsoDate }}</dd>
+            </ng-container>
+            <dt>{{ "item.page.subject" | translate }}</dt>
+            <dd><ds-tag-item-page-field [item]="object" [fields]="['dc.subject']"></ds-tag-item-page-field></dd>
+            <ng-container *ngIf="object.hasMetadata('dc.type')">
+                <dt>{{ "item.page.document-type" | translate }}</dt>
+                <dd><ds-generic-item-page-field [item]="object" [fields]="['dc.type']" [separator]="', '"></ds-generic-item-page-field></dd>
+            </ng-container>
+            <ng-container *ngIf="object.firstMetadataValue('dc.language.iso-639-2') as language">
+                <dt>{{ "item.page.language" | translate }}</dt>
+                <dd>{{ "languages.iso-639-2."+language | translate }}</dd>
+            </ng-container>
+            <dt class="flex-grow-1 align-content-end mt-4">{{ "item.page.created" | translate }}</dt>
+            <dd>{{ object.firstMetadataValue('dc.date.available') | date:dateFormat }}</dd>
+            <dt>{{ "item.page.updated" | translate }}</dt>
+            <dd>{{ object.lastModified | date:dateFormat }}</dd>
+        </dl>
+    </aside>
 </div>
 
-<div class="row">
-    <div class="col-xs-12 col-md-4">
-        <ng-container *ngIf="!(mediaViewer.image || mediaViewer.video)">
-          <ds-metadata-field-wrapper [hideIfNoTextContent]="false">
-            <ds-themed-thumbnail [thumbnail]="object?.thumbnail | async"></ds-themed-thumbnail>
-          </ds-metadata-field-wrapper>
-        </ng-container>
-        <div *ngIf="mediaViewer.image || mediaViewer.video" class="mb-2">
-          <ds-themed-media-viewer [item]="object"></ds-themed-media-viewer>
-        </div>
-        <ds-themed-item-page-file-section [item]="object"></ds-themed-item-page-file-section>
-        <ds-themed-metadata-representation-list
-              class="ds-item-page-mixed-author-field"
-              [parentItem]="object"
-              [itemType]="'Person'"
-              [metadataFields]="['dc.contributor.author', 'dc.creator']"
-              [label]="'relationships.isAuthorOf' | translate">
-        </ds-themed-metadata-representation-list>
-        <ds-themed-metadata-representation-list
-              class="ds-item-page-mixed-author-field"
-              [parentItem]="object"
-              [itemType]="'Person'"
-              [metadataFields]="['dc.contributor.advisor']"
-              [label]="'relationships.isPromoterOf' | translate">
-      </ds-themed-metadata-representation-list>
-  </div>
-  <div class="col-xs-12 col-md-8">
-    <ds-item-page-uri-field
-      [item]="object"
-      [fields]="['dc.identifier.uri']"
-      [label]="'item.page.uri'">
-    </ds-item-page-uri-field>
-    <ds-item-page-abstract-field
-        [item]="object"
-        [separator]="'<div class=&quot;my-3&quot;></div>'">
-    </ds-item-page-abstract-field>
-    <ds-tag-item-page-field
-        [item]="object"
-        [fields]="['dc.subject']"
-        [label]="'item.page.subject'">
-    </ds-tag-item-page-field>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['dc.identifier.citation']"
-      [label]="'item.page.citation'">
-    </ds-generic-item-page-field>
-    <ds-list-item-page-field
-      [item]="object"
-      [fields]="['masterthesis.faculty.name']"
-      [label]="'item.page.faculty-name'">
-    </ds-list-item-page-field>
-    <ds-list-item-page-field
-      [item]="object"
-      [fields]="['masterthesis.degree.label']"
-      [label]="'item.page.degree-label'">
-    </ds-list-item-page-field>
-    <div>
-      <a class="btn btn-outline-primary" [routerLink]="[itemPageRoute + '/full']" role="button">
+<div class="text-center">
+    <a class="btn btn-outline-primary" [routerLink]="[itemPageRoute + '/full']" role="button">
         <i class="fas fa-info-circle"></i> {{"item.page.link.full" | translate}}
-      </a>
-    </div>
-  </div>
+    </a>
 </div>
