@@ -1,3 +1,11 @@
+html {
+  font-size: 15px;
+}
+
+:root {
+  --ds-thumbnail-min-width: 150px;
+}
+
 // Faculty colors
 .text-faculty-mede { color: #88005d; }
 .text-faculty-fasb { color: #88005d; }
@@ -28,3 +36,16 @@
 .badge-faculty-agro { background-color: #008193; color: $white; }
 .badge-faculty-espo { background-color: #76ad1c; color: $white; }
 .badge-faculty-loci { background-color: #9a969a; color: $white; }
+
+
+
+
+ul.list-inline-with-divider {
+  li{
+    display: inline-block;
+    &:not(:last-child):after{
+      content: '|';
+      margin: 0 1rem;
+    }
+  }
+}
