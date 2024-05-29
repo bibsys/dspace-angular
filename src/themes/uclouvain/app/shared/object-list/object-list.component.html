@@ -36,8 +36,10 @@
         </select>
     </div>
 
-    <ul *ngIf="objects?.hasSucceeded" class="list-unstyled" [ngClass]="{'ml-4': selectable}">
-        <li *ngFor="let object of objects?.payload?.page; let i = index; let last = last" class="mt-4 mb-4 d-flex" [class.border-bottom]="hasBorder && !last" [attr.data-test]="'list-object' | dsBrowserOnly">
+    <ul *ngIf="objects?.hasSucceeded" class="list-unstyled publication-list" [ngClass]="{'ml-4': selectable}">
+        <li *ngFor="let object of objects?.payload?.page; let i = index; let last = last" class="py-3 px-1 d-flex"
+            [class.border-bottom]="hasBorder && !last"
+            [attr.data-test]="'list-object' | dsBrowserOnly">
             <ds-selectable-list-item-control *ngIf="selectable" [index]="i"
                                              [object]="object"
                                              [selectionConfig]="selectionConfig"

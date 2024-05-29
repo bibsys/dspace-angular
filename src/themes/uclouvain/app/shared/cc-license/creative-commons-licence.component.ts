@@ -1,19 +1,22 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import mapping from './mapping.json';
-import { isNotEmpty } from '../../../../../../../../app/shared/empty.util';
+import { isNotEmpty } from '../../../../../app/shared/empty.util';
 
-
+/**
+ * Component used to display the CreativeCommons license badge related to a {@BitStreeam}
+ *   This license is mainly stored into the `dc.rights.license` bitstream metadata as
+ *   a CreativeCommons formatted URI (https://creativecommons.org/share-your-work/cclicenses/)
+ */
 @Component({
-  selector: 'ds-submission-upload-section-license',
+  selector: 'ds-cc-licence',
   template: `<img *ngIf="imagePath" [src]="imagePath" [alt]="licenseUri" [height]="height"/>`
 })
-export class SubmissionSectionUploadFileLicenseComponent implements OnChanges {
+export class CreativeCommonsLicenseComponent {
 
   @Input() licenseUri: string;
   @Input() imageDirectoryPath: string = '/assets/uclouvain/images/cc-licences-badges';
   @Input() height: number = 20;
   imagePath: string;
-
 
   ngOnChanges(changes: any) {
     if (changes.hasOwnProperty('licenseUri')) {
@@ -24,6 +27,7 @@ export class SubmissionSectionUploadFileLicenseComponent implements OnChanges {
     }
   }
 
+  /** extract the CC license key from canonical license URI */
   private extractLicenseKey(): string {
     const urlSequences = new URL(this.licenseUri).pathname
       .split('/')
@@ -32,4 +36,5 @@ export class SubmissionSectionUploadFileLicenseComponent implements OnChanges {
       ? 'cc-' + urlSequences[1]
       : undefined;
   }
+
 }
