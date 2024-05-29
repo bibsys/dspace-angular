@@ -1,2 +1,42 @@
 @import '../../../../../../styles/variables.scss';
+@import 'bootstrap/scss/bootstrap';
+
+:host ::ng-deep {
+  .header .simple-view-element {
+    margin-bottom: 0 !important;
+  }
+  h2 {
+    color: $primary;
+    @extend .border-bottom;
+    @extend .mb-3;
+  }
+
+  ul {
+    padding-inline-start: 1rem;
+  }
+
+}
+
+.simple-view-element-header {
+  font-size: 1.25rem;
+}
+
+.thumbnail-or-media {
+  min-width: var(--ds-thumbnail-min-width);
+}
+
+aside.additional-metadata {
+  background-color: var(--bs-gray-200);
+
+  dl {
+    dt {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: .8rem;
+    }
+    dd {
+      margin-bottom: 1rem;
+    }
+  }
+}
 

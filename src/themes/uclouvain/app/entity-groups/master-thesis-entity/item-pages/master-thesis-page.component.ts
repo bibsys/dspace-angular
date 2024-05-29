@@ -18,8 +18,10 @@ import { ItemPageAbstractFieldComponent } from 'src/app/item-page/simple/field-c
 import { ItemPageTagFieldsComponent } from '../../../item-page/simple/field-components/specific-field/tags/item-page-tag-fields.component';
 import { ItemPageListFieldsComponent } from '../../../item-page/simple/field-components/specific-field/list/item-page-list-fields.component';
 import { RouterLink } from '@angular/router';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, DatePipe, NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { MasterThesisFacultyBadgesComponent } from '../item-widgets/master-thesis-faculty-badges.component';
+import { MetadataUriValuesComponent } from 'src/app/item-page/field-components/metadata-uri-values/metadata-uri-values.component';
 
 /** Component to render 'MasterThesis' entity type for detailed view */
 
@@ -43,13 +45,23 @@ import { TranslateModule } from '@ngx-translate/core';
     ItemPageAbstractFieldComponent,
     ItemPageTagFieldsComponent,
     ItemPageListFieldsComponent,
+    MasterThesisFacultyBadgesComponent,
+    MetadataUriValuesComponent,
     RouterLink,
     NgIf,
     TranslateModule,
     AsyncPipe,
+    DatePipe,
   ],
   standalone: true,
 })
 export class MasterThesisPageComponent extends ItemComponent {
   protected readonly DspaceObjectType = DSpaceObjectType;
+  dateFormat = 'yyyy-MM-dd HH:mm:ss';
+  dsoDate: string;
+
+  ngOnInit() {
+    super.ngOnInit();
+    this.dsoDate = this.object.firstMetadataValue('dc.date.issued');
+  }
 }
