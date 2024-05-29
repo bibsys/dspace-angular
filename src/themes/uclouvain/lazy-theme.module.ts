@@ -16,6 +16,11 @@ import { SearchResultsComponent } from './app/shared/search/search-results/searc
 import { SearchSidebarComponent } from './app/shared/search/search-sidebar/search-sidebar.component';
 import { SearchFiltersComponent } from './app/shared/search/search-filters/search-filters.component';
 import { SearchComponent } from './app/shared/search/search.component';
+import { FullFileSectionComponent } from './app/item-page/full/field-components/file-section/full-file-section.component';
+import { UploadFileDescriptionComponent } from './app/item-page/full/field-components/file-section/upload-file-description/upload-file-description.component';
+import { CreativeCommonsLicenseComponent } from './app/shared/cc-license/creative-commons-licence.component';
+import { FileSectionComponent } from './app/item-page/simple/field-components/file-section/file-section.component';
+import { FileDownloadLinkComponent } from './app/shared/file-download-link/file-download-link.component';
 
 import { CommonModule } from '@angular/common';
 import { AdminRegistriesModule } from '../../app/admin/admin-registries/admin-registries.module';
@@ -73,7 +78,7 @@ import { ContextMenuModule } from '../../app/shared/context-menu/context-menu.mo
 import { SocialModule } from '../../app/social/social.module';
 import { AdminSidebarComponent } from './app/admin/admin-sidebar/admin-sidebar.component';
 import { SubmissionSectionUploadFileComponent } from './app/submission/sections/upload/file/section-upload-file.component';
-import { SubmissionSectionUploadFileLicenseComponent } from './app/submission/sections/upload/file/license/section-upload-file-license.component';
+import { SharedThemeModule } from './shared-theme.module';
 
 const DECLARATIONS = [
   HomePageComponent,
@@ -88,13 +93,17 @@ const DECLARATIONS = [
   LoginPageComponent,
   AdminSidebarComponent,
   SubmissionSectionUploadFileComponent,
-  SubmissionSectionUploadFileLicenseComponent,
   MetadataRepresentationListComponent,
   SearchResultsComponent,
   ObjectListComponent,
   SearchSidebarComponent,
   SearchFiltersComponent,
-  SearchComponent
+  SearchComponent,
+  FullFileSectionComponent,
+  UploadFileDescriptionComponent,
+  CreativeCommonsLicenseComponent,
+  FileSectionComponent,
+  FileDownloadLinkComponent
 ];
 
 @NgModule({
@@ -154,7 +163,8 @@ const DECLARATIONS = [
     MiradorViewerModule,
     FooterModule,
     ExploreModule,
-    SocialModule
+    SocialModule,
+    SharedThemeModule
   ],
   declarations: DECLARATIONS,
 })
