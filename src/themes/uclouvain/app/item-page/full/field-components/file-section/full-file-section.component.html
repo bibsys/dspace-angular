@@ -1,0 +1,36 @@
+<ds-metadata-field-wrapper [label]="label | translate">
+    <ng-container *ngVar="(originals$ | async)?.payload as originals">
+        <ng-container *ngIf="hasValuesInBundle(originals)">
+            <h5 class="simple-view-element-header">{{"item.page.filesection.original.bundle" | translate}}</h5>
+            <ds-pagination *ngIf="originals?.page?.length > 0"
+                           [hideGear]="true"
+                           [hidePagerWhenSinglePage]="true"
+                           [paginationOptions]="originalOptions"
+                           [pageInfoState]="originals"
+                           [collectionSize]="originals?.totalElements"
+                           [retainScrollPosition]="true">
+                <ng-container *ngFor="let file of originals?.page; let isFirst = first">
+                    <ds-upload-file-description [bitstream]="file" [item]="item"></ds-upload-file-description>
+                </ng-container>
+            </ds-pagination>
+        </ng-container>
+    </ng-container>
+    <!--<ng-container *ngVar="(licenses$ | async)?.payload as licenses">
+        <ng-container *ngIf="hasValuesInBundle(licenses)">
+            <h5 class="simple-view-element-header">{{"item.page.filesection.license.bundle" | translate}}</h5>
+            <ds-pagination *ngIf="licenses?.page?.length > 0"
+                           [hideGear]="true"
+                           [hidePagerWhenSinglePage]="true"
+                           [paginationOptions]="licenseOptions"
+                           [pageInfoState]="licenses"
+                           [collectionSize]="licenses?.totalElements"
+                           [retainScrollPosition]="true">
+                <ng-container *ngFor="let file of licenses?.page; let isFirst = first">
+                    <ng-container *ngIf="isFirst">
+                        <ds-upload-file-description [bitstream]="file" [item]="item"></ds-upload-file-description>
+                    </ng-container>
+                </ng-container>
+            </ds-pagination>
+        </ng-container>
+    </ng-container>-->
+</ds-metadata-field-wrapper>
