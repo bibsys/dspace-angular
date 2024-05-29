@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
     SubmissionSectionUploadFileComponent as BaseComponent
 } from 'src/app/submission/sections/upload/file/section-upload-file.component';
 import fileExtensions from './file-extensions.json';
-import { isNotEmpty } from '../../../../../../../app/shared/empty.util';
+import { isEmpty, isNotEmpty } from '../../../../../../../app/shared/empty.util';
 import { Metadata } from '../../../../../../../app/core/shared/metadata.utils';
-import { MetadataMap } from '../../../../../../../app/core/shared/metadata.models';
+import { MetadataMap, MetadataValue } from '../../../../../../../app/core/shared/metadata.models';
 import {
-  SubmissionUploadFileAccessConditionObject
-} from '../../../../../../../app/core/submission/models/submission-upload-file-access-condition.model';
+  FormFieldMetadataValueObject
+} from '../../../../../../../app/shared/form/builder/models/form-field-metadata-value.model';
+import { AccessConditionObject } from '../../../../../../../app/core/submission/models/access-condition.model';
 
 
 /**
@@ -21,10 +22,13 @@ import {
 })
 export class SubmissionSectionUploadFileComponent extends BaseComponent {
 
+  @Input() defaultLicense = 'https://creativecommons.org/licenses/by/4.0';
+
   public metadata: MetadataMap = Object.create({});
   public fileTitleKey = 'title'
   public fileDescriptionKey = 'description'
-  public fileLicenceKey = 'licence'
+  public fileLicence: string;
+  public fileAccess: AccessConditionObject[];
 
   protected readonly isNotEmpty = isNotEmpty;
 
@@ -35,11 +39,23 @@ export class SubmissionSectionUploadFileComponent extends BaseComponent {
     if (isNotEmpty(this.fileData.metadata)) {
       this.metadata[this.fileTitleKey] = Metadata.all(this.fileData.metadata, 'dc.title');
       this.metadata[this.fileDescriptionKey] = Metadata.all(this.fileData.metadata, 'dc.description');
-      this.metadata[this.fileLicenceKey] = Metadata.all(this.fileData.metadata, 'dc.rights.license');
+      this.fileLicence = Metadata.firstValue(this.fileData.metadata, 'dc.rights.license');;
+    }
+    // Set default file creative commons licence if doesn't exists into metadata
+    if (isEmpty(this.fileLicence)) {
+      this.fileLicence = this.defaultLicense;
+    }
+    // Get file access condition. If it doesn't exist, set default access for preview.
+    this.fileAccess = this.fileData?.accessConditions;
+    if (isEmpty(this.fileAccess)){
+      this.fileAccess = [Object.assign(new AccessConditionObject(), {
+        id: 'default',
+        name:'openaccess'
+      })];
     }
   }
 
-
+  /** Get the path to the best possible icon related to this file/bitstream */
   getFileIcon() {
     const unknown = fileExtensions[''];
     // Extract extension from the filename
@@ -49,23 +65,4 @@ export class SubmissionSectionUploadFileComponent extends BaseComponent {
     const image = (fileExtensions[ext] || unknown) + '.svg';
     return 'assets/uclouvain/images/file-icons/' + image;
   }
-
-  getAccessConditionBadgeColor(access: SubmissionUploadFileAccessConditionObject) {
-    switch (access.name) {
-      case 'openaccess': return 'badge-success';
-      case 'administrator': return 'badge-danger';
-      case 'embargo':
-      case 'lease': return 'badge-secondary';
-      default: return 'badge-warning';
-    }
-  }
-
-  getAccessConditionIcon(access: SubmissionUploadFileAccessConditionObject) {
-    switch (access.name) {
-      case 'openaccess': return 'fa-lock-open';
-      case 'administrator': return 'fa-lock';
-      default: return 'fa-unlock-alt';
-    }
-  }
-
 }

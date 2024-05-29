@@ -3,7 +3,7 @@
      class="navbar navbar-expand-md navbar-light p-0 navbar-container bg-white"
      role="navigation"
      [attr.aria-label]="'nav.main.description' | translate">
-  <a *ngIf="!(isXsOrSm$ | async)" href="https://uclouvain.be" target="_uclouvain_tab" class="my-auto mx-2">
+  <a *ngIf="!(isXsOrSm$ | async)" href="https://uclouvain.be" target="_uclouvain_tab" class="mx-2 d-flex align-items-center h-100 position-absolute">
     <img src="assets/uclouvain/images/uclouvain-logo.png" [attr.alt]="'UCLouvain'" [height]="40"/>
   </a>
   <div class="navbar-inner-container w-100 h-100" [class.container]="!(isXsOrSm$ | async)">
