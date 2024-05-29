@@ -5,7 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import {
   APP_CONFIG,
   AppConfig,
@@ -87,10 +87,7 @@ export class FileSectionComponent implements OnInit {
     } else {
       this.currentPage++;
     }
-    this.bitstreamDataService.findAllByItemAndBundleName(this.item, 'ORIGINAL', {
-      currentPage: this.currentPage,
-      elementsPerPage: this.pageSize,
-    }).pipe(
+    this.getBitstreamData().pipe(
       getFirstCompletedRemoteData(),
     ).subscribe((bitstreamsRD: RemoteData<PaginatedList<Bitstream>>) => {
       if (bitstreamsRD.errorMessage) {
@@ -102,5 +99,12 @@ export class FileSectionComponent implements OnInit {
         this.isLastPage = this.currentPage === bitstreamsRD.payload.totalPages;
       }
     });
+  }
+
+  protected getBitstreamData(): Observable<RemoteData<PaginatedList<Bitstream>>> {
+    return this.bitstreamDataService.findAllByItemAndBundleName(this.item, 'ORIGINAL', {
+      currentPage: this.currentPage,
+      elementsPerPage: this.pageSize,
+    })
   }
 }
