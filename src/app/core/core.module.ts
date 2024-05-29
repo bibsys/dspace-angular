@@ -246,6 +246,8 @@ import { TaskResponseParsingService } from './tasks/task-response-parsing.servic
 import { CommentDataService } from './comment/comment-data.service';
 import { CommentService } from './comment/comment.service';
 import { PdfAttestationDownloadService } from './data/pdf-attestation-download.service';
+import { BitstreamAccessConditionsDataService } from './data/bitstream-access-conditions-data.service';
+import { BitstreamAccessConditions } from './shared/bitstream-acces-conditions.model';
 
 /**
  * When not in production, endpoint responses can be mocked for testing purposes
@@ -291,6 +293,7 @@ const PROVIDERS = [
   ResourcePolicyDataService,
   RegistryService,
   BitstreamFormatDataService,
+  BitstreamAccessConditionsDataService,
   RemoteDataBuildService,
   EndpointMapResponseParsingService,
   FacetValueResponseParsingService,
@@ -416,6 +419,7 @@ export const models =
     Bundle,
     Bitstream,
     BitstreamFormat,
+    BitstreamAccessConditions,
     Item,
     Site,
     Collection,

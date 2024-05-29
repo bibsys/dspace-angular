@@ -11,6 +11,7 @@ import { ItemPageListFieldsComponent } from '../../item-page/simple/field-compon
 import { MasterThesisListElementComponent } from './item-list-elements/master-thesis-list-element.component';
 import { MasterThesisSearchResultListElementComponent } from './search-result-list-elements/master-thesis-search-result-list-element.component';
 import { MasterThesisFacultyBadgesComponent } from './item-widgets/master-thesis-faculty-badges.component';
+import { SharedThemeModule } from '../../../shared-theme.module';
 
 const ENTRY_COMPONENTS = [];
 
@@ -31,7 +32,8 @@ const DECLARATIONS = [
     ResultsBackButtonModule,
     ContextMenuModule,
     ItemPageModule,
-    ItemSharedModule
+    ItemSharedModule,
+    SharedThemeModule
   ],
   declarations: DECLARATIONS,
   providers: [
