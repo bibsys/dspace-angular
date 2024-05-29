@@ -1,0 +1,7 @@
+.file-section {
+
+  &:hover {
+    transition: background-color .75s ease;
+    background-color: var(--bs-gray-200);
+  }
+}

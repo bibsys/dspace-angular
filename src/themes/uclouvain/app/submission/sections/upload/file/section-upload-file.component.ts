@@ -6,9 +6,6 @@ import fileExtensions from './file-extensions.json';
 import { isNotEmpty } from '../../../../../../../app/shared/empty.util';
 import { Metadata } from '../../../../../../../app/core/shared/metadata.utils';
 import { MetadataMap } from '../../../../../../../app/core/shared/metadata.models';
-import {
-  SubmissionUploadFileAccessConditionObject
-} from '../../../../../../../app/core/submission/models/submission-upload-file-access-condition.model';
 
 
 /**
@@ -39,7 +36,7 @@ export class SubmissionSectionUploadFileComponent extends BaseComponent {
     }
   }
 
-
+  /** Get the path to the best possible icon related to this file/bitstream */
   getFileIcon() {
     const unknown = fileExtensions[''];
     // Extract extension from the filename
@@ -49,23 +46,4 @@ export class SubmissionSectionUploadFileComponent extends BaseComponent {
     const image = (fileExtensions[ext] || unknown) + '.svg';
     return 'assets/uclouvain/images/file-icons/' + image;
   }
-
-  getAccessConditionBadgeColor(access: SubmissionUploadFileAccessConditionObject) {
-    switch (access.name) {
-      case 'openaccess': return 'badge-success';
-      case 'administrator': return 'badge-danger';
-      case 'embargo':
-      case 'lease': return 'badge-secondary';
-      default: return 'badge-warning';
-    }
-  }
-
-  getAccessConditionIcon(access: SubmissionUploadFileAccessConditionObject) {
-    switch (access.name) {
-      case 'openaccess': return 'fa-lock-open';
-      case 'administrator': return 'fa-lock';
-      default: return 'fa-unlock-alt';
-    }
-  }
-
 }
