@@ -22,7 +22,7 @@ import { BrowserOnlyPipe } from 'src/app/shared/utils/browser-only.pipe';
  */
 @Component({
   selector: 'ds-themed-object-list',
-  styleUrls: ['../../../../../app/shared/object-list/object-list.component.scss'],
+  styleUrls: ['../../../../../app/shared/object-list/object-list.component.scss', './object-list.component.scss'],
   templateUrl: './object-list.component.html',
   imports: [
     PaginationComponent,
@@ -58,6 +58,7 @@ export class ObjectListComponent extends BaseComponent implements OnInit, OnDest
 
   /** OnInit hook */
   ngOnInit() {
+    this.hasBorder = true;  // force border-bottom
     const configuration$: Observable<string> = this.searchConfigService
       .getCurrentConfiguration('')
       .pipe(distinctUntilChanged());
