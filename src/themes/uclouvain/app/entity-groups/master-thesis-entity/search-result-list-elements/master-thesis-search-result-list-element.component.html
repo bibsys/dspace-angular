@@ -10,54 +10,56 @@
             <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="true"></ds-thumbnail>
         </span>
     </div>
-    <div [ngClass]="showThumbnails ? 'col-9 col-xl-10' : 'col-md-12'">
+    <div [ngClass]="showThumbnails ? 'col-9 col-xl-10' : 'col-md-12'" class="d-flex flex-column">
         <ds-themed-badges *ngIf="showLabel" [object]="dso" [context]="context"></ds-themed-badges>
-        <ds-truncatable [id]="dso.id">
-            <!-- TITLE ==================================================== -->
-            <a *ngIf="linkType != linkTypes.None"
-               [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
-               [attr.rel]="(linkType == linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
-               [routerLink]="[itemPageRoute]"
-               [innerHTML]="dsoTitle"
-               class="lead item-list-title dont-break-out"></a>
-            <div *ngIf="linkType == linkTypes.None"
-                 class="lead item-list-title dont-break-out"
-                 [innerHTML]="dsoTitle"></div>
-            <div>
-                <!-- AUTHORS, PROMOTERS =================================== -->
-                <div *ngIf="dso.allMetadataValues(['dc.contributor.author']).length > 0" class="item-list-authors">
-                    <span class="mr-2">{{ 'item.page.author' | translate }}:</span>
-                    <span class="text-muted">
-                        <ng-container *ngFor="let author of dso.allMetadata(['dc.contributor.author']); let i=index; let last=last;">
-                            <ds-metadata-link-view [item]="dso"
-                                                   [metadata]="author"
-                                                   [metadataName]="authorMetadata">
-                            </ds-metadata-link-view>
-                            <span *ngIf="!last"> ; </span>
-                        </ng-container>
-                    </span>
-                </div>
-                <div *ngIf="dso.allMetadataValues(['dc.contributor.advisor']).length > 0" class="item-list-authors">
-                    <span class="mr-2">{{ 'item.page.promoter' | translate }}:</span>
-                    <span class="text-muted">
-                        <ng-container *ngFor="let promoter of dso.allMetadata(['dc.contributor.advisor']); let i=index; let last=last;">
-                            <ds-metadata-link-view [item]="dso"
-                                                   [metadata]="promoter"
-                                                   [metadataName]="authorMetadata">
-                            </ds-metadata-link-view>
-                            <span *ngIf="!last"> ; </span>
-                        </ng-container>
-                    </span>
-                </div>
-                <!-- DATE ================================================= -->
-                <div class="item-list-date-issued mr-2" *ngIf="dsoDate">
-                    ({{ dsoDate }})
-                </div>
-                <!-- FACULTY BADGES ======================================= -->
-                <div>
-                    <ds-master-thesis-faculty-badges [object]="dso"></ds-master-thesis-faculty-badges>
-                </div>
+        <!-- TITLE ==================================================== -->
+        <a *ngIf="linkType != linkTypes.None"
+           [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
+           [attr.rel]="(linkType == linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
+           [routerLink]="[itemPageRoute]"
+           [innerHTML]="dsoTitle"
+           class="lead item-list-title dont-break-out"></a>
+        <div *ngIf="linkType == linkTypes.None" class="lead item-list-title dont-break-out" [innerHTML]="dsoTitle"></div>
+        <!-- AUTHORS, PROMOTERS =================================== -->
+        <div class="flex-grow-1">
+            <div *ngIf="dso.allMetadataValues(['dc.contributor.author']).length > 0" class="item-list-authors">
+                <span class="mr-2">{{ 'item.page.author' | translate }}:</span>
+                <span class="text-muted">
+                    <ng-container *ngFor="let author of dso.allMetadata(['dc.contributor.author']); let i=index; let last=last;">
+                        <ds-metadata-link-view [item]="dso"
+                                               [metadata]="author"
+                                               [metadataName]="authorMetadata">
+                        </ds-metadata-link-view>
+                        <span *ngIf="!last"> ; </span>
+                    </ng-container>
+                </span>
             </div>
-        </ds-truncatable>
+            <div *ngIf="dso.allMetadataValues(['dc.contributor.advisor']).length > 0" class="item-list-authors">
+                <span class="mr-2">{{ 'item.page.promoter' | translate }}:</span>
+                <span class="text-muted">
+                    <ng-container *ngFor="let promoter of dso.allMetadata(['dc.contributor.advisor']); let i=index; let last=last;">
+                        <ds-metadata-link-view [item]="dso"
+                                               [metadata]="promoter"
+                                               [metadataName]="authorMetadata">
+                        </ds-metadata-link-view>
+                        <span *ngIf="!last"> ; </span>
+                    </ng-container>
+                </span>
+            </div>
+        </div>
+        <ul class="list-inline list-inline-with-divider m-0 small">
+            <li *ngIf="dsoDate">
+                <i class="far fa-calendar mr-2"></i>{{ dsoDate }}
+            </li>
+            <li *ngIf="dsoLanguage && dsoLanguage !== 'other'">
+                <i class="fas fa-language mr-2"></i>{{ 'languages.iso-639-2.'+dsoLanguage | translate }}
+            </li>
+            <li *ngIf="dso.hasMetadata('masterthesis.faculty.code')">
+                <ds-master-thesis-faculty-badges [object]="dso"></ds-master-thesis-faculty-badges>
+            </li>
+            <li *ngIf="accessCondition">
+                <ds-access-conditions [accessConditions]="[accessCondition]"></ds-access-conditions>
+            </li>
+        </ul>
     </div>
 </div>

@@ -1555,7 +1555,13 @@
   "item.edit.withdraw.success": "The item was withdrawn successfully",
   "item.orcid.return": "Back",
   "item.listelement.badge": "Item",
-  "item.page.faculty-name": "Faculty",
+  "item.page.faculty": "Faculty",
+  "item.page.session": "Session",
+  "item.page.created": "Date created",
+  "item.page.updated": "Date last changed",
+  "item.page.language": "Language",
+  "item.page.document-type": "Document type",
+  "item.page.degree-label": "Degree label",
   "item.page.degree-label": "Degree label",
   "item.page.description": "Description",
   "item.page.journal-issn": "Journal ISSN",
@@ -1587,6 +1593,8 @@
   "item.page.files": "Files",
   "item.page.filesection.description": "Description:",
   "item.page.filesection.download": "Download",
+  "item.page.filesection.request-a-copy": "Request a copy",
+  "item.page.filesection.no-access": "No access",
   "item.page.filesection.format": "Format:",
   "item.page.filesection.name": "Name:",
   "item.page.filesection.size": "Size:",
@@ -3219,7 +3227,7 @@
   "access.condition.value.embargo": "Embargo",
   "access.condition.value.administrator": "Administrator Only",
   "access.condition.value.lease": "Lease",
-  "access.condition.value.UCLouvain networks restriction": "Restricted Access",
+  "access.condition.value.restricted": "Restricted Access",
   "submission.sections.license.granted-label": "I confirm the license above",
   "submission.sections.license.required": "You must accept the license",
   "submission.sections.license.notgranted": "You must accept the license",
@@ -3692,8 +3700,8 @@
   "third-party-metrics-cookies.message": "{{ metricType }} badge is blocked by your ",
   "third-party-metrics-cookies.consent-settings": "consent settings",
   "third-party-metrics-blocked": "Some of the metrics are blocked by your",
-  // --- UCLOUVAIN Additions ---
 
+  // --- UCLOUVAIN Additions ---
   "home-news.main-title": "DIAL.mem",
   "home-news.second-title": "UCLouvain's electronic master theses repository",
   "home-info.what-is": "What is DIAL.mem ?",
@@ -3705,4 +3713,17 @@
   "home-info.list-advantage-4": "Environmental benefits and saving in stack spaces",
   "home-info.list-advantage-5": "Struggle against plagiarism",
   "submission-button.add.message": "Add a submission",
+
+  "session.january": "January",
+  "session.june": "June",
+  "session.september": "September",
+
+  // --- LANGUAGES ---
+  "languages.iso-639-2.dut": "Dutch",
+  "languages.iso-639-2.eng": "English",
+  "languages.iso-639-2.fre": "French",
+  "languages.iso-639-2.ita": "Italian",
+  "languages.iso-639-2.ger": "German",
+  "languages.iso-639-2.spa": "Spanish",
+  "languages.iso-639-2.other": "Other"
 }

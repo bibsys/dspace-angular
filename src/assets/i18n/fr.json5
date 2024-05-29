@@ -5029,28 +5029,18 @@
   // "item.listelement.badge": "Item",
   "item.listelement.badge": "Item",
 
-  // "item.page.faculty-name": "Faculty"
-  "item.page.faculty-name": "Faculté",
-
-  // "item.page.degree-label": "Degree label"
+  "item.page.faculty": "Faculté",
+  "item.page.session": "Session",
+  "item.page.created": "Date de création",
+  "item.page.updated": "Dernière mise à jour",
+  "item.page.language": "Langue",
+  "item.page.document-type": "Type de document",
   "item.page.degree-label": "Intitulé du diplôme",
-
-  // "item.page.description": "Description",
   "item.page.description": "Description",
-
-  // "item.page.journal-issn": "Journal ISSN",
   "item.page.journal-issn": "ISSN de la revue",
-
-  // "item.page.journal-title": "Journal Title",
   "item.page.journal-title": "Nom de la revue",
-
-  // "item.page.publisher": "Publisher",
   "item.page.publisher": "Éditeur",
-
-  // "item.page.titleprefix": "Item: ",
   "item.page.titleprefix": "Item : ",
-
-  // "item.page.volume-title": "Volume Title",
   "item.page.volume-title": "Titre du volume",
 
   // "item.search.results.head": "Item Search Results",
@@ -5134,6 +5124,9 @@
 
   // "item.page.filesection.download": "Download",
   "item.page.filesection.download": "Télécharger",
+
+  "item.page.filesection.request-a-copy": "Demander un accès",
+  "item.page.filesection.no-access": "Aucun accès",
 
   // "item.page.filesection.format": "Format:",
   "item.page.filesection.format": "Format:",
@@ -12290,15 +12283,28 @@
   //"access.condition.value.openaccess": "Open Access",
   "access.condition.value.openaccess": "Open Access",
   //"access.condition.value.embargo": "Embargo",
-  "access.condition.value.embargo": "Accès embargo depuis",
+  "access.condition.value.embargo": "Accès embargo",
   //"access.condition.value.administrator": "Administrator Only",
   "access.condition.value.administrator": "Accès interdit",
   //"access.condition.value.lease": "Accès embargo",
-  "access.condition.value.lease": "Accès embargo jusque",
+  "access.condition.value.lease": "Accès limité",
 
   //"access.condition.value.UCLouvain networks restriction": "Restricted Access"
-  "access.condition.value.UCLouvain networks restriction": "Accès restreint",
+  "access.condition.value.restricted": "Accès restreint",
 
   //"submission-button.add.message": "Add a submission",
   "submission-button.add.message": "Soumettre",
+
+  "session.january": "Janvier",
+  "session.june": "Juin",
+  "session.september": "Septembre",
+
+  // --- LANGUAGES ---
+  "languages.iso-639-2.dut": "Néérlandais",
+  "languages.iso-639-2.eng": "Anglais",
+  "languages.iso-639-2.fre": "Français",
+  "languages.iso-639-2.ita": "Italien",
+  "languages.iso-639-2.ger": "Allemand",
+  "languages.iso-639-2.spa": "Espagnal",
+  "languages.iso-639-2.other": "Autre"
 }
