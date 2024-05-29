@@ -5,18 +5,19 @@
             <div class="ml-2 d-flex flex-column">
                 <h4>{{ fileName }}</h4>
                 <div class="ml-4 flex-grow-1">
-                    <ng-container *ngTemplateOutlet="accessConditions"></ng-container>
                     <p *ngIf="metadata[fileDescriptionKey] && isNotEmpty(metadata[fileDescriptionKey])"
                        [innerHTML]="metadata[fileDescriptionKey]"
                        class="m-0 small py-1 text-justify"></p>
-                    <div class="pb-1" *ngIf="isNotEmpty(metadata[fileLicenceKey])">
-                        <ds-submission-upload-section-license
-                                [licenseUri]="metadata[fileLicenceKey][0].toString()"
-                                [height]="20"
-                        ></ds-submission-upload-section-license>
-                    </div>
-                    <div class="text-muted font-italic small">({{ fileData?.sizeBytes | dsFileSize }})</div>
                 </div>
+                <ul class="list-inline list-inline-with-divider small m-0">
+                    <li *ngIf="fileAccess">
+                        <ds-access-conditions [accessConditions]="fileAccess"></ds-access-conditions>
+                    </li>
+                    <li>{{ fileData?.sizeBytes | dsFileSize }}</li>
+                    <li *ngIf="isNotEmpty(fileLicence)">
+                        <ds-cc-licence [licenseUri]="fileLicence" [height]="16"></ds-cc-licence>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="col-2 text-right">
@@ -26,21 +27,6 @@
         </div>
     </div>
 </div>
-
-<ng-template #accessConditions>
-    <div *ngIf="fileData.accessConditions" class="access-conditions d-flex align-items-center pb-1">
-        <ng-container *ngFor="let access of fileData.accessConditions; let last=last">
-            <span class="badge px-2" [ngClass]="getAccessConditionBadgeColor(access)">
-                <i class="fa mr-1" [ngClass]="getAccessConditionIcon(access)"></i>
-                {{ 'access.condition.value.' + access.name | translate }}
-                <ng-container *ngIf="isNotEmpty(access.startDate)"> {{ 'from' | translate }} {{access.startDate}}</ng-container>
-                <ng-container *ngIf="isNotEmpty(access.endDate)"> {{ 'until' | translate }} {{access.endDate}}</ng-container>
-            </span>
-            <i *ngIf="!last" class="fa fa-arrow-circle-right text-dark mx-2" aria-hidden="true"></i>
-
-        </ng-container>
-    </div>
-</ng-template>
 
 <ng-template #action_buttons>
     <ds-themed-file-download-link

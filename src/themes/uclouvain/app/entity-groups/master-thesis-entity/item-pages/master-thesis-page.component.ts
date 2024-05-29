@@ -16,4 +16,11 @@ import { DSpaceObjectType } from '../../../../../../app/core/shared/dspace-objec
 })
 export class MasterThesisPageComponent extends ItemComponent {
   protected readonly DspaceObjectType = DSpaceObjectType;
+  dateFormat = 'yyyy-MM-dd HH:mm:ss';
+  dsoDate: string;
+
+  ngOnInit() {
+    super.ngOnInit();
+    this.dsoDate = this.object.firstMetadataValue('dc.date.issued');
+  }
 }
