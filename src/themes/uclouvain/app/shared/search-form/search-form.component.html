@@ -1,5 +1,5 @@
 <form #form="ngForm" (ngSubmit)="onSubmit(form.value)" action="/search">
-    <div class="form-group input-group flex-nowrap text-nowrap">
+    <div class="form-group input-group flex-nowrap text-nowrap search-form">
         <div *ngIf="showScopeSelector && !(isXsOrSm$ | async)" class="input-group-prepend">
                 <button class="scope-button btn btn-outline-primary btn-primary border-3 text-truncate text-white"
                         [ngbTooltip]="dsoNameService.getName(selectedScope | async)" type="button"
@@ -10,8 +10,8 @@
             <input type="text" [(ngModel)]="query" name="query" class="form-control"
                    attr.aria-label="{{ searchPlaceholder }}" [attr.data-test]="'search-box' | dsBrowserOnly"
                    [placeholder]="searchPlaceholder" id="query">
-    <span class="input-group-append">
-        <button type="submit" class="search-button btn btn-{{brandColor}}" [attr.data-test]="'search-button' | dsBrowserOnly"><i class="fas fa-search"></i> {{ ('search.form.search' | translate) }}</button>
-    </span>
+        <span class="input-group-append">
+            <button type="submit" class="search-button btn btn-{{brandColor}}" [attr.data-test]="'search-button' | dsBrowserOnly"><i class="fas fa-search"></i> {{ ('search.form.search' | translate) }}</button>
+        </span>
     </div>
 </form>
