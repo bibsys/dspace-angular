@@ -90,3 +90,23 @@
 .main-head {
   font-family: Nunito;
 }
+
+// CSS HACK for "Main search from"
+:host ::ng-deep ds-search-form {
+
+  .search-form {
+    padding: var(--search-form-spacing);
+    border-radius: calc(3 * 1rem);
+    background-color: rgba(255, 255, 255, var(--search-form-background-opacity));
+
+    input.form-control {
+      margin-left: var(--search-form-spacing);
+      margin-right: var(--search-form-spacing);
+      padding-left: 1rem;
+    }
+
+    .btn, input.form-control {
+      border-radius: 1rem !important;
+    }
+  }
+}
