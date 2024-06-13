@@ -1,0 +1,25 @@
+<div class="submission-submit-container" >
+
+    <div class="alert alert-info m-3 d-flex" role="alert">
+        <div class="alert-icon">
+            <i class="fa-solid fa-circle-info fa-2x pr-4"></i>
+        </div>
+        <div class="alert-content">
+            <p>{{ 'Lorem ipsum dolor sit amet...' | translate }}</p>
+            <p>{{ 'submission.sections.help-panel.message' | translate }} <a href="#" class="alert-link">link</a></p>
+        </div>
+    </div>
+
+
+    <ds-submission-form [collectionId]="collectionId"
+                        [sections]="sections"
+                        [selfUrl]="selfUrl"
+                        [submissionDefinition]="submissionDefinition"
+                        [submissionErrors]="submissionErrors"
+                        [item]="item"
+                        [collectionModifiable]="collectionModifiable"
+                        [submissionId]="submissionId"
+                        [metadataSecurityConfiguration]="metadataSecurityConfiguration"
+                        [entityType]="entityType">
+    </ds-submission-form>
+</div>
