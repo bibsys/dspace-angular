@@ -80,6 +80,7 @@ import { FooterModule } from '../../app/footer/footer.module';
 import { ContextMenuModule } from '../../app/shared/context-menu/context-menu.module';
 import { SocialModule } from '../../app/social/social.module';
 import { SharedThemeModule } from './shared-theme.module';
+import { SubmissionEditComponent } from './app/submission/edit/submission-edit.component';
 
 const DECLARATIONS = [
   AdminSidebarComponent,
@@ -105,7 +106,8 @@ const DECLARATIONS = [
   UploadFileDescriptionComponent,
   CreativeCommonsLicenseComponent,
   FileSectionComponent,
-  FileDownloadLinkComponent
+  FileDownloadLinkComponent,
+  SubmissionEditComponent
 ];
 
 @NgModule({
