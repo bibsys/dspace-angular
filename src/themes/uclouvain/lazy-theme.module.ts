@@ -37,6 +37,7 @@ import { DefaultBrowseElementsComponent } from './app/browse-most-elements/defau
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { SubmissionSectionUploadFileComponent } from './app/submission/sections/upload/file/section-upload-file.component';
 import { ItemPageTitleFieldComponent } from './app/item-page/simple/field-components/specific-field/title/item-page-title-field.component';
+import { SubmissionEditComponent } from './app/submission/edit/submission-edit.component';
 
 const DECLARATIONS = [
   HomePageComponent,
@@ -62,7 +63,8 @@ const DECLARATIONS = [
   FullFileSectionComponent,
   UploadFileDescriptionComponent,
   FileSectionComponent,
-  FileDownloadLinkComponent
+  FileDownloadLinkComponent,
+  SubmissionEditComponent
 ];
 
 @NgModule({
