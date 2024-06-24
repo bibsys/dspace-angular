@@ -1,16 +1,32 @@
-<a [routerLink]="(bitstreamPath$| async)?.routerLink" class="dont-break-out" [queryParams]="(bitstreamPath$| async)?.queryParams" [target]="isBlank ? '_blank': '_self'" [ngClass]="cssClasses">
-    <ng-container *ngIf="canDownload$ | async">
-        <i *ngIf="showIcon" class="fas fa-download pr-1"></i>
-        {{ "item.page.filesection.download" | translate }}
-    </ng-container>
-    <ng-container *ngIf="!(canDownload$ | async)">
-        <i *ngIf="showIcon" class="fas fa-lock pr-1"></i>
-        <ng-container *ngIf="canRequestItemCopy$ | async">{{ "item.page.filesection.request-a-copy" | translate }}</ng-container>
-        <ng-container *ngIf="!(canRequestItemCopy$ | async)">{{ "item.page.filesection.no-access" | translate }}</ng-container>
-    </ng-container>
-    <ng-container *ngTemplateOutlet="content"></ng-container>
-</a>
+<!-- ACCESS POSSIBLE ====================================================== -->
+<ng-container *ngIf="(canDownload$ | async) || (canRequestItemCopy$ | async); else noAccess">
+    <a [routerLink]="(bitstreamPath$| async)?.routerLink" class="dont-break-out"
+       [queryParams]="(bitstreamPath$| async)?.queryParams"
+       [target]="isBlank ? '_blank': '_self'"
+       [ngClass]="cssClasses"
+    >
+        <ng-container *ngIf="canDownload$ | async">
+            <i *ngIf="showIcon" class="fas fa-download pr-1"></i>
+            {{ "item.page.filesection.download" | translate }}
+        </ng-container>
+        <ng-container *ngIf="!(canDownload$ | async)">
+            <i *ngIf="showIcon" class="fas fa-lock pr-1"></i>
+            {{ "item.page.filesection.request-a-copy" | translate }}
+        </ng-container>
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+    </a>
+</ng-container>
 
+<!-- NO ACCESS ============================================================ -->
+<ng-template #noAccess>
+    <button [disabled]="true" [ngClass]="cssClasses">
+        <i class="fa fa-lock pr-1"></i>
+        {{ "item.page.filesection.no-access" | translate }}
+    </button>
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+</ng-template>
+
+<!-- ADDITIONAL CONTENT =================================================== -->
 <ng-template #content>
     <ng-content></ng-content>
 </ng-template>
