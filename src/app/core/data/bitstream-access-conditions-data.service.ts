@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IdentifiableDataService } from './base/identifiable-data.service';
 import { dataService } from './base/data-service.decorator';
 import { BITSTREAM_ACCESS_CONDITIONS } from '../shared/bitstream-access-conditions.resource-type';
-import { BitstreamAccessConditions } from '../shared/bitstream-acces-conditions.model';
+import { BitstreamAccessConditions } from '../shared/bitstream-access-conditions.model';
 import { RequestService } from './request.service';
 import { RemoteDataBuildService } from '../cache/builders/remote-data-build.service';
 import { ObjectCacheService } from '../cache/object-cache.service';
