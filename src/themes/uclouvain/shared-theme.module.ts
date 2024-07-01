@@ -3,6 +3,7 @@ import { AccessConditionsComponent } from './app/shared/access-conditions/access
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../app/shared/shared.module';
 import { ContextMenuThemeModule } from './app/shared/context-menu/context-menu-theme.module';
+import { PromoterFileDownloadUrlComponent } from './app/shared/promoter-download-url/promoter-file-download-url.component';
 
 @NgModule({
   imports: [
@@ -12,9 +13,11 @@ import { ContextMenuThemeModule } from './app/shared/context-menu/context-menu-t
   ],
   declarations: [
     AccessConditionsComponent,
+    PromoterFileDownloadUrlComponent
   ],
   exports: [
-    AccessConditionsComponent
+    AccessConditionsComponent,
+    PromoterFileDownloadUrlComponent
   ]
 })
 export class SharedThemeModule { }
