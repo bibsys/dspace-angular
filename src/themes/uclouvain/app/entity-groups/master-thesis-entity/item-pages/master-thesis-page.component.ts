@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ViewMode } from '../../../../../../app/core/shared/view-mode.model';
 import { Context } from '../../../../../../app/core/shared/context.model';
 import { listableObjectComponent } from '../../../../../../app/shared/object-collection/shared/listable-object/listable-object.decorator';
@@ -59,6 +59,9 @@ export class MasterThesisPageComponent extends ItemComponent {
   protected readonly DspaceObjectType = DSpaceObjectType;
   dateFormat = 'yyyy-MM-dd HH:mm:ss';
   dsoDate: string;
+
+  @Input()
+  showCorrection: boolean;
 
   ngOnInit() {
     super.ngOnInit();
