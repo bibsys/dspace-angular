@@ -3718,6 +3718,9 @@
   "session.june": "June",
   "session.september": "September",
 
+  "item.page.filesection.bitstream.download_url.tooltip": "Click here to copy the link that allows the promoter to download the bitstream content. <strong>For safety reason, please only share this link with a promoter in charge of the submission</strong>.",
+  "item.page.filesection.bitstream.download_url.label": "Copy download link",
+
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Dutch",
   "languages.iso-639-2.eng": "English",
