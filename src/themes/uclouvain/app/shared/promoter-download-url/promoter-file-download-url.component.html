@@ -1,0 +1,5 @@
+<ng-template #fileDownloadTipContent><p [innerHTML]="'item.page.filesection.bitstream.download_url.tooltip' | translate"></p></ng-template>
+<button [ngbTooltip]="fileDownloadTipContent" class="btn btn-info" (click)="copyUrlToClipboard()">
+    <i class="fa fa-clipboard px-1" aria-hidden="true"></i>
+    {{('item.page.filesection.bitstream.download_url.label') | translate}}
+</button>

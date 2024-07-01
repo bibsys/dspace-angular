@@ -11,7 +11,9 @@ import { BUNDLE } from './bundle.resource-type';
 import { Bundle } from './bundle.model';
 import { ChildHALResource } from './child-hal-resource.model';
 import { BITSTREAM_ACCESS_CONDITIONS } from './bitstream-access-conditions.resource-type';
-import { BitstreamAccessConditions } from './bitstream-acces-conditions.model';
+import { BitstreamAccessConditions } from './bitstream-access-conditions.model';
+import { BITSTREAM_DIRECT_DOWNLOAD_URL } from './bitstream-direct-download-url.resource-type';
+import { BitstreamDirectDownloadURL } from './bitstream-direct-download-url.model';
 
 export interface ChecksumInfo {
   checkSumAlgorithm: string;
@@ -58,6 +60,7 @@ export class Bitstream extends DSpaceObject implements ChildHALResource {
     content: HALLink;
     thumbnail: HALLink;
     access: HALLink;
+    download_url: HALLink;
   };
 
   /**
@@ -87,6 +90,9 @@ export class Bitstream extends DSpaceObject implements ChildHALResource {
    */
   @link(BITSTREAM_ACCESS_CONDITIONS, false, 'access')
   access?: Observable<RemoteData<BitstreamAccessConditions>>;
+
+  @link(BITSTREAM_DIRECT_DOWNLOAD_URL, false, 'download_url')
+  download_url?: Observable<RemoteData<BitstreamDirectDownloadURL>>;
 
   getParentLinkKey(): keyof this['_links'] {
     return 'format';
