@@ -82,6 +82,7 @@ import { POOL_TASK } from './tasks/models/pool-task-object.resource-type';
 import { WORKFLOW_ACTION } from './tasks/models/workflow-action-object.resource-type';
 import { COMMENT } from './shared/comment.resource-type';
 import { BITSTREAM_ACCESS_CONDITIONS } from './shared/bitstream-access-conditions.resource-type';
+import { BITSTREAM_DIRECT_DOWNLOAD_URL } from './shared/bitstream-direct-download-url.resource-type';
 
 export const LAZY_DATA_SERVICES: LazyDataServicesMap = new Map([
   [AUTHORIZATION.value, () => import('./data/feature-authorization/authorization-data.service').then(m => m.AuthorizationDataService)],
@@ -164,4 +165,5 @@ export const LAZY_DATA_SERVICES: LazyDataServicesMap = new Map([
   [LOGIN_STATISTICS.value, () => import('./statistics/login-statistics.service').then(m => m.LoginStatisticsService)],
   [COMMENT.value, () => import('./comment/comment-data.service').then(m => m.CommentDataService)],
   [BITSTREAM_ACCESS_CONDITIONS.value, () => import('./data/bitstream-access-conditions-data.service').then(m => m.BitstreamAccessConditionsDataService)],
+  [BITSTREAM_DIRECT_DOWNLOAD_URL.value, () => import('./data/bitstream-direct-download-url-data.service').then(m => m.BitstreamDirectDownloadUrlDataService)],
 ]);

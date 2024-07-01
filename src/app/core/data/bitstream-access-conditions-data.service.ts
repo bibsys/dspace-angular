@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { IdentifiableDataService } from './base/identifiable-data.service';
-import { BitstreamAccessConditions } from '../shared/bitstream-acces-conditions.model';
 import { RequestService } from './request.service';
 import { RemoteDataBuildService } from '../cache/builders/remote-data-build.service';
 import { ObjectCacheService } from '../cache/object-cache.service';
 import { HALEndpointService } from '../shared/hal-endpoint.service';
+import { BitstreamAccessConditions } from '../shared/bitstream-access-conditions.model';
 
 /**
  * A service responsible for fetching/sending data from/to the REST API on the bitstreamaccessconditions endpoint
