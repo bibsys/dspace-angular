@@ -27,7 +27,8 @@ export class FullFileSectionComponent extends BaseComponent {
         true,
         followLink('format'),
         followLink('thumbnail'),
-        followLink('access')
+        followLink('access'),
+        followLink('download_url')
       )),
       tap((rd: RemoteData<PaginatedList<Bitstream>>) => {
           if (hasValue(rd.errorMessage)) {
