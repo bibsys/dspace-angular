@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { AccessConditionsComponent } from './app/shared/access-conditions/access-condition.component';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../app/shared/shared.module';
+import { PromoterFileDownloadUrlComponent } from './app/shared/promoter-download-url/promoter-file-download-url.component';
 
 @NgModule({
   imports: [
@@ -10,9 +11,11 @@ import { SharedModule } from '../../app/shared/shared.module';
   ],
   declarations: [
     AccessConditionsComponent,
+    PromoterFileDownloadUrlComponent
   ],
   exports: [
-    AccessConditionsComponent
+    AccessConditionsComponent,
+    PromoterFileDownloadUrlComponent
   ]
 })
 export class SharedThemeModule { }
