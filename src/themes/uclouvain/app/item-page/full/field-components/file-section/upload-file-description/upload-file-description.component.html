@@ -32,7 +32,7 @@
             </ul>
         </div>
     </div>
-    <div class="ml-auto align-content-center">
+    <div class="ml-auto d-flex flex-column align-items-center justify-content-center">
         <ds-themed-file-download-link
                 *ngIf="!hasNoDownload()"
                 [bitstream]="bitstream"
@@ -40,5 +40,8 @@
                 [cssClasses]="'btn btn-primary'"
                 [showIcon]="true"
         ></ds-themed-file-download-link>
+        <div *ngIf="downloadUrl" class="pt-1">
+            <ds-promoter-file-download-url [downloadUrl]="downloadUrl"/>
+        </div>
     </div>
 </div>

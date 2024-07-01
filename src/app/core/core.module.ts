@@ -240,7 +240,9 @@ import { PersonSchemaType } from './metadata/schema-json-ld/schema-types/Person/
 import { InternalLinkService } from './services/internal-link.service';
 import { PdfAttestationDownloadService } from './data/pdf-attestation-download.service';
 import { BitstreamAccessConditionsDataService } from './data/bitstream-access-conditions-data.service';
-import { BitstreamAccessConditions } from './shared/bitstream-acces-conditions.model';
+import { BitstreamAccessConditions } from './shared/bitstream-access-conditions.model';
+import { BitstreamDirectDownloadUrlDataService } from './data/bitstream-direct-download-url-data.service';
+import { BitstreamDirectDownloadURL } from './shared/bitstream-direct-download-url.model';
 
 /**
  * When not in production, endpoint responses can be mocked for testing purposes
@@ -286,6 +288,7 @@ const PROVIDERS = [
   RegistryService,
   BitstreamFormatDataService,
   BitstreamAccessConditionsDataService,
+  BitstreamDirectDownloadUrlDataService,
   RemoteDataBuildService,
   EndpointMapResponseParsingService,
   FacetValueResponseParsingService,
@@ -405,6 +408,7 @@ export const models =
     Bitstream,
     BitstreamFormat,
     BitstreamAccessConditions,
+    BitstreamDirectDownloadURL,
     Item,
     Site,
     Collection,
