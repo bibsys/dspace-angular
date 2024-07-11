@@ -443,14 +443,11 @@
   "bitstream.edit.form.primaryBitstream.label": "Primary bitstream",
   "bitstream.edit.form.fileType.label": "File type",
   "bitstream.edit.form.fileType.hint": "Personal picture, logo, main article, etc.",
-<<<<<<< HEAD
 
   "bitstream.edit.form.hide.label": "Hide",
 
   "bitstream.edit.form.hide.hint": "Hide the bitstream on the item page.",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "bitstream.edit.form.selectedFormat.hint": "If the format is not in the above list, <b>select \"format not in list\" above</b> and describe it under \"Describe new format\".",
   "bitstream.edit.form.selectedFormat.label": "Selected Format",
   "bitstream.edit.form.selectedFormat.unknown": "Format not in list",
@@ -914,14 +911,11 @@
   "cookies.consent.app.description.altmetric": "Altmetric’s interface tracks online engagement to reveal how and where your research is being visualized. (https://www.altmetric.com)",
   "cookies.consent.app.title.dimensions": "Dimensions",
   "cookies.consent.app.description.dimensions": "Dimensions analyses references from publications and calculates a set of article-level indicators. (https://www.dimensions.ai)",
-<<<<<<< HEAD
 
   "cookies.consent.app.title.datadog": "Datadog",
 
   "cookies.consent.app.description.datadog": "Datadog provides insights on how users interact with the application.",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "cookies.consent.purpose.thirdPartyJs": "Third-party JavaScript",
   "curation-task.task.citationpage.label": "Generate Citation Page",
   "cris-layout.toggle.open": "Open section",
@@ -1032,12 +1026,9 @@
   "confirmation-modal.delete-eperson.info": "Are you sure you want to delete EPerson \"{{ dsoName }}\"",
   "confirmation-modal.delete-eperson.cancel": "Cancel",
   "confirmation-modal.delete-eperson.confirm": "Delete",
-<<<<<<< HEAD
 
   "confirmation-modal.delete-community-collection-logo.info": "Are you sure you want to delete the logo?",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "confirmation-modal.delete-profile.header": "Delete Profile",
   "confirmation-modal.delete-profile.info": "Are you sure you want to delete your profile",
   "confirmation-modal.delete-profile.cancel": "Cancel",
@@ -1083,12 +1074,9 @@
   "error.validation.NotValidEmail": "This E-mail is not a valid email",
   "error.validation.emailTaken": "This E-mail is already taken",
   "error.validation.groupExists": "This group already exists",
-<<<<<<< HEAD
 
   "error.validation.invalidProjectURL": "The URL of the project is invalid",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "error.validation.metadata.name.invalid-pattern": "This field cannot contain dots, commas or spaces. Please use the Element & Qualifier fields instead",
   "error.validation.metadata.name.max-length": "This field may not contain more than 32 characters",
   "error.validation.metadata.namespace.max-length": "This field may not contain more than 256 characters",
@@ -1225,12 +1213,9 @@
   "form.add": "Add more",
   "form.add-help": "Click here to add the current entry and to add another one",
   "form.cancel": "Cancel",
-<<<<<<< HEAD
 
   "form.reset": "Reset",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "form.clear": "Clear",
   "form.clear-help": "Click here to remove the selected value",
   "form.copy": "Duplicate",
@@ -1272,12 +1257,9 @@
   "form.other-information.ror_orgunit_id": "ROR ID",
   "form.other-information.ror_orgunit_type": "ROR type",
   "form.other-information.ror_orgunit_acronym": "ROR acronym",
-<<<<<<< HEAD
 
   "form.other-information.ror_orgunit_countryName": "ROR country",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "form.entry.source.local": "",
   "form.entry.source.orcid": "",
   "form.entry.source.ror": "",
@@ -1351,12 +1333,9 @@
   "info.end-user-agreement.head": "End User Agreement",
   "info.end-user-agreement.title": "End User Agreement",
   "info.end-user-agreement.hosting-country": "the United States",
-<<<<<<< HEAD
 
   "info.end-user-agreement.content.fallback": "Accept the user agreement.",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "info.privacy.breadcrumbs": "Privacy Statement",
   "info.privacy.head": "Privacy Statement",
   "info.privacy.title": "Privacy Statement",
@@ -1484,12 +1463,9 @@
   "item.edit.metadata.headers.field": "Field",
   "item.edit.metadata.headers.language": "Lang",
   "item.edit.metadata.headers.security": "Security level",
-<<<<<<< HEAD
 
   "item.edit.metadata.headers.authority": "Authority",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "item.edit.metadata.headers.value": "Value",
   "item.edit.metadata.metadatafield.error": "An error occurred validating the metadata field",
   "item.edit.metadata.metadatafield.invalid": "Please choose a valid metadata field",
@@ -1936,14 +1912,11 @@
   "loading.content-source": "Loading content source...",
   "loading.community": "Loading community...",
   "loading.default": "Loading...",
-<<<<<<< HEAD
 
   "loading.warning": "This is taking longer than expected. Please be patient.",
 
   "loading.error": "An error occurred while loading the page. Please refresh the page and try again.",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "loading.item": "Loading item...",
   "loading.items": "Loading items...",
   "loading.mydspace-results": "Loading items...",
@@ -2349,13 +2322,10 @@
   "process.bulk.delete.error.head": "Error on deleteing process",
   "process.bulk.delete.error.body": "The process with ID {{processId}} could not be deleted. The remaining processes will continue being deleted. ",
   "process.bulk.delete.success": "{{count}} process(es) have been succesfully deleted",
-<<<<<<< HEAD
 
 
   "patent.page.titleprefix": "Patent",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "patent.listelement.badge": "Patent",
   "product.listelement.badge": "Product",
   "profile.breadcrumbs": "Update Profile",
@@ -2873,7 +2843,6 @@
   "statistics.table.mainReports.title.TopCities": "Top city views",
   "form.other-information.oairecerif-author-affiliation": "Affiliation",
   "form.other-information.oairecerif-editor-affiliation": "Affiliation",
-<<<<<<< HEAD
 
   "form.other-information.dc.publisher": "Publisher",
 
@@ -2885,8 +2854,6 @@
 
   "form.other-information.dc.identifier.issn": "ISSN",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "statistics.table.downloadReports.title.TotalVisits": "Most downloaded",
   "statistics.table.downloadReports.title.TopItems": "Most downloaded",
   "statistics.table.downloadReports.title.TotalVisitsPerMonth": "Total downloads per month",
@@ -2999,12 +2966,9 @@
   "submission.import-external.source.cinii": "CiNii",
   "submission.import-external.source.crossref": "CrossRef",
   "submission.import-external.source.datacite": "DataCite",
-<<<<<<< HEAD
 
   "submission.import-external.source.doi": "DOI",
 
-=======
->>>>>>> 6d5730f68a ([ADD] feat(submission-button): Navbar submission button + check for authorization.)
   "submission.import-external.source.scielo": "SciELO",
   "submission.import-external.source.scopus": "Scopus",
   "submission.import-external.source.vufind": "VuFind",
