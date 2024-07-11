@@ -297,7 +297,9 @@ export abstract class DsDynamicVocabularyComponent extends DynamicFormControlCom
   }
 
   getOtherInformationValue(value: string, key: string): FormFieldMetadataValueObject {
-    if (isUndefined(value)) {
+    if (key === 'alternative-names' ){
+      return null;
+    } else if (isUndefined(value)) {
       // Allow using undefined values to empty a field
       return new FormFieldMetadataValueObject(
         '',
