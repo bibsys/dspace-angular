@@ -38,6 +38,12 @@ import { BrowserOnlyPipe } from 'src/app/shared/utils/browser-only.pipe';
     BrowserOnlyPipe,
   ],
   standalone: true,
+  providers: [
+    {
+      provide: SEARCH_CONFIG_SERVICE,
+      useClass: SearchConfigurationService
+    }
+  ]
 })
 export class ObjectListComponent extends BaseComponent implements OnInit, OnDestroy {
 
