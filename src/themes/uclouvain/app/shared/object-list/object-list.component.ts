@@ -15,7 +15,13 @@ import { PaginationService } from '../../../../../app/core/pagination/pagination
 @Component({
   selector: 'ds-object-list',
   styleUrls: ['../../../../../app/shared/object-list/object-list.component.scss', './object-list.component.scss'],
-  templateUrl: './object-list.component.html'
+  templateUrl: './object-list.component.html',
+  providers: [
+    {
+      provide: SEARCH_CONFIG_SERVICE,
+      useClass: SearchConfigurationService
+    }
+  ]
 })
 export class ObjectListComponent extends BaseComponent implements OnInit, OnDestroy {
 
