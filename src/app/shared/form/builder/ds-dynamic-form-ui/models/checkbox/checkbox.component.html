@@ -1,0 +1,20 @@
+<ng-container>
+    <legend
+            [id]="'legend_' + model.id"
+            [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]">
+      {{model.placeholder}} <span *ngIf="model.required">*</span>
+    </legend>
+    <div class="d-flex flex-row align-items-center">
+        <input class="mx-2"
+        [class.is-invalid]="showErrorMessages"
+        [id]="id"
+        [name]="model.name"
+        [disabled]="model.disabled"
+        type = "checkbox"
+        [checked]="model.checked"
+        (blur)="onBlur($event)"
+        (focus)="onFocus($event)"
+        (change)="onChange($event)">
+        <label *ngIf="!isEmpty(model.hint)" class="m-0" (click)="toggleCheckbox()">{{model.hint}}</label>
+    </div>
+</ng-container>

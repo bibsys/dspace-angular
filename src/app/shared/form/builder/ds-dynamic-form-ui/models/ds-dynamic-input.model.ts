@@ -37,6 +37,7 @@ export interface DsDynamicInputModelConfig extends DynamicInputModelConfig {
   securityConfigLevel?: number[];
   toggleSecurityVisibility?: boolean;
   isModelOfNotRepeatableGroup?: boolean;
+  hideHint?: boolean;
 }
 
 export class DsDynamicInputModel extends DynamicInputModel {
@@ -60,7 +61,7 @@ export class DsDynamicInputModel extends DynamicInputModel {
   @serializable() securityConfigLevel?: number[];
   @serializable() toggleSecurityVisibility = true;
   @serializable() isModelOfNotRepeatableGroup = false;
-
+  @serializable() hideHint: boolean = false;
 
   constructor(config: DsDynamicInputModelConfig, layout?: DynamicFormControlLayout) {
     super(config, layout);

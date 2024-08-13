@@ -152,14 +152,20 @@ import { DYNAMIC_FORM_CONTROL_TYPE_SCROLLABLE_DROPDOWN } from './models/scrollab
 import { DsDynamicTagComponent } from './models/tag/dynamic-tag.component';
 import { DYNAMIC_FORM_CONTROL_TYPE_TAG } from './models/tag/dynamic-tag.model';
 import { DsDynamicLookupRelationModalComponent } from './relation-lookup-modal/dynamic-lookup-relation-modal.component';
+import { CustomCheckboxComponent } from './models/checkbox/checkbox.component';
+import { DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX } from './models/checkbox/checkbox.model';
 
 export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<DynamicFormControl> | null {
   switch (model.type) {
     case DYNAMIC_FORM_CONTROL_TYPE_ARRAY:
       return DsDynamicFormArrayComponent;
 
+    // Important to keep this case, as it is used to render the license checkbox.
     case DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX:
       return DynamicNGBootstrapCheckboxComponent;
+
+    case DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX:
+      return CustomCheckboxComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX_GROUP:
       return (model instanceof DynamicListCheckboxGroupModel) ? DsDynamicListComponent : DynamicNGBootstrapCheckboxGroupComponent;
