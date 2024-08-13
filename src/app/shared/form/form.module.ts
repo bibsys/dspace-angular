@@ -44,6 +44,7 @@ import { ThemedDynamicLookupRelationSearchTabComponent } from './builder/ds-dyna
 import { ThemedDynamicLookupRelationExternalSourceTabComponent } from './builder/ds-dynamic-form-ui/relation-lookup-modal/external-source-tab/themed-dynamic-lookup-relation-external-source-tab.component';
 import { DsDynamicRelationGroupModalComponent } from './builder/ds-dynamic-form-ui/models/relation-group/modal/dynamic-relation-group-modal.components';
 import { DsDynamicRelationInlineGroupComponent } from './builder/ds-dynamic-form-ui/models/relation-inline-group/dynamic-relation-inline-group.components';
+import { CustomCheckboxComponent } from './builder/ds-dynamic-form-ui/models/checkbox/checkbox.component';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -77,6 +78,7 @@ const COMPONENTS = [
   VocabularyTreeviewComponent,
   VocabularyTreeviewModalComponent,
   ThemedExternalSourceEntryImportModalComponent,
+  CustomCheckboxComponent,
 ];
 
 const DIRECTIVES = [
