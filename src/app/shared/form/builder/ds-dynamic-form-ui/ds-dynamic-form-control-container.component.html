@@ -20,7 +20,7 @@
             <ng-container #componentViewContainer></ng-container>
           </div>
           <small
-            *ngIf="hasHint &&
+            *ngIf="hasHint && !model.hideHint &&
            (formBuilderService.hasArrayGroupValue(model) ||
             (
               (!model.repeatable
