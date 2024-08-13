@@ -2,6 +2,7 @@ import { StaticProvider } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 import { CalendarFieldParser } from './calendar-field-parser';
+import { CheckboxFieldParser } from './custom-checkbox-field.parser';
 import { DateFieldParser } from './date-field-parser';
 import { DisabledFieldParser } from './disabled-field-parser';
 import { DropdownFieldParser } from './dropdown-field-parser';
@@ -137,6 +138,13 @@ export class ParserFactory {
         return {
           provide: FieldParser,
           useClass: LinkFieldParser,
+          deps: [...fieldParserDeps],
+        };
+      }
+      case ParserType.Checkbox: {
+        return {
+          provide: FieldParser,
+          useClass: CheckboxFieldParser,
           deps: [...fieldParserDeps],
         };
       }
