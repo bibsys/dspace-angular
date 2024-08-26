@@ -73,15 +73,15 @@
                 <dt>{{ "item.page.faculty" | translate }}</dt>
                 <dd><ds-master-thesis-faculty-badges [object]="object"></ds-master-thesis-faculty-badges></dd>
             </ng-container>
-            <ng-container *ngIf="object.firstMetadataValue('masterthesis.session') as session">
-                <dt>{{ "item.page.session" | translate }}</dt>
-                <dd>{{ "session."+session.toLowerCase() | translate }} {{ dsoDate }}</dd>
-            </ng-container>
+            <dt>{{ "item.page.date" | translate }}</dt>
+            <dd>{{ dsoDate }}</dd>
             <dt>{{ "item.page.subject" | translate }}</dt>
             <dd><ds-tag-item-page-field [item]="object" [fields]="['dc.subject']"></ds-tag-item-page-field></dd>
             <ng-container *ngIf="object.hasMetadata('dc.type')">
                 <dt>{{ "item.page.document-type" | translate }}</dt>
-                <dd><ds-generic-item-page-field [item]="object" [fields]="['dc.type']" [separator]="', '"></ds-generic-item-page-field></dd>
+                <dd *ngFor="let docType of object?.allMetadata('dc.type')">
+                    {{ docType.value | translate }}
+                </dd>
             </ng-container>
             <ng-container *ngIf="object.firstMetadataValue('dc.language.iso-639-2') as language">
                 <dt>{{ "item.page.language" | translate }}</dt>
