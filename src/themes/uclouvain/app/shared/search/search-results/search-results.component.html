@@ -3,6 +3,27 @@
 </div>
 <div *ngIf="searchResults && searchResults?.hasSucceeded && !searchResults?.isLoading && searchResults?.payload?.page.length > 0" @fadeIn>
     <ds-alert *ngIf="showSearchResultNotice" [type]="searchResultNoticeType" [content]="searchResultNotice"></ds-alert>
+
+    <!-- SORT RESULT ====================================================== -->
+    <div class="input-group my-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="fa fa-sort-amount-{{ searchConfig.sort.direction === SortDirection.ASC ? 'up' : 'down' }}"></i>
+            </div>
+        </div>
+        <select *ngIf="(sortOptionsList$ | async) as sortOptionsList"
+                [id]="'search-sort'"
+                class="form-control"
+                [ngbTooltip]="'search.sidebar.settings.sort-by' | translate"
+                (change)="reloadOrder($event)">
+            <option *ngFor="let sortOption of sortOptionsList"
+                    [value]="sortOption.field + ',' + sortOption.direction.toString()"
+                    [selected]="(sortOption.field === sortConfig?.field && sortOption.direction === sortConfig?.direction)? 'selected': null">
+                {{'sorting.' + sortOption.field + '.' + sortOption.direction | translate}}
+            </option>
+        </select>
+    </div>
+    <!-- SEARCH RESULTS =================================================== -->
     <ds-viewable-collection
             [config]="searchConfig.pagination"
             [sortConfig]="searchConfig.sort"
