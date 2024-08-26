@@ -8,16 +8,17 @@ import {
   OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import {
   TranslateModule,
   TranslateService,
 } from '@ngx-translate/core';
 import {
-  BehaviorSubject,
+  BehaviorSubject, combineLatest,
   Observable,
 } from 'rxjs';
 import {
+  first,
   map,
   mergeMap,
   switchMap,
@@ -48,6 +49,8 @@ import { followLink } from '../../shared/utils/follow-link-config.model';
 import { VarDirective } from '../../shared/utils/var.directive';
 import { ProfileClaimService } from '../profile-claim/profile-claim.service';
 import { ProfileClaimItemModalComponent } from '../profile-claim-item-modal/profile-claim-item-modal.component';
+import { RoleType } from '../../core/roles/role-types';
+import { RoleService } from '../../core/roles/role.service';
 
 @Component({
   selector: 'ds-profile-page-researcher-form',
@@ -59,6 +62,7 @@ import { ProfileClaimItemModalComponent } from '../profile-claim-item-modal/prof
     VarDirective,
     BtnDisabledDirective,
     SwitchComponent,
+    NgbTooltipModule,
   ],
   standalone: true,
 })
@@ -108,7 +112,8 @@ export class ProfilePageResearcherFormComponent implements OnInit {
               protected notificationService: NotificationsService,
               protected authService: AuthService,
               protected router: Router,
-              protected modalService: NgbModal) {
+              protected modalService: NgbModal,
+              protected roleService: RoleService) {
 
   }
 
@@ -254,4 +259,14 @@ export class ProfilePageResearcherFormComponent implements OnInit {
     });
   }
 
+  public hasRoles(roles: RoleType | RoleType[]): Observable<boolean> {
+    const toValidate: RoleType[] = (Array.isArray(roles)) ? roles : [roles];
+    const checks: Observable<boolean>[] = toValidate.map((role) => this.roleService.checkRole(role));
+    return combineLatest(checks).pipe(
+      map((permissions: boolean[]) => permissions.includes(true)),
+      first()
+    );
+  }
+
+  protected readonly RoleType = RoleType;
 }
