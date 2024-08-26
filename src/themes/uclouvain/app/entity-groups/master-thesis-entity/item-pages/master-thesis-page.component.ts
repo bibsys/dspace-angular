@@ -18,7 +18,7 @@ import { ItemPageAbstractFieldComponent } from 'src/app/item-page/simple/field-c
 import { ItemPageTagFieldsComponent } from '../../../item-page/simple/field-components/specific-field/tags/item-page-tag-fields.component';
 import { ItemPageListFieldsComponent } from '../../../item-page/simple/field-components/specific-field/list/item-page-list-fields.component';
 import { RouterLink } from '@angular/router';
-import { AsyncPipe, DatePipe, NgIf } from '@angular/common';
+import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { MasterThesisFacultyBadgesComponent } from '../item-widgets/master-thesis-faculty-badges.component';
 import { MetadataUriValuesComponent } from 'src/app/item-page/field-components/metadata-uri-values/metadata-uri-values.component';
@@ -52,6 +52,7 @@ import { MetadataUriValuesComponent } from 'src/app/item-page/field-components/m
     TranslateModule,
     AsyncPipe,
     DatePipe,
+    NgFor,
   ],
   standalone: true,
 })
