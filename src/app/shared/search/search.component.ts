@@ -87,6 +87,7 @@ import { SelectionConfig } from './search-results/search-results.component';
 import { ThemedSearchResultsComponent } from './search-results/themed-search-results.component';
 import { ThemedSearchSidebarComponent } from './search-sidebar/themed-search-sidebar.component';
 import { SearchConfigurationOption } from './search-switch-configuration/search-configuration-option.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'ds-base-search',
@@ -691,7 +692,9 @@ export class SearchComponent implements OnDestroy, OnInit {
         ) as any,
       ];
     }
-
+    if (environment.item.showAccessStatuses) {
+      followLinks.push(followLink<Item>('accessStatus', { isOptional: true }));
+    }
     if (this.configuration === 'supervision') {
       followLinks.push(followLink<WorkspaceItem>('supervisionOrders', { isOptional: true }) as any);
       followLinks.push(followLink<WorkspaceItem>('claimedTasks', { isOptional: true }));
