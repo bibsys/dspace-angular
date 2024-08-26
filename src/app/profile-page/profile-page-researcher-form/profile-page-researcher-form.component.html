@@ -26,13 +26,20 @@
     <button class="btn btn-primary mr-2" [disabled]="!researcherProfile" (click)="viewProfile(researcherProfile)">
       <i class="fas fa-info-circle"></i> {{'researcher.profile.view' | translate}}
     </button>
-    <button class="btn btn-danger" [disabled]="!researcherProfile" (click)="deleteProfile(researcherProfile)">
-        <span *ngIf="(isProcessingDelete() | async)">
-            <i class='fas fa-circle-notch fa-spin'></i> {{'researcher.profile.action.processing' | translate}}
-        </span>
-        <span *ngIf="!(isProcessingDelete() | async)">
-            <i class="fas fa-trash-alt"></i> &nbsp;{{'researcher.profile.delete' | translate}}
-        </span>
-    </button>
+    <ng-container *ngVar="(hasRoles(RoleType.Admin) | async) as adminRole">
+        <button class="btn btn-danger"
+                [disabled]="!researcherProfile || !adminRole"
+                [ngbTooltip]="'researcher.profile.delete.reserved-for-admin' | translate"
+                [disableTooltip]="adminRole"
+                (click)="deleteProfile(researcherProfile)"
+        >
+            <span *ngIf="(isProcessingDelete() | async)">
+                <i class='fas fa-circle-notch fa-spin'></i> {{'researcher.profile.action.processing' | translate}}
+            </span>
+            <span *ngIf="!(isProcessingDelete() | async)">
+                <i class="fas fa-trash-alt"></i> &nbsp;{{'researcher.profile.delete' | translate}}
+            </span>
+        </button>
+    </ng-container>
   </ng-container>
 </div>
