@@ -582,7 +582,9 @@ export class SearchComponent implements OnInit, OnDestroy {
         ) as any
       ];
     }
-
+    if (environment.item.showAccessStatuses) {
+      followLinks.push(followLink<Item>('accessStatus', { isOptional: true }));
+    }
     if (this.configuration === 'supervision') {
       followLinks.push(followLink<WorkspaceItem>('supervisionOrders', { isOptional: true }) as any);
     }

@@ -6,7 +6,6 @@ import { SearchFormComponent } from './app/shared/search-form/search-form.compon
 import { CountersSectionComponent } from './app/shared/explore/section-component/counters-section/counters-section.component';
 import { SearchPageComponent } from './app/search-page/search-page.component';
 import { ConfigurationSearchPageComponent } from './app/search-page/configuration-search-page.component';
-import { LogInComponent } from './app/shared/log-in/log-in.component';
 import { MyDSpaceStatusBadgeComponent } from './app/shared/object-collection/shared/badges/my-dspace-status-badge/my-dspace-status-badge.component';
 import { BadgesComponent } from './app/shared/object-collection/shared/badges/badges.component';
 import { BrowseMostElementsComponent } from './app/browse-most-elements/browse-most-elements.component';
@@ -89,7 +88,6 @@ const DECLARATIONS = [
   CountersSectionComponent,
   SearchPageComponent,
   ConfigurationSearchPageComponent,
-  LogInComponent,
   MyDSpaceStatusBadgeComponent,
   BadgesComponent,
   BrowseMostElementsComponent,

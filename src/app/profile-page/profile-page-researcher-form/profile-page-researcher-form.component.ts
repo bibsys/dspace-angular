@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map, mergeMap, switchMap, take, tap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { first, map, mergeMap, switchMap, take, tap } from 'rxjs/operators';
 
 import { getFirstCompletedRemoteData, getFirstSucceededRemoteDataPayload } from '../../core/shared/operators';
 import { ProfileClaimItemModalComponent } from '../profile-claim-item-modal/profile-claim-item-modal.component';
@@ -19,6 +19,8 @@ import { isNotEmpty } from '../../shared/empty.util';
 import { followLink } from '../../shared/utils/follow-link-config.model';
 import { ConfirmationModalComponent } from '../../shared/confirmation-modal/confirmation-modal.component';
 import { NoContent } from '../../core/shared/NoContent.model';
+import { RoleType } from '../../core/roles/role-types';
+import { RoleService } from '../../core/roles/role.service';
 
 @Component({
   selector: 'ds-profile-page-researcher-form',
@@ -62,7 +64,8 @@ export class ProfilePageResearcherFormComponent implements OnInit {
               protected notificationService: NotificationsService,
               protected authService: AuthService,
               protected router: Router,
-              protected modalService: NgbModal) {
+              protected modalService: NgbModal,
+              protected roleService: RoleService) {
 
   }
 
@@ -208,4 +211,14 @@ export class ProfilePageResearcherFormComponent implements OnInit {
     });
   }
 
+  public hasRoles(roles: RoleType | RoleType[]): Observable<boolean> {
+    const toValidate: RoleType[] = (Array.isArray(roles)) ? roles : [roles];
+    const checks: Observable<boolean>[] = toValidate.map((role) => this.roleService.checkRole(role));
+    return combineLatest(checks).pipe(
+      map((permissions: boolean[]) => permissions.includes(true)),
+      first()
+    );
+  }
+
+  protected readonly RoleType = RoleType;
 }

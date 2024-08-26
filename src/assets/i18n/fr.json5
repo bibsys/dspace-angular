@@ -1632,6 +1632,7 @@
 
   // "browse.comcol.by.author": "By Author",
   "browse.comcol.by.author": "Auteur",
+  "browse.comcol.by.promoter": "Promoteur",
 
   // "browse.comcol.by.dateissued": "By Issue Date",
   "browse.comcol.by.dateissued": "Date de publication",
@@ -1729,6 +1730,9 @@
   // "browse.metadata.title": "Title",
   "browse.metadata.title": "Titre",
 
+  "browse.metadata.faculty": "Faculté",
+  "browse.metadata.degree": "Diplôme",
+
   // "browse.metadata.author.breadcrumbs": "Browse by Author",
   "browse.metadata.author.breadcrumbs": "Parcourir par Auteur",
 
@@ -1786,12 +1790,9 @@
   // TODO New key - Add a translation
   "browse.metadata.nsi.tree.descrption": "Select an index to add as search filter",
 
-  // "browse.metadata.type.breadcrumbs": "Browse by Type",
-  // TODO New key - Add a translation
-  "browse.metadata.type.breadcrumbs": "Browse by Type",
-
-  // "browse.metadata.title.breadcrumbs": "Browse by Title",
-  "browse.metadata.title.breadcrumbs": "Parcourir par Titre",
+  "browse.metadata.type.breadcrumbs": "Parcourir par type de document",
+  "browse.metadata.title.breadcrumbs": "Parcourir par titre",
+  "browse.metadata.faculty.breadcrumbs": "Parcourir par faculté",
 
   // "pagination.next.button": "Next",
   // TODO New key - Add a translation
@@ -3681,7 +3682,7 @@
 
   // "explore.browse-section.title": "Browse",
   // TODO New key - Add a translation
-  "explore.browse-section.title": "Browse",
+  "explore.browse-section.title": "Parcourir",
 
   // "explore.counters-section.rprofiles": "People",
   // TODO New key - Add a translation
@@ -3700,12 +3701,16 @@
   "explore.facet-section.title": "Discover",
 
   // "explore.index.all": "All",
-  // TODO New key - Add a translation
-  "explore.index.all": "All",
+  "explore.index.all": "Tout",
 
   // "explore.index.author": "Author",
-  // TODO New key - Add a translation
-  "explore.index.author": "Author",
+  "explore.index.author": "Auteur",
+
+  "explore.index.promoter": "Promoteur",
+  "explore.index.advisor": "Promoteur",
+  "explore.index.degree": "Diplôme",
+  "explore.index.degreeCombined": "Diplôme",
+  "explore.index.facultyCombined": "Faculté",
 
   // "explore.index.graphitemtype": "Graph by type",
   // TODO New key - Add a translation
@@ -3737,16 +3742,13 @@
 
   // "explore.index.chart.bar.dateIssued.year": "Year",
   // TODO New key - Add a translation
-  "explore.index.chart.bar.dateIssued.year": "Year",
+  "explore.index.chart.bar.dateIssued.year": "Année",
 
 
   // "explore.index.dateIssued": "Date issued",
-  // TODO New key - Add a translation
-  "explore.index.dateIssued": "Date issued",
-
+  "explore.index.dateIssued": "Date de publication",
   // "explore.index.dateissued": "Date issued",
-  // TODO New key - Add a translation
-  "explore.index.dateissued": "Date issued",
+  "explore.index.dateissued": "Date de publication",
 
   // "explore.index.dc.date.accessioned": "Recent Additions",
   // TODO New key - Add a translation
@@ -3925,16 +3927,14 @@
   "explore.index.rpname": "Name",
 
   // "explore.index.subject": "Subject",
-  // TODO New key - Add a translation
-  "explore.index.subject": "Subject",
+  "explore.index.subject": "Mot-clé",
 
   // "explore.index.title": "Title",
-  // TODO New key - Add a translation
-  "explore.index.title": "Title",
+  "explore.index.title": "titre",
 
   // "explore.index.type": "Type",
-  // TODO New key - Add a translation
-  "explore.index.type": "Type",
+  "explore.index.type": "Type de document",
+  "explore.index.faculty": "Faculté",
 
   // "explore.search-section.infrastructure.title": "Infrastructure",
   // TODO New key - Add a translation
@@ -3954,11 +3954,11 @@
 
   // "explore.search-section.publications.title": "Search Research Outputs",
   // TODO New key - Add a translation
-  "explore.search-section.publications.title": "Search Research Outputs",
+  "explore.search-section.publications.title": "Recherche avancée",
 
   // "explore.search-section.researchoutputs.title": "Search Research Outputs",
   // TODO New key - Add a translation
-  "explore.search-section.researchoutputs.title": "Search Research Outputs",
+  "explore.search-section.researchoutputs.title": "Recherche avancée",
 
   // "explore.search-section.researcherprofiles.title": "Search People",
   // TODO New key - Add a translation
@@ -3994,11 +3994,11 @@
 
   // "explore.publications.breadcrumbs": "Research Outputs",
   // TODO New key - Add a translation
-  "explore.publications.breadcrumbs": "Research Outputs",
+  "explore.publications.breadcrumbs": "Recherche avancée",
 
   // "explore.researchoutputs.breadcrumbs": "Research Outputs",
   // TODO New key - Add a translation
-  "explore.researchoutputs.breadcrumbs": "Research Outputs",
+  "explore.researchoutputs.breadcrumbs": "Recherche avancée",
 
   // "explore.researcherprofiles.breadcrumbs": "People",
   // TODO New key - Add a translation
@@ -4947,8 +4947,7 @@
   "item.edit.metadata.headers.language": "Langue",
 
   // "item.edit.metadata.headers.security": "Security level",
-  // TODO New key - Add a translation
-  "item.edit.metadata.headers.security": "Security level",
+  "item.edit.metadata.headers.security": "Sécurité",
 
   // "item.edit.metadata.headers.authority": "Authority",
   // TODO New key - Add a translation
@@ -6184,20 +6183,19 @@
   "itemtemplate.edit.metadata.empty": "The item template currently doesn't contain any metadata. Click Add to start adding a metadata value.",
 
   // "itemtemplate.edit.metadata.headers.edit": "Edit",
-  // TODO New key - Add a translation
-  "itemtemplate.edit.metadata.headers.edit": "Edit",
+  "itemtemplate.edit.metadata.headers.edit": "Action",
 
   // "itemtemplate.edit.metadata.headers.field": "Field",
-  // TODO New key - Add a translation
   "itemtemplate.edit.metadata.headers.field": "Field",
 
   // "itemtemplate.edit.metadata.headers.language": "Lang",
-  // TODO New key - Add a translation
-  "itemtemplate.edit.metadata.headers.language": "Lang",
+  "itemtemplate.edit.metadata.headers.language": "Langue",
 
   // "itemtemplate.edit.metadata.headers.value": "Value",
-  // TODO New key - Add a translation
-  "itemtemplate.edit.metadata.headers.value": "Value",
+  "itemtemplate.edit.metadata.headers.value": "Valeur",
+
+  // "itemtemplate.edit.metadata.headers.authority": "Authority",
+  "itemtemplate.edit.metadata.headers.authority": "Autorité",
 
   // "itemtemplate.edit.metadata.metadatafield.error": "An error occurred validating the metadata field",
   // TODO New key - Add a translation
@@ -6592,7 +6590,7 @@
 
   // "menu.section.explore_researchoutputs": "Research Outputs",
   // TODO New key - Add a translation
-  "menu.section.explore_researchoutputs": "Research Outputs",
+  "menu.section.explore_researchoutputs": "Recherche avancée",
 
   // "menu.section.explore_researcherprofiles": "People",
   // TODO New key - Add a translation
@@ -8301,10 +8299,10 @@
   "repository.image.logo": "Logo du dépôt",
 
   // "repository.title": "{{ repositoryName }}",
-  "repository.title": "{{ repositoryName }}",
+  "repository.title": "DIAL",
 
   // "repository.title.prefix": "{{ repositoryName }} Angular :: ",
-  "repository.title.prefix": "{{ repositoryName }} Angular :: ",
+  "repository.title.prefix": "DIAL Angular :: ",
 
   // "resource-policies.add.button": "Add",
   "resource-policies.add.button": "Ajouter",
@@ -8692,13 +8690,11 @@
   // "search.filters.filter.birthDate.placeholder": "Birth Date",
   "search.filters.filter.birthDate.placeholder": "Date de naissance",
 
-  // "search.filters.filter.birthDate.min.label": "From",
-  // TODO New key - Add a translation
-  "search.filters.filter.birthDate.min.label": "From",
+  // "search.filters.filter.birthDate.min.label": "From"
+  "search.filters.filter.birthDate.min.label": "De",
 
-  // "search.filters.filter.birthDate.max.label": "To",
-  // TODO New key - Add a translation
-  "search.filters.filter.birthDate.max.label": "To",
+  // "search.filters.filter.birthDate.max.label": "To"
+  "search.filters.filter.birthDate.max.label": "Jusque",
 
   // "search.filters.filter.birthDate.label": "Search birth date",
   "search.filters.filter.birthDate.label": "Recherche d'une date de naissance",
@@ -8766,14 +8762,23 @@
   // "search.filters.filter.dateSubmitted.label": "Search date submitted",
   "search.filters.filter.dateSubmitted.label": "Recherche d'une date de dépôt",
 
-  "search.filters.filter.degreecode.head": "Degree",
+  //"search.filters.filter.degreecode.head": "Degree",
   "search.filters.filter.degreecode.head": "Code diplôme",
 
-  "search.filters.filter.degreecode.placeholder": "Degree code",
+  //"search.filters.filter.degreecode.placeholder": "Degree code",
   "search.filters.filter.degreecode.placeholder": "Code diplôme",
 
-  "search.filters.filter.degreecode.label": "Search degree code",
+  //"search.filters.filter.degreecode.label": "Search degree code",
   "search.filters.filter.degreecode.label": "Rechercher un code diplôme",
+
+  //"search.filters.filter.degreeCombined.head": "Degree",
+  "search.filters.filter.degreeCombined.head": "Diplôme",
+
+  //"search.filters.filter.degreeCombined.placeholder": "Degree code",
+  "search.filters.filter.degreeCombined.placeholder": "Diplôme",
+
+  //"search.filters.filter.degreeCombined.label": "Search degree code",
+  "search.filters.filter.degreeCombined.label": "Rechercher un diplôme",
 
   // "search.filters.filter.discoverable.head": "Non-discoverable",
   // TODO Source message changed - Revise the translation
@@ -8830,6 +8835,15 @@
 
   //"search.filters.filter.facultyname.label": "Search faculty name",
   "search.filters.filter.facultyname.label": "Rechercher une faculté",
+
+  //"search.filters.filter.facultyCombined.head": "Degree",
+  "search.filters.filter.facultyCombined.head": "Faculté",
+
+  //"search.filters.filter.facultyCombined.placeholder": "Degree code",
+  "search.filters.filter.facultyCombined.placeholder": "Faculté",
+
+  //"search.filters.filter.facultyCombined.label": "Search degree code",
+  "search.filters.filter.facultyCombined.label": "Rechercher une faculté",
 
   // "search.filters.filter.funding.head": "Funding",
   // TODO New key - Add a translation
@@ -11956,20 +11970,17 @@
   "idle-modal.extend-session": "Prolonger la session",
 
   // "researcher.profile.action.processing": "Processing...",
-  // TODO New key - Add a translation
-  "researcher.profile.action.processing": "Processing...",
+  "researcher.profile.action.processing": "Traitement...",
 
   // "researcher.profile.associated": "Researcher profile associated",
-  // TODO New key - Add a translation
-  "researcher.profile.associated": "Researcher profile associated",
+  "researcher.profile.associated": "Profile associé",
 
   // "researcher.profile.change-visibility.fail": "An unexpected error occurs while changing the profile visibility",
   // TODO New key - Add a translation
   "researcher.profile.change-visibility.fail": "An unexpected error occurs while changing the profile visibility",
 
-  // "researcher.profile.create.new": "Create new",
-  // TODO New key - Add a translation
-  "researcher.profile.create.new": "Create new",
+  // "researcher.profile.create.new": "Create new"
+  "researcher.profile.create.new": "Créer",
 
   // "researcher.profile.create.success": "Researcher profile created successfully",
   // TODO New key - Add a translation
@@ -11980,36 +11991,29 @@
   "researcher.profile.create.fail": "An error occurs during the researcher profile creation",
 
   // "researcher.profile.delete": "Delete",
-  // TODO New key - Add a translation
-  "researcher.profile.delete": "Delete",
+  "researcher.profile.delete": "Supprimer",
+  "researcher.profile.delete.reserved-for-admin": "La suppression d'un profil est réservé aux administrateurs",
 
   // "researcher.profile.expose": "Expose",
-  // TODO New key - Add a translation
-  "researcher.profile.expose": "Expose",
+  "researcher.profile.expose": "Montrer",
 
   // "researcher.profile.hide": "Hide",
-  // TODO New key - Add a translation
-  "researcher.profile.hide": "Hide",
+  "researcher.profile.hide": "Cacher",
 
   // "researcher.profile.not.associated": "Researcher profile not yet associated",
-  // TODO New key - Add a translation
-  "researcher.profile.not.associated": "Researcher profile not yet associated",
+  "researcher.profile.not.associated": "Pas encore de profil associé",
 
   // "researcher.profile.view": "View",
-  // TODO New key - Add a translation
-  "researcher.profile.view": "View",
+  "researcher.profile.view": "Voir",
 
   // "researcher.profile.private.visibility": "PRIVATE",
-  // TODO New key - Add a translation
-  "researcher.profile.private.visibility": "PRIVATE",
+  "researcher.profile.private.visibility": "PRIVE",
 
   // "researcher.profile.public.visibility": "PUBLIC",
-  // TODO New key - Add a translation
   "researcher.profile.public.visibility": "PUBLIC",
 
   // "researcher.profile.status": "Status:",
-  // TODO New key - Add a translation
-  "researcher.profile.status": "Status:",
+  "researcher.profile.status": "Statut:",
 
   // "researcherprofile.claim.not-authorized": "You are not authorized to claim this item. For more details contact the administrator(s).",
   // TODO New key - Add a translation
@@ -13748,5 +13752,10 @@
   "languages.iso-639-2.ita": "Italien",
   "languages.iso-639-2.ger": "Allemand",
   "languages.iso-639-2.spa": "Espagnal",
-  "languages.iso-639-2.other": "Autre"
+  "languages.iso-639-2.other": "Autre",
+
+  // --- DOC TYPES ---
+  "text::thesis::master thesis": "Mémoire de master",
+
+  "Enter the main title of the item.": "Entrez le titre principal du mémoire."
 }
