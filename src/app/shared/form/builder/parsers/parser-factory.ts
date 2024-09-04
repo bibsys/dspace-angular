@@ -28,6 +28,8 @@ import { TagFieldParser } from './tag-field-parser';
 import { TextareaFieldParser } from './textarea-field-parser';
 import { YearFieldParser } from './year-field-parser';
 import { HiddenFieldParser } from './hidden-field-parser';
+import { InstitutionAffiliationFieldParser } from './institution-affiliation-field-parser';
+import { DepartmentAffiliationFieldParser } from './department-affiliation-field-parser'
 
 const fieldParserDeps = [
   SUBMISSION_ID,
@@ -164,6 +166,20 @@ export class ParserFactory {
           useClass: CheckboxFieldParser,
           deps: [...fieldParserDeps],
         };
+      }
+      case ParserType.InstitutionAffiliationSelect: {
+        return {
+          provide: FieldParser,
+          useClass: InstitutionAffiliationFieldParser,
+          deps: [...fieldParserDeps]
+        };
+      }
+      case ParserType.DepartmentAffiliationSelect: {
+        return {
+          provide: FieldParser,
+          useClass: DepartmentAffiliationFieldParser,
+          deps: [...fieldParserDeps]
+        }
       }
       case undefined: {
         return {
