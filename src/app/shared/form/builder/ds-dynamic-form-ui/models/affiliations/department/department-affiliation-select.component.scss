@@ -1,0 +1,29 @@
+@import '../../../../../form.component';
+
+.collection-item {
+    font-size: 0.95rem;
+}
+  
+.scrollable-dropdown-menu {
+    left: 0 !important;
+    margin-bottom: var(--bs-spacer);
+    z-index: 1000;
+    max-height: 450px;
+    overflow-y: scroll;
+}
+  
+.scrollable-dropdown-toggle {
+    position: absolute;
+    padding:  0.70rem 0.70rem 0 0.70rem ;
+}
+  
+.scrollable-dropdown-input[readonly]{
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.disabled-item {
+    font-style: italic;
+    color: var(--bs-gray-500);
+    font-size: 0.9rem;
+}
