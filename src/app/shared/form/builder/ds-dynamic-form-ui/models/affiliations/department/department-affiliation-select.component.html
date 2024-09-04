@@ -1,0 +1,62 @@
+<div #sdRef="ngbDropdown" ngbDropdown display="dynamic" placement="bottom-right" class="w-100">
+    <div class="position-relative right-addon"
+        role="combobox"
+        [attr.aria-label]="model.label"
+        [attr.aria-owns]="'combobox_' + id + '_listbox'">
+        <i *ngIf="!model.readOnly && selectMode"
+           ngbDropdownToggle
+           class="scrollable-dropdown-toggle"
+           aria-hidden="true"></i>
+        <i *ngIf="model.readOnly"
+           class="dropdown-toggle scrollable-dropdown-toggle"
+           aria-hidden="true"></i>
+        <input class="form-control"
+            [attr.aria-controls]="'combobox_' + id + '_listbox'"
+            [attr.aria-activedescendant]="'combobox_' + id + '_selected'"
+            [attr.aria-label]="model.placeholder"
+            [class.is-invalid]="showErrorMessages"
+            [class.scrollable-dropdown-input]="!model.readOnly"
+            [id]="id"
+            [name]="model.name"
+            [readonly]="false"
+            [disabled]="model.readOnly"
+            [type]="model.inputType"
+            [value]="(currentValue | async)?.display"
+            [placeholder]="model.label"
+            (blur)="onBlur($event)"
+            (click)="$event.stopPropagation(); openDropdown(sdRef);"
+            (focus)="onFocus($event)"
+            (keydown)="selectOnKeyDown($event, sdRef)"
+            (input)="onInput($event)">
+    </div>
+    <div ngbDropdownMenu
+       class="dropdown-menu scrollable-dropdown-menu w-100 p-0"
+       aria-haspopup="true"
+       aria-expanded="false"
+       [attr.aria-label]="model.placeholder"
+       *ngIf="selectMode">
+        <ng-container *ngIf="searchResult && searchResult.length; else emptySelection">
+            <div *ngFor="let affiliation of searchResult">
+                <button *ngIf="affiliation.isSelectable"
+                    class="dropdown-item collection-item text-truncate py-1 px-2"
+                    title="{{ affiliation.name }}"
+                    role="option"
+                    (keydown.enter)="onSelect(affiliation); sdRef.close()"
+                    (mousedown)="onSelect(affiliation); sdRef.close()"
+                    [attr.id]="affiliation.name == (currentValue|async) ? ('combobox_' + id + '_selected') : null">
+                    
+                    {{ affiliation | affiliationDisplayFormat | affiliationPaddingRendering: affiliation.index }}
+                </button>
+                <p *ngIf="!affiliation.isSelectable" class="disabled-item text-truncate mt-1 mb-0 mx-1 p-0">
+                    {{ affiliation | affiliationDisplayFormat | affiliationPaddingRendering: affiliation.index }}
+                </p>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #emptySelection>
+    <button class="dropdown-item disabled p-2">
+        {{ 'form.no-results' | translate }}
+    </button>
+</ng-template>

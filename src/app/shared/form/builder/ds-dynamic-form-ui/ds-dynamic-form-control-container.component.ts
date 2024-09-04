@@ -158,6 +158,10 @@ import { CustomCheckboxComponent } from './models/checkbox/checkbox.component';
 import { DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX } from './models/checkbox/checkbox.model';
 import { DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER } from './models/year-picker/year-picker.model';
 import { DsYearPickerComponent } from './models/year-picker/year-picker.component';
+import { DYNAMIC_FORM_CONTROL_TYPE_INSTITUTION_AFFILIATION_SELECT } from './models/affiliations/institution/institution-affiliation-select.model';
+import { DsDynamicInstitutionAffiliationComponent } from './models/affiliations/institution/institution-affiliation-select.component';
+import { DYNAMIC_FORM_CONTROL_TYPE_DEPARTMENT_AFFILIATION_SELECT } from './models/affiliations/department/department-affiliation-select.model';
+import { DsDynamicDepartmentAffiliationComponent } from './models/affiliations/department/department-affiliation-select.component';
 
 export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<DynamicFormControl> | null {
   switch (model.type) {
@@ -228,6 +232,12 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_SWITCH:
       return CustomSwitchComponent;
+
+    case DYNAMIC_FORM_CONTROL_TYPE_INSTITUTION_AFFILIATION_SELECT:
+      return DsDynamicInstitutionAffiliationComponent;
+    
+    case DYNAMIC_FORM_CONTROL_TYPE_DEPARTMENT_AFFILIATION_SELECT:
+      return DsDynamicDepartmentAffiliationComponent;
 
     default:
       return null;
