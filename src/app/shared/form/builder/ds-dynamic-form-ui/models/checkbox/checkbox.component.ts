@@ -13,7 +13,7 @@ import { FormFieldMetadataValueObject } from "../../../models/form-field-metadat
  * When the field is first loaded, it sets the default model value to false.
  * This is done to always have a value in the model, even if the user has not interacted with the checkbox yet.
  * 
- * @Author: Michaël Pourbaix <michael.pourbaix@uclouvain.be>
+ * @author: Michaël Pourbaix <michael.pourbaix@uclouvain.be>
  */
 @Component({
     selector: 'ds-checkbox',
