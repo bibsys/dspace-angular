@@ -7,7 +7,7 @@ export const DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX = 'CUSTOM_CHECKBOX';
  * Main model for the 'CheckboxComponent' component.
  * Only adding support for 'legend' and 'checked' properties.
  * 
- * @Author: Michaël Pourbaix <michael.pourbaix@uclouvain.be>
+ * @author: Michaël Pourbaix <michael.pourbaix@uclouvain.be>
  */
 
 export interface DynamicDsCheckboxModelConfig extends DsDynamicInputModelConfig {
