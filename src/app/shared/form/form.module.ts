@@ -64,6 +64,10 @@ import { VocabularyTreeviewModalComponent } from './vocabulary-treeview-modal/vo
 import { CustomCheckboxComponent } from './builder/ds-dynamic-form-ui/models/checkbox/checkbox.component';
 import { requiredIfVisibleValidator } from './validator/required-if-visible-field.validator';
 import { NG_VALIDATORS } from '@angular/forms';
+import { DsDynamicInstitutionAffiliationComponent } from './builder/ds-dynamic-form-ui/models/affiliations/institution/institution-affiliation-select.component';
+import { DsDynamicDepartmentAffiliationComponent } from './builder/ds-dynamic-form-ui/models/affiliations/department/department-affiliation-select.component';
+import { AffiliationDisplayFormatPipe } from './pipes/affiliation-display-format.pipe';
+import { AffiliationPaddingRenderingPipe } from './pipes/affiliation-padding-rendering.pipe';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -99,16 +103,24 @@ const COMPONENTS = [
   VocabularyTreeviewModalComponent,
   ThemedExternalSourceEntryImportModalComponent,
   CustomCheckboxComponent,
+  DsDynamicInstitutionAffiliationComponent,
+  DsDynamicDepartmentAffiliationComponent,
 ];
 
 const DIRECTIVES = [
   AuthorityConfidenceStateDirective,
 ];
 
+const PIPES = [
+  AffiliationDisplayFormatPipe,
+  AffiliationPaddingRenderingPipe,
+];
+
 @NgModule({
   declarations: [
     ...COMPONENTS,
     ...DIRECTIVES,
+    ...PIPES,
   ],
   imports: [
     CommonModule,
@@ -126,6 +138,7 @@ const DIRECTIVES = [
   exports: [
     ...COMPONENTS,
     ...DIRECTIVES,
+    ...PIPES,
   ],
   providers: [
     {
@@ -151,7 +164,8 @@ const DIRECTIVES = [
     FormBuilderService,
     DsDynamicTypeBindRelationService,
     FormService,
-  ],
+    ...PIPES,
+  ]
 })
 export class FormModule {
 }
