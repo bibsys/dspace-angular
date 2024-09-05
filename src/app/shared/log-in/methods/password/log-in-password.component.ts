@@ -45,6 +45,7 @@ import { fadeOut } from '../../../animations/fade';
 import { BtnDisabledDirective } from '../../../btn-disabled.directive';
 import { isNotEmpty } from '../../../empty.util';
 import { BrowserOnlyPipe } from '../../../utils/browser-only.pipe';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 /**
  * /users/sign-in
@@ -56,7 +57,7 @@ import { BrowserOnlyPipe } from '../../../utils/browser-only.pipe';
   styleUrls: ['./log-in-password.component.scss'],
   animations: [fadeOut],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, NgIf, RouterLink, AsyncPipe, TranslateModule, BrowserOnlyPipe, BtnDisabledDirective],
+  imports: [FormsModule, ReactiveFormsModule, NgIf, NgbCollapseModule, RouterLink, AsyncPipe, TranslateModule, BrowserOnlyPipe, BtnDisabledDirective],
 })
 export class LogInPasswordComponent implements OnInit {
 
@@ -101,10 +102,15 @@ export class LogInPasswordComponent implements OnInit {
    */
   public canRegister$: Observable<boolean>;
 
+  /**
+   * Is the local sign-in form is collapsed
+   */
+  public isCollapsed = true;
 
   constructor(
     @Inject('authMethodProvider') public injectedAuthMethodModel: AuthMethod,
     @Inject('isStandalonePage') public isStandalonePage: boolean,
+    @Inject('isUniqueAuthMethod') public isUniqueAuthMethod: boolean,
     private authService: AuthService,
     private hardRedirectService: HardRedirectService,
     private formBuilder: UntypedFormBuilder,
@@ -119,6 +125,8 @@ export class LogInPasswordComponent implements OnInit {
    * @method ngOnInit
    */
   public ngOnInit() {
+    // If there is only 1 auth method, the form shouldn't be collapsed
+    this.isCollapsed = !this.isUniqueAuthMethod;
 
     // set formGroup
     this.form = this.formBuilder.group({
