@@ -109,10 +109,15 @@ export class LogInPasswordComponent implements OnInit {
    */
   canShowDivider$: Observable<boolean>;
 
+  /**
+   * Is the local sign-in form is collapsed
+   */
+  public isCollapsed = true;
 
   constructor(
     @Inject('authMethodProvider') public injectedAuthMethodModel: AuthMethod,
     @Inject('isStandalonePage') public isStandalonePage: boolean,
+    @Inject('isUniqueAuthMethod') public isUniqueAuthMethod: boolean,
     private authService: AuthService,
     private hardRedirectService: HardRedirectService,
     private formBuilder: UntypedFormBuilder,
@@ -127,6 +132,8 @@ export class LogInPasswordComponent implements OnInit {
    * @method ngOnInit
    */
   public ngOnInit() {
+    // If there is only 1 auth method, the form shouldn't be collapsed
+    this.isCollapsed = !this.isUniqueAuthMethod;
 
     // set formGroup
     this.form = this.formBuilder.group({

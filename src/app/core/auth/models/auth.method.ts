@@ -28,6 +28,7 @@ export class AuthMethod {
       }
       case 'password': {
         this.authMethodType = AuthMethodType.Password;
+        this.position = 99;  // Ensure `local account` authentication is always the last one
         break;
       }
       case 'oidc': {
