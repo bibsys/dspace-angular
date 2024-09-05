@@ -852,8 +852,9 @@
 
   "audit.detail.back.subject": "Subject Audit Logs",
 
-
   "auth.errors.invalid-user": "Invalid email address or password.",
+
+  "auth.method.password.sign-in-with-local-account": "Sign-in with local account",
 
   "auth.messages.expired": "Your session has expired. Please log in again.",
 
@@ -3769,7 +3770,7 @@
 
   "login.form.password": "Password",
 
-  "login.form.shibboleth": "Log in with Shibboleth",
+  "login.form.shibboleth": "UCLouvain SSO",
 
   "login.form.submit": "Log in",
 
@@ -7707,7 +7708,6 @@
 
   "layout.field.label.Patent.NESTED[dc.contributor.author]": "Inventor",
   "layout.field.label.Patent.NESTED[oairecerif.author.affiliation]": "Affiliation",
-
 
   // Do not add new labels below layout ones
   // All new labels should be placed together with similar ones, or in alphabetical orders

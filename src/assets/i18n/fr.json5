@@ -1444,6 +1444,9 @@
   // "auth.errors.invalid-user": "Invalid email address or password.",
   "auth.errors.invalid-user": "Adresse électronique ou mot de passe non valide.",
 
+  //"auth.method.password.sign-in-with-local-account": "Sign-in with local account",
+  "auth.method.password.sign-in-with-local-account": "Connexion avec un compte local",
+
   // "auth.messages.expired": "Your session has expired. Please log in again.",
   "auth.messages.expired": "Votre session a expiré. Veuillez vous reconnecter.",
 
@@ -6432,8 +6435,8 @@
   // "login.form.password": "Password",
   "login.form.password": "Mot de passe",
 
-  // "login.form.shibboleth": "Log in with Shibboleth",
-  "login.form.shibboleth": "Se connecter via Shibboleth",
+  // "login.form.shibboleth": "UCLouvain SSO",
+  "login.form.shibboleth": "UCLouvain SSO",
 
   // "login.form.submit": "Log in",
   "login.form.submit": "Se connecter",
