@@ -21,6 +21,11 @@ export class LogInContainerComponent implements OnInit {
   @Input() isStandalonePage: boolean;
 
   /**
+   * Is this container component is the unique log-in container.
+   */
+  @Input() isUniqueAuthMethod: boolean;
+
+  /**
    * Injector to inject a section component with the @Input parameters
    * @type {Injector}
    */
@@ -39,6 +44,7 @@ export class LogInContainerComponent implements OnInit {
       providers: [
         { provide: 'authMethodProvider', useFactory: () => (this.authMethod), deps: [] },
         { provide: 'isStandalonePage', useFactory: () => (this.isStandalonePage), deps: [] },
+        { provide: 'isUniqueAuthMethod', useFactory: () => (this.isUniqueAuthMethod), deps: [] }
       ],
       parent: this.injector
     });

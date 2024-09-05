@@ -48,7 +48,7 @@ export class LogInComponent implements OnInit, OnDestroy {
    * The list of authentication methods available
    * @type {AuthMethod[]}
    */
-  public authMethods: Observable<AuthMethod[]>;
+  public authMethods$: Observable<AuthMethod[]>;
 
   /**
    * Whether user is authenticated.
@@ -73,14 +73,14 @@ export class LogInComponent implements OnInit, OnDestroy {
    */
   private authErrorSubscription: Subscription;
 
-  constructor(private store: Store<CoreState>,
-              private authService: AuthService,
+  constructor(protected store: Store<CoreState>,
+              protected authService: AuthService,
               protected authorizationService: AuthorizationDataService
   ) {
   }
 
   ngOnInit(): void {
-    this.authMethods = this.store.pipe(
+    this.authMethods$ = this.store.pipe(
       select(getAuthenticationMethods),
       map((methods: AuthMethod[]) => methods
         // ignore the given auth method if it should be excluded
