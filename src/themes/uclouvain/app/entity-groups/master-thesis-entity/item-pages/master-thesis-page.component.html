@@ -25,7 +25,7 @@
         <!-- DOWNLOADS -->
         <ds-themed-item-page-file-section [item]="object"></ds-themed-item-page-file-section>
         <!-- MAIN METADATA -->
-        <h2 class="mt-4 simple-view-element-header">Metadata</h2>
+        <h2 class="mt-4 simple-view-element-header">{{ "item.page.details.label" | translate }}</h2>
         <dl>
             <ng-container *ngIf="object.hasMetadata('dc.contributor.advisor')">
                 <dt>{{ "item.page.promoter" | translate }}</dt>
@@ -35,6 +35,24 @@
                     [separator]="' ; '">
                 </ds-generic-item-page-field></dd>
             </ng-container>
+            <ng-container *ngIf="object.hasMetadata('masterthesis.faculty.name')">
+                <dt>{{ "item.page.faculty" | translate }}</dt>
+                <dd>
+                    <ds-generic-item-page-field
+                            [item]="object"
+                            [fields]="['masterthesis.faculty.name']">
+                    </ds-generic-item-page-field>
+                </dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('masterthesis.degree.label')">
+                <dt>{{ "item.page.degree-label" | translate }}</dt>
+                <dd>
+                    <ds-generic-item-page-field
+                            [item]="object"
+                            [fields]="['masterthesis.degree.label']">
+                    </ds-generic-item-page-field>
+                </dd>
+            </ng-container>
             <ng-container *ngIf="object.hasMetadata('dc.description.abstract')">
                 <dt>{{ "item.page.abstract" | translate }}</dt>
                 <dd><ds-generic-item-page-field
@@ -42,24 +60,6 @@
                     [fields]="['dc.description.abstract']"
                     [separator]="'<div class=&quot;my-3&quot;></div>'">
                 </ds-generic-item-page-field></dd>
-            </ng-container>
-            <ng-container *ngIf="object.hasMetadata('masterthesis.faculty.name')">
-                <dt>{{ "item.page.faculty" | translate }}</dt>
-                <dd>
-                    <ds-list-item-page-field
-                            [item]="object"
-                            [fields]="['masterthesis.faculty.name']">
-                    </ds-list-item-page-field>
-                </dd>
-            </ng-container>
-            <ng-container *ngIf="object.hasMetadata('masterthesis.degree.label')">
-                <dt>{{ "item.page.degree-label" | translate }}</dt>
-                <dd>
-                    <ds-list-item-page-field
-                            [item]="object"
-                            [fields]="['masterthesis.degree.label']">
-                    </ds-list-item-page-field>
-                </dd>
             </ng-container>
         </dl>
         <!-- CITATION -->
@@ -77,12 +77,12 @@
             <dd>{{ dsoDate }}</dd>
             <dt>{{ "item.page.subject" | translate }}</dt>
             <dd><ds-tag-item-page-field [item]="object" [fields]="['dc.subject']"></ds-tag-item-page-field></dd>
-            <ng-container *ngIf="object.hasMetadata('dc.type')">
+            <!-- <ng-container *ngIf="object.hasMetadata('dc.type')">
                 <dt>{{ "item.page.document-type" | translate }}</dt>
                 <dd *ngFor="let docType of object?.allMetadata('dc.type')">
                     {{ docType.value | translate }}
                 </dd>
-            </ng-container>
+            </ng-container> -->
             <ng-container *ngIf="object.firstMetadataValue('dc.language.iso-639-2') as language">
                 <dt>{{ "item.page.language" | translate }}</dt>
                 <dd>{{ "languages.iso-639-2."+language | translate }}</dd>
@@ -93,10 +93,4 @@
             <dd>{{ object.lastModified | date:dateFormat }}</dd>
         </dl>
     </aside>
-</div>
-
-<div class="text-center">
-    <a class="btn btn-outline-primary" [routerLink]="[itemPageRoute + '/full']" role="button">
-        <i class="fas fa-info-circle"></i> {{"item.page.link.full" | translate}}
-    </a>
 </div>
