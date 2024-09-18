@@ -72,6 +72,7 @@ import { SearchObjects } from './models/search-objects.model';
 import { SearchResult } from './models/search-result.model';
 import { SelectionConfig } from './search-results/search-results.component';
 import { SearchConfigurationOption } from './search-switch-configuration/search-configuration-option.model';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'ds-search',
