@@ -9227,6 +9227,9 @@
   // "home-info.list-advantage-5": "Struggle against plagiarism",
   "home-info.list-advantage-5": "Lutte contre le plagiat",
 
+  // "item.page.details.label": "Details",
+  "item.page.details.label": "Détails",
+
   //"access.condition.value.openaccess": "Open Access",
   "access.condition.value.openaccess": "Open Access",
   //"access.condition.value.embargo": "Embargo",
