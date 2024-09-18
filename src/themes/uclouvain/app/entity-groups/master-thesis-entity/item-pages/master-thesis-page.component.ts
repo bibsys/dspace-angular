@@ -16,8 +16,6 @@ import { ThemedMetadataRepresentationListComponent } from 'src/app/item-page/sim
 import { ItemPageUriFieldComponent } from 'src/app/item-page/simple/field-components/specific-field/uri/item-page-uri-field.component';
 import { ItemPageAbstractFieldComponent } from 'src/app/item-page/simple/field-components/specific-field/abstract/item-page-abstract-field.component';
 import { ItemPageTagFieldsComponent } from '../../../item-page/simple/field-components/specific-field/tags/item-page-tag-fields.component';
-import { ItemPageListFieldsComponent } from '../../../item-page/simple/field-components/specific-field/list/item-page-list-fields.component';
-import { RouterLink } from '@angular/router';
 import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { MasterThesisFacultyBadgesComponent } from '../item-widgets/master-thesis-faculty-badges.component';
@@ -44,10 +42,8 @@ import { MetadataUriValuesComponent } from 'src/app/item-page/field-components/m
     ItemPageUriFieldComponent,
     ItemPageAbstractFieldComponent,
     ItemPageTagFieldsComponent,
-    ItemPageListFieldsComponent,
     MasterThesisFacultyBadgesComponent,
     MetadataUriValuesComponent,
-    RouterLink,
     NgIf,
     TranslateModule,
     AsyncPipe,
