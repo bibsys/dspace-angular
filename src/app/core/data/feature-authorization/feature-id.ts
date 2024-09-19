@@ -46,4 +46,5 @@ export enum FeatureID {
   CanCreateComment = 'canCreateComment',
   CanDeleteComment = 'canDeleteComment',
   CanDownloadPDFAttestation = 'canDownloadPDFAttestation',
+  CanSeeFullItem = 'canSeeFullItem',
 }
