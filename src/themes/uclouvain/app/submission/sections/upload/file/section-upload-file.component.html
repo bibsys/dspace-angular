@@ -3,24 +3,27 @@
         <div class="col d-flex">
             <img [src]="getFileIcon()" [alt]="fileName" style="max-height:100px"/>
             <div class="ml-2 d-flex flex-column">
-                <h4>{{ fileName }}</h4>
-                <div class="ml-4 flex-grow-1">
-                    <p *ngIf="metadata[fileDescriptionKey] && isNotEmpty(metadata[fileDescriptionKey])"
-                       [innerHTML]="metadata[fileDescriptionKey]"
-                       class="m-0 small py-1 text-justify"></p>
-                </div>
-                <ul class="list-inline list-inline-with-divider small m-0">
-                    <li *ngIf="fileAccess">
-                        <ds-access-conditions [accessConditions]="fileAccess"></ds-access-conditions>
-                    </li>
-                    <li>{{ fileData?.sizeBytes | dsFileSize }}</li>
-                    <li *ngIf="isNotEmpty(fileLicence)">
-                        <ds-cc-licence [licenseUri]="fileLicence" [height]="16"></ds-cc-licence>
-                    </li>
-                </ul>
+                <dl class="container row">
+                    <dt class="col-4 col-lg-3">{{ 'submission.sections.upload.field.filename.label' | translate }}</dt>
+                    <dd class="col-8 col-lg-9">{{ fileName }}</dd>
+                    <ng-container *ngIf="fileAccess">
+                        <dt class="col-4 col-lg-3">{{ 'submission.sections.upload.field.accessType.label' | translate }}</dt>
+                        <dd class="col-8 col-lg-9"><ds-access-conditions [accessConditions]="fileAccess"></ds-access-conditions></dd>
+                    </ng-container>
+                    <dt class="col-4 col-lg-3">{{ 'submission.sections.upload.field.fileSize.label' | translate }}</dt>
+                    <dd class="col-8 col-lg-9">{{ fileData?.sizeBytes | dsFileSize }}</dd>
+                    <ng-container *ngIf="isNotEmpty(fileLicense)">
+                        <dt class="col-4 col-lg-3">{{ 'submission.sections.upload.field.ccLicense.label' | translate }}</dt>
+                        <dd class="col-8 col-lg-9"><ds-cc-license [licenseUri]="fileLicense" [height]="16"></ds-cc-license></dd>
+                    </ng-container>
+                    <ng-container *ngIf="metadata[fileDescriptionKey] && isNotEmpty(metadata[fileDescriptionKey])">
+                        <dt class="col-4 col-lg-3">{{ 'submission.sections.upload.field.description.label' | translate }}</dt>
+                        <dd class="col-8 col-lg-9" [innerHTML]="metadata[fileDescriptionKey]"></dd>
+                    </ng-container>
+                </dl>
             </div>
         </div>
-        <div class="col-2 text-right">
+        <div class="col-sm-6 col-4 text-right">
             <ng-container *ngIf="!readOnly">
                 <ng-container *ngTemplateOutlet="action_buttons"></ng-container>
             </ng-container>
@@ -29,6 +32,13 @@
 </div>
 
 <ng-template #action_buttons>
+    <button class="btn btn-primary mr-1"
+            [attr.aria-label]="'submission.sections.upload.edit.title' | translate"
+            title="{{ 'submission.sections.upload.edit.title' | translate }}"
+            (click)="$event.preventDefault();editBitstreamData();">
+        <i class="fa fa-edit text-normal"></i>
+        {{ 'submission.sections.upload.edit.title' | translate }}
+    </button>
     <ds-themed-file-download-link
             [cssClasses]="'btn btn-success mr-1'"
             [isBlank]="true"
@@ -36,12 +46,6 @@
             [enableRequestACopy]="false">
         <i class="fa fa-download" aria-hidden="true"></i>
     </ds-themed-file-download-link>
-    <button class="btn btn-primary mr-1"
-            [attr.aria-label]="'submission.sections.upload.edit.title' | translate"
-            title="{{ 'submission.sections.upload.edit.title' | translate }}"
-            (click)="$event.preventDefault();editBitstreamData();">
-        <i class="fa fa-edit text-normal"></i>
-    </button>
     <button class="btn btn-danger"
             [attr.aria-label]="'submission.sections.upload.delete.confirm.title' | translate"
             title="{{ 'submission.sections.upload.delete.confirm.title' | translate }}"
@@ -49,6 +53,7 @@
             (click)="$event.preventDefault(); confirmDelete(content);">
         <i *ngIf="(processingDelete$ | async)" class="fas fa-circle-notch fa-spin"></i>
         <i *ngIf="!(processingDelete$ | async)" class="fa fa-trash"></i>
+        {{ 'submission.sections.upload.delete.confirm.title' | translate }}
     </button>
 </ng-template>
 
