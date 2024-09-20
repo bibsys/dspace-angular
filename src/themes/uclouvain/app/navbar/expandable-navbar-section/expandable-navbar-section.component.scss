@@ -1,0 +1,7 @@
+@import '../../../../../app/navbar/expandable-navbar-section/expandable-navbar-section.component';
+
+.dropdown-toggle::after {
+    position: absolute;
+    left: 100%;
+    top: calc(50% - 1px);
+}
