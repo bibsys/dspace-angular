@@ -27,7 +27,7 @@ export class SubmissionSectionUploadFileComponent extends BaseComponent {
   public metadata: MetadataMap = Object.create({});
   public fileTitleKey = 'title'
   public fileDescriptionKey = 'description'
-  public fileLicence: string;
+  public fileLicense: string;
   public fileAccess: AccessConditionObject[];
 
   protected readonly isNotEmpty = isNotEmpty;
@@ -39,12 +39,13 @@ export class SubmissionSectionUploadFileComponent extends BaseComponent {
     if (isNotEmpty(this.fileData.metadata)) {
       this.metadata[this.fileTitleKey] = Metadata.all(this.fileData.metadata, 'dc.title');
       this.metadata[this.fileDescriptionKey] = Metadata.all(this.fileData.metadata, 'dc.description');
-      this.fileLicence = Metadata.firstValue(this.fileData.metadata, 'dc.rights.license');;
+      this.fileLicense = Metadata.firstValue(this.fileData.metadata, 'dc.rights.license');
     }
-    // Set default file creative commons licence if doesn't exists into metadata
-    if (isEmpty(this.fileLicence)) {
-      this.fileLicence = this.defaultLicense;
-    }
+    // Set default file creative commons licence if it doesn't exist into metadata
+    // if (isEmpty(this.fileLicense)) {
+    //   this.fileLicense = this.defaultLicense;
+    // }  // Not used for DIAL.mem
+
     // Get file access condition. If it doesn't exist, set default access for preview.
     this.fileAccess = this.fileData?.accessConditions;
     if (isEmpty(this.fileAccess)){
