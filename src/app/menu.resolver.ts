@@ -50,7 +50,7 @@ import {
 } from './shared/dso-selector/modal-wrappers/export-batch-selector/export-batch-selector.component';
 import { environment } from '../environments/environment';
 import { SectionDataService } from './core/layout/section-data.service';
-import { Section } from './core/layout/models/section.model';
+import { Section, SectionComponent, BrowseSection } from './core/layout/models/section.model';
 import { NOTIFICATIONS_RECITER_SUGGESTION_PATH } from './admin/admin-notifications/admin-notifications-routing-paths';
 import { AuthService } from './core/auth/auth.service';
 
@@ -128,44 +128,51 @@ export class MenuResolver implements Resolve<boolean> {
     ).subscribe( (sectionDefListRD: RemoteData<PaginatedList<Section>>) => {
       if (sectionDefListRD.hasSucceeded) {
         sectionDefListRD.payload.page.forEach((section) => {
-          let parentMenu: any = {
-            id: `explore_${section.id}`,
-            active: false,
-            visible: true,
-          };
-          if (section.nestedSections && section.nestedSections.length) {
-            section.nestedSections.forEach((nested) => {
-              menuList.push({
-                id: `explore_nested_${nested.id}`,
-                parentID: `explore_${section.id}`,
-                active: false,
-                visible: true,
+          // Special case for the browse menu
+          if (section.id == 'browse') {
+            // Create a dropdown menu for each browse section
+            this.createBrowseMenu(section);
+          } else {
+            let parentMenu: any = {
+              id: `explore_${section.id}`,
+              active: false,
+              visible: true,
+            };
+            if (section.nestedSections && section.nestedSections.length) {
+              section.nestedSections.forEach((nested) => {
+                menuList.push({
+                  id: `explore_nested_${nested.id}`,
+                  parentID: `explore_${section.id}`,
+                  active: false,
+                  visible: true,
+                  model: {
+                    type: MenuItemType.LINK,
+                    text: `menu.section.explore_${nested.id}`,
+                    link: `/explore/${nested.id}`
+                  } as LinkMenuItemModel
+                });
+              });
+              parentMenu = {
+                ...parentMenu,
+                index: 1,
+                model: {
+                  type: MenuItemType.TEXT,
+                  text: `menu.section.explore_${section.id}`
+                } as TextMenuItemModel,
+              };
+            } else {
+              parentMenu = {
+                ...parentMenu,
                 model: {
                   type: MenuItemType.LINK,
-                  text: `menu.section.explore_${nested.id}`,
-                  link: `/explore/${nested.id}`
+                  text: `menu.section.explore_${section.id}`,
+                  link: `/explore/${section.id}`
                 } as LinkMenuItemModel
-              });
-            });
-            parentMenu = {
-              ...parentMenu,
-              index: 1,
-              model: {
-                type: MenuItemType.TEXT,
-                text: `menu.section.explore_${section.id}`
-              } as TextMenuItemModel,
-            };
-          } else {
-            parentMenu = {
-              ...parentMenu,
-              model: {
-                type: MenuItemType.LINK,
-                text: `menu.section.explore_${section.id}`,
-                link: `/explore/${section.id}`
-              } as LinkMenuItemModel
-            };
+              };
+            }
+            menuList.push(parentMenu);
           }
-          menuList.push(parentMenu);
+          
         });
       }
       menuList.forEach((menuSection) => this.menuService.addSection(MenuID.PUBLIC, Object.assign(menuSection, {
@@ -194,6 +201,41 @@ export class MenuResolver implements Resolve<boolean> {
     this.menuService.addSection(MenuID.PUBLIC, myDialLinkModel);
 
     return this.waitForMenu$(MenuID.PUBLIC);
+  }
+
+  // Read the different Browse-By types from config and add them to the browse menu has a dropdown
+  createBrowseMenu(section: Section) {
+    const menuList = [];
+    section.componentRows.forEach((componentRow: SectionComponent[]) => {
+      componentRow.forEach((componentCol: BrowseSection) => {
+        componentCol?.browseNames.forEach((browseName: string) => {
+          menuList.push({
+            id: browseName + '_browse',
+            parentID: 'browse',
+            active: false,
+            visible: true,
+            model: {
+              type: MenuItemType.LINK,
+              text: 'menu.section.browse.child.' + browseName,
+              link: '/browse/' + browseName
+            } as LinkMenuItemModel
+          });
+        })
+      })
+    });
+    menuList.push({
+      id: 'browse',
+      active: false,
+      visible: true,
+      index: 1,
+      model: {
+        type: MenuItemType.TEXT,
+        text: 'menu.section.browse'
+      } as TextMenuItemModel,
+    })
+    menuList.forEach((menuSection) => this.menuService.addSection(MenuID.PUBLIC, Object.assign(menuSection, {
+      shouldPersistOnRouteChange: true
+    })));
   }
 
   createStatisticsMenu() {
