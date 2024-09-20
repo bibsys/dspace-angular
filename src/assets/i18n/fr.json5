@@ -1889,10 +1889,10 @@
 
   // "browse.title": "Browsing {{ collection }} by {{ field }}{{ startsWith }} {{ value }}",
   // TODO Source message changed - Revise the translation
-  "browse.title": "Parcourir la collection {{ collection }} par {{ field }} {{ value }}",
+  "browse.title": "Parcourir {{ collection }} par {{ field }} {{ value }}",
 
   // "browse.title.page": "Browsing {{ collection }} by {{ field }} {{ value }}",
-  "browse.title.page": "Parcourir la collection {{ collection }} par {{ field }} {{ value }}",
+  "browse.title.page": "Parcourir {{ collection }} par {{ field }} {{ value }}",
 
 
   // "bulk-import.abort-on-error": "Abort on first error",
@@ -13744,6 +13744,23 @@
   "session.june": "Juin",
   "session.september": "Septembre",
 
+  "menu.section.browse": "Parcourir",
+
+  "menu.section.browse.child.promoter": "Promoteur",
+  "menu.section.browse.child.dateissued": "Date de soumission",
+  "menu.section.browse.child.faculty": "Faculté",
+  "menu.section.browse.child.degree": "Diplôme",
+
+  "browse.metadata.promoter.breadcrumbs": "Parcourir par promoteur",
+  "browse.metadata.dateissued.breadcrumbs": "Parcourir par date de soumission",
+  "browse.metadata.faculty.breadcrumbs": "Parcourir par faculté",
+  "browse.metadata.degree.breadcrumbs": "Parcourir par diplôme",
+
+  "browse.metadata.promoter": "promoteur",
+  "browse.metadata.dateissued": "date de soumission",
+  "browse.metadata.faculty": "faculté",
+  "browse.metadata.degree": "diplôme",
+
   "item.page.filesection.bitstream.download_url.tooltip": "Cliquer ici pour copier le lien permettant au promoteur de télécharger le contenu du bitstream. <strong>Pour des raisons de sécurité, veuillez partager uniquement ce lien avec les promoteurs en charge de la soumission</strong>.",
   "item.page.filesection.bitstream.download_url.label": "Copier le lien de téléchargement",
 
@@ -13753,7 +13770,7 @@
   "languages.iso-639-2.fre": "Français",
   "languages.iso-639-2.ita": "Italien",
   "languages.iso-639-2.ger": "Allemand",
-  "languages.iso-639-2.spa": "Espagnal",
+  "languages.iso-639-2.spa": "Espagnol",
   "languages.iso-639-2.other": "Autre",
 
   // --- DOC TYPES ---

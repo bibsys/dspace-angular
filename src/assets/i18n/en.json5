@@ -4132,6 +4132,24 @@
   "session.june": "June",
   "session.september": "September",
 
+  "menu.section.browse": "Browse",
+
+  "menu.section.browse.child.promoter": "Promoter",
+  "menu.section.browse.child.dateissued": "Date issued",
+  "menu.section.browse.child.faculty": "Faculty",
+  "menu.section.browse.child.degree": "Degree",
+
+  "browse.metadata.promoter.breadcrumbs": "Browse by promoter",
+  "browse.metadata.dateissued.breadcrumbs": "Browse by issued date",
+  "browse.metadata.faculty.breadcrumbs": "Browse by faculty",
+  "browse.metadata.degree.breadcrumbs": "Browse by degree",
+
+  "browse.metadata.promoter": "promotor",
+  "browse.metadata.dateissued": "issued date",
+  "browse.metadata.faculty": "faculty",
+  "browse.metadata.degree": "degree",
+
+
   "item.page.filesection.bitstream.download_url.tooltip": "Click here to copy the link that allows the promoter to download the bitstream content. <strong>For safety reason, please only share this link with a promoter in charge of the submission</strong>.",
   "item.page.filesection.bitstream.download_url.label": "Copy download link",
 
