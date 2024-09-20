@@ -27,7 +27,7 @@
                 <li>{{(bitstream.format | async)?.payload?.shortDescription}}</li>
                 <li>{{(bitstream.sizeBytes) | dsFileSize }}</li>
                 <li *ngIf="bitstream.firstMetadataValue('dc.rights.license') as licenseUri">
-                    <ds-cc-licence [licenseUri]="licenseUri" [height]="16"></ds-cc-licence>
+                    <ds-cc-license [licenseUri]="licenseUri" [height]="16"></ds-cc-license>
                 </li>
             </ul>
         </div>
