@@ -7,5 +7,8 @@
       transition: background-color .75s ease;
       background-color: var(--bs-gray-200);
     }
+
+    dt, dd { float: left }
+    dt { clear:both }
   }
 }
