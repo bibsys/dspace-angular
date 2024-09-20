@@ -80,6 +80,7 @@ import { ContextMenuModule } from '../../app/shared/context-menu/context-menu.mo
 import { SocialModule } from '../../app/social/social.module';
 import { SharedThemeModule } from './shared-theme.module';
 import { SubmissionEditComponent } from './app/submission/edit/submission-edit.component';
+import { ExpandableNavbarSectionComponent } from './app/navbar/expandable-navbar-section/expandable-navbar-section.component';
 
 const DECLARATIONS = [
   AdminSidebarComponent,
@@ -105,7 +106,8 @@ const DECLARATIONS = [
   CreativeCommonsLicenseComponent,
   FileSectionComponent,
   FileDownloadLinkComponent,
-  SubmissionEditComponent
+  SubmissionEditComponent,
+  ExpandableNavbarSectionComponent
 ];
 
 @NgModule({
