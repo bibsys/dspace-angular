@@ -8,7 +8,7 @@ import { isNotEmpty } from '../../../../../app/shared/empty.util';
  *   a CreativeCommons formatted URI (https://creativecommons.org/share-your-work/cclicenses/)
  */
 @Component({
-  selector: 'ds-cc-licence',
+  selector: 'ds-cc-license',
   template: `<img *ngIf="imagePath" [src]="imagePath" [alt]="licenseUri" [height]="height"/>`
 })
 export class CreativeCommonsLicenseComponent {

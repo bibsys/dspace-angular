@@ -4349,6 +4349,8 @@
   // "form.repeatable.sort.tip": "Drop the item in the new position",
   "form.repeatable.sort.tip": "Déposer l'objet dans la nouvelle position",
 
+  "from": "à partir de",
+
   // "funding.listelement.badge": "Funding",
   // TODO New key - Add a translation
   "funding.listelement.badge": "Funding",
@@ -11029,6 +11031,12 @@
   // "submission.sections.toggle.aria.close": "Collapse {{sectionHeader}} section",
   "submission.sections.toggle.aria.close": "Réduire la section {{sectionHeader}}",
 
+  "submission.sections.upload.field.filename.label": "Nom du fichier",
+  "submission.sections.upload.field.accessType.label": "Type d'accès",
+  "submission.sections.upload.field.fileSize.label": "Taille du fichier",
+  "submission.sections.upload.field.ccLicense.label": "Licence CC",
+  "submission.sections.upload.field.description.label": "Description",
+
   // "submission.sections.upload.format": "Bitstream format",
   // TODO New key - Add a translation
   "submission.sections.upload.format": "Bitstream format",
@@ -11047,19 +11055,19 @@
   "submission.sections.upload.delete.confirm.submit": "Oui, je suis certain(e)",
 
   // "submission.sections.upload.delete.confirm.title": "Delete bitstream",
-  "submission.sections.upload.delete.confirm.title": "Supprimer le Bitstream",
+  "submission.sections.upload.delete.confirm.title": "Supprimer",
 
   // "submission.sections.upload.delete.submit": "Delete",
   "submission.sections.upload.delete.submit": "Supprimer",
 
   // "submission.sections.upload.download.title": "Download bitstream",
-  "submission.sections.upload.download.title": "Télécharger un Bitstream",
+  "submission.sections.upload.download.title": "Télécharger",
 
   // "submission.sections.upload.drop-message": "Drop files to attach them to the item",
-  "submission.sections.upload.drop-message": "Déposer des fichiers pour les lier à l'Item",
+  "submission.sections.upload.drop-message": "Glisser-déposer vos fichiers ici",
 
   // "submission.sections.upload.edit.title": "Edit bitstream",
-  "submission.sections.upload.edit.title": "Éditer le Bitstream",
+  "submission.sections.upload.edit.title": "Modifier",
 
   // "submission.sections.upload.form.access-condition-label": "Access condition type",
   "submission.sections.upload.form.access-condition-label": "Type d'autorisations d'accès",
@@ -11752,7 +11760,7 @@
   "uploader.delete.btn-title": "Supprimer",
 
   // "uploader.or": ", or ",
-  "uploader.or": ", ou ",
+  "uploader.or": " ou chargez les depuis un appareil en cliquant sur ",
 
   // "uploader.processing": "Processing uploaded file(s)... (it's now safe to close this page)",
   // TODO Source message changed - Revise the translation
@@ -13735,7 +13743,7 @@
   "access.condition.value.lease": "Accès limité",
 
   //"access.condition.value.UCLouvain networks restriction": "Restricted Access"
-  "access.condition.value.restricted": "Accès restreint",
+  "access.condition.value.restricted": "Accès restreint UCLouvain",
 
   //"submission-button.add.message": "Add a submission",
   "submission-button.add.message": "Soumettre",
