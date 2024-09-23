@@ -54,7 +54,7 @@
               [attr.data-test]="'deposit' | dsBrowserOnly"
               class="btn btn-success"
               [disabled]="(processingSaveStatus | async) || (processingDepositStatus | async)"
-              (click)="deposit($event)">
+              (click)="$event.preventDefault(); confirmDeposit(deposit)">
         <span><i class="fas fa-plus"></i> {{'submission.general.deposit' | translate}}</span>
       </button>
     </div>
@@ -74,5 +74,21 @@
   <div class="modal-footer space-children-mr">
     <button type="button" id="discard_cancel" class="btn btn-secondary" (click)="c('cancel')">{{'submission.general.discard.confirm.cancel' | translate}}</button>
     <button type="button" id="discard_submit" class="btn btn-danger" (click)="c('ok')">{{'submission.general.discard.confirm.submit' | translate}}</button>
+  </div>
+</ng-template>
+
+<ng-template #deposit let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title text-danger">{{'submission.general.deposit.confirm.title' | translate}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('cancel')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>{{'submission.general.deposit.confirm.info' | translate}}</p>
+  </div>
+  <div class="modal-footer space-children-mr">
+    <button type="button" id="deposit_cancel" class="btn btn-secondary" (click)="c('cancel')">{{'submission.general.deposit.confirm.cancel' | translate}}</button>
+    <button type="button" id="deposit_submit" class="btn btn-danger" (click)="c('ok')">{{'submission.general.deposit.confirm.submit' | translate}}</button>
   </div>
 </ng-template>
