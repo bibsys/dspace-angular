@@ -15,6 +15,7 @@ import { SharedBrowseByModule } from '../../app/shared/browse-by/shared-browse-b
 import { ResultsBackButtonModule } from '../../app/shared/results-back-button/results-back-button.module';
 import { ExploreModule } from '../../app/shared/explore/explore.module';
 import { FooterModule } from '../../app/footer/footer.module';
+import { StartsWithDateComponent } from './app/shared/starts-with/date/starts-with-date.component';
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
@@ -31,6 +32,7 @@ const DECLARATIONS = [
   HeaderNavbarWrapperComponent,
   NavbarComponent,
   FooterComponent,
+  StartsWithDateComponent,
 ];
 
 @NgModule({

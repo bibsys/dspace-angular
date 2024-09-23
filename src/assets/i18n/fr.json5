@@ -1635,7 +1635,7 @@
   "browse.comcol.by.promoter": "Promoteur",
 
   // "browse.comcol.by.dateissued": "By Issue Date",
-  "browse.comcol.by.dateissued": "Date de publication",
+  "browse.comcol.by.dateissued": "Date de défense",
 
   // "browse.comcol.by.ouname": "By Name",
   // TODO New key - Add a translation
@@ -1686,7 +1686,7 @@
   "browse.metadata.author": "Auteur",
 
   // "browse.metadata.dateissued": "Issue Date",
-  "browse.metadata.dateissued": "Date de publication",
+  "browse.metadata.dateissued": "Date de défense",
 
   // "browse.metadata.eqdatecreated": "Date Created",
   // TODO New key - Add a translation
