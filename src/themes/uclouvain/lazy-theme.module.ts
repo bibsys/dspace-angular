@@ -81,8 +81,12 @@ import { SocialModule } from '../../app/social/social.module';
 import { SharedThemeModule } from './shared-theme.module';
 import { SubmissionEditComponent } from './app/submission/edit/submission-edit.component';
 import { ExpandableNavbarSectionComponent } from './app/navbar/expandable-navbar-section/expandable-navbar-section.component';
+import { AuthNavMenuComponent } from './app/shared/auth-nav-menu/auth-nav-menu.component';
+import { UserMenuComponent } from './app/shared/auth-nav-menu/user-menu/user-menu.component';
 
 const DECLARATIONS = [
+  AuthNavMenuComponent,
+  UserMenuComponent,
   AdminSidebarComponent,
   HomePageComponent,
   SearchFormComponent,
