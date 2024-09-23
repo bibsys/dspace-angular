@@ -9922,7 +9922,12 @@
   "submission.general.cannot_submit": "Vous n'avez pas les droits requis pour faire une nouvelle soumission.",
 
   // "submission.general.deposit": "Deposit",
-  "submission.general.deposit": "Déposer",
+  "submission.general.deposit": "Finaliser le dépôt",
+  "submission.general.deposit.confirm.cancel": "Annuler",
+  "submission.general.deposit.confirm.info": "Après confirmation, vous ne pourrez plus modifier votre dépôt. Êtes-vous certain(e)?",
+  "submission.general.deposit.confirm.submit": "Oui, je suis certain(e)",
+  "submission.general.deposit.confirm.title": "Finaliser le dépôt",
+  "submission.general.deposit.submit": "Confirmer",
 
   // "submission.general.discard.confirm.cancel": "Cancel",
   "submission.general.discard.confirm.cancel": "Annuler",

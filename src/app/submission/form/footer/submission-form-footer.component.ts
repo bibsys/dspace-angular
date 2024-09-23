@@ -99,8 +99,14 @@ export class SubmissionFormFooterComponent implements OnChanges {
   /**
    * Dispatch a submission deposit action
    */
-  public deposit(event) {
-    this.submissionService.dispatchDeposit(this.submissionId);
+  public confirmDeposit(content) {
+    this.modalService.open(content).result.then(
+      (result) => {
+        if (result === 'ok') {
+          this.submissionService.dispatchDeposit(this.submissionId);
+        }
+      }
+    );
   }
 
   /**
