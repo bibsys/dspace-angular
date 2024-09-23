@@ -40,9 +40,10 @@ export class AuthNavMenuComponent implements OnInit {
 
   public sub: Subscription;
 
-  constructor(private store: Store<AppState>,
-              private windowService: HostWindowService,
-              private authService: AuthService
+  constructor(
+    protected store: Store<AppState>,
+    protected windowService: HostWindowService,
+    protected authService: AuthService
   ) {
     this.isXsOrSm$ = this.windowService.isXsOrSm();
   }
