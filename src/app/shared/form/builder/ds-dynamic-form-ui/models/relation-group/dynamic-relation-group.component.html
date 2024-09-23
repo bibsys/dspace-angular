@@ -1,9 +1,9 @@
 <div class="pt-2">
-  <div class="d-flex">
+  <div class="d-flex form-control py-0 h-100">
     <ds-themed-loading *ngIf="!chips" [showMessage]="false"></ds-themed-loading>
     <div *ngIf="chips && !chips.hasItems()">
       <input type="text"
-             class="border-0 form-control-plaintext tag-input mt-1 mb-1 pl-2 text-muted"
+             class="border-0 form-control-plaintext tag-input my-1 text-muted"
              readonly
              tabindex="-1"
              value="{{'form.no-value' | translate}}">
