@@ -18,6 +18,7 @@ import { NotificationsService } from '../../../notifications/notifications.servi
 
 import { hasValue } from '../../../empty.util';
 import { DSONameService } from '../../../../core/breadcrumbs/dso-name.service';
+import { HostWindowService } from '../../../host-window.service';
 
 @Component({
   selector: 'ds-administered-collection-selector',
@@ -29,12 +30,15 @@ import { DSONameService } from '../../../../core/breadcrumbs/dso-name.service';
  */
 export class AdministeredCollectionSelectorComponent extends DSOSelectorComponent {
 
-  constructor(protected collectionDataService: CollectionDataService,
-              protected searchService: SearchService,
-              protected notifcationsService: NotificationsService,
-              protected translate: TranslateService,
-              protected dsoNameService: DSONameService,) {
-    super(searchService, notifcationsService, translate, dsoNameService);
+  constructor(
+    protected collectionDataService: CollectionDataService,
+    protected searchService: SearchService,
+    protected notifcationsService: NotificationsService,
+    protected translate: TranslateService,
+    protected dsoNameService: DSONameService,
+    protected windowService: HostWindowService
+  ) {
+    super(searchService, notifcationsService, translate, dsoNameService, windowService);
   }
 
   /**
