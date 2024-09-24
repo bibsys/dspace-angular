@@ -1,16 +1,16 @@
-<div class="row">
-    <div *ngIf="showThumbnails" class="col-3 col-xl-2 pr-sm-0">
+<div class="d-flex">
+    <!-- <div *ngIf="showThumbnails" class="pr-sm-0 border mr-3 ml-1">
         <a *ngIf="linkType != linkTypes.None"
            [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
            [attr.rel]="(linkType == linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
            [routerLink]="[itemPageRoute]" class="lead item-list-title dont-break-out">
-            <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="true"></ds-thumbnail>
+            <ds-thumbnail [thumbnail]="dso?.thumbnail | async"></ds-thumbnail>
         </a>
         <span *ngIf="linkType == linkTypes.None" class="lead item-list-title dont-break-out">
-            <ds-thumbnail [thumbnail]="dso?.thumbnail | async" [limitWidth]="true"></ds-thumbnail>
+            <ds-thumbnail [thumbnail]="dso?.thumbnail | async"></ds-thumbnail>
         </span>
-    </div>
-    <div [ngClass]="showThumbnails ? 'col-9 col-xl-10' : 'col-md-12'" class="d-flex flex-column">
+    </div> -->
+    <div class="d-flex flex-column w-100">
         <ds-themed-badges *ngIf="showLabel" [object]="dso" [context]="context"></ds-themed-badges>
         <!-- TITLE ==================================================== -->
         <a *ngIf="linkType != linkTypes.None"
@@ -48,17 +48,17 @@
             </div>
         </div>
         <ul class="list-inline list-inline-with-divider m-0 small">
+            <li *ngIf="accessCondition">
+                <ds-access-conditions [accessConditions]="[accessCondition]"></ds-access-conditions>
+            </li>
             <li *ngIf="dsoDate">
                 <i class="far fa-calendar mr-2"></i>{{ dsoDate }}
             </li>
-            <li *ngIf="dsoLanguage && dsoLanguage !== 'other'">
+            <!-- <li *ngIf="dsoLanguage && dsoLanguage !== 'other'">
                 <i class="fas fa-language mr-2"></i>{{ 'languages.iso-639-2.'+dsoLanguage | translate }}
-            </li>
+            </li> -->
             <li *ngIf="dso.hasMetadata('masterthesis.faculty.code')">
                 <ds-master-thesis-faculty-badges [object]="dso"></ds-master-thesis-faculty-badges>
-            </li>
-            <li *ngIf="accessCondition">
-                <ds-access-conditions [accessConditions]="[accessCondition]"></ds-access-conditions>
             </li>
         </ul>
     </div>
