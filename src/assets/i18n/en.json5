@@ -2578,6 +2578,10 @@
   "search.filters.applied.f.graphpubldateltr": "Public date LTR",
   "search.filters.applied.f.graphpubldatetrl": "Public date RTL",
   "search.filters.applied.f.organization": "Organisation",
+  "search.filters.applied.f.facultyname": "Faculty",
+  "search.filters.applied.f.advisor": "Promoter",
+  "search.filters.applied.f.rootdegreelabel": "Degree",
+  "search.filters.applied.f.accessType": "Access type",
   "search.filters.applied.charts.defaultConfiguration.title": "Search Output",
   "search.filters.applied.charts.chart.bar.dateIssued.year.tab": "Date Issued",
   "search.filters.applied.charts.chart.pie.more-value": "More",
@@ -4189,6 +4193,8 @@
 
   "item.page.filesection.bitstream.download_url.tooltip": "Click here to copy the link that allows the promoter to download the bitstream content. <strong>For safety reason, please only share this link with a promoter in charge of the submission</strong>.",
   "item.page.filesection.bitstream.download_url.label": "Copy download link",
+
+  "explore.facet-focus-section.facultyname.title": "Theses by faculty",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Dutch",
