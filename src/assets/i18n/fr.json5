@@ -3262,13 +3262,18 @@
   "dso-selector.create.community.top-level": "Créer une nouvelle communauté de 1er niveau",
 
   // "dso-selector.create.item.head": "New item",
-  "dso-selector.create.item.head": "Nouvel Item",
+  "dso-selector.create.item.head": "Nouveau dépôt",
 
   // "dso-selector.create.item.sub-level": "Create a new item in",
-  "dso-selector.create.item.sub-level": "Créer un nouvel Item dans",
+  "dso-selector.create.item.sub-level": "Créer un nouveau dépôt dans la collection...",
 
   // "dso-selector.create.submission.head": "New submission",
   "dso-selector.create.submission.head": "Nouveau dépôt",
+
+
+  "dso-selector.disclaimer.content": "Voici quelques rappels importants et conditions d'utilisation pour la procédure de dépôt :\n<ul>\n    <li> Dans le cadre du dépôt du TFE, certaines données à caractère personnel concernant les auteur·e·s peuvent être collectées par le biais du formulaire en ligne. Nous vous invitons à prendre connaissance des <a href=\"#\">conditions d’utilisation</a> de ces données personnelles avant de démarrer le dépôt. Après identification, vous pouvez afficher à nouveau ces conditions en cliquant sur le lien en bas de page.</li>\n    <li>Le ou les fichiers que vous vous apprêtez à déposer en ligne <b>constitue(nt) la version officielle de votre mémoire et seront communiqués comme tels au jury</b>. Si votre règlement facultaire prévoit en outre la remise d'un ou plusieurs exemplaires imprimés, <b>ceux-ci devront obligatoirement être imprimés à partir des fichiers déposés</b>. La non-conformité de la version imprimée avec la version électronique peut amener le jury d'examen à décider d'une irrégularité du fait de l'étudiant et l'attribution d'une note \"T\" (0/20).</li>\n    <li>Un étudiant ne peut déposer qu'un seul mémoire par session (Exception : un étudiant défendant 2 mémoires pour 2 programmes d'études distincts lors d'une même session dépose un premier mémoire et s'adresse au gestionnaire du deuxième programme pour réaliser le second dépôt.)</li>\n    <li>Une fois le dépôt confirmé, il est définitif. Vous n’aurez techniquement plus accès au formulaire. Seul·e votre gestionnaire de programme sera autorisé·e à modifier les données introduites et à ajouter un fichier d’errata. Le remplacement d’un fichier par un autre ne sera pas autorisé. Soyez donc particulièrement attentifs à <b>déposer les bonnes versions de vos fichiers</b> et à l'<b>exactitude des données</b> que vous allez introduire.</li>\n    <li>Le titre du mémoire sera reproduit sur l'annexe de votre diplôme tel que vous l'aurez introduit ici.</li>\n  </ul>",
+  "dso-selector.disclaimer.agreement": "J'ai lu et j'accepte les conditions mentionnées ci-dessus.",
+  "dso-selector.disclaimer.confirm": "J'accepte",
 
   // "dso-selector.edit.collection.head": "Edit collection",
   "dso-selector.edit.collection.head": "Éditer une collection",
@@ -9128,7 +9133,7 @@
   "search.filters.reset": "Réinitialiser les filtres",
 
   // "search.filters.search.submit": "Submit",
-  "search.filters.search.submit": "Soumettre",
+  "search.filters.search.submit": "Déposer",
 
   // "search.form.search": "Search",
   "search.form.search": "Recherche",
@@ -13746,7 +13751,7 @@
   "access.condition.value.restricted": "Accès restreint UCLouvain",
 
   //"submission-button.add.message": "Add a submission",
-  "submission-button.add.message": "Soumettre",
+  "submission-button.add.message": "Déposer",
 
   "session.january": "Janvier",
   "session.june": "Juin",
