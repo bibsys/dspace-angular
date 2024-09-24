@@ -142,7 +142,7 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
    * select a collection.
    */
   openDialog(entity: ItemType) {
-    const modalRef = this.modalService.open(ThemedCreateItemParentSelectorComponent);
+    const modalRef = this.modalService.open(ThemedCreateItemParentSelectorComponent, { size: 'xl', backdrop: 'static' });
     modalRef.componentInstance.entityType = entity.label;
   }
 
