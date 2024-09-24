@@ -96,3 +96,9 @@ export interface TopSectionColumn {
   metadataField: string;
   titleKey: string;
 }
+
+export interface FacetFocusSection extends SectionComponent {
+  discoveryConfigurationName: string;
+  componentType: 'facet-focus';
+  targetFacet: string;
+}

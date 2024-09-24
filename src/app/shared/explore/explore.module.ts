@@ -21,6 +21,7 @@ import { TextSectionComponent } from './section-component/text-section/text-sect
 import { ThemedTextSectionComponent } from './section-component/text-section/themed-text-section.component';
 import { SharedModule } from '../shared.module';
 import { MarkdownViewerModule } from '../markdown-viewer/markdown-viewer.module';
+import { FacetFocusSectionComponent } from './section-component/facet-focus-section/facet-focus-section.component';
 
 const COMPONENTS = [
   BrowseSectionComponent,
@@ -37,6 +38,7 @@ const COMPONENTS = [
   ThemedTextSectionComponent,
   TopSectionComponent,
   ThemedTopSectionComponent,
+  FacetFocusSectionComponent,
 ];
 
 @NgModule({

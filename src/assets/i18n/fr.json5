@@ -8595,6 +8595,18 @@
   // TODO New key - Add a translation
   "search.filters.applied.f.organization": "Organisation",
 
+  // "search.filters.applied.f.facultyname": "Faculty",
+  "search.filters.applied.f.facultyname": "Faculté",
+
+  // "search.filters.applied.f.advisor": "Promoter",
+  "search.filters.applied.f.advisor": "Promoteur",
+
+  // "search.filters.applied.f.rootdegreelabel": "Degree",
+  "search.filters.applied.f.rootdegreelabel": "Diplôme",
+
+  // "search.filters.applied.f.accessType": "Access type",
+  "search.filters.applied.f.accessType": "Type d'accès",
+
   // "search.filters.applied.charts.defaultConfiguration.title": "Search Output",
   // TODO New key - Add a translation
   "search.filters.applied.charts.defaultConfiguration.title": "Search Output",
@@ -13744,6 +13756,8 @@
 
   "item.page.filesection.bitstream.download_url.tooltip": "Cliquer ici pour copier le lien permettant au promoteur de télécharger le contenu du bitstream. <strong>Pour des raisons de sécurité, veuillez partager uniquement ce lien avec les promoteurs en charge de la soumission</strong>.",
   "item.page.filesection.bitstream.download_url.label": "Copier le lien de téléchargement",
+
+  "explore.facet-focus-section.facultyname.title": "Mémoires par faculté",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",
