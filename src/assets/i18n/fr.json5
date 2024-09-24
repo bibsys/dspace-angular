@@ -4052,7 +4052,7 @@
   "footer.link.lyrasis": "LYRASIS",
 
   // "footer.link.cookies": "Cookie settings",
-  "footer.link.cookies": "Paramètres des témoins de connexion",
+  "footer.link.cookies": "Cookies",
 
   // "footer.link.privacy-policy": "Privacy policy",
   "footer.link.privacy-policy": "Politique de protection de la vie privée",
@@ -4063,7 +4063,7 @@
 
   // "footer.link.feedback": "Send Feedback",
   // TODO Source message changed - Revise the translation
-  "footer.link.feedback": "Envoyer un commentaire",
+  "footer.link.feedback": "Envoyer un feedback",
 
   // "footer.developed-by": "Application developed by",
   "footer.developed-by": "Application développé par",
@@ -4591,7 +4591,7 @@
   "info.feedback.email_help": "Cette adresse sera utilisée pour donner suite à vos commentaires.",
 
   // "info.feedback.send": "Send Feedback",
-  "info.feedback.send": "Envoyer un commentaire",
+  "info.feedback.send": "Envoyer un feedback",
 
   // "info.feedback.comments": "Comments",
   "info.feedback.comments": "Commentaires",
@@ -8311,10 +8311,10 @@
   "repository.image.logo": "Logo du dépôt",
 
   // "repository.title": "{{ repositoryName }}",
-  "repository.title": "DIAL",
+  "repository.title": "DIAL.mem",
 
   // "repository.title.prefix": "{{ repositoryName }} Angular :: ",
-  "repository.title.prefix": "DIAL Angular :: ",
+  "repository.title.prefix": "DIAL.mem - ",
 
   // "resource-policies.add.button": "Add",
   "resource-policies.add.button": "Ajouter",
@@ -13875,6 +13875,13 @@
   "item.page.filesection.bitstream.download_url.label": "Copier le lien de téléchargement",
 
   "explore.facet-focus-section.facultyname.title": "Mémoires par faculté",
+
+  "footer.header.quick-links": "Liens utiles",
+  "footer.header.help": "Aide",
+
+  "footer.link.faq": "FAQ",
+  "footer.link.deposit-guide": "Guide du déposant",
+  "footer.link.open-ticket": "OSTicket",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",

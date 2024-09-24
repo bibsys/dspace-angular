@@ -2486,8 +2486,8 @@
   "relationships.isContributorOf.Person": "Contributor",
   "relationships.isFundingAgencyOf.OrgUnit": "Funder",
   "repository.image.logo": "Repository logo",
-  "repository.title": "DIAL",
-  "repository.title.prefix": "DIAL Angular :: ",
+  "repository.title": "DIAL.mem",
+  "repository.title.prefix": "DIAL.mem - ",
   "resource-policies.add.button": "Add",
   "resource-policies.add.for.": "Add a new policy",
   "resource-policies.add.for.bitstream": "Add a new Bitstream policy",
@@ -4199,6 +4199,13 @@
   "item.page.filesection.bitstream.download_url.label": "Copy download link",
 
   "explore.facet-focus-section.facultyname.title": "Theses by faculty",
+
+  "footer.header.quick-links": "Quick links",
+  "footer.header.help": "Help",
+
+  "footer.link.faq": "Q&A",
+  "footer.link.deposit-guide": "Deposit guide",
+  "footer.link.open-ticket": "OSTicket",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Dutch",
