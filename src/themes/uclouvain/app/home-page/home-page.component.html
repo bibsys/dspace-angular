@@ -36,6 +36,10 @@
                                    [sectionId]="sectionId"
                                    [facetSection]="$any(sectionComponent)"></ds-themed-facet-section>
 
+          <ds-facet-focus-section *ngSwitchCase="'facet-focus'"
+                                   [sectionId]="sectionId"
+                                   [facetFocusSection]="sectionComponent"></ds-facet-focus-section>
+
           <ds-themed-counters-section *ngSwitchCase="'counters'"
                                       [sectionId]="sectionId"
                                       [countersSection]="$any(sectionComponent)"></ds-themed-counters-section>
