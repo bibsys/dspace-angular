@@ -1,0 +1,18 @@
+<div *ngIf="(targetFacet$ | async) != null">
+    <div class="card border-0">
+        <h4 class="card-header bg-primary text-white">{{ 'explore.facet-focus-section.' + targetFacet.name + '.title' | translate }}</h4>
+        <div class="border border-gray-100">
+            <div *ngFor="let facetValue of targetFacet._embedded.values; let last = last"
+                class="facet-value d-flex justify-content-between align-items-center p-3 w-100"
+                [class.border-bottom]="!last"
+                (click)="navigateToFacetView(targetFacet, facetValue)">
+                <span class="text-primary">
+                    {{ facetValue.label }}
+                </span>
+                <span class="badge badge-primary px-2 py-1 align-middle">
+                    {{ facetValue.count }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
