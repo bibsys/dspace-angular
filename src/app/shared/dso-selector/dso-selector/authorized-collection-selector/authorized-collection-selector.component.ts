@@ -41,6 +41,7 @@ import { ListableObjectComponentLoaderComponent } from '../../../object-collecti
 import { SearchResult } from '../../../search/models/search-result.model';
 import { followLink } from '../../../utils/follow-link-config.model';
 import { DSOSelectorComponent } from '../dso-selector.component';
+import { HostWindowService } from '../../../host-window.service';
 
 @Component({
   selector: 'ds-authorized-collection-selector',
@@ -64,8 +65,9 @@ export class AuthorizedCollectionSelectorComponent extends DSOSelectorComponent 
     protected notifcationsService: NotificationsService,
     protected translate: TranslateService,
     protected dsoNameService: DSONameService,
+    protected windowService: HostWindowService
   ) {
-    super(searchService, notifcationsService, translate, dsoNameService);
+    super(searchService, notifcationsService, translate, dsoNameService, windowService);
   }
 
   /**
