@@ -22,6 +22,7 @@ import { NotificationsService } from '../../../notifications/notifications.servi
 import { CollectionSearchResult } from '../../../object-collection/shared/collection-search-result.model';
 import { SearchResult } from '../../../search/models/search-result.model';
 import { DSOSelectorComponent } from '../dso-selector.component';
+import { HostWindowService } from '../../../host-window.service';
 
 @Component({
   selector: 'ds-administered-collection-selector',
@@ -37,8 +38,9 @@ export class AdministeredCollectionSelectorComponent extends DSOSelectorComponen
               protected searchService: SearchService,
               protected notifcationsService: NotificationsService,
               protected translate: TranslateService,
-              protected dsoNameService: DSONameService) {
-    super(searchService, notifcationsService, translate, dsoNameService);
+              protected dsoNameService: DSONameService,
+              protected windowService: HostWindowService) {
+    super(searchService, notifcationsService, translate, dsoNameService, windowService);
   }
 
   /**
