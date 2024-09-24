@@ -10,6 +10,7 @@ import { ThemedCountersSectionComponent } from 'src/app/shared/explore/section-c
 import { AsyncPipe, NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { ViewTrackerComponent } from 'src/app/statistics/angulartics/dspace/view-tracker.component';
 import { ThemedSearchSectionComponent } from 'src/app/shared/explore/section-component/search-section/themed-search-section.component';
+import { FacetFocusSectionComponent } from 'src/app/shared/explore/section-component/facet-focus-section/facet-focus-section.component';
 
 @Component({
     selector: 'ds-themed-home-page',
@@ -29,6 +30,7 @@ import { ThemedSearchSectionComponent } from 'src/app/shared/explore/section-com
       NgSwitch,
       NgSwitchCase,
       AsyncPipe,
+      FacetFocusSectionComponent,
     ],
     standalone: true,
   })

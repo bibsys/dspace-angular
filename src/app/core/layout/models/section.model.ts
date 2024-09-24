@@ -108,3 +108,9 @@ export interface TopSectionColumn {
 export enum TopSectionTemplateType {
   DEFAULT = 'default', // CRIS default template
 }
+
+export interface FacetFocusSection extends SectionComponent {
+  discoveryConfigurationName: string;
+  componentType: 'facet-focus';
+  targetFacet: string;
+}
