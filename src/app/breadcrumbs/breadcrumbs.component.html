@@ -4,7 +4,9 @@
             <ng-container
                     *ngTemplateOutlet="breadcrumbs?.length > 0 ? breadcrumb : activeBreadcrumb; context: {text: 'home.breadcrumbs', url: '/'}"></ng-container>
             <ng-container *ngFor="let bc of breadcrumbs; let last = last;">
-                <ng-container *ngTemplateOutlet="!last ? breadcrumb : activeBreadcrumb; context: bc"></ng-container>
+                <!-- We need to hide all breadcrumbs links to avoid pages like 'browse by collection' or 'browse by community'. -->
+                 <!-- So, we are just rendering the last element which is the active element. -->
+                <ng-container *ngTemplateOutlet="!last ? '' : activeBreadcrumb; context: bc"></ng-container>
             </ng-container>
         </ol>
     </nav>
