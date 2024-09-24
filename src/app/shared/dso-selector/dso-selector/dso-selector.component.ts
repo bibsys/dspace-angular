@@ -56,11 +56,15 @@ import { ListableNotificationObject } from '../../object-list/listable-notificat
 import { LISTABLE_NOTIFICATION_OBJECT } from '../../object-list/listable-notification-object/listable-notification-object.resource-type';
 import { PaginatedSearchOptions } from '../../search/models/paginated-search-options.model';
 import { SearchResult } from '../../search/models/search-result.model';
+import { slide } from '../../animations/slide';
+import { HostWindowService } from '../../host-window.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'ds-dso-selector',
   styleUrls: ['./dso-selector.component.scss'],
   templateUrl: './dso-selector.component.html',
+  animations: [slide],
 })
 
 /**
@@ -97,6 +101,11 @@ export class DSOSelectorComponent implements OnInit, OnDestroy {
    * The id that should be given to the input box, this is required for accessibility reasons
    */
   @Input() searchBoxId: string | null = null;
+
+  /**
+   * The limit beyond which the search box will be displayed
+   */
+  @Input() searchLimit = 10;
 
   // list of allowed selectable dsoTypes
   typesString: string;
@@ -154,6 +163,11 @@ export class DSOSelectorComponent implements OnInit, OnDestroy {
   linkTypes = CollectionElementLinkType;
 
   /**
+   * Emits true if were on a small screen
+   */
+  isMobile$: Observable<boolean>;
+
+  /**
    * Array to track all subscriptions and unsubscribe them onDestroy
    * @type {Array}
    */
@@ -164,12 +178,16 @@ export class DSOSelectorComponent implements OnInit, OnDestroy {
    */
   randomSeed: string = Math.random().toString(36).substring(2, 6);
 
+  activeDisclaimers: Array<string> = [];
+
   constructor(
     protected searchService: SearchService,
     protected notifcationsService: NotificationsService,
     protected translate: TranslateService,
     protected dsoNameService: DSONameService,
+    protected windowService: HostWindowService
   ) {
+    this.isMobile$ = this.windowService.isXsOrSm();
   }
 
   /**
@@ -330,8 +348,32 @@ export class DSOSelectorComponent implements OnInit, OnDestroy {
     }
   }
 
+  /** Get the common name of a listable object. */
   getName(listableObject: ListableObject): string {
-    return hasValue((listableObject as SearchResult<DSpaceObject>).indexableObject) ?
-      this.dsoNameService.getName((listableObject as SearchResult<DSpaceObject>).indexableObject) : null;
+    return hasValue((listableObject as SearchResult<DSpaceObject>).indexableObject)
+      ? this.dsoNameService.getName((listableObject as SearchResult<DSpaceObject>).indexableObject)
+      : null;
+  }
+
+  /** Get the ID of a listable object. */
+  getID(listableObject: ListableObject): string {
+    return hasValue((listableObject as SearchResult<DSpaceObject>).indexableObject)
+      ? (listableObject as SearchResult<DSpaceObject>).indexableObject.uuid
+      : null;
+  }
+
+  /** Is a disclaimer section should be available for a listable object. */
+  showDisclaimer(entry: ListableObject): boolean {
+    let objectUUIDs: Array<String> = hasValue(environment.submission) ? environment.submission['disclaimer-section-for'] : [];
+    objectUUIDs = objectUUIDs || [];  // To ensure than objects UUID array isn't undefined
+    return objectUUIDs.includes(this.getID(entry));
+  }
+
+  /** Notify display of the disclaimer section for a specific listable object. */
+  toggleDisclaimer(entry: ListableObject): void {
+    const uuid = this.getID(entry);
+    if (!this.activeDisclaimers.includes(uuid)) {
+      this.activeDisclaimers.push(uuid);
+    }
   }
 }
