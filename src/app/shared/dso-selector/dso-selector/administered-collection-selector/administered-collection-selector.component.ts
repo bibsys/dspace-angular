@@ -39,6 +39,7 @@ import { CollectionSearchResult } from '../../../object-collection/shared/collec
 import { ListableObjectComponentLoaderComponent } from '../../../object-collection/shared/listable-object/listable-object-component-loader.component';
 import { SearchResult } from '../../../search/models/search-result.model';
 import { DSOSelectorComponent } from '../dso-selector.component';
+import { HostWindowService } from '../../../host-window.service';
 
 @Component({
   selector: 'ds-administered-collection-selector',
@@ -56,8 +57,9 @@ export class AdministeredCollectionSelectorComponent extends DSOSelectorComponen
               protected searchService: SearchService,
               protected notifcationsService: NotificationsService,
               protected translate: TranslateService,
-              protected dsoNameService: DSONameService) {
-    super(searchService, notifcationsService, translate, dsoNameService);
+              protected dsoNameService: DSONameService,
+              protected windowService: HostWindowService) {
+    super(searchService, notifcationsService, translate, dsoNameService, windowService);
   }
 
   /**
