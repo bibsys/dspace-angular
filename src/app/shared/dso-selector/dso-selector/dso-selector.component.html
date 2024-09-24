@@ -1,10 +1,12 @@
-<div class="form-group w-100 pr-2 pl-2">
+<ng-container *ngIf="listEntries$ | async">
+  <div class="form-group w-100 pr-2 pl-2" *ngIf="(listEntries$ | async).length > searchLimit">
     <input type="search"
            class="form-control"
            (click)="$event.stopPropagation();"
            placeholder="{{'dso-selector.placeholder' | translate: { type: typesString } }}"
            [formControl]="input" ngbAutofocus (keyup.enter)="selectSingleResult()">
-</div>
+  </div>
+</ng-container>
 <div class="dropdown-divider"></div>
 <div id="scrollable-menu-dso-selector-{{randomSeed}}" class="scrollable-menu list-group">
   <div
@@ -14,20 +16,39 @@
     [infiniteScrollContainer]="'#scrollable-menu-dso-selector-' + randomSeed"
     [fromRoot]="true"
     (scrolled)="onScrollDown()">
-    <ng-container *ngIf="listEntries$ | async">
-      <button class="list-group-item list-group-item-action border-0 disabled"
-              *ngIf="(listEntries$ | async).length == 0">
+    <ng-container *ngIf="(listEntries$ | async) as listEntries">
+      <button class="list-group-item list-group-item-action border-0 disabled" *ngIf="listEntries.length == 0">
         {{'dso-selector.no-results' | translate: { type: typesString } }}
       </button>
-      <button *ngFor="let listEntry of (listEntries$ | async)"
-              class="list-group-item list-group-item-action border-0 list-entry"
-              [ngClass]="{'bg-primary': listEntry['id'] === currentDSOId}"
-              title="{{ getName(listEntry) }}"
-              dsHoverClass="ds-hover"
-              (click)="onClick(listEntry)" #listEntryElement>
-        <ds-listable-object-component-loader [object]="listEntry" [viewMode]="viewMode"
-                                             [linkType]=linkTypes.None [context]="getContext(listEntry['id'])"></ds-listable-object-component-loader>
-      </button>
+      <ng-container *ngFor="let listEntry of listEntries">
+        <button class="list-group-item list-group-item-action border-0 list-entry"
+                [ngClass]="{'bg-primary': listEntry['id'] === currentDSOId}"
+                title="{{ getName(listEntry) }}"
+                dsHoverClass="ds-hover"
+                (click)="showDisclaimer(listEntry) ? toggleDisclaimer(listEntry) : onClick(listEntry)"
+                #listEntryElement
+        >
+          <div class="d-flex">
+            <ds-listable-object-component-loader
+                    [object]="listEntry"
+                    [viewMode]="viewMode"
+                    [linkType]=linkTypes.None
+                    [context]="getContext(listEntry['id'])">
+            </ds-listable-object-component-loader>
+            <div class="ml-auto btn-success p-2 rounded d-flex align-items-center">
+              <i class="fa fa-plus"></i>
+              <span *ngIf="!(isXsOrSm$ | async)" class="ml-2">{{ 'dso-selector.start-new-deposit' | translate }}</span>
+            </div>
+          </div>
+        </button>
+        <div *ngIf="activeDisclaimers.includes(getID(listEntry))" @slide class="alert alert-danger mx-2 my-1">
+          <div class="mb-2" [innerHTML]="'dso-selector.disclaimer.content' | translate"></div>
+          <div class="mb-2">{{ 'dso-selector.disclaimer.agreement' | translate }}</div>
+          <div class="d-flex flex-row-reverse">
+            <button class="btn btn-danger" (click)="onClick(listEntry)">{{ 'dso-selector.disclaimer.confirm' | translate }}</button>
+          </div>
+        </div>
+      </ng-container>
     </ng-container>
     <button *ngIf="loading"
             class="list-group-item list-group-item-action border-0 list-entry">
