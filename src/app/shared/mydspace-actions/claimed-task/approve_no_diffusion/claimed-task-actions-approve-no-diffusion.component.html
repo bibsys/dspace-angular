@@ -2,7 +2,7 @@
         [className]="'btn btn-success'"
         ngbTooltip="{{'submission.workflow.tasks.claimed.approve-no-diffusion_help' | translate}}"
         [disabled]="processing$ | async"
-        (click)="openApproveModal(approveModal)">
+        (click)="openConfirmModal(approveModal)">
   <span *ngIf="processing$ | async"><i class='fas fa-circle-notch fa-spin'></i> {{'submission.workflow.tasks.generic.processing' | translate}}</span>
   <span *ngIf="!(processing$ | async)"><i class="fa fa-thumbs-up"></i> {{'submission.workflow.tasks.claimed.approve-no-diffusion' | translate}}</span>
 </button>
@@ -22,14 +22,9 @@
       {{'submission.workflow.tasks.claimed.approve-no-diffusion.reason.info' | translate}}
     </div>
     <form (ngSubmit)="submitTask();">
-      <textarea class="form-control"
-                [formControl]="approveForm"
-                rows="4"
-                placeholder="{{'submission.workflow.tasks.claimed.approve-no-diffusion.reason.placeholder' | translate}}"></textarea>
       <button id="btn-chat"
-              class="btn btn-success btn-lg btn-block mt-3"
-              [disabled]="!approveForm.valid || (processing$ | async)"
-              type="submit">
+      class="btn btn-success btn-lg btn-block mt-3"
+      type="submit">
         <span *ngIf="processing$ | async"><i class='fas fa-circle-notch fa-spin'></i> {{'submission.workflow.tasks.generic.processing' | translate}}</span>
         <span *ngIf="!(processing$ | async)">{{'submission.workflow.tasks.claimed.approve-no-diffusion.reason.submit' | translate}}</span>
       </button>
