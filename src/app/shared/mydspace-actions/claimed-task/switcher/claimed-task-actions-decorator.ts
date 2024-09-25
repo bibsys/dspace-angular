@@ -14,6 +14,7 @@ import {
   WORKFLOW_TASK_OPTION_APPROVE,
 } from '../approve/claimed-task-actions-approve.component';
 import { ClaimedTaskActionsApproveNoDiffusionComponent, WORKFLOW_TASK_OPTION_APPROVE_NO_DIFFUSION } from '../approve_no_diffusion/claimed-task-actions-approve-no-diffusion.component';
+import { ClaimedTaskActionsConfirmApproveComponent, WORKFLOW_TASK_OPTION_CONFIRM_APPROVE } from '../confirm-approve/claimed-task-actions-confirm-approve.component';
 import {
   ClaimedTaskActionsDeclineTaskComponent,
   WORKFLOW_TASK_OPTION_DECLINE_TASK,
@@ -31,17 +32,22 @@ import {
   ClaimedTaskActionsReturnToPoolComponent,
   WORKFLOW_TASK_OPTION_RETURN_TO_POOL,
 } from '../return-to-pool/claimed-task-actions-return-to-pool.component';
+import { ClaimedTaskActionsReturnToSubmitterComponent, WORKFLOW_TASK_OPTION_RETURN_TO_SUBMITTER } from '../return-to-submitter/claimed-task-actions-return-to-submitter.component';
 import { AdvancedClaimedTaskActionSelectReviewerComponent } from '../select-reviewer/advanced-claimed-task-action-select-reviewer.component';
+import { ClaimedTaskActionsWithdrawRejectComponent, WORKFLOW_TASK_OPTION_WITHDRAW_REJECT } from '../withdraw-reject/claimed-task-actions-withdraw-reject.component';
 
 export type WorkflowTaskOptionComponent =
   typeof ClaimedTaskActionsApproveComponent |
+  typeof ClaimedTaskActionsConfirmApproveComponent |
   typeof ClaimedTaskActionsApproveNoDiffusionComponent |
   typeof ClaimedTaskActionsDeclineTaskComponent |
+  typeof ClaimedTaskActionsWithdrawRejectComponent |
   typeof ClaimedTaskActionsEditMetadataComponent |
   typeof AdvancedClaimedTaskActionRatingComponent |
   typeof ClaimedTaskActionsRejectComponent |
   typeof ClaimedTaskActionsReturnToPoolComponent |
-  typeof AdvancedClaimedTaskActionSelectReviewerComponent;
+  typeof AdvancedClaimedTaskActionSelectReviewerComponent |
+  typeof ClaimedTaskActionsReturnToSubmitterComponent;
 
 export type AdvancedWorkflowTaskOptionComponent =
   typeof AdvancedWorkflowActionRatingComponent |
@@ -49,13 +55,16 @@ export type AdvancedWorkflowTaskOptionComponent =
 
 export const WORKFLOW_TASK_OPTION_DECORATOR_MAP = new Map<string, WorkflowTaskOptionComponent>([
   [WORKFLOW_TASK_OPTION_APPROVE, ClaimedTaskActionsApproveComponent],
+  [WORKFLOW_TASK_OPTION_CONFIRM_APPROVE, ClaimedTaskActionsConfirmApproveComponent],
   [WORKFLOW_TASK_OPTION_APPROVE_NO_DIFFUSION, ClaimedTaskActionsApproveNoDiffusionComponent],
   [WORKFLOW_TASK_OPTION_DECLINE_TASK, ClaimedTaskActionsDeclineTaskComponent],
+  [WORKFLOW_TASK_OPTION_WITHDRAW_REJECT, ClaimedTaskActionsWithdrawRejectComponent],
   [WORKFLOW_TASK_OPTION_EDIT_METADATA, ClaimedTaskActionsEditMetadataComponent],
   [ADVANCED_WORKFLOW_TASK_OPTION_RATING, AdvancedClaimedTaskActionRatingComponent],
   [WORKFLOW_TASK_OPTION_REJECT, ClaimedTaskActionsRejectComponent],
   [WORKFLOW_TASK_OPTION_RETURN_TO_POOL, ClaimedTaskActionsReturnToPoolComponent],
   [ADVANCED_WORKFLOW_TASK_OPTION_SELECT_REVIEWER, AdvancedClaimedTaskActionSelectReviewerComponent],
+  [WORKFLOW_TASK_OPTION_RETURN_TO_SUBMITTER, ClaimedTaskActionsReturnToSubmitterComponent],
 ]);
 
 export const ADVANCED_WORKFLOW_TASK_OPTION_DECORATOR_MAP = new Map<string, AdvancedWorkflowTaskOptionComponent>([
