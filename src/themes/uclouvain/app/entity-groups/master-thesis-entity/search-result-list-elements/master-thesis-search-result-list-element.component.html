@@ -1,5 +1,5 @@
 <div class="d-flex">
-    <!-- <div *ngIf="showThumbnails" class="pr-sm-0 border mr-3 ml-1">
+    <div *ngIf="showThumbnails" class="pr-sm-0 border mr-3 ml-1">
         <a *ngIf="linkType != linkTypes.None"
            [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
            [attr.rel]="(linkType == linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
@@ -9,7 +9,7 @@
         <span *ngIf="linkType == linkTypes.None" class="lead item-list-title dont-break-out">
             <ds-thumbnail [thumbnail]="dso?.thumbnail | async"></ds-thumbnail>
         </span>
-    </div> -->
+    </div>
     <div class="d-flex flex-column w-100">
         <ds-themed-badges *ngIf="showLabel" [object]="dso" [context]="context"></ds-themed-badges>
         <!-- TITLE ==================================================== -->

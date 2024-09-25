@@ -3,12 +3,13 @@
   <ds-my-dspace-new-submission *dsShowOnlyForRole="[roleTypeEnum.Submitter]"></ds-my-dspace-new-submission>
 </div>
 
-<ds-search *ngIf="configuration && context"
+<ds-themed-search *ngIf="configuration && context"
            [configuration]="configuration"
            [configurationList]="(configurationList$ | async)"
            [context]="context"
            [viewModeList]="viewModeList"
            [projection]="projection"
-           [showThumbnails]="false">
+           [showThumbnails]="false"
+           [showExport]="false">
   <!--<ds-my-dspace-new-bulk-import additionalSearchFormOptions></ds-my-dspace-new-bulk-import>-->
-</ds-search>
+</ds-themed-search>
