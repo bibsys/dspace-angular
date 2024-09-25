@@ -252,11 +252,11 @@ button.switch {
 }
 
 .badge-workspace {
-  background-color: #{map-get($theme-colors, primary)};
+  background-color: #{map-get($theme-colors, success)};
 }
 
 .badge-archived {
-  background-color: #{map-get($theme-colors, success)};
+  background-color: #{map-get($theme-colors, primary)};
 }
 
 .badge-workflow {
