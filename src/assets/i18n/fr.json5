@@ -6988,6 +6988,9 @@
   // "mydspace.results.no-files": "No Files",
   "mydspace.results.no-files": "Aucun fichier",
 
+  // "mydspace.results.no-promoters": "No Promoters",
+  "mydspace.results.no-promoters": "Aucun promoteurs",
+
   // "mydspace.results.no-results": "There were no items to show",
   "mydspace.results.no-results": "Aucun Item à afficher",
 
@@ -7005,7 +7008,7 @@
   "mydspace.search-form.placeholder": "Rechercher dans mon compte DIAL.mem...",
 
   // "mydspace.show.workflow": "Workflow tasks",
-  "mydspace.show.workflow": "Tableau de suivi",
+  "mydspace.show.workflow": "Espace gestionnaire",
 
   // "mydspace.show.workspace": "Your Submissions",
   "mydspace.show.workspace": "Vos dépôts",
@@ -7036,7 +7039,7 @@
   "mydspace.status.mydspaceWorkspace": "Dépôts en cours",
 
   // "mydspace.status.submitted": "Submitted",
-  "mydspace.status.submitted": "Soumit",
+  "mydspace.status.submitted": "Déposé",
 
   // "mydspace.title": "MyDSpace",
   "mydspace.title": "Mon compte DIAL.mem",

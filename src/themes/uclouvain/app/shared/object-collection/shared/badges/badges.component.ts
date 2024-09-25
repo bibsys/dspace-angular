@@ -7,7 +7,9 @@ import { Context } from 'src/app/core/shared/context.model';
     templateUrl: './badges.component.html',
 })
 export class BadgesComponent extends BaseComponent {
+    readonly Context = Context
     get isInWorkspace(): boolean {
         return (this.context === Context.MyDSpaceWorkspace);
     }
+
 }

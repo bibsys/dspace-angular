@@ -6,37 +6,46 @@
     <div [ngClass]="showThumbnails ? 'col-9 col-xl-10' : 'col-md-12'">
       <div *ngIf="item" @fadeInOut>
         <div class="d-flex">
-          <ds-themed-badges [object]="item" [context]="badgeContext" [showAccessStatus]="true"></ds-themed-badges>
+          <ds-themed-badges [object]="item" [context]="badgeContext"></ds-themed-badges>
         </div>
-        <ds-truncatable [id]="item.id">
-          <h3 [innerHTML]="dsoTitle" [ngClass]="{'lead': true,'text-muted': !item.firstMetadataValue('dc.title')}"></h3>
-          <div>
+        <div class="my-2">
+          <h3 [innerHTML]="dsoTitle" class="mb-1 lead" [ngClass]="{'text-muted': !item.firstMetadataValue('dc.title')}"></h3>
+          <div class="item-list-authors">
+            <span class="mr-2">{{ 'item.page.author' | translate }}:</span>
             <span class="text-muted">
-              <ds-truncatable-part [id]="item.id" [minLines]="1">
-                (<span *ngIf="item.hasMetadata('dc.publisher')" class="item-list-publisher"
-                       [innerHTML]="item.firstMetadataValue('dc.publisher') + ', '"></span>
-                <span class="item-list-date" [innerHTML]="item.firstMetadataValue('dc.date.issued') || ('mydspace.results.no-date' | translate)"></span>)
-                <span *ngIf="item.hasMetadata(authorMetadata);" class="item-list-authors">
-                  <span *ngIf="item.allMetadataValues(authorMetadata).length === 0">{{'mydspace.results.no-authors' | translate}}</span>
-                  <span *ngFor="let author of item.allMetadata(authorMetadata); let i=index; let last=last;">
-                    <ds-metadata-link-view *ngIf="!!item && !!author" [item]="item" [metadata]="author" [metadataName]="authorMetadata"></ds-metadata-link-view>;
-                  </span>
-                </span>
-              </ds-truncatable-part>
+              <span *ngIf="item.allMetadataValues(authorMetadata).length === 0">{{ 'mydspace.results.no-authors' | translate }}</span>
+              <ng-container *ngFor="let author of item.allMetadata(authorMetadata); let i=index; let last=last;">
+                <ds-metadata-link-view *ngIf="!!item && !!author" [item]="item" [metadata]="author" [metadataName]="authorMetadata"></ds-metadata-link-view>
+                <span *ngIf="!last"> ; </span>
+              </ng-container>
             </span>
-  
-            <ds-truncatable-part [id]="item.id" [minLines]="1" class="item-list-abstract">
-              <span [ngClass]="{'text-muted': !item.firstMetadataValue('dc.description.abstract')}"
-                    [innerHTML]="(item.firstMetadataValue('dc.description.abstract')) || ('mydspace.results.no-abstract' | translate)"></span>
-            </ds-truncatable-part>
-  
-            <ds-additional-metadata [object]="item"></ds-additional-metadata>
-  
           </div>
-        </ds-truncatable>
+          <div class="item-list-authors">
+            <span class="mr-2">{{ 'item.page.promoter' | translate }}:</span>
+            <span class="text-muted">
+                <span *ngIf="item.allMetadataValues(promoterMetadata).length === 0">{{ 'mydspace.results.no-promoters' | translate }}</span>
+                <ng-container *ngFor="let promoter of item.allMetadata(promoterMetadata); let i=index; let last=last;">
+                    <ds-metadata-link-view *ngIf="!!item && !!promoter" [item]="item" [metadata]="promoter" [metadataName]="authorMetadata"></ds-metadata-link-view>
+                    <span *ngIf="!last"> ; </span>
+                </ng-container>
+            </span>
+          </div>
+          <ul class="list-inline list-inline-with-divider m-0 mt-1 small">
+            <li *ngIf="accessCondition">
+                <ds-access-conditions [accessConditions]="[accessCondition]"></ds-access-conditions>
+            </li>
+            <li>
+                <i class="far fa-calendar mr-2"></i>
+                {{ item.firstMetadataValue('dc.date.issued') || ('mydspace.results.no-date' | translate) }}
+            </li>
+            <li *ngIf="!isEmpty(degreeCodes)">
+                <i class="fa-solid fa-graduation-cap"></i>
+                {{ degreeCodes.join(", ") }}
+            </li>
+          </ul>
+        </div>
         <ds-item-correction [item]="item"></ds-item-correction>
         <ds-item-submitter *ngIf="showSubmitter" [object]="object.indexableObject"></ds-item-submitter>
-        <ds-item-collection *ngIf="object.indexableObject" [object]="object.indexableObject"></ds-item-collection>
       </div>
     </div>
   </div>
