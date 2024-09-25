@@ -9,6 +9,9 @@ import { CollectionDataService } from '../data/collection-data.service';
 import { AuthorizationDataService } from '../data/feature-authorization/authorization-data.service';
 import { FeatureID } from '../data/feature-authorization/feature-id';
 import { RoleType } from './role-types';
+import { AuthService } from '../auth/auth.service';
+import { EPerson } from '../eperson/models/eperson.model';
+
 
 /**
  * A service that provides methods to identify user role.
@@ -20,12 +23,14 @@ export class RoleService {
    * Initialize instance variables
    *
    * @param {CollectionDataService} collectionService
+   * @param {AuthorizationDataService} authorizationService
+   * @param {AuthService} authService
    */
   constructor(
     private collectionService: CollectionDataService,
     private authorizationService: AuthorizationDataService,
-  ) {
-  }
+    private authService: AuthService
+  ) { }
 
   /**
    * Check if current user is a submitter
@@ -42,8 +47,11 @@ export class RoleService {
    * Check if current user is a controller
    */
   isController(): Observable<boolean> {
-    // TODO find a way to check if user is a controller
-    return observableOf(true);
+    return this.authService
+      .getAuthenticatedUserFromStore()
+      .pipe(
+        switchMap((eperson: EPerson) => this.authorizationService.isAuthorized(FeatureID.HasRoleManager, eperson.self)),
+      );
   }
 
   /**
