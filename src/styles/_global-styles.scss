@@ -295,6 +295,10 @@ button.switch {
     background-color: darken($green, 25);
 }
 
+.badge-archived {
+    background-color: #{map-get($theme-colors, primary)};
+}
+
 .badge-workflow {
     background-color: #{map-get($theme-colors, info)};
 }
