@@ -20,7 +20,9 @@ import { TranslateModule } from '@ngx-translate/core';
     standalone: true,
 })
 export class BadgesComponent extends BaseComponent {
+    readonly Context = Context
     get isInWorkspace(): boolean {
         return (this.context === Context.MyDSpaceWorkspace);
     }
+
 }
