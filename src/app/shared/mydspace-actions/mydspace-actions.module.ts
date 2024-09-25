@@ -20,6 +20,9 @@ import { PoolTaskActionsComponent } from './pool-task/pool-task-actions.componen
 import { WorkflowitemActionsComponent } from './workflowitem/workflowitem-actions.component';
 import { WorkspaceitemActionsComponent } from './workspaceitem/workspaceitem-actions.component';
 import { PdfAttestationActionComponent } from './pdf-attestation-action/pdf-attestation-action.component';
+import { ClaimedTaskActionsReturnToSubmitterComponent } from './claimed-task/return-to-submitter/claimed-task-actions-return-to-submitter.component';
+import { ClaimedTaskActionsWithdrawRejectComponent } from './claimed-task/withdraw-reject/claimed-task-actions-withdraw-reject.component';
+import { ClaimedTaskActionsConfirmApproveComponent } from './claimed-task/confirm-approve/claimed-task-actions-confirm-approve.component';
 
 const ENTRY_COMPONENTS = [
   ClaimedTaskActionsApproveComponent,
@@ -27,6 +30,9 @@ const ENTRY_COMPONENTS = [
   ClaimedTaskActionsRejectComponent,
   ClaimedTaskActionsReturnToPoolComponent,
   ClaimedTaskActionsEditMetadataComponent,
+  ClaimedTaskActionsReturnToSubmitterComponent,
+  ClaimedTaskActionsWithdrawRejectComponent,
+  ClaimedTaskActionsConfirmApproveComponent,
 ];
 
 const DECLARATIONS = [

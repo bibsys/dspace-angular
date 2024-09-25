@@ -11363,20 +11363,41 @@
   // "submission.workflow.tasks.claimed.approve_help": "If you have reviewed the item and it is suitable for inclusion in the collection, select \"Approve\".",
   "submission.workflow.tasks.claimed.approve_help": "Si vous avez bien révisé cet Item et qu'il peut être ajouté à la collection, sélectionner « Approuver ».",
 
+  // "submission.workflow.tasks.claimed.confirm-approve": "Approve",
+  "submission.workflow.tasks.claimed.confirm-approve": "Approuver",
+  
+  // "submission.workflow.tasks.claimed.confirm-approve_help": "The submission can enter the public archive.",
+  "submission.workflow.tasks.claimed.confirm-approve_help": "Le mémoire sera accessible dans l'archive publique.",
+  
+  // "submission.workflow.tasks.claimed.confirm-approve.reason.title": "Confirm",
+  "submission.workflow.tasks.claimed.confirm-approve.reason.title": "Confirmer",
+  
+  // "submission.workflow.tasks.claimed.confirm-approve.reason.info": "Are you sure to to approve this submission. It will be publically accessible in the archive.",
+  "submission.workflow.tasks.claimed.confirm-approve.reason.info": "Veuillez confirmer l'ajout du mémoire à l'archive publique.",
+  
+  // "submission.workflow.tasks.claimed.confirm-approve.reason.placeholder": "Add a reason",
+  "submission.workflow.tasks.claimed.confirm-approve.reason.placeholder": "",
+
+  // "submission.workflow.tasks.claimed.confirm-approve.reason.submit": "Approve",
+  "submission.workflow.tasks.claimed.confirm-approve.reason.submit": "Approuver",
+
+  // "submission.workflow.tasks.claimed.confirm-approve.submit": "Approve",
+  "submission.workflow.tasks.claimed.confirm-approve.submit": "Approuver",
+
   // "submission.workflow.tasks.claimed.approve-no-diffusion": "Approve without diffusion",
   "submission.workflow.tasks.claimed.approve-no-diffusion": "Approuver sans diffusion",
 
   // "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Approve but all the bitstreams will be in forbidden access."
   "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Approuve mais tous les fichiers attachés seront placés en accès interdit.",
 
-  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Comment",
-  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Commentaire",
+  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Confirmer",
+  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Confirmer",
 
-  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.info": "Please enter a comment on why you choose to accept this item without diffusion.",
-  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.info": "Veuillez entrer un commentaire qui explique pourquoi accepter cette soumission sans diffusion.",
+  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.info": "Are you sure to accept this item without diffusion ? \n The submission will be accepted but all bitstreams will be in forbidden access (only accessible by an administrator).",
+  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.info": "Êtes-vous sûr de vouloir accepter cette soumission sans diffusion ? \n La soumission sera accepéte mais tous les fichiers attachés seront mis en accès interdit (uniquement accessible par un administrateur).",
 
-  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.placeholder": "Add a comment",
-  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.placeholder": "Ajouter un commentaire",
+  // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.placeholder": "Add a reason",
+  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.placeholder": "Ajouter une raison",
 
   // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.submit": "Approve without diffusion",
   "submission.workflow.tasks.claimed.approve-no-diffusion.reason.submit": "Approuver sans diffusion",
@@ -11413,8 +11434,47 @@
   // "submission.workflow.tasks.claimed.reject.submit": "Reject",
   "submission.workflow.tasks.claimed.reject.submit": "Rejeter",
 
-  // "submission.workflow.tasks.claimed.reject_help": "If you have reviewed the item and found it is <strong>not</strong> suitable for inclusion in the collection, select \"Reject\".  You will then be asked to enter a message indicating why the item is unsuitable, and whether the submitter should change something and resubmit.",
-  "submission.workflow.tasks.claimed.reject_help": "Si vous avez bien révisé cet Item et qu'il ne peut <strong>PAS</strong> être ajouté à la collection, sélectionner l'option « Rejeter ».  Il vous sera alors demandé d'indiquer la raison de ce rejet et de préciser si le déposant peut apporter une correction avant de soumettre de nouveau.",
+  // "submission.workflow.tasks.claimed.reject_help": "If the reviewed item is not ready to be included in the collection, select \"Reject\". You will be asked to give the reason for rejection and further edits the user should make before resubmission",
+  "submission.workflow.tasks.claimed.reject_help": "Si vous avez bien révisé cet Item et qu'il ne peut pas être ajouté à la collection, sélectionner l'option « Rejeter ».  Il vous sera alors demandé d'indiquer la raison de ce rejet et de préciser si le déposant peut apporter une correction avant de soumettre de nouveau.",
+
+  // "submission.workflow.tasks.claimed.withdraw-reject.reason.info": "Confirm that you really want to reject and place the item in a withdrawn state. The withdrawn state means that the item will be present but not visible by anyone (except administrators and submitter).",
+  "submission.workflow.tasks.claimed.withdraw-reject.reason.info": "Veuillez confirmer que vous voulez rejeter et placer cette soumission dans un état retiré. L'état retiré signifie que la soumission sera présente dans l'archive mais invisible aux yeux de tous (sauf administrateurs et déposant).",
+  
+  // "submission.workflow.tasks.claimed.withdraw-reject.reason.placeholder": "Confirm rejection",
+  "submission.workflow.tasks.claimed.withdraw-reject.reason.placeholder": "Confirmer le rejet",
+
+  // "submission.workflow.tasks.claimed.withdraw-reject.reason.submit": "Reject item",
+  "submission.workflow.tasks.claimed.withdraw-reject.reason.submit": "Rejeter l'item",
+
+  // "submission.workflow.tasks.claimed.withdraw-reject.reason.title": "Confirmer",
+  "submission.workflow.tasks.claimed.withdraw-reject.reason.title": "Confirmer",
+
+  // "submission.workflow.tasks.claimed.withdraw-reject.submit": "Reject",
+  "submission.workflow.tasks.claimed.withdraw-reject.submit": "Rejeter",
+
+  // "submission.workflow.tasks.claimed.withdraw-reject_help": "If you have reviewed the item but it is not suitable for the archive, select \"Reject\". The item will be placed in a withdrawn state and will not be visible anymore.",
+  "submission.workflow.tasks.claimed.withdraw-reject_help": "Si vous avez revu la soumission mais qu'elle ne devrait pas apparaître dans l'archive, sélectionner \"Rejeter\". La soumission sera placée dans un état retiré et ne sera visible par personne (excepté administrateurs et déposant).",
+
+  // "submission.workflow.tasks.claimed.return-to-submitter": "Send back to submitter",
+  "submission.workflow.tasks.claimed.return-to-submitter": "Renvoyer au déposant",
+
+  // "submission.workflow.tasks.claimed.return-to-submitter.reason.title": "Comment",
+  "submission.workflow.tasks.claimed.return-to-submitter.reason.title": "Commentaire",
+
+  // "submission.workflow.tasks.claimed.return-to-submitter.reason.info": "Please enter the reason of the need of modifications by the submitter.",
+  "submission.workflow.tasks.claimed.return-to-submitter.reason.info": "Veuillez détailler le besoin en modifications.",
+
+  // "submission.workflow.tasks.claimed.return-to-submitter.reason.placeholder": "Describe the needed modifications",
+  "submission.workflow.tasks.claimed.return-to-submitter.reason.placeholder": "Décriver les modifications nécessaires",
+
+  // "submission.workflow.tasks.claimed.return-to-submitter.reason.submit": "Send back to submitter",
+  "submission.workflow.tasks.claimed.return-to-submitter.reason.submit": "Renvoyer au déposant",
+
+  // "submission.workflow.tasks.claimed.return-to-submitter.reason.default": "",
+  "submission.workflow.tasks.claimed.return-to-submitter.reason.default": "",
+
+  // "submission.workflow.tasks.claimed.return-to-submitter_help": "Send the thesis back to the submitter to make some modifications.",
+  "submission.workflow.tasks.claimed.return-to-submitter_help": "Renvoyer le mémoire au déposant pour qu'il effectue des modifications.",
 
   // "submission.workflow.tasks.claimed.return": "Return to pool",
   "submission.workflow.tasks.claimed.return": "Se désassigner",
