@@ -13,7 +13,7 @@ import {
   selector: 'ds-access-conditions',
   template: `
       <ng-container *ngFor="let access of accessConditions; let last=last">
-        <span class="badge px-2" [ngClass]="getAccessConditionBadgeColor(access)">
+        <span class="badge px-2 py-1" [ngClass]="getAccessConditionBadgeColor(access)">
             <i class="fa mr-1" [ngClass]="getAccessConditionIcon(access)"></i>
             {{ 'access.condition.value.' + access.name | translate }}
             <ng-container *ngIf="isNotEmpty(access.startDate)"> {{ 'from' | translate }} {{access.startDate}}</ng-container>
