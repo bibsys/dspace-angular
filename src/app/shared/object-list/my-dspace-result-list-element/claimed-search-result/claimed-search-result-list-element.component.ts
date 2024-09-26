@@ -33,7 +33,7 @@ export class ClaimedSearchResultListElementComponent extends SearchResultListEle
   /**
    * A boolean representing if to show submitter information
    */
-  public showSubmitter = true;
+  public showSubmitter = false;
 
   /**
    * Represents the badge context
