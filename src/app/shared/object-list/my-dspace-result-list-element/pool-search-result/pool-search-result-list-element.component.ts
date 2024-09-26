@@ -38,7 +38,7 @@ export class PoolSearchResultListElementComponent extends SearchResultListElemen
   /**
    * A boolean representing if to show submitter information
    */
-  public showSubmitter = true;
+  public showSubmitter = false;
 
   /**
    * Represents the badge Context
