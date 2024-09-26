@@ -21,6 +21,9 @@ export class PdfAttestationActionComponent implements OnInit, OnDestroy {
 
     @Input() object: Item;
 
+    // Additional css classes to add to the component
+    @Input() additionalClasses: string[]= [];
+
     objectId: string;
 
     isAuthorized$: Observable<boolean>;
