@@ -1,5 +1,5 @@
 <button *ngIf="isAuthorized$ | async"
         (click)="generateAttestationDownloadURL()"
-        class="btn btn-info my-1" >
+        class="btn btn-info {{ additionalClasses.join(' ') }}">
     <i class="fa fa-download"></i> {{"submission.workflow.generic.attestation.label" | translate}}
 </button>
