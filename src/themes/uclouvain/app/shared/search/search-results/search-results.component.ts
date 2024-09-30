@@ -26,6 +26,7 @@ export class SearchResultsComponent extends BaseComponent implements OnInit, OnD
   sortOptionsList$: BehaviorSubject<SortOptions[]> = new BehaviorSubject<SortOptions[]>([]);
   private subs: Subscription[] = [];
   protected readonly SortDirection = SortDirection;
+  protected activeSortOption: SortOptions = null;
 
   // CONSTRUCTOR & HOOKS ======================================================
   constructor(
@@ -35,6 +36,11 @@ export class SearchResultsComponent extends BaseComponent implements OnInit, OnD
 
   /** OnInit hook */
   ngOnInit() {
+    this.paginationService.getCurrentSort(this.searchConfigService.paginationID, null, true).subscribe((currentSortOption: SortOptions) => {
+      if (currentSortOption != null) {
+        this.activeSortOption = new SortOptions(currentSortOption.field, currentSortOption.direction);
+      }
+    });
     const configuration$: Observable<string> = this.searchConfigService
       .getCurrentConfiguration('')
       .pipe(distinctUntilChanged());
@@ -61,11 +67,21 @@ export class SearchResultsComponent extends BaseComponent implements OnInit, OnD
    */
   reloadOrder(event: Event): void {
     const values = (event.target as HTMLInputElement).value.split(',');
+    this.activeSortOption = new SortOptions(values[0], values[1] as SortDirection);
     this.paginationService.updateRoute(this.searchConfigService.paginationID, {
-      sortField: values[0],
-      sortDirection: values[1] as SortDirection,
+      sortField: this.activeSortOption.field,
+      sortDirection: this.activeSortOption.direction,
       page: 1
     });
   }
 
+  /**
+   * Check if the given sort option is selected. This is done by checking the activeSortOption property.
+   * @param option The sort option to check.
+   */
+  isOptionSelected(option: SortOptions): boolean {
+    return (this.activeSortOption != null) 
+      ? (option.field === this.activeSortOption.field && option.direction === this.activeSortOption.direction)
+      : (option.field === this.sortConfig?.field && option.direction === this.sortConfig?.direction);
+  }
 }
