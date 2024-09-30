@@ -18,7 +18,7 @@
                 (change)="reloadOrder($event)">
             <option *ngFor="let sortOption of sortOptionsList"
                     [value]="sortOption.field + ',' + sortOption.direction.toString()"
-                    [selected]="(sortOption.field === sortConfig?.field && sortOption.direction === sortConfig?.direction)? 'selected': null">
+                    [selected]="isOptionSelected(sortOption) ? 'selected': null">
                 {{'sorting.' + sortOption.field + '.' + sortOption.direction | translate}}
             </option>
         </select>
