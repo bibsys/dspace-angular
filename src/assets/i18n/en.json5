@@ -3406,6 +3406,10 @@
   "sorting.person.birthDate.ASC": "Birth Date Ascending",
   "sorting.person.birthDate.DESC": "Birth Date Descending",
 
+  "sorting.authors.identifier.noma.ASC": "Sort by student NOMA (Ascending)",
+  "sorting.authors.identifier.noma.DESC": "Sort by student NOMA (Descending)",
+  "sorting.dc.contributor.author.ASC": "Sort by author name (Ascending)",
+  "sorting.dc.contributor.author.DESC": "Sort by author name (Descending)",
   "statistics": "Statistics",
   "statistics.workflow.breadcrumbs": "Workflow Statistics",
   "statistics.workflow.page.header": "Workflow Statistics",
