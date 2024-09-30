@@ -9330,6 +9330,17 @@
   // TODO New key - Add a translation
   "sorting.organisation.address.foundingDate.DESC": "Founding Date Descending",
 
+  // "sorting.authors.identifier.noma.ASC": "Sort by student NOMA (Ascending)",
+  "sorting.authors.identifier.noma.ASC": "Trier par NOMA d'étudiant (Croissant)",
+
+  // "sorting.authors.identifier.noma.DESC": "Sort by student NOMA (Descending)",
+  "sorting.authors.identifier.noma.DESC": "Trier par NOMA d'étudiant (Décroissant)",
+
+  // "sorting.dc.contributor.author.ASC": "Sort by author name (Ascending)",
+  "sorting.dc.contributor.author.ASC": "Trier par par nom d'auteur (Croissant)",
+
+  // "sorting.dc.contributor.author.DESC": "Sort by author name (Descending)",
+  "sorting.dc.contributor.author.DESC": "Trier par nom d'auteur (Décroissant)",
 
   // "statistics": "Statistics",
   // TODO New key - Add a translation
