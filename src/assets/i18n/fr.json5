@@ -6438,6 +6438,278 @@
   // "sorting.lastModified.DESC": "Last modified Descending",
   "sorting.lastModified.DESC": "Dernière modification (décroissante)",
 
+  // "sorting.ownerselection.ASC": "Owner Relevance Ascending",
+  // TODO New key - Add a translation
+  "sorting.ownerselection.ASC": "Owner Relevance Ascending",
+
+  // "sorting.ownerselection.DESC": "Owner Relevance Descending",
+  // TODO New key - Add a translation
+  "sorting.ownerselection.DESC": "Owner Relevance Descending",
+
+  // "sorting.organization.legalName.ASC": "Legal Name Ascending",
+  // TODO New key - Add a translation
+  "sorting.organization.legalName.ASC": "Legal Name Ascending",
+
+  // "sorting.organization.legalName.DESC": "Legal Name Descending",
+  // TODO New key - Add a translation
+  "sorting.organization.legalName.DESC": "Legal Name Descending",
+
+  // "sorting.organisation.address.addressCountry.ASC": "Country Ascending",
+  // TODO New key - Add a translation
+  "sorting.organisation.address.addressCountry.ASC": "Country Ascending",
+
+  // "sorting.organisation.address.addressCountry.DESC": "Country Descending",
+  // TODO New key - Add a translation
+  "sorting.organisation.address.addressCountry.DESC": "Country Descending",
+
+  // "sorting.organisation.address.addressLocality.ASC": "Locality Ascending",
+  // TODO New key - Add a translation
+  "sorting.organisation.address.addressLocality.ASC": "Locality Ascending",
+
+  // "sorting.organisation.address.addressLocality.DESC": "Locality Descending",
+  // TODO New key - Add a translation
+  "sorting.organisation.address.addressLocality.DESC": "Locality Descending",
+
+  // "sorting.organisation.address.foundingDate.ASC": "Founding Date Ascending",
+  // TODO New key - Add a translation
+  "sorting.organisation.address.foundingDate.ASC": "Founding Date Ascending",
+
+  // "sorting.organisation.address.foundingDate.DESC": "Founding Date Descending",
+  // TODO New key - Add a translation
+  "sorting.organisation.address.foundingDate.DESC": "Founding Date Descending",
+
+  // "sorting.authors.identifier.noma.ASC": "Sort by student NOMA (Ascending)",
+  "sorting.authors.identifier.noma.ASC": "Trier par NOMA d'étudiant (Croissant)",
+
+  // "sorting.authors.identifier.noma.DESC": "Sort by student NOMA (Descending)",
+  "sorting.authors.identifier.noma.DESC": "Trier par NOMA d'étudiant (Décroissant)",
+
+  // "sorting.dc.contributor.author.ASC": "Sort by author name (Ascending)",
+  "sorting.dc.contributor.author.ASC": "Trier par par nom d'auteur (Croissant)",
+
+  // "sorting.dc.contributor.author.DESC": "Sort by author name (Descending)",
+  "sorting.dc.contributor.author.DESC": "Trier par nom d'auteur (Décroissant)",
+
+  // "statistics": "Statistics",
+  // TODO New key - Add a translation
+  "statistics": "Statistics",
+
+  // "statistics.workflow.breadcrumbs": "Workflow Statistics",
+  // TODO New key - Add a translation
+  "statistics.workflow.breadcrumbs": "Workflow Statistics",
+
+  // "statistics.workflow.page.header": "Workflow Statistics",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.header": "Workflow Statistics",
+
+  // "statistics.workflow.page.current-table.header": "Current workflows",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.current-table.header": "Current workflows",
+
+  // "statistics.workflow.page.owner-table.header": "Actions performed by actor",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.owner-table.header": "Actions performed by actor",
+
+  // "statistics.workflow.page.owner-table.count": "Performed",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.owner-table.count": "Performed",
+
+  // "statistics.workflow.page.owner-table.email": "Email",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.owner-table.email": "Email",
+
+  // "statistics.workflow.page.step-table.header": "Workflow steps performed",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.step-table.header": "Workflow steps performed",
+
+  // "statistics.workflow.page.step-table.step": "Step",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.step-table.step": "Step",
+
+  // "statistics.workflow.page.step-table.count": "Performed",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.step-table.count": "Performed",
+
+  // "statistics.workflow.page.step-table.submit": "Submit",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.step-table.submit": "Submit",
+
+  // "statistics.workflow.page.step-table.reviewstep": "Review",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.step-table.reviewstep": "Review",
+
+  // "statistics.workflow.page.step-table.editstep": "Edit",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.step-table.editstep": "Edit",
+
+  // "statistics.workflow.page.step-table.finaleditstep": "Final edit",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.step-table.finaleditstep": "Final edit",
+
+  // "statistics.workflow.page.step-table.item": "Archive",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.step-table.item": "Archive",
+
+  // "statistics.workflow.page.step-table.workspace": "Reject",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.step-table.workspace": "Reject",
+
+  // "statistics.workflow.page.current-table.reviewstep": "Review",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.current-table.reviewstep": "Review",
+
+  // "statistics.workflow.page.current-table.editstep": "Edit",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.current-table.editstep": "Edit",
+
+  // "statistics.workflow.page.current-table.finaleditstep": "Final edit",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.current-table.finaleditstep": "Final edit",
+
+  // "statistics.workflow.page.current-table.step": "Step",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.current-table.step": "Step",
+
+  // "statistics.workflow.page.current-table.count": "Count",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.current-table.count": "Count",
+
+  // "statistics.workflow.page.max": "Max",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.max": "Max",
+
+  // "statistics.workflow.page.collection": "Collection",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.collection": "Collection",
+
+  // "statistics.workflow.page.endDate": "End date",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.endDate": "End date",
+
+  // "statistics.workflow.page.startDate": "Start date",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.startDate": "Start date",
+
+  // "statistics.workflow.page.reset": "Reset filters",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.reset": "Reset filters",
+
+  // "statistics.workflow.page.actions.title": "Actions",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.actions.title": "Actions",
+
+  // "statistics.workflow.page.action-table.action": "Action",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.action": "Action",
+
+  // "statistics.workflow.page.action-table.count": "Count",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.count": "Count",
+
+  // "statistics.workflow.page.action-table.editstep.editaction": "Edit",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.editstep.editaction": "Edit",
+
+  // "statistics.workflow.page.action-table.finaleditstep.finaleditaction": "Final Edit",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.finaleditstep.finaleditaction": "Final Edit",
+
+  // "statistics.workflow.page.action-table.reviewstep.reviewaction": "Review",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.reviewstep.reviewaction": "Review",
+
+  // "statistics.workflow.page.action-table.submit": "Submit",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.submit": "Submit",
+
+  // "statistics.workflow.page.action-table.approve": "Approve",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.approve": "Approve",
+
+  // "statistics.workflow.page.action-table.reject": "Reject",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.reject": "Reject",
+
+  // "statistics.workflow.page.action-table.editaction": "Edit",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.editaction": "Edit",
+
+  // "statistics.workflow.page.action-table.finaleditaction": "Final Edit",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.finaleditaction": "Final Edit",
+
+  // "statistics.workflow.page.action-table.reviewaction": "Review",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.reviewaction": "Review",
+
+  // "statistics.workflow.page.action-table.claimaction": "Claim",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.action-table.claimaction": "Claim",
+
+  // "statistics.workflow.page.no-data-found": "No data found",
+  // TODO New key - Add a translation
+  "statistics.workflow.page.no-data-found": "No data found",
+
+  // "statistics.login.breadcrumbs": "Login Statistics",
+  // TODO New key - Add a translation
+  "statistics.login.breadcrumbs": "Login Statistics",
+
+  // "statistics.login.page.header": "Login Statistics",
+  // TODO New key - Add a translation
+  "statistics.login.page.header": "Login Statistics",
+
+  // "statistics.login.page.reset": "Reset filters",
+  // TODO New key - Add a translation
+  "statistics.login.page.reset": "Reset filters",
+
+  // "statistics.login.page.table.user": "User",
+  // TODO New key - Add a translation
+  "statistics.login.page.table.user": "User",
+
+  // "statistics.login.page.table.email": "Email",
+  // TODO New key - Add a translation
+  "statistics.login.page.table.email": "Email",
+
+  // "statistics.login.page.table.count": "Login",
+  // TODO New key - Add a translation
+  "statistics.login.page.table.count": "Login",
+
+  // "statistics.login.page.max": "Max",
+  // TODO New key - Add a translation
+  "statistics.login.page.max": "Max",
+
+  // "statistics.login.page.endDate": "End date",
+  // TODO New key - Add a translation
+  "statistics.login.page.endDate": "End date",
+
+  // "statistics.login.page.startDate": "Start date",
+  // TODO New key - Add a translation
+  "statistics.login.page.startDate": "Start date",
+
+  // "statistics.login.page.no-data-found": "No data found",
+  // TODO New key - Add a translation
+  "statistics.login.page.no-data-found": "No data found",
+
+  // "statistics.login.title statistics.workflow.title": "Login Statistics",
+  // TODO New key - Add a translation
+  "statistics.login.title statistics.workflow.title": "Login Statistics",
+
+  // "statistics.export.csv": "Export CSV",
+  // TODO New key - Add a translation
+  "statistics.export.csv": "Export CSV",
+
+  // "statistics.export.excel": "Export Excel",
+  // TODO New key - Add a translation
+  "statistics.export.excel": "Export Excel",
+
+  // "statistics.export.jpg": "Export as JPEG",
+  // TODO New key - Add a translation
+  "statistics.export.jpg": "Export as JPEG",
+
+  // "statistics.export.png": "Export as PNG",
+  // TODO New key - Add a translation
+  "statistics.export.png": "Export as PNG",
+
   // "statistics.title": "Statistics",
   "statistics.title": "Statistiques",
 
