@@ -48,7 +48,7 @@ export class ClaimedTaskActionsRejectComponent extends ClaimedTaskActionsAbstrac
               protected searchService: SearchService,
               protected requestService: RequestService,
               private formBuilder: UntypedFormBuilder,
-              private modalService: NgbModal) {
+              protected modalService: NgbModal) {
     super(injector, router, notificationsService, translate, searchService, requestService);
   }
 

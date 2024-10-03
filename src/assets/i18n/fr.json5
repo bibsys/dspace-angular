@@ -11326,6 +11326,15 @@
   // "submission.sections.sherpa.error.message": "There was an error retrieving sherpa informations",
   "submission.sections.sherpa.error.message": "Une erreur s'est produite lors de la recherche d'infomation dans Sherpa.",
 
+  // "submission.sections.submit.progressbar.changerequest": "Change requests",
+  "submission.sections.submit.progressbar.changerequest": "Demande de modifications",
+
+  // "submission.sections.change-request.header": "A manager requested modifications for the following reason:",
+  "submission.sections.change-request.header": "Un gestionnaire a demandé des modifications pour les raisons suivantes:",
+
+  // "submission.sections.change-request.instruction": "Once the modifications are done, please submit your thesis again.",
+  "submission.sections.change-request.instruction": "Une fois les modification effectuées, veuillez soumettre à nouveau votre mémoire.",
+
   // "submission.submit.breadcrumbs": "New submission",
   "submission.submit.breadcrumbs": "Nouvelle soumission",
 
@@ -11439,7 +11448,7 @@
   "submission.workflow.tasks.claimed.decline_help": "",
 
   // "submission.workflow.tasks.claimed.reject.reason.info": "Please enter your reason for rejecting the submission into the box below, indicating whether the submitter may fix a problem and resubmit.",
-  "submission.workflow.tasks.claimed.reject.reason.info": "Veuillez spécifier la raison pour laquelle cette soumission est rejetée dans le champ ci-dessous, en indicant si le déposant peut résoudre le problème et redéposer ensuite.",
+  "submission.workflow.tasks.claimed.reject.reason.info": "Veuillez spécifier la raison pour laquelle cette soumission est rejetée dans le champ ci-dessous, en indicant si le déposant peut résoudre le problème et le soumettre à nouveau ensuite.",
 
   // "submission.workflow.tasks.claimed.reject.reason.placeholder": "Describe the reason of reject",
   "submission.workflow.tasks.claimed.reject.reason.placeholder": "Décrire la raison du rejet",
