@@ -73,6 +73,9 @@ import { SectionFormOperationsService } from './sections/form/section-form-opera
 import { SubmissionSectionIdentifiersComponent } from './sections/identifiers/section-identifiers.component';
 import { SubmissionSectionCorrectionComponent } from './sections/correction/section-correction.component';
 import { MyDspaceSearchModule } from '../my-dspace-page/my-dspace-search.module';
+import { SubmissionSectionChangeRequestComponent } from './sections/change-request/section-change-request.component';
+import { ChangeRequestSectionContainerComponent } from './sections/container/change-request/changeRequestSectionContainer.component';
+import { DefaultSectionContainerComponent } from './sections/container/default/default-section-container.component';
 
 const ENTRY_COMPONENTS = [
   // put only entry components that use custom decorator
@@ -84,7 +87,10 @@ const ENTRY_COMPONENTS = [
   SubmissionSectionSherpaPoliciesComponent,
   SubmissionSectionDetectDuplicateComponent,
   SubmissionSectionCustomUrlComponent,
-  SubmissionSectionCorrectionComponent
+  SubmissionSectionCorrectionComponent,
+  SubmissionSectionChangeRequestComponent,
+  DefaultSectionContainerComponent,
+  ChangeRequestSectionContainerComponent
 ];
 
 const DECLARATIONS = [
