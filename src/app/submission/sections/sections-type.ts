@@ -11,5 +11,7 @@ export enum SectionsType {
   Identifiers = 'identifiers',
   Collection = 'collection',
   DetectDuplicate = 'detect-duplicate',
-  Correction = 'correction'
+  Correction = 'correction',
+  ChangeRequest = 'change-request',
+  Any = '*'
 }

@@ -85,7 +85,7 @@ export class SubmissionObjectEffects {
         const sectionId = selfLink.substr(selfLink.lastIndexOf('/') + 1);
         const config = sectionDefinition._links.config ? (sectionDefinition._links.config.href || sectionDefinition._links.config) : '';
         const enabled = (sectionDefinition.mandatory && (sectionDefinition.sectionType !== SectionsType.DetectDuplicate &&
-          sectionDefinition.sectionType !== SectionsType.Correction)) ||
+          sectionDefinition.sectionType !== SectionsType.Correction && sectionDefinition.sectionType !== SectionsType.ChangeRequest)) ||
           (isNotEmpty(action.payload.sections) && action.payload.sections.hasOwnProperty(sectionId)
             && sectionDefinition.sectionType !== SectionsType.Correction) ||
           (isNotEmpty(action.payload.sections) && action.payload.sections.hasOwnProperty(sectionId)
