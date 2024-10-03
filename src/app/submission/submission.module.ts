@@ -75,6 +75,9 @@ import {
 } from './submission.reducers';
 import { SubmissionSubmitComponent } from './submit/submission-submit.component';
 import { ThemedSubmissionSubmitComponent } from './submit/themed-submission-submit.component';
+import { SubmissionSectionChangeRequestComponent } from './sections/change-request/section-change-request.component';
+import { DefaultSectionContainerComponent } from './sections/container/default/default-section-container.component';
+import { ChangeRequestSectionContainerComponent } from './sections/container/change-request/changeRequestSectionContainer.component';
 import { SubmissionSectionShortcutContainerComponent } from './shortcuts/container/shortcut-container.component';
 
 const ENTRY_COMPONENTS = [
@@ -90,6 +93,9 @@ const ENTRY_COMPONENTS = [
   SubmissionSectionDetectDuplicateComponent,
   SubmissionSectionCustomUrlComponent,
   SubmissionSectionCorrectionComponent,
+  SubmissionSectionChangeRequestComponent,
+  DefaultSectionContainerComponent,
+  ChangeRequestSectionContainerComponent
 ];
 
 const DECLARATIONS = [
