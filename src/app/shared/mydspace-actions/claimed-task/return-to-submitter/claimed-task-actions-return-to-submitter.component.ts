@@ -15,4 +15,13 @@ export const WORKFLOW_TASK_OPTION_RETURN_TO_SUBMITTER = 'submit_return_to_submit
  */
 export class ClaimedTaskActionsReturnToSubmitterComponent extends ClaimedTaskActionsRejectComponent {
   option = WORKFLOW_TASK_OPTION_RETURN_TO_SUBMITTER;
+
+  /**
+   * Open modal
+   * @param content
+   */
+  openRejectModal(content: any) {
+    this.rejectForm.reset();
+    this.modalRef = this.modalService.open(content, { size: 'lg' });
+  }
 }
