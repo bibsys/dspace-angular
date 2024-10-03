@@ -12,5 +12,7 @@ export enum SectionsType {
   CoarNotify = 'coarnotify',
   Duplicates = 'duplicates',
   DetectDuplicate = 'detect-duplicate',
-  Correction = 'correction'
+  Correction = 'correction',
+  ChangeRequest = 'change-request',
+  Any = '*'
 }
