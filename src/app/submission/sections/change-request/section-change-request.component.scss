@@ -1,0 +1,28 @@
+blockquote {
+  font-size: 1rem;
+  font-style: italic;
+  padding: .1rem 1rem .5rem 3rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  border-left: calc($border-width * 4) solid var(--bs-warning);
+  line-height: 1.6;
+  position: relative;
+
+  &::before {
+    font-family: Arial;
+    content: "\201C";
+    color: var(--bs-warning);
+    font-size: 3em;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+  }
+
+  &::after {
+    content: '';
+  }
+}
+
+.pre-wrap {
+  white-space: pre-wrap
+}
