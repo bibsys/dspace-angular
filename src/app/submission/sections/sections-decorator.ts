@@ -1,5 +1,6 @@
 import { SubmissionSectionAccessesComponent } from './accesses/section-accesses.component';
 import { SubmissionSectionCcLicensesComponent } from './cc-license/submission-section-cc-licenses.component';
+import { SubmissionSectionChangeRequestComponent } from './change-request/section-change-request.component';
 import { SubmissionSectionCorrectionComponent } from './correction/section-correction.component';
 import { SubmissionSectionCustomUrlComponent } from './custom-url/submission-section-custom-url.component';
 import { SubmissionSectionDetectDuplicateComponent } from './detect-duplicate/section-detect-duplicate.component';
@@ -26,6 +27,7 @@ submissionSectionsMap.set(SectionsType.Duplicates, SubmissionSectionDuplicatesCo
 submissionSectionsMap.set(SectionsType.Correction, SubmissionSectionCorrectionComponent);
 submissionSectionsMap.set(SectionsType.DetectDuplicate, SubmissionSectionDetectDuplicateComponent);
 submissionSectionsMap.set(SectionsType.CustomUrl, SubmissionSectionCustomUrlComponent);
+submissionSectionsMap.set(SectionsType.ChangeRequest, SubmissionSectionChangeRequestComponent);
 
 /**
  * @deprecated

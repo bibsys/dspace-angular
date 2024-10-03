@@ -115,7 +115,7 @@ export class SubmissionObjectEffects {
         // A section is enabled if it is mandatory or contains data in its section payload
         // except for detect duplicate steps which will be hidden with no data unless overridden in config, even if mandatory
         const enabled = (sectionDefinition.mandatory && (sectionDefinition.sectionType !== SectionsType.DetectDuplicate &&
-          sectionDefinition.sectionType !== SectionsType.Correction && sectionDefinition.sectionType !== SectionsType.Duplicates))
+          sectionDefinition.sectionType !== SectionsType.Correction && sectionDefinition.sectionType !== SectionsType.ChangeRequest && sectionDefinition.sectionType !== SectionsType.Duplicates))
           || (isNotEmpty(action.payload.sections) && action.payload.sections.hasOwnProperty(sectionId)
             && sectionDefinition.sectionType !== SectionsType.Correction)
           || (isNotEmpty(action.payload.sections) && action.payload.sections.hasOwnProperty(sectionId)
