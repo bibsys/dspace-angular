@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-12 col-lg-4 small text-lg-left">
                     <div class="text-uppercase mb-3 list-title">
-                        {{ 'Quick links' | translate }}
+                        {{ 'footer.header.quick-links' | translate }}
                     </div>
                     <ul class="list-unstyled">
                         <li>
@@ -31,12 +31,30 @@
                 </div>
                 <div class="col-12 col-lg-4 small text-lg-left">
                     <div class="text-uppercase mb-3 list-title">
-                        {{ 'Help' | translate }}
+                        {{ 'footer.header.help' | translate }}
                     </div>
                     <ul class="list-unstyled">
                         <li *ngIf="showSendFeedback$ | async">
                             <a class="text-white"
-                               routerLink="info/feedback">{{ 'footer.link.feedback' | translate}}</a>
+                               routerLink="info/feedback">{{ 'footer.link.feedback' | translate }}</a>
+                        </li>
+                        <li>
+                            <!-- TODO: Add link to Q&A (FAQ). -->
+                            <a class="text-white" href="">
+                                {{ "footer.link.faq" | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <!-- TODO: Add link to deposit guide. -->
+                            <a class="text-white" href="">
+                                {{ "footer.link.deposit-guide" | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <!-- TODO: Add link to OpenTicket -->
+                            <a class="text-white" href="">
+                                {{ "footer.link.open-ticket" | translate }}
+                            </a>
                         </li>
                     </ul>
                 </div>
