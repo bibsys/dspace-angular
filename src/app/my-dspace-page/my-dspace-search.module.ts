@@ -22,6 +22,8 @@ import { ItemDetailPreviewFieldComponent } from '../shared/object-detail/my-dspa
 import { JournalEntitiesModule } from '../entity-groups/journal-entities/journal-entities.module';
 import { MyDSpaceActionsModule } from '../shared/mydspace-actions/mydspace-actions.module';
 import { ClaimedDeclinedTaskSearchResultListElementComponent } from '../shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-declined-task-search-result/claimed-declined-task-search-result-list-element.component';
+import { ClaimedChangeRequestSearchResultListElementComponent } from '../shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-change-request-search-result/claimed-change-request-search-result-list-element.component';
+import { ClaimedApproveWithoutDiffusionSearchResultListElementComponent } from '../shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-approve-without-diffusion-search-result-list-element/claimed-approve-without-diffusion-search-result-list-element.component';
 
 const ENTRY_COMPONENTS = [
   WorkspaceItemSearchResultListElementComponent,
@@ -37,6 +39,8 @@ const ENTRY_COMPONENTS = [
   ClaimedTaskSearchResultDetailElementComponent,
   PoolSearchResultDetailElementComponent,
   ItemSearchResultListElementSubmissionComponent,
+  ClaimedChangeRequestSearchResultListElementComponent,
+  ClaimedApproveWithoutDiffusionSearchResultListElementComponent,
 ];
 
 const DECLARATIONS = [

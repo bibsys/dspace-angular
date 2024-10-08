@@ -1,5 +1,5 @@
 <ng-container *ngVar="(actionRD$ | async)?.payload as workflowAction">
-  <div class="mt-1 mb-3 space-children-mr">
+    <div class="mt-1 mb-3 space-children-mr">
     <ds-claimed-task-actions-loader *ngFor="let option of workflowAction?.options"
                                     [item]="item"
                                     [option]="option"
@@ -8,8 +8,9 @@
                                     (processCompleted)="this.processCompleted.emit($event)">
     </ds-claimed-task-actions-loader>
 
-    <button class="btn btn-primary workflow-view" ngbTooltip="{{'submission.workflow.generic.view-help' | translate}}"
-      [routerLink]="[getWorkflowItemViewRoute(workflowitem)]">
+    <button class="btn btn-primary workflow-view"
+            ngbTooltip="{{'submission.workflow.generic.view-help' | translate}}"
+            [routerLink]="[getItemPageRoute(item)]">
       <i class="fa fa-info-circle"></i> {{"submission.workflow.generic.view" | translate}}
     </button>
     <ds-pdf-attestation-action [object]="item" [additionalClasses]="['mt-1', 'mb-1']"/>
