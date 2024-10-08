@@ -17,9 +17,9 @@ import { WorkflowItem } from '../../../core/submission/models/workflowitem.model
 import { ClaimedTaskDataService } from '../../../core/tasks/claimed-task-data.service';
 import { ClaimedTask } from '../../../core/tasks/models/claimed-task-object.model';
 import { WorkflowAction } from '../../../core/tasks/models/workflow-action-object.model';
-import { getWorkflowItemViewRoute } from '../../../workflowitems-edit-page/workflowitems-edit-page-routing-paths';
 import { NotificationsService } from '../../notifications/notifications.service';
 import { MyDSpaceActionsComponent } from '../mydspace-actions';
+import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
 
 /**
  * This component represents actions related to ClaimedTask object.
@@ -50,6 +50,8 @@ export class ClaimedTaskActionsComponent extends MyDSpaceActionsComponent<Claime
    * The workflow action available for this task
    */
   public actionRD$: Observable<RemoteData<WorkflowAction>>;
+
+  protected readonly  getItemPageRoute = getItemPageRoute;
 
   /**
    * Initialize instance variables
@@ -98,12 +100,4 @@ export class ClaimedTaskActionsComponent extends MyDSpaceActionsComponent<Claime
   initAction(object: ClaimedTask) {
     this.actionRD$ = object.action;
   }
-
-  /**
-   * Get the workflowitem view route.
-   */
-  getWorkflowItemViewRoute(workflowitem: WorkflowItem): string {
-    return getWorkflowItemViewRoute(workflowitem?.id);
-  }
-
 }
