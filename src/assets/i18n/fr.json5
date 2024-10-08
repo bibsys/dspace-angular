@@ -1961,6 +1961,12 @@
   // TODO New key - Add a translation
   "claimed-declined-task-search-result-list-element.title": "Declined, sent back to Review Manager's workflow",
 
+  // "claimed-change-request-search-result-list-element.title" : "Sent back to submitter for modification",
+  "claimed-change-request-search-result-list-element.title" : "Renvoyé au soummissionaire pour modification",
+
+  // "claimed-approve-without-diffusion-search-result-list-element.title": "Approved without diffusion",
+  "claimed-approve-without-diffusion-search-result-list-element.title": "Approuvé sans diffusion",
+
   // "collection.create.head": "Create a Collection",
   "collection.create.head": "Créer une collection",
 

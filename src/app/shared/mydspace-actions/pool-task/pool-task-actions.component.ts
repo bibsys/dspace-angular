@@ -17,7 +17,8 @@ import { Item } from '../../../core/shared/item.model';
 import { DSpaceObject } from '../../../core/shared/dspace-object.model';
 import { MyDSpaceReloadableActionsComponent } from '../mydspace-reloadable-actions';
 import { ProcessTaskResponse } from '../../../core/tasks/models/process-task-response';
-import { getWorkflowItemViewRoute } from '../../../workflowitems-edit-page/workflowitems-edit-page-routing-paths';
+import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
+
 
 /**
  * This component represents mydspace actions related to PoolTask object.
@@ -50,6 +51,9 @@ export class PoolTaskActionsComponent extends MyDSpaceReloadableActionsComponent
   public itemUuid: string;
 
   subs = [];
+
+  protected readonly  getItemPageRoute = getItemPageRoute;
+
 
   /**
    * Initialize instance variables
@@ -109,12 +113,4 @@ export class PoolTaskActionsComponent extends MyDSpaceReloadableActionsComponent
   ngOnDestroy() {
     this.subs.forEach((sub) => sub.unsubscribe());
   }
-
-  /**
-   * Get the workflowitem view route.
-   */
-  getWorkflowItemViewRoute(workflowitem: WorkflowItem): string {
-    return getWorkflowItemViewRoute(workflowitem?.id);
-  }
-
 }
