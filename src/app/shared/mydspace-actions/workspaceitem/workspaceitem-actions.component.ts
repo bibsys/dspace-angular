@@ -18,7 +18,7 @@ import { SearchService } from '../../../core/shared/search/search.service';
 import { getFirstCompletedRemoteData, getRemoteDataPayload } from '../../../core/shared/operators';
 import { RemoteData } from '../../../core/data/remote-data';
 import { NoContent } from '../../../core/shared/NoContent.model';
-import { getWorkspaceItemViewRoute } from '../../../workspaceitems-edit-page/workspaceitems-edit-page-routing-paths';
+import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
 
 /**
  * This component represents actions related to WorkspaceItem object.
@@ -48,6 +48,8 @@ export class WorkspaceitemActionsComponent extends MyDSpaceActionsComponent<Work
    * @type {Observable<boolean>}
    */
   canEditItem$: Observable<boolean>;
+
+  protected readonly getItemPageRoute = getItemPageRoute;
 
   /**
    * Initialize instance variables
@@ -116,12 +118,5 @@ export class WorkspaceitemActionsComponent extends MyDSpaceActionsComponent<Work
    */
   initObjects(object: WorkspaceItem) {
     this.object = object;
-  }
-
-  /**
-   * Get the workflowitem view route.
-   */
-  getWorkspaceItemViewRoute(workspaceItem: WorkspaceItem): string {
-    return getWorkspaceItemViewRoute(workspaceItem?.id);
   }
 }

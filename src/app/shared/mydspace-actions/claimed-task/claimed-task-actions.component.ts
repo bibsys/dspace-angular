@@ -14,8 +14,8 @@ import { RequestService } from '../../../core/data/request.service';
 import { SearchService } from '../../../core/shared/search/search.service';
 import { WorkflowAction } from '../../../core/tasks/models/workflow-action-object.model';
 import { WorkflowActionDataService } from '../../../core/data/workflow-action-data.service';
-import { getWorkflowItemViewRoute } from '../../../workflowitems-edit-page/workflowitems-edit-page-routing-paths';
 import { Item } from '../../../core/shared/item.model';
+import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
 
 /**
  * This component represents actions related to ClaimedTask object.
@@ -46,6 +46,8 @@ export class ClaimedTaskActionsComponent extends MyDSpaceActionsComponent<Claime
    * The workflow action available for this task
    */
   public actionRD$: Observable<RemoteData<WorkflowAction>>;
+
+  protected readonly  getItemPageRoute = getItemPageRoute;
 
   /**
    * Initialize instance variables
@@ -94,12 +96,4 @@ export class ClaimedTaskActionsComponent extends MyDSpaceActionsComponent<Claime
   initAction(object: ClaimedTask) {
     this.actionRD$ = object.action;
   }
-
-  /**
-   * Get the workflowitem view route.
-   */
-  getWorkflowItemViewRoute(workflowitem: WorkflowItem): string {
-    return getWorkflowItemViewRoute(workflowitem?.id);
-  }
-
 }

@@ -6,6 +6,9 @@ import { NotificationsService } from "src/app/shared/notifications/notifications
 import { TranslateService } from "@ngx-translate/core";
 import { SearchService } from "src/app/core/shared/search/search.service";
 import { RequestService } from "src/app/core/data/request.service";
+import { Observable, of } from "rxjs";
+import { RemoteData } from "src/app/core/data/remote-data";
+import { DSpaceObject } from "src/app/core/shared/dspace-object.model";
 
 @Component({
     template: '',
@@ -42,5 +45,9 @@ export abstract class ClaimedTaskActionsConfirmAbstractComponent extends Claimed
     */
     openConfirmModal(content: any) {
         this.modalRef = this.modalService.open(content);
+    }
+
+    reloadObjectExecution(): Observable<RemoteData<DSpaceObject> | DSpaceObject> {
+        return of(this.object);
     }
 }
