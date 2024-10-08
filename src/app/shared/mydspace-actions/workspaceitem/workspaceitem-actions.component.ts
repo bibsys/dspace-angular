@@ -40,9 +40,10 @@ import {
 import { SearchService } from '../../../core/shared/search/search.service';
 import { WorkspaceItem } from '../../../core/submission/models/workspaceitem.model';
 import { WorkspaceitemDataService } from '../../../core/submission/workspaceitem-data.service';
-import { getWorkspaceItemViewRoute } from '../../../workspaceitems-edit-page/workspaceitems-edit-page-routing-paths';
 import { NotificationsService } from '../../notifications/notifications.service';
 import { MyDSpaceActionsComponent } from '../mydspace-actions';
+import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
+import { VarDirective } from '../../utils/var.directive';
 
 /**
  * This component represents actions related to WorkspaceItem object.
@@ -52,7 +53,15 @@ import { MyDSpaceActionsComponent } from '../mydspace-actions';
   styleUrls: ['./workspaceitem-actions.component.scss'],
   templateUrl: './workspaceitem-actions.component.html',
   standalone: true,
-  imports: [NgbTooltipModule, RouterLink, NgIf, AsyncPipe, TranslateModule],
+  imports: [
+    NgbTooltipModule,
+    RouterLink,
+    NgIf,
+    AsyncPipe,
+    TranslateModule,
+    VarDirective,
+    AsyncPipe
+  ],
 })
 export class WorkspaceitemActionsComponent extends MyDSpaceActionsComponent<WorkspaceItem, WorkspaceitemDataService> implements OnInit {
 
@@ -74,6 +83,8 @@ export class WorkspaceitemActionsComponent extends MyDSpaceActionsComponent<Work
    * @type {Observable<boolean>}
    */
   canEditItem$: Observable<boolean>;
+
+  protected readonly getItemPageRoute = getItemPageRoute;
 
   /**
    * Initialize instance variables
@@ -142,12 +153,5 @@ export class WorkspaceitemActionsComponent extends MyDSpaceActionsComponent<Work
    */
   initObjects(object: WorkspaceItem) {
     this.object = object;
-  }
-
-  /**
-   * Get the workflowitem view route.
-   */
-  getWorkspaceItemViewRoute(workspaceItem: WorkspaceItem): string {
-    return getWorkspaceItemViewRoute(workspaceItem?.id);
   }
 }
