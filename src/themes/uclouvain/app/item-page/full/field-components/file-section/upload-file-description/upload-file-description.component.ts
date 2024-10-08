@@ -7,6 +7,7 @@ import { BitstreamAccessConditions } from '../../../../../../../../app/core/shar
 import { getFirstSucceededRemoteDataWithNotEmptyPayload } from '../../../../../../../../app/core/shared/operators';
 import { Subscription } from 'rxjs';
 import { BitstreamDirectDownloadURL } from '../../../../../../../../app/core/shared/bitstream-direct-download-url.model';
+import { isNotEmpty } from '../../../../../../../../app/shared/empty.util';
 
 /**
  * Component used to display information related to a {@Bistream bitstream} when a workflow item is
@@ -42,22 +43,28 @@ export class UploadFileDescriptionComponent implements OnInit, OnDestroy {
 
   /** OnInit hook */
   ngOnInit() {
-    this.subs.push(
-      this.bitstream.access
-        .pipe(getFirstSucceededRemoteDataWithNotEmptyPayload())
-        .subscribe((payload: BitstreamAccessConditions) => {
-          if (payload.policies.length === 0) {
-            payload.policies = [this.defaultPolicy];
-          }
-          if (payload?.masterPolicy === undefined) {
-            payload.masterPolicy = this.defaultPolicy;
-          }
-          this.accessConditions = payload;
-        }),
-      this.bitstream.download_url
-        .pipe(getFirstSucceededRemoteDataWithNotEmptyPayload())
-        .subscribe((payload: BitstreamDirectDownloadURL) => this.downloadUrl = payload.url)
-    );
+    if (isNotEmpty(this.bitstream.access)) {
+      this.subs.push(
+        this.bitstream.access
+          .pipe(getFirstSucceededRemoteDataWithNotEmptyPayload())
+          .subscribe((payload: BitstreamAccessConditions) => {
+            if (payload.policies.length === 0) {
+              payload.policies = [this.defaultPolicy];
+            }
+            if (payload?.masterPolicy === undefined) {
+              payload.masterPolicy = this.defaultPolicy;
+            }
+            this.accessConditions = payload;
+          })
+      );
+    }
+    if (isNotEmpty(this.bitstream.download_url)) {
+      this.subs.push(
+        this.bitstream.download_url
+          .pipe(getFirstSucceededRemoteDataWithNotEmptyPayload())
+          .subscribe((payload: BitstreamDirectDownloadURL) => this.downloadUrl = payload.url)
+      );
+    }
   }
 
   /** OnDestroy hook */

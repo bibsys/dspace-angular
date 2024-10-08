@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { rendersWorkflowTaskOption } from '../switcher/claimed-task-actions-decorator';
 import { ClaimedTaskActionsConfirmAbstractComponent } from '../abstract/claimed-task-actions-confirm-abstract.component';
+import { DSpaceObject } from 'src/app/core/shared/dspace-object.model';
+import { ClaimedApproveWithoutDiffusionTaskSearchResult } from 'src/app/shared/object-collection/shared/claimed-approve-without-diffusion-search-result.model';
 
 export const WORKFLOW_TASK_OPTION_APPROVE_NO_DIFFUSION = 'submit_approve_no_diffusion';
 
@@ -16,4 +18,11 @@ export const WORKFLOW_TASK_OPTION_APPROVE_NO_DIFFUSION = 'submit_approve_no_diff
  */
 export class ClaimedTaskActionsApproveNoDiffusionComponent extends ClaimedTaskActionsConfirmAbstractComponent {
   option = WORKFLOW_TASK_OPTION_APPROVE_NO_DIFFUSION;
+
+  convertReloadedObject(dso: DSpaceObject): DSpaceObject {
+    const reloadedObject = Object.assign(new ClaimedApproveWithoutDiffusionTaskSearchResult(), dso, {
+      indexableObject: dso
+    });
+    return reloadedObject;
+  }
 }
