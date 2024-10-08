@@ -128,6 +128,8 @@ import { MasterThesisListElementComponent } from 'src/themes/uclouvain/app/entit
 import { MasterThesisPageComponent } from 'src/themes/uclouvain/app/entity-groups/master-thesis-entity/item-pages/master-thesis-page.component';
 import { MasterThesisSearchResultListElementComponent } from 'src/themes/uclouvain/app/entity-groups/master-thesis-entity/search-result-list-elements/master-thesis-search-result-list-element.component';
 import { MyDSpaceMasterThesisListElementComponent } from 'src/themes/uclouvain/app/shared/object-list/my-dspace-result-list-element/my-dspace-master-thesis-list-element/my-dspace-master-thesis-list-element.component';
+import { ClaimedChangeRequestSearchResultListElementComponent } from 'src/app/shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-change-request-search-result/claimed-change-request-search-result-list-element.component';
+import { ClaimedApproveWithoutDiffusionSearchResultListElementComponent } from 'src/app/shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-approve-without-diffusion-search-result-list-element/claimed-approve-without-diffusion-search-result-list-element.component';
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -218,6 +220,8 @@ const ENTRY_COMPONENTS = [
   MasterThesisPageComponent,
   MasterThesisSearchResultListElementComponent,
   MyDSpaceMasterThesisListElementComponent,
+  ClaimedChangeRequestSearchResultListElementComponent,
+  ClaimedApproveWithoutDiffusionSearchResultListElementComponent,
 ];
 
 @NgModule({

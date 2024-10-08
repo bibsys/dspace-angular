@@ -20,6 +20,9 @@ import { WorkflowItemDataService } from '../../../core/submission/workflowitem-d
 import { getWorkflowItemViewRoute } from '../../../workflowitems-edit-page/workflowitems-edit-page-routing-paths';
 import { NotificationsService } from '../../notifications/notifications.service';
 import { MyDSpaceActionsComponent } from '../mydspace-actions';
+import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
+import { VarDirective } from '../../utils/var.directive';
+import { AsyncPipe } from '@angular/common';
 
 /**
  * This component represents actions related to WorkflowItem object.
@@ -29,7 +32,7 @@ import { MyDSpaceActionsComponent } from '../mydspace-actions';
   styleUrls: ['./workflowitem-actions.component.scss'],
   templateUrl: './workflowitem-actions.component.html',
   standalone: true,
-  imports: [NgbTooltipModule, RouterLink, TranslateModule],
+  imports: [NgbTooltipModule, RouterLink, TranslateModule, VarDirective, AsyncPipe],
 })
 export class WorkflowitemActionsComponent extends MyDSpaceActionsComponent<WorkflowItem, WorkflowItemDataService> {
 
@@ -37,6 +40,8 @@ export class WorkflowitemActionsComponent extends MyDSpaceActionsComponent<Workf
    * The WorkflowItem object
    */
   @Input() object: WorkflowItem;
+
+  protected readonly  getItemPageRoute = getItemPageRoute;
 
   /**
    * Initialize instance variables
@@ -55,13 +60,6 @@ export class WorkflowitemActionsComponent extends MyDSpaceActionsComponent<Workf
               protected searchService: SearchService,
               protected requestService: RequestService) {
     super(WorkflowItem.type, injector, router, notificationsService, translate, searchService, requestService);
-  }
-
-  /**
-   * Get the workflowitem view route.
-   */
-  getWorkflowItemViewRoute(workflowitem: WorkflowItem): string {
-    return getWorkflowItemViewRoute(workflowitem?.id);
   }
 
   /**
