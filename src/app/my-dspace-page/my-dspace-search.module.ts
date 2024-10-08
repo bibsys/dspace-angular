@@ -21,6 +21,8 @@ import { WorkflowItemSearchResultListElementComponent } from '../shared/object-l
 import { WorkspaceItemSearchResultListElementComponent } from '../shared/object-list/my-dspace-result-list-element/workspace-item-search-result/workspace-item-search-result-list-element.component';
 import { SharedModule } from '../shared/shared.module';
 import { MyDspacePageRoutingModule } from './my-dspace-page-routing.module';
+import { ClaimedChangeRequestSearchResultListElementComponent } from '../shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-change-request-search-result/claimed-change-request-search-result-list-element.component';
+import { ClaimedApproveWithoutDiffusionSearchResultListElementComponent } from '../shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-approve-without-diffusion-search-result-list-element/claimed-approve-without-diffusion-search-result-list-element.component';
 
 const ENTRY_COMPONENTS = [
   WorkspaceItemSearchResultListElementComponent,
@@ -36,6 +38,8 @@ const ENTRY_COMPONENTS = [
   ClaimedTaskSearchResultDetailElementComponent,
   PoolSearchResultDetailElementComponent,
   ItemSearchResultListElementSubmissionComponent,
+  ClaimedChangeRequestSearchResultListElementComponent,
+  ClaimedApproveWithoutDiffusionSearchResultListElementComponent,
 ];
 
 const DECLARATIONS = [

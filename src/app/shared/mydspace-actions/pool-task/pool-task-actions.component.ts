@@ -22,9 +22,9 @@ import { ClaimedTaskDataService } from '../../../core/tasks/claimed-task-data.se
 import { PoolTask } from '../../../core/tasks/models/pool-task-object.model';
 import { ProcessTaskResponse } from '../../../core/tasks/models/process-task-response';
 import { PoolTaskDataService } from '../../../core/tasks/pool-task-data.service';
-import { getWorkflowItemViewRoute } from '../../../workflowitems-edit-page/workflowitems-edit-page-routing-paths';
 import { NotificationsService } from '../../notifications/notifications.service';
 import { MyDSpaceReloadableActionsComponent } from '../mydspace-reloadable-actions';
+import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
 
 /**
  * This component represents mydspace actions related to PoolTask object.
@@ -57,6 +57,9 @@ export class PoolTaskActionsComponent extends MyDSpaceReloadableActionsComponent
   public itemUuid: string;
 
   subs = [];
+
+  protected readonly  getItemPageRoute = getItemPageRoute;
+
 
   /**
    * Initialize instance variables
@@ -116,12 +119,4 @@ export class PoolTaskActionsComponent extends MyDSpaceReloadableActionsComponent
   ngOnDestroy() {
     this.subs.forEach((sub) => sub.unsubscribe());
   }
-
-  /**
-   * Get the workflowitem view route.
-   */
-  getWorkflowItemViewRoute(workflowitem: WorkflowItem): string {
-    return getWorkflowItemViewRoute(workflowitem?.id);
-  }
-
 }
