@@ -4639,6 +4639,9 @@
   // "item.badge.withdrawn": "Withdrawn",
   "item.badge.withdrawn": "Retiré",
 
+  // "item.badge.change-request": "Change requested",
+  "item.badge.change-request": "Modifications demandées",
+
   // "item.bitstreams.upload.bundle": "Bundle",
   "item.bitstreams.upload.bundle": "Bundle",
 
