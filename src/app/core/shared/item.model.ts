@@ -68,6 +68,12 @@ export class Item extends DSpaceObject implements ChildHALResource, HandleObject
   isWithdrawn: boolean;
 
   /**
+   * A boolean representing if this Item requires changes or not
+   */
+  @autoserializeAs(Boolean, 'changeRequested')
+  isChangeRequested: boolean;
+
+  /**
    * A boolean representing if this Item is currently withdrawn or not
    */
   @autoserializeAs(String, 'entityType')
