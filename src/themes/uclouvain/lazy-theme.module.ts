@@ -83,6 +83,7 @@ import { SubmissionEditComponent } from './app/submission/edit/submission-edit.c
 import { ExpandableNavbarSectionComponent } from './app/navbar/expandable-navbar-section/expandable-navbar-section.component';
 import { AuthNavMenuComponent } from './app/shared/auth-nav-menu/auth-nav-menu.component';
 import { UserMenuComponent } from './app/shared/auth-nav-menu/user-menu/user-menu.component';
+import { StatusBadgeComponent } from './app/shared/object-collection/shared/badges/status-badge/status-badge.component';
 
 const DECLARATIONS = [
   AuthNavMenuComponent,
@@ -111,7 +112,8 @@ const DECLARATIONS = [
   FileSectionComponent,
   FileDownloadLinkComponent,
   SubmissionEditComponent,
-  ExpandableNavbarSectionComponent
+  ExpandableNavbarSectionComponent,
+  StatusBadgeComponent
 ];
 
 @NgModule({
