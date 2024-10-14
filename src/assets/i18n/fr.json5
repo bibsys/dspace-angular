@@ -1344,8 +1344,7 @@
 
 
   // "alert.close.aria": "Close",
-  // TODO New key - Add a translation
-  "alert.close.aria": "Close",
+  "alert.close.aria": "Fermer",
 
   // "alert.toggle.hide": "Show less",
   // TODO New key - Add a translation
@@ -1462,8 +1461,7 @@
   "bitstream.download.page.back": "Retour",
 
   // "bitstream.download.page.close": "Close",
-  // TODO New key - Add a translation
-  "bitstream.download.page.close": "Close",
+  "bitstream.download.page.close": "Fermer",
 
 
   // "bitstream.edit.authorizations.link": "Edit bitstream's Policies",
@@ -1869,26 +1867,21 @@
   "browse.startsWith.submit": "Valider",
 
   // "browse.startsWith.type_date": "Filter results by date",
-  // TODO Source message changed - Revise the translation
-  "browse.startsWith.type_date": "Ou saisir une date (année-mois) puis cliquer sur « Parcourir par »",
+  "browse.startsWith.type_date": "Saisir une date",
 
   // "browse.startsWith.type_date.label": "Or type in a date (year-month) and click on the Browse button",
-  "browse.startsWith.type_date.label": "Ou saisir une date (année-mois) puis cliquer sur le bouton « Parcourir »",
+  "browse.startsWith.type_date.label": "Saisir une date",
 
   // "browse.startsWith.type_text": "Filter results by typing the first few letters",
-  // TODO Source message changed - Revise the translation
-  "browse.startsWith.type_text": "Ou saisir les premières lettres puis cliquer sur le bouton « Parcourir »",
+  "browse.startsWith.type_text": "Saisir les premières lettres",
 
   // "browse.startsWith.input": "Filter",
-  // TODO New key - Add a translation
-  "browse.startsWith.input": "Filter",
+  "browse.startsWith.input": "Filtrer",
 
   // "browse.taxonomy.button": "Browse",
-  // TODO New key - Add a translation
-  "browse.taxonomy.button": "Browse",
+  "browse.taxonomy.button": "Parcourir",
 
   // "browse.title": "Browsing {{ collection }} by {{ field }}{{ startsWith }} {{ value }}",
-  // TODO Source message changed - Revise the translation
   "browse.title": "Parcourir {{ collection }} par {{ field }} {{ value }}",
 
   // "browse.title.page": "Browsing {{ collection }} by {{ field }} {{ value }}",
@@ -2715,8 +2708,7 @@
   "context-menu.actions.label": "Options",
 
   // "context-menu.actions.show-all-metadata": "Show all metadata (technical view)",
-  // TODO New key - Add a translation
-  "context-menu.actions.show-all-metadata": "Show all metadata (technical view)",
+  "context-menu.actions.show-all-metadata": "Voir toutes les métadonnées (vue technique)",
 
   // "context-menu.actions.edit-item.btn.FULL": "Edit all the details",
   // TODO New key - Add a translation
@@ -2811,8 +2803,7 @@
   "context-menu.actions.orcid-view": "Open ORCID setting page",
 
   // "context-menu.actions.statistics.btn": "Statistics",
-  // TODO New key - Add a translation
-  "context-menu.actions.statistics.btn": "Statistics",
+  "context-menu.actions.statistics.btn": "Statistiques",
 
   // "context-menu.actions.subscription.title": "Subscription",
   // TODO New key - Add a translation
@@ -2839,8 +2830,7 @@
   "context-menu.actions.subscription.content": "Content",
 
   // "context-menu.actions.subscription.statistics": "Statistics",
-  // TODO New key - Add a translation
-  "context-menu.actions.subscription.statistics": "Statistics",
+  "context-menu.actions.subscription.statistics": "Statistiques",
 
   // "context-menu.actions.subscription.content+statistics": "Content & Statistics",
   // TODO New key - Add a translation
@@ -2965,8 +2955,7 @@
   "cookies.consent.ok": "Accepter",
 
   // "cookies.consent.save": "Close",
-  // TODO New key - Add a translation
-  "cookies.consent.save": "Close",
+  "cookies.consent.save": "Fermer",
 
   // "cookies.consent.content-notice.title": "Cookie Consent",
   // TODO New key - Add a translation
@@ -4208,16 +4197,13 @@
   "form.first-name": "Prénom",
 
   // "form.group.add": "Add",
-  // TODO New key - Add a translation
-  "form.group.add": "Add",
+  "form.group.add": "Ajouter",
 
   // "form.group.close": "Close",
-  // TODO New key - Add a translation
-  "form.group.close": "Close",
+  "form.group.close": "Fermer",
 
   // "form.group.set": "Set",
-  // TODO New key - Add a translation
-  "form.group.set": "Set",
+  "form.group.set": "Sauver",
 
   // "form.last-name": "Last name",
   "form.last-name": "Nom de famille",
@@ -4238,7 +4224,6 @@
   "form.no-value": "Aucune valeur entrée",
 
   // "form.other-information.email": "Email",
-  // TODO New key - Add a translation
   "form.other-information.email": "Email",
 
   // "form.other-information.first-name": "First Name",
@@ -5532,12 +5517,10 @@
 
 
   // "item.page.metric.label.download": "Downloads",
-  // TODO New key - Add a translation
-  "item.page.metric.label.download": "Downloads",
+  "item.page.metric.label.download": "Téléchargements",
 
   // "item.page.metric.label.view": "Views",
-  // TODO New key - Add a translation
-  "item.page.metric.label.view": "Views",
+  "item.page.metric.label.view": "Vues",
 
   // "item.page.metric.label.view-detail-btn": "View Details",
   // TODO New key - Add a translation
@@ -6830,8 +6813,7 @@
   "modal.item-detail-page.title": "Item Page Detail",
 
   // "modal.item-detail-page.confirm.cancel": "Close",
-  // TODO New key - Add a translation
-  "modal.item-detail-page.confirm.cancel": "Close",
+  "modal.item-detail-page.confirm.cancel": "Fermer",
 
 
   // "manage.relations": "Manage Relations",
@@ -9372,8 +9354,7 @@
   "sorting.dc.contributor.author.DESC": "Trier par nom d'auteur (Décroissant)",
 
   // "statistics": "Statistics",
-  // TODO New key - Add a translation
-  "statistics": "Statistics",
+  "statistics": "Statistiques",
 
   // "statistics.workflow.breadcrumbs": "Workflow Statistics",
   // TODO New key - Add a translation
@@ -9464,12 +9445,10 @@
   "statistics.workflow.page.collection": "Collection",
 
   // "statistics.workflow.page.endDate": "End date",
-  // TODO New key - Add a translation
-  "statistics.workflow.page.endDate": "End date",
+  "statistics.workflow.page.endDate": "Jusque",
 
   // "statistics.workflow.page.startDate": "Start date",
-  // TODO New key - Add a translation
-  "statistics.workflow.page.startDate": "Start date",
+  "statistics.workflow.page.startDate": "Depuis",
 
   // "statistics.workflow.page.reset": "Reset filters",
   // TODO New key - Add a translation
@@ -9560,12 +9539,10 @@
   "statistics.login.page.max": "Max",
 
   // "statistics.login.page.endDate": "End date",
-  // TODO New key - Add a translation
-  "statistics.login.page.endDate": "End date",
+  "statistics.login.page.endDate": "Jusque",
 
   // "statistics.login.page.startDate": "Start date",
-  // TODO New key - Add a translation
-  "statistics.login.page.startDate": "Start date",
+  "statistics.login.page.startDate": "Depuis",
 
   // "statistics.login.page.no-data-found": "No data found",
   // TODO New key - Add a translation
@@ -9576,20 +9553,16 @@
   "statistics.login.title statistics.workflow.title": "Login Statistics",
 
   // "statistics.export.csv": "Export CSV",
-  // TODO New key - Add a translation
-  "statistics.export.csv": "Export CSV",
+  "statistics.export.csv": "Exportation CSV",
 
   // "statistics.export.excel": "Export Excel",
-  // TODO New key - Add a translation
-  "statistics.export.excel": "Export Excel",
+  "statistics.export.excel": "Exportation Excel",
 
   // "statistics.export.jpg": "Export as JPEG",
-  // TODO New key - Add a translation
-  "statistics.export.jpg": "Export as JPEG",
+  "statistics.export.jpg": "Exportation JPEG",
 
   // "statistics.export.png": "Export as PNG",
-  // TODO New key - Add a translation
-  "statistics.export.png": "Export as PNG",
+  "statistics.export.png": "Exportation PNG",
 
   // "statistics.title": "Statistics",
   "statistics.title": "Statistiques",
@@ -9607,40 +9580,32 @@
   "statistics.table.no-data": "Aucune donnée disponible",
 
   // "statistics.table.mainReports.title.TotalVisits": "Total visits",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.title.TotalVisits": "Total visits",
+  "statistics.table.mainReports.title.TotalVisits": "Nombre de consultation",
 
   // "statistics.table.mainReports.title.TopItems": "Most viewed",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.title.TopItems": "Most viewed",
+  "statistics.table.mainReports.title.TopItems": "Les plus consultés",
 
   // "statistics.table.mainReports.title.TotalVisitsPerMonth": "Total visits per month",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.title.TotalVisitsPerMonth": "Total visits per month",
+  "statistics.table.mainReports.title.TotalVisitsPerMonth": "Nombre de visite par mois",
 
   // "statistics.table.mainReports.title.TotalDownloads": "File visits",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.title.TotalDownloads": "File visits",
+  "statistics.table.mainReports.title.TotalDownloads": "Nombre de visite par fichier",
 
   // "statistics.table.mainReports.title.TotalVisitsAndDownloads": "Items and file visits",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.title.TotalVisitsAndDownloads": "Items and file visits",
+  "statistics.table.mainReports.title.TotalVisitsAndDownloads": "Nombre de visite de la publication et des fichiers",
 
   // "statistics.table.mainReports.title.TopCountries": "Top country views",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.title.TopCountries": "Top country views",
+  "statistics.table.mainReports.title.TopCountries": "Classement des vues par pays",
 
   // "statistics.table.mainReports.title.TopContinents": "Top region views",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.title.TopContinents": "Top region views",
+  "statistics.table.mainReports.title.TopContinents": "Classement des vues par continent",
 
   // "statistics.table.mainReports.title.TopCategories": "Categories",
   // TODO New key - Add a translation
   "statistics.table.mainReports.title.TopCategories": "Categories",
 
   // "statistics.table.mainReports.title.TopCities": "Top city views",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.title.TopCities": "Top city views",
+  "statistics.table.mainReports.title.TopCities": "Classement des vues par ville",
 
   // "form.other-information.oairecerif-author-affiliation": "Affiliation",
   // TODO New key - Add a translation
@@ -9708,167 +9673,127 @@
 
   // "statistics.table.mainReports.header.views": "Views",
   // TODO New key - Add a translation
-  "statistics.table.mainReports.header.views": "Views",
+  "statistics.table.mainReports.header.views": "Vues",
 
   // "statistics.table.mainReports.header.bitstream": "File Visits",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.header.bitstream": "File Visits",
+  "statistics.table.mainReports.header.bitstream": "Visite par fichier",
 
   // "statistics.table.mainReports.header.continent": "Continent",
-  // TODO New key - Add a translation
   "statistics.table.mainReports.header.continent": "Continent",
 
   // "statistics.table.mainReports.header.country": "Country",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.header.country": "Country",
+  "statistics.table.mainReports.header.country": "Pays",
 
   // "statistics.table.mainReports.header.city": "City",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.header.city": "City",
+  "statistics.table.mainReports.header.city": "Ville",
 
   // "statistics.table.mainReports.header.item": "Item",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.header.item": "Item",
+  "statistics.table.mainReports.header.item": "Publication",
 
   // "statistics.table.downloadReports.header.views": "Downloads",
-  // TODO New key - Add a translation
-  "statistics.table.downloadReports.header.views": "Downloads",
+  "statistics.table.downloadReports.header.views": "Téléchargements",
 
   // "statistics.table.downloadReports.header.continent": "Continent",
-  // TODO New key - Add a translation
   "statistics.table.downloadReports.header.continent": "Continent",
 
   // "statistics.table.downloadReports.header.country": "Country",
-  // TODO New key - Add a translation
-  "statistics.table.downloadReports.header.country": "Country",
+  "statistics.table.downloadReports.header.country": "Pays",
 
   // "statistics.table.downloadReports.header.city": "City",
-  // TODO New key - Add a translation
-  "statistics.table.downloadReports.header.city": "City",
+  "statistics.table.downloadReports.header.city": "Ville",
 
   // "statistics.table.downloadReports.header.item": "Item",
-  // TODO New key - Add a translation
-  "statistics.table.downloadReports.header.item": "Item",
+  "statistics.table.downloadReports.header.item": "Publication",
 
   // "statistics.table.publicationsReports.title.TotalVisits": "Total visits",
-  // TODO New key - Add a translation
-  "statistics.table.publicationsReports.title.TotalVisits": "Total visits",
+  "statistics.table.publicationsReports.title.TotalVisits": "Nombre total de visite",
 
   // "statistics.table.publicationsReports.title.TopItems": "Most viewed",
-  // TODO New key - Add a translation
-  "statistics.table.publicationsReports.title.TopItems": "Most viewed",
+  "statistics.table.publicationsReports.title.TopItems": "Les plus vues",
 
   // "statistics.table.publicationsReports.title.TopCities": "Top cities",
-  // TODO New key - Add a translation
-  "statistics.table.publicationsReports.title.TopCities": "Top cities",
+  "statistics.table.publicationsReports.title.TopCities": "Classement par ville",
 
   // "statistics.table.no-name": "(object name could not be loaded)",
-  // TODO New key - Add a translation
-  "statistics.table.no-name": "(object name could not be loaded)",
+  "statistics.table.no-name": "(le nom de l'objet n'a pas pu être chargé)",
 
   // "statistics.table.publicationsReports.title.TopCountries": "Top countries",
-  // TODO New key - Add a translation
-  "statistics.table.publicationsReports.title.TopCountries": "Top countries",
+  "statistics.table.publicationsReports.title.TopCountries": "Classement par pays",
 
   // "statistics.table.publicationsReports.title.TotalVisitsPerMonth": "Total visits per month",
-  // TODO New key - Add a translation
-  "statistics.table.publicationsReports.title.TotalVisitsPerMonth": "Total visits per month",
+  "statistics.table.publicationsReports.title.TotalVisitsPerMonth": "Nombre total de visite par mois",
 
   // "statistics.table.publicationsReports.title.TotalDownloads": "Downloads",
-  // TODO New key - Add a translation
-  "statistics.table.publicationsReports.title.TotalDownloads": "Downloads",
+  "statistics.table.publicationsReports.title.TotalDownloads": "Téléchargements",
 
   // "statistics.table.publicationsReports.title.TotalVisitsAndDownloads": "Items and file visits",
-  // TODO New key - Add a translation
-  "statistics.table.publicationsReports.title.TotalVisitsAndDownloads": "Items and file visits",
+  "statistics.table.publicationsReports.title.TotalVisitsAndDownloads": "Nombre total de visites et téléchargements",
 
   // "statistics.table.projectsReports.title.TotalVisits": "Total visits",
-  // TODO New key - Add a translation
-  "statistics.table.projectsReports.title.TotalVisits": "Total visits",
+  "statistics.table.projectsReports.title.TotalVisits": "Nombre total de visites",
 
   // "statistics.table.projectsReports.title.TopItems": "Most viewed",
-  // TODO New key - Add a translation
-  "statistics.table.projectsReports.title.TopItems": "Most viewed",
+  "statistics.table.projectsReports.title.TopItems": "Les plus consultés",
 
   // "statistics.table.projectsReports.title.TotalVisitsPerMonth": "Total visits per month",
-  // TODO New key - Add a translation
-  "statistics.table.projectsReports.title.TotalVisitsPerMonth": "Total visits per month",
+  "statistics.table.projectsReports.title.TotalVisitsPerMonth": "Nombre total de visites par mois",
 
   // "statistics.table.projectsReports.title.TopCities": "Top cities",
-  // TODO New key - Add a translation
-  "statistics.table.projectsReports.title.TopCities": "Top cities",
+  "statistics.table.projectsReports.title.TopCities": "Classement par ville",
 
   // "statistics.table.projectsReports.title.TopCountries": "Top countries",
-  // TODO New key - Add a translation
-  "statistics.table.projectsReports.title.TopCountries": "Top countries",
+  "statistics.table.projectsReports.title.TopCountries": "Classement par pays",
 
-  // "statistics.table.projectsReports.title.TotalDownloads": "Downloads",
-  // TODO New key - Add a translation
-  "statistics.table.projectsReports.title.TotalDownloads": "Downloads",
+  // "statistics.table.projectsReports.title.TotalDownloads": "Downloads",-
+  "statistics.table.projectsReports.title.TotalDownloads": "Téléchargements",
 
   // "statistics.table.projectsReports.title.TotalVisitsAndDownloads": "Items and file visits",
-  // TODO New key - Add a translation
-  "statistics.table.projectsReports.title.TotalVisitsAndDownloads": "Items and file visits",
+  "statistics.table.projectsReports.title.TotalVisitsAndDownloads": "Nombre total de visites et téléchargements",
 
   // "statistics.table.rppublicationsReports.title.TotalVisits": "Total visits",
-  // TODO New key - Add a translation
-  "statistics.table.rppublicationsReports.title.TotalVisits": "Total visits",
+  "statistics.table.rppublicationsReports.title.TotalVisits": "Nombre de total de visites",
 
   // "statistics.table.rppublicationsReports.title.TopItems": "Most viewed",
-  // TODO New key - Add a translation
-  "statistics.table.rppublicationsReports.title.TopItems": "Most viewed",
+  "statistics.table.rppublicationsReports.title.TopItems": "Les plus consultés",
 
   // "statistics.table.rppublicationsReports.title.TopCities": "Top cities",
-  // TODO New key - Add a translation
-  "statistics.table.rppublicationsReports.title.TopCities": "Top cities",
+  "statistics.table.rppublicationsReports.title.TopCities": "Classement par ville",
 
   // "statistics.table.rppublicationsReports.title.TopCountries": "Top countries",
-  // TODO New key - Add a translation
-  "statistics.table.rppublicationsReports.title.TopCountries": "Top countries",
+  "statistics.table.rppublicationsReports.title.TopCountries": "Classement par pays",
 
   // "statistics.table.rppublicationsReports.title.TotalVisitsPerMonth": "Total visits per month",
-  // TODO New key - Add a translation
-  "statistics.table.rppublicationsReports.title.TotalVisitsPerMonth": "Total visits per month",
+  "statistics.table.rppublicationsReports.title.TotalVisitsPerMonth": "Nombre total de visites par mois",
 
   // "statistics.table.rppublicationsReports.title.TotalDownloads": "Downloads",
-  // TODO New key - Add a translation
-  "statistics.table.rppublicationsReports.title.TotalDownloads": "Downloads",
+  "statistics.table.rppublicationsReports.title.TotalDownloads": "Téléchargements",
 
   // "statistics.table.rppublicationsReports.title.TotalVisitsAndDownloads": "Items and file visits",
-  // TODO New key - Add a translation
-  "statistics.table.rppublicationsReports.title.TotalVisitsAndDownloads": "Items and file visits",
+  "statistics.table.rppublicationsReports.title.TotalVisitsAndDownloads": "Nombre total de visites et téléchargements",
 
   // "statistics.table.rpprojectsReports.title.TotalVisits": "Total visits",
-  // TODO New key - Add a translation
-  "statistics.table.rpprojectsReports.title.TotalVisits": "Total visits",
+  "statistics.table.rpprojectsReports.title.TotalVisits": "Nombre de total de visites",
 
   // "statistics.table.rpprojectsReports.title.TopItems": "Most viewed",
-  // TODO New key - Add a translation
-  "statistics.table.rpprojectsReports.title.TopItems": "Most viewed",
+  "statistics.table.rpprojectsReports.title.TopItems": "Les plus consultés",
 
   // "statistics.table.rpprojectsReports.title.TopCities": "Top cities",
-  // TODO New key - Add a translation
-  "statistics.table.rpprojectsReports.title.TopCities": "Top cities",
+  "statistics.table.rpprojectsReports.title.TopCities": "Classement par ville",
 
   // "statistics.table.rpprojectsReports.title.TopCountries": "Top countries",
-  // TODO New key - Add a translation
-  "statistics.table.rpprojectsReports.title.TopCountries": "Top countries",
+  "statistics.table.rpprojectsReports.title.TopCountries": "Classement par pays",
 
   // "statistics.table.rpprojectsReports.title.TotalVisitsPerMonth": "Total visits per month",
-  // TODO New key - Add a translation
-  "statistics.table.rpprojectsReports.title.TotalVisitsPerMonth": "Total visits per month",
+  "statistics.table.rpprojectsReports.title.TotalVisitsPerMonth": "Nombre total de visites par mois",
 
   // "statistics.table.rpprojectsReports.title.TotalDownloads": "Downloads",
-  // TODO New key - Add a translation
-  "statistics.table.rpprojectsReports.title.TotalDownloads": "Downloads",
+  "statistics.table.rpprojectsReports.title.TotalDownloads": "Téléchargements",
 
   // "statistics.table.rpprojectsReports.title.TotalVisitsAndDownloads": "Items and file Visits",
-  // TODO New key - Add a translation
-  "statistics.table.rpprojectsReports.title.TotalVisitsAndDownloads": "Items and file Visits",
+  "statistics.table.rpprojectsReports.title.TotalVisitsAndDownloads": "Nombre total de visites et téléchargements",
 
   // "statistics.categories.title": "Statistics by category",
-  // TODO New key - Add a translation
-  "statistics.categories.title": "Statistics by category",
+  "statistics.categories.title": "Statistiques",
 
   // "statistics.categories.mainReports.tab": "Views reports",
   // TODO New key - Add a translation
@@ -9891,60 +9816,47 @@
   "statistics.categories.rppublicationsReports.tab": "Researchers publication reports",
 
   // "statistics.categories.downloadReports.tab": "Downloads reports",
-  // TODO New key - Add a translation
-  "statistics.categories.downloadReports.tab": "Downloads reports",
+  "statistics.categories.downloadReports.tab": "Rapport de téléchargements",
 
   // "statistics.categories.itemReports.tab": "Item views reports",
-  // TODO New key - Add a translation
-  "statistics.categories.itemReports.tab": "Item views reports",
+  "statistics.categories.itemReports.tab": "Rapport par nombre de vues",
 
   // "statistics.table.itemReports.header.continent": "Continent",
-  // TODO New key - Add a translation
   "statistics.table.itemReports.header.continent": "Continent",
 
   // "statistics.table.itemReports.header.views": "Views",
-  // TODO New key - Add a translation
-  "statistics.table.itemReports.header.views": "Views",
+  "statistics.table.itemReports.header.views": "Vues",
 
-  // "statistics.table.itemReports.header.city": "City",
-  // TODO New key - Add a translation
-  "statistics.table.itemReports.header.city": "City",
+  // "statistics.table.itemReports.header.city": "City"
+  "statistics.table.itemReports.header.city": "Ville",
 
   // "statistics.table.itemReports.header.item": "Item",
-  // TODO New key - Add a translation
-  "statistics.table.itemReports.header.item": "Item",
+  "statistics.table.itemReports.header.item": "Publication",
 
   // "statistics.table.mainReports.header.community": "Community",
-  // TODO New key - Add a translation
-  "statistics.table.mainReports.header.community": "Community",
+  "statistics.table.mainReports.header.community": "Communauté",
 
   // "statistics.table.mainReports.header.collection": "Collection",
-  // TODO New key - Add a translation
   "statistics.table.mainReports.header.collection": "Collection",
 
   // "statistics.table.itemReports.title.TopContinents": "Top region views",
-  // TODO New key - Add a translation
-  "statistics.table.itemReports.title.TopContinents": "Top region views",
+  "statistics.table.itemReports.title.TopContinents": "Par continent",
 
   // "statistics.table.itemReports.title.TopCities": "Top cities views",
-  // TODO New key - Add a translation
-  "statistics.table.itemReports.title.TopCities": "Top cities views",
+  "statistics.table.itemReports.title.TopCities": "Par ville",
 
   // "statistics.table.itemReports.title.TopItems": "Most viewed",
-  // TODO New key - Add a translation
-  "statistics.table.itemReports.title.TopItems": "Most viewed",
+  "statistics.table.itemReports.title.TopItems": "Les plus consultés",
 
   // "statistics.table.itemReports.title.TopCategories": "Top categories",
   // TODO New key - Add a translation
   "statistics.table.itemReports.title.TopCategories": "Top categories",
 
   // "statistics.table.itemReports.title.TotalVisitsPerMonth": "Top views per month",
-  // TODO New key - Add a translation
-  "statistics.table.itemReports.title.TotalVisitsPerMonth": "Top views per month",
+  "statistics.table.itemReports.title.TotalVisitsPerMonth": "Les plus consultés par mois",
 
   // "statistics.reports.title": "Reports",
-  // TODO New key - Add a translation
-  "statistics.reports.title": "Reports",
+  "statistics.reports.title": "Rapports",
 
   // "submission.edit.breadcrumbs": "Edit Submission",
   "submission.edit.breadcrumbs": "Éditer la soumission",
@@ -11026,7 +10938,7 @@
   "submission.sections.submit.progressbar.sherpapolicy": "Sherpa policies",
 
   // "submission.sections.submit.progressbar.upload": "Upload files",
-  "submission.sections.submit.progressbar.upload": "Télécharger des fichiers",
+  "submission.sections.submit.progressbar.upload": "Fichiers chargés",
 
   // "submission.sections.submit.progressbar.sherpaPolicies": "Publisher open access policy information",
   // TODO New key - Add a translation
@@ -11076,7 +10988,7 @@
 
   "submission.sections.upload.field.filename.label": "Nom du fichier",
   "submission.sections.upload.field.accessType.label": "Type d'accès",
-  "submission.sections.upload.field.fileSize.label": "Taille du fichier",
+  "submission.sections.upload.field.fileSize.label": "Taille",
   "submission.sections.upload.field.ccLicense.label": "Licence CC",
   "submission.sections.upload.field.description.label": "Description",
 
@@ -11370,13 +11282,13 @@
   "submission.workflow.generic.edit": "Éditer",
 
   // "submission.workflow.generic.edit-help": "Select this option to change the item's metadata.",
-  "submission.workflow.generic.edit-help": "Sélectionner cette option pour modifier les métadonnées de l'Item.",
+  "submission.workflow.generic.edit-help": "Modifier les données enregistrées ou les types d'accès aux fichiers",
 
   // "submission.workflow.generic.view": "View",
   "submission.workflow.generic.view": "Afficher",
 
   // "submission.workflow.generic.view-help": "Select this option to view the item's metadata.",
-  "submission.workflow.generic.view-help": "Sélectionner cette option pour afficher les métadonnées de l'Item.",
+  "submission.workflow.generic.view-help": "Afficher les données déposées",
 
   // "submission.workflow.generic.submit_select_reviewer": "Select Reviewer",
   // TODO New key - Add a translation
@@ -11490,7 +11402,7 @@
   "submission.workflow.tasks.claimed.withdraw-reject.submit": "Rejeter",
 
   // "submission.workflow.tasks.claimed.withdraw-reject_help": "If you have reviewed the item but it is not suitable for the archive, select \"Reject\". The item will be placed in a withdrawn state and will not be visible anymore.",
-  "submission.workflow.tasks.claimed.withdraw-reject_help": "Si vous avez revu la soumission mais qu'elle ne devrait pas apparaître dans l'archive, sélectionner \"Rejeter\". La soumission sera placée dans un état retiré et ne sera visible par personne (excepté administrateurs et déposant).",
+  "submission.workflow.tasks.claimed.withdraw-reject_help": "Rejeter le dépôt. Utiliser en cas d'échec du mémoire ou pour permettre à l'étudiant de réaliser un nouveau dépôt.",
 
   // "submission.workflow.tasks.claimed.return-to-submitter": "Send back to submitter",
   "submission.workflow.tasks.claimed.return-to-submitter": "Renvoyer au déposant",
@@ -11517,7 +11429,7 @@
   "submission.workflow.tasks.claimed.return": "Se désassigner",
 
   // "submission.workflow.tasks.claimed.return_help": "Return the task to the pool so that another user may perform the task.",
-  "submission.workflow.tasks.claimed.return_help": "Renvoyer la tâche dans l'équipe pour qu'un autre utilisateur puisse l'exécuter.",
+  "submission.workflow.tasks.claimed.return_help": "Permettre la prise en charge par un autre gestionnaire",
 
   // "submission.workflow.tasks.generic.error": "Error occurred during operation...",
   "submission.workflow.tasks.generic.error": "Une erreur s'est produite au cours de l'opération...",
@@ -11535,7 +11447,7 @@
   "submission.workflow.tasks.pool.claim": "Prendre en charge",
 
   // "submission.workflow.tasks.pool.claim_help": "Assign this task to yourself.",
-  "submission.workflow.tasks.pool.claim_help": "Vous assigner cette tâche.",
+  "submission.workflow.tasks.pool.claim_help": "Vous assigner La validation",
 
   // "submission.workflow.tasks.pool.hide-detail": "Hide detail",
   "submission.workflow.tasks.pool.hide-detail": "Masquer le détail",
@@ -11602,8 +11514,7 @@
   "subscriptions.modal.type-frequency": "Type and frequency",
 
   // "subscriptions.modal.close": "Close",
-  // TODO New key - Add a translation
-  "subscriptions.modal.close": "Close",
+  "subscriptions.modal.close": "Fermer",
 
   // "subscriptions.modal.delete-info": "To remove this subscription, please visit the \"Subscriptions\" page under your user profile",
   // TODO New key - Add a translation
@@ -11618,8 +11529,7 @@
   "subscriptions.modal.new-subscription-form.type.content+statistics": "Content and Statistics",
 
   // "subscriptions.modal.new-subscription-form.type.statistics": "Statistics",
-  // TODO New key - Add a translation
-  "subscriptions.modal.new-subscription-form.type.statistics": "Statistics",
+  "subscriptions.modal.new-subscription-form.type.statistics": "Statistiques",
 
   // "subscriptions.modal.new-subscription-form.frequency.D": "Daily",
   // TODO New key - Add a translation
@@ -12901,8 +12811,7 @@
   "access-control-select-bitstreams-modal.no-items": "No items to show.",
 
   // "access-control-select-bitstreams-modal.close": "Close",
-  // TODO New key - Add a translation
-  "access-control-select-bitstreams-modal.close": "Close",
+  "access-control-select-bitstreams-modal.close": "Fermer",
 
   // "access-control-option-label": "Access condition type",
   // TODO New key - Add a translation
@@ -13042,8 +12951,7 @@
   "external-login.connect-to-existing-account.label": "Connect to an existing user",
 
   // "external-login.modal.label.close": "Close",
-  // TODO New key - Add a translation
-  "external-login.modal.label.close": "Close",
+  "external-login.modal.label.close": "Fermer",
 
   // "external-login-page.provide-email.create-account.notifications.error.header": "Something went wrong",
   // TODO New key - Add a translation
@@ -13478,11 +13386,9 @@
   // TODO New key - Add a translation
   "layout.field.label.Project.[oairecerif.project.status]": "Status",
   // "layout.field.label.Project.[oairecerif.project.startDate]": "Start Date",
-  // TODO New key - Add a translation
-  "layout.field.label.Project.[oairecerif.project.startDate]": "Start Date",
+  "layout.field.label.Project.[oairecerif.project.startDate]": "Depuis",
   // "layout.field.label.Project.[oairecerif.project.endDate]": "End Date",
-  // TODO New key - Add a translation
-  "layout.field.label.Project.[oairecerif.project.endDate]": "End Date",
+  "layout.field.label.Project.[oairecerif.project.endDate]": "Jusque",
   // "layout.field.label.Project.[crispj.coinvestigators]": "Investigators",
   // TODO New key - Add a translation
   "layout.field.label.Project.[crispj.coinvestigators]": "Investigators",
@@ -13872,12 +13778,12 @@
   "menu.section.browse": "Parcourir",
 
   "menu.section.browse.child.promoter": "Promoteur",
-  "menu.section.browse.child.dateissued": "Date de soumission",
+  "menu.section.browse.child.dateissued": "Date de défense",
   "menu.section.browse.child.faculty": "Faculté",
   "menu.section.browse.child.degree": "Diplôme",
 
   "browse.metadata.promoter.breadcrumbs": "Parcourir par promoteur",
-  "browse.metadata.dateissued.breadcrumbs": "Parcourir par date de soumission",
+  "browse.metadata.dateissued.breadcrumbs": "Parcourir par date de défense",
   "browse.metadata.faculty.breadcrumbs": "Parcourir par faculté",
   "browse.metadata.degree.breadcrumbs": "Parcourir par diplôme",
 
