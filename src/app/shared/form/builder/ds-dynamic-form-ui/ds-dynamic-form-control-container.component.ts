@@ -45,6 +45,7 @@ import {
   DynamicFormControlEvent,
   DynamicFormControlEventType,
   DynamicFormControlModel,
+  DynamicFormGroupModel,
   DynamicFormLayout,
   DynamicFormLayoutService,
   DynamicFormRelationService,
@@ -612,4 +613,19 @@ export class DsDynamicFormControlContainerComponent extends DynamicFormControlCo
     }
   }
 
+  /**
+   * Checks if the current model should be considered as visible by the user.
+   * This is used to render the margin dynamically. If the model is visible => render margin.
+   * This is useful to get rid of the useless margin in non visible blocks.
+   * 
+   * @returns True if at least one element is visible. If all hidden then return false.
+   */
+  isVisible(): boolean {
+    // Tow cases
+    //   1) If the model has a group property, check if any children is visible.
+    //   2) If the model has no group property, it means that it has no children : return its own hidden property.
+    return (this.model.group && isNotEmpty(this.model.group))
+      ? (this.model as DynamicFormGroupModel).group.some(el => !el.hidden)
+      : !this.model.hidden;
+  }
 }
