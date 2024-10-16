@@ -273,6 +273,8 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
     return this.formModel
       .map(row => (row as DynamicFormGroupModel).group)
       .reduce((previousValue, currentValue) => previousValue.concat(currentValue))
+      // Not visible form field should not prevent from submitting the form.
+      .filter(model => !model.hidden)
       .map(model => model as DsDynamicInputModel)
       .filter(model => !!model.validators && 'required' in model.validators);
   }

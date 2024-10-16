@@ -37,7 +37,7 @@
           <!-- In case of not repeatable field with multiple values show empty space for all elements except the last -->
           <div *ngIf="(context?.index !== null && (!showErrorMessages || errorMessages.length === 0)) || (!hasHint && !showErrorMessages) ||
                   (!model.hideErrorMessages && showErrorMessages && !(!(model?.isModelOfNotRepeatableGroup) || model?.isModelOfNotRepeatableGroup && context?.index === context?.context?.groups?.length - 1))"
-               class="clearfix w-100 mb-2"></div>
+                [class.mb-2]="isVisible()" class="clearfix w-100"></div>
 
           <!-- In case of not repeatable field with multiple values show error message for the last element only -->
           <div
