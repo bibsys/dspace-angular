@@ -45,6 +45,10 @@ import { ThemedDynamicLookupRelationExternalSourceTabComponent } from './builder
 import { DsDynamicRelationGroupModalComponent } from './builder/ds-dynamic-form-ui/models/relation-group/modal/dynamic-relation-group-modal.components';
 import { DsDynamicRelationInlineGroupComponent } from './builder/ds-dynamic-form-ui/models/relation-inline-group/dynamic-relation-inline-group.components';
 import { CustomCheckboxComponent } from './builder/ds-dynamic-form-ui/models/checkbox/checkbox.component';
+import { DsDynamicInstitutionAffiliationComponent } from './builder/ds-dynamic-form-ui/models/affiliations/institution/institution-affiliation-select.component';
+import { DsDynamicDepartmentAffiliationComponent } from './builder/ds-dynamic-form-ui/models/affiliations/department/department-affiliation-select.component';
+import { AffiliationDisplayFormatPipe } from './pipes/affiliation-display-format.pipe';
+import { AffiliationPaddingRenderingPipe } from './pipes/affiliation-padding-rendering.pipe';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -79,16 +83,24 @@ const COMPONENTS = [
   VocabularyTreeviewModalComponent,
   ThemedExternalSourceEntryImportModalComponent,
   CustomCheckboxComponent,
+  DsDynamicInstitutionAffiliationComponent,
+  DsDynamicDepartmentAffiliationComponent,
 ];
 
 const DIRECTIVES = [
   AuthorityConfidenceStateDirective,
 ];
 
+const PIPES = [
+  AffiliationDisplayFormatPipe,
+  AffiliationPaddingRenderingPipe,
+];
+
 @NgModule({
   declarations: [
     ...COMPONENTS,
     ...DIRECTIVES,
+    ...PIPES,
   ],
   imports: [
     CommonModule,
@@ -106,6 +118,7 @@ const DIRECTIVES = [
   exports: [
     ...COMPONENTS,
     ...DIRECTIVES,
+    ...PIPES,
   ],
   providers: [
     {
@@ -118,6 +131,7 @@ const DIRECTIVES = [
     FormBuilderService,
     DsDynamicTypeBindRelationService,
     FormService,
+    ...PIPES,
   ]
 })
 export class FormModule {

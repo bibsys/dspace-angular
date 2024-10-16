@@ -101,7 +101,7 @@ export class DsDynamicRelationGroupComponent extends DynamicFormControlComponent
 
   openModal(): NgbModalRef {
     const modalRef = this.modalService.open(DsDynamicRelationGroupModalComponent, {
-      size: 'lg',
+      size: 'xl',
     });
     this.submissionService.getSubmissionSecurityConfiguration(this.model.submissionId).pipe(
       take(1)).subscribe((res: MetadataSecurityConfiguration) => {

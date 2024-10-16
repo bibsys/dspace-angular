@@ -257,6 +257,13 @@ export abstract class DsDynamicVocabularyComponent extends DynamicFormControlCom
           if (otherInformation.hasOwnProperty(key) && key.startsWith('data-')) {
             const fieldId = key.replace('data-', '');
             const newValue: FormFieldMetadataValueObject = this.getOtherInformationValue(otherInformation[key], key);
+            // Try to search for an authority key with the same field name.
+            // This allows to retrieve the authority of the metadata value.
+            let authorityKey = 'authority-' + fieldId;
+            if (!isEmpty(otherInformation[authorityKey])) {
+              // If an authority was found, update the value with the authority
+              newValue.authority = otherInformation[authorityKey];
+            }
             if (isNotEmpty(newValue)) {
               const updatedModel = this.formBuilderService.updateModelValue(fieldId, newValue);
               if (isNotEmpty(updatedModel)) {

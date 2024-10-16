@@ -238,6 +238,8 @@ import {
 import { ProductDatasetSchemaType } from './metadata/schema-json-ld/schema-types/product/product-dataset-schema-type';
 import { PersonSchemaType } from './metadata/schema-json-ld/schema-types/Person/person-schema-type';
 import { InternalLinkService } from './services/internal-link.service';
+import { PublicationAffiliationDataService } from './data/publication-affiliation-data.service';
+import { FormAffiliationFieldUpdateService } from './data/publication-affiliation-field-update.service';
 
 /**
  * When not in production, endpoint responses can be mocked for testing purposes
@@ -375,6 +377,8 @@ const PROVIDERS = [
   WorkflowStepStatisticsDataService,
   WorkflowOwnerStatisticsDataService,
   LoginStatisticsService,
+  PublicationAffiliationDataService,
+  FormAffiliationFieldUpdateService
 ];
 
 const SCHEMA_PROVIDERS = [

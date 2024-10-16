@@ -24,6 +24,8 @@ import { CalendarFieldParser } from './calendar-field-parser';
 import { DisabledFieldParser } from './disabled-field-parser';
 import { LinkFieldParser } from './link-field-parser';
 import { CheckboxFieldParser } from './custom-checkbox-field.parser';
+import { InstitutionAffiliationFieldParser } from './institution-affiliation-field-parser';
+import { DepartmentAffiliationFieldParser } from './department-affiliation-field-parser'
 
 const fieldParserDeps = [
   SUBMISSION_ID,
@@ -144,6 +146,20 @@ export class ParserFactory {
           useClass: CheckboxFieldParser,
           deps: [...fieldParserDeps]
         };
+      }
+      case ParserType.InstitutionAffiliationSelect: {
+        return {
+          provide: FieldParser,
+          useClass: InstitutionAffiliationFieldParser,
+          deps: [...fieldParserDeps]
+        };
+      }
+      case ParserType.DepartmentAffiliationSelect: {
+        return {
+          provide: FieldParser,
+          useClass: DepartmentAffiliationFieldParser,
+          deps: [...fieldParserDeps]
+        }
       }
       case undefined: {
         return {
