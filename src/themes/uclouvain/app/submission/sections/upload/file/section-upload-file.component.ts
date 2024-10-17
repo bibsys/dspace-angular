@@ -1,14 +1,9 @@
 import { Component, Input } from '@angular/core';
-import {
-    SubmissionSectionUploadFileComponent as BaseComponent
-} from 'src/app/submission/sections/upload/file/section-upload-file.component';
+import { SubmissionSectionUploadFileComponent as BaseComponent } from 'src/app/submission/sections/upload/file/section-upload-file.component';
 import fileExtensions from './file-extensions.json';
 import { isEmpty, isNotEmpty } from '../../../../../../../app/shared/empty.util';
 import { Metadata } from '../../../../../../../app/core/shared/metadata.utils';
-import { MetadataMap, MetadataValue } from '../../../../../../../app/core/shared/metadata.models';
-import {
-  FormFieldMetadataValueObject
-} from '../../../../../../../app/shared/form/builder/models/form-field-metadata-value.model';
+import { MetadataMap } from '../../../../../../../app/core/shared/metadata.models';
 import { AccessConditionObject } from '../../../../../../../app/core/submission/models/access-condition.model';
 
 

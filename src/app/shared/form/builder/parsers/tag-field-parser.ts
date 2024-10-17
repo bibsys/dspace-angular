@@ -20,7 +20,7 @@ export class TagFieldParser extends FieldParser {
       this.setVocabularyOptions(tagModelConfig, this.parserOptions.collectionUUID);
     }
     this.setValues(tagModelConfig, fieldValue, null, true);
-    tagModelConfig.placeholder = 'Enter the Keywords';
+    tagModelConfig.placeholder = 'tag-field.placeholder';
     const tagModel = new DynamicTagModel(tagModelConfig, clsTag);
     return tagModel;
   }
