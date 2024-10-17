@@ -58,6 +58,7 @@ import { Chips } from '../../../../chips/models/chips.model';
 import { FormBuilderService } from '../../../form-builder.service';
 import { DsDynamicVocabularyComponent } from '../dynamic-vocabulary.component';
 import { DynamicTagModel } from './dynamic-tag.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 /**
  * Component representing a tag input field
@@ -71,6 +72,7 @@ import { DynamicTagModel } from './dynamic-tag.model';
     FormsModule,
     NgIf,
     ChipsComponent,
+    TranslateModule,
   ],
   standalone: true,
 })

@@ -5,5 +5,8 @@
     <span class="badge badge-warning">{{ "item.badge.withdrawn" | translate }}</span>
 </div>
 <div *ngIf="isChangeRequested" class="change-request-badge">
-    <span class="badge badge-warning">{{ "item.badge.change-request" | translate }}</span>
+    <span class="badge badge-danger blink">
+        <i class="fa fa-triangle-exclamation mr-1"></i>
+        {{ "item.badge.change-request" | translate }}
+    </span>
 </div>

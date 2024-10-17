@@ -35,8 +35,9 @@
                     </div>
                     <ul class="list-unstyled">
                         <li *ngIf="showSendFeedback$ | async">
-                            <a class="text-white"
-                               routerLink="info/feedback">{{ 'footer.link.feedback' | translate }}</a>
+                            <a class="text-white" routerLink="info/feedback">
+                                {{ 'footer.link.feedback' | translate }}
+                            </a>
                         </li>
                         <li>
                             <!-- TODO: Add link to Q&A (FAQ). -->
@@ -51,9 +52,8 @@
                             </a>
                         </li>
                         <li>
-                            <!-- TODO: Add link to OpenTicket -->
-                            <a class="text-white" href="">
-                                {{ "footer.link.open-ticket" | translate }}
+                            <a class="text-white" href="https://dial.uclouvain.be/osTicket/" target="_blank">
+                                {{ "footer.link.ask-question" | translate }}
                             </a>
                         </li>
                     </ul>

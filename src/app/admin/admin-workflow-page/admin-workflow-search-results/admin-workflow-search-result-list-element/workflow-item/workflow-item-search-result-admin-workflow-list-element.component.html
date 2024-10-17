@@ -4,6 +4,7 @@
 <ds-listable-object-component-loader *ngIf="item$ | async"
                                      [object]="item$ | async"
                                      [viewMode]="viewModes.ListElement"
+                                     [showThumbnails]="showThumbnails"
                                      [index]="index"
                                      [linkType]="linkType"
                                      [listID]="listID"></ds-listable-object-component-loader>

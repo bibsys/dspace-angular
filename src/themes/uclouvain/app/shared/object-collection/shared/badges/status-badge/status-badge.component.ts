@@ -1,13 +1,13 @@
 import { NgIf } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { TranslateModule } from "@ngx-translate/core";
-import { DSpaceObjectDataService } from "src/app/core/data/dspace-object-data.service";
 import { hasValue } from "src/app/shared/empty.util";
 import { StatusBadgeComponent as BaseComponent } from "src/app/shared/object-collection/shared/badges/status-badge/status-badge.component";
 
 @Component({
     selector: 'ds-themed-status-badge',
     templateUrl: './status-badge.component.html',
+    styleUrls: ['./status-badge.component.scss'],
     imports: [
         NgIf,
         TranslateModule,
@@ -19,12 +19,6 @@ export class StatusBadgeComponent extends BaseComponent implements OnInit {
      * If a change was requested by a manager for the submitter.
      */
     isChangeRequested = false;
-    
-    constructor(
-        protected dSpaceObjectDataService: DSpaceObjectDataService
-    ) {
-        super();
-    }
 
     ngOnInit(): void {
         let objectAsAny = this.object as any;
