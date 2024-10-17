@@ -1,6 +1,7 @@
 <div class="file-panel container-fluid border rounded shadow-sm mb-2 p-2">
     <div class="row">
-        <div class="col d-flex">
+        <div class="col d-flex position-relative">
+            <i class="primary-tag fa fa-star" *ngIf="isPrimary"></i>
             <img [src]="getFileIcon()" [alt]="fileName" style="max-height:100px"/>
             <div class="ml-2 d-flex flex-column">
                 <dl class="container row">
@@ -23,7 +24,7 @@
                 </dl>
             </div>
         </div>
-        <div class="col-sm-6 col-4 text-right">
+        <div class="col-md-4 col-sm-6 text-right">
             <ng-container *ngIf="!readOnly">
                 <ng-container *ngTemplateOutlet="action_buttons"></ng-container>
             </ng-container>
