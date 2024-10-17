@@ -176,6 +176,7 @@ export class MenuResolverService  {
             } else {
               parentMenu = {
                 ...parentMenu,
+                index: 1,
                 model: {
                   type: MenuItemType.LINK,
                   text: `menu.section.explore_${section.id}`,
@@ -240,7 +241,7 @@ export class MenuResolverService  {
       id: 'browse',
       active: false,
       visible: true,
-      index: 1,
+      index: 2,
       model: {
         type: MenuItemType.TEXT,
         text: 'menu.section.browse'

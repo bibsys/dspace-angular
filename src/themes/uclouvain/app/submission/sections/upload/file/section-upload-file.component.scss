@@ -10,5 +10,13 @@
 
     dt, dd { float: left }
     dt { clear:both }
+
+    .primary-tag {
+      position: absolute;
+      top: -0.35rem;
+      left: 1.25rem;
+      color: var(--yellow);
+      text-shadow: 0 0 5px var(--yellow);
+    }
   }
 }
