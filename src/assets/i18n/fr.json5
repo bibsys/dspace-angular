@@ -11251,10 +11251,10 @@
   "submission.sections.submit.progressbar.changerequest": "Demande de modifications",
 
   // "submission.sections.change-request.header": "A manager requested modifications for the following reason:",
-  "submission.sections.change-request.header": "Un gestionnaire a demandé des modifications pour les raisons suivantes:",
+  "submission.sections.change-request.header": "Votre dépôt de mémoire a été rouvert afin que vous puissiez y apporter les modifications suivantes :",
 
   // "submission.sections.change-request.instruction": "Once the modifications are done, please submit your thesis again.",
-  "submission.sections.change-request.instruction": "Une fois les modification effectuées, veuillez soumettre à nouveau votre mémoire.",
+  "submission.sections.change-request.instruction": "Une fois les modifications effectuées, veuillez valider à nouveau votre dépôt.",
 
   // "submission.submit.breadcrumbs": "New submission",
   "submission.submit.breadcrumbs": "Nouvelle soumission",
@@ -11313,10 +11313,10 @@
   "submission.workflow.tasks.claimed.approve_help": "Si vous avez bien révisé cet Item et qu'il peut être ajouté à la collection, sélectionner « Approuver ».",
 
   // "submission.workflow.tasks.claimed.confirm-approve": "Approve",
-  "submission.workflow.tasks.claimed.confirm-approve": "Approuver",
+  "submission.workflow.tasks.claimed.confirm-approve": "Approuver tel quel",
   
   // "submission.workflow.tasks.claimed.confirm-approve_help": "The submission can enter the public archive.",
-  "submission.workflow.tasks.claimed.confirm-approve_help": "Le mémoire sera accessible dans l'archive publique.",
+  "submission.workflow.tasks.claimed.confirm-approve_help": "Le mémoire sera approuvé tel quel : la fiche descriptive du mémoire sera rendue visible du public et les fichiers seront diffusés selon les restrictions choisies pour chacun.\nUtilisez cette option lorsque la faculté ne s’est pas opposée à la diffusion des fichiers.",
   
   // "submission.workflow.tasks.claimed.confirm-approve.reason.title": "Confirm",
   "submission.workflow.tasks.claimed.confirm-approve.reason.title": "Confirmer",
@@ -11337,7 +11337,7 @@
   "submission.workflow.tasks.claimed.approve-no-diffusion": "Approuver sans diffusion",
 
   // "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Approve but all the bitstreams will be in forbidden access."
-  "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Approuve mais tous les fichiers attachés seront placés en accès interdit.",
+  "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Le mémoire sera approuvé, mais seule la description du mémoire sera visible du public ; tous les fichiers seront interdits d'accès.\nUtilisez cette option pour les mémoires dont la faculté a décidé qu’ils ne pouvaient pas être consultés.",
 
   // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Confirmer",
   "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Confirmer",
@@ -11402,7 +11402,7 @@
   "submission.workflow.tasks.claimed.withdraw-reject.submit": "Rejeter",
 
   // "submission.workflow.tasks.claimed.withdraw-reject_help": "If you have reviewed the item but it is not suitable for the archive, select \"Reject\". The item will be placed in a withdrawn state and will not be visible anymore.",
-  "submission.workflow.tasks.claimed.withdraw-reject_help": "Rejeter le dépôt. Utiliser en cas d'échec du mémoire ou pour permettre à l'étudiant de réaliser un nouveau dépôt.",
+  "submission.workflow.tasks.claimed.withdraw-reject_help": "Le dépôt sera rejeté. Utilisez cette option pour les mémoires en échec.",
 
   // "submission.workflow.tasks.claimed.return-to-submitter": "Send back to submitter",
   "submission.workflow.tasks.claimed.return-to-submitter": "Renvoyer au déposant",

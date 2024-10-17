@@ -14,7 +14,8 @@ import { Item } from '../../../../../../app/core/shared/item.model';
 @Component({
   selector: 'ds-master-thesis-list-element',
   template: `<ds-master-thesis-search-result-list-element 
-          [showLabel]="showLabel" 
+          [showLabel]="showLabel"
+          [showThumbnails]="showThumbnails"
           [object]="{ indexableObject: object, hitHighlights: {} }" 
           [linkType]="linkType">
   </ds-master-thesis-search-result-list-element>
