@@ -42,6 +42,7 @@ import { ExpandableNavbarSectionComponent } from './app/navbar/expandable-navbar
 import { AuthNavMenuComponent } from './app/shared/auth-nav-menu/auth-nav-menu.component';
 import { UserMenuComponent } from './app/shared/auth-nav-menu/user-menu/user-menu.component';
 import { StatusBadgeComponent } from './app/shared/object-collection/shared/badges/status-badge/status-badge.component';
+import { BrowseByComponent } from './app/shared/browse-by/browse-by.component';
 
 const DECLARATIONS = [
   AuthNavMenuComponent,
@@ -72,7 +73,8 @@ const DECLARATIONS = [
   FileDownloadLinkComponent,
   SubmissionEditComponent,
   ExpandableNavbarSectionComponent,
-  StatusBadgeComponent
+  StatusBadgeComponent,
+  BrowseByComponent
 ];
 
 /**
