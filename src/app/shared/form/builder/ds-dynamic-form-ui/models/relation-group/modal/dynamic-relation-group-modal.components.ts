@@ -167,7 +167,8 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
   }
 
   getHeader() {
-    return this.getMandatoryFieldModel().label;
+    //return this.getMandatoryFieldModel().label;
+    return `dynamic-relation-group-modal.${this.getMandatoryFieldModel().id}.header`;
   }
 
   isValidForm() {

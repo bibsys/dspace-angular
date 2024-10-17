@@ -22,7 +22,7 @@ export class TagFieldParser extends FieldParser {
     }
     tagModelConfig.minChars = environment.submission.minChars;
     this.setValues(tagModelConfig, fieldValue, null, true);
-    tagModelConfig.placeholder = 'Enter the Keywords';
+    tagModelConfig.placeholder = 'tag-field.placeholder';
     const tagModel = new DynamicTagModel(tagModelConfig, clsTag);
     return tagModel;
   }
