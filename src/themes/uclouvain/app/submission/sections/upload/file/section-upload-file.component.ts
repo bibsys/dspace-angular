@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {
-    SubmissionSectionUploadFileComponent as BaseComponent
-} from 'src/app/submission/sections/upload/file/section-upload-file.component';
+import { SubmissionSectionUploadFileComponent as BaseComponent } from 'src/app/submission/sections/upload/file/section-upload-file.component';
 import fileExtensions from './file-extensions.json';
 import { isEmpty, isNotEmpty } from '../../../../../../../app/shared/empty.util';
 import { Metadata } from '../../../../../../../app/core/shared/metadata.utils';

@@ -13,7 +13,7 @@
          type="text"
          role="textbox"
          [class.pl-3]="chips.hasItems()"
-         [placeholder]="model.placeholder"
+         [placeholder]="model.placeholder | translate"
          [readonly]="model.readOnly"
          [(ngModel)]="currentValue"
          (blur)="onBlur($event)"

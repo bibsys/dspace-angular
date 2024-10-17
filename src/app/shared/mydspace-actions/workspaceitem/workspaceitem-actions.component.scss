@@ -1,0 +1,5 @@
+.action-buttons, destructive-action-buttons {
+  .btn:not(:first-child) {
+    margin-left: var(--bs-spacer-1);
+  }
+}
