@@ -134,7 +134,7 @@ export class ClaimedSearchResultListElementComponent extends SearchResultListEle
         }
       }),
     ).subscribe();
-    this.showThumbnails = this.appConfig.browseBy.showThumbnails;
+    // this.showThumbnails = this.appConfig.browseBy.showThumbnails;  # Native error from Dspace-CRIS XD
     // Initialise duplicates, if enabled
     this.duplicates$ = this.initializeDuplicateDetectionIfEnabled();
   }

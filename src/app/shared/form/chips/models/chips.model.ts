@@ -130,7 +130,7 @@ export class Chips {
         config = (configIndex !== -1) ? this.iconsConfig[configIndex] : defaultConfig;
 
         if (hasValue(value) && isNotEmpty(config) && !this.hasPlaceholder(value)) {
-          const visibleWhenAuthorityEmpty = this.displayObj !== metadata || (iconsVisibleWithNoAuthority.includes(config.style));
+          const visibleWhenAuthorityEmpty = isNotEmpty(config.style) && (this.displayObj !== metadata || (iconsVisibleWithNoAuthority.includes(config.style)));
 
           // Set icon
           const icon = {

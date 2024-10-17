@@ -1,5 +1,5 @@
 <ds-alert [content]="'submission.sections.upload.info'"
-          [dismissible]="true"
+          [dismissible]="false"
           [type]="AlertTypeEnum.Info"></ds-alert>
 
 <div *ngIf="(uploadEnabled$ | async)" class="w-100">
@@ -27,7 +27,7 @@
       </ds-alert>
     </div>
   </div>
-  <div class="row">
+  <!--<div class="row">
     <div class="col-md-2">
       <span class="text-left font-weight-bold">{{ 'bitstream.edit.form.primaryBitstream.label' | translate }}</span>
     </div>
@@ -36,7 +36,7 @@
     <div class="col-md-12">
       <hr/>
     </div>
-  </div>
+  </div>-->
   <ng-container *ngFor="let fileEntry of fileList; let i = index;">
     <ds-submission-upload-section-file [singleAccessCondition]="singleAccessCondition"
                                               [isPrimary]="primaryBitstreamUUID ? primaryBitstreamUUID === fileEntry.uuid : null"
