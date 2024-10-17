@@ -889,7 +889,7 @@
   "admin.access-control.groups.form.delete-group.modal.header": "Supprimer le groupe \"{{ dsoName }}\"",
 
   // "admin.access-control.groups.form.delete-group.modal.info": "Are you sure you want to delete Group \"{{ dsoName }}\"",
-  "admin.access-control.groups.form.delete-group.modal.info": "Êtes-vous certain(e) de vouloir supprimer le groupe \"{{ dsoName }}\"",
+  "admin.access-control.groups.form.delete-group.modal.info": "Êtes-vous certain·e de vouloir supprimer le groupe \"{{ dsoName }}\"",
 
   // "admin.access-control.groups.form.delete-group.modal.cancel": "Cancel",
   "admin.access-control.groups.form.delete-group.modal.cancel": "Annuler",
@@ -1991,7 +1991,7 @@
   "collection.delete.notification.success": "Collection supprimée avec succès",
 
   // "collection.delete.text": "Are you sure you want to delete collection \"{{ dso }}\"",
-  "collection.delete.text": "Êtes-vous certain(e) de vouloir supprimer la collection « {{ dso }} »",
+  "collection.delete.text": "Êtes-vous certain·e de vouloir supprimer la collection « {{ dso }} »",
 
   // "collection.edit.delete": "Delete this collection",
   "collection.edit.delete": "Supprimer cette collection",
@@ -2466,7 +2466,7 @@
   "community.delete.notification.success": "La communauté a été supprimée avec succès",
 
   // "community.delete.text": "Are you sure you want to delete community \"{{ dso }}\"",
-  "community.delete.text": "Êtes-vous certain(e) de vouloir supprimer la communauté « {{ dso }} »",
+  "community.delete.text": "Êtes-vous certain·e de vouloir supprimer la communauté « {{ dso }} »",
 
   // "community.edit.delete": "Delete this community",
   "community.edit.delete": "Supprimer cette communauté",
@@ -3357,6 +3357,9 @@
   // TODO New key - Add a translation
   "dso-selector.results-could-not-be-retrieved": "Something went wrong, please refresh again ↻",
 
+  "dynamic-relation-group-modal.dc_contributor_author.header": "Auteur",
+  "dynamic-relation-group-modal.dc_contributor_advisor.header": "Promoteur",
+
   // "supervision-group-selector.header": "Supervision Group Selector",
   // TODO New key - Add a translation
   "supervision-group-selector.header": "Supervision Group Selector",
@@ -3464,7 +3467,7 @@
   "confirmation-modal.delete-eperson.header": "Supprimer l'EPerson \"{{ dsoName }}\"",
 
   // "confirmation-modal.delete-eperson.info": "Are you sure you want to delete EPerson \"{{ dsoName }}\"",
-  "confirmation-modal.delete-eperson.info": "Êtes-vous certain(e) de vouloir supprimer l'EPerson \"{{ dsoName }}\"",
+  "confirmation-modal.delete-eperson.info": "Êtes-vous certain·e de vouloir supprimer l'EPerson \"{{ dsoName }}\"",
 
   // "confirmation-modal.delete-eperson.cancel": "Cancel",
   "confirmation-modal.delete-eperson.cancel": "Annuler",
@@ -4764,7 +4767,7 @@
   "item.edit.delete.confirm": "Supprimer",
 
   // "item.edit.delete.description": "Are you sure this item should be completely deleted? Caution: At present, no tombstone would be left.",
-  "item.edit.delete.description": "Êtes-vous certain(e) de vouloir complètement supprimer cet Item? Attention, il n'y aura pas de retour en arrière possible.",
+  "item.edit.delete.description": "Êtes-vous certain·e de vouloir complètement supprimer cet Item? Attention, il n'y aura pas de retour en arrière possible.",
 
   // "item.edit.delete.error": "An error occurred while deleting the item",
   "item.edit.delete.error": "Une erreur s'est produite lors de la suppression de l'Item",
@@ -5066,7 +5069,7 @@
 
   // "item.edit.private.description": "Are you sure this item should be made non-discoverable in the archive?",
   // TODO Source message changed - Revise the translation
-  "item.edit.private.description": "Êtes-vous certain(e) de vouloir définir cet Item comme privé?",
+  "item.edit.private.description": "Êtes-vous certain·e de vouloir définir cet Item comme privé?",
 
   // "item.edit.private.error": "An error occurred while making the item non-discoverable",
   // TODO Source message changed - Revise the translation
@@ -5089,7 +5092,7 @@
 
   // "item.edit.public.description": "Are you sure this item should be made discoverable in the archive?",
   // TODO Source message changed - Revise the translation
-  "item.edit.public.description": "Êtes-vous certain(e) de vouloir définir cet Item comme public?",
+  "item.edit.public.description": "Êtes-vous certain·e de vouloir définir cet Item comme public?",
 
   // "item.edit.public.error": "An error occurred while making the item discoverable",
   // TODO Source message changed - Revise the translation
@@ -5110,7 +5113,7 @@
   "item.edit.reinstate.confirm": "Réintégrer",
 
   // "item.edit.reinstate.description": "Are you sure this item should be reinstated to the archive?",
-  "item.edit.reinstate.description": "Êtes-vous certain(e) de vouloir réintégrer cet Item?",
+  "item.edit.reinstate.description": "Êtes-vous certain·e de vouloir réintégrer cet Item?",
 
   // "item.edit.reinstate.error": "An error occurred while reinstating the item",
   "item.edit.reinstate.error": "Une erreur s'est produite lors de la réintégration de l'Item",
@@ -9580,19 +9583,19 @@
   "statistics.table.no-data": "Aucune donnée disponible",
 
   // "statistics.table.mainReports.title.TotalVisits": "Total visits",
-  "statistics.table.mainReports.title.TotalVisits": "Nombre de consultation",
+  "statistics.table.mainReports.title.TotalVisits": "Nombre de consultations",
 
   // "statistics.table.mainReports.title.TopItems": "Most viewed",
   "statistics.table.mainReports.title.TopItems": "Les plus consultés",
 
   // "statistics.table.mainReports.title.TotalVisitsPerMonth": "Total visits per month",
-  "statistics.table.mainReports.title.TotalVisitsPerMonth": "Nombre de visite par mois",
+  "statistics.table.mainReports.title.TotalVisitsPerMonth": "Nombre de visites par mois",
 
   // "statistics.table.mainReports.title.TotalDownloads": "File visits",
-  "statistics.table.mainReports.title.TotalDownloads": "Nombre de visite par fichier",
+  "statistics.table.mainReports.title.TotalDownloads": "Nombre de visites par fichier",
 
   // "statistics.table.mainReports.title.TotalVisitsAndDownloads": "Items and file visits",
-  "statistics.table.mainReports.title.TotalVisitsAndDownloads": "Nombre de visite de la publication et des fichiers",
+  "statistics.table.mainReports.title.TotalVisitsAndDownloads": "Nombre de visites de la publication et des fichiers",
 
   // "statistics.table.mainReports.title.TopCountries": "Top country views",
   "statistics.table.mainReports.title.TopCountries": "Classement des vues par pays",
@@ -9874,8 +9877,8 @@
   // "submission.general.deposit": "Deposit",
   "submission.general.deposit": "Finaliser le dépôt",
   "submission.general.deposit.confirm.cancel": "Annuler",
-  "submission.general.deposit.confirm.info": "Après confirmation, vous ne pourrez plus modifier votre dépôt. Êtes-vous certain(e)?",
-  "submission.general.deposit.confirm.submit": "Oui, je suis certain(e)",
+  "submission.general.deposit.confirm.info": "Après confirmation, vous ne pourrez plus modifier votre dépôt. Êtes-vous certain·e?",
+  "submission.general.deposit.confirm.submit": "Oui, je suis certain·e",
   "submission.general.deposit.confirm.title": "Finaliser le dépôt",
   "submission.general.deposit.submit": "Confirmer",
 
@@ -9883,10 +9886,10 @@
   "submission.general.discard.confirm.cancel": "Annuler",
 
   // "submission.general.discard.confirm.info": "This operation can't be undone. Are you sure?",
-  "submission.general.discard.confirm.info": "L'annulation est irréversible, les données de la soumission en cours seront perdues. Êtes-vous certain(e)?",
+  "submission.general.discard.confirm.info": "L'annulation est irréversible, les données de la soumission en cours seront perdues. Êtes-vous certain·e?",
 
   // "submission.general.discard.confirm.submit": "Yes, I'm sure",
-  "submission.general.discard.confirm.submit": "Oui, je suis certain(e)",
+  "submission.general.discard.confirm.submit": "Oui, je suis certain·e",
 
   // "submission.general.discard.confirm.title": "Discard submission",
   "submission.general.discard.confirm.title": "Annuler la soumission",
@@ -9895,8 +9898,9 @@
   "submission.general.discard.submit": "Annuler",
 
   // "submission.general.info.invalid": "The submission is invalid, check missing fields",
-  // TODO New key - Add a translation
-  "submission.general.info.invalid": "The submission is invalid, check missing fields",
+  "submission.general.info.invalid": "Le dépôt est invalide, veuillez vérifier les champs en erreur",
+  "submission.general.info.in-saving": "Sauvegarde en cours...",
+  "submission.general.info.in-deposit": "Dépôt en cours...",
 
   // "submission.general.info.saved": "Saved",
   "submission.general.info.saved": "Sauvegardées",
@@ -11004,10 +11008,10 @@
   "submission.sections.upload.delete.confirm.cancel": "Annuler",
 
   // "submission.sections.upload.delete.confirm.info": "This operation can't be undone. Are you sure?",
-  "submission.sections.upload.delete.confirm.info": "Cette opération est irréversible. Êtes-vous certain(e)?",
+  "submission.sections.upload.delete.confirm.info": "Cette opération est irréversible. Êtes-vous certain·e?",
 
   // "submission.sections.upload.delete.confirm.submit": "Yes, I'm sure",
-  "submission.sections.upload.delete.confirm.submit": "Oui, je suis certain(e)",
+  "submission.sections.upload.delete.confirm.submit": "Oui, je suis certain·e",
 
   // "submission.sections.upload.delete.confirm.title": "Delete bitstream",
   "submission.sections.upload.delete.confirm.title": "Supprimer",
@@ -11027,8 +11031,8 @@
   // "submission.sections.upload.form.access-condition-label": "Access condition type",
   "submission.sections.upload.form.access-condition-label": "Type d'autorisations d'accès",
 
-  // "submission.sections.upload.form.access-condition-hint": "Select an access condition to apply on the bitstream once the item is deposited",
-  "submission.sections.upload.form.access-condition-hint": "Sélectionner une autorisation d'accès à appliquer sur le Bitstream une fois l'Item déposé",
+  // "submission.sections.upload.form.access-condition-hint": "Specify access type to apply for this file",
+  "submission.sections.upload.form.access-condition-hint": "Choisissez ici le type d'accès que vous souhaitez pour le fichier",
 
   // "submission.sections.upload.form.date-required": "Date is required.",
   "submission.sections.upload.form.date-required": "La date est obligatoire.",
@@ -11251,10 +11255,10 @@
   "submission.sections.submit.progressbar.changerequest": "Demande de modifications",
 
   // "submission.sections.change-request.header": "A manager requested modifications for the following reason:",
-  "submission.sections.change-request.header": "Un gestionnaire a demandé des modifications pour les raisons suivantes:",
+  "submission.sections.change-request.header": "Votre dépôt de mémoire a été rouvert afin que vous puissiez y apporter les modifications suivantes :",
 
   // "submission.sections.change-request.instruction": "Once the modifications are done, please submit your thesis again.",
-  "submission.sections.change-request.instruction": "Une fois les modification effectuées, veuillez soumettre à nouveau votre mémoire.",
+  "submission.sections.change-request.instruction": "Une fois les modifications effectuées, veuillez valider à nouveau votre dépôt.",
 
   // "submission.submit.breadcrumbs": "New submission",
   "submission.submit.breadcrumbs": "Nouvelle soumission",
@@ -11313,10 +11317,10 @@
   "submission.workflow.tasks.claimed.approve_help": "Si vous avez bien révisé cet Item et qu'il peut être ajouté à la collection, sélectionner « Approuver ».",
 
   // "submission.workflow.tasks.claimed.confirm-approve": "Approve",
-  "submission.workflow.tasks.claimed.confirm-approve": "Approuver",
+  "submission.workflow.tasks.claimed.confirm-approve": "Approuver tel quel",
   
   // "submission.workflow.tasks.claimed.confirm-approve_help": "The submission can enter the public archive.",
-  "submission.workflow.tasks.claimed.confirm-approve_help": "Le mémoire sera accessible dans l'archive publique.",
+  "submission.workflow.tasks.claimed.confirm-approve_help": "Le mémoire sera approuvé tel quel : la fiche descriptive du mémoire sera rendue visible du public et les fichiers seront diffusés selon les restrictions choisies pour chacun.\nUtilisez cette option lorsque la faculté ne s’est pas opposée à la diffusion des fichiers.",
   
   // "submission.workflow.tasks.claimed.confirm-approve.reason.title": "Confirm",
   "submission.workflow.tasks.claimed.confirm-approve.reason.title": "Confirmer",
@@ -11337,7 +11341,7 @@
   "submission.workflow.tasks.claimed.approve-no-diffusion": "Approuver sans diffusion",
 
   // "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Approve but all the bitstreams will be in forbidden access."
-  "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Approuve mais tous les fichiers attachés seront placés en accès interdit.",
+  "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Le mémoire sera approuvé, mais seule la description du mémoire sera visible du public ; tous les fichiers seront interdits d'accès.\nUtilisez cette option pour les mémoires dont la faculté a décidé qu’ils ne pouvaient pas être consultés.",
 
   // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Confirmer",
   "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Confirmer",
@@ -11402,7 +11406,7 @@
   "submission.workflow.tasks.claimed.withdraw-reject.submit": "Rejeter",
 
   // "submission.workflow.tasks.claimed.withdraw-reject_help": "If you have reviewed the item but it is not suitable for the archive, select \"Reject\". The item will be placed in a withdrawn state and will not be visible anymore.",
-  "submission.workflow.tasks.claimed.withdraw-reject_help": "Rejeter le dépôt. Utiliser en cas d'échec du mémoire ou pour permettre à l'étudiant de réaliser un nouveau dépôt.",
+  "submission.workflow.tasks.claimed.withdraw-reject_help": "Le dépôt sera rejeté. Utilisez cette option pour les mémoires en échec.",
 
   // "submission.workflow.tasks.claimed.return-to-submitter": "Send back to submitter",
   "submission.workflow.tasks.claimed.return-to-submitter": "Renvoyer au déposant",
@@ -11447,7 +11451,7 @@
   "submission.workflow.tasks.pool.claim": "Prendre en charge",
 
   // "submission.workflow.tasks.pool.claim_help": "Assign this task to yourself.",
-  "submission.workflow.tasks.pool.claim_help": "Vous assigner La validation",
+  "submission.workflow.tasks.pool.claim_help": "Vous assigne la validation",
 
   // "submission.workflow.tasks.pool.hide-detail": "Hide detail",
   "submission.workflow.tasks.pool.hide-detail": "Masquer le détail",
@@ -11610,6 +11614,8 @@
   // "subscriptions.table.empty.message": "You do not have any subscriptions at this time. To subscribe to email updates for a Community or Collection, use the subscription button on the object's page.",
   // TODO New key - Add a translation
   "subscriptions.table.empty.message": "You do not have any subscriptions at this time. To subscribe to email updates for a Community or Collection, use the subscription button on the object's page.",
+
+  "tag-field.placeholder": "Entrez les mots-clés",
 
   // "thesis.listelement.badge": "Thesis",
   "thesis.listelement.badge": "Mémoire",
@@ -13805,7 +13811,7 @@
 
   "footer.link.faq": "FAQ",
   "footer.link.deposit-guide": "Guide du déposant",
-  "footer.link.open-ticket": "OSTicket",
+  "footer.link.ask-question": "Poser une question",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",

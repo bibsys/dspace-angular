@@ -128,7 +128,7 @@ export class Chips {
         if (hasValue(value) && isNotEmpty(config) && !this.hasPlaceholder(value)) {
 
           let icon: ChipsItemIcon;
-          const visibleWhenAuthorityEmpty = this.displayObj !== metadata || (iconsVisibleWithNoAuthority.includes(config.style));
+          const visibleWhenAuthorityEmpty = isNotEmpty(config.style) && (this.displayObj !== metadata || (iconsVisibleWithNoAuthority.includes(config.style)));
 
           // Set icon
           icon = {

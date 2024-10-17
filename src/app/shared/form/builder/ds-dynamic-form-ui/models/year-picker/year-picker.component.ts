@@ -11,7 +11,7 @@ import { isUndefined } from 'src/app/shared/empty.util';
 @Component({
     selector: 'ds-year-picker',
     templateUrl: './year-picker.component.html',
-    styles: ['legend { font-size: initial; }'],
+    styles: ['legend { font-size: 1rem; }'],
 })
 export class DsYearPickerComponent extends DynamicFormControlComponent implements OnInit {
     @Input() bindId = true;

@@ -163,6 +163,7 @@ export class MenuResolver implements Resolve<boolean> {
             } else {
               parentMenu = {
                 ...parentMenu,
+                index: 1,
                 model: {
                   type: MenuItemType.LINK,
                   text: `menu.section.explore_${section.id}`,
@@ -227,7 +228,7 @@ export class MenuResolver implements Resolve<boolean> {
       id: 'browse',
       active: false,
       visible: true,
-      index: 1,
+      index: 2,
       model: {
         type: MenuItemType.TEXT,
         text: 'menu.section.browse'
