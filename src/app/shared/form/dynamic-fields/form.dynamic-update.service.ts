@@ -3,7 +3,7 @@ import { DynamicFieldsConfigurationLoader } from './dynamic-fields-configuration
 import { DynamicFieldEndpointConfig, DynamicFieldsConfig } from 'src/config/submission-config.interface';
 import { FormDynamicUpdateRequestService } from './form.dynamic-update-request.service';
 import { Injectable } from '@angular/core';
-import { isNotNull, isNotUndefined } from '../../empty.util';
+import { isEmpty, isNotNull, isNotUndefined } from '../../empty.util';
 import { environment } from 'src/environments/environment';
 import { replaceAll } from './string.util';
 
@@ -59,7 +59,7 @@ export class FormDynamicUpdateService {
      * @param formBuilderInstance - An instance of the FormBuilderService used to find fields in the from.
      */
     private areTargetFieldsPresent(targetFields: string[], formBuilderInstance: any): boolean {
-        if (!targetFields.length) {
+        if (isEmpty(targetFields)) {
             return false;
         }
         let res = true;
