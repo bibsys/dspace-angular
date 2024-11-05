@@ -32,7 +32,13 @@ export class SearchFilterConfig implements CacheableObject {
     @autoserialize
       name: string;
 
-    /**
+  /**
+   * Is the filter input must is exposed
+   */
+    @autoserialize
+      exposeFilter: boolean;
+
+  /**
      * The FilterType of this filter
      */
     @autoserializeAs(String, 'facetType')
