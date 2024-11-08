@@ -7,6 +7,7 @@ import {
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
+  Router,
   RouterStateSnapshot,
 } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -61,6 +62,8 @@ import { OnClickMenuItemModel } from './shared/menu/menu-item/models/onclick.mod
 import { TextMenuItemModel } from './shared/menu/menu-item/models/text.model';
 import { MenuItemType } from './shared/menu/menu-item-type.model';
 import { MenuState } from './shared/menu/menu-state.model';
+import { RoleService } from './core/roles/role.service';
+import { RoleType } from './core/roles/role-types';
 
 /**
  * Creates all the app's menus
@@ -82,6 +85,8 @@ export class MenuResolverService  {
     protected authService: AuthService,
     protected sectionDataService: SectionDataService,
     protected configService: ConfigurationDataService,
+    protected roleService: RoleService,
+    protected router: Router,
   ) {
   }
 
@@ -196,23 +201,36 @@ export class MenuResolverService  {
 
     this.createStatisticsMenu();
 
-    // Add a link to the myDSpacePage
-    const myDialLinkModel = Object.assign(
-      {
-        id: `mydspace_shortcut`,
-        active: false,
-        visible: false,
-        index: 0,
-        model: {
-          type: MenuItemType.LINK,
-          text: `menu.section.mydspace_shortcut`,
-          link: `/mydspace`
-        } as LinkMenuItemModel
-      },
-      {shouldPersistOnRouteChange: true}
-    );
-    this.authService.isAuthenticated().subscribe(v => myDialLinkModel.visible = v);
-    this.menuService.addSection(MenuID.PUBLIC, myDialLinkModel);
+    // HACK UCLouvain
+    //   Depending on if the user is a manager(aka controller), we would like redirect
+    //   the user on 'workflow' mydspace section. As `checkRole` function is an observable,
+    //   we need to subscribe before to add the menu link into the `public menu`.
+    this.roleService
+      .checkRole(RoleType.Controller)
+      .subscribe((isController: boolean) => {
+        // Add a link to the myDSpacePage
+        const queryParams = {};
+        if (isController) {
+          queryParams['configuration'] = 'workflow';
+        }
+        const myDialLinkModel = Object.assign(
+          {
+            id: `mydspace_shortcut`,
+            active: false,
+            visible: false,
+            index: 0,
+            model: {
+              type: MenuItemType.LINK,
+              text: `menu.section.mydspace_shortcut`,
+              link: '/mydspace',
+              queryParams: queryParams
+            } as LinkMenuItemModel
+          },
+          {shouldPersistOnRouteChange: true}
+        );
+        this.authService.isAuthenticated().subscribe(v => myDialLinkModel.visible = v);
+        this.menuService.addSection(MenuID.PUBLIC, myDialLinkModel);
+      });
 
     return this.waitForMenu$(MenuID.PUBLIC);
   }
