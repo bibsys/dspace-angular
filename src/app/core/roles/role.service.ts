@@ -11,6 +11,7 @@ import { FeatureID } from '../data/feature-authorization/feature-id';
 import { RoleType } from './role-types';
 import { AuthService } from '../auth/auth.service';
 import { EPerson } from '../eperson/models/eperson.model';
+import { hasValue, isNotEmpty } from '../../shared/empty.util';
 
 
 /**
@@ -50,7 +51,11 @@ export class RoleService {
     return this.authService
       .getAuthenticatedUserFromStore()
       .pipe(
-        switchMap((eperson: EPerson) => this.authorizationService.isAuthorized(FeatureID.HasRoleManager, eperson.self)),
+        switchMap((eperson: EPerson) => {
+          return (hasValue(eperson) && hasValue(eperson?._links) && isNotEmpty(eperson?.self))
+            ? this.authorizationService.isAuthorized(FeatureID.HasRoleManager, eperson.self)
+            : observableOf(false);
+        }),
       );
   }
 
