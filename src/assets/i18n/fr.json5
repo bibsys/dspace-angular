@@ -3846,7 +3846,7 @@
   "item.badge.private": "Privé",
 
   // "item.badge.withdrawn": "Withdrawn",
-  "item.badge.withdrawn": "Retiré",
+  "item.badge.withdrawn": "Rejeté",
 
   // "item.badge.change-request": "Change requested",
   "item.badge.change-request": "Modifications demandées",
@@ -7823,6 +7823,133 @@
 
   // "submission.import-external.preview.error.import.body": "An error occurs during the external source entry import process.",
   "submission.import-external.preview.error.import.body": "Une erreur s'est produite lors de l'importation depuis la source externe.",
+
+  // "submission.rules.markdown": "..."
+  "submission.rules.markdown": "<p>Le ou les fichiers que vous vous apprêtez à déposer en ligne <b>constitue(nt) la version officielle de votre mémoire et seront communiqués comme tels au jury</b>. Si votre règlement facultaire prévoit en outre la remise d'un ou plusieurs exemplaires imprimés, <b>ceux-ci devront obligatoirement être imprimés à partir des fichiers déposés</b>. La non-conformité de la version imprimée avec la version électronique peut amener le jury d'examen à décider d'une irrégularité du fait de l'étudiant et l'attribution d'une note \"T\" (0/20).</p><p>Consignes pour les fichiers :</p><p>Le texte du mémoire doit être déposé en un unique fichier PDF<ul><li>de préférence au format PDF/A et non protégé</li><li>nommé de la façon suivante : Nom_NOMA_Année de défense.pdf (par ex. Dupont_00123456_2024.pdf)</ul>L’<u>annexe</u> ou <u>les annexes</u> peuvent être déposées <u>séparément</u>. Dans ce cas, chaque fichier d’annexe doit être renommé de la façon suivante :<ul><li>Nom_NOMA_Année de défense_Annexe1.pdf (par ex. Dupont_00123456_2024_Annexe1.pdf)</li><li>Nom_NOMA_Année de défense_Annexe2., etc. s’il y a plusieurs annexes.</li></ul>Dans les noms de fichiers : éviter d’utiliser des caractères accentués, symboles, etc. et utiliser le tiret_bas (« underscore ») pour remplacer les espaces.</p>",
+
+  // "submission.sections.correction.bitstream.operation.add": "Bitstream added",
+  // TODO New key - Add a translation
+  "submission.sections.correction.bitstream.operation.add": "Bitstream added",
+
+  // "submission.sections.correction.bitstream.operation.modify": "Bitstream modified",
+  // TODO New key - Add a translation
+  "submission.sections.correction.bitstream.operation.modify": "Bitstream modified",
+
+  // "submission.sections.correction.bitstream.operation.remove": "Bitstream removed",
+  // TODO New key - Add a translation
+  "submission.sections.correction.bitstream.operation.remove": "Bitstream removed",
+
+  // "submission.sections.correction.column.current-value": "Current value",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.current-value": "Current value",
+
+  // "submission.sections.correction.column.file": "File",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.file": "File",
+
+  // "submission.sections.correction.column.file.info": "Here are the changes related the item's bitstream",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.file.info": "Here are the changes related the item's bitstream",
+
+  // "submission.sections.correction.column.metadata": "Metadata",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.metadata": "Metadata",
+
+  // "submission.sections.correction.column.metadata.info": "Here are the changes related the item's metadata",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.metadata.info": "Here are the changes related the item's metadata",
+
+  // "submission.sections.correction.column.previous-value": "Previous value",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.previous-value": "Previous value",
+
+  // "submission.sections.correction.column.policy": "Policy",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.policy": "Policy",
+
+  // "submission.sections.submit.progressbar.correction": "Correction details",
+  // TODO New key - Add a translation
+  "submission.sections.submit.progressbar.correction": "Correction details",
+
+
+
+  // "submission.sections.detect-duplicate.clear-decision": "Undo",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.clear-decision": "Undo",
+
+  // "submission.sections.detect-duplicate.clear-decision-help": "Click for clear the decision about this pontential duplicate",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.clear-decision-help": "Click for clear the decision about this pontential duplicate",
+
+  // "submission.sections.detect-duplicate.confirm-duplicate": "Confirm (It's a duplicate)",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.confirm-duplicate": "Confirm (It's a duplicate)",
+
+  // "submission.sections.detect-duplicate.confirm-not-duplicate": "Confirm (It's not a duplicate)",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.confirm-not-duplicate": "Confirm (It's not a duplicate)",
+
+  // "submission.sections.detect-duplicate.decision-success-notice": "Choice registered successfully",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.decision-success-notice": "Choice registered successfully",
+
+  // "submission.sections.detect-duplicate.disclaimer": "The system has identified some potential duplicates. Please carefully review the list and flag each occurency with the appropriate choice or discard this submission.",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.disclaimer": "The system has identified some potential duplicates. Please carefully review the list and flag each occurency with the appropriate choice or discard this submission.",
+
+  // "submission.sections.detect-duplicate.disclaimer-ctrl": "The system has identified some potential duplicates. Please carefully review the list and the submitter comments and perform the appropriate action.",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.disclaimer-ctrl": "The system has identified some potential duplicates. Please carefully review the list and the submitter comments and perform the appropriate action.",
+
+  // "submission.sections.detect-duplicate.disclaimer-no-match": "All your feedback on potential duplicates have been registered correctly.",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.disclaimer-no-match": "All your feedback on potential duplicates have been registered correctly.",
+
+  // "submission.sections.detect-duplicate.duplicate": "It's a duplicate",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.duplicate": "It's a duplicate",
+
+  // "submission.sections.detect-duplicate.duplicate-ctrl": "Mark the record to merge",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.duplicate-ctrl": "Mark the record to merge",
+
+  // "submission.sections.detect-duplicate.duplicate-detected": "Potential duplicate detected",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.duplicate-detected": "Potential duplicate detected",
+
+  // "submission.sections.detect-duplicate.duplicate-help": "Click here if this is a duplicate of your item",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.duplicate-help": "Click here if this is a duplicate of your item",
+
+  // "submission.sections.detect-duplicate.note-help": "Please enter your reason for the duplication into the box below.",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.note-help": "Please enter your reason for the duplication into the box below.",
+
+  // "submission.sections.detect-duplicate.note-placeholder": "Describe the reason of duplication",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.note-placeholder": "Describe the reason of duplication",
+
+  // "submission.sections.detect-duplicate.no-decision": "No decision yet",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.no-decision": "No decision yet",
+
+  // "submission.sections.detect-duplicate.not-duplicate": "It's not a duplicate",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.not-duplicate": "It's not a duplicate",
+
+  // "submission.sections.detect-duplicate.not-duplicate-help": "Click here if this is not a duplicate of your item",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.not-duplicate-help": "Click here if this is not a duplicate of your item",
+
+  // "submission.sections.detect-duplicate.submitter-decision": "Submitter decision:",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.submitter-decision": "Submitter decision:",
+
+  // "submission.sections.detect-duplicate.submitter-note": "Submitter note:",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.submitter-note": "Submitter note:",
+
+
 
   // "submission.sections.describe.relationship-lookup.close": "Close",
   "submission.sections.describe.relationship-lookup.close": "Fermer",
