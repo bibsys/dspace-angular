@@ -4932,7 +4932,7 @@
   "item.badge.private": "Privé",
 
   // "item.badge.withdrawn": "Withdrawn",
-  "item.badge.withdrawn": "Retiré",
+  "item.badge.withdrawn": "Rejeté",
 
   // "item.badge.change-request": "Change requested",
   "item.badge.change-request": "Modifications demandées",
@@ -10449,7 +10449,8 @@
   // "submission.import-external.preview.error.import.body": "An error occurs during the external source entry import process.",
   "submission.import-external.preview.error.import.body": "Une erreur s'est produite lors de l'importation depuis la source externe.",
 
-
+  // "submission.rules.markdown": "..."
+  "submission.rules.markdown": "<p>Le ou les fichiers que vous vous apprêtez à déposer en ligne <b>constitue(nt) la version officielle de votre mémoire et seront communiqués comme tels au jury</b>. Si votre règlement facultaire prévoit en outre la remise d'un ou plusieurs exemplaires imprimés, <b>ceux-ci devront obligatoirement être imprimés à partir des fichiers déposés</b>. La non-conformité de la version imprimée avec la version électronique peut amener le jury d'examen à décider d'une irrégularité du fait de l'étudiant et l'attribution d'une note \"T\" (0/20).</p><p>Consignes pour les fichiers :</p><p>Le texte du mémoire doit être déposé en un unique fichier PDF<ul><li>de préférence au format PDF/A et non protégé</li><li>nommé de la façon suivante : Nom_NOMA_Année de défense.pdf (par ex. Dupont_00123456_2024.pdf)</ul>L’<u>annexe</u> ou <u>les annexes</u> peuvent être déposées <u>séparément</u>. Dans ce cas, chaque fichier d’annexe doit être renommé de la façon suivante :<ul><li>Nom_NOMA_Année de défense_Annexe1.pdf (par ex. Dupont_00123456_2024_Annexe1.pdf)</li><li>Nom_NOMA_Année de défense_Annexe2., etc. s’il y a plusieurs annexes.</li></ul>Dans les noms de fichiers : éviter d’utiliser des caractères accentués, symboles, etc. et utiliser le tiret_bas (« underscore ») pour remplacer les espaces.</p>",
 
   // "submission.sections.correction.bitstream.operation.add": "Bitstream added",
   // TODO New key - Add a translation
