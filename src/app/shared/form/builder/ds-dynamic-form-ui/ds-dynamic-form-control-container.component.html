@@ -4,11 +4,15 @@
   [formGroup]="group"
   [ngClass]="[getClass('element', 'container'), getClass('grid', 'container')]">
 
-  <label *ngIf="!isCheckbox && hasLabel"
+  <div *ngIf="!isCheckbox && hasLabel"
          [id]="'label_' + model.id"
-         [for]="id"
-         [innerHTML]="(model.required && model.label) ? (model.label | translate) + ' *' : (model.label | translate)"
-         [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]"></label>
+         [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]">
+    <a *ngIf="model?.help" [href]="model.help" target="submission_help">
+      <i class="fa fa-solid fa-circle-question pr-1 text-info"></i>
+    </a>
+    <label *ngIf="model.label" class="mb-1" [for]="id" [innerHTML]="model.label | translate"></label>
+    <span *ngIf="model.required" class="pl-1 text-danger font-weight-bold">*</span>
+  </div>
   <div class="d-flex">
     <div class="flex-grow-1">
       <ng-container *ngTemplateOutlet="startTemplate?.templateRef; context: { $implicit: model };"></ng-container>
