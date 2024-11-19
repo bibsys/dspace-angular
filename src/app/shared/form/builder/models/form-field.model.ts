@@ -42,6 +42,12 @@ export class FormFieldModel {
   hints: string;
 
   /**
+   * The URL help link where to find a complete documentation for this field
+   */
+  @autoserialize
+    help: string;
+
+  /**
    * The label for this metadata field to display on form
    */
   @autoserialize

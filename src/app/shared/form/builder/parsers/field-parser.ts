@@ -315,7 +315,7 @@ export abstract class FieldParser {
     }
   }
 
-  protected initModel(id?: string, label = true, labelEmpty = false, setErrors = true, hint = true) {
+  protected initModel(id?: string, label = true, labelEmpty = false, setErrors = true, hint = true, help = true) {
 
     const controlModel = Object.create(null);
 
@@ -345,6 +345,9 @@ export abstract class FieldParser {
     this.setLabel(controlModel, label);
     if (hint) {
       controlModel.hint = this.configData.hints || '&nbsp;';
+    }
+    if (help) {
+      controlModel.help = this.configData.help;
     }
     controlModel.placeholder = this.configData.label;
 
