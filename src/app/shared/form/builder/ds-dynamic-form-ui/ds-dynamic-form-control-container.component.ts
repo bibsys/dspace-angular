@@ -171,6 +171,7 @@ export class DsDynamicFormControlContainerComponent extends DynamicFormControlCo
   @Input() hasErrorMessaging = false;
   @Input() layout = null as DynamicFormLayout;
   @Input() model: any;
+  @Input() showHint = true;
   securityLevel: number;
   relationshipValue$: Observable<ReorderableRelationship>;
   isRelationship: boolean;

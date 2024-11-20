@@ -7,8 +7,7 @@
       <!-- Draggable Container -->
       <div role="listbox" [attr.aria-label]="'dynamic-form-array.sortable-list.label' | translate" #dropList cdkDropList cdkDropListLockAxis="y" (cdkDropListDropped)="moveSelection($event)">
         <!-- Draggable Items -->
-        <div #sortableElement
-             *ngFor="let groupModel of model.groups; let idx = index; let length = count"
+        <div #sortableElement *ngFor="let groupModel of model.groups; let idx = index; let length = count; let lastGroup = last"
              role="group"
              [formGroupName]="groupModel.index"
              [ngClass]="[getClass('element', 'group'), getClass('grid', 'group')]"
@@ -38,6 +37,7 @@
                                              [class.d-none]="_model.hidden"
                                              [layout]="formLayout"
                                              [model]="_model"
+                                             [showHint]="lastGroup"
                                              [templates]="templates"
                                              [ngClass]="[getClass('element', 'host', _model), getClass('grid', 'host', _model)]"
                                              (dfBlur)="onBlur($event)"

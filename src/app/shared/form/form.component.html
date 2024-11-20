@@ -54,20 +54,24 @@
           </div>
         </div>
 
-        <div *ngIf="(!context.notRepeatable) && (index === (group.context.groups.length - 1) )" class="clearfix w-100"
+        <!--<div *ngIf="(!context.notRepeatable) && (index === (group.context.groups.length - 1) )" class="clearfix w-100"
              [class.pl-4]="!isInlineGroupForm"
-             [class.white-background]="isInlineGroupForm">
-          <div class="btn-group" role="group" aria-label="remove button">
-            <button type="button" role="button" class="ds-form-add-more btn btn-link"
-                title="{{'form.add' | translate}}"
-                attr.aria-label="{{'form.add' | translate}}"
-                [class.pl-0]="isInlineGroupForm"
-                [dsBtnDisabled]="isItemReadOnly(context, index)"
-                (click)="insertItem($event, group.context, group.context.groups.length)">
-              <span><i class="fas fa-plus"></i> {{'form.add' | translate}}</span>
-            </button>
-          </div>
-        </div>
+             [class.white-background]="isInlineGroupForm"> -->
+        <!-- always place the button in the DOM at the end of input field line (not below) -->
+         <div *ngIf="(!context.notRepeatable)">
+           <div class="btn-group" role="group" aria-label="add button">
+             <button type="button" role="button" class="ds-form-add-more btn btn-success"
+                 title="{{'form.add' | translate}}"
+                 attr.aria-label="{{'form.add' | translate}}"
+                 [class.pl-0]="isInlineGroupForm"
+                 [dsBtnDisabled]="isItemReadOnly(context, index)"
+                 [style.visibility]="(index === (group.context.groups.length - 1)) ? 'visible' : 'hidden'"
+                 (click)="insertItem($event, group.context, group.context.groups.length)">
+               <span><i class="fas fa-plus"></i></span>
+             </button>
+           </div>
+         </div>
+
 
         <!--Array with non repeatable items - Only discard button-->
         <div *ngIf="context.notRepeatable && context.showButtons && group.context.groups.length > 1"
