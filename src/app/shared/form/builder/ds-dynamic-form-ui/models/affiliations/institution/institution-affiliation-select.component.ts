@@ -22,7 +22,7 @@ import { DynamicInstitutionAffiliationSelectModel } from "./institution-affiliat
  */
 @Component({
   selector: 'ds-institution-affiliation-select',
-  styleUrls: ['../../scrollable-dropdown/dynamic-scrollable-dropdown.component.scss'],
+  styleUrls: ['./institution-affiliation-select.component.scss', '../../scrollable-dropdown/dynamic-scrollable-dropdown.component.scss'],
   templateUrl: './institution-affiliation-select.component.html',
   imports: [
     NgbDropdownModule,
@@ -109,13 +109,14 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
 
   /**
    * Converts an option coming from the backend into a VocabularyEntry.
-   *
-   * @param affiliation The option to generate the VocabularyEntry from.
+   * @param affiliation The chose option to use to generate the VocabularyEntry from.
    * @returns The generated VocabularyEntry.
    */
   protected generateVocabularyEntry(affiliation: AffiliationData): VocabularyEntry {
     return Object.assign(new VocabularyEntry(), {
-      display: affiliation.acronym, value: affiliation.acronym, authority: affiliation.UUID
+      display: affiliation.acronym,
+      value: affiliation.acronym,
+      authority: affiliation.UUID
     });
   }
 
