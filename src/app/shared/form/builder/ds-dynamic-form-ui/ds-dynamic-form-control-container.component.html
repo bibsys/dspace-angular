@@ -25,7 +25,7 @@
           </div>
           <div class="d-flex flex-column w-100">
             <small
-              *ngIf="hasHint && !model.hideHint &&
+              *ngIf="showHint && hasHint && !model.hideHint &&
            (formBuilderService.hasArrayGroupValue(model) ||
             (
               (!model.repeatable
