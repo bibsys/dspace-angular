@@ -27,3 +27,7 @@
     color: var(--bs-gray-500);
     font-size: 0.9rem;
 }
+
+input.form-control.is-invalid {
+  background-position: right calc(1.375em + 0.1875rem) center;  // avoid invalid icon to overlap dropdown arrow icon
+}
