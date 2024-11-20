@@ -57,7 +57,7 @@
                    class="invalid-feedback d-block">{{ message | translate: model.validators }}</small>
           </div>
         </div>
-        <div *ngIf="model.languageCodes && model.languageCodes.length > 0" class="col-xs-2">
+        <div *ngIf="model.languageCodes && model.languageCodes.length > 0" class="col-1 col-xs-2">
           <select
             #language="ngModel"
             [disabled]="model.readOnly"
@@ -70,7 +70,7 @@
             <option *ngFor="let lang of model.languageCodes" [value]="lang.code">{{lang.display}}</option>
           </select>
         </div>
-        <div *ngIf="model.hasSecurityToggle" class="col-xs-2" [class.date-field-security]="model.type === 'DATE'">
+        <div *ngIf="model.hasSecurityToggle" class="col-1 col-xs-2" [class.date-field-security]="model.type === 'DATE'">
           <ds-edit-metadata-security *ngIf="model.toggleSecurityVisibility"
                                      [readOnly]="model.readOnly"
                                      [securityConfigLevel]="model.securityConfigLevel"

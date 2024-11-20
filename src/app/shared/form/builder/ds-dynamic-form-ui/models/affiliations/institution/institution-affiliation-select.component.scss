@@ -1,0 +1,20 @@
+:host {
+  // As the institution is a editable select input field, the toggle arrow icon is displayed outside of the real input
+  // field. But when focus is loose on the input field (by clicking on the arrow), then the field validation is trigger
+  // and 'invalid' state could be set ; in this specific case, the dropdown menu isn't show despite user has clicked on
+  // the correct arrow button.
+  // To solve this, we use a lower 'z-index' on the arrow button than on input field ; then the focus isn't loose when
+  // user click on the arrow button.
+  .scrollable-dropdown-toggle {
+    z-index: 0;
+  }
+  input.form-control {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+
+    &.is-invalid {
+      background-position: right calc(1.375em + 0.1875rem) center;  // avoid invalid icon to overlap dropdown arrow icon
+    }
+  }
+}
