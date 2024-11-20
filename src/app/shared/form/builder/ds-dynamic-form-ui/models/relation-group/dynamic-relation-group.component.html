@@ -1,20 +1,19 @@
-<div class="pt-2">
+<div class="d-flex align-items-center relation-group">
   <div class="d-flex">
     <ds-loading *ngIf="!chips" [showMessage]="false"></ds-loading>
-    <div *ngIf="chips && !chips.hasItems()">
-      <input type="text"
-             class="border-0 form-control-plaintext tag-input mt-1 mb-1 pl-2 text-muted"
-             readonly
-             tabindex="-1"
-             value="{{'form.no-value' | translate}}">
+    <div *ngIf="chips && !chips.hasItems()"
+         (click)="openModal()"
+         class="d-flex align-items-center text-muted my-1 mr-2">
+        {{'form.no-value' | translate}}
     </div>
     <ds-chips
       *ngIf="chips && chips.hasItems()"
       [chips]="chips"
       [editable]="!model.readOnly"
       [showIcons]="true"
+      [chipWrapperClass]="'my-0'"
       (selected)="onChipSelected($event)"></ds-chips>
-    <button type="button" class="ds-form-add-more btn btn-link"
+    <button type="button" class="ds-form-add-more btn btn-success"
             title="{{'form.add' | translate}}"
             [dsBtnDisabled]="model.readOnly"
             (click)="openModal()">
