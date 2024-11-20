@@ -72,7 +72,8 @@ const TOOLTIP_TEXT_LIMIT = 21;
 })
 export class ChipsComponent implements OnChanges, OnInit {
   @Input() chips: Chips;
-  @Input() wrapperClass: string;
+  @Input() wrapperClass: string = "";
+  @Input() chipWrapperClass: string = "";
   @Input() editable = false;
   @Input() showIcons = false;
   @Input() clickable = true;
