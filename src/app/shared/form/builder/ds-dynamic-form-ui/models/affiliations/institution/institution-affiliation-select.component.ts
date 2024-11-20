@@ -19,7 +19,7 @@ import { AffiliationUpdateData } from "src/app/core/data/publication-affiliation
  */
 @Component({
   selector: 'ds-institution-affiliation-select',
-  styleUrls: ['../../scrollable-dropdown/dynamic-scrollable-dropdown.component.scss'],
+  styleUrls: ['./institution-affiliation-select.component.scss', '../../scrollable-dropdown/dynamic-scrollable-dropdown.component.scss'],
   templateUrl: './institution-affiliation-select.component.html'
 })
 export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectComponent implements OnInit, OnDestroy {
@@ -107,12 +107,12 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
    * If the authority is empty, the department select options are cleared.
    * If the clearDepartmentData flag is set to true, the department field value is also cleared.
    * 
-   * @param authority: The uuid of the institution to get the children from.
-   * @param clearDepartmentData: A flag to clear the department field value.
+   * @param authority The uuid of the institution to get the children from.
+   * @param clearDepartmentData A flag to clear the department field value.
    */
   private selectAuthorityIfAvailable(authority: string, clearDepartmentData: boolean): void {
     // Get all child affiliation for a given uuid.
-    // In case the user types a new institution, we don't have an authority value and we can't get the children, so we send an empty list.
+    // In case the user types a new institution, we don't have an authority value, and we can't get the children, so we send an empty list.
     if (!isEmpty(authority)) {
       let targetEntity = this.affiliationsList.find((affiliation: AffiliationData) => affiliation.UUID === authority);
       if (targetEntity !== null && targetEntity.children !== null) {
@@ -127,7 +127,7 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
 
   /**
    * Converts an option coming from the backend into a VocabularyEntry.
-   * @param option The option to generate the VocabularyEntry from.
+   * @param affiliation The chose option to use to generate the VocabularyEntry from.
    * @returns The generated VocabularyEntry.
    */
   protected generateVocabularyEntry(affiliation: AffiliationData): VocabularyEntry {
@@ -142,9 +142,9 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
    * Generates a flat list of affiliation data to send to the department component.
    * Each affiliation is indexed to keep track of the hierarchy.
    * 
-   * @param affiliationData: The affiliation data to flatten.
-   * @param targetList: The list to append the flattened data to.
-   * @param index: The index of the current affiliation in the hierarchy.
+   * @param affiliationData The affiliation data to flatten.
+   * @param targetList The list to append the flattened data to.
+   * @param index The index of the current affiliation in the hierarchy.
    * @returns A flattened list of affiliation data that can be sent to the department component.
    */
   private flattenAndIndexAffiliationData(affiliationData: AffiliationData[], targetList: AffiliationData[] = [], index = 0): AffiliationData[] {

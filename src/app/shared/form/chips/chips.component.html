@@ -11,7 +11,7 @@
           {{tip}}
         </p>
       </ng-template>
-      <div role="listitem" class="nav-item mr-2 mb-1"
+      <div role="listitem" class="nav-item mr-2" [ngClass]="chipWrapperClass"
            #t="ngbTooltip"
            triggers="manual"
            [ngbTooltip]="tipContent"
