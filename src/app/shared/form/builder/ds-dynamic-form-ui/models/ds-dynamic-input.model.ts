@@ -113,6 +113,8 @@ export class DsDynamicInputModel extends DynamicInputModel {
     this.typeBindRelations = config.typeBindRelations ? config.typeBindRelations : [];
 
     this.vocabularyOptions = config.vocabularyOptions;
+    // Add a custom validator to check for requirement only on non-hidden fields.
+    this.validators = Object.assign({}, this.validators, { requiredIfVisibleValidator: this });
   }
 
   get hasAuthority(): boolean {
