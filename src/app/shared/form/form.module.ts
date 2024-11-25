@@ -8,10 +8,13 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import {
   DYNAMIC_FORM_CONTROL_MAP_FN,
+  DYNAMIC_VALIDATORS,
   DynamicFormLayoutService,
   DynamicFormsCoreModule,
   DynamicFormService,
   DynamicFormValidationService,
+  Validator,
+  ValidatorFactory,
 } from '@ng-dynamic-forms/core';
 import { DynamicFormsNGBootstrapUIModule } from '@ng-dynamic-forms/ui-ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
@@ -58,6 +61,8 @@ import { NumberPickerComponent } from './number-picker/number-picker.component';
 import { VocabularyTreeviewComponent } from './vocabulary-treeview/vocabulary-treeview.component';
 import { VocabularyTreeviewModalComponent } from './vocabulary-treeview-modal/vocabulary-treeview-modal.component';
 import { CustomCheckboxComponent } from './builder/ds-dynamic-form-ui/models/checkbox/checkbox.component';
+import { requiredIfVisibleValidator } from './validator/required-if-visible-field.validator';
+import { NG_VALIDATORS } from '@angular/forms';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -124,6 +129,19 @@ const DIRECTIVES = [
     {
       provide: DYNAMIC_FORM_CONTROL_MAP_FN,
       useValue: dsDynamicFormControlMapFn,
+    },
+    // Provide the custom validator using 'NG_VALIDATORS', typically used in client side rendering.
+    {
+      provide: NG_VALIDATORS,
+      useValue: requiredIfVisibleValidator,
+      multi: true
+    },
+    // Provide the custom validator using 'DYNAMIC_VALIDATORS', typically used in server side rendering.
+    {
+      provide: DYNAMIC_VALIDATORS,
+      useValue: new Map<string, Validator | ValidatorFactory>([
+          ["requiredIfVisibleValidator", requiredIfVisibleValidator]
+      ])
     },
     DynamicFormLayoutService,
     DynamicFormService,
