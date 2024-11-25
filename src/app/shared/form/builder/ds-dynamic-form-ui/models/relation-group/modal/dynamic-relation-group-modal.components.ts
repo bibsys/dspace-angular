@@ -315,7 +315,7 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
       // Not visible form field should not prevent from submitting the form.
       .filter(model => !model.hidden)
       .map(model => model as DsDynamicInputModel)
-      .filter(model => !!model.validators && 'required' in model.validators);
+      .filter(model => !!model.validators && 'requiredIfVisibleValidator' in model.validators);
   }
 
   private modifyChip() {

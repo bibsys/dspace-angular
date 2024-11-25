@@ -457,7 +457,8 @@ export abstract class FieldParser {
 
   protected markAsRequired(controlModel) {
     controlModel.required = true;
-    controlModel.validators = Object.assign({}, controlModel.validators, { required: null });
+    // Removing this validator addition since we use a custom one added in 'ds-dynamic-input.model.ts'
+    // controlModel.validators = Object.assign({}, controlModel.validators, { required: null });
     controlModel.errorMessages = Object.assign(
       {},
       controlModel.errorMessages,

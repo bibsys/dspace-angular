@@ -13,7 +13,7 @@ import {
   TransferState,
   Type,
 } from '@angular/core';
-import { DYNAMIC_FORM_CONTROL_MAP_FN } from '@ng-dynamic-forms/core';
+import { DYNAMIC_FORM_CONTROL_MAP_FN, DYNAMIC_VALIDATORS, Validator, ValidatorFactory } from '@ng-dynamic-forms/core';
 import {
   select,
   Store,
@@ -46,6 +46,8 @@ import { dsDynamicFormControlMapFn } from './shared/form/builder/ds-dynamic-form
 import { MenuService } from './shared/menu/menu.service';
 import { ThemeService } from './shared/theme-support/theme.service';
 import { Angulartics2DSpace } from './statistics/angulartics/dspace-provider';
+import { NG_VALIDATORS } from '@angular/forms';
+import { requiredIfVisibleValidator } from './shared/form/validator/required-if-visible-field.validator';
 
 
 /**
@@ -120,6 +122,19 @@ export abstract class InitService {
       {
         provide: DYNAMIC_FORM_CONTROL_MAP_FN,
         useValue: dsDynamicFormControlMapFn,
+      },
+      // Provide the custom validator using 'NG_VALIDATORS', typically used in client side rendering.
+      {
+        provide: NG_VALIDATORS,
+        useValue: requiredIfVisibleValidator,
+        multi: true
+      },
+      // Provide the custom validator using 'DYNAMIC_VALIDATORS', typically used in server side rendering.
+      {
+        provide: DYNAMIC_VALIDATORS,
+        useValue: new Map<string, Validator | ValidatorFactory>([
+            ["requiredIfVisibleValidator", requiredIfVisibleValidator]
+        ])
       },
       {
         provide: CRIS_FIELD_RENDERING_MAP,
