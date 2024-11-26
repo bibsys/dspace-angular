@@ -62,7 +62,7 @@ export class ChipsItem {
   }
 
   hasMetadata(key: string): boolean {
-    return this.item && this.item.hasOwnProperty(key);
+    return this.item && this.item.hasOwnProperty(key) && this.item[key].value !== PLACEHOLDER_PARENT_METADATA;
   }
 
   getMetadataValue(key: string): string | null {
