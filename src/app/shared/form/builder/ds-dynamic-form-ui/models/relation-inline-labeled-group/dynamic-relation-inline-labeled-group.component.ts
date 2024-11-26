@@ -26,6 +26,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class DsDynamicRelationInlineLabeledGroupComponent extends DsDynamicRelationGroupComponent {
 
+  displayIndex: boolean = false;
   isDragging: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   dragged = -1;
 
@@ -63,6 +64,13 @@ export class DsDynamicRelationInlineLabeledGroupComponent extends DsDynamicRelat
       modalService,
       submissionService
     );
+  }
+
+  ngOnInit() {
+    super.ngOnInit();
+    this.displayIndex = this.model.hasSetting("displayIndex")
+      ? this.model.getSetting("displayIndex", Boolean) as boolean
+      : false;
   }
 
   // COMPONENT FUNCTIONS ======================================================
