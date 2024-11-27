@@ -133,6 +133,7 @@ const relationGroupConfig = {
   id: 'relationGroup',
   formConfiguration: [mockFormRowModel],
   isInlineGroup: false,
+  isInlineLabeledGroup: false,
   mandatoryField: 'false',
   relationFields: ['journal', 'issue'],
   scopeUUID: 'scope',

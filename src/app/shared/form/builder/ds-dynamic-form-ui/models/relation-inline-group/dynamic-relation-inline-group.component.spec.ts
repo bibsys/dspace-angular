@@ -129,6 +129,7 @@ function init() {
     id: 'dc_contributor_author',
     label: 'Authors',
     isInlineGroup: true,
+    isInlineLabeledGroup: false,
     mandatoryField: 'dc.contributor.author',
     name: 'dc.contributor.author',
     placeholder: 'Authors',

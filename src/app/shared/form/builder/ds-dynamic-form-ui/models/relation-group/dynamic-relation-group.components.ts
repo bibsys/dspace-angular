@@ -107,10 +107,10 @@ export class DsDynamicRelationGroupComponent extends DynamicFormControlComponent
   private subs: Subscription[] = [];
   private valueChangeSubscription: Subscription;
 
-  constructor(private vocabularyService: VocabularyService,
-              private formBuilderService: FormBuilderService,
-              private formService: FormService,
-              private cdr: ChangeDetectorRef,
+  constructor(protected vocabularyService: VocabularyService,
+              protected formBuilderService: FormBuilderService,
+              protected formService: FormService,
+              protected cdr: ChangeDetectorRef,
               protected layoutService: DynamicFormLayoutService,
               protected validationService: DynamicFormValidationService,
               protected modalService: NgbModal,

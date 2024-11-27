@@ -52,6 +52,7 @@ import { DsDynamicTagComponent } from './models/tag/dynamic-tag.component';
 import { DYNAMIC_FORM_CONTROL_TYPE_TAG } from './models/tag/dynamic-tag.model';
 import { DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX } from './models/checkbox/checkbox.model';
 import { CustomCheckboxComponent } from './models/checkbox/checkbox.component';
+import { DsDynamicRelationInlineLabeledGroupComponent } from './models/relation-inline-labeled-group/dynamic-relation-inline-labeled-group.component';
 
 export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<DynamicFormControl> | null {
   const datepickerModel = model as DynamicDatePickerModel;
@@ -101,7 +102,11 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
       return DsDynamicTagComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_RELATION_GROUP:
-      return (model as DynamicRelationGroupModel).isInlineGroup ? DsDynamicRelationInlineGroupComponent : DsDynamicRelationGroupComponent;
+      return (model as DynamicRelationGroupModel).isInlineLabeledGroup
+        ? DsDynamicRelationInlineLabeledGroupComponent
+        : (model as DynamicRelationGroupModel).isInlineGroup
+          ? DsDynamicRelationInlineGroupComponent
+          : DsDynamicRelationGroupComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_DSDATEPICKER:
       return DsDatePickerComponent;

@@ -81,6 +81,7 @@ export abstract class FieldParser {
       && (this.configData.input.type !== ParserType.Tag.valueOf())
       && (this.configData.input.type !== ParserType.RelationGroup.valueOf())
       && (this.configData.input.type !== ParserType.InlineGroup.valueOf())
+      && (this.configData.input.type !== ParserType.InlineLabeledGroup.valueOf())
     ) {
       let arrayCounter = 0;
       let fieldArrayCounter = 0;
