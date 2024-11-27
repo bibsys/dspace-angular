@@ -1,0 +1,68 @@
+:host {
+  display: block;
+
+  .form-control {
+    cursor: text;
+  }
+
+  .action-buttons {
+    button {
+      margin-left: map-get($spacers, 1);
+    }
+    .btn-edit-chip {
+      visibility: hidden;
+    }
+  }
+
+  .cdk-drag:hover {
+    .action-buttons {
+      .btn-edit-chip {
+        visibility: visible;
+      }
+    }
+  }
+
+}
+
+@import './../../../../../../../styles/variables';
+#affiliation-drag-list {
+  .cdk-drag {
+    margin-left: calc(-2.3 * var(--bs-spacer));
+    margin-right: calc(-0.5 * var(--bs-spacer));
+    padding-right: calc(0.5 * var(--bs-spacer));
+    .drag-icon {
+      width: calc(2.3 * var(--bs-spacer));
+      visibility: hidden;
+      color: var(--bs-gray-600);
+    }
+    &:hover {
+      .drag-icon {
+        visibility: visible;
+      }
+    }
+  }
+
+  .drag-handle {
+    &:hover {
+      cursor: grab;
+    }
+    &:focus {
+      .drag-icon {
+        visibility: visible;
+      }
+    }
+  }
+
+  &.cdk-drop-list-dragging {
+    cursor: grabbing;
+  }
+
+  .cdk-drag-preview {
+    margin: 0;
+    padding: 0;
+  }
+
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+}

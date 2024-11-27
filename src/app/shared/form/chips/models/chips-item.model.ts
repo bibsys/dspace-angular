@@ -25,7 +25,7 @@ export class ChipsItem {
   public icons?: ChipsItemIcon[];
 
   private fieldToDisplay: string;
-  private objToDisplay: string;
+  public objToDisplay: string;
 
   constructor(item: any,
     fieldToDisplay: string = 'display',
@@ -59,6 +59,16 @@ export class ChipsItem {
 
   hasIcons(): boolean {
     return isNotEmpty(this.icons);
+  }
+
+  hasMetadata(key: string): boolean {
+    return this.item && this.item.hasOwnProperty(key);
+  }
+
+  getMetadataValue(key: string): string | null {
+    return this.hasMetadata(key)
+      ? this.item[key].value
+      : null;
   }
 
   hasVisibleIcons(): boolean {
