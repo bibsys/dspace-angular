@@ -572,6 +572,7 @@ export class FormBuilderService extends DynamicFormService {
                 submissionId: fieldModel.submissionId,
                 formConfiguration: fieldModel.formConfiguration,
                 isInlineGroup: fieldModel.isInlineGroup,
+                isInlineLabeledGroup: fieldModel.isInlineLabeledGroup,
                 mandatoryField: fieldModel.mandatoryField,
                 relationFields: fieldModel.relationFields,
                 scopeUUID: fieldModel.scopeUUID,

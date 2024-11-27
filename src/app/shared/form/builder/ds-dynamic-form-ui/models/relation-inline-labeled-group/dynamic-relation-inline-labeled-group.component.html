@@ -1,0 +1,59 @@
+<div cdkDropList
+     cdkDropListLockAxis="y"
+     (cdkDropListDropped)="onDrop($event)"
+     id="affiliation-drag-list"
+     class="mt-1"
+     @shrinkInOut>
+    <ng-container *ngIf="chips && chips.hasItems()">
+        <!-- ITERATE ON EVERY CHIPS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div *ngFor="let chip of chips.getChips(); let idx = index; let last = last"
+             cdkDrag
+             class="form-row mb-1 align-items-center"
+             (cdkDragStarted)="onDrag(idx)"
+             [cdkDragPreviewClass]="'ds-submission-reorder-dragging'">
+            <!-- DRAG ICON ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="drag-handle" tabindex="0" cdkDragHandle>
+                <i class="drag-icon fas fa-grip-vertical fa-fw"></i>
+            </div>
+            <!-- CHIP CONTENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="flex-grow-1 form-control w-auto mr-2" (click)="onChipSelected(idx)" *ngVar="getComponent(chip) as component">
+                <ng-container *ngIf="component; else defaultChipDisplay">
+                    <ng-container *ngComponentOutlet="component; injector: getInjector(chip)"></ng-container>
+                </ng-container>
+                <ng-template #defaultChipDisplay>
+                    {{ chip.display }}
+                </ng-template>
+            </div>
+            <!-- CHIP BUTTONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="action-buttons">
+                <button type="button" class="btn btn-secondary" role="button"
+                        title="{{'form.remove' | translate}}"
+                        attr.aria-label="{{'form.remove' | translate}}"
+                        (click)="removeChip($event, idx)">
+                    <i class="fas fa-trash" aria-hidden="false"></i>
+                </button>
+                <button type="button" role="button" class="ds-form-add-more btn btn-success"
+                        title="{{'form.add' | translate}}"
+                        attr.aria-label="{{'form.add' | translate}}"
+                        [style.visibility]="(last) ? 'visible' : 'hidden'"
+                        (click)="openModal()">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- In case we don't have any value/chip, we need to display a fake field with a "+" button
+         allowing user to add the first value. -->
+    <div *ngIf="chips && !chips.hasItems()" class="d-flex align-items-center form-control h-auto py-1">
+        <span class="text-muted mr-2" (click)="openModal()">
+            {{'form.no-value' | translate}}
+        </span>
+        <button type="button" role="button" class="ds-form-add-more btn btn-success"
+                title="{{'form.add' | translate}}"
+                attr.aria-label="{{'form.add' | translate}}"
+                (click)="openModal()">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+</div>

@@ -24,6 +24,7 @@ export interface DynamicRelationGroupModelConfig extends DsDynamicInputModelConf
   submissionId: string;
   formConfiguration: FormRowModel[];
   isInlineGroup: boolean;
+  isInlineLabeledGroup: boolean;
   mandatoryField: string;
   relationFields: string[];
   scopeUUID: string;
@@ -37,6 +38,7 @@ export class DynamicRelationGroupModel extends DsDynamicInputModel {
   @serializable() submissionId: string;
   @serializable() formConfiguration: FormRowModel[];
   @serializable() isInlineGroup: boolean;
+  @serializable() isInlineLabeledGroup: boolean;
   @serializable() mandatoryField: string;
   @serializable() relationFields: string[];
   @serializable() scopeUUID: string;
@@ -55,6 +57,7 @@ export class DynamicRelationGroupModel extends DsDynamicInputModel {
     this.scopeUUID = config.scopeUUID;
     this.submissionScope = config.submissionScope;
     this.isInlineGroup = config.isInlineGroup;
+    this.isInlineLabeledGroup = config.isInlineLabeledGroup;
     this.value = config.value || [];
   }
 
