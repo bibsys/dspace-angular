@@ -169,6 +169,12 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
     return this.getMandatoryFieldModel().label;
   }
 
+  isValidForm() {
+    return (this.formRef)
+      ? this.formRef.formGroup.valid
+      : false;
+  }
+
   isMandatoryFieldEmpty() {
     const models = this.getMandatoryFields();
     return models.some(model => !model.value);
@@ -285,8 +291,7 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
     if (!this.formRef.formGroup.valid) {
       this.formService.validateAllFormFields(this.formRef.formGroup);
       return;
-    }
-    if (!this.isMandatoryFieldEmpty()) {
+    } else {
       const item = this.buildChipItem();
       this.add.emit(item);
       this.closeModal();
@@ -322,8 +327,7 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
     if (!this.formRef.formGroup.valid) {
       this.formService.validateAllFormFields(this.formRef.formGroup);
       return;
-    }
-    if (!this.isMandatoryFieldEmpty()) {
+    } else {
       const item = this.buildChipItem();
       this.edit.emit(item);
       this.closeModal();
@@ -342,7 +346,7 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
     });
     this.formModel.forEach((row) => {
       const modelRow = row as DynamicFormGroupModel;
-      modelRow.group.forEach((control: DynamicInputModel) => {
+      modelRow.group.filter(control => !control.hidden).forEach((control: DynamicInputModel) => {
         const controlValue: any = (control?.value as any)?.value || control?.value || PLACEHOLDER_PARENT_METADATA;
         const controlAuthority: any = (control?.value as any)?.authority || null;
 
