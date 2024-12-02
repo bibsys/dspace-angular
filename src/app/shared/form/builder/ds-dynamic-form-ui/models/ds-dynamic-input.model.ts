@@ -11,6 +11,7 @@ import { Subject } from 'rxjs';
 import { VocabularyOptions } from '../../../../../core/submission/vocabularies/models/vocabulary-options.model';
 import {
   hasValue,
+  isEmpty,
   isNotEmpty,
   isNotUndefined,
 } from '../../../../empty.util';
@@ -39,7 +40,10 @@ export interface DsDynamicInputModelConfig extends DynamicInputModelConfig {
   isModelOfNotRepeatableGroup?: boolean;
   hideHint?: boolean;
   help?: string;
+  settings?: { [key: string]: string };
 }
+
+type Constructor<T> = { new (...args: any[]): T } | Function;
 
 export class DsDynamicInputModel extends DynamicInputModel {
 
@@ -64,6 +68,7 @@ export class DsDynamicInputModel extends DynamicInputModel {
   @serializable() isModelOfNotRepeatableGroup = false;
   @serializable() hideHint: boolean = false;
   @serializable() help?: string;
+  @serializable() settings?: { [key: string]: string };
 
   constructor(config: DsDynamicInputModelConfig, layout?: DynamicFormControlLayout) {
     super(config, layout);
@@ -82,6 +87,7 @@ export class DsDynamicInputModel extends DynamicInputModel {
     this.place = config.place;
     this.securityLevel = config.securityLevel;
     this.securityConfigLevel = config.securityConfigLevel;
+    this.settings = config.settings;
     if (isNotUndefined(config.toggleSecurityVisibility)) {
       this.toggleSecurityVisibility = config.toggleSecurityVisibility;
     }
@@ -150,5 +156,32 @@ export class DsDynamicInputModel extends DynamicInputModel {
     if (!this.language || this.language === '') {
       this.language = this.languageCodes ? this.languageCodes[0].code : null;
     }
+  }
+
+  hasSetting(name: string): boolean {
+    return name in this?.settings;
+  }
+
+  getSetting<T>(name: string, type: Constructor<T> = String): T {
+    if (!this.hasSetting(name) || isEmpty(this.settings[name])) {
+      return null;
+    }
+    const settingValue = this.settings[name];
+    if (type === String) {
+      return settingValue as T;
+    }
+    // Try to parse the setting as a specific type
+    if (type === Boolean) {
+      const lowerValue = settingValue.toLowerCase();
+      if (lowerValue === "true") return true as T;
+      if (lowerValue === "false") return false as T;
+      throw new Error(`Cannot parse value '${settingValue}' as boolean`);
+    }
+    if (type === Number) {
+      const parsedNumber = Number(settingValue);
+      if (!isNaN(parsedNumber)) return parsedNumber as T;
+      throw new Error(`Cannot parse value '${settingValue}' as number`);
+    }
+    throw new Error(`Unsupported type: ${type}`);
   }
 }
