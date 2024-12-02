@@ -341,6 +341,7 @@ export abstract class FieldParser {
     controlModel.metadataFields = this.getAllFieldIds() || [];
     controlModel.hasSelectableMetadata = isNotEmpty(this.configData.selectableMetadata);
     controlModel.submissionId = this.submissionId;
+    controlModel.settings = this.configData.settings;
 
     // Set label
     this.setLabel(controlModel, label);

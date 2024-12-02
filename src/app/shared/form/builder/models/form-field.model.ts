@@ -139,4 +139,10 @@ export class FormFieldModel {
    * The security config values
    */
   securityConfigLevel?: number[];
+
+  /**
+   * Specific settings for this field
+   */
+  @autoserialize
+    settings?: {[key: string]: any};
 }
