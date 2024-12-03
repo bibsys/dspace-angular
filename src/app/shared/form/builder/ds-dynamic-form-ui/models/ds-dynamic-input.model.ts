@@ -159,7 +159,7 @@ export class DsDynamicInputModel extends DynamicInputModel {
   }
 
   hasSetting(name: string): boolean {
-    return name in this?.settings;
+    return this?.settings && name in this.settings;
   }
 
   getSetting<T>(name: string, type: Constructor<T> = String): T {

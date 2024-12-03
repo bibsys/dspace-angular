@@ -441,20 +441,14 @@ export abstract class FieldParser {
    */
   protected addPatternValidator(controlModel) {
     const validatorMatcher = this.configData.input.regex.match(REGEX_FIELD_VALIDATOR);
-    let regex;
-    if (validatorMatcher != null && validatorMatcher.length > 3) {
-      regex = new RegExp(validatorMatcher[2], validatorMatcher[3]);
-    } else {
-      regex = new RegExp(this.configData.input.regex);
-    }
-    const baseTranslationKey = 'error.validation.pattern';
-    const fieldranslationKey = `${baseTranslationKey}.${controlModel.id}`;
-    const fieldTranslationExists = this.translate.instant(fieldranslationKey) !== fieldranslationKey;
+    const regex = (validatorMatcher != null && validatorMatcher.length > 3)
+      ? new RegExp(validatorMatcher[2], validatorMatcher[3])
+      : new RegExp(this.configData.input.regex);
+    const errorMessage = (controlModel?.settings && 'regexErrorMessage' in controlModel.settings)
+      ? controlModel.settings.regexErrorMessage
+      : 'error.validation.pattern';
     controlModel.validators = Object.assign({}, controlModel.validators, { pattern: regex });
-    controlModel.errorMessages = Object.assign(
-      {},
-      controlModel.errorMessages,
-      { pattern: fieldTranslationExists ? fieldranslationKey : baseTranslationKey });
+    controlModel.errorMessages = Object.assign({}, controlModel.errorMessages, { pattern: errorMessage });
   }
 
   protected markAsRequired(controlModel) {
