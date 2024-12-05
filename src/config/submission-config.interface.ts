@@ -55,4 +55,5 @@ export interface SubmissionConfig extends Config {
   icons: IconsConfig;
   detectDuplicate: DetectDuplicateConfig;
   dropdownHintEnabled?: SubmissionDropdownHintEnabled;
+  enableShortcutPanelFor?: string[];  // must contain the collection UUID for which the shortcut panel should be enabled
 }

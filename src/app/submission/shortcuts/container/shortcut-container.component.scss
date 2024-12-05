@@ -1,0 +1,27 @@
+:host {
+
+  .section-shortcut-container {
+    color: $card-cap-color;
+    background-color: $card-cap-bg;
+    border: $card-border-width solid $card-border-color;
+    overflow: hidden;
+    width: 100%;
+    
+    & *:hover {
+      cursor: pointer;
+    }
+
+    &:hover label {
+      color: var(--bs-link-hover-color);
+    }
+
+    label {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin-bottom: 0;
+      font-variant: small-caps;
+      color: var(--bs-link-color);
+    }
+  }
+}
