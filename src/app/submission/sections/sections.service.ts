@@ -10,6 +10,7 @@ import findIndex from 'lodash/findIndex';
 import findKey from 'lodash/findKey';
 import isEqual from 'lodash/isEqual';
 import {
+  BehaviorSubject,
   combineLatest,
   Observable,
 } from 'rxjs';
@@ -60,12 +61,16 @@ import { SubmissionService } from '../submission.service';
 import parseSectionErrorPaths, { SectionErrorPath } from '../utils/parseSectionErrorPaths';
 import { SubmissionVisibility } from '../utils/visibility.util';
 import { SectionsType } from './sections-type';
+import { SectionsDirective } from './sections.directive';
 
 /**
  * A service that provides methods used in submission process.
  */
 @Injectable({ providedIn: 'root' })
 export class SectionsService {
+
+  /** The map to store SubmissionFormSection using SectionsDirective feature. */
+  private sectionsMap = new Map<string, BehaviorSubject<SectionsDirective | null>>();
 
   /**
    * Initialize service variables
@@ -83,6 +88,44 @@ export class SectionsService {
     private store: Store<SubmissionState>,
     private translate: TranslateService) {
   }
+
+  /**
+   * Allow to register a SubmissionFormSection using SectionDirective feature
+   * @param sectionId {string} the section ID used as key to store/retrieve the section
+   * @param section {SectionsDirective} the section to register
+   */
+  registerSection(sectionId: string, section: SectionsDirective): void {
+    if (!this.sectionsMap.has(sectionId)) {
+      this.sectionsMap.set(sectionId, new BehaviorSubject(section));
+    } else {
+      this.sectionsMap.get(sectionId)!.next(section);
+    }
+  }
+
+  /**
+   * Remove a section from the know SubmissionFormSection
+   * @param sectionId {string} the section ID to remove (key used when register the section)
+   */
+  unregisterSection(sectionId: string): void {
+    if (this.sectionsMap.has(sectionId)) {
+      this.sectionsMap.get(sectionId)!.next(null);
+      this.sectionsMap.delete(sectionId);
+    }
+  }
+
+  /**
+   * Get a SubmissionFormSection using SectionDirective feature
+   * @param sectionId {string} the section ID to retrieve
+   * @return {BehaviorSubject<SectionsDirective | null>} a subject returning the corresponding section if this section
+   *     was previously registered; null if the section isn't known.
+   */
+  public getSection(sectionId: string): BehaviorSubject<SectionsDirective | null> {
+    if (!this.sectionsMap.has(sectionId)) {
+      this.sectionsMap.set(sectionId, new BehaviorSubject<SectionsDirective | null>(null));
+    }
+    return this.sectionsMap.get(sectionId)!;
+  }
+
 
   /**
    * Compare the list of the current section errors with the previous one,

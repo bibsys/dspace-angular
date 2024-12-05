@@ -133,6 +133,7 @@ export class SectionsDirective implements OnDestroy, OnInit {
    * Initialize instance variables
    */
   ngOnInit() {
+    this.sectionService.registerSection(this.sectionId, this);
     this.sectionState = this.isOpened();
     this.valid = this.sectionService.isSectionValid(this.submissionId, this.sectionId).pipe(
       map((valid: boolean) => {
@@ -174,6 +175,7 @@ export class SectionsDirective implements OnDestroy, OnInit {
    * Unsubscribe from all subscriptions
    */
   ngOnDestroy() {
+    this.sectionService.unregisterSection(this.sectionId);
     this.subs
       .filter((subscription) => hasValue(subscription))
       .forEach((subscription) => subscription.unsubscribe());
