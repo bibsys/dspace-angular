@@ -75,6 +75,7 @@ import {
 } from './submission.reducers';
 import { SubmissionSubmitComponent } from './submit/submission-submit.component';
 import { ThemedSubmissionSubmitComponent } from './submit/themed-submission-submit.component';
+import { SubmissionSectionShortcutContainerComponent } from './shortcuts/container/shortcut-container.component';
 
 const ENTRY_COMPONENTS = [
   // put only entry components that use custom decorator
@@ -121,6 +122,7 @@ const DECLARATIONS = [
   MetadataInformationComponent,
   ThemedSubmissionSectionUploadFileComponent,
   DuplicateMatchComponent,
+  SubmissionSectionShortcutContainerComponent
 ];
 
 @NgModule({

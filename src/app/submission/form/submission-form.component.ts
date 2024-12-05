@@ -1,10 +1,11 @@
 import {
+  AfterViewInit,
   ChangeDetectorRef,
-  Component,
+  Component, ElementRef,
   Input,
   OnChanges,
   OnDestroy,
-  SimpleChanges,
+  SimpleChanges, ViewChild,
 } from '@angular/core';
 import isEqual from 'lodash/isEqual';
 import {
@@ -47,6 +48,7 @@ import {
   SubmissionSectionModel,
   SubmissionVisibilityType,
 } from './../../core/config/models/config-submission-section.model';
+import { environment } from '../../../environments/environment';
 
 /**
  * This component represents the submission form.
@@ -56,7 +58,15 @@ import {
   styleUrls: ['./submission-form.component.scss'],
   templateUrl: './submission-form.component.html',
 })
-export class SubmissionFormComponent implements OnChanges, OnDestroy {
+export class SubmissionFormComponent implements OnChanges, OnDestroy, AfterViewInit {
+
+  /** Attributes to handle DOM manipulation for sticky position of the shortcut panel */
+  @ViewChild('wrapperElement') wrapperElement!: ElementRef<HTMLElement>;
+  @ViewChild('submissionFormHeader') submissionFormHeader!: ElementRef<HTMLElement>;
+  @ViewChild('shortcutPanel') shortcut!: ElementRef<HTMLElement>;
+  private resizeObserver!: ResizeObserver;
+  private mutationObserver!: MutationObserver;
+
 
   /**
    * The collection id this submission belonging to
@@ -173,6 +183,10 @@ export class SubmissionFormComponent implements OnChanges, OnDestroy {
     this.isActive = true;
   }
 
+  ngAfterViewInit() {
+    this.initializeMutationObserver();
+  }
+
   /**
    * Initialize all instance variables and retrieve form configuration
    */
@@ -270,6 +284,9 @@ export class SubmissionFormComponent implements OnChanges, OnDestroy {
    * and reset submission state
    */
   ngOnDestroy() {
+    if (this.mutationObserver) this.mutationObserver.disconnect();
+    if (this.resizeObserver) this.resizeObserver.disconnect();
+
     this.isActive = false;
     this.submissionService.stopAutoSave();
     this.submissionService.resetAllSubmissionObjects();
@@ -330,6 +347,48 @@ export class SubmissionFormComponent implements OnChanges, OnDestroy {
       map((sections: SectionDataObject[]) =>
         sections.filter((section: SectionDataObject) => !isEqual(section.sectionType,SectionsType.Collection))),
     );
+  }
+
+  /**
+   * Indicate if the shortcut panel should be displayed for this form
+   *   To determine if the panel should be displayed, we check if the current submission collection ID is present into
+   *   specific environment variable.
+   * @returns {boolean} True if the panel should be displayed; False otherwise.
+   */
+  showShortcutSectionPanel(): boolean {
+    const collectionsUUIDs: Array<String> = hasValue(environment.submission)
+      ? environment.submission?.enableShortcutPanelFor || []  // !! ensure to have at least an empty array
+      : [];
+    return collectionsUUIDs.includes(this.collectionId);
+  }
+
+
+  private initializeMutationObserver(): void {
+    const parentElement = this.wrapperElement.nativeElement;
+    if (!parentElement) return;
+    this.mutationObserver = new MutationObserver(() => {  // Check about children elements updates
+      if (this.submissionFormHeader) {
+        this.observeHeader();
+      }
+    });
+    // Observe DOM mutations on wrapper element...
+    this.mutationObserver.observe(parentElement, { childList: true, subtree: true });
+  }
+
+  private observeHeader(): void {
+    if (!this.submissionFormHeader) return;  // Check if header HTML component is already present
+    this.resizeObserver = new ResizeObserver(entries => {
+      for (let entry of entries) {
+        if (entry.target === this.submissionFormHeader.nativeElement)
+          this.updateShortcutTop((entry.target as HTMLElement).offsetHeight);
+      }
+    });
+    this.resizeObserver.observe(this.submissionFormHeader.nativeElement);  // Start observing the header....
+  }
+
+  private updateShortcutTop(height: number): void {
+    if (this.shortcut)
+      this.shortcut.nativeElement.style.top = `${height}px`;
   }
 
 }

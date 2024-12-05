@@ -1,5 +1,5 @@
-<div class="container-fluid">
-    <div *ngIf="(isLoading() | async) !== true" class="submission-form-header mb-3 d-flex flex-wrap position-sticky">
+<div class="container-fluid" #wrapperElement>
+    <div *ngIf="(isLoading() | async) !== true" #submissionFormHeader class="submission-form-header mb-3 d-flex flex-wrap position-sticky">
         <div *ngIf="(uploadEnabled$ | async)" class="w-100">
             <ds-submission-upload-files [submissionId]="submissionId"
                                         [collectionId]="collectionId"
@@ -26,15 +26,26 @@
         </div>
     </div>
 
-    <div class="submission-form-content">
-        <ds-themed-loading *ngIf="(isLoading() | async)" message="Loading..."></ds-themed-loading>
-        <ng-container *ngFor="let object of (submissionSections | async)">
-            <ds-submission-section-container [collectionId]="collectionId"
-                                             [submissionId]="submissionId"
-                                             [entityType]="entityType"
-                                             [sectionData]="object">
-            </ds-submission-section-container>
-        </ng-container>
+    <div *ngIf="(isLoading() | async) !== true" class="row no-gutters">
+        <div *ngIf="showShortcutSectionPanel()" #shortcutPanel class="col-2 position-sticky h-100 mr-2">
+            <ds-submission-section-shortcut *ngFor="let section of (submissionSections | async)"
+                                            [submissionId]="submissionId"
+                                            [sectionData]="section"
+                                            [headerComponent]="submissionFormHeader">
+            </ds-submission-section-shortcut>
+        </div>
+
+        <div class="col submission-form-content">
+            <ds-themed-loading *ngIf="(isLoading() | async)" message="Loading..."></ds-themed-loading>
+            <ng-container *ngFor="let object of (submissionSections | async)">
+                <ds-submission-section-container [id]="object.header"
+                                                 [collectionId]="collectionId"
+                                                 [submissionId]="submissionId"
+                                                 [entityType]="entityType"
+                                                 [sectionData]="object">
+                </ds-submission-section-container>
+            </ng-container>
+        </div>
     </div>
     <div *ngIf="(isLoading() | async) !== true" class="submission-form-footer mt-3 mb-3 position-sticky">
         <ds-submission-form-footer [submissionId]="submissionId"></ds-submission-form-footer>
