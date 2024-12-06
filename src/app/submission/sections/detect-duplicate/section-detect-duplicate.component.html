@@ -6,6 +6,27 @@
 
 <ng-container *ngIf="(getSectionStatus() | async) !== true && (config$ | async)">
   <ds-alert [type]="AlertTypeEnum.Warning" [content]="(disclaimer | async)"></ds-alert>
+  <div ngbDropdown *ngIf="(numberOfMatches$ | async) > 1">
+    <button class="btn btn-primary" id="dropdownProcessAll" ngbDropdownToggle
+            ngbTooltip="{{'submission.sections.detect-duplicate.manage-all.tooltip' | translate}}"
+            type="button" [attr.aria-label]="'Process all duplicates'">
+      {{'submission.sections.detect-duplicate.manage-all.action' | translate}}
+    </button>
+    <div ngbDropdownMenu
+        class="dropdown-menu m-0 p-0 rounded"
+        aria-labelledby="dropdownProcessAll">
+        <ul class="list-unstyled m-0">
+          <li class="process-all-options process-all-danger text-danger border-bottom"
+              (click)="openAllDuplicatesModal(allDuplicatesModal)">
+            {{'submission.sections.detect-duplicate.all-duplicate.action' | translate}}
+          </li>
+          <li class="process-all-options process-all-success text-success"
+              (click)="allNotDuplicate()">
+            {{'submission.sections.detect-duplicate.all-not-duplicate.action' | translate}}
+          </li>
+        </ul>
+    </div>
+  </div>
 
   <ds-pagination
     [paginationOptions]="(config$ | async)"
@@ -18,7 +39,7 @@
     <ul class="list-unstyled" *ngVar="(config$ | async) as config">
       <li *ngFor="let item of (sectionData$ | async)?.matches | dsObjNgFor
     | paginate: {id: config.id, itemsPerPage: config.pageSize, currentPage: config.currentPage}; let i = index; let l = last"
-          class="mt-4 mb-4"
+          class="mt-3 mb-3"
           [class.border-bottom]="!l">
         <ds-duplicate-match
           *ngVar="(i + (config.currentPage-1)*config.pageSize) as totalIndex"
@@ -32,3 +53,31 @@
     </ul>
   </ds-pagination>
 </ng-container>
+
+<ng-template #allDuplicatesModal let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{'submission.sections.detect-duplicate.all-duplicate.note-header' | translate}}</h4>
+    <button type="button"
+            class="close"
+            aria-label="Close"
+            (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="alert alert-info" role="alert">
+      {{'submission.sections.detect-duplicate.all-duplicate.note-alert' | translate}}
+    </div>
+    <form (ngSubmit)="allDuplicate();" [formGroup]="allDuplicateForm" >
+      <textarea class="w-100"
+                formControlName="note"
+                rows="4"
+                placeholder="{{'submission.sections.detect-duplicate.all-duplicate.note-placeholder' | translate}}"></textarea>
+      <button class="btn btn-primary btn-lg btn-block mt-3"
+              [disabled]="!allDuplicateForm.valid"
+              type="submit">
+        <span>{{'submission.sections.detect-duplicate.all-duplicate.note-save' | translate}}</span>
+      </button>
+    </form>
+  </div>
+</ng-template>

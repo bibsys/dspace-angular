@@ -294,6 +294,10 @@ export class DuplicateMatchComponent implements OnInit {
     this.modalRef.dismiss();
   }
 
+  openConfirmNotDuplicateModal(content: any) {
+    this.modalRef = this.modalService.open(content);
+  }
+
   /**
    * Save the 'It is not a duplication' decision.
    */
@@ -304,6 +308,8 @@ export class DuplicateMatchComponent implements OnInit {
       this.decisionType);
 
     this.dispatchAction(decision);
+    // Close confirmation modal once the entry has been processed.
+    this.modalRef.close();
   }
 
   /**
