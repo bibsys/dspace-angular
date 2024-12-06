@@ -34,7 +34,7 @@
           class="btn btn-success"
           ngbTooltip="{{'submission.sections.detect-duplicate.not-duplicate-help' | translate}}"
           [disabled]="(processingReject | async) || (processingVerify | async)"
-          (click)="setAsNotDuplicate()">
+          (click)="openConfirmNotDuplicateModal(notDuplicateModal)">
     <span *ngIf="(processingReject | async) === true"><i class='fas fa-circle-notch fa-spin'></i> {{'submission.workflow.tasks.generic.processing' | translate}}</span>
     <span *ngIf="(processingReject | async) !== true">{{notDuplicateBtnLabel$ | async}}</span>
   </button>
@@ -87,4 +87,33 @@
   </div>
 </ng-template>
 
+
+<ng-template #notDuplicateModal let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{'submission.sections.detect-duplicate.not-duplicate-confirm.title' | translate}}</h4>
+    <button type="button"
+            class="close"
+            aria-label="Close"
+            (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="alert alert-info" role="alert">
+      {{'submission.sections.detect-duplicate.not-duplicate-confirm.alert' | translate}}
+    </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-primary"
+              type="button"
+              (click)="d('Cancel button')">
+        <span>{{'submission.sections.detect-duplicate.not-duplicate-confirm.cancel' | translate}}</span>
+      </button>
+      <button class="btn btn-success"
+              type="button"
+              (click)="setAsNotDuplicate();">
+        <span>{{'submission.sections.detect-duplicate.not-duplicate-confirm.confirm' | translate}}</span>
+      </button>
+    </div>
+  </div>
+</ng-template>
 
