@@ -2450,6 +2450,391 @@
   // "error.validation.groupExists": "This group already exists",
   "error.validation.groupExists": "Ce groupe existe déjà",
 
+  // "error.validation.invalidProjectURL": "The URL of the project is invalid",
+  // TODO New key - Add a translation
+  "error.validation.invalidProjectURL": "The URL of the project is invalid",
+
+  // "error.validation.metadata.name.invalid-pattern": "This field cannot contain dots, commas or spaces. Please use the Element & Qualifier fields instead",
+  // TODO New key - Add a translation
+  "error.validation.metadata.name.invalid-pattern": "This field cannot contain dots, commas or spaces. Please use the Element & Qualifier fields instead",
+
+  // "error.validation.metadata.name.max-length": "This field may not contain more than 32 characters",
+  // TODO New key - Add a translation
+  "error.validation.metadata.name.max-length": "This field may not contain more than 32 characters",
+
+  // "error.validation.metadata.namespace.max-length": "This field may not contain more than 256 characters",
+  // TODO New key - Add a translation
+  "error.validation.metadata.namespace.max-length": "This field may not contain more than 256 characters",
+
+  // "error.validation.metadata.element.invalid-pattern": "This field cannot contain dots, commas or spaces. Please use the Qualifier field instead",
+  // TODO New key - Add a translation
+  "error.validation.metadata.element.invalid-pattern": "This field cannot contain dots, commas or spaces. Please use the Qualifier field instead",
+
+  // "error.validation.metadata.element.max-length": "This field may not contain more than 64 characters",
+  // TODO New key - Add a translation
+  "error.validation.metadata.element.max-length": "This field may not contain more than 64 characters",
+
+  // "error.validation.metadata.qualifier.invalid-pattern": "This field cannot contain dots, commas or spaces",
+  // TODO New key - Add a translation
+  "error.validation.metadata.qualifier.invalid-pattern": "This field cannot contain dots, commas or spaces",
+
+  // "error.validation.metadata.qualifier.max-length": "This field may not contain more than 64 characters",
+  // TODO New key - Add a translation
+  "error.validation.metadata.qualifier.max-length": "This field may not contain more than 64 characters",
+
+  // "error.validation.fundingInvestigatorOrLeadOrganizationRequired": "At least one investigator or one lead organization is required",
+  // TODO New key - Add a translation
+  "error.validation.fundingInvestigatorOrLeadOrganizationRequired": "At least one investigator or one lead organization is required",
+
+  // "error.validation.notRepeatable": "This field is not repeatable, please choose only one value and discard the others.",
+  // TODO New key - Add a translation
+  "error.validation.notRepeatable": "This field is not repeatable, please choose only one value and discard the others.",
+
+  // "error.validation.detect-duplicate": "The handling of the detected duplicates is mandatory",
+  // TODO New key - Add a translation
+  "error.validation.detect-duplicate": "Le traitement des doublons est obligatoire avant de pouvoir soumettre",
+
+  // "event.listelement.badge": "Event",
+  // TODO New key - Add a translation
+  "event.listelement.badge": "Event",
+
+
+  // "explore.browse-section.title": "Browse",
+  // TODO New key - Add a translation
+  "explore.browse-section.title": "Browse",
+
+  // "explore.counters-section.rprofiles": "People",
+  // TODO New key - Add a translation
+  "explore.counters-section.rprofiles": "People",
+
+  // "explore.counters-section.publications": "Research outputs",
+  // TODO New key - Add a translation
+  "explore.counters-section.publications": "Research outputs",
+
+  // "explore.counters-section.project_funding": "Projects",
+  // TODO New key - Add a translation
+  "explore.counters-section.project_funding": "Projects",
+
+  // "explore.facet-section.title": "Discover",
+  // TODO New key - Add a translation
+  "explore.facet-section.title": "Discover",
+
+  // "explore.index.all": "All",
+  // TODO New key - Add a translation
+  "explore.index.all": "All",
+
+  // "explore.index.author": "Author",
+  // TODO New key - Add a translation
+  "explore.index.author": "Author",
+
+  // "explore.index.graphitemtype": "Graph by type",
+  // TODO New key - Add a translation
+  "explore.index.graphitemtype": "Graph by type",
+
+  // "explore.index.graphpubldate": "Graph by date",
+  // TODO New key - Add a translation
+  "explore.index.graphpubldate": "Graph by date",
+
+  // "explore.index.birthDate": "Birthday",
+  // TODO New key - Add a translation
+  "explore.index.birthDate": "Birthday",
+
+  // "explore.index.metric.view": "Most viewed",
+  // TODO New key - Add a translation
+  "explore.index.metric.view": "Most viewed",
+
+  // "explore.index.metric.download": "Most downloaded",
+  // TODO New key - Add a translation
+  "explore.index.metric.download": "Most downloaded",
+
+  // "explore.index.metric.scopus.citation": "Most cited",
+  // TODO New key - Add a translation
+  "explore.index.metric.scopus.citation": "Most cited",
+
+  // "explore.index.chart.pie.itemtype_filter": "Item Type",
+  // TODO New key - Add a translation
+  "explore.index.chart.pie.itemtype_filter": "Item Type",
+
+  // "explore.index.chart.bar.dateIssued.year": "Year",
+  // TODO New key - Add a translation
+  "explore.index.chart.bar.dateIssued.year": "Year",
+
+
+  // "explore.index.dateIssued": "Date issued",
+  // TODO New key - Add a translation
+  "explore.index.dateIssued": "Date issued",
+
+  // "explore.index.dateissued": "Date issued",
+  // TODO New key - Add a translation
+  "explore.index.dateissued": "Date issued",
+
+  // "explore.index.dc.date.accessioned": "Recent Additions",
+  // TODO New key - Add a translation
+  "explore.index.dc.date.accessioned": "Dépots récents",
+
+  // "explore.index.dc.title": "Title",
+  // TODO New key - Add a translation
+  "explore.index.dc.title": "Title",
+
+  // "explore.index.editor": "Editor",
+  // TODO New key - Add a translation
+  "explore.index.editor": "Editor",
+
+  // "explore.index.eqtitle": "Title",
+  // TODO New key - Add a translation
+  "explore.index.eqtitle": "Title",
+
+  // "explore.index.eqowner": "Researcher",
+  // TODO New key - Add a translation
+  "explore.index.eqowner": "Researcher",
+
+  // "explore.index.eqorgunit": "Organization",
+  // TODO New key - Add a translation
+  "explore.index.eqorgunit": "Organization",
+
+  // "explore.index.entityType": "Entity type",
+  // TODO New key - Add a translation
+  "explore.index.entityType": "Entity type",
+
+  // "explore.index.familyName": "Family name",
+  // TODO New key - Add a translation
+  "explore.index.familyName": "Family name",
+
+  // "explore.index.funding": "Funding",
+  // TODO New key - Add a translation
+  "explore.index.funding": "Funding",
+
+  // "explore.index.givenName": "Given name",
+  // TODO New key - Add a translation
+  "explore.index.givenName": "Given name",
+
+  // "explore.index.has_content_in_original_bundle": "Has content in original bundle",
+  // TODO New key - Add a translation
+  "explore.index.has_content_in_original_bundle": "Has content in original bundle",
+
+  // "explore.index.investigators": "Researchers",
+  // TODO New key - Add a translation
+  "explore.index.investigators": "Researchers",
+
+  // "explore.index.isAuthorOfPublication": "Publication's author",
+  // TODO New key - Add a translation
+  "explore.index.isAuthorOfPublication": "Publication's author",
+
+  // "explore.index.isJournalOfPublication": "Publication's journal",
+  // TODO New key - Add a translation
+  "explore.index.isJournalOfPublication": "Publication's journal",
+
+  // "explore.index.isOrgUnitOfPerson": "Person's organization",
+  // TODO New key - Add a translation
+  "explore.index.isOrgUnitOfPerson": "Person's organization",
+
+  // "explore.index.isOrgUnitOfProject": "Project's organization",
+  // TODO New key - Add a translation
+  "explore.index.isOrgUnitOfProject": "Project's organization",
+
+  // "explore.index.isOrgUnitOfPublication": "Publication's organization",
+  // TODO New key - Add a translation
+  "explore.index.isOrgUnitOfPublication": "Publication's organization",
+
+  // "explore.index.isPersonOfOrgUnit": "Organization's person",
+  // TODO New key - Add a translation
+  "explore.index.isPersonOfOrgUnit": "Organization's person",
+
+  // "explore.index.isPersonOfProject": "Project's person",
+  // TODO New key - Add a translation
+  "explore.index.isPersonOfProject": "Project's person",
+
+  // "explore.index.isProjectOfOrgUnit": "Organization's project",
+  // TODO New key - Add a translation
+  "explore.index.isProjectOfOrgUnit": "Organization's project",
+
+  // "explore.index.isProjectOfPerson": "Person's project",
+  // TODO New key - Add a translation
+  "explore.index.isProjectOfPerson": "Person's project",
+
+  // "explore.index.isProjectOfPublication": "Publication's project",
+  // TODO New key - Add a translation
+  "explore.index.isProjectOfPublication": "Publication's project",
+
+  // "explore.index.isPublicationOfAuthor": "Author's publication",
+  // TODO New key - Add a translation
+  "explore.index.isPublicationOfAuthor": "Author's publication",
+
+  // "explore.index.isPublicationOfJournalIssue": "Journal issue's publication",
+  // TODO New key - Add a translation
+  "explore.index.isPublicationOfJournalIssue": "Journal issue's publication",
+
+  // "explore.index.isPublicationOfOrgUnit": "Organization's publication",
+  // TODO New key - Add a translation
+  "explore.index.isPublicationOfOrgUnit": "Organization's publication",
+
+  // "explore.index.isPublicationOfProject": "Project's publication",
+  // TODO New key - Add a translation
+  "explore.index.isPublicationOfProject": "Project's publication",
+
+  // "explore.index.itemidentifier": "Item identifier",
+  // TODO New key - Add a translation
+  "explore.index.itemidentifier": "Item identifier",
+
+  // "explore.index.jobTitle": "Job title",
+  // TODO New key - Add a translation
+  "explore.index.jobTitle": "Job title",
+
+  // "explore.index.knowsLanguage": "Knows languages",
+  // TODO New key - Add a translation
+  "explore.index.knowsLanguage": "Knows languages",
+
+  // "explore.index.organization": "Organization",
+  // TODO New key - Add a translation
+  "explore.index.organization": "Organization",
+
+  // "explore.index.organizationAddressCountry": "Organization address country",
+  // TODO New key - Add a translation
+  "explore.index.organizationAddressCountry": "Organization address country",
+
+  // "explore.index.organizationAddressLocality": "Organization address locality",
+  // TODO New key - Add a translation
+  "explore.index.organizationAddressLocality": "Organization address locality",
+
+  // "explore.index.organizationFoundingDate": "Organization founding date",
+  // TODO New key - Add a translation
+  "explore.index.organizationFoundingDate": "Organization founding date",
+
+  // "explore.index.organizationLegalName": "Organization legal name",
+  // TODO New key - Add a translation
+  "explore.index.organizationLegalName": "Organization legal name",
+
+  // "explore.index.original_bundle_descriptions": "Original bundle descriptions",
+  // TODO New key - Add a translation
+  "explore.index.original_bundle_descriptions": "Original bundle descriptions",
+
+  // "explore.index.original_bundle_filenames": "Original bundle filenames",
+  // TODO New key - Add a translation
+  "explore.index.original_bundle_filenames": "Original bundle filenames",
+
+  // "explore.index.ouname": "Name",
+  // TODO New key - Add a translation
+  "explore.index.ouname": "Name",
+
+  // "explore.index.projectOrgUnits": "Organizations",
+  // TODO New key - Add a translation
+  "explore.index.projectOrgUnits": "Organizations",
+
+  // "explore.index.personOrgUnits": "Organizations",
+  // TODO New key - Add a translation
+  "explore.index.personOrgUnits": "Organizations",
+
+  // "explore.index.pjtitle": "Title",
+  // TODO New key - Add a translation
+  "explore.index.pjtitle": "Title",
+
+  // "explore.index.projectinvestigators": "Project investigators",
+  // TODO New key - Add a translation
+  "explore.index.projectinvestigators": "Project investigators",
+
+  // "explore.index.rodept": "Department",
+  // TODO New key - Add a translation
+  "explore.index.rodept": "Department",
+
+  // "explore.index.rpdept": "Department",
+  // TODO New key - Add a translation
+  "explore.index.rpdept": "Department",
+
+  // "explore.index.rpname": "Name",
+  // TODO New key - Add a translation
+  "explore.index.rpname": "Name",
+
+  // "explore.index.subject": "Subject",
+  // TODO New key - Add a translation
+  "explore.index.subject": "Subject",
+
+  // "explore.index.title": "Title",
+  // TODO New key - Add a translation
+  "explore.index.title": "Title",
+
+  // "explore.index.type": "Type",
+  // TODO New key - Add a translation
+  "explore.index.type": "Type",
+
+  // "explore.search-section.infrastructure.title": "Infrastructure",
+  // TODO New key - Add a translation
+  "explore.search-section.infrastructure.title": "Infrastructure",
+
+  // "explore.search-section.fundings.title": "Search Projects",
+  // TODO New key - Add a translation
+  "explore.search-section.fundings.title": "Search Projects",
+
+  // "explore.search-section.fundings_and_projects.title": "Search Projects",
+  // TODO New key - Add a translation
+  "explore.search-section.fundings_and_projects.title": "Search Projects",
+
+  // "explore.search-section.orgunits.title": "Search Organizations",
+  // TODO New key - Add a translation
+  "explore.search-section.orgunits.title": "Search Organizations",
+
+  // "explore.search-section.publications.title": "Search Research Outputs",
+  // TODO New key - Add a translation
+  "explore.search-section.publications.title": "Search Research Outputs",
+
+  // "explore.search-section.researchoutputs.title": "Search Research Outputs",
+  // TODO New key - Add a translation
+  "explore.search-section.researchoutputs.title": "Search Research Outputs",
+
+  // "explore.search-section.researcherprofiles.title": "Search People",
+  // TODO New key - Add a translation
+  "explore.search-section.researcherprofiles.title": "Search People",
+
+  // "explore.search-section.search-button": "Search",
+  // TODO New key - Add a translation
+  "explore.search-section.search-button": "Search",
+
+  // "explore.search-section.reset-button": "Reset",
+  // TODO New key - Add a translation
+  "explore.search-section.reset-button": "Reset",
+
+  // "explore.infrastructure.breadcrumbs": "Infrastructure",
+  // TODO New key - Add a translation
+  "explore.infrastructure.breadcrumbs": "Infrastructure",
+
+  // "explore.fundings.breadcrumbs": "Fundings",
+  // TODO New key - Add a translation
+  "explore.fundings.breadcrumbs": "Fundings",
+
+  // "explore.projects.breadcrumbs": "Projects",
+  // TODO New key - Add a translation
+  "explore.projects.breadcrumbs": "Projects",
+
+  // "explore.fundings_and_projects.breadcrumbs": "Projects",
+  // TODO New key - Add a translation
+  "explore.fundings_and_projects.breadcrumbs": "Projects",
+
+  // "explore.orgunits.breadcrumbs": "Organizations",
+  // TODO New key - Add a translation
+  "explore.orgunits.breadcrumbs": "Organizations",
+
+  // "explore.publications.breadcrumbs": "Research Outputs",
+  // TODO New key - Add a translation
+  "explore.publications.breadcrumbs": "Research Outputs",
+
+  // "explore.researchoutputs.breadcrumbs": "Research Outputs",
+  // TODO New key - Add a translation
+  "explore.researchoutputs.breadcrumbs": "Research Outputs",
+
+  // "explore.researcherprofiles.breadcrumbs": "People",
+  // TODO New key - Add a translation
+  "explore.researcherprofiles.breadcrumbs": "People",
+
+  // "explore.title": "Explore section",
+  // TODO New key - Add a translation
+  "explore.title": "Explore section",
+  // "export-schema.process.title": "Metadata Schema Export",
+  // TODO New key - Add a translation
+  "export-schema.process.title": "Metadata Schema Export",
+
+  // "feed.description": "Syndication feed",
+  // TODO New key - Add a translation
+  "feed.description": "Syndication feed",
+
   // "file-section.error.header": "Error obtaining files for this item",
   "file-section.error.header": "Erreur lors de la récupération des fichiers liés à cet Item",
 
@@ -5722,6 +6107,168 @@
 
   // "submission.import-external.preview.error.import.body": "An error occurs during the external source entry import process.",
   "submission.import-external.preview.error.import.body": "Une erreur s'est produite lors de l'importation depuis la source externe.",
+
+
+
+  // "submission.sections.correction.bitstream.operation.add": "Bitstream added",
+  // TODO New key - Add a translation
+  "submission.sections.correction.bitstream.operation.add": "Bitstream added",
+
+  // "submission.sections.correction.bitstream.operation.modify": "Bitstream modified",
+  // TODO New key - Add a translation
+  "submission.sections.correction.bitstream.operation.modify": "Bitstream modified",
+
+  // "submission.sections.correction.bitstream.operation.remove": "Bitstream removed",
+  // TODO New key - Add a translation
+  "submission.sections.correction.bitstream.operation.remove": "Bitstream removed",
+
+  // "submission.sections.correction.column.current-value": "Current value",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.current-value": "Current value",
+
+  // "submission.sections.correction.column.file": "File",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.file": "File",
+
+  // "submission.sections.correction.column.file.info": "Here are the changes related the item's bitstream",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.file.info": "Here are the changes related the item's bitstream",
+
+  // "submission.sections.correction.column.metadata": "Metadata",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.metadata": "Metadata",
+
+  // "submission.sections.correction.column.metadata.info": "Here are the changes related the item's metadata",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.metadata.info": "Here are the changes related the item's metadata",
+
+  // "submission.sections.correction.column.previous-value": "Previous value",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.previous-value": "Previous value",
+
+  // "submission.sections.correction.column.policy": "Policy",
+  // TODO New key - Add a translation
+  "submission.sections.correction.column.policy": "Policy",
+
+  // "submission.sections.submit.progressbar.correction": "Correction details",
+  // TODO New key - Add a translation
+  "submission.sections.submit.progressbar.correction": "Correction details",
+
+
+
+  // "submission.sections.detect-duplicate.clear-decision": "Undo",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.clear-decision": "Undo",
+
+  // "submission.sections.detect-duplicate.clear-decision-help": "Click for clear the decision about this pontential duplicate",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.clear-decision-help": "Click for clear the decision about this pontential duplicate",
+
+  // "submission.sections.detect-duplicate.confirm-duplicate": "Confirm (It's a duplicate)",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.confirm-duplicate": "Veuillez confirmer (C'est un doublon)",
+
+  // "submission.sections.detect-duplicate.confirm-not-duplicate": "Confirm (It's not a duplicate)",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.confirm-not-duplicate": "Veuillez confirmer (Ce n'est pas un doublon)",
+
+  // "submission.sections.detect-duplicate.decision-success-notice": "Choice registered successfully",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.decision-success-notice": "Choix enregistré avec succès",
+
+  // "submission.sections.detect-duplicate.disclaimer": "The system has identified some potential duplicates. Please carefully review the list and flag each occurency with the appropriate choice or discard this submission.<br/>If you find out that an item in the list is not a duplicate, you can select the \"It's not a duplicate option\".<br/>If an item is a duplicate but you want to keep this submission as well, please provide an explaination on why you keep the duplicate by clicking the \"It's a duplicate\" option.",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.disclaimer": "Le systême a identifié des doublons potentiels. Veuillez passer en revue la liste suivante et marquer chaque entrée avec le choix approprié. Vous pouvez également annuler votre soumission si il s'avère que c'est effectivement un doublon.<br/>Si vous trouvé une entrée de la liste qui n'est <b>pas</b> un doublon, vous pouvez utiliser l'option \"Ce n'est pas un doublon\".<br/>Si une entrée est un doublon mais que vous voulez quand même garder la soumission actuelle, veuillez fournir une explication en cliquant sur l'option \"C'est un doublon\".<br/>Vous pouvez également traiter tout les doublons d'un coup en utilisant le bouton \"Traiter tous les doublons\" ci-dessous et en sélectionnant l'option désirée. Cela aura pour effet d'appliquer le choix sélectionné à toutes les entrées.",
+
+  // "submission.sections.detect-duplicate.disclaimer-ctrl": "The system has identified some potential duplicates. Please carefully review the list and the submitter comments and perform the appropriate action.<br/>If you find out that an item in the list is not a duplicate, you can select the \"It's not a duplicate option\".<br/>If an item is a duplicate but you want to keep this submission as well, please provide an explaination on why you keep the duplicate by clicking the \"It's a duplicate\" option.",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.disclaimer-ctrl": "Le systême a identifié des doublons potentiels. Veuillez passer en revue la liste suivante ainsi que les commentaires liés et indiquer pour chaque entrée si c'est un doublon ou non. <br/>Si vous trouvé une entrée de la liste qui n'est <b>pas</b> un doublon, vous pouvez utiliser l'option \"Ce n'est pas un doublon\".<br/>Si une entrée est un doublon mais que vous voulez quand même garder la soumission actuelle, veuillez fournir une explication en cliquant sur l'option \"C'est un doublon\".<br/>Vous pouvez également traiter tout les doublons d'un coup en utilisant le bouton \"Traiter tous les doublons\" ci-dessous et en sélectionnant l'option désirée. Cela aura pour effet d'appliquer le choix sélectionné à toutes les entrées.",
+
+  // "submission.sections.detect-duplicate.disclaimer-no-match": "All your feedback on potential duplicates have been registered correctly.",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.disclaimer-no-match": "Toutes vos remarques sur les doublons ont bien été enregistrées.",
+
+  // "submission.sections.detect-duplicate.manage-all.action": "Process all duplicates",
+  "submission.sections.detect-duplicate.manage-all.action": "Traiter tous les doublons",
+
+  // "submission.sections.detect-duplicate.manage-all.tooltip": "Click here to apply an action to all the entries",
+  "submission.sections.detect-duplicate.manage-all.tooltip": "Cliquez ici pour effectuer une action sur toutes les entrées",
+
+  // "submission.sections.detect-duplicate.all-not-duplicate.action": "All entries are not duplicates",
+  "submission.sections.detect-duplicate.all-not-duplicate.action": "Aucune des entrées n'est un doublon",
+
+  // "submission.sections.detect-duplicate.all-duplicate.action": "All entries are duplicates",
+  "submission.sections.detect-duplicate.all-duplicate.action": "Toutes les entrées sont des doublons",
+
+  // "submission.sections.detect-duplicate.all-duplicate.note-header": "All are duplicates",
+  "submission.sections.detect-duplicate.all-duplicate.note-header": "Tous sont des doublons",
+
+  // "submission.sections.detect-duplicate.all-duplicate.note-alert": "Please explain why we would need to keep the current item and the duplicates.",
+  "submission.sections.detect-duplicate.all-duplicate.note-alert": "Veuillez expliquer pourquoi nous devrions garder la soumission actuelle ainsi que les doublons.",
+
+  // "submission.sections.detect-duplicate.all-duplicate.note-placeholder": "Enter a note for the reason of the duplication",
+  "submission.sections.detect-duplicate.all-duplicate.note-placeholder": "Entrer une note expliquant la raison de la duplication.",
+
+  // "submission.sections.detect-duplicate.all-duplicate.note-save": "Save note",
+  "submission.sections.detect-duplicate.all-duplicate.note-save": "Appliquer le choix",
+
+  // "submission.sections.detect-duplicate.duplicate": "It's a duplicate",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.duplicate": "C'est un doublon",
+
+  // "submission.sections.detect-duplicate.duplicate-ctrl": "Mark the record to merge",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.duplicate-ctrl": "Marquez les entrées à fusionner",
+
+  // "submission.sections.detect-duplicate.duplicate-detected": "Potential duplicate detected",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.duplicate-detected": "Potentiel doublon détecté",
+
+  // "submission.sections.detect-duplicate.duplicate-help": "Click here if this is a duplicate of your item",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.duplicate-help": "Cliquez ici si c'est un doublon de votre item",
+
+  // "submission.sections.detect-duplicate.note-help": "Please enter your reason for the duplication into the box below.",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.note-help": "Veuillez introduire la raison de la duplication dans la zone ci-dessous.",
+
+  // "submission.sections.detect-duplicate.note-placeholder": "Describe the reason of duplication",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.note-placeholder": "Décrivez la raison de la duplication",
+
+  // "submission.sections.detect-duplicate.no-decision": "No decision yet",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.no-decision": "No decision yet",
+
+  // "submission.sections.detect-duplicate.not-duplicate": "It's not a duplicate",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.not-duplicate": "Ce n'est pas un doublon",
+
+  // "submission.sections.detect-duplicate.not-duplicate-help": "Click here if this is not a duplicate of your item",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.not-duplicate-help": "Cliquez ici si ce n'est pas un doublon de votre item",
+
+  // "submission.sections.detect-duplicate.not-duplicate-confirm.title": "Not a duplicate",
+  "submission.sections.detect-duplicate.not-duplicate-confirm.title": "Pas un doublon",
+
+  // "submission.sections.detect-duplicate.not-duplicate-confirm.alert": "Please confirm that the entry is not a duplicate",
+  "submission.sections.detect-duplicate.not-duplicate-confirm.alert": "Veuillez confirmer que cette entrée n'est pas un doublon",
+
+  // "submission.sections.detect-duplicate.not-duplicate-confirm.cancel": "Cancel",
+  "submission.sections.detect-duplicate.not-duplicate-confirm.cancel": "Annuler",
+
+  // "submission.sections.detect-duplicate.not-duplicate-confirm.confirm": "Confirm",
+  "submission.sections.detect-duplicate.not-duplicate-confirm.confirm": "Confirmer",
+
+  // "submission.sections.detect-duplicate.submitter-decision": "Submitter decision:",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.submitter-decision": "Submitter decision:",
+
+  // "submission.sections.detect-duplicate.submitter-note": "Submitter note:",
+  // TODO New key - Add a translation
+  "submission.sections.detect-duplicate.submitter-note": "Submitter note:",
+
+
 
   // "submission.sections.describe.relationship-lookup.close": "Close",
   "submission.sections.describe.relationship-lookup.close": "Fermer",
