@@ -1,0 +1,12 @@
+.process-all-options{
+    padding: 0.5rem;
+    cursor:pointer;
+}
+
+.process-all-danger:hover{
+    background: var(--ds-danger-bg-hover);
+}
+
+.process-all-success:hover{
+    background: var(--ds-success-bg-hover);
+}
