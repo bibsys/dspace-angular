@@ -43,7 +43,8 @@ export class FileSectionComponent extends BaseComponent {
       true,
       true,
       followLink('format'),
-      followLink('access')
+      followLink('access'),
+      followLink('download_url'),
     );
   }
 }
