@@ -13,6 +13,7 @@ import { SiteDataService } from '../../../core/data/site-data.service';
 import { LocaleService } from '../../../core/locale/locale.service';
 import { MetadatumViewModel } from '../../../core/shared/metadata.models';
 import { isNotEmpty } from '../../../shared/empty.util';
+import { FileContentService } from '../../file-content.service';
 
 @Component({
   selector: 'ds-end-user-agreement-content',
@@ -35,6 +36,7 @@ export class EndUserAgreementContentComponent implements OnInit, OnDestroy {
   constructor(private siteService: SiteDataService,
               private localeService: LocaleService,
               private translateService: TranslateService,
+              private fileContentService: FileContentService
   ) {
   }
 
@@ -43,7 +45,7 @@ export class EndUserAgreementContentComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subs.push(this.siteService.find().subscribe((site) => {
+    /*this.subs.push(this.siteService.find().subscribe((site) => {
       const langCode = this.localeService.getCurrentLanguageCode();
       const fallbackLangCode = 'en';
 
@@ -52,7 +54,13 @@ export class EndUserAgreementContentComponent implements OnInit, OnDestroy {
       const defaultFallbackText = this.translateService.instant(this.fallbackText);
 
       this.userAgreementText$.next(textArray[0]?.value || fallbackTextArray[0]?.value || defaultFallbackText);
-    }));
+    }));*/
+
+    this.fileContentService.getFileContent("end-user-agreement.md").subscribe({
+      next: (content: string) => this.userAgreementText$.next(content),
+      error: () => this.userAgreementText$.next(this.translateService.instant(this.fallbackText))
+    });
+
   }
 
   ngOnDestroy(): void {
