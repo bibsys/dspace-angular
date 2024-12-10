@@ -7,12 +7,11 @@ import { AppState } from '../../../../../../app/app.reducer';
 import { AuthService } from '../../../../../../app/core/auth/auth.service';
 import { DSONameService } from '../../../../../../app/core/breadcrumbs/dso-name.service';
 import { ConfigurationDataService } from '../../../../../../app/core/data/configuration-data.service';
-import { Observable, Subscription } from 'rxjs';
-import { getFirstCompletedRemoteData } from '../../../../../../app/core/shared/operators';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { getFirstSucceededRemoteWithNotEmptyData } from '../../../../../../app/core/shared/operators';
 import { map } from 'rxjs/operators';
 import { RemoteData } from '../../../../../../app/core/data/remote-data';
 import { ConfigurationProperty } from '../../../../../../app/core/shared/configuration-property.model';
-import { isNotEmpty } from '../../../../../../app/shared/empty.util';
 import { RoleService } from '../../../../../../app/core/roles/role.service';
 import { RoleType } from '../../../../../../app/core/roles/role-types';
 
@@ -26,7 +25,8 @@ import { RoleType } from '../../../../../../app/core/roles/role-types';
 })
 export class UserMenuComponent extends BaseComponent implements OnDestroy {
 
-  subscriptionEnabled$: Observable<boolean>;
+  subscriptionEnabled$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  profileEnabled$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   myDspaceQueryParams = {};
   private subscriptions = new Subscription();
 
@@ -42,18 +42,23 @@ export class UserMenuComponent extends BaseComponent implements OnDestroy {
 
   ngOnInit() {
     super.ngOnInit();
-    this.subscriptionEnabled$ = this.configurationService
-      .findByPropertyName('context-menu-entry.subscriptions.enabled')
-      .pipe(
-        getFirstCompletedRemoteData(),
-        map((res: RemoteData<ConfigurationProperty>) => {
-          return res.hasSucceeded
-            && res.payload
-            && isNotEmpty(res.payload.values)
-            && res.payload.values[0].toLowerCase() === 'true';
-        })
+    // Is user custom subscriptions is enabled ?
+    this.subscriptions.add(
+      this.configurationService
+        .findByPropertyName('context-menu-entry.subscriptions.enabled')
+        .pipe(
+          getFirstSucceededRemoteWithNotEmptyData(),
+          map((res: RemoteData<ConfigurationProperty>) => res.payload.values[0].toLowerCase() === 'true')
+        )
+        .subscribe((enabled: boolean) => this.subscriptionEnabled$.next(enabled))
     );
-
+    // Is the user is admin or masquerade another user
+    this.subscriptions.add(
+      this.roleService
+        .checkRole(RoleType.Admin)
+        .subscribe((isAdmin: boolean) => this.profileEnabled$.next(isAdmin || this.authService.isImpersonating()))
+    );
+    // Build "myDspace" page params to use
     this.subscriptions.add(
       this.roleService
         .checkRole(RoleType.Controller)
@@ -61,7 +66,7 @@ export class UserMenuComponent extends BaseComponent implements OnDestroy {
           if (isController) {
             this.myDspaceQueryParams = {configuration: 'workflow'};
           }
-        })
+        }),
     );
   }
 

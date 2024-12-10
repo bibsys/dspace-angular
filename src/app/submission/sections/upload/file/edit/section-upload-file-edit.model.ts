@@ -8,6 +8,9 @@ import {
   MATCH_ENABLED,
   OR_OPERATOR,
 } from '@ng-dynamic-forms/core';
+import {
+  DynamicScrollableDropdownModel
+} from '../../../../../shared/form/builder/ds-dynamic-form-ui/models/scrollable-dropdown/dynamic-scrollable-dropdown.model';
 
 export const BITSTREAM_METADATA_FORM_GROUP_CONFIG: DynamicFormGroupModelConfig = {
   id: 'metadata',
@@ -50,6 +53,10 @@ export const BITSTREAM_FORM_ACCESS_CONDITION_TYPE_CONFIG: DynamicSelectModelConf
   label: 'submission.sections.upload.form.access-condition-label',
   hint: 'submission.sections.upload.form.access-condition-hint',
   options: [],
+  required: true,
+  validators: {
+    required: null,
+  }
 };
 export const BITSTREAM_FORM_ACCESS_CONDITION_TYPE_LAYOUT: DynamicFormControlLayout = {
   element: {
