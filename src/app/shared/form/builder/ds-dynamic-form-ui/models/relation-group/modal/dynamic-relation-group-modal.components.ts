@@ -349,7 +349,7 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
     this.formModel.forEach((row) => {
       const modelRow = row as DynamicFormGroupModel;
       modelRow.group
-        .filter(control => !control.hidden || control.type === DYNAMIC_FROM_CONTROL_TYPE_HIDDEN) // 'hidden' input type field must be preserved !
+        .filter(control => !control.hidden || control.type === DYNAMIC_FROM_CONTROL_TYPE_HIDDEN)  // 'hidden' input type field must be preserved !
         .forEach((control: DynamicInputModel) => {
           // IMPORTANT: We need to check for the type of the value:
           //    - If it is a FormFieldMetadataValueObject, it is important to return its value or a placeholder.

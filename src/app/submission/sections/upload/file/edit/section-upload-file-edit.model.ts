@@ -50,6 +50,10 @@ export const BITSTREAM_FORM_ACCESS_CONDITION_TYPE_CONFIG: DynamicSelectModelConf
   label: 'submission.sections.upload.form.access-condition-label',
   hint: 'submission.sections.upload.form.access-condition-hint',
   options: [],
+  required: true,
+  validators: {
+    required: null,
+  }
 };
 export const BITSTREAM_FORM_ACCESS_CONDITION_TYPE_LAYOUT: DynamicFormControlLayout = {
   element: {

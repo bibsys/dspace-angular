@@ -1,6 +1,7 @@
 <ng-template #rejectTipContent><p [innerHTML]="'submission.workflow.tasks.claimed.return-to-submitter_help' | translate"></p></ng-template>
 <button [className]="'btn btn-secondary'"
         [ngbTooltip]="rejectTipContent"
+        [openDelay]="500"
         [disabled]="processing$ | async"
         (click)="openRejectModal(rejectModal)" >
   <span *ngIf="processing$ | async"><i class='fas fa-circle-notch fa-spin'></i> {{'submission.workflow.tasks.generic.processing' | translate}}</span>

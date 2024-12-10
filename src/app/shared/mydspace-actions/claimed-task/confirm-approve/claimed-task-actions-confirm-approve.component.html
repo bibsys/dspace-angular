@@ -1,13 +1,16 @@
-<ng-template #rejectTipContent><p [innerHTML]="'submission.workflow.tasks.claimed.confirm-approve_help' | translate"></p></ng-template>
+<ng-template #tipContent>
+    <p [innerHTML]="'submission.workflow.tasks.claimed.confirm-approve_help' | translate"></p>
+</ng-template>
 <button [className]="'btn btn-success'"
-        [ngbTooltip]="rejectTipContent"
+        [ngbTooltip]="tipContent"
+        [openDelay]="500"
         [disabled]="processing$ | async"
-        (click)="openConfirmModal(rejectModal)" >
+        (click)="openConfirmModal(modal)" >
   <span *ngIf="processing$ | async"><i class='fas fa-circle-notch fa-spin'></i> {{'submission.workflow.tasks.generic.processing' | translate}}</span>
   <span *ngIf="!(processing$ | async)"><i class="fa fa-thumbs-up"></i> {{'submission.workflow.tasks.claimed.confirm-approve.submit' | translate}}</span>
 </button>
 
-<ng-template #rejectModal let-c="close" let-d="dismiss">
+<ng-template #modal let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title">{{'submission.workflow.tasks.claimed.confirm-approve.reason.title' | translate}}</h4>
     <button type="button"
