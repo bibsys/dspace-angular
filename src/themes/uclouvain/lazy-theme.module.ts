@@ -37,7 +37,6 @@ import { DefaultBrowseElementsComponent } from './app/browse-most-elements/defau
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { SubmissionSectionUploadFileComponent } from './app/submission/sections/upload/file/section-upload-file.component';
 import { ItemPageTitleFieldComponent } from './app/item-page/simple/field-components/specific-field/title/item-page-title-field.component';
-import { SubmissionEditComponent } from './app/submission/edit/submission-edit.component';
 import { ExpandableNavbarSectionComponent } from './app/navbar/expandable-navbar-section/expandable-navbar-section.component';
 import { AuthNavMenuComponent } from './app/shared/auth-nav-menu/auth-nav-menu.component';
 import { UserMenuComponent } from './app/shared/auth-nav-menu/user-menu/user-menu.component';
@@ -71,7 +70,6 @@ const DECLARATIONS = [
   UploadFileDescriptionComponent,
   FileSectionComponent,
   FileDownloadLinkComponent,
-  SubmissionEditComponent,
   ExpandableNavbarSectionComponent,
   StatusBadgeComponent,
   BrowseByComponent

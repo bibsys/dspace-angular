@@ -1896,7 +1896,7 @@
   "collection.edit.logo.notifications.delete.error.title": "Erreur lors de la suppression du logo de la collection.",
 
   // "collection.edit.logo.upload": "Drop a Collection Logo to upload",
-  "collection.edit.logo.upload": "Glisser-Déposer un logo à charger pour la collection",
+  "collection.edit.logo.upload": "Glissez-Déposez un logo à charger pour la collection",
 
   // "collection.edit.notifications.success": "Successfully edited the Collection",
   "collection.edit.notifications.success": "Collection mise à jour avec succès",
@@ -2255,7 +2255,7 @@
   "community.edit.logo.notifications.delete.error.title": "Erreur lors de la suppression du logo de la communauté.",
 
   // "community.edit.logo.upload": "Drop a Community Logo to upload",
-  "community.edit.logo.upload": "Glisser-Déposer un logo à charger pour la communauté",
+  "community.edit.logo.upload": "Glissez-Déposez un logo à charger pour la communauté",
 
   // "community.edit.notifications.success": "Successfully edited the Community",
   "community.edit.notifications.success": "Communauté mise à jour avec succès",
@@ -2423,21 +2423,25 @@
   // "context-menu.actions.show-all-metadata": "Show all metadata (technical view)",
   "context-menu.actions.show-all-metadata": "Voir toutes les métadonnées (vue technique)",
 
-  // "context-menu.actions.edit-item.btn.FULL": "Edit all the details",
+  // "context-menu.actions.edit-item.btn.FULL": "Edit",
   // TODO New key - Add a translation
-  "context-menu.actions.edit-item.btn.FULL": "Edit all the details",
+  "context-menu.actions.edit-item.btn.FULL": "Éditer",
 
   // "context-menu.actions.edit-item.btn.OWNER": "Edit",
   // TODO New key - Add a translation
-  "context-menu.actions.edit-item.btn.OWNER": "Edit",
+  "context-menu.actions.edit-item.btn.OWNER": "Éditer",
 
   // "context-menu.actions.edit-item.btn.DIRECTOR": "Edit",
   // TODO New key - Add a translation
-  "context-menu.actions.edit-item.btn.DIRECTOR": "Edit",
+  "context-menu.actions.edit-item.btn.DIRECTOR": "Éditer",
 
   // "context-menu.actions.edit-item.btn.INVESTIGATOR": "Edit",
   // TODO New key - Add a translation
-  "context-menu.actions.edit-item.btn.INVESTIGATOR": "Edit",
+  "context-menu.actions.edit-item.btn.INVESTIGATOR": "Éditer",
+
+  // "context-menu.actions.edit-item.btn.LIBRARIAN": "Edit",
+  // TODO New key - Add a translation
+  "context-menu.actions.edit-item.btn.LIBRARIAN": "Éditer",
 
   // "context-menu.actions.request-correction.btn": "Request a correction",
   // TODO New key - Add a translation
@@ -2796,15 +2800,14 @@
   "dso-selector.create.item.head": "Nouveau dépôt",
 
   // "dso-selector.create.item.sub-level": "Create a new item in",
-  "dso-selector.create.item.sub-level": "Pour procéder à votre dépôt, veuillez cliquer sur le bouton \"Démarrer\" correspondant",
+  "dso-selector.create.item.sub-level": "Pour procéder à votre dépôt, veuillez cliquer sur le bouton \"Démarrer\", puis lire et accepter les conditions générales",
 
   // "dso-selector.create.submission.head": "New submission",
   "dso-selector.create.submission.head": "Nouveau dépôt",
 
 
-  "dso-selector.disclaimer.content": "<ul><li>Avant de démarrer, veuillez prendre connaissance des <a href=\"/info/privacy\">conditions d’utilisation des données personnelles</a>.</li><li>Le processus peut être démarré, puis interrompu et repris plus tard. Toutefois, une fois le\nprocessus achevé, le dépôt est définitif et ne peut plus être modifié.</li><li>Pour toute question pratique, veuillez vous référer aux consignes communiquées par votre\nfaculté et/ou par votre gestionnaire de parcours.</li></ul>",
-  "dso-selector.disclaimer.agreement": "J'ai lu et j'accepte les conditions d’utilisation.",
-  "dso-selector.disclaimer.confirm": "J'accepte",
+  "dso-selector.disclaimer.content": "<ul>\n  <li>Avant de démarrer, veuillez prendre connaissance des <a href=\"/info/privacy\">conditions d’utilisation des données personnelles</a>.</li>\n  <li>Le ou les fichiers que vous vous apprêtez à déposer en ligne <b>constitue(nt) la version officielle de votre mémoire et seront communiqués comme tels au jury</b>. Si votre règlement facultaire prévoit en outre la remise d'un ou plusieurs exemplaires imprimés, <b>ceux-ci devront obligatoirement être imprimés à partir des fichiers déposés</b>. La non-conformité de la version imprimée avec la version électronique peut amener le jury d'examen à décider d'une irrégularité du fait de l'étudiant et l'attribution d'une note \"T\" (0/20).</li>\n  <li>Le processus peut être démarré, puis interrompu et repris plus tard. Toutefois, une fois le processus achevé, le dépôt est définitif et ne peut plus être modifié.</li>\n  <li>Pour toute question pratique, veuillez vous référer aux consignes communiquées par votre faculté et/ou par votre gestionnaire de parcours.</li>\n</ul>",
+  "dso-selector.disclaimer.confirm": "J'ai lu et j'accepte les conditions",
 
   // "dso-selector.edit.collection.head": "Edit collection",
   "dso-selector.edit.collection.head": "Éditer une collection",
@@ -7824,9 +7827,6 @@
   // "submission.import-external.preview.error.import.body": "An error occurs during the external source entry import process.",
   "submission.import-external.preview.error.import.body": "Une erreur s'est produite lors de l'importation depuis la source externe.",
 
-  // "submission.rules.markdown": "..."
-  "submission.rules.markdown": "<p>Le ou les fichiers que vous vous apprêtez à déposer en ligne <b>constitue(nt) la version officielle de votre mémoire et seront communiqués comme tels au jury</b>. Si votre règlement facultaire prévoit en outre la remise d'un ou plusieurs exemplaires imprimés, <b>ceux-ci devront obligatoirement être imprimés à partir des fichiers déposés</b>. La non-conformité de la version imprimée avec la version électronique peut amener le jury d'examen à décider d'une irrégularité du fait de l'étudiant et l'attribution d'une note \"T\" (0/20).</p><p>Consignes pour les fichiers :</p><p>Le texte du mémoire doit être déposé en un unique fichier PDF<ul><li>de préférence au format PDF/A et non protégé</li><li>nommé de la façon suivante : Nom_NOMA_Année de défense.pdf (par ex. Dupont_00123456_2024.pdf)</ul>L’<u>annexe</u> ou <u>les annexes</u> peuvent être déposées <u>séparément</u>. Dans ce cas, chaque fichier d’annexe doit être renommé de la façon suivante :<ul><li>Nom_NOMA_Année de défense_Annexe1.pdf (par ex. Dupont_00123456_2024_Annexe1.pdf)</li><li>Nom_NOMA_Année de défense_Annexe2., etc. s’il y a plusieurs annexes.</li></ul>Dans les noms de fichiers : éviter d’utiliser des caractères accentués, symboles, etc. et utiliser le tiret_bas (« underscore ») pour remplacer les espaces.</p>",
-
   // "submission.sections.correction.bitstream.operation.add": "Bitstream added",
   // TODO New key - Add a translation
   "submission.sections.correction.bitstream.operation.add": "Bitstream added",
@@ -8380,6 +8380,38 @@
   // "submission.sections.submit.progressbar.accessCondition": "Item access conditions",
   "submission.sections.submit.progressbar.accessCondition": "Autorisations d'accès à l'Item",
 
+  // "submission.sections.identifiers.info": "The following identifiers will be created for your item:",
+  // TODO New key - Add a translation
+  "submission.sections.identifiers.info": "The following identifiers will be created for your item:",
+
+  // "submission.sections.identifiers.no_handle": "No handles have been minted for this item.",
+  // TODO New key - Add a translation
+  "submission.sections.identifiers.no_handle": "No handles have been minted for this item.",
+
+  // "submission.sections.identifiers.no_doi": "No DOIs have been minted for this item.",
+  // TODO New key - Add a translation
+  "submission.sections.identifiers.no_doi": "No DOIs have been minted for this item.",
+
+  // "submission.sections.identifiers.handle_label": "Handle: ",
+  // TODO New key - Add a translation
+  "submission.sections.identifiers.handle_label": "Handle: ",
+
+  // "submission.sections.identifiers.doi_label": "DOI: ",
+  // TODO New key - Add a translation
+  "submission.sections.identifiers.doi_label": "DOI: ",
+
+  // "submission.sections.identifiers.otherIdentifiers_label": "Other identifiers: ",
+  // TODO New key - Add a translation
+  "submission.sections.identifiers.otherIdentifiers_label": "Other identifiers: ",
+
+  "submit.progressbar.upload.shortcut": "fichiers chargés",
+  "submit.progressbar.describe.masterthesis.shortcut": "description",
+  "submit.progressbar.license.shortcut": "licence",
+
+  // "submission.sections.submit.progressbar.itemAccessConditions": "Item access conditions",
+  // TODO New key - Add a translation
+  "submission.sections.submit.progressbar.itemAccessConditions": "Item access conditions",
+
   // "submission.sections.submit.progressbar.CClicense": "Creative commons license",
   "submission.sections.submit.progressbar.CClicense": "Licence Creative Commons",
 
@@ -8409,7 +8441,7 @@
   "submit.progressbar.field.error.pattern": "La valeur d'un champ n'est pas valide.",
 
   // "submission.sections.submit.progressbar.license": "Deposit license",
-  "submission.sections.submit.progressbar.license": "Licence du dépôt",
+  "submission.sections.submit.progressbar.license": "Licence pour la conservation et pour la diffusion",
 
   // "submission.sections.submit.progressbar.upload": "Upload files",
   "submission.sections.submit.progressbar.upload": "Fichiers chargés",
@@ -8477,7 +8509,7 @@
   "submission.sections.upload.download.title": "Télécharger",
 
   // "submission.sections.upload.drop-message": "Drop files to attach them to the item",
-  "submission.sections.upload.drop-message": "Glisser-déposer vos fichiers ici",
+  "submission.sections.upload.drop-message": "Glissez-déposez vos fichiers ici",
 
   // "submission.sections.upload.edit.title": "Edit bitstream",
   "submission.sections.upload.edit.title": "Modifier",
@@ -8486,7 +8518,7 @@
   "submission.sections.upload.form.access-condition-label": "Type d'autorisations d'accès",
 
   // "submission.sections.upload.form.access-condition-hint": "Specify access type to apply for this file",
-  "submission.sections.upload.form.access-condition-hint": "Choisissez ici le type d'accès que vous souhaitez pour le fichier",
+  "submission.sections.upload.form.access-condition-hint": "Choisissez ici le type d'accès que vous souhaitez pour le fichier. Pour plus d'informations sur les choix possible, veuillez consulter <a href=\"http://google.com\">cette page</a>",
 
   // "submission.sections.upload.form.date-required": "Date is required.",
   "submission.sections.upload.form.date-required": "La date est obligatoire.",
@@ -8501,7 +8533,7 @@
   "submission.sections.upload.form.from-label": "Accorder l'accès depuis",
 
   // "submission.sections.upload.form.from-hint": "Select the date from which the related access condition is applied",
-  "submission.sections.upload.form.from-hint": "Sélectionner la date à partir de laquelle l'autorisation d'accès liée est appliquée.",
+  "submission.sections.upload.form.from-hint": "Si vous avez choisi l'accès embargo, sélectionnez la date à partir de laquelle l'autorisation d'accès liée est appliquée.",
 
   // "submission.sections.upload.form.from-placeholder": "From",
   "submission.sections.upload.form.from-placeholder": "Depuis",
@@ -8528,7 +8560,7 @@
   "submission.sections.upload.header.policy.default.withlist": "Veuillez noter que, en complément des accès spécifiquement accordés pour le fichier, les fichiers téléchargés dans la collection {{collectionName}} seront accessibles par défaut au(x) groupe(s) suivant(s):",
 
   // "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
-  "submission.sections.upload.info": "<ul><li>Le texte du mémoire doit être déposé en un unique fichier PDF (de préférence PDF/A) non protégé et renommé de la façon suivante : <b>Nom_NOMA_Année de défense.pdf</b></li><li>L’annexe ou les annexes peuvent être déposées séparément. Dans ce cas, chaque fichier d’annexe doit être renommé de la façon suivante : <b>Nom_NOMA_Année de défense_Annexe1.pdf (Annexe2, Annexe3, etc. s’il y a plusieurs annexes).</b></li><li>Dans le cas où un dépôt du mémoire en version \"papier\" est exigé, il doit être identique à la version électronique déposée en ligne.</li><li>Pour plus d’information, cliquez sur l'aide en ligne.</li></ul>",
+  "submission.sections.upload.info": "<ul><li>Le texte du mémoire doit être déposé en un <b>unique fichier PDF</b> (de préférence PDF/A) non protégé et renommé de la façon suivante : <b>Nom_NOMA_Année de défense.pdf</b></li><li>L’annexe ou les annexes peuvent être déposées séparément. Dans ce cas, chaque fichier d’annexe doit être renommé de la façon suivante : <b>Nom_NOMA_Année de défense_Annexe1.pdf (Annexe2, Annexe3, etc. s’il y a plusieurs annexes).</b></li><li>Éviter d’utiliser des caractères accentués, symboles, etc. et utiliser le tiret_bas (« underscore ») pour remplacer les espaces.</li><li>Dans le cas où un dépôt du mémoire en version \"papier\" est exigé, il doit être identique à la version électronique déposée en ligne.</li><li>Pour plus d’information, cliquez sur l'aide en ligne.</li></ul>",
 
   // "submission.sections.upload.no-entry": "No",
   "submission.sections.upload.no-entry": "Non",
@@ -8573,7 +8605,7 @@
   "submission.sections.accesses.form.from-label": "Accorder l'accès à partir de",
 
   // "submission.sections.accesses.form.from-hint": "Select the date from which the related access condition is applied",
-  "submission.sections.accesses.form.from-hint": "Sélectionner la date à partir de laquelle l'autorisation d'accès liée est appliquée.",
+  "submission.sections.accesses.form.from-hint": "Si vous avez choisi l'accès embargo, sélectionnez la date à partir de laquelle l'autorisation d'accès liée est appliquée.",
 
   // "submission.sections.accesses.form.from-placeholder": "From",
   "submission.sections.accesses.form.from-placeholder": "Depuis",
@@ -8593,6 +8625,21 @@
   // "submission.sections.accesses.form.until-placeholder": "Until",
   "submission.sections.accesses.form.until-placeholder": "Jusqu'au",
 
+  // "access.condition.value.openaccess": "Open Access",
+  // TODO New key - Add a translation
+  "access.condition.value.openaccess": "Accès libre",
+
+  // "access.condition.value.embargo": "Embargo",
+  // TODO New key - Add a translation
+  "access.condition.value.embargo": "Embargo",
+
+  // "access.condition.value.administrator": "Administrator Only",
+  // TODO New key - Add a translation
+  "access.condition.value.administrator": "Interdit",
+
+  // "access.condition.value.lease": "Lease",
+  // TODO New key - Add a translation
+  "access.condition.value.lease": "Lease",
 
   // "submission.sections.license.granted-label": "I confirm the license above",
   "submission.sections.license.granted-label": "J'approuve la licence ci-dessus",
@@ -8734,9 +8781,9 @@
   // "submission.workflow.tasks.claimed.confirm-approve": "Approve",
   "submission.workflow.tasks.claimed.confirm-approve": "Approuver tel quel",
   // "submission.workflow.tasks.claimed.confirm-approve_help": "The submission can enter the public archive.",
-  "submission.workflow.tasks.claimed.confirm-approve_help": "Le mémoire sera approuvé tel quel : la fiche descriptive du mémoire sera rendue visible du public et les fichiers seront diffusés selon les restrictions choisies pour chacun.\nUtilisez cette option lorsque la faculté ne s’est pas opposée à la diffusion des fichiers.",
+  "submission.workflow.tasks.claimed.confirm-approve_help": "Ce mémoire va être approuvé tel quel : la fiche descriptive du mémoire sera rendue visible du public et les fichiers seront diffusés ou interdits d'accès selon l'option actuellement enregistrée pour chacun.\nUtilisez cette option lorsque la faculté ne s’est pas opposée à la diffusion des fichiers.",
   // "submission.workflow.tasks.claimed.confirm-approve.reason.title": "Confirm",
-  "submission.workflow.tasks.claimed.confirm-approve.reason.title": "Confirmer",
+  "submission.workflow.tasks.claimed.confirm-approve.reason.title": "Approuver",
 
   // "submission.workflow.tasks.claimed.confirm-approve.reason.info": "Are you sure to to approve this submission. It will be publically accessible in the archive.",
   "submission.workflow.tasks.claimed.confirm-approve.reason.info": "Veuillez confirmer l'ajout du mémoire à l'archive publique.",
@@ -8754,13 +8801,13 @@
   "submission.workflow.tasks.claimed.approve-no-diffusion": "Approuver sans diffusion",
 
   // "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Approve but all the bitstreams will be in forbidden access."
-  "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Le mémoire sera approuvé, mais seule la description du mémoire sera visible du public ; tous les fichiers seront interdits d'accès.\nUtilisez cette option pour les mémoires dont la faculté a décidé qu’ils ne pouvaient pas être consultés.",
+  "submission.workflow.tasks.claimed.approve-no-diffusion_help": "Ce mémoire va être approuvé, mais seule la description du mémoire sera visible du public ; tous les fichiers seront interdits d'accès.\nUtilisez cette option pour les mémoires dont la faculté a décidé qu’ils ne pouvaient pas être consultés.",
 
   // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Confirmer",
-  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Confirmer",
+  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.title": "Approuver sans diffusion",
 
   // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.info": "Are you sure to accept this item without diffusion ? \n The submission will be accepted but all bitstreams will be in forbidden access (only accessible by an administrator).",
-  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.info": "Êtes-vous sûr de vouloir accepter cette soumission sans diffusion ? \n La soumission sera accepéte mais tous les fichiers attachés seront mis en accès interdit (uniquement accessible par un administrateur).",
+  "submission.workflow.tasks.claimed.approve-no-diffusion.reason.info": "Êtes-vous sûr de vouloir accepter cette soumission sans diffusion ?\nLa soumission sera acceptée mais tous les fichiers attachés seront interdit d'accès (uniquement accessible par un administrateur).",
 
   // "submission.workflow.tasks.claimed.approve-no-diffusion.reason.placeholder": "Add a reason",
   "submission.workflow.tasks.claimed.approve-no-diffusion.reason.placeholder": "Ajouter une raison",
@@ -8796,28 +8843,28 @@
   "submission.workflow.tasks.claimed.reject_help": "Si vous avez bien révisé cet Item et qu'il ne peut pas être ajouté à la collection, sélectionner l'option « Rejeter ».  Il vous sera alors demandé d'indiquer la raison de ce rejet et de préciser si le déposant peut apporter une correction avant de soumettre de nouveau.",
 
   // "submission.workflow.tasks.claimed.withdraw-reject.reason.info": "Confirm that you really want to reject and place the item in a withdrawn state. The withdrawn state means that the item will be present but not visible by anyone (except administrators and submitter).",
-  "submission.workflow.tasks.claimed.withdraw-reject.reason.info": "Veuillez confirmer que vous voulez rejeter et placer cette soumission dans un état retiré. L'état retiré signifie que la soumission sera présente dans l'archive mais invisible aux yeux de tous (sauf administrateurs et déposant).",
+  "submission.workflow.tasks.claimed.withdraw-reject.reason.info": "Veuillez confirmer que vous voulez rejeter et placer cette soumission dans un état 'retiré'. L'état retiré signifie que la soumission sera présente dans l'archive mais invisible aux yeux de tous (sauf administrateurs et déposant).",
 
   // "submission.workflow.tasks.claimed.withdraw-reject.reason.placeholder": "Confirm rejection",
   "submission.workflow.tasks.claimed.withdraw-reject.reason.placeholder": "Confirmer le rejet",
 
   // "submission.workflow.tasks.claimed.withdraw-reject.reason.submit": "Reject item",
-  "submission.workflow.tasks.claimed.withdraw-reject.reason.submit": "Rejeter l'item",
+  "submission.workflow.tasks.claimed.withdraw-reject.reason.submit": "Rejeter",
 
   // "submission.workflow.tasks.claimed.withdraw-reject.reason.title": "Confirmer",
-  "submission.workflow.tasks.claimed.withdraw-reject.reason.title": "Confirmer",
+  "submission.workflow.tasks.claimed.withdraw-reject.reason.title": "Rejeter le dépôt",
 
   // "submission.workflow.tasks.claimed.withdraw-reject.submit": "Reject",
   "submission.workflow.tasks.claimed.withdraw-reject.submit": "Rejeter",
 
   // "submission.workflow.tasks.claimed.withdraw-reject_help": "If you have reviewed the item but it is not suitable for the archive, select \"Reject\". The item will be placed in a withdrawn state and will not be visible anymore.",
-  "submission.workflow.tasks.claimed.withdraw-reject_help": "Le dépôt sera rejeté. Utilisez cette option pour les mémoires en échec.",
+  "submission.workflow.tasks.claimed.withdraw-reject_help": "Ce dépôt va être rejeté et supprimé. Utilisez cette option pour les mémoires en échec.",
 
   // "submission.workflow.tasks.claimed.return-to-submitter": "Send back to submitter",
   "submission.workflow.tasks.claimed.return-to-submitter": "Renvoyer au déposant",
 
   // "submission.workflow.tasks.claimed.return-to-submitter.reason.title": "Comment",
-  "submission.workflow.tasks.claimed.return-to-submitter.reason.title": "Commentaire",
+  "submission.workflow.tasks.claimed.return-to-submitter.reason.title": "Renvoi au déposant",
 
   // "submission.workflow.tasks.claimed.return-to-submitter.reason.info": "Please enter the reason of the need of modifications by the submitter.",
   "submission.workflow.tasks.claimed.return-to-submitter.reason.info": "Veuillez détailler le besoin en modifications.",
@@ -8832,7 +8879,7 @@
   "submission.workflow.tasks.claimed.return-to-submitter.reason.default": "",
 
   // "submission.workflow.tasks.claimed.return-to-submitter_help": "Send the thesis back to the submitter to make some modifications.",
-  "submission.workflow.tasks.claimed.return-to-submitter_help": "Renvoyer le mémoire au déposant pour qu'il effectue des modifications.",
+  "submission.workflow.tasks.claimed.return-to-submitter_help": "Utiliser cette option pour permettre à la personne qui a réalisé le dépôt de le rouvrir et de le modifier.",
 
   // "submission.workflow.tasks.claimed.return": "Return to pool",
   "submission.workflow.tasks.claimed.return": "Se désassigner",
@@ -9019,7 +9066,7 @@
   "uploader.browse": "parcourir",
 
   // "uploader.drag-message": "Drag & Drop your files here",
-  "uploader.drag-message": "Glisser-déposer vos fichiers ici",
+  "uploader.drag-message": "Glissez-déposez vos fichiers ici",
 
   // "uploader.delete.btn-title": "Delete",
   "uploader.delete.btn-title": "Supprimer",
@@ -10552,7 +10599,7 @@
   "item.page.details.label": "Détails",
 
   //"access.condition.value.openaccess": "Open Access",
-  "access.condition.value.openaccess": "Open Access",
+  "access.condition.value.openaccess": "Accès libre",
   //"access.condition.value.embargo": "Embargo",
   "access.condition.value.embargo": "Accès embargo",
   //"access.condition.value.administrator": "Administrator Only",

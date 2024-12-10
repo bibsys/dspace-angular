@@ -4,7 +4,8 @@
     {{dsoNameService.getName(user$ | async)}}<br>
     <span class="text-muted">{{(user$ | async)?.email}}</span>
   </span>
-    <a [ngClass]="inExpandableNavbar ? 'nav-item nav-link' : 'dropdown-item'"
+    <a *ngIf="profileEnabled$ | async"
+       [ngClass]="inExpandableNavbar ? 'nav-item nav-link' : 'dropdown-item'"
        [routerLink]="[profileRoute]" routerLinkActive="active">
         {{'nav.profile' | translate}}
     </a>
