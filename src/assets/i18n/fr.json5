@@ -2457,8 +2457,8 @@
   // "footer.link.privacy-policy": "Privacy policy",
   "footer.link.privacy-policy": "Politique de protection de la vie privée",
 
-  // "footer.link.end-user-agreement":"End User Agreement",
-  "footer.link.end-user-agreement": "Licence de l'utilisateur final",
+  // "footer.link.end-user-agreement": "End User Agreement",
+  "footer.link.end-user-agreement": "Mentions légales",
 
   // "footer.link.feedback":"Send Feedback",
   "footer.link.feedback": "Envoyer un commentaire",
@@ -2722,19 +2722,25 @@
   "info.end-user-agreement.buttons.save": "Sauvegarder",
 
   // "info.end-user-agreement.head": "End User Agreement",
-  "info.end-user-agreement.head": "Licence de l'utilisateur final",
+  "info.end-user-agreement.head": "Mentions légales",
 
   // "info.end-user-agreement.title": "End User Agreement",
-  "info.end-user-agreement.title": "Licence de l'utilisateur final",
+  "info.end-user-agreement.title": "Mentions légales",
+
+  // "info.end-user-agreement.content.fallback": "In construction.",
+  "info.end-user-agreement.content.fallback": "En construction...",
 
   // "info.privacy.breadcrumbs": "Privacy Statement",
-  "info.privacy.breadcrumbs": "Déclaration de confidentialité",
+  "info.privacy.breadcrumbs": "Politique de protection de la vie privée",
 
   // "info.privacy.head": "Privacy Statement",
-  "info.privacy.head": "Déclaration de confidentialité",
+  "info.privacy.head": "Politique de protection de la vie privée",
 
   // "info.privacy.title": "Privacy Statement",
-  "info.privacy.title": "Déclaration de confidentialité",
+  "info.privacy.title": "Politique de protection de la vie privée",
+
+  // "info.privacy.content.fallback": "In construction.",
+  "info.privacy.content.fallback": "En construction...",
 
   // "info.feedback.breadcrumbs": "Feedback",
   "info.feedback.breadcrumbs": "Votre avis",

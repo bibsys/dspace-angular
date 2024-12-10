@@ -2645,7 +2645,7 @@
 
   "footer.link.privacy-policy": "Privacy policy",
 
-  "footer.link.end-user-agreement": "End User Agreement",
+  "footer.link.end-user-agreement": "End user agreement",
 
   "footer.link.feedback": "Send Feedback",
 
@@ -2943,13 +2943,15 @@
 
   "info.end-user-agreement.hosting-country": "the United States",
 
-  "info.end-user-agreement.content.fallback": "Accept the user agreement.",
+  "info.end-user-agreement.content.fallback": "In construction...",
 
-  "info.privacy.breadcrumbs": "Privacy Statement",
+  "info.privacy.breadcrumbs": "Privacy policy",
 
-  "info.privacy.head": "Privacy Statement",
+  "info.privacy.head": "Privacy policy",
 
-  "info.privacy.title": "Privacy Statement",
+  "info.privacy.title": "Privacy policy",
+
+  "info.privacy.content.fallback": "In construction...",
 
   "info.feedback.breadcrumbs": "Feedback",
 
