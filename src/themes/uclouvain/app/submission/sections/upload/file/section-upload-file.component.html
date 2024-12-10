@@ -3,7 +3,7 @@
         <div class="col d-flex position-relative">
             <i class="primary-tag fa fa-star" *ngIf="isPrimary"></i>
             <img [src]="getFileIcon()" [alt]="fileName" style="max-height:100px"/>
-            <div class="ml-2 d-flex flex-column">
+            <div class="ml-2 d-flex flex-column w-100">
                 <dl class="container row">
                     <dt class="col-4 col-lg-3">{{ 'submission.sections.upload.field.filename.label' | translate }}</dt>
                     <dd class="col-8 col-lg-9">{{ fileName }}</dd>
