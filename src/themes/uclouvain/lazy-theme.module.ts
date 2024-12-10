@@ -79,7 +79,6 @@ import { SocialModule } from '../../app/social/social.module';
 import { AdminSidebarComponent } from './app/admin/admin-sidebar/admin-sidebar.component';
 import { SubmissionSectionUploadFileComponent } from './app/submission/sections/upload/file/section-upload-file.component';
 import { SharedThemeModule } from './shared-theme.module';
-import { SubmissionEditComponent } from './app/submission/edit/submission-edit.component';
 import { ExpandableNavbarSectionComponent } from './app/navbar/expandable-navbar-section/expandable-navbar-section.component';
 import { AuthNavMenuComponent } from './app/shared/auth-nav-menu/auth-nav-menu.component';
 import { UserMenuComponent } from './app/shared/auth-nav-menu/user-menu/user-menu.component';
@@ -112,7 +111,6 @@ const DECLARATIONS = [
   CreativeCommonsLicenseComponent,
   FileSectionComponent,
   FileDownloadLinkComponent,
-  SubmissionEditComponent,
   ExpandableNavbarSectionComponent,
   StatusBadgeComponent,
   BrowseByComponent
