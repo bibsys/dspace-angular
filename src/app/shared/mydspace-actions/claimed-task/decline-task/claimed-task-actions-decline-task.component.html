@@ -2,6 +2,7 @@
         [disabled]="processing$ | async"
         class="declineTaskAction btn btn-warning"
         ngbTooltip="{{'submission.workflow.tasks.claimed.decline_help' | translate}}"
+        [openDelay]="500"
         type="button">
   <span *ngIf="processing$ | async">
     <i class='fas fa-circle-notch fa-spin'></i> {{'submission.workflow.tasks.generic.processing' | translate}}
