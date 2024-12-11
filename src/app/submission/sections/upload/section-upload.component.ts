@@ -13,6 +13,7 @@ import {
   BehaviorSubject,
   combineLatest,
   combineLatest as observableCombineLatest,
+  of,
   Observable,
   Subscription,
 } from 'rxjs';
@@ -57,6 +58,11 @@ import { SectionsService } from '../sections.service';
 import { SubmissionSectionUploadAccessConditionsComponent } from './accessConditions/submission-section-upload-access-conditions.component';
 import { ThemedSubmissionSectionUploadFileComponent } from './file/themed-section-upload-file.component';
 import { SectionUploadService } from './section-upload.service';
+import { HALEndpointService } from '../../../core/shared/hal-endpoint.service';
+import { AuthService } from '../../../core/auth/auth.service';
+import { UploaderOptions } from '../../../shared/upload/uploader/uploader-options.model';
+import { SectionsType } from '../sections-type';
+import { ThemedSubmissionUploadFilesComponent } from '../../form/submission-upload-files/themed-submission-upload-files.component';
 
 export const POLICY_DEFAULT_NO_LIST = 1; // Banner1
 export const POLICY_DEFAULT_WITH_LIST = 2; // Banner2
@@ -81,6 +87,7 @@ export interface AccessConditionGroupsMapEntry {
     TranslateModule,
     NgForOf,
     AsyncPipe,
+    ThemedSubmissionUploadFilesComponent,
   ],
   standalone: true,
 })
@@ -152,6 +159,18 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
   public required$ = new BehaviorSubject<boolean>(true);
 
   /**
+   * Is upload of file is enabled
+   * @type {boolean}
+   */
+  public uploadEnabled$: Observable<boolean> = of(false);
+
+  /**
+   * The uploader configuration options
+   * @type {UploaderOptions}
+   */
+  public uploadFilesOptions: UploaderOptions = new UploaderOptions();
+
+  /**
    * Array to track all subscriptions and unsubscribe them onDestroy
    * @type {Array}
    */
@@ -168,6 +187,9 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
    * @param {SectionsService} sectionService
    * @param {SubmissionService} submissionService
    * @param {SubmissionUploadsConfigDataService} uploadsConfigService
+   * @param {DSONameService} dsoNameService
+   * @param {HALEndpointService} halService
+   * @param {AuthService} authService
    * @param {SectionDataObject} injectedSectionData
    * @param {string} injectedSubmissionId
    */
@@ -180,10 +202,36 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
               private submissionService: SubmissionService,
               private uploadsConfigService: SubmissionUploadsConfigDataService,
               public dsoNameService: DSONameService,
+              private halService: HALEndpointService,
+              private authService: AuthService,
               @Inject('sectionDataProvider') public injectedSectionData: SectionDataObject,
               @Inject('submissionIdProvider') public injectedSubmissionId: string) {
     super(undefined, injectedSectionData, injectedSubmissionId);
   }
+
+  /** OnInit hook */
+  ngOnInit() {
+    super.ngOnInit();
+    // Determine if the upload is possible.
+    const isAvailable$ = this.sectionService.isSectionTypeAvailable(this.submissionId, SectionsType.Upload);
+    const isReadOnly$ = this.sectionService.isSectionReadOnlyByType(this.submissionId, SectionsType.Upload, this.submissionService.getSubmissionScope());
+    this.uploadEnabled$ = combineLatest([
+      isAvailable$, isReadOnly$])
+      .pipe(map(([isAvailable, isReadOnly]: [boolean, boolean]) => isAvailable && !isReadOnly));
+    // Build upload files options
+    this.subs.push(
+      this.halService.getEndpoint(this.submissionService.getSubmissionObjectLinkName())
+        .pipe(
+          filter((href: string) => isNotEmpty(href)),
+          distinctUntilChanged()
+        )
+        .subscribe((endpointURL) => {
+          this.uploadFilesOptions.authToken = this.authService.buildAuthHeader();
+          this.uploadFilesOptions.url = endpointURL.concat(`/${this.submissionId}`);
+        }),
+    );
+  }
+
 
   /**
    * Initialize all instance variables and retrieve collection default access conditions
