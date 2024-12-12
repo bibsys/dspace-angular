@@ -1,0 +1,23 @@
+import { AsyncPipe, NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
+import { FileDownloadLinkComponent as BaseComponent } from '../../../../../app/shared/file-download-link/file-download-link.component';
+
+@Component({
+  selector: 'ds-themed-file-download-link',
+  templateUrl: './file-download-link.component.html',
+  styleUrls: ['../../../../../app/shared/file-download-link/file-download-link.component.scss'],
+  imports: [
+    NgbTooltipModule,
+    RouterLink,
+    NgClass,
+    NgIf,
+    NgTemplateOutlet,
+    AsyncPipe,
+    TranslateModule
+  ],
+  standalone: true
+})
+export class FileDownloadLinkComponent extends BaseComponent {}

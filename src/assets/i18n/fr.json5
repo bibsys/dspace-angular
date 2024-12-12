@@ -3910,6 +3910,9 @@
   // "item.page.filesection.download": "Download",
   "item.page.filesection.download": "Télécharger",
 
+  "item.page.filesection.request-a-copy": "Demander un accès",
+  "item.page.filesection.no-access": "Aucun accès",
+
   // "item.page.filesection.format": "Format:",
   "item.page.filesection.format": "Format:",
 
@@ -6720,8 +6723,57 @@
   // "submission.sections.submit.progressbar.describe.steptwo": "Describe",
   "submission.sections.submit.progressbar.describe.steptwo": "Décrire",
 
+  // "submission.sections.submit.progressbar.describe.publication_type": "Publication type",
+  "submission.sections.submit.progressbar.describe.publication_type": "Type de publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_identifiers": "Publication identifiers",
+  "submission.sections.submit.progressbar.describe.publication_identifiers": "Identifiant de la publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_authors": "Publication authors",
+  "submission.sections.submit.progressbar.describe.publication_authors": "Auteurs de la publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_base": "Publication basic data",
+  "submission.sections.submit.progressbar.describe.publication_base": "Données générales de la publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_specific": "Publication specific data",
+  "submission.sections.submit.progressbar.describe.publication_specific": "Données spécifiques de la publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_funding": "Funding data",
+  "submission.sections.submit.progressbar.describe.publication_funding": "Financements",
+
   // "submission.sections.submit.progressbar.detect-duplicate": "Potential duplicates",
   "submission.sections.submit.progressbar.detect-duplicate": "Doublon(s) potentiel(s)",
+
+  // "submit.progressbar.upload.shortcut": "Files",
+  "submit.progressbar.upload.shortcut": "Fichiers",
+
+  // "submit.progressbar.describe.publication_type.shortcut": "Publication type",
+  "submit.progressbar.describe.publication_type.shortcut": "Type de publication",
+
+  // "submit.progressbar.describe.publication_identifiers.shortcut": "Identifiers",
+  "submit.progressbar.describe.publication_identifiers.shortcut": "Identifiants",
+
+  // "submit.progressbar.describe.publication_authors.shortcut": "Authors",
+  "submit.progressbar.describe.publication_authors.shortcut": "Auteurs",
+
+  // "submit.progressbar.describe.publication_base.shortcut": "Publication base",
+  "submit.progressbar.describe.publication_base.shortcut": "Données générales",
+
+  // "submit.progressbar.describe.publication_specific.shortcut": "Publication specific",
+  "submit.progressbar.describe.publication_specific.shortcut": "Données spécifiques",
+
+  // "submit.progressbar.describe.publication_funding.shortcut": "Funding",
+  "submit.progressbar.describe.publication_funding.shortcut": "Financements",
+
+  // "submit.progressbar.detect-duplicate.shortcut": "Duplicates",
+  "submit.progressbar.detect-duplicate.shortcut": "Doublons",
+
+  // "submit.progressbar.license.shortcut": "License",
+  "submit.progressbar.license.shortcut": "License",
+
+  // "submission.sections.submit.progressbar.identifiers": "Identifiers",
+  // TODO New key - Add a translation
+  "submission.sections.submit.progressbar.identifiers": "Identifiers",
 
   // "submission.sections.submit.progressbar.license": "Deposit license",
   "submission.sections.submit.progressbar.license": "Licence du dépôt",
@@ -6758,6 +6810,30 @@
 
   // "submission.sections.toggle.aria.close": "Collapse {{sectionHeader}} section",
   "submission.sections.toggle.aria.close": "Réduire la section {{sectionHeader}}",
+
+  "submission.sections.upload.field.filename.label": "Nom du fichier",
+
+  "submission.sections.upload.field.accessType.label": "Type d'accès",
+
+  "submission.sections.upload.field.fileSize.label": "Taille",
+
+  "submission.sections.upload.field.ccLicense.label": "Licence CC",
+
+  "submission.sections.upload.field.description.label": "Description",
+
+  "submission.sections.upload.filesize.title": "Taille du fichier",
+
+  "submission.sections.upload.accesstype.title": "Type d'accès sélectionné",
+
+  "submission.sections.upload.license.title": "License CC sélectionnée",
+
+  // "submission.sections.upload.format": "Bitstream format",
+  // TODO New key - Add a translation
+  "submission.sections.upload.format": "Bitstream format",
+
+  // "submission.sections.upload.checksum": "Checksum",
+  // TODO New key - Add a translation
+  "submission.sections.upload.checksum": "Checksum",
 
   // "submission.sections.upload.delete.confirm.cancel": "Cancel",
   "submission.sections.upload.delete.confirm.cancel": "Annuler",
@@ -9000,6 +9076,32 @@
   "home-news.main-title": "DIAL.pr",
   "home-news.second-title": "Digital access to libraries - Publications de recherche",
   "home-info.what-is": "Qu'est ce que DIAL.pr ?",
-  "home-info.project-description": "DIAL.pr vise à mettre à la disposition des chercheurs et des enseignants de l'UCLouvain des outils leur permettant d’héberger leur production scientifique de manière définitive, tout en assurant la promotion et la diffusion en ligne. Le dépôt institutionnel peut ainsi accueillir tout travail scientifique rédigé par au moins un auteur de l'UCLouvain, les textes pouvant être consulables selon différentes modalités d'accès."
+  "home-info.project-description": "DIAL.pr vise à mettre à la disposition des chercheurs et des enseignants de l'UCLouvain des outils leur permettant d’héberger leur production scientifique de manière définitive, tout en assurant la promotion et la diffusion en ligne. Le dépôt institutionnel peut ainsi accueillir tout travail scientifique rédigé par au moins un auteur de l'UCLouvain, les textes pouvant être consulables selon différentes modalités d'accès.",
+
+  //"access.condition.value.openaccess": "Open Access",
+  "access.condition.value.openaccess": "Accès ouvert",
+  //"access.condition.value.embargo": "Embargo",
+  "access.condition.value.embargo": "Accès embargo",
+  //"access.condition.value.administrator": "Administrator Only",
+  "access.condition.value.administrator": "Accès interdit",
+  //"access.condition.value.lease": "Accès embargo",
+  "access.condition.value.lease": "Accès limité",
+
+  //"access.condition.value.UCLouvain networks restriction": "Restricted Access"
+  "access.condition.value.restricted": "Accès restreint",
+
+  //"submission-button.add.message": "Add a submission",
+  "submission-button.add.message": "Soumettre",
+
+  // --- LANGUAGES ---
+  "languages.iso-639-2.dut": "Néérlandais",
+  "languages.iso-639-2.eng": "Anglais",
+  "languages.iso-639-2.fre": "Français",
+  "languages.iso-639-2.ita": "Italien",
+  "languages.iso-639-2.ger": "Allemand",
+  "languages.iso-639-2.spa": "Espagnol",
+  "languages.iso-639-2.other": "Autre",
+
+  "from": "à partir du",
 }
 
