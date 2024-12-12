@@ -64,7 +64,10 @@ import { SearchFormComponent } from './app/shared/search-form/search-form.compon
 import { SearchPageComponent } from './app/search-page/search-page.component';
 import { SearchSidebarComponent } from './app/shared/search/search-sidebar/search-sidebar.component';
 import { NotificationsModule } from '../../app/notifications/notifications.module';
-
+import { SubmissionSectionUploadFileComponent } from './app/submission/sections/upload/file/section-upload-file.component';
+import { SharedThemeModule } from './shared-theme.module';
+import { CreativeCommonsLicenseComponent } from './app/shared/cc-license/creative-commons-licence.component';
+import { FileDownloadLinkComponent } from './app/shared/file-download-link/file-download-link.component';
 
 const DECLARATIONS = [
   AdminSidebarComponent,
@@ -75,7 +78,10 @@ const DECLARATIONS = [
   SearchFiltersComponent,
   SearchFormComponent,
   SearchPageComponent,
-  SearchSidebarComponent
+  SearchSidebarComponent,
+  SubmissionSectionUploadFileComponent,
+  CreativeCommonsLicenseComponent,
+  FileDownloadLinkComponent
 ];
 
 @NgModule({
@@ -136,7 +142,8 @@ const DECLARATIONS = [
     FooterModule,
     ExploreModule,
     SocialModule,
-    NotificationsModule
+    NotificationsModule,
+    SharedThemeModule
   ],
   declarations: DECLARATIONS,
 })
