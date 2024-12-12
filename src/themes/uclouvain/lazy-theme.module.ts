@@ -17,11 +17,16 @@ import { AdminSidebarComponent } from './app/admin/admin-sidebar/admin-sidebar.c
 import { ConfigurationSearchPageComponent } from './app/search-page/configuration-search-page.component';
 import { LoginPageComponent } from './app/login-page/login-page.component';
 import { MyDSpacePageComponent } from './app/my-dspace-page/my-dspace-page.component';
+import { CreativeCommonsLicenseComponent } from './app/shared/cc-license/creative-commons-licence.component';
+import { FileDownloadLinkComponent } from './app/shared/file-download-link/file-download-link.component';
 import { SearchComponent } from './app/shared/search/search.component';
 import { SearchFiltersComponent } from './app/shared/search/search-filters/search-filters.component';
 import { SearchFormComponent } from './app/shared/search-form/search-form.component';
 import { SearchPageComponent } from './app/search-page/search-page.component';
 import { SearchSidebarComponent } from './app/shared/search/search-sidebar/search-sidebar.component';
+import {
+  SubmissionSectionUploadFileComponent
+} from './app/submission/sections/upload/file/section-upload-file.component';
 
 
 const DECLARATIONS = [
@@ -33,7 +38,10 @@ const DECLARATIONS = [
   SearchFiltersComponent,
   SearchFormComponent,
   SearchPageComponent,
-  SearchSidebarComponent
+  SearchSidebarComponent,
+  SubmissionSectionUploadFileComponent,
+  CreativeCommonsLicenseComponent,
+  FileDownloadLinkComponent
 ];
 
 @NgModule({
