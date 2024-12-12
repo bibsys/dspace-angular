@@ -3607,7 +3607,8 @@
   "item.page.filesection.description": "Description:",
 
   "item.page.filesection.download": "Download",
-
+  "item.page.filesection.request-a-copy": "Request a copy",
+  "item.page.filesection.no-access": "No access",
   "item.page.filesection.format": "Format:",
 
   "item.page.filesection.name": "Name:",
@@ -7145,6 +7146,36 @@
 
   "submit.progressbar.field.error.pattern": "A field value is not valid.",
 
+  "submission.sections.submit.progressbar.describe.publication_type": "Publication type",
+
+  "submission.sections.submit.progressbar.describe.publication_identifiers": "Publication identifiers",
+
+  "submission.sections.submit.progressbar.describe.publication_authors": "Publication authors",
+
+  "submission.sections.submit.progressbar.describe.publication_base": "Publication basic data",
+
+  "submission.sections.submit.progressbar.describe.publication_specific": "Publication specific data",
+
+  "submission.sections.submit.progressbar.describe.publication_funding": "Funding data",
+
+  "submit.progressbar.upload.shortcut": "Files",
+
+  "submit.progressbar.describe.publication_type.shortcut": "Publication type",
+
+  "submit.progressbar.describe.publication_identifiers.shortcut": "Identifiers",
+
+  "submit.progressbar.describe.publication_authors.shortcut": "Authors",
+
+  "submit.progressbar.describe.publication_base.shortcut": "Publication base",
+
+  "submit.progressbar.describe.publication_specific.shortcut": "Publication specific",
+
+  "submit.progressbar.describe.publication_funding.shortcut": "Funding",
+
+  "submit.progressbar.detect-duplicate.shortcut": "Duplicates",
+
+  "submit.progressbar.license.shortcut": "License",
+
   "submission.sections.submit.progressbar.duplicates": "Potential duplicates",
 
   "submission.sections.submit.progressbar.identifiers": "Identifiers",
@@ -7182,6 +7213,22 @@
   "submission.sections.toggle.aria.open": "Expand {{sectionHeader}} section",
 
   "submission.sections.toggle.aria.close": "Collapse {{sectionHeader}} section",
+
+  "submission.sections.upload.field.filename.label": "Filename",
+
+  "submission.sections.upload.field.accessType.label": "Access type",
+
+  "submission.sections.upload.field.fileSize.label": "File size",
+
+  "submission.sections.upload.field.ccLicense.label": "CC licence",
+
+  "submission.sections.upload.field.description.label": "Description",
+
+  "submission.sections.upload.filesize.title": "File size",
+
+  "submission.sections.upload.accesstype.title": "Selected access type",
+
+  "submission.sections.upload.license.title": "Selected CC license",
 
   "submission.sections.upload.format": "Bitstream format",
 
@@ -7304,6 +7351,8 @@
   "access.condition.value.administrator": "Administrator Only",
 
   "access.condition.value.lease": "Lease",
+
+  "access.condition.value.restricted": "Restricted Access",
 
   "submission.sections.license.granted-label": "I confirm the license above",
 
@@ -9257,4 +9306,13 @@
   "home-news.second-title": "Digital access to libraries - Research publications",
   "home-info.what-is": "What is DIAL.pr ?",
   "home-info.project-description": "DIAL.pr aims to provide researchers and teachers from UCLouvain with tools enabling them to permanently host their scientific production, while ensuring online promotion and dissemination. The institutional repository can host any scientific work written by at least one author from UCLouvain, with different types of accesses to the texts.",
+
+  // --- LANGUAGES ---
+  "languages.iso-639-2.dut": "Dutch",
+  "languages.iso-639-2.eng": "English",
+  "languages.iso-639-2.fre": "French",
+  "languages.iso-639-2.ita": "Italian",
+  "languages.iso-639-2.ger": "German",
+  "languages.iso-639-2.spa": "Spanish",
+  "languages.iso-639-2.other": "Other",
 }
