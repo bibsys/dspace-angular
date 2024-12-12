@@ -27,7 +27,8 @@
       </ds-alert>
     </div>
   </div>
-  <div class="row">
+  <!-- Removing useless header from the section -->
+  <!-- <div class="row">
     <div class="col-md-2">
       <span class="text-left font-weight-bold">{{ 'bitstream.edit.form.primaryBitstream.label' | translate }}</span>
     </div>
@@ -36,7 +37,7 @@
     <div class="col-md-12">
       <hr/>
     </div>
-  </div>
+  </div> -->
   <ng-container *ngFor="let fileEntry of fileList; let i = index;">
     <ds-themed-submission-upload-section-file [singleAccessCondition]="singleAccessCondition"
                                               [isPrimary]="primaryBitstreamUUID ? primaryBitstreamUUID === fileEntry.uuid : null"
@@ -50,11 +51,11 @@
                                               [readOnly]="isReadOnly()"
                                               [sectionId]="sectionData.id"
                                               [submissionId]="submissionId"></ds-themed-submission-upload-section-file>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-12">
         <hr/>
       </div>
-    </div>
+    </div> -->
   </ng-container>
 </ng-container>
 

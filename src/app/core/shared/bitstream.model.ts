@@ -18,6 +18,8 @@ import { BUNDLE } from './bundle.resource-type';
 import { ChildHALResource } from './child-hal-resource.model';
 import { DSpaceObject } from './dspace-object.model';
 import { HALLink } from './hal-link.model';
+import { BITSTREAM_ACCESS_CONDITIONS } from './bitstream-access-conditions.resource-type';
+import { BitstreamAccessConditions } from './bitstream-acces-conditions.model';
 
 export interface ChecksumInfo {
   checkSumAlgorithm: string;
@@ -63,6 +65,7 @@ export class Bitstream extends DSpaceObject implements ChildHALResource {
     format: HALLink;
     content: HALLink;
     thumbnail: HALLink;
+    access: HALLink;
   };
 
   /**
@@ -85,6 +88,13 @@ export class Bitstream extends DSpaceObject implements ChildHALResource {
    */
   @link(BUNDLE)
     bundle?: Observable<RemoteData<Bundle>>;
+
+  /**
+   * The BitstreamAccessCondition of this Bitstream
+   * Will be undefined unless the format{@link HALLink} has been resolved.
+   */
+  @link(BITSTREAM_ACCESS_CONDITIONS, false, 'access')
+  access?: Observable<RemoteData<BitstreamAccessConditions>>;
 
   getParentLinkKey(): keyof this['_links'] {
     return 'format';
