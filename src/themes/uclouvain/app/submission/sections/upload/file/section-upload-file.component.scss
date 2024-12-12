@@ -1,0 +1,38 @@
+:host {
+    .file-panel {
+      background-color: var(--bs-light);
+      transition: background-color .25s ease;
+      border-radius: 2px;
+  
+      &:hover {
+        transition: background-color .75s ease;
+        background-color: var(--bs-submission-form-file-bg-hover);
+      }
+  
+      dt, dd { float: left }
+      dt { clear:both }
+  
+      .primary-tag {
+        position: absolute;
+        top: -0.35rem;
+        left: 0;
+        color: var(--yellow);
+        text-shadow: 0 0 5px var(--yellow);
+        z-index: 1;
+      }
+
+      img {
+        filter: grayscale(1);
+        height: 4rem;
+      }
+    }
+
+    .file-name {
+      font-size: 1.1rem;
+    }
+
+    .metadata-divider::after {
+      content: '|';
+      margin: 0 1rem;
+    }
+}

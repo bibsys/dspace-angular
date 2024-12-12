@@ -66,6 +66,8 @@ export class FileDownloadLinkComponent implements OnInit {
 
   @Input() showIcon = false;
 
+  @Input() showText = true;
+
   bitstreamPath$: Observable<{
     routerLink: string,
     queryParams: any,
