@@ -11227,8 +11227,53 @@
   // "submission.sections.submit.progressbar.describe.steptwo": "Describe",
   "submission.sections.submit.progressbar.describe.steptwo": "Décrire",
 
+  // "submission.sections.submit.progressbar.describe.publication_type": "Publication type",
+  "submission.sections.submit.progressbar.describe.publication_type": "Type de publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_identifiers": "Publication identifiers",
+  "submission.sections.submit.progressbar.describe.publication_identifiers": "Identifiant de la publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_authors": "Publication authors",
+  "submission.sections.submit.progressbar.describe.publication_authors": "Auteurs de la publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_base": "Publication basic data",
+  "submission.sections.submit.progressbar.describe.publication_base": "Données générales de la publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_specific": "Publication specific data",
+  "submission.sections.submit.progressbar.describe.publication_specific": "Données spécifiques de la publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_funding": "Funding data",
+  "submission.sections.submit.progressbar.describe.publication_funding": "Financements",
+
   // "submission.sections.submit.progressbar.detect-duplicate": "Potential duplicates",
   "submission.sections.submit.progressbar.detect-duplicate": "Doublon(s) potentiel(s)",
+
+  // "submit.progressbar.upload.shortcut": "Files",
+  "submit.progressbar.upload.shortcut": "Fichiers",
+
+  // "submit.progressbar.describe.publication_type.shortcut": "Publication type",
+  "submit.progressbar.describe.publication_type.shortcut": "Type de publication",
+
+  // "submit.progressbar.describe.publication_identifiers.shortcut": "Identifiers",
+  "submit.progressbar.describe.publication_identifiers.shortcut": "Identifiants",
+
+  // "submit.progressbar.describe.publication_authors.shortcut": "Authors",
+  "submit.progressbar.describe.publication_authors.shortcut": "Auteurs",
+
+  // "submit.progressbar.describe.publication_base.shortcut": "Publication base",
+  "submit.progressbar.describe.publication_base.shortcut": "Données générales",
+
+  // "submit.progressbar.describe.publication_specific.shortcut": "Publication specific",
+  "submit.progressbar.describe.publication_specific.shortcut": "Données spécifiques",
+
+  // "submit.progressbar.describe.publication_funding.shortcut": "Funding",
+  "submit.progressbar.describe.publication_funding.shortcut": "Financements",
+
+  // "submit.progressbar.detect-duplicate.shortcut": "Duplicates",
+  "submit.progressbar.detect-duplicate.shortcut": "Doublons",
+
+  // "submit.progressbar.license.shortcut": "License",
+  "submit.progressbar.license.shortcut": "License",
 
   // "submission.sections.submit.progressbar.identifiers": "Identifiers",
   // TODO New key - Add a translation

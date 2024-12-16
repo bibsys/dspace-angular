@@ -6968,6 +6968,38 @@
 
   "submission.sections.submit.progressbar.describe.steptwo": "Describe",
 
+  "submission.sections.submit.progressbar.describe.publication_type": "Publication type",
+
+  "submission.sections.submit.progressbar.describe.publication_identifiers": "Publication identifiers",
+
+  "submission.sections.submit.progressbar.describe.publication_authors": "Publication authors",
+
+  "submission.sections.submit.progressbar.describe.publication_base": "Publication basic data",
+
+  "submission.sections.submit.progressbar.describe.publication_specific": "Publication specific data",
+
+  "submission.sections.submit.progressbar.describe.publication_funding": "Funding data",
+
+  "submission.sections.submit.progressbar.detect-duplicate": "Potential duplicates",
+
+  "submit.progressbar.upload.shortcut": "Files",
+
+  "submit.progressbar.describe.publication_type.shortcut": "Publication type",
+
+  "submit.progressbar.describe.publication_identifiers.shortcut": "Identifiers",
+
+  "submit.progressbar.describe.publication_authors.shortcut": "Authors",
+
+  "submit.progressbar.describe.publication_base.shortcut": "Publication base",
+
+  "submit.progressbar.describe.publication_specific.shortcut": "Publication specific",
+
+  "submit.progressbar.describe.publication_funding.shortcut": "Funding",
+
+  "submit.progressbar.detect-duplicate.shortcut": "Duplicates",
+
+  "submit.progressbar.license.shortcut": "License",
+
   "submission.sections.submit.progressbar.duplicates": "Potential duplicates",
 
   "submission.sections.submit.progressbar.identifiers": "Identifiers",
