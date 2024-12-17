@@ -64,6 +64,7 @@ import { VocabularyTreeviewModalComponent } from './vocabulary-treeview-modal/vo
 import { CustomCheckboxComponent } from './builder/ds-dynamic-form-ui/models/checkbox/checkbox.component';
 import { requiredIfVisibleValidator } from './validator/required-if-visible-field.validator';
 import { NG_VALIDATORS } from '@angular/forms';
+import { DsYearPickerComponent } from './builder/ds-dynamic-form-ui/models/year-picker/year-picker.component';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -86,6 +87,7 @@ const COMPONENTS = [
   DsDynamicOneboxComponent,
   DsDynamicRelationGroupComponent,
   DsDatePickerComponent,
+  DsYearPickerComponent,
   DsDynamicFormGroupComponent,
   DsDynamicFormArrayComponent,
   DsDatePickerInlineComponent,

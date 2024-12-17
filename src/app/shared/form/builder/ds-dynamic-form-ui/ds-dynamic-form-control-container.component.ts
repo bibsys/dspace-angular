@@ -156,6 +156,8 @@ import { DYNAMIC_FORM_CONTROL_TYPE_TAG } from './models/tag/dynamic-tag.model';
 import { DsDynamicLookupRelationModalComponent } from './relation-lookup-modal/dynamic-lookup-relation-modal.component';
 import { CustomCheckboxComponent } from './models/checkbox/checkbox.component';
 import { DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX } from './models/checkbox/checkbox.model';
+import { DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER } from './models/year-picker/year-picker.model';
+import { DsYearPickerComponent } from './models/year-picker/year-picker.component';
 
 export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<DynamicFormControl> | null {
   switch (model.type) {
@@ -211,6 +213,9 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FORM_CONTROL_TYPE_DSDATEPICKER:
       return DsDatePickerComponent;
+
+    case DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER:
+      return DsYearPickerComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_LOOKUP:
       return DsDynamicLookupComponent;

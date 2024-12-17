@@ -16,5 +16,6 @@ export enum ParserType {
   Number = 'number',
   Calendar = 'calendar',
   Link = 'link',
+  Year = 'year',
   Checkbox = 'checkbox',
 }
