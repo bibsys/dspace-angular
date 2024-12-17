@@ -53,6 +53,8 @@ import { DYNAMIC_FORM_CONTROL_TYPE_TAG } from './models/tag/dynamic-tag.model';
 import { DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX } from './models/checkbox/checkbox.model';
 import { CustomCheckboxComponent } from './models/checkbox/checkbox.component';
 import { DsDynamicRelationInlineLabeledGroupComponent } from './models/relation-inline-labeled-group/dynamic-relation-inline-labeled-group.component';
+import { DsYearPickerComponent } from './models/year-picker/year-picker.component';
+import { DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER } from './models/year-picker/year-picker.model';
 
 export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<DynamicFormControl> | null {
   const datepickerModel = model as DynamicDatePickerModel;
@@ -73,6 +75,9 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FORM_CONTROL_TYPE_DATEPICKER:
       return (model as DynamicDatePickerModel).inline ? DynamicNGBootstrapCalendarComponent : DsDatePickerInlineComponent;
+
+    case DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER:
+      return DsYearPickerComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_GROUP:
       return DsDynamicFormGroupComponent;
