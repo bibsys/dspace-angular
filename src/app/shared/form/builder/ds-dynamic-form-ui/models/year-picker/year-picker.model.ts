@@ -13,18 +13,25 @@ export interface DynamicDsYearPickerModelConfig extends DynamicDsDatePickerModel
     metadataValue: MetadataValue;
     minYearDelta: number;
     maxYearDelta: number;
-    defaultValue: number;
+    minYear: number;
+    maxYear: number;
+    useCurrentYear: boolean;
 }
 
 export class DynamicDsYearPickerModel extends DynamicDsDatePickerModel {
     @serializable() readonly type: string = DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER;
     @serializable() minYearDelta: number;
     @serializable() maxYearDelta: number;
-    @serializable() defaultValue: number = new Date().getFullYear();
+    @serializable() minYear: number;
+    @serializable() maxYear: number;
+    @serializable() useCurrentYear: boolean = false;
 
     constructor(config: DynamicDsYearPickerModelConfig, layout?: DynamicFormControlLayout) {
       super(config, layout);
-      this.minYearDelta = config?.minYearDelta || 100;
-      this.maxYearDelta = config?.maxYearDelta || 2;
+      this.minYearDelta = config?.minYearDelta;
+      this.maxYearDelta = config?.maxYearDelta;
+      this.minYear = config?.minYear;
+      this.maxYear = config?.maxYear;
+      this.useCurrentYear = config?.useCurrentYear;
     }
 }
