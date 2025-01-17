@@ -2,7 +2,8 @@
     <fieldset class="d-flex flex-wrap justify-content-start">
         <legend *ngIf="model.legend"
         [id]="'legend_' + model.id"
-        [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]">
+        [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]"
+        class="mb-1">
             {{model.placeholder}}
             <span *ngIf="!model.required" class="text-secondary ml-2 font-italic">({{ 'optional' | translate }})</span>
         </legend>
@@ -15,7 +16,7 @@
             [name]="'year' | translate"
             [size]="4"
             [(ngModel)]="initialYear"
-            [value]="+model.value"
+            [value]="valueToDisplay"
             [invalid]="showErrorMessages"
             [placeholder]="yearPlaceholder | translate"
             [widthClass]="'four-digits'"

@@ -38,7 +38,7 @@ import {
 import { FormFieldModel } from '../models/form-field.model';
 import { FormFieldMetadataValueObject } from '../models/form-field-metadata-value.model';
 import { RelationshipOptions } from '../models/relationship-options.model';
-import { setLayout } from './parser.utils';
+import { getSetting, setLayout } from './parser.utils';
 import { ParserOptions } from './parser-options';
 import { ParserType } from './parser-type';
 
@@ -444,9 +444,7 @@ export abstract class FieldParser {
     const regex = (validatorMatcher != null && validatorMatcher.length > 3)
       ? new RegExp(validatorMatcher[2], validatorMatcher[3])
       : new RegExp(this.configData.input.regex);
-    const errorMessage = (controlModel?.settings && 'regexErrorMessage' in controlModel.settings)
-      ? controlModel.settings.regexErrorMessage
-      : 'error.validation.pattern';
+    const errorMessage = getSetting(controlModel, 'regexErrorMessage') || 'error.validation.pattern';
     controlModel.validators = Object.assign({}, controlModel.validators, { pattern: regex });
     controlModel.errorMessages = Object.assign({}, controlModel.errorMessages, { pattern: errorMessage });
   }

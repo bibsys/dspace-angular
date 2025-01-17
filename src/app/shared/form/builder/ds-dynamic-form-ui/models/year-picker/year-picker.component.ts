@@ -2,7 +2,7 @@ import { OnInit, Input, Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule, UntypedFormGroup } from '@angular/forms';
 import { DynamicFormControlComponent, DynamicFormLayoutService, DynamicFormValidationService } from '@ng-dynamic-forms/core';
 import { DynamicDsYearPickerModel } from './year-picker.model';
-import { isUndefined } from 'src/app/shared/empty.util';
+import { isUndefined, isNotEmpty } from 'src/app/shared/empty.util';
 import { NgClass, NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NumberPickerComponent } from 'src/app/shared/form/number-picker/number-picker.component';
@@ -34,6 +34,7 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
     maxYear: number;
     minYear: number;
     yearPlaceholder: string = 'year';
+    valueToDisplay: number;
 
     constructor(protected layoutService: DynamicFormLayoutService,
         protected validationService: DynamicFormValidationService,
@@ -42,24 +43,56 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
     }
 
     ngOnInit(): void {
-      const now = new Date();
-      this.initialYear = now.getFullYear();
+      const currentYear: number = new Date().getFullYear();
+      // If a year exists in the model use it has the year value.
       if (this.model.value !== null && this.isYearValid(this.model.value.toString())) {
-        this.initialYear = parseInt(this.model.value.toString(), 10);
-      } else if (this.model?.defaultValue) {
-        this.initialYear = this.model.defaultValue;
+        this.setModelValue(parseInt(this.model.value.toString(), 10));
+      // Else if no value found, see if we should use the current year.
+      } else if (this.model.useCurrentYear) {
+        this.setModelValue(currentYear);
       }
-      this.model.value = ''+this.initialYear;
-      this.change.emit(this.model.value);
 
-      this.maxYear = now.getUTCFullYear() + this.model.maxYearDelta;
-      if (this.initialYear && this.initialYear > this.maxYear) {
-        this.maxYear = this.initialYear;
-      }
-      this.minYear = now.getUTCFullYear() - this.model.minYearDelta;
-      if (this.initialYear && this.initialYear < this.minYear) {
-        this.minYear = this.initialYear;
-      }
+      this.processMaxYear(currentYear);
+      this.processMinYear(currentYear);
+    }
+
+    /**
+     * Set the max year: 
+     *  - If a delta is present, use it to process the max year based on the current year.
+     *  - If a delta is not present but a maxYear is present in config, use it.
+     *  - If nor delta or maxYear present, use default value.
+     * 
+     * @param currentYear The current year as number used to process the max year.
+     */
+    processMaxYear(currentYear: number): void {
+      this.maxYear = isNotEmpty(this.model.maxYearDelta) 
+        ? (currentYear + this.model.maxYearDelta)
+        : (isNotEmpty(this.model.maxYear) ? this.model.maxYear : 2199);
+    }
+
+    /**
+     * Set the min year: 
+     *  - If a delta is present, use it to process the min year based on the current year.
+     *  - If a delta is not present but a minYear is present in config, use it.
+     *  - If nor delta or minYear present, use default value.
+     * 
+     * @param currentYear The current year as number used to process the min year.
+     */
+    processMinYear(currentYear: number): void {
+      this.minYear = isNotEmpty(this.model.minYearDelta) 
+        ? (currentYear - this.model.minYearDelta)
+        : (isNotEmpty(this.model.minYear) ? this.model.minYear : 1000);
+    }
+
+    /** 
+     * Sets the model value to the given number
+     * 
+     * @param value The value to set the model to.
+     */
+    setModelValue(value: number | string): void {
+      this.model.value = ''+value;
+      this.change.emit(this.model.value);
+      this.valueToDisplay = parseInt(this.model.value);
     }
 
     onBlur($event: any): void {
@@ -68,8 +101,7 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
 
     onChange(event: any): void {
         if (this.isYearValid(event.value)){
-            this.model.value = event.value;
-            this.change.emit(event.value);
+            this.setModelValue(event.value);
         }
     }
 
@@ -81,8 +113,8 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
      * @return True if the year is defined and does not contain letters. False if not.
      */
     isYearValid(year: string) {
-        // 1XXX to 20XX are valid
-        let isValidData = /^(1[\d]{3}|20[\d]{2})$/.test(year);
+        // 1XXX to 21XX are valid
+        let isValidData = /^(1[\d]{3}|2[0-1][\d]{2})$/.test(year);
         return !isUndefined(year) && isValidData;
     }
 }
