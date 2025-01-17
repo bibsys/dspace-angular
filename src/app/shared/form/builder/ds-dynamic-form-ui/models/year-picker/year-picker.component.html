@@ -15,7 +15,7 @@
             [name]="'year' | translate"
             [size]="4"
             [(ngModel)]="initialYear"
-            [value]="+model.value"
+            [value]="valueToDisplay"
             [invalid]="showErrorMessages"
             [placeholder]="yearPlaceholder | translate"
             [widthClass]="'four-digits'"
