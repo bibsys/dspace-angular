@@ -67,11 +67,11 @@ export class FooterComponent implements OnInit {
   coarLdnEnabled$: Observable<boolean>;
 
   constructor(
-    @Optional() public cookies: KlaroService,
+    @Optional() protected cookies: KlaroService,
     protected authorizationService: AuthorizationDataService,
     protected notifyInfoService: NotifyInfoService,
-    private locale: LocaleService,
-    private siteService: SiteDataService,
+    protected locale: LocaleService,
+    protected siteService: SiteDataService,
     @Inject(APP_CONFIG) protected appConfig: AppConfig,
   ) {
   }
