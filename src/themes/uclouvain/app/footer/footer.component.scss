@@ -16,6 +16,15 @@
       margin-bottom: .5rem;
     }
   }
+
+  .version-container {
+    font-size: small;
+    i, label {
+      font-variant: all-small-caps;
+      color: var(--bs-secondary);
+      margin-right: .5rem;
+    }
+  }
 }
 
 
