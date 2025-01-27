@@ -5,6 +5,9 @@ import { ServerConfig } from './server-config.interface';
  */
 export class UIServerConfig extends ServerConfig {
 
+  // version release
+  releaseVersion?: string;
+
   // rateLimiter is used to limit the amount of requests a user is allowed make in an amount of time, in order to prevent overloading the server
   rateLimiter?: {
     windowMs: number;
