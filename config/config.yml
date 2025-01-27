@@ -4,6 +4,7 @@ rest:
   port: 8080
   nameSpace: /server
 ui:
+  releaseVersion: 0.2.2-beta
   ssl: false
 themes:
   - name: uclouvain
