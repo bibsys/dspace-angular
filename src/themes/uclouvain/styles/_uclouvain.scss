@@ -9,6 +9,7 @@ html {
 }
 
 // Faculty colors
+.text-faculty-educ { color: #df1995; }
 .text-faculty-mede { color: #88005d; }
 .text-faculty-fasb { color: #88005d; }
 .text-faculty-fsp { color: #88005d; }
@@ -24,6 +25,7 @@ html {
 .text-faculty-espo { color: #76ad1c; }
 .text-faculty-loci { color: #9a969a; }
 
+.badge-faculty-educ { background-color: #df1995; color: $white; }
 .badge-faculty-mede { background-color: #88005d; color: $white; }
 .badge-faculty-fasb { background-color: #88005d; color: $white; }
 .badge-faculty-fsp { background-color: #88005d; color: $white; }
