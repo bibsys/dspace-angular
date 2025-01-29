@@ -94,6 +94,9 @@ languages:
     label: Yкраї́нська
     active: false
 
+browseBy:
+  showThumbnails: false
+
 layout:
   navbar:
     showCommunityCollection: false

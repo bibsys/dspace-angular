@@ -16,6 +16,7 @@ import { MetadataValue } from '../../../core/shared/metadata.models';
 import { VALUE_LIST_BROWSE_DEFINITION } from '../../../core/shared/value-list-browse-definition.resource-type';
 import { hasValue } from '../../../shared/empty.util';
 import { ImageField } from '../../simple/field-components/specific-field/item-page-field.component';
+import { PLACEHOLDER_PARENT_METADATA } from '../../../shared/form/builder/ds-dynamic-form-ui/ds-dynamic-form-constants';
 
 /**
  * This component renders the configured 'values' into the ds-metadata-field-wrapper component.
@@ -77,6 +78,7 @@ export class MetadataValuesComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.renderMarkdown = !!this.appConfig.markdown.enabled && this.enableMarkdown;
+    this.mdValues = this.mdValues.filter(mdValue => mdValue.value !== PLACEHOLDER_PARENT_METADATA);
   }
 
   /**
