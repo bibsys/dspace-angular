@@ -18,6 +18,9 @@ import {
   AccessStatusObject
 } from '../../../../../../../app/shared/object-collection/shared/badges/access-status-badge/access-status.model';
 import { AccessConditionsComponent } from '../../../access-conditions/access-condition.component';
+import {
+  PLACEHOLDER_PARENT_METADATA
+} from '../../../../../../../app/shared/form/builder/ds-dynamic-form-ui/ds-dynamic-form-constants';
 
 @Component({
     selector: 'ds-themed-item-list-preview',
@@ -51,7 +54,9 @@ export class ItemListPreviewComponent extends BaseComponent implements OnInit {
   ngOnInit() {
     super.ngOnInit();
     if (isEmpty(this.degreeCodes)) {
-      this.degreeCodes = this.item.allMetadataValues('masterthesis.degree.code');
+      this.degreeCodes = this.item
+        .allMetadataValues('masterthesis.degree.code')
+        .filter(mdValue => mdValue !== PLACEHOLDER_PARENT_METADATA);
     }
     if (this.item?.accessStatus) {
       this.item.accessStatus
