@@ -2459,6 +2459,12 @@
 
   "error.validation.detect-duplicate": "The handling of the detected duplicates is mandatory",
 
+  "error.validation.fwb.wrongembargodate": "Following the <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>FWB's Open Access decree</u></a>, the embargo period may not exceed one year after the publication date (6 months in SST and SSS sectors). Please modify the embargo period to meet this requirement.",
+
+  "error.validation.fwb.nofile": "Following the <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>FWB's Open Access decree</u></a>, you must attach at least 1 file (full text) to your publication. The attached files can be either in open access or under embargo (no other types of access possible).",
+
+  "error.validation.fwb.accesstype": "Following the <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>FWB's Open Access decree</u></a>, the attached file containing your full text may only be made available in open access or under embargo, no other access option is possible.",
+
   "event.listelement.badge": "Event",
 
   "event.page.titleprefix": "Event:",
