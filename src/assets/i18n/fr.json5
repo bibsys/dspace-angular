@@ -2500,6 +2500,18 @@
   // TODO New key - Add a translation
   "error.validation.detect-duplicate": "Le traitement des doublons est obligatoire avant de pouvoir soumettre",
 
+  // "error.validation.wrongaccesstype": "All articles after 2022 must be in either open access or embargo. Please change the access conditions of the bitstreams according to this rule.",
+  "error.validation.wrongaccesstype": "Tous les articles après 2022 doivent être soit en accès ouvert ou en embargo. Veuillez modifier les conditions d'accès des fichiers attachés afin de respecter cette règle.",
+
+  // "error.validation.fwb.wrongembargodate": "Following the <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>FWB's Open Access decree</u></a>, all embargo dates can be set to maximum 1 year from the publication date. Please modify the embargo date to meet this requirement.",
+  "error.validation.fwb.wrongembargodate": "D'après le <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>décret Open Access de la FWB</u></a>, la période d’embargo ne peut pas dépasser 1 an après la date de publication (6 mois dans les secteurs SST et SSS). Veuillez modifier la période d’embargo pour vous y conformer.",
+
+  // "error.validation.fwb.nofile": "Following the <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>FWB's Open Access decree</u></a>, your publication must have at least one file. The deposited files can be either in open access or embargo access.",
+  "error.validation.fwb.nofile": "D'après le <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>décret Open Access de la FWB</u></a>, vous devez attacher au moins 1 fichier (full text) à votre publication. Ce fichier doit être en open access ou sous embargo (pas d’autres types d’accès possibles).",
+
+  // "error.validation.fwb.accesstype": "Following the <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>FWB's Open Access decree</u></a>, you must put all your bitstreams in either open or embargo access.",
+  "error.validation.fwb.accesstype": "D'après le <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>décret Open Access de la FWB</u></a>, le fichier attaché comprenant votre full text ne peut être mis qu’en open access ou sous embargo, pas d’autre choix d’accès possible.",
+
   // "event.listelement.badge": "Event",
   // TODO New key - Add a translation
   "event.listelement.badge": "Event",
