@@ -139,6 +139,9 @@ export class SectionsDirective implements OnDestroy, OnInit {
     this.subs.push(
       this.sectionService.getShownSectionErrors(this.submissionId, this.sectionId, this.sectionType)
         .subscribe((errors: SubmissionSectionError[]) => {
+          // Clean errors for the section in any case. This prevents having outdated errors in the form.
+          this.genericSectionErrors = [];
+          this.allSectionErrors = [];
           if (isNotEmpty(errors)) {
             errors.forEach((errorItem: SubmissionSectionError) => {
               const parsedErrors: SectionErrorPath[] = parseSectionErrorPaths(errorItem.path);
