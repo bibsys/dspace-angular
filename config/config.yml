@@ -136,6 +136,6 @@ submission:
       # Params to send with the request, len(keys) should be = to len(values)
       # We have 2 types of data: Dynamic and fixed (fixed => starts with 'raw-'')
       params:
-        paramKeys: ['fgs', 'degreeTypeFilter']
-        metadataFields: ['authors.identifier.fgs', 'raw-Master']
+        paramKeys: ['fgs', 'cycle']
+        metadataFields: ['authors.identifier.fgs', 'raw-2']
       targetFields: ['masterthesis.degree.code']
