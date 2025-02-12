@@ -21,7 +21,7 @@
            class="lead item-list-title dont-break-out"></a>
         <div *ngIf="linkType == linkTypes.None" class="lead item-list-title dont-break-out" [innerHTML]="dsoTitle"></div>
         <!-- AUTHORS, PROMOTERS =================================== -->
-        <div class="flex-grow-1">
+        <div class="flex-grow-1 my-2">
             <div *ngIf="dso.allMetadataValues(['dc.contributor.author']).length > 0" class="item-list-authors">
                 <span class="mr-2">{{ 'item.page.author' | translate }}:</span>
                 <span class="text-muted">
@@ -47,19 +47,24 @@
                 </span>
             </div>
         </div>
-        <ul class="list-inline list-inline-with-divider m-0 small">
-            <li *ngIf="accessCondition">
+        <!-- ADDITIONAL METADATA ================================== -->
+        <div class="d-flex">
+            <ul class="list-inline list-inline-with-divider m-0 small">
+                <li *ngIf="dsoDate">
+                    <i class="far fa-calendar mr-2"></i>{{ dsoDate }}
+                </li>
+                <li *ngIf="dso.hasMetadata('masterthesis.faculty.code')">
+                    <ds-master-thesis-faculty-badges [object]="dso"></ds-master-thesis-faculty-badges>
+                </li>
+                <li *ngIf="(userIsAdmin | async) && isCataretro">
+                    <span class="badge badge-secondary text-all-small-caps">
+                        <i class="fa-solid fa-scroll mr-1"></i>cataretro
+                    </span>
+                </li>
+            </ul>
+            <div *ngIf="accessCondition && accessCondition.name !== 'unknown'" class="ml-auto">
                 <ds-access-conditions [accessConditions]="[accessCondition]"></ds-access-conditions>
-            </li>
-            <li *ngIf="dsoDate">
-                <i class="far fa-calendar mr-2"></i>{{ dsoDate }}
-            </li>
-            <!-- <li *ngIf="dsoLanguage && dsoLanguage !== 'other'">
-                <i class="fas fa-language mr-2"></i>{{ 'languages.iso-639-2.'+dsoLanguage | translate }}
-            </li> -->
-            <li *ngIf="dso.hasMetadata('masterthesis.faculty.code')">
-                <ds-master-thesis-faculty-badges [object]="dso"></ds-master-thesis-faculty-badges>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 </div>

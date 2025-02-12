@@ -9,7 +9,7 @@ import { NgComponentOutlet } from '@angular/common';
 @Component({
   selector: 'ds-submission-section-container',
   template: `<ng-container *ngComponentOutlet="getContainerSection(); injector: objectInjector;"></ng-container>`,
-  styleUrls: ['./section-container.component.scss'],
+  // styleUrls: ['./section-container.component.scss'],
   imports: [
     NgComponentOutlet,
   ],
