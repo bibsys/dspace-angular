@@ -2,12 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ItemSearchResultListElementComponent } from '../../../shared/object-list/search-result-list-element/item-search-result/item-types/item/item-search-result-list-element.component';
 import { ViewMode } from '../../../../../../app/core/shared/view-mode.model';
 import { listableObjectComponent } from '../../../../../../app/shared/object-collection/shared/listable-object/listable-object.decorator';
-import { isEmpty, isNotEmpty } from '../../../../../../app/shared/empty.util';
+import { isEmpty } from '../../../../../../app/shared/empty.util';
 import { getFirstSucceededRemoteDataWithNotEmptyPayload } from '../../../../../../app/core/shared/operators';
 import {
   AccessStatusObject
 } from '../../../../../../app/shared/object-collection/shared/badges/access-status-badge/access-status.model';
 import { AccessConditionObject } from '../../../../../../app/core/submission/models/access-condition.model';
+import { Observable } from 'rxjs';
+import { RoleType } from '../../../../../../app/core/roles/role-types';
+import { TruncatableService } from '../../../../../../app/shared/truncatable/truncatable.service';
+import { DSONameService } from '../../../../../../app/core/breadcrumbs/dso-name.service';
+import { RoleService } from '../../../../../../app/core/roles/role.service';
 
 @listableObjectComponent('MasterThesisSearchResult', ViewMode.ListElement)
 @Component({
@@ -23,8 +28,16 @@ export class MasterThesisSearchResultListElementComponent extends ItemSearchResu
   dsoLanguage: string;
   dsoDegreeLabels: string[];
   accessCondition: AccessConditionObject;
+  userIsAdmin: Observable<boolean>;
+  isCataretro = false;
 
-  protected readonly isNotEmpty = isNotEmpty;
+  constructor(
+    protected truncatableService: TruncatableService,
+    public dsoNameService: DSONameService,
+    private roleService: RoleService
+  ) {
+    super(truncatableService, dsoNameService);
+  }
 
   ngOnInit() {
     super.ngOnInit();
@@ -41,5 +54,7 @@ export class MasterThesisSearchResultListElementComponent extends ItemSearchResu
           this.accessCondition = Object.assign(new AccessConditionObject(), {id: 0, name: access.status});
         });
     }
+    this.userIsAdmin = this.roleService.checkRole(RoleType.Admin);
+    this.isCataretro = this.dso.allMetadataValues("dcterms.provenance").some(mv => mv === 'cataretro');
   }
 }
