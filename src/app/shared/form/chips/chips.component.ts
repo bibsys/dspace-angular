@@ -47,6 +47,7 @@ import { isNotEmpty } from '../../empty.util';
 import { AuthorityConfidenceStateDirective } from '../directives/authority-confidence-state.directive';
 import { Chips } from './models/chips.model';
 import { ChipsItem } from './models/chips-item.model';
+import { PLACEHOLDER_PARENT_METADATA } from '../builder/ds-dynamic-form-ui/ds-dynamic-form-constants';
 
 
 const TOOLTIP_TEXT_LIMIT = 21;
@@ -244,9 +245,10 @@ export class ChipsComponent implements OnChanges, OnInit {
     // For master-thesis publication, try to display the degree code related to an author.
     let checkedFieldNames = ['dc.contributor.author', 'masterthesis.degree.code']
     if (checkedFieldNames.every(v => chip.item.hasOwnProperty(v) && isNotEmpty(chip.item[v]))) {
-      return chip.item['masterthesis.degree.code'];
+      return (chip.item['masterthesis.degree.code'].value !== PLACEHOLDER_PARENT_METADATA)
+        ? chip.item['masterthesis.degree.code'].value
+        : null;
     }
-
     return null;
   }
 
