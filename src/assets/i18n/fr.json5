@@ -5802,6 +5802,9 @@
   // "item.page.filesection.size": "Size:",
   "item.page.filesection.size": "Taille:",
 
+  // "item.page.identifier": "Identifier",
+  "item.page.identifier": "Identifiant",
+
   // "item.page.journal.search.title": "Articles in this journal",
   "item.page.journal.search.title": "Articles dans cette revue",
 

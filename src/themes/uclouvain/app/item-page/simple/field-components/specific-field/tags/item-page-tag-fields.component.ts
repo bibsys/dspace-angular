@@ -9,9 +9,9 @@ import { isNotEmpty } from '../../../../../../../../app/shared/empty.util';
     <ng-container *ngVar="item?.allMetadata(fields) as tags">
         <div *ngIf="isNotEmpty(tags)" class="item-page-field">
             <ds-metadata-field-wrapper [label]="label | translate">
-                <ul class="list-unstyled">
+                <ul class="list-unstyled m-0">
                     <li *ngFor="let tag of tags" class="d-inline mr-2">
-                        <span class="badge badge-secondary">
+                        <span class="badge badge-secondary mt-1">
                             <i *ngIf="showIcon" class="{{ icon }} mr-1"></i>
                             {{ tag.value }}
                         </span>
@@ -20,7 +20,10 @@ import { isNotEmpty } from '../../../../../../../../app/shared/empty.util';
             </ds-metadata-field-wrapper>
         </div>
     </ng-container>
-  `
+  `,
+  styles: [
+    '.badge { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }'
+  ]
 })
 export class ItemPageTagFieldsComponent {
 

@@ -1915,6 +1915,7 @@
   "item.page.filesection.format": "Format:",
   "item.page.filesection.name": "Name:",
   "item.page.filesection.size": "Size:",
+  "item.page.identifier": "Identifier",
   "item.page.journal.search.title": "Articles in this journal",
   "item.page.link.full": "Full item page",
   "item.page.link.simple": "Simple item page",

@@ -12,6 +12,7 @@ import { MasterThesisListElementComponent } from './item-list-elements/master-th
 import { MasterThesisSearchResultListElementComponent } from './search-result-list-elements/master-thesis-search-result-list-element.component';
 import { MasterThesisFacultyBadgesComponent } from './item-widgets/master-thesis-faculty-badges.component';
 import { SharedThemeModule } from '../../../shared-theme.module';
+import { MasterThesisIdentifierPipe } from './pipes/master-thesis-identifier.pipe';
 
 const ENTRY_COMPONENTS = [];
 
@@ -23,7 +24,8 @@ const DECLARATIONS = [
   MasterThesisPageComponent,
   MasterThesisListElementComponent,
   MasterThesisSearchResultListElementComponent,
-  MasterThesisFacultyBadgesComponent
+  MasterThesisFacultyBadgesComponent,
+  MasterThesisIdentifierPipe
 ];
 
 @NgModule({
