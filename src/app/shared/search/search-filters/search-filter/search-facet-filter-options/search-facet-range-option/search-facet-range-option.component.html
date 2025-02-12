@@ -1,8 +1,16 @@
-<a *ngIf="isVisible | async" class="d-flex flex-row"
+<a *ngIf="isVisible | async" class="d-flex flex-row align-items-start"
+   [tabIndex]="-1"
    [routerLink]="[searchLink]"
    [queryParams]="changeQueryParams" queryParamsHandling="merge">
-  <span class="filter-value px-1">{{filterValue.label}}</span>
-  <span class="float-right filter-value-count ml-auto">
-    <span class="badge badge-secondary badge-pill">{{filterValue.count | dsShortNumber}}</span>
-  </span>
+  <label class="mb-0 d-flex w-100 align-items-center">
+    <div class="align-self-start">
+      <input type="checkbox" [checked]="false"/>
+    </div>
+    <small class="w-100 px-2 break-facet">
+      {{ filterValue.label }}
+    </small>
+    <small class="text-muted align-self-start">
+      {{filterValue.count | dsShortNumber}}
+    </small>
+  </label>
 </a>
