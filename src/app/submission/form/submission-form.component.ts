@@ -57,6 +57,8 @@ import { SubmissionFormSectionAddComponent } from './section-add/submission-form
 import { ThemedSubmissionUploadFilesComponent } from './submission-upload-files/themed-submission-upload-files.component';
 import { environment } from '../../../environments/environment';
 import { SubmissionSectionShortcutContainerComponent } from '../shortcuts/container/shortcut-container.component';
+import { AlertType } from '../../shared/alert/alert-type';
+import { AlertComponent } from 'src/app/shared/alert/alert.component';
 
 /**
  * This component represents the submission form.
@@ -74,6 +76,7 @@ import { SubmissionSectionShortcutContainerComponent } from '../shortcuts/contai
     SubmissionFormCollectionComponent,
     SubmissionFormSectionAddComponent,
     SubmissionSectionShortcutContainerComponent,
+    AlertComponent,
   ],
   standalone: true,
 })
@@ -181,6 +184,12 @@ export class SubmissionFormComponent implements OnChanges, OnDestroy, AfterViewI
    * @type {Array}
    */
   protected subs: Subscription[] = [];
+
+  /**
+   * The AlertType enumeration
+   * @type {AlertType}
+   */
+  public AlertTypeEnum = AlertType;
 
   /**
    * Initialize instance variables
