@@ -49,6 +49,7 @@ import {
   SubmissionVisibilityType,
 } from './../../core/config/models/config-submission-section.model';
 import { environment } from '../../../environments/environment';
+import { AlertType } from '../../shared/alert/alert-type';
 
 /**
  * This component represents the submission form.
@@ -162,6 +163,12 @@ export class SubmissionFormComponent implements OnChanges, OnDestroy, AfterViewI
    * @type {Array}
    */
   protected subs: Subscription[] = [];
+
+  /**
+   * The AlertType enumeration
+   * @type {AlertType}
+   */
+  public AlertTypeEnum = AlertType;
 
   /**
    * Initialize instance variables
