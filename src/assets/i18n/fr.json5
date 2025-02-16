@@ -10266,7 +10266,9 @@
 
   // "submission.general.save-later.edit-item": "Save and return",
   // TODO New key - Add a translation
-  "submission.general.save-later.edit-item": "Save and return",
+  "submission.general.save-later.edit-item": "Sauvegarder",
+
+  "submission.header.information": "Vous pouvez consulter le guide du déposant en visitant ce lien : <a href=\"https://uclouvain.sharepoint.com/:w:/r/sites/MySCEB/DIALmem/Aide/Aide_en_ligne_acces_public/DIALmem_Guide_du_déposant_2025_02.docx?d=wbaf260a4bf134927aee6ea387152f706&csf=1&web=1&e=YIziJn&xsdata=MDV8MDJ8cmVuYXVkLm1pY2hvdHRlQHVjbG91dmFpbi5iZXw1OTBiMDhmZDExYWU0NmQ3NTZkYjA4ZGQ0Y2Y4NzQ2ZXw3YWIwOTBkNGZhMmU0ZWNmYmM3YzQxMjdiNGQ1ODJlY3wxfDB8NjM4NzUxMzUyMTY0Mzc3ODU2fFVua25vd258VFdGcGJHWnNiM2Q4ZXlKRmJYQjBlVTFoY0draU9uUnlkV1VzSWxZaU9pSXdMakF1TURBd01DSXNJbEFpT2lKWGFXNHpNaUlzSWtGT0lqb2lUV0ZwYkNJc0lsZFVJam95ZlE9PXwwfHx8&sdata=Zmt2MVArRXhiZk9HcWw2TlJ3S0FncnVUaCtLTWRLMERGQnhXcjhsUk5jbz0%3d\">guide du déposant</a>",
 
   // "submission.import-external.page.title": "Import metadata from an external source",
   "submission.import-external.page.title": "Importer les métadonnées depuis une source externe",
@@ -11426,7 +11428,7 @@
   "submission.sections.upload.header.policy.default.withlist": "Veuillez noter que, en complément des accès spécifiquement accordés pour le fichier, les fichiers téléchargés dans la collection {{collectionName}} seront accessibles par défaut au(x) groupe(s) suivant(s):",
 
   // "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
-  "submission.sections.upload.info": "<ul><li>Le texte du mémoire doit être déposé en un <b>unique fichier PDF</b> (de préférence PDF/A) non protégé et renommé de la façon suivante : <b>Nom_NOMA_Année de défense.pdf</b></li><li>L’annexe ou les annexes peuvent être déposées séparément. Dans ce cas, chaque fichier d’annexe doit être renommé de la façon suivante : <b>Nom_NOMA_Année de défense_Annexe1.pdf (Annexe2, Annexe3, etc. s’il y a plusieurs annexes).</b></li><li>Éviter d’utiliser des caractères accentués, symboles, etc. et utiliser le tiret_bas (« underscore ») pour remplacer les espaces.</li><li>Dans le cas où un dépôt du mémoire en version \"papier\" est exigé, il doit être identique à la version électronique déposée en ligne.</li><li>Pour plus d’information, cliquez sur l'aide en ligne.</li></ul>",
+  "submission.sections.upload.info": "<ul><li>Le texte du mémoire doit être déposé en un <b>unique fichier PDF</b> (de préférence PDF/A) non protégé et renommé de la façon suivante : <b>Nom_NOMA_Année de défense.pdf</b></li><li>L’annexe ou les annexes peuvent être déposées séparément. Dans ce cas, chaque fichier d’annexe doit être renommé de la façon suivante : <b>Nom_NOMA_Année de défense_Annexe1.pdf (Annexe2, Annexe3, etc. s’il y a plusieurs annexes).</b></li><li>Éviter d’utiliser des caractères accentués, symboles, etc. et utiliser le tiret_bas (« underscore ») pour remplacer les espaces.</li><li>Pour plus d’information, consultez le guide du déposant.</li></ul><p><b>Attention, chaque fichier chargé sera accessible de façon libre, à moins que vous ne modifiiez cette option par défaut.</b> Cliquer sur le bouton 'Modifier' pour restreindre ou interdire l'accès.</p>",
 
   // "submission.sections.upload.no-entry": "No",
   "submission.sections.upload.no-entry": "Non",
