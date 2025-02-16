@@ -28,6 +28,10 @@
         </div>
     </div>
 
+    <ds-alert [content]="'submission.header.information'"
+              [dismissible]="false"
+              [type]="AlertTypeEnum.Info"></ds-alert>
+
     <div *ngIf="(isLoading() | async) !== true" class="row no-gutters">
         <div *ngIf="showShortcutSectionPanel()" #shortcutPanel class="col-2 position-sticky h-100 mr-2">
             <ds-submission-section-shortcut *ngFor="let section of $any(submissionSections | async)"
