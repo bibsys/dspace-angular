@@ -57,6 +57,7 @@ import { RootModule } from './root.module';
 import { DSpaceRouterStateSerializer } from './shared/ngrx/dspace-router-state-serializer';
 import { SharedModule } from './shared/shared.module';
 import { SocialModule } from './social/social.module';
+import { HttpLoggerInterceptor } from './core/log/http-logger.interceptor';
 
 export function getConfig() {
   return environment;
@@ -131,6 +132,12 @@ const PROVIDERS = [
   {
     provide: HTTP_INTERCEPTORS,
     useClass: LogInterceptor,
+    multi: true,
+  },
+  // Register the HttpLoggerInterceptor as HttpInterceptor
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpLoggerInterceptor,
     multi: true,
   },
   // register the dynamic matcher used by form. MUST be provided by the app module
