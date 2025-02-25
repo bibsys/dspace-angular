@@ -323,7 +323,8 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
     const metadataName: string = configMetadataForm.rows[0].fields[0].selectableMetadata[0].metadata;
     let title: string;
     if (isNotEmpty(fileData.metadata) && isNotEmpty(fileData.metadata[metadataName])) {
-      title = fileData.metadata[metadataName][0].display;
+      // Get the display for the field if it exist, use the value if the display is undefined.
+      title = fileData.metadata[metadataName][0].display || fileData.metadata[metadataName][0].value;
     } else {
       title = fileData.uuid;
     }
