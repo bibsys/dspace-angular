@@ -265,18 +265,20 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
 
 
       // retrieve submission's bitstream data from state
-      combineLatest([this.configMetadataForm$,
-        this.bitstreamService.getUploadedFilesData(this.submissionId, this.sectionData.id)]).pipe(
-        filter(([configMetadataForm, { files }]: [SubmissionFormsModel, WorkspaceitemSectionUploadObject]) => {
-          return isNotEmpty(configMetadataForm) && isNotEmpty(files);
+      combineLatest([
+        this.configMetadataForm$,
+        this.bitstreamService.getUploadedFilesData(this.submissionId, this.sectionData.id),
+      ]).pipe(
+        filter(([configMetadataForm, sectionUploadObject]: [SubmissionFormsModel, WorkspaceitemSectionUploadObject]) => {
+          return isNotEmpty(configMetadataForm) && isNotEmpty(sectionUploadObject);
         }),
-        distinctUntilChanged())
-        .subscribe(([configMetadataForm, { primary, files }]: [SubmissionFormsModel, WorkspaceitemSectionUploadObject]) => {
-          this.primaryBitstreamUUID = primary;
-          this.fileList = files;
-          this.fileNames = Array.from(files, file => this.getFileName(configMetadataForm, file));
-        },
-        ),
+        distinctUntilChanged(),
+      ).subscribe(([configMetadataForm, { primary, files }]: [SubmissionFormsModel, WorkspaceitemSectionUploadObject]) => {
+        this.primaryBitstreamUUID = primary;
+        this.fileList = files;
+        this.fileNames = Array.from(files, file => this.getFileName(configMetadataForm, file));
+        this.changeDetectorRef.detectChanges();
+      }),
     );
   }
 
@@ -302,7 +304,8 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
     const metadataName: string = configMetadataForm.rows[0].fields[0].selectableMetadata[0].metadata;
     let title: string;
     if (isNotEmpty(fileData.metadata) && isNotEmpty(fileData.metadata[metadataName])) {
-      title = fileData.metadata[metadataName][0].display;
+      // Get the display for the field if it exist, use the value if the display is undefined.
+      title = fileData.metadata[metadataName][0].display || fileData.metadata[metadataName][0].value;
     } else {
       title = fileData.uuid;
     }
