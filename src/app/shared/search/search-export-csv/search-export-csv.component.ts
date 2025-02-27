@@ -27,7 +27,7 @@ import { PaginatedSearchOptions } from '../models/paginated-search-options.model
 
 @Component({
   selector: 'ds-search-export-csv',
-  styleUrls: ['./search-export-csv.component.scss'],
+  //styleUrls: ['./search-export-csv.component.scss'],
   templateUrl: './search-export-csv.component.html',
 })
 /**
