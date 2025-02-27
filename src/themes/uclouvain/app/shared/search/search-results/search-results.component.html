@@ -8,11 +8,13 @@
         </div>
       </div>
     </div>
-  }
-  
-  <div class="d-flex justify-content-between">
+}
+
+<!-- DISABLED :: move into the 'ds-search' component from UCLouvain theme
+<div class="d-flex justify-content-between">
     <ds-search-export-csv *ngIf="showCsvExport" [searchConfig]="searchConfig"></ds-search-export-csv>
 </div>
+-->
 <div *ngIf="searchResults && searchResults?.hasSucceeded && !searchResults?.isLoading && searchResults?.payload?.page.length > 0" @fadeIn>
     <ds-alert *ngIf="showSearchResultNotice" [type]="searchResultNoticeType" [content]="searchResultNotice"></ds-alert>
 
