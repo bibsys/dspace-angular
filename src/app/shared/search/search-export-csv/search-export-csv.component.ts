@@ -38,7 +38,7 @@ import { SearchFilter } from '../models/search-filter.model';
 
 @Component({
   selector: 'ds-search-export-csv',
-  styleUrls: ['./search-export-csv.component.scss'],
+  //styleUrls: ['./search-export-csv.component.scss'],
   templateUrl: './search-export-csv.component.html',
   standalone: true,
   imports: [NgIf, NgbTooltipModule, AsyncPipe, TranslateModule],

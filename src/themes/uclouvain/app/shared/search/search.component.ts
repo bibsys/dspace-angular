@@ -12,6 +12,7 @@ import { SearchLabelsComponent } from 'src/app/shared/search/search-labels/searc
 import { AsyncPipe, NgIf, NgTemplateOutlet } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchExportCsvComponent } from 'src/app/shared/search/search-export-csv/search-export-csv.component';
 
 @Component({
   selector: 'ds-themed-search',
@@ -33,6 +34,7 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     TranslateModule,
     AsyncPipe,
     NgbTooltipModule,
+    SearchExportCsvComponent,
   ],
   standalone: true,
 })

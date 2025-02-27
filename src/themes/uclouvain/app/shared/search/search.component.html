@@ -121,6 +121,7 @@
         </ds-search-form>
         <ng-content select="[additionalSearchFormOptions]"></ng-content>
         <ds-item-export-modal-launcher [searchOptions$]="searchOptions$" *ngIf="showExport"></ds-item-export-modal-launcher>
+        <ds-search-export-csv *ngIf="showCsvExport" [searchConfig]="searchOptions$ | async"></ds-search-export-csv>
     </div>
     <div class="row my-3 my-md-1">
         <div class="labels col-sm-9">
