@@ -37,6 +37,7 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     AlertComponent,
     NgbTooltipModule,
     NgForOf,
+    SearchExportCsvComponent,
   ],
   standalone: true,
   providers: [
