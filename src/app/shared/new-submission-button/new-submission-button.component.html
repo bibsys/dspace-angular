@@ -1,8 +1,6 @@
-<div class="add" *ngIf="authorized$ | async">
-	<button class="btn ml-3 border-1 border-primary text-primary d-inline-flex align-items-center"
-            (click)="openDialog(singleEntity)"
-    >
-		<i class="fa fa-plus-circle mr-2" aria-hidden="true"></i>
-    	{{ "submission-button.add.message" | translate }}
-	</button>
-</div>
+<button *ngIf="authorized$ | async"
+        class="btn ml-3 border-1 border-primary text-primary d-inline-flex align-items-center"
+        (click)="openDialog(singleEntity)">
+    <i class="fa fa-plus-circle mr-2" aria-hidden="true"></i>
+    {{ "submission-button.add.message" | translate }}
+</button>
