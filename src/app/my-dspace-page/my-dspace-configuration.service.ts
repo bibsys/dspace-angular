@@ -118,10 +118,10 @@ export class MyDSpaceConfigurationService extends SearchConfigurationService {
         const availableConf: MyDSpaceConfigurationValueType[] = [];
         if (isSubmitter) {
           availableConf.push(MyDSpaceConfigurationValueType.Workspace);
-          availableConf.push(MyDSpaceConfigurationValueType.OtherWorkspace);
+          // availableConf.push(MyDSpaceConfigurationValueType.OtherWorkspace); // NOT USED FOR DIAL.PR
         }
         if (isController || isAdmin) {
-          availableConf.push(MyDSpaceConfigurationValueType.SupervisedItems);
+          // availableConf.push(MyDSpaceConfigurationValueType.SupervisedItems); // NOT USED FOR DIAL.PR
           availableConf.push(MyDSpaceConfigurationValueType.Workflow);
         }
         return availableConf;
