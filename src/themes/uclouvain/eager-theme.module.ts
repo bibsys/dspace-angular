@@ -14,6 +14,7 @@ import { ItemSearchResultListElementComponent } from './app/shared/object-list/s
 import { FooterModule } from '../../app/footer/footer.module';
 import { MasterThesisModule } from './app/entity-groups/master-thesis-entity/master-thesis.module';
 import { StartsWithDateComponent } from './app/shared/starts-with/date/starts-with-date.component';
+import { LangSwitchComponent } from './app/shared/lang-switch/lang-switch.component';
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
@@ -25,10 +26,11 @@ const ENTRY_COMPONENTS = [
 
 const DECLARATIONS = [
   ...ENTRY_COMPONENTS,
+  FooterComponent,
   HomeNewsComponent,
   HeaderComponent,
+  LangSwitchComponent,
   NavbarComponent,
-  FooterComponent,
   StartsWithDateComponent,
 ];
 
