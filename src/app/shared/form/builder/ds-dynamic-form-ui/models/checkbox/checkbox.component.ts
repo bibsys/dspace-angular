@@ -21,7 +21,6 @@ export class CustomCheckboxComponent extends DynamicFormControlComponent impleme
     @Input() bindId = true;
     @Input() group: UntypedFormGroup;
     @Input() model: DynamicDsCheckboxModel;
-    @Input() legend: string;
 
     @Output() blur = new EventEmitter<any>();
     @Output() change = new EventEmitter<any>();
