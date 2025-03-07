@@ -32,6 +32,7 @@ export const MyDSpaceConfigurationToContextMap = new Map([
   [MyDSpaceConfigurationValueType.SupervisedItems, Context.SupervisedItems],
   [MyDSpaceConfigurationValueType.OtherWorkspace, Context.OtherWorkspace],
   [MyDSpaceConfigurationValueType.Workflow, Context.Workflow],
+  [MyDSpaceConfigurationValueType.Promoter, Context.Promoter],
 ]);
 
 
