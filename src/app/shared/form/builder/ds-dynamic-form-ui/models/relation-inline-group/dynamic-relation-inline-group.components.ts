@@ -138,7 +138,8 @@ export class DsDynamicRelationInlineGroupComponent extends DynamicFormControlCom
       initValues,
       this.model.submissionScope,
       this.model.readOnly,
-      this.formBuilderService.getTypeBindModel(),
+      // Set this to null since it makes no sense to use formBuilderService.getTypeBindModel() here.
+      null,
       true,
       this.metadataSecurityConfiguration)[0];
 

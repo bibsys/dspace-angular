@@ -41,6 +41,7 @@ import { RelationshipOptions } from '../models/relationship-options.model';
 import { getSetting, setLayout } from './parser.utils';
 import { ParserOptions } from './parser-options';
 import { ParserType } from './parser-type';
+import { FormBuilderService } from '../form-builder.service';
 
 export const SUBMISSION_ID: InjectionToken<string> = new InjectionToken<string>('submissionId');
 export const CONFIG_DATA: InjectionToken<FormFieldModel> = new InjectionToken<FormFieldModel>('configData');
@@ -109,7 +110,7 @@ export abstract class FieldParser {
         hasSelectableMetadata: isNotEmpty(this.configData.selectableMetadata),
         isDraggable,
         typeBindRelations: isNotEmpty(this.configData.typeBind) ? this.getTypeBindRelations(this.configData.typeBind,
-          this.parserOptions.typeField) : null,
+          this.parserOptions.typeFields) : null,
         groupFactory: () => {
           let model;
           if ((arrayCounter === 0)) {
@@ -369,7 +370,7 @@ export abstract class FieldParser {
     // If typeBind is configured
     if (isNotEmpty(this.configData.typeBind)) {
       (controlModel as DsDynamicInputModel).typeBindRelations = this.getTypeBindRelations(this.configData.typeBind,
-        this.parserOptions.typeField);
+        this.parserOptions.typeFields);
     }
     controlModel.securityConfigLevel = this.mapBetweenMetadataRowAndSecurityMetadataLevels(this.getFieldId());
 
@@ -403,29 +404,37 @@ export abstract class FieldParser {
    * fields in type bind, made up of a 'match' outcome (make this field visible), an 'operator'
    * (OR) and a 'when' condition (the bindValues array).
    * @param configuredTypeBindValues  array of types from the submission definition (CONFIG_DATA)
-   * @param typeField
+   * @param typeFields The list of configured type-bind fields.
    * @private
    * @return DynamicFormControlRelation[] array with one relation in it, for type bind matching to show a field
    */
-  private getTypeBindRelations(configuredTypeBindValues: string[], typeField: string): DynamicFormControlRelation[] {
-    const bindValues = [];
-    configuredTypeBindValues.forEach((value) => {
-      bindValues.push({
-        id: typeField,
-        value: value,
-      });
+  private getTypeBindRelations(configuredTypeBindValues: {[key: string]: string[]}, typeFields: string[]): DynamicFormControlRelation[] {
+    const relations: DynamicFormControlRelation[] = [];
+    // Loop over all the keys of the object (the fields) and see if there is a corresponding field in 'typeFields'
+    Object.keys(configuredTypeBindValues).forEach((key) => {
+      if (typeFields.includes(FormBuilderService.formatField(key))) {
+        const bindValues = [];
+        let values: string[] = configuredTypeBindValues[key];
+        values.forEach(value => {
+          bindValues.push({
+            id: key,
+            value: value,
+          });
+        });
+        // match: MATCH_VISIBLE means that if true, the field / component will be visible
+        // operator: OR means that all the values in the 'when' condition will be compared with OR, not AND
+        // when: the list of values to match against, in this case the list of strings from <type-bind>...</type-bind>
+        // Example: Field [x] will be VISIBLE if item type = book OR item type = book_part
+        //
+        // The opposing match value will be the dc.type for the workspace item
+        relations.push({
+          match: MATCH_VISIBLE,
+          operator: OR_OPERATOR,
+          when: bindValues,
+        });
+      }
     });
-    // match: MATCH_VISIBLE means that if true, the field / component will be visible
-    // operator: OR means that all the values in the 'when' condition will be compared with OR, not AND
-    // when: the list of values to match against, in this case the list of strings from <type-bind>...</type-bind>
-    // Example: Field [x] will be VISIBLE if item type = book OR item type = book_part
-    //
-    // The opposing match value will be the dc.type for the workspace item
-    return [{
-      match: MATCH_VISIBLE,
-      operator: OR_OPERATOR,
-      when: bindValues,
-    }];
+    return relations;
   }
 
   protected hasRegex() {
