@@ -75,7 +75,7 @@ export class DsDynamicTypeBindRelationService {
         throw new Error(`FormControl ${model.id} cannot depend on itself`);
       }
 
-      const bindModel: DynamicFormControlModel = this.formBuilderService.getTypeBindModel();
+      const bindModel: DynamicFormControlModel = this.formBuilderService.getTypeBindModel(rel.id);
 
       if (model && !models.some((modelElement) => modelElement === bindModel)) {
         models.push(bindModel);
@@ -103,8 +103,7 @@ export class DsDynamicTypeBindRelationService {
       // like relation group component and submission section form component).
       // This model (DynamicRelationGroupModel) contains eg. mandatory field, formConfiguration, relationFields,
       // submission scope, form/section type and other high level properties
-      const bindModel: any = this.formBuilderService.getTypeBindModel();
-
+      const bindModel: any = this.formBuilderService.getTypeBindModel(condition.id);
       let values: string[];
       let bindModelValue = bindModel.value;
 
@@ -175,7 +174,23 @@ export class DsDynamicTypeBindRelationService {
   }
 
   /**
-   * Return an array of subscriptions to a calling component
+   * Return an array of subscriptions of type bind relation changes.
+   * Those will be used to determine if a field should be visible or not when another field changes its value.
+   * 
+   * NOTE: The type-bind relations are evaluated base on a `AND` logic. However in a relation, it is evaluated in a `OR` logic. 
+   * ex: If we have two type bind relations:
+   * [{
+   *  match: MATCH_VISIBLE,
+   *  operator: OR_OPERATOR,
+   *  when: [{id: "dc.type.maintype", value: "text::book"}, {id: "dc.type.maintype", value: "text::journal"}]
+   * },
+   * {
+   *  match: MATCH_VISIBLE,
+   *  operator: OR_OPERATOR,
+   *  when: [{id: "publication.host.type", value: "book"}]
+   * }]
+   * In this case the field will be display using the following logic:
+   * `(dc.type.maintype == "text::book" OR dc.type.maintype === "text::journal") AND (publication.host.type === "book")`
    * @param model
    * @param control
    */
@@ -185,31 +200,42 @@ export class DsDynamicTypeBindRelationService {
     const subscriptions: Subscription[] = [];
 
     Object.values(relatedModels).forEach((relatedModel: any) => {
-
-      if (hasValue(relatedModel)) {
-        const initValue = (hasNoValue(relatedModel.value) || typeof relatedModel.value === 'string') ? relatedModel.value :
-          (Array.isArray(relatedModel.value) ? relatedModel.value : relatedModel.value.value);
-
-        const valueChanges = this.formBuilderService.getTypeBindModelUpdates().pipe(
-          startWith(initValue),
-        );
-
-        // Build up the subscriptions to watch for changes;
-        subscriptions.push(valueChanges.subscribe(() => {
-          // Iterate each matcher
-          if (hasValue(this.dynamicMatchers)) {
-            this.dynamicMatchers.forEach((matcher) => {
-              // Find the relation
-              const relation = this.dynamicFormRelationService.findRelationByMatcher((model as any).typeBindRelations, matcher);
-              // If the relation is defined, get matchesCondition result and pass it to the onChange event listener
-              if (relation !== undefined) {
-                const hasMatch = this.matchesCondition(relation, matcher);
-                matcher.onChange(hasMatch, model, control, this.injector);
-              }
-            });
-          }
-        }));
+      if (hasNoValue(relatedModel)) {
+        return;
       }
+      // Get the initial value from the related model.
+      const initValue = (hasNoValue(relatedModel.value) || typeof relatedModel.value === 'string')
+        ? relatedModel.value
+        : (Array.isArray(relatedModel.value) ? relatedModel.value : relatedModel.value.value);
+
+      const valueChanges = this.formBuilderService.getTypeBindModelUpdates(relatedModel.id).pipe(
+        startWith(initValue),
+      );
+
+      // Build up the subscriptions to watch for changes;
+      subscriptions.push(valueChanges.subscribe(() => {
+        // Iterate each matcher
+        if (hasValue(this.dynamicMatchers)) {
+          this.dynamicMatchers.forEach((matcher) => {
+            // Find the relation using the current matcher.
+            let relationsToProcess = [];
+            (model as any).typeBindRelations.forEach(typeBindRelation => {
+              const relation = this.dynamicFormRelationService.findRelationByMatcher([typeBindRelation], matcher);
+              if (relation !== undefined) {
+                relationsToProcess.push(relation);
+              }
+            })
+            if (relationsToProcess.length > 0) {
+              // For each found relation, get a boolean that indicates if the relation matches the current state.
+              // Reduce all the boolean using a OR logic. So if only one relation matches => the return will be true.
+              // IMPORTANT: Note that 'true' in this case does not mean that the field will be visible.
+              // IMPORTANT: The library sets the boolean to the 'hidden' property of the model so 'true' will mean that the field is hidden.
+              const hasMatch = relationsToProcess.reduce((state, relation) => state || this.matchesCondition(relation, matcher), false);
+              matcher.onChange(hasMatch, model, control, this.injector);
+            }
+          });
+        }
+      }));
     });
 
     return subscriptions;
