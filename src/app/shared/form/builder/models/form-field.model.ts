@@ -124,7 +124,7 @@ export class FormFieldModel {
    * Containing types to bind for this field
    */
   @autoserialize
-    typeBind: string[];
+    typeBind: {[key: string]: string[]};
 
   @autoserialize
     value: any;

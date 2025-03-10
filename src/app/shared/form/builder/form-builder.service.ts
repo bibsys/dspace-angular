@@ -75,7 +75,9 @@ import { RowParser } from './parsers/row-parser';
 @Injectable()
 export class FormBuilderService extends DynamicFormService {
 
-  private typeBindModel: BehaviorSubject<DynamicFormControlModel> = new BehaviorSubject<DynamicFormControlModel>(null);
+  // The models corresponding to the type bind fields.
+  // In this case we want a list of models and we want to listen on each DynamicFormControlModel.
+  private typeBindModels: {[key: string]: BehaviorSubject<DynamicFormControlModel>} = {}
 
   /**
    * This map contains the active forms model
@@ -88,9 +90,9 @@ export class FormBuilderService extends DynamicFormService {
   private formGroups: Map<string, UntypedFormGroup>;
 
   /**
-   * This is the field to use for type binding
+   * Those are the fields to use for type binding
    */
-  private typeField: string;
+  private typeFields: string[];
 
   constructor(
     componentService: DynamicFormComponentService,
@@ -116,22 +118,51 @@ export class FormBuilderService extends DynamicFormService {
     return { $event, context, control: control, group: group, model: model, type };
   }
 
-  getTypeBindModel() {
-    return this.typeBindModel.getValue();
+  /**
+   * Get the field model using the given field id. This is extracted from the array of models 'typeBindModels'.
+   * @param id The field id to find the corresponding model.
+   * @returns The model for the given field id.
+   */
+  getTypeBindModel(id: string) {
+    // Make sure to have the '_' separator since the keys of typeBindModels are using this separator.
+    id = FormBuilderService.formatField(id);
+    return this.typeBindModels[id]?.getValue();
   }
 
-  getTypeBindModelUpdates(): Observable<any> {
-    return this.typeBindModel.pipe(
-      distinctUntilChanged(),
-      switchMap((bindModel: any) => {
-        return (bindModel.type === 'CHECKBOX_GROUP' ? bindModel.valueUpdates : bindModel.valueChanges);
-      }),
-      distinctUntilChanged(),
-    );
+  /**
+   * Get the field model value change event as an observable using the given field id.
+   * This is extracted from the array of models 'typeBindModels'.
+   * @param id The field id to find the corresponding model.
+   * @returns An observable of the value change event from the model found using the given field id.
+   * Can be Observable<null> if no model found for the given id.
+   */
+  getTypeBindModelUpdates(id: string): Observable<any> {
+    let model = this.typeBindModels[id];
+    return hasValue(model)
+      ? model.pipe(
+          distinctUntilChanged(),
+          switchMap((bindModel: any) => {
+            // Check the type of the type-bind field.
+            return (bindModel.type === 'CHECKBOX_GROUP' ? bindModel.valueUpdates : bindModel.valueChanges);
+          }),
+          distinctUntilChanged(),
+        )
+      : new Observable(null);
   }
 
-  setTypeBindModel(model: DynamicFormControlModel) {
-    this.typeBindModel.next(model);
+  /**
+   * Set a value or update in the typeBindModels array.
+   * If the model is already present in the array as a BehaviorSubject, update it.
+   * Else, add a new BehaviorSubject to the array containing the given model data.
+   * @param id The id of the model to update/set.
+   * @param model The model data to update.
+   */
+  setTypeBindModel(id: string, model: DynamicFormControlModel) {
+    if (hasValue(this.typeBindModels[id])) {
+      this.typeBindModels[id].next(model)
+    } else {
+      this.typeBindModels[id] = new BehaviorSubject<DynamicFormControlModel>(model);
+    }
   }
 
   findById(id: string, groupModel: DynamicFormControlModel[], arrayIndex = null): DynamicFormControlModel | null {
@@ -385,7 +416,7 @@ export class FormBuilderService extends DynamicFormService {
     if (rawData.rows && !isEmpty(rawData.rows)) {
       rawData.rows.forEach((currentRow) => {
         const rowParsed = this.rowParser.parse(submissionId, currentRow, scopeUUID, sectionData, submissionScope,
-          readOnly, this.getTypeField(), isInnerForm, securityConfig);
+          readOnly, this.getTypeFields(), isInnerForm, securityConfig);
         if (isNotNull(rowParsed)) {
           if (Array.isArray(rowParsed)) {
             rows = rows.concat(rowParsed);
@@ -396,13 +427,14 @@ export class FormBuilderService extends DynamicFormService {
       });
     }
 
-    if (hasNoValue(typeBindModel)) {
-      typeBindModel = this.findById(this.typeField, rows);
-    }
-
-    if (hasValue(typeBindModel)) {
-      this.setTypeBindModel(typeBindModel);
-    }
+    // For each defined type field, try to find the corresponding model in the rows of the current submission section.
+    this.typeFields.forEach((typeField: string) => {
+      let model = this.findById(typeField, rows);
+      if (hasValue(model)) {
+        // If we find a model, use it to update the typeFieldsModels.
+        this.setTypeBindModel(typeField, model);
+      }
+    })
     return rows;
   }
 
@@ -667,38 +699,34 @@ export class FormBuilderService extends DynamicFormService {
   }
 
   /**
-   * Get the type bind field from config
+   * Get type-bind fields from backend configuration
    */
   setTypeBindFieldFromConfig(): void {
     this.configService.findByPropertyName('submit.type-bind.field').pipe(
       getFirstCompletedRemoteData(),
     ).subscribe((remoteData: any) => {
-      // make sure we got a success response from the backend
-      if (!remoteData.hasSucceeded) {
-        this.typeField = 'dc_type';
-        return;
+      if (remoteData.hasSucceeded) {
+        const typeFieldConfig = remoteData.payload.values;
+        if (isNotEmpty(typeFieldConfig)) {
+          this.typeFields = typeFieldConfig.map((field: string) => FormBuilderService.formatField(field));
+          return;
+        }
       }
-      // Read type bind value from response and set if non-empty
-      const typeFieldConfig = remoteData.payload.values[0];
-      if (isEmpty(typeFieldConfig)) {
-        this.typeField = 'dc_type';
-      } else {
-        this.typeField = typeFieldConfig.replace(/\./g, '_');
-      }
+      this.typeFields = ['dc_type'];
     });
   }
 
   /**
-   * Get type field. If the type isn't already set, and a ConfigurationDataService is provided, set (with subscribe)
-   * from back end. Otherwise, get/set a default "dc_type" value
+   * Get type fields. If no types are set, and a ConfigurationDataService is provided, set (with subscribe)
+   * from backend. Otherwise, get/set an array containing the default "dc_type" value.
    */
-  getTypeField(): string {
-    if (hasValue(this.configService) && hasNoValue(this.typeField)) {
+  getTypeFields(): string[] {
+    if (hasValue(this.configService) && hasNoValue(this.typeFields)) {
       this.setTypeBindFieldFromConfig();
-    } else if (hasNoValue(this.typeField)) {
-      this.typeField = 'dc_type';
+    } else if (hasNoValue(this.typeFields)) {
+      this.typeFields = ['dc_type'];
     }
-    return this.typeField;
+    return this.typeFields;
   }
 
   /**
@@ -724,6 +752,13 @@ export class FormBuilderService extends DynamicFormService {
     return newGroup;
   }
 
-
+  /**
+   * Format a given field string to the correct format: 'schema_field_qualifier'.
+   * @param field: The field to format.
+   * @returns The field in the correct format.
+   */
+  public static formatField(field: string): string {
+    return field.replace(/\./g, '_');
+  }
 
 }
