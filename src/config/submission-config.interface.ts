@@ -69,4 +69,5 @@ export interface SubmissionConfig extends Config {
   dropdownHintEnabled?: SubmissionDropdownHintEnabled;
   dynamicFields: DynamicFieldsConfig[];
   enableShortcutPanelFor?: string[];  // must contain the collection UUID for which the shortcut panel should be enabled
+  disclaimerSectionFor?: string[]; // Provide collection to display a disclaimer when submitting a new item.
 }
