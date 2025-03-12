@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { ItemListPreviewComponent as BaseComponent } from 'src/app/shared/object-list/my-dspace-result-list-element/item-list-preview/item-list-preview.component';
+import { DSONameService } from '../../../../../../../app/core/breadcrumbs/dso-name.service';
 import { AccessConditionObject } from '../../../../../../../app/core/submission/models/access-condition.model';
 import { isEmpty } from '../../../../../../../app/shared/empty.util';
 import { getFirstSucceededRemoteDataWithNotEmptyPayload } from '../../../../../../../app/core/shared/operators';
@@ -9,6 +11,7 @@ import {
 import {
   PLACEHOLDER_PARENT_METADATA
 } from '../../../../../../../app/shared/form/builder/ds-dynamic-form-ui/ds-dynamic-form-constants';
+import { APP_CONFIG, AppConfig } from '../../../../../../../config/app-config.interface';
 
 @Component({
     selector: 'ds-item-list-preview',
@@ -20,6 +23,14 @@ export class ItemListPreviewComponent extends BaseComponent implements OnInit {
   authorMetadata = ['dc.contributor.author'];
   promoterMetadata = ['dc.contributor.advisor'];
   degreeCodes: string[];
+
+  constructor(
+    @Inject(APP_CONFIG) protected appConfig: AppConfig,
+    public dsoNameService: DSONameService,
+    protected translateService: TranslateService,
+  ) {
+    super(appConfig, dsoNameService);
+  }
 
   ngOnInit() {
     super.ngOnInit();
@@ -38,4 +49,17 @@ export class ItemListPreviewComponent extends BaseComponent implements OnInit {
   }
 
   protected readonly isEmpty = isEmpty;
+
+  getDefenseDate() {
+    const parts: Array<String> = [];
+    if (this.item.hasMetadata("masterthesis.session")) {
+      parts.push(this.translateService.instant("session." + this.item.firstMetadataValue("masterthesis.session").toLowerCase()));
+    }
+    parts.push(this.item.hasMetadata("dc.date.issued")
+      ? this.item.firstMetadataValue("dc.date.issued")
+      : this.translateService.instant("mydspace.results.no-date")
+    );
+    return parts.join(" ");
+  }
+
 }
