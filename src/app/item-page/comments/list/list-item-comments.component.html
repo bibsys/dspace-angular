@@ -25,7 +25,7 @@
         </ds-comment-detail>
     </ds-pagination>
     <div *ngIf="(comments$ | async)?.payload?.totalElements === 0" class="alert alert-info" role="alert">
-        {{ 'item.page.comments.no-items' | translate }}
+        {{ 'item.page.comment.no-items' | translate }}
     </div>
 
     <div class="button-row bottom mt-3">
