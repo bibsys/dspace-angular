@@ -35,11 +35,11 @@
                 <ds-access-conditions [accessConditions]="[accessCondition]"></ds-access-conditions>
             </li>
             <li>
-                <i class="far fa-calendar mr-2"></i>
-                {{ item.firstMetadataValue('dc.date.issued') || ('mydspace.results.no-date' | translate) }}
+                <i class="far fa-calendar mr-1"></i>
+                {{ getDefenseDate() }}
             </li>
             <li *ngIf="!isEmpty(degreeCodes)">
-                <i class="fa-solid fa-graduation-cap"></i>
+                <i class="fa-solid fa-graduation-cap mr-1"></i>
                 {{ degreeCodes.join(", ") }}
             </li>
           </ul>
