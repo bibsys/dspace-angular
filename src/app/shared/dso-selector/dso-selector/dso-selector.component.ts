@@ -364,7 +364,7 @@ export class DSOSelectorComponent implements OnInit, OnDestroy {
 
   /** Is a disclaimer section should be available for a listable object. */
   showDisclaimer(entry: ListableObject): boolean {
-    let objectUUIDs: Array<String> = hasValue(environment.submission) ? environment.submission['disclaimer-section-for'] : [];
+    let objectUUIDs: Array<String> = hasValue(environment.submission) ? environment.submission['disclaimerSectionFor'] : [];
     objectUUIDs = objectUUIDs || [];  // To ensure than objects UUID array isn't undefined
     return objectUUIDs.includes(this.getID(entry));
   }

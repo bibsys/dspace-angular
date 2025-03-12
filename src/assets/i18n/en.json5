@@ -5478,7 +5478,7 @@
   "layout.field.label.Patent.NESTED[oairecerif.author.affiliation]": "Affiliation",
 
   "admin.item.comment.edit.content.label": "Content",
-  "admin.item.comment.edit.content.hint": "Enter the comment content in this field"
+  "admin.item.comment.edit.content.hint": "Enter the comment content in this field",
 
   // Do not add new labels below layout ones
   // All new labels should be placed together with similar ones, or in alphabetical orders

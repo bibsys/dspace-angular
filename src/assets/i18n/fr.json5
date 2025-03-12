@@ -14137,7 +14137,7 @@
   "search.filters.accessType.administrator": "Accès interdit",
 
   "admin.item.comment.edit.content.label": "Contenu",
-  "admin.item.comment.edit.content.hint": "Entrez le contenu du commentaire dans ce champ"
+  "admin.item.comment.edit.content.hint": "Entrez le contenu du commentaire dans ce champ",
 
   "session.january": "Janvier",
   "session.june": "Juin",
