@@ -103,6 +103,8 @@ layout:
     showStatistics: false
 
 submission:
+  disclaimerSectionFor: ['fakeIdToReplace']
+  enableShortcutPanelFor: ['fakeIdToReplace']
   # Trigger an autosave when changing a given metadata field
   # Works with all metadata schemas
   # However does not seem to work in form groups
@@ -139,3 +141,9 @@ submission:
         paramKeys: ['fgs', 'cycle']
         metadataFields: ['authors.identifier.fgs', 'raw-2']
       targetFields: ['masterthesis.degree.code']
+
+form:
+  fields:
+    year:
+      minYearDelta: 100
+      maxYearDelta: 2
