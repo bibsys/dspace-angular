@@ -7372,7 +7372,7 @@
   "mydspace.show.promoter": "Espace promoteur",
 
   // "mydspace.status.mydspaceArchived": "Archived",
-  "mydspace.status.mydspaceArchived": "Archivé",
+  "mydspace.status.mydspaceArchived": "Validé",
 
   // "mydspace.status.mydspaceValidation": "Validation",
   "mydspace.status.mydspaceValidation": "En cours de validation",
@@ -9466,7 +9466,7 @@
 
   // "search.filters.namedresourcetype.Validation": "Validation",
   // TODO New key - Add a translation
-  "search.filters.namedresourcetype.Validation": "Validation",
+  "search.filters.namedresourcetype.Validation": "En cours de validation",
 
   // "search.filters.namedresourcetype.Waiting for Controller": "Waiting for Controller",
   "search.filters.namedresourcetype.Waiting for Controller": "En attente d'assignation",
@@ -11386,7 +11386,7 @@
   "submission.sections.upload.form.access-condition-label": "Type d'autorisations d'accès",
 
   // "submission.sections.upload.form.access-condition-hint": "Specify access type to apply for this file",
-  "submission.sections.upload.form.access-condition-hint": "Choisissez ici le type d'accès que vous souhaitez pour le fichier. Pour plus d'informations sur les choix possible, veuillez consulter <a href=\"http://google.com\">cette page</a>",
+  "submission.sections.upload.form.access-condition-hint": "Choisissez ici le type d'accès que vous souhaitez pour le fichier.<ul><li><b>Accès libre</b>: Le fichier sera accessible librement à tout utilisateur de la plateforme sans restriction.</li><li><b>Accès restreint</b>: Le fichier sera uniquement accessible aux utilisateurs se trouvant sur le réseau de l'UCLouvain.</li><li><b>Accès embargo</b>: L'accès au fichier sera interdit jusqu'a la date que vous aurez spécifiée, ensuite l'accès au fichier sera libre.</li><li><b>Accès interdit</b>: L'accès au fichier ne sera autorisé à aucun utilisateur de la plateforme.</li></ul>",
 
   // "submission.sections.upload.form.date-required": "Date is required.",
   "submission.sections.upload.form.date-required": "La date est obligatoire.",
@@ -11428,9 +11428,8 @@
   "submission.sections.upload.header.policy.default.withlist": "Veuillez noter que, en complément des accès spécifiquement accordés pour le fichier, les fichiers téléchargés dans la collection {{collectionName}} seront accessibles par défaut au(x) groupe(s) suivant(s):",
 
   // "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
-  "submission.sections.upload.info": "<ul><li>Le texte du mémoire doit être déposé en un <b>unique fichier PDF</b> (de préférence PDF/A) non protégé et renommé de la façon suivante : <b>Nom_NOMA_Année de défense.pdf</b></li><li>L’annexe ou les annexes peuvent être déposées séparément. Dans ce cas, chaque fichier d’annexe doit être renommé de la façon suivante : <b>Nom_NOMA_Année de défense_Annexe1.pdf (Annexe2, Annexe3, etc. s’il y a plusieurs annexes).</b></li><li>Éviter d’utiliser des caractères accentués, symboles, etc. et utiliser le tiret_bas (« underscore ») pour remplacer les espaces.</li><li>Pour plus d’information, consultez le guide du déposant.</li></ul><p><b>Attention, chaque fichier chargé sera accessible de façon libre, à moins que vous ne modifiiez cette option par défaut.</b> Cliquer sur le bouton 'Modifier' pour restreindre ou interdire l'accès.</p>",
-
-  // "submission.sections.upload.no-entry": "No",
+  "submission.sections.upload.info": "<ul><li>Le texte du mémoire doit être déposé en un <b>unique fichier PDF</b> (de préférence PDF/A) non protégé et renommé de la façon suivante : <b>Nom_NOMA_Année de défense.pdf</b></li><li>L’annexe ou les annexes peuvent être déposées séparément. Dans ce cas, chaque fichier d’annexe doit être renommé de la façon suivante : <b>Nom_NOMA_Année de défense_Annexe1.pdf (Annexe2, Annexe3, etc. s’il y a plusieurs annexes).</b></li><li>Éviter d’utiliser des caractères accentués, symboles, etc. et utiliser le tiret_bas (« underscore ») pour remplacer les espaces.</li><li>Les différents niveaux d'accès possibles pour chaque fichiers sont:<ul><li><b>Accès libre</b>: tout le monde peut consulter le document, dès sa publication dans DIAL.mem (après qu’il a été validé par votre faculté et seulement après l’obtention de votre diplôme).</li><li><b>Accès restreint</b>: seules les personnes connectées au réseau fermé de l’UCLouvain (et au réseau fermé des institutions partenaires, dans le cas d’un master interuniversitaire) pourront consulter le document.</li><li><b>Accès embargo</b>: l’accès sera d’abord interdit jusqu’à la date que vous choisissez. Au-delà de cette date, le document sera en accès libre.</li><li><b>Accès interdit</b>: personne ne pourra consulter le document, mais il sera tout de même archivé dans le dépôt et la notice descriptive restera visible pour tout le monde.</li></ul></li><li>Pour plus d’information, consultez le guide du déposant.</li></ul><p><b class=\"text-danger\">Attention, chaque fichier chargé sera accessible de façon libre, à moins que vous ne modifiiez cette option par défaut.</b> Cliquer sur le bouton 'Modifier' pour restreindre ou interdire l'accès.</p>",
+  "submission.sections.upload.no-entry": "No",
   "submission.sections.upload.no-entry": "Non",
 
   // "submission.sections.upload.no-file-uploaded": "No file uploaded yet.",
