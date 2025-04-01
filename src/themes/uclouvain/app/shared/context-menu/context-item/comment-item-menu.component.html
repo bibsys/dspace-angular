@@ -1,0 +1,4 @@
+<button *ngIf="(isAuthorized | async)" class="dropdown-item"
+        [innerHTML]="'context-menu.actions.comment-item.btn' | translate"
+        [routerLink]="['/', 'items', contextMenuObject.id, 'comments']">
+</button>

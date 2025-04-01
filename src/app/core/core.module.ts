@@ -173,6 +173,7 @@ import { BrowseDefinition } from './shared/browse-definition.model';
 import { BrowseEntry } from './shared/browse-entry.model';
 import { Bundle } from './shared/bundle.model';
 import { Collection } from './shared/collection.model';
+import { Comment } from './shared/comment.model';
 import { Community } from './shared/community.model';
 import { ConfigurationProperty } from './shared/configuration-property.model';
 import { DSpaceObject } from './shared/dspace-object.model';
@@ -242,6 +243,8 @@ import { TaskObject } from './tasks/models/task-object.model';
 import { WorkflowAction } from './tasks/models/workflow-action-object.model';
 import { PoolTaskDataService } from './tasks/pool-task-data.service';
 import { TaskResponseParsingService } from './tasks/task-response-parsing.service';
+import { CommentDataService } from './comment/comment-data.service';
+import { CommentService } from './comment/comment.service';
 
 /**
  * When not in production, endpoint responses can be mocked for testing purposes
@@ -385,6 +388,8 @@ const PROVIDERS = [
   WorkflowStepStatisticsDataService,
   WorkflowOwnerStatisticsDataService,
   LoginStatisticsService,
+  CommentService,
+  CommentDataService,
 ];
 
 const SCHEMA_PROVIDERS = [
@@ -413,6 +418,7 @@ export const models =
     Site,
     Collection,
     Community,
+    Comment,
     EPerson,
     Group,
     ResourcePolicy,
