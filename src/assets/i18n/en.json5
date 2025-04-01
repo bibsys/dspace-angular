@@ -233,6 +233,15 @@
 
   "admin.registries.bitstream-formats.deselect": "Deselect",
 
+  "admin.registries.comments.create.success.content": "The new comment was successfully created.",
+  "admin.registries.comments.create.success.head": "Success",
+  "admin.registries.comments.create.failure.content": "Failed to create new comment.",
+  "admin.registries.comments.create.failure.head": "Failure",
+  "admin.registries.comments.delete.success.content": "Comment deleted",
+  "admin.registries.comments.delete.success.head": "Success",
+  "admin.registries.comments.delete.failure.content": "Failed to delete the comment.",
+  "admin.registries.comments.delete.failure.head": "Failure",
+
   "admin.registries.metadata.breadcrumbs": "Metadata registry",
 
   "admin.registries.metadata.description": "The metadata registry maintains a list of all metadata fields available in the repository. These fields may be divided amongst multiple schemas. However, DSpace requires the qualified Dublin Core schema.",
@@ -1895,6 +1904,8 @@
 
   "context-menu.actions.claim.btn": "Claim this profile",
 
+  "context-menu.actions.comment-item.btn": "Comments",
+
   "context-menu.actions.export-item.btn": "Export",
 
   "context-menu.actions.label": "Options",
@@ -3497,6 +3508,13 @@
   "item.orcid.return": "Back",
 
   "item.listelement.badge": "Item",
+
+  "item.page.comment.by": "By: ",
+  "item.page.comment.create-new": "Add new comment",
+  "item.page.comment.head": "Comments",
+  "item.page.comment.modified": "modified",
+  "item.page.comment.no-items": "No comment",
+  "item.page.comment.on": "On: ",
 
   "item.page.description": "Description",
 
@@ -9187,6 +9205,9 @@
 
   "layout.field.label.Patent.NESTED[dc.contributor.author]": "Inventor",
   "layout.field.label.Patent.NESTED[oairecerif.author.affiliation]": "Affiliation",
+
+  "admin.item.comment.edit.content.label": "Content",
+  "admin.item.comment.edit.content.hint": "Enter the comment content in this field",
 
   // Do not add new labels below layout ones
   // All new labels should be placed together with similar ones, or in alphabetical orders

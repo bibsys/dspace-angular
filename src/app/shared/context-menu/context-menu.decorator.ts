@@ -15,6 +15,7 @@ import { OrcidViewPageMenuComponent } from './orcid-view-page/orcid-view-page-me
 import { RequestCorrectionMenuComponent } from './request-correction/request-correction-menu.component';
 import { StatisticsMenuComponent } from './statistics/statistics-menu.component';
 import { SubscriptionMenuComponent } from './subscription/subscription-menu.component';
+import { CommentItemMenuComponent } from './comment-item/comment-item-menu.component';
 
 export interface ContextMenuEntryRenderOptions {
   componentRef: GenericConstructor<ContextMenuEntryComponent>;
@@ -72,6 +73,10 @@ contextMenuEntriesMap.set(DSpaceObjectType.ITEM, [
     componentRef: SubscriptionMenuComponent,
     isStandAlone: true,
   },
+  {
+    componentRef: CommentItemMenuComponent,
+    isStandAlone: false
+  }
 ]);
 contextMenuEntriesMap.set(DSpaceObjectType.COMMUNITY, [
   {

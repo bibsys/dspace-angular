@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col col-center">
+        <div class="center-inner">
+            <div class="line"></div>
+            <div class="center-icon-container">
+                <div class="icon"></div>
+            </div>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="col col-right">
+        <div *ngTemplateOutlet="event"></div>
+    </div>
+</div>
+
+<ng-template #event>
+    <div class="event-wrapper-container">
+        <div class="arrow left"></div>
+        <div class="event">
+            <div class="event-container">
+                <time [attr.datetime]="comment.created | date:'long'" class="event-date-container">
+                    <p class="month">{{ commentMonthAsString }}</p>
+                    <p class="day">{{ comment.created | date : 'dd' }}</p>
+                    <p class="year">{{ comment.created | date : 'YYYY' }}</p>
+                    <p class="hour"><i class="fa-regular fa-clock mr-1"></i> {{ comment.created | date : 'HH:mm:ss' }}</p>
+                </time>
+                <div class="event-divider-container"><hr/></div>
+                <div class="event-info-container">
+                    <div class="event-info-header">
+                        <div class="event-info-title event-info-row">
+                            {{ 'item.page.comment.by' | translate }} {{ comment.authorName }}
+                            <span class="obj-reference" *ngIf="comment.authorAuthority">[ePerson&#64;{{ comment.authorAuthority }}]</span>
+                        </div>
+                        <div class="event-info-reference event-info-row" *ngIf="commentReference">
+                            {{ 'item.page.comment.on' | translate }} {{ commentReference.name }}
+                            <span class="obj-reference">[{{ commentReference.type }}&#64;{{ commentReference.uuid }}]</span>
+                        </div>
+                    </div>
+                    <div class="event-info-body" [innerHTML]="commentContent"></div>
+                    <div class="event-info-modified" *ngIf="comment.modified">
+                        <i class="fa-regular fa-calendar mr-2"></i>{{ comment.modified | date : 'dd/MM/y - hh:mm:ss'}} ({{ 'item.page.comment.modified' | translate }})
+                    </div>
+                    <div class="event-info-actions" *ngIf="(canDelete$ | async)">
+                        <a class="btn btn-outline-danger" (click)="deleteComment()">
+                            <i class="fa-regular fa-trash-can" aria-labelledby="Delete"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

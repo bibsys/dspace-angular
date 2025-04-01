@@ -198,6 +198,15 @@
   // "admin.registries.bitstream-formats.title": "Bitstream Format Registry",
   "admin.registries.bitstream-formats.title": "Registre des formats Bitstream",
 
+  "admin.registries.comments.create.success.content": "Nouveau commentaire ajouté avec succès.",
+  "admin.registries.comments.create.success.head": "Succès",
+  "admin.registries.comments.create.failure.content": "Une erreur est survenue lors de la création du commentaire.",
+  "admin.registries.comments.create.failure.head": "Erreur",
+  "admin.registries.comments.delete.success.content": "Commentaire supprimé.",
+  "admin.registries.comments.delete.success.head": "Succès",
+  "admin.registries.comments.delete.failure.content": "Une erreur est survenue lors de la suppression du commentaire.",
+  "admin.registries.comments.delete.failure.head": "Erreur",
+
   // "admin.registries.metadata.breadcrumbs": "Metadata registry",
   "admin.registries.metadata.breadcrumbs": "Registre de métadonnées",
 
@@ -2130,6 +2139,8 @@
   // "community.sub-community-list.head": "Communities of this Community",
   "community.sub-community-list.head": "Sous-communautés au sein de cette communauté",
 
+  "context-menu.actions.comment-item.btn": "Commentaires",
+
   // "cookies.consent.accept-all": "Accept all",
   "cookies.consent.accept-all": "Accepter tout",
 
@@ -3433,6 +3444,13 @@
 
   // "item.listelement.badge": "Item",
   "item.listelement.badge": "Item",
+
+  "item.page.comment.by": "Par: ",
+  "item.page.comment.create-new": "Ajouter un commentaire",
+  "item.page.comment.head": "Commentaires",
+  "item.page.comment.modified": "modifié",
+  "item.page.comment.no-items": "Aucun commentaire",
+  "item.page.comment.on": "Ressource: ",
 
   // "item.page.description": "Description",
   "item.page.description": "Description",
@@ -8411,6 +8429,10 @@
   "item.page.cc.license.disclaimer": "Sauf indication contraire, la licence de cet Item est décrite comme",
 
   //"browse.search-form.placeholder": "Search the repository",
+
   "browse.search-form.placeholder": "Chercher dans le dépôt",
+  "admin.item.comment.edit.content.label": "Contenu",
+  "admin.item.comment.edit.content.hint": "Entrez le contenu du commentaire dans ce champ",
+  
 }
 

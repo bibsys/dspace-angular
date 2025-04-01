@@ -98,6 +98,7 @@ import { RatingAdvancedWorkflowInfo } from './tasks/models/rating-advanced-workf
 import { SelectReviewerAdvancedWorkflowInfo } from './tasks/models/select-reviewer-advanced-workflow-info.model';
 import { TaskObject } from './tasks/models/task-object.model';
 import { WorkflowAction } from './tasks/models/workflow-action-object.model';
+import { Comment } from './shared/comment.model';
 
 
 export const provideCore = () => {
@@ -217,4 +218,5 @@ export const models =
     WorkflowOwnerStatistics,
     LoginStatistics,
     Metric,
+    Comment,
   ];

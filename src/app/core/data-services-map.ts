@@ -80,6 +80,7 @@ import { SUPERVISION_ORDER } from './supervision-order/models/supervision-order.
 import { CLAIMED_TASK } from './tasks/models/claimed-task-object.resource-type';
 import { POOL_TASK } from './tasks/models/pool-task-object.resource-type';
 import { WORKFLOW_ACTION } from './tasks/models/workflow-action-object.resource-type';
+import { COMMENT } from './shared/comment.resource-type';
 
 export const LAZY_DATA_SERVICES: LazyDataServicesMap = new Map([
   [AUTHORIZATION.value, () => import('./data/feature-authorization/authorization-data.service').then(m => m.AuthorizationDataService)],
@@ -160,4 +161,5 @@ export const LAZY_DATA_SERVICES: LazyDataServicesMap = new Map([
   [WORKFLOW_STEP_STATISTICS.value, () => import('./statistics/workflow-step-statistics-data.service').then(m => m.WorkflowStepStatisticsDataService)],
   [ITEM_EXPORT_FORMAT.value, () => import('./itemexportformat/item-export-format.service').then(m => m.ItemExportFormatService)],
   [LOGIN_STATISTICS.value, () => import('./statistics/login-statistics.service').then(m => m.LoginStatisticsService)],
+  [COMMENT.value, () => import('./comment/comment-data.service').then(m => m.CommentDataService)],
 ]);

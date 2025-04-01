@@ -12,6 +12,7 @@ import { ThemedFullItemPageComponent } from './full/themed-full-item-page.compon
 import { itemPageResolver } from './item-page.resolver';
 import { itemPageAdministratorGuard } from './item-page-administrator.guard';
 import {
+  COMMENT_PAGE_PATH,
   ITEM_EDIT_PATH,
   ORCID_PATH,
   UPLOAD_BITSTREAM_PATH,
@@ -22,6 +23,9 @@ import { signpostingLinksResolver } from './simple/link-resolver/signposting-lin
 import { ThemedItemPageComponent } from './simple/themed-item-page.component';
 import { versionResolver } from './version-page/version.resolver';
 import { VersionPageComponent } from './version-page/version-page/version-page.component';
+import { ListItemCommentsPageComponent } from './comments/list/list-item-comments.component';
+import { commentGuard } from './comments/comment.guard';
+import { AddCommentComponent } from './comments/add-comment/add-comment.component';
 
 export const ROUTES: Route[] = [
   {
@@ -56,6 +60,24 @@ export const ROUTES: Route[] = [
       {
         path: 'full',
         component: ThemedFullItemPageComponent,
+      },
+      {
+        path: COMMENT_PAGE_PATH,
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            component: ListItemCommentsPageComponent,
+            canActivate: [authenticatedGuard, commentGuard],
+          },
+          {
+            path: 'add',
+            component: AddCommentComponent,
+            data: {
+              parentID: ':id',
+            }
+          }
+        ]
       },
       {
         path: ITEM_EDIT_PATH,
