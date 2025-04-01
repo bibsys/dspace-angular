@@ -9,6 +9,7 @@ import { SubscriptionsModule } from '../subscriptions/subscriptions.module';
 import { AuditItemMenuComponent } from './audit-item/audit-item-menu.component';
 import { BulkImportMenuComponent } from './bulk-import/bulk-import-menu.component';
 import { ClaimItemMenuComponent } from './claim-item/claim-item-menu.component';
+import { CommentItemMenuComponent } from './comment-item/comment-item-menu.component';
 import { ContextMenuComponent } from './context-menu.component';
 import { DsoPageEditMenuComponent } from './dso-page-edit/dso-page-edit-menu.component';
 import { EditItemMenuComponent } from './edit-item/edit-item-menu.component';
@@ -38,6 +39,7 @@ const COMPONENTS = [
   ItemVersionMenuComponent,
   FullItemMenuComponent,
   OrcidViewPageMenuComponent,
+  CommentItemMenuComponent
 ];
 
 const ENTRY_COMPONENTS = [
@@ -55,6 +57,7 @@ const ENTRY_COMPONENTS = [
   ItemVersionMenuComponent,
   FullItemMenuComponent,
   OrcidViewPageMenuComponent,
+  CommentItemMenuComponent
 ];
 
 const MODULE = [

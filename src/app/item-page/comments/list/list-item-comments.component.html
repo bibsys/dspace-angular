@@ -1,0 +1,39 @@
+<div class="container">
+
+    <h1 id="header" class="border-bottom pb-2">{{ 'item.page.comment.head' | translate }}</h1>
+    <p id="create-new" class="mb-2" *ngIf="(canAddComment$ | async)">
+        <a [routerLink]="'add'" class="btn btn-success">
+            <i class="fas fa-plus mr-1"></i>
+            {{ 'item.page.comment.create-new' | translate }}
+        </a>
+    </p>
+
+
+    <ds-pagination
+        *ngIf="(comments$ | async)?.payload?.totalElements > 0"
+        [paginationOptions]="pageConfig"
+        [pageInfoState]="commentPageInfo$"
+        [collectionSize]="(comments$ | async)?.payload?.totalElements"
+        [hideGear]="false"
+        [hidePagerWhenSinglePage]="true">
+
+        <ds-comment-detail
+            *ngFor="let comment of (comments$ | async)?.payload?.page"
+            [comment]="comment"
+            [canDelete$]="canDeleteComment$"
+            (deleted)="deletedComment($event)"
+        >
+        </ds-comment-detail>
+    </ds-pagination>
+    <div *ngIf="(comments$ | async)?.payload?.totalElements === 0" class="alert alert-info" role="alert">
+        {{ 'item.page.comments.no-items' | translate }}
+    </div>
+
+    <div class="button-row bottom mt-3">
+        <div class="text-right">
+            <a role="button" class="btn btn-outline-secondary" [routerLink]="['/items', item.id]">
+                <i class="fas fa-arrow-left"></i> {{ 'item.page.return' | translate }}
+            </a>
+        </div>
+    </div>
+</div>
