@@ -11,11 +11,14 @@ import { LinkMenuItemModel } from '../shared/menu/menu-item/models/link.model';
 import { MenuItemType } from '../shared/menu/menu-item-type.model';
 import { BitstreamRequestACopyPageComponent } from './bitstreams/request-a-copy/bitstream-request-a-copy-page.component';
 import { UploadBitstreamComponent } from './bitstreams/upload/upload-bitstream.component';
+import { AddCommentComponent } from './comments/add-comment/add-comment.component';
+import { CommentGuard } from './comments/comment.guard';
 import { CrisItemPageTabResolver } from './cris-item-page-tab.resolver';
 import { ThemedFullItemPageComponent } from './full/themed-full-item-page.component';
 import { ItemPageResolver } from './item-page.resolver';
 import { ItemPageAdministratorGuard } from './item-page-administrator.guard';
 import {
+  COMMENT_PAGE_PATH,
   ITEM_EDIT_PATH,
   ORCID_PATH,
   UPLOAD_BITSTREAM_PATH,
@@ -25,6 +28,7 @@ import { OrcidPageGuard } from './orcid-page/orcid-page.guard';
 import { ThemedItemPageComponent } from './simple/themed-item-page.component';
 import { VersionResolver } from './version-page/version.resolver';
 import { VersionPageComponent } from './version-page/version-page/version-page.component';
+import { ListItemCommentsPageComponent } from './comments/list/list-item-comments.component';
 
 @NgModule({
   imports: [
@@ -49,6 +53,24 @@ import { VersionPageComponent } from './version-page/version-page/version-page.c
           {
             path: 'full',
             component: ThemedFullItemPageComponent,
+          },
+          {
+            path: COMMENT_PAGE_PATH,
+            children: [
+              {
+                path: '',
+                pathMatch: 'full',
+                component: ListItemCommentsPageComponent,
+                canActivate: [AuthenticatedGuard, CommentGuard],
+              },
+              {
+                path: 'add',
+                component: AddCommentComponent,
+                data: {
+                  parentID: ':id',
+                }
+              }
+            ]
           },
           {
             path: ITEM_EDIT_PATH,
@@ -119,6 +141,7 @@ import { VersionPageComponent } from './version-page/version-page/version-page.c
     VersionResolver,
     OrcidPageGuard,
     CrisItemPageTabResolver,
+    CommentGuard,
   ],
 
 })

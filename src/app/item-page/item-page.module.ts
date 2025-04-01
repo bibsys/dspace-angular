@@ -8,6 +8,7 @@ import { JournalEntitiesModule } from '../entity-groups/journal-entities/journal
 import { ResearchEntitiesModule } from '../entity-groups/research-entities/research-entities.module';
 import { ContextMenuModule } from '../shared/context-menu/context-menu.module';
 import { DsoPageModule } from '../shared/dso-page/dso-page.module';
+import { FormModule } from '../shared/form/form.module';
 import { MarkdownViewerModule } from '../shared/markdown-viewer/markdown-viewer.module';
 import { ResultsBackButtonModule } from '../shared/results-back-button/results-back-button.module';
 import { SharedModule } from '../shared/shared.module';
@@ -16,6 +17,9 @@ import { StatisticsModule } from '../statistics/statistics.module';
 import { ThemedItemAlertsComponent } from './alerts/themed-item-alerts.component';
 import { BitstreamRequestACopyPageComponent } from './bitstreams/request-a-copy/bitstream-request-a-copy-page.component';
 import { UploadBitstreamComponent } from './bitstreams/upload/upload-bitstream.component';
+import { AddCommentComponent } from './comments/add-comment/add-comment.component';
+import { CommentDetailComponent } from './comments/detail/comment-detail.component';
+import { CommentFormComponent } from './comments/form/comment-form.component';
 import { EditItemPageModule } from './edit-item-page/edit-item-page.module';
 import { CollectionsComponent } from './field-components/collections/collections.component';
 import { MetadataUriValuesComponent } from './field-components/metadata-uri-values/metadata-uri-values.component';
@@ -54,6 +58,7 @@ import { QaEventNotificationComponent } from './simple/qa-event-notification/qa-
 import { ThemedItemPageComponent } from './simple/themed-item-page.component';
 import { VersionPageComponent } from './version-page/version-page/version-page.component';
 import { ItemVersionsModule } from './versions/item-versions.module';
+import { ListItemCommentsPageComponent } from './comments/list/list-item-comments.component';
 
 
 const ENTRY_COMPONENTS = [
@@ -99,6 +104,10 @@ const DECLARATIONS = [
   QaEventNotificationComponent,
   NotifyRequestsStatusComponent,
   RequestStatusAlertBoxComponent,
+  ListItemCommentsPageComponent,
+  CommentDetailComponent,
+  AddCommentComponent,
+  CommentFormComponent
 ];
 
 @NgModule({
@@ -121,6 +130,7 @@ const DECLARATIONS = [
     ContextMenuModule.withEntryComponents(),
     MiradorViewerModule,
     MarkdownViewerModule,
+    FormModule,
   ],
   declarations: [
     ...DECLARATIONS,
