@@ -5806,7 +5806,7 @@
 
   "search.filters.filter.itemtype.head": "Type",
 
-  "search.filters.filter.itemtype.placeholder": "Type",
+  "search.filters.filter.itemtype.placeholder": "Search a type...",
 
   "search.filters.filter.itemtype.label": "Search type",
 
@@ -9442,6 +9442,20 @@
   "item.page.details.label.degree": "Degree",
   "item.page.details.label.created": "Creation date",
   "item.page.details.label.updated": "Last modified date",
+
+  // -------- ITEM CITATIONS --------
+  "item.citations.select-format": "Select a format to generate a citation.",
+  "item.citations.no-display": "No citations to display for this publication.",
+  "item.citations.copy.title": "Copy citation",
+  "item.citations.copy.success": "Citation copied to clipboard !",
+  "item.citations.copy.error": "Could not copy citation to clipboard: \n",
+
+  "item.citations.formats.loading": "Loading formats...",
+  "item.citation.loading": "Loading citation...",
+
+  // [FORMATS]
+  "item.citations.format.publication-chicago.label": "Chicago",
+  "item.citations.format.publication-apa.label": "APA",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Dutch",

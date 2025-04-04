@@ -17,8 +17,8 @@
             <div class="item-list-authors">
                 <ds-author-format-display [item]="item" />
             </div>
-            <div class="font-italic text-muted">
-                [PLACE THE ITEM CITATION HERE]
+            <div *ngIf="(itemCitation$ | async) as itemCitations" class="font-italic text-muted">
+                {{ itemCitations }}
             </div>
         </div>
     </div>
