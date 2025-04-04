@@ -1,4 +1,4 @@
-import { NgIf } from "@angular/common";
+import { AsyncPipe, NgIf } from "@angular/common";
 import { Component, Input, OnInit } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
@@ -11,6 +11,8 @@ import { CollectionElementLinkType } from "src/app/shared/object-collection/coll
 import { AccessStatusObject } from "src/app/shared/object-collection/shared/badges/access-status-badge/access-status.model";
 import { ThemedBadgesComponent } from "src/app/shared/object-collection/shared/badges/themed-badges.component";
 import { AuthorFormatDisplayComponent } from "../../specific-field/author-format-display.component";
+import { ItemCitationsService } from "../../citations/item-citations.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'ds-publication-search-result-list-element',
@@ -21,6 +23,7 @@ import { AuthorFormatDisplayComponent } from "../../specific-field/author-format
     NgIf,
     RouterLink,
     AuthorFormatDisplayComponent,
+    AsyncPipe,
   ]
 })
 export class PublicationSearchResultListElementComponent implements OnInit {
@@ -35,9 +38,11 @@ export class PublicationSearchResultListElementComponent implements OnInit {
     protected accessCondition: AccessConditionObject;
     protected itemTitle: string;
     protected itemPageRoute: string;
+    itemCitation$: Observable<string> = new Observable(null);
 
     constructor(
-      protected translateService: TranslateService
+      protected translateService: TranslateService,
+      protected itemCitationsService: ItemCitationsService,
     ) {}
 
     ngOnInit() {
@@ -50,5 +55,7 @@ export class PublicationSearchResultListElementComponent implements OnInit {
             this.accessCondition = Object.assign(new AccessConditionObject(), {id: 0, name: access.status});
           });
       }
+      // Retrieve the main citation.
+      this.itemCitation$ = this.itemCitationsService.getMainCitationForItem(this.item.id);
     }
 }

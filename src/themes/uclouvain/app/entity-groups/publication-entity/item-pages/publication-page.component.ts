@@ -20,6 +20,11 @@ import { ContextMenuComponent } from 'src/app/shared/context-menu/context-menu.c
 import { ItemPageHeadingComponent } from '../../../shared/item-page/item-page-heading.component';
 import { ItemPageMetadataListComponent } from '../../../item-page/simple/field-components/specific-field/metadata-list/item-page-metadata-list.component';
 import { ItemPageAbstractCustomFieldComponent } from '../../../item-page/simple/field-components/specific-field/abstract/item-page-abstract-field.component';
+import { RouteService } from 'src/app/core/services/route.service';
+import { Router } from '@angular/router';
+import { ItemCitationsService } from '../citations/item-citations.service';
+import { Observable } from 'rxjs';
+import { PublicationPageCitationsComponent } from './publication-page-citations/publication-page-citations.component';
 
 @listableObjectComponent('Publication', ViewMode.StandalonePage, Context.Any, 'uclouvain')
 @Component({
@@ -45,6 +50,7 @@ import { ItemPageAbstractCustomFieldComponent } from '../../../item-page/simple/
 		ItemPageHeadingComponent,
 		ItemPageMetadataListComponent,
 		ItemPageAbstractCustomFieldComponent,
+		PublicationPageCitationsComponent,
 	],
 })
 export class PublicationPageComponent extends ItemComponent implements OnInit {
@@ -56,10 +62,20 @@ export class PublicationPageComponent extends ItemComponent implements OnInit {
 	protected readonly DspaceObjectType = DSpaceObjectType;
 	protected readonly isNotEmpty = isNotEmpty;
 
-	protected typeLabel: string;
+    protected typeLabel: string;
+    protected itemCitation$: Observable<string> = new Observable(null);
 
-	ngOnInit(): void {
-		this.typeLabel =
-			PUBLICATION_TYPES_MAPPING[(this.object.firstMetadataValue("dc.type.maintype"))] ?? "publication.type.unknown.heading";
-	}
+    constructor(
+        protected routeService: RouteService,
+        protected router: Router,
+        protected itemCitationsService: ItemCitationsService
+    ) {
+        super(routeService, router);
+    }
+
+    ngOnInit(): void {
+        this.typeLabel =
+            PUBLICATION_TYPES_MAPPING[(this.object.firstMetadataValue("dc.type.maintype"))] ?? "publication.type.unknown.heading";
+        this.itemCitation$ = this.itemCitationsService.getMainCitationForItem(this.object.id);
+    }
 }
