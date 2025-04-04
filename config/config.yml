@@ -74,6 +74,8 @@ form:
 
 item:
   showAccessStatuses: true
+  citations:
+    mainFormat: publication-uclouvain
   details:
     blocksConfig:
       book-block:
