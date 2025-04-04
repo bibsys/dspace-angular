@@ -24,4 +24,8 @@ export interface ItemConfig extends Config {
     blocksConfig: {[key: string]: { heading: string, data: {label: string, field: string, class?: string}[]}};
     typesConfig: {[key: string]: String[]}
   }
+
+  citations: {
+    mainFormat: string;
+  }
 }
