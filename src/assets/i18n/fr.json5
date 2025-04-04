@@ -5735,7 +5735,7 @@
   "search.filters.filter.itemtype.head": "Type",
 
   // "search.filters.filter.itemtype.placeholder": "Type",
-  "search.filters.filter.itemtype.placeholder": "Type",
+  "search.filters.filter.itemtype.placeholder": "Rechercher un type...",
 
   // "search.filters.filter.itemtype.label": "Search type",
   "search.filters.filter.itemtype.label": "Search type",
@@ -9255,6 +9255,34 @@
   //"access.condition.value.lease": "Accès embargo",
   "access.condition.value.lease": "Accès limité",
 
+
+  // "publication.type.journal-article.heading": "Journal Article",
+  "publication.type.journal-article.heading": "Article de périodique",
+
+  // "publication.type.book.heading": "Book",
+  "publication.type.book.heading": "Monographie",
+
+  // "publication.type.book-part.heading": "Book Chapter",
+  "publication.type.book-part.heading": "Contribution à un ouvrage collectif",
+
+  // "publication.type.working-paper.heading": "Working Paper",
+  "publication.type.working-paper.heading": "Document de travail",
+
+  // "publication.type.report.heading": "Report",
+  "publication.type.report.heading": "Rapport",
+
+  // "publication.type.patent.heading": "Patent",
+  "publication.type.patent.heading": "Brevet",
+
+  // "publication.type.conference-speech.heading": "Conference Speech",
+  "publication.type.conference-speech.heading": "Communication à un colloque",
+
+  // "publication.type.dissertation.heading": "Dissertation",
+  "publication.type.dissertation.heading": "Thèse",
+
+  // "publication.type.unknown.heading": "Unknown type",
+  "publication.type.unknown.heading": "Type inconnu",
+
   //"access.condition.value.UCLouvain networks restriction": "Restricted Access"
   "access.condition.value.restricted": "Accès restreint",
 
@@ -9344,6 +9372,21 @@
   "item.page.details.label.degree": "Diplôme",
   "item.page.details.label.created": "Date de création",
   "item.page.details.label.updated": "Date de dernière modification",
+
+  // -------- ITEM CITATIONS --------
+  "item.citations.select-format": "Sélectionner un format pour générer une citation.",
+  "item.citations.no-display": "Aucun format de citation disponible pour cette publication.",
+  "item.citations.copy.title": "Copier la citation.",
+  "item.citations.copy.success": "Citation copiée dans le presse-papier !",
+  "item.citations.copy.error": "Impossible de copier la citation: \n",
+
+  "item.citations.loading": "",
+  "item.citations.formats.loading": "Chargement des formats...",
+  "item.citation.loading": "Chargement de la citation...",
+
+  // [FORMATS]
+  "item.citations.format.publication-chicago.label": "Chicago",
+  "item.citations.format.publication-apa.label": "APA",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",

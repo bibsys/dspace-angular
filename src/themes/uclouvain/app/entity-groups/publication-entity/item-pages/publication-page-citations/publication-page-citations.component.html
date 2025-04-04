@@ -1,0 +1,50 @@
+<ng-container *ngIf="(loadingFormats | async)">
+  <div class="w-100">
+    <h5 class="text-muted text-center">{{ 'item.citations.formats.loading' | translate }}</h5>
+  </div>
+</ng-container>
+<ng-container *ngIf="(citationFormats$ | async) as citationFormats">
+  <div *ngIf="isNotEmpty(citationFormats); else noCitationFormats" class="card text-left">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li *ngFor="let format of citationFormats" class="nav-item mx-3 mb-1">
+          <span class="nav-link pt-2 pb-1 px-0"
+                [ngClass]="{'active': (isFormatSelected(format) | async)}"
+                (click)="selectCitationFormat(format)">
+            {{ ('item.citations.format.' + format.id + '.label') | translate }}
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body p-4 d-flex justify-content-center align-items-center flex-nowrap">
+      <ng-container *ngIf="!(loadingCitation | async); else loadingCitations">
+        <ng-container *ngIf="(citationContent$ | async) as citationContent; else noContent">
+          <div class="flex-grow">
+            <p class="card-text">{{ citationContent.citation }}</p>
+          </div>
+          <div class="p-3 copy-clipboard"
+               data-toggle="tooltip"
+               data-placement="top"
+               title="{{ 'item.citations.copy.title' | translate }}"
+               (click)="copyCitation()">
+            <i class="fa fa-copy text-muted mx-2 my-0"></i>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loadingCitations>
+  <div class="w-100">
+    <h5 class="text-muted text-center">{{ 'item.citation.loading' | translate }}</h5>
+  </div>
+</ng-template>
+
+<ng-template #noCitationFormats>
+  <h5 class="text-muted font-italic text-center">{{ 'item.citations.no-display' | translate }}</h5>
+</ng-template>
+
+<ng-template #noContent>
+  <p class="card-text font-italic text-muted">{{ 'item.citations.select-format' | translate }}</p>
+</ng-template>
