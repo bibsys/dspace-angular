@@ -423,7 +423,11 @@ export class DefaultAppConfig implements AppConfig {
     details: {
       blocksConfig: {},
       typesConfig: {}
-    }
+    },
+
+    citations: {
+      mainFormat: 'publication-chicago',
+    },
   };
 
   // Community Page Config
