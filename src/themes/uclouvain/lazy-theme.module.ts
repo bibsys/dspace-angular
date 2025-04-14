@@ -33,6 +33,11 @@ import { ObjectListComponent } from './app/shared/object-list/object-list.compon
 import { BadgesComponent } from './app/shared/object-collection/shared/badges/badges.component';
 import { MyDSpaceStatusBadgeComponent } from './app/shared/object-collection/shared/badges/my-dspace-status-badge/my-dspace-status-badge.component';
 import { ItemListPreviewComponent } from './app/shared/object-list/my-dspace-result-list-element/item-list-preview/item-list-preview.component';
+import { ItemPageTitleFieldComponent } from './app/item-page/simple/field-components/specific-field/title/item-page-title-field.component';
+import { MetadataRepresentationListComponent } from './app/item-page/simple/metadata-representation-list/metadata-representation-list.component';
+import { FullFileSectionComponent } from './app/item-page/full/field-components/file-section/full-file-section.component';
+import { UploadFileDescriptionComponent } from './app/item-page/full/field-components/file-section/upload-file-description/upload-file-description.component';
+import { FileSectionComponent } from './app/item-page/simple/field-components/file-section/file-section.component';
 
 const DECLARATIONS = [
   AdminSidebarComponent,
@@ -52,6 +57,11 @@ const DECLARATIONS = [
   BadgesComponent,
   MyDSpaceStatusBadgeComponent,
   ItemListPreviewComponent,
+  ItemPageTitleFieldComponent,
+  MetadataRepresentationListComponent,
+  FullFileSectionComponent,
+  UploadFileDescriptionComponent,
+  FileSectionComponent,
 ];
 
 @NgModule({
