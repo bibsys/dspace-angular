@@ -10,9 +10,11 @@ import { isNotEmpty } from '../../../../../app/shared/empty.util';
  */
 @Component({
   selector: 'ds-cc-license',
+  template: `<ng-container *ngIf="imagePath">
+    <img [src]="imagePath" [alt]="licenseUri" [height]="height"/>
+  </ng-container>`,
   standalone: true,
-  imports: [ NgIf ],
-  template: `<img *ngIf="imagePath" [src]="imagePath" [alt]="licenseUri" [height]="height"/>`
+  imports: [NgIf],
 })
 export class CreativeCommonsLicenseComponent {
 
