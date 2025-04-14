@@ -19,4 +19,9 @@ export interface ItemConfig extends Config {
 
   // The maximum number of values for repeatable metadata to show in the full item
   metadataLimit: number;
+
+  details: {
+    blocksConfig: {[key: string]: { heading: string, data: {label: string, field: string, class?: string}[]}};
+    typesConfig: {[key: string]: String[]}
+  }
 }
