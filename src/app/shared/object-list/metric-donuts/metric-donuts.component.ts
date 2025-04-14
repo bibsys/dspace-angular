@@ -64,7 +64,9 @@ export class MetricDonutsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.linkService.resolveLink(this.item, followLink('metrics'));
+    if (!this.item?.metrics) {
+      this.linkService.resolveLink(this.item, followLink('metrics'));
+    }
     if (isPlatformBrowser(this.platformId)) {
       this.retrieveMetrics().subscribe((metrics: Metric[]) => {
         this.metrics$.next(metrics);
