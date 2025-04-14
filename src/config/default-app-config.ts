@@ -412,6 +412,11 @@ export class DefaultAppConfig implements AppConfig {
 
     // The maximum number of values for repeatable metadata to show in the full item
     metadataLimit: 20,
+
+    details: {
+      blocksConfig: {},
+      typesConfig: {}
+    }
   };
 
   // Community Page Config
