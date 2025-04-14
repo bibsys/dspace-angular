@@ -1,0 +1,82 @@
+<div class="d-flex">
+  <ds-results-back-button *ngIf="showBackButton$ | async" [back]="back"></ds-results-back-button>
+  <ds-context-menu [contextMenuObject]="object" [contextMenuObjectType]="DspaceObjectType.ITEM"
+    class="ml-auto"></ds-context-menu>
+</div>
+
+<div class="container my-3 p-0">
+  <!-- Main 'Title' section containing main information like title, authors and specific ref. -->
+  <article class="row p-3 mb-4 d-flex flex-nowrap bg-white">
+    <div class="flex-grow-1">
+      <h3 class="text-muted m-0">{{ typeLabel | translate }}</h3>
+      <ds-item-page-title-field [item]="object"></ds-item-page-title-field>
+      <div class="mt-1 ml-1">
+        <ds-author-format-display [item]="object" />
+        <div class="text-muted">
+          [PLACE THE ITEM CITATION HERE]
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="row">
+    <!-- Left section for files, citations and global metadata -->
+    <div class="col-9 p-0">
+      <div class="mr-3 pl-4 pr-3 py-2">
+        <div class="mb-4">
+          <ds-item-page-heading [headerLabel]="'item.page.heading.files'"/>
+          <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
+        </div>
+        <div class="mb-4">
+          <ds-item-page-heading [headerLabel]="'item.page.heading.details'"/>
+          <dl class="ml-1">
+            <ng-container *ngIf="object.hasMetadata('dc.contributor.author')">
+              <dt>{{ "item.page.author" | translate }}</dt>
+              <dd>
+                <ds-generic-item-page-field [item]="object" [fields]="['dc.contributor.author']" [separator]="' ; '" />
+              </dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('dc.contributor.advisor')">
+              <dt>{{ "item.page.advisor" | translate }}</dt>
+              <dd>
+                <ng-container *ngFor="let advisor of object.allMetadata(['dc.contributor.advisor']); let last=last;">
+                  <ds-metadata-link-view [item]="object" [metadata]="advisor" [metadataName]="'dc.contributor.advisor'">
+                  </ds-metadata-link-view>
+                  <span *ngIf="!last"> ; </span>
+                </ng-container>
+              </dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('dc.description.abstract')">
+              <dt>{{ "item.page.abstract" | translate }}</dt>
+              <dd>
+                <ds-generic-item-page-field [item]="object" [fields]="['dc.description.abstract']">
+                </ds-generic-item-page-field>
+              </dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('dc.date.issued')">
+              <dt>{{ "item.page.date-issued" | translate }}</dt>
+              <dd>
+                <ds-generic-item-page-field [item]="object" [fields]="['dc.date.issued']">
+                </ds-generic-item-page-field>
+              </dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('oairecerif.affiliation.orgunitDepartment')">
+              <dt>{{ "item.page.affiliation" | translate }}</dt>
+              <dd>
+                <ds-item-page-affiliation-field [item]="object" />
+              </dd>
+            </ng-container>
+          </dl>
+          <ds-metric-donuts-row [item]="object" />
+        </div>
+        <div class="mb-4">
+          <ds-item-page-heading [headerLabel]="'item.page.heading.citations'"/>
+          <h5 class="text-muted text-center font-italic">{{ 'item.page.citations.none' | translate }}</h5>
+        </div>
+      </div>
+    </div>
+    <!-- Right section column for specific metadata -->
+    <aside class="col-3 p-3 publication-type-specific">
+      <ds-publication-page-details-renderer [item]="object" />
+    </aside>
+  </article>
+</div>
