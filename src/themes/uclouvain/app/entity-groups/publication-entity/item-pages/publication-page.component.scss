@@ -1,0 +1,16 @@
+.title-container {
+  span {
+    margin-top: 1px;
+    flex-grow: 1;
+    border-color: var(--bs-gray-200) !important;
+  }
+}
+
+.sticky-top {
+  z-index: 5;
+}
+
+.publication-type-specific {
+  // box-shadow: rgba(0, 0, 0, 0.02) 0px 3px 12px 0px, rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+  background: var(--bs-gray-100);
+}
