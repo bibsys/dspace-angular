@@ -3594,9 +3594,33 @@
 
   "confidence.indicator.help-text.unknown": "Unknown confidence value",
 
+  "item.page.specific-metadata.heading": "Specific metadata",
+
+  "item.page.heading.files": "Files",
+
+  "item.page.heading.details": "Details",
+
+  "item.page.heading.citations": "Citations",
+
+  "item.page.heading.metrics": "Metrics",
+
+  "item.page.title": "Title",
+
   "item.page.abstract": "Abstract",
 
+  "item.page.date-issued": "Issue date",
+
+  "item.page.language": "Language",
+
+  "item.page.subject": "Keywords",
+
+  "item.page.affiliation": "Affiliations",
+
+  "item.page.doi": "DOI",
+
   "item.page.author": "Authors",
+
+  "item.page.advisor": "Supervisors",
 
   "item.page.citation": "Citation",
 
@@ -9336,6 +9360,9 @@
 
   "submission-button.add.message": "Add a submission",
 
+  "item.page.citations.none": "No citations to display",
+  "item.page.details.none": "Nothing to display for this publication type.",
+
   // -- Facet entityType -- 
   "search.filters.itempublicationtype.text::journal-article": "Journal article",
   "search.filters.itempublicationtype.text::working-paper": "Working paper",
@@ -9374,6 +9401,47 @@
 
   // -- EMPTY TITLE PLACEHOLDER
   "publication.list.element.title.placeholder": "Unkown title",
+
+  // ----- FILE SECTION -------
+  "file.section.no-file.message": "No bitstream found for this item.",
+
+  // ----- ITEM PAGE DETAILS BLOCKS -------
+
+  // [HEADINGS]
+  "item.page.details.heading.book": "Book data",
+  "item.page.details.heading.collection": "Collection data",
+  "item.page.details.heading.dissertation": "Dissertation data",
+  "item.page.details.heading.working-paper": "Working-paper data",
+  "item.page.details.heading.patent": "Patent data",
+  "item.page.details.heading.report": "Report data",
+  "item.page.details.heading.journal": "Journal data",
+  "item.page.details.heading.editor": "Editor data",
+  "item.page.details.heading.conference": "Conference data",
+  "item.page.details.heading.host-document": "Host-document data",
+  "item.page.details.heading.identifiers": "Identifiers",
+
+  "item.page.details.heading.administrative": "Administrative data",
+
+  // [LABELS]
+  "item.page.details.label.name": "Name",
+  "item.page.details.label.number": "Number",
+  "item.page.details.label.location": "Location",
+  "item.page.details.label.start-date": "Start date",
+  "item.page.details.label.end-date": "End date",
+  "item.page.details.label.title": "Title",
+  "item.page.details.label.publication-date": "Publication date",
+  "item.page.details.label.other": "Other",
+  "item.page.details.label.volume": "Volume",
+  "item.page.details.label.issue": "Issue",
+  "item.page.details.label.date": "Date",
+  "item.page.details.label.patent-office": "Patent office",
+  "item.page.details.label.type": "Type",
+  "item.page.details.label.pages": "Pages",
+  "item.page.details.label.defense-date": "Defense date",
+  "item.page.details.label.faculty": "Faculties",
+  "item.page.details.label.degree": "Degree",
+  "item.page.details.label.created": "Creation date",
+  "item.page.details.label.updated": "Last modified date",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Dutch",

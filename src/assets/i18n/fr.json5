@@ -3894,8 +3894,8 @@
   // "item.page.specific-metadata.heading": "Specific metadata",
   "item.page.specific-metadata.heading": "Métadonnées spécifiques",
 
-  // "item.page.heading.files": "Fichiers",
-  "item.page.heading.files": "Files",
+  // "item.page.heading.files": "Files",
+  "item.page.heading.files": "Fichiers",
 
 
   // "item.page.heading.details": "Details",
@@ -3905,6 +3905,7 @@
   // "item.page.heading.citations": "Citations",
   "item.page.heading.citations": "Citations",
 
+  "item.page.heading.metrics": "Métriques",
 
   // "item.page.title": "Title",
   "item.page.title": "Titre",
@@ -9266,6 +9267,9 @@
   //"submission-button.add.message": "Add a submission",
   "submission-button.add.message": "Soumettre",
 
+  "item.page.citations.none": "Pas de citation disponible",
+  "item.page.details.none": "Rien à afficher pour ce type de publication.",
+
   // -- Facet entityType -- 
   "search.filters.itempublicationtype.text::journal-article": "Article de périodique",
   "search.filters.itempublicationtype.text::working-paper": "Document de travail",
@@ -9285,44 +9289,19 @@
   // -- Publication types --
   // "publication.type.journal-article.heading": "Journal Article",
   "publication.type.journal-article.heading": "Article de périodique",
-
-  // "publication.type.book.heading": "Book",
   "publication.type.book.heading": "Monographie",
-
-  // "publication.type.book-part.heading": "Book Chapter",
   "publication.type.book-part.heading": "Contribution à un ouvrage collectif",
-
-  // "publication.type.working-paper.heading": "Working Paper",
   "publication.type.working-paper.heading": "Document de travail",
-
-  // "publication.type.report.heading": "Report",
   "publication.type.report.heading": "Rapport",
-
-  // "publication.type.patent.heading": "Patent",
   "publication.type.patent.heading": "Brevet",
-
-  // "publication.type.conference-speech.heading": "Conference Speech",
   "publication.type.conference-speech.heading": "Communication à un colloque",
-
-  // "publication.type.dissertation.heading": "Dissertation",
   "publication.type.dissertation.heading": "Thèse",
-
-  // "publication.type.unknown.heading": "Unknown type",
   "publication.type.unknown.heading": "Type inconnu",
 
-  // "item.entity-type.publication": "Publication",
   "item.entity-type.publication": "Publication",
-
-  // "item.entity-type.orgunit": "OrgUnit",
   "item.entity-type.orgunit": "Oganisation",
-
-  // "item.entity-type.person": "Person",
   "item.entity-type.person": "Personne",
-
-  // "item.entity-type.journal": "Journal",
   "item.entity-type.journal": "Journal",
-
-  // "item.entity-type.unknown": "Unknown Type",
   "item.entity-type.unknown": "Type inconnu",
 
   // ETAL ToolTip
@@ -9330,6 +9309,47 @@
 
   // -- EMPTY TITLE PLACEHOLDER
   "publication.list.element.title.placeholder": "Titre inconnu",
+
+  // ----- FILE SECTION -------
+  "file.section.no-file.message": "Aucun fichier attaché trouvé pour cet objet.",
+
+  // ----- ITEM PAGE DETAILS BLOCKS -------
+
+  // [HEADINGS]
+  "item.page.details.heading.book": "Données du livre",
+  "item.page.details.heading.collection": "Données de la collection",
+  "item.page.details.heading.dissertation": "Données de la thèse",
+  "item.page.details.heading.working-paper": "Données du document de travail",
+  "item.page.details.heading.patent": "Données du brevet",
+  "item.page.details.heading.report": "Données du raport",
+  "item.page.details.heading.journal": "Données du journal",
+  "item.page.details.heading.editor": "Données de l'éditeur",
+  "item.page.details.heading.conference": "Données de la conférence",
+  "item.page.details.heading.host-document": "Données du document hôte",
+  "item.page.details.heading.identifiers": "Identifiants",
+
+  "item.page.details.heading.administrative": "Données administratives",
+
+  // [LABELS]
+  "item.page.details.label.name": "Nom",
+  "item.page.details.label.number": "Numéro",
+  "item.page.details.label.location": "Localisation",
+  "item.page.details.label.start-date": "Date de début",
+  "item.page.details.label.end-date": "Date de fin",
+  "item.page.details.label.title": "Titre",
+  "item.page.details.label.publication-date": "Date de publication",
+  "item.page.details.label.other": "Autre",
+  "item.page.details.label.volume": "Volume",
+  "item.page.details.label.issue": "Issue",
+  "item.page.details.label.date": "Date",
+  "item.page.details.label.patent-office": "Office de brevets",
+  "item.page.details.label.type": "Type",
+  "item.page.details.label.pages": "Pages",
+  "item.page.details.label.defense-date": "Date de défense",
+  "item.page.details.label.faculty": "Facultés",
+  "item.page.details.label.degree": "Diplôme",
+  "item.page.details.label.created": "Date de création",
+  "item.page.details.label.updated": "Date de dernière modification",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",
