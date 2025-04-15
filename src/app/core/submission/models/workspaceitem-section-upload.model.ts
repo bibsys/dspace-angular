@@ -12,4 +12,8 @@ export interface WorkspaceitemSectionUploadObject {
    * A list of [[WorkspaceitemSectionUploadFileObject]]
    */
   files: WorkspaceitemSectionUploadFileObject[];
+  /**
+   * Is the access conditions acknowledgement checked
+   */
+  accessConditionAcknowledge: boolean;
 }
