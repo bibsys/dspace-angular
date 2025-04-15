@@ -3018,6 +3018,7 @@
 
   // "error.validation.filerequired": "The file upload is mandatory",
   "error.validation.filerequired": "Le téléchargement de fichier est obligatoire",
+  "error.validation.accessconditionsrequired": "Vous devez confirmer avoir prit connaissance des conditions d'accessibilité par défaut \"accès libre\" des fichiers déposés",
 
   // "error.validation.required": "This field is required",
   "error.validation.required": "Ce champ est obligatoire",
@@ -8648,6 +8649,11 @@
   // "access.condition.value.lease": "Lease",
   // TODO New key - Add a translation
   "access.condition.value.lease": "Lease",
+
+  "submission.sections.upload.acknowledgement": "J'ai compris que les fichiers chargés l'ont été avec un type d'accès libre par défaut et qu'il me revient de modifier ce type d'accès en cliquant sur le bouton modifier [ci-dessus ou ci-contre]. Le changement du type de diffusion ne sera plus possible après l'envoi de ce formulaire",
+  "submission.sections.upload.notacknowledge": "Vous devez approuver cette mention",
+  "submission.sections.upload.required": "Vous devez approuver cette mention",
+
 
   // "submission.sections.license.granted-label": "I confirm the license above",
   "submission.sections.license.granted-label": "J'approuve la licence ci-dessus",
