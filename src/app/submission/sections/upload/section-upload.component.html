@@ -58,6 +58,17 @@
   </ng-container>
 </ng-container>
 
+<div class="border-top mt-3 pt-3">
+    <ds-form *ngIf="formModel" #formRef="formComponent"
+             [formId]="formId"
+             [formModel]="formModel"
+             [formLayout]="formLayout"
+             [displaySubmit]="false"
+             [displayReset]="false"
+             (dfChange)="onChange($event)">
+    </ds-form>
+</div>
+
 <ng-template #noFileUploaded>
   <div class="row">
     <div class="col-md-12">
