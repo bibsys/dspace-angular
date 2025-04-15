@@ -1,8 +1,15 @@
 import {
   ChangeDetectorRef,
   Component,
-  Inject,
+  Inject, ViewChild,
 } from '@angular/core';
+import {
+  DynamicCheckboxModel,
+  DynamicFormControlEvent,
+  DynamicFormControlModel,
+  DynamicFormLayout
+} from '@ng-dynamic-forms/core';
+import { TranslateService } from '@ngx-translate/core';
 import {
   BehaviorSubject,
   combineLatest,
@@ -28,27 +35,32 @@ import { SubmissionUploadsModel } from '../../../core/config/models/config-submi
 import { SubmissionUploadsConfigDataService } from '../../../core/config/submission-uploads-config-data.service';
 import { CollectionDataService } from '../../../core/data/collection-data.service';
 import { RemoteData } from '../../../core/data/remote-data';
-import { GroupDataService } from '../../../core/eperson/group-data.service';
 import { Group } from '../../../core/eperson/models/group.model';
-import { ResourcePolicyDataService } from '../../../core/resource-policy/resource-policy-data.service';
+import { JsonPatchOperationPathCombiner } from '../../../core/json-patch/builder/json-patch-operation-path-combiner';
+import { JsonPatchOperationsBuilder } from '../../../core/json-patch/builder/json-patch-operations-builder';
 import { Collection } from '../../../core/shared/collection.model';
 import { getFirstSucceededRemoteData } from '../../../core/shared/operators';
 import { AlertType } from '../../../shared/alert/alert-type';
 import {
   hasValue,
-  isNotEmpty,
+  isNotEmpty, isNotNull,
   isNotUndefined,
   isUndefined,
 } from '../../../shared/empty.util';
+import { FormBuilderService } from '../../../shared/form/builder/form-builder.service';
+import { FormComponent } from '../../../shared/form/form.component';
+import { FormService } from '../../../shared/form/form.service';
 import { followLink } from '../../../shared/utils/follow-link-config.model';
 import { SubmissionObjectEntry } from '../../objects/submission-objects.reducer';
 import { SubmissionService } from '../../submission.service';
 import { SubmissionVisibility } from '../../utils/visibility.util';
+import { SectionFormOperationsService } from '../form/section-form-operations.service';
 import { SectionModelComponent } from '../models/section.model';
 import { SectionDataObject } from '../models/section-data.model';
 import { SectionsService } from '../sections.service';
 import { renderSectionFor } from '../sections-decorator';
 import { SectionsType } from '../sections-type';
+import { SECTION_UPLOAD_FORM_LAYOUT, SECTION_UPLOAD_FORM_MODEL } from './section-upload.model';
 import { SectionUploadService } from './section-upload.service';
 import { HALEndpointService } from '../../../core/shared/hal-endpoint.service';
 import { AuthService } from '../../../core/auth/auth.service';
@@ -72,6 +84,31 @@ export interface AccessConditionGroupsMapEntry {
 })
 @renderSectionFor(SectionsType.Upload)
 export class SubmissionSectionUploadComponent extends SectionModelComponent {
+
+  /**
+   * The form id
+   * @type {string}
+   */
+  public formId: string;
+
+  /**
+   * The form model
+   * @type {DynamicFormControlModel[]}
+   */
+  public formModel: DynamicFormControlModel[];
+
+  /**
+   * The [[DynamicFormLayout]] object
+   * @type {DynamicFormLayout}
+   */
+  public formLayout: DynamicFormLayout = SECTION_UPLOAD_FORM_LAYOUT;
+
+  /**
+   * The [[JsonPatchOperationPathCombiner]] object
+   * @type {JsonPatchOperationPathCombiner}
+   */
+  protected pathCombiner: JsonPatchOperationPathCombiner;
+
 
   /**
    * The AlertType enumeration
@@ -157,33 +194,44 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
   protected subs: Subscription[] = [];
 
   /**
+   * The FormComponent reference
+   */
+  @ViewChild('formRef') private formRef: FormComponent;
+
+  /**
    * Initialize instance variables
    *
    * @param {SectionUploadService} bitstreamService
    * @param {ChangeDetectorRef} changeDetectorRef
    * @param {CollectionDataService} collectionDataService
-   * @param {GroupDataService} groupService
-   * @param {ResourcePolicyDataService} resourcePolicyService
    * @param {SectionsService} sectionService
    * @param {SubmissionService} submissionService
    * @param {SubmissionUploadsConfigDataService} uploadsConfigService
    * @param {DSONameService} dsoNameService
    * @param {HALEndpointService} halService
    * @param {AuthService} authService
+   * @param {FormBuilderService} formBuilderService
+   * @param {SectionFormOperationsService} formOperationsService
+   * @param {FormService} formService
+   * @param {JsonPatchOperationsBuilder} operationsBuilder
+   * @param {TranslateService} translateService
    * @param {SectionDataObject} injectedSectionData
    * @param {string} injectedSubmissionId
    */
   constructor(private bitstreamService: SectionUploadService,
               private changeDetectorRef: ChangeDetectorRef,
               private collectionDataService: CollectionDataService,
-              private groupService: GroupDataService,
-              private resourcePolicyService: ResourcePolicyDataService,
               protected sectionService: SectionsService,
               private submissionService: SubmissionService,
               private uploadsConfigService: SubmissionUploadsConfigDataService,
               public dsoNameService: DSONameService,
               private halService: HALEndpointService,
               private authService: AuthService,
+              protected formBuilderService: FormBuilderService,
+              protected formOperationsService: SectionFormOperationsService,
+              protected formService: FormService,
+              protected operationsBuilder: JsonPatchOperationsBuilder,
+              protected translateService: TranslateService,
               @Inject('sectionDataProvider') public injectedSectionData: SectionDataObject,
               @Inject('submissionIdProvider') public injectedSubmissionId: string) {
     super(undefined, injectedSectionData, injectedSubmissionId);
@@ -217,6 +265,14 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
    * Initialize all instance variables and retrieve collection default access conditions
    */
   onSectionInit() {
+    this.pathCombiner = new JsonPatchOperationPathCombiner('sections', this.sectionData.id);
+    this.formId = this.formService.getUniqueId(this.sectionData.id);
+    this.formModel = this.formBuilderService.fromJSON(SECTION_UPLOAD_FORM_MODEL);
+    const model = this.formBuilderService.findById('acknowledgement', this.formModel);
+    // Translate checkbox label
+    model.label = this.translateService.instant(model.label);
+    (model as DynamicCheckboxModel).value = (this.sectionData.data as WorkspaceitemSectionUploadObject).accessConditionAcknowledge;
+
     const config$ = this.uploadsConfigService.findByHref(this.sectionData.config, true, false, followLink('metadata')).pipe(
       getFirstSucceededRemoteData(),
       map((config) => config.payload));
@@ -263,6 +319,34 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
         this.changeDetectorRef.detectChanges();
       }),
 
+      // Check errors
+      this.sectionService.getSectionErrors(this.submissionId, this.sectionData.id).pipe(
+        filter((errors) => isNotEmpty(errors)),
+        distinctUntilChanged())
+        .subscribe((errors) => {
+          const newErrors = errors.map((error) => {
+            // When the error path is only on the section,
+            // replace it with the path to the form field to display error also on the form
+            if (error.path === '/sections/upload' && error.message === 'error.validation.accessconditionsrequired') {
+              if (!(model as DynamicCheckboxModel).checked) {
+                return Object.assign({}, error, { path: '/sections/upload/acknowledgement' });
+              } else {
+                return null;
+              }
+            } else {
+              return error;
+            }
+          }).filter((error) => isNotNull(error));
+
+          if (isNotEmpty(newErrors)) {
+            this.sectionService.checkSectionErrors(this.submissionId, this.sectionData.id, this.formId, newErrors);
+            this.sectionData.errors = errors;
+          } else {
+            // Remove any section's errors
+            this.sectionService.dispatchRemoveSectionErrors(this.submissionId, this.sectionData.id);
+          }
+          this.changeDetectorRef.detectChanges();
+        }),
 
       // retrieve submission's bitstream data from state
       combineLatest([
@@ -336,6 +420,23 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
     this.subs
       .filter((subscription) => hasValue(subscription))
       .forEach((subscription) => subscription.unsubscribe());
+  }
+
+  /**
+   * Method called when a form dfChange event is fired.
+   * Dispatch form operations based on changes.
+   */
+  onChange(event: DynamicFormControlEvent) {
+    const path = this.formOperationsService.getFieldPathSegmentedFromChangeEvent(event);
+    const value = this.formOperationsService.getFieldValueFromChangeEvent(event);
+    if (value) {
+      this.operationsBuilder.add(this.pathCombiner.getPath(path), value.value.toString(), false, true);
+      // Remove any section's errors
+      this.sectionService.dispatchRemoveSectionErrors(this.submissionId, this.sectionData.id);
+    } else {
+      this.operationsBuilder.remove(this.pathCombiner.getPath(path));
+    }
+    this.submissionService.dispatchSaveSection(this.submissionId, this.sectionData.id);
   }
 
 }
