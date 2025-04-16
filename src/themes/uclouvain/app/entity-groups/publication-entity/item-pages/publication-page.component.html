@@ -50,8 +50,7 @@
             <ng-container *ngIf="object.hasMetadata('dc.description.abstract')">
               <dt>{{ "item.page.abstract" | translate }}</dt>
               <dd>
-                <ds-generic-item-page-field [item]="object" [fields]="['dc.description.abstract']">
-                </ds-generic-item-page-field>
+                <ds-item-page-abstract-custom-field [item]="object"/>
               </dd>
             </ng-container>
             <ng-container *ngIf="object.hasMetadata('dc.date.issued')">
