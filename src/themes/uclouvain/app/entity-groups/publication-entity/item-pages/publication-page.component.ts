@@ -18,6 +18,7 @@ import { AsyncPipe, NgComponentOutlet, NgFor, NgIf, NgTemplateOutlet } from '@an
 import { TranslateModule } from '@ngx-translate/core';
 import { ContextMenuComponent } from 'src/app/shared/context-menu/context-menu.component';
 import { ItemPageMetadataListComponent } from '../../../item-page/simple/field-components/specific-field/metadata-list/item-page-metadata-list.component';
+import { ItemPageAbstractCustomFieldComponent } from '../../../item-page/simple/field-components/specific-field/abstract/item-page-abstract-field.component';
 
 @listableObjectComponent('Publication', ViewMode.StandalonePage, Context.Any, 'uclouvain')
 @Component({
@@ -42,6 +43,7 @@ import { ItemPageMetadataListComponent } from '../../../item-page/simple/field-c
 		NgFor,
 		NgTemplateOutlet,
 		ItemPageMetadataListComponent,
+		ItemPageAbstractCustomFieldComponent,
 	],
 })
 export class PublicationPageComponent extends ItemComponent implements OnInit {
