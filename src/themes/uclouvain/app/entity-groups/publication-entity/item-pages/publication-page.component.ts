@@ -12,13 +12,13 @@ import { AuthorFormatDisplayComponent } from '../specific-field/author-format-di
 import { ThemedFileSectionComponent } from 'src/app/item-page/simple/field-components/file-section/themed-file-section.component';
 import { GenericItemPageFieldComponent } from 'src/app/item-page/simple/field-components/specific-field/generic/generic-item-page-field.component';
 import { MetadataLinkViewComponent } from 'src/app/shared/metadata-link-view/metadata-link-view.component';
-import { ItemPageAffiliationFieldComponent } from '../../../item-page/simple/field-components/specific-field/affiliation/item-page-affiliation-fields.component';
 import { MetricDonutsRowComponent } from 'src/app/shared/object-list/metric-donuts/metric-donuts-row/metric-donuts-row.component';
 import { PublicationPageDetailsRendererComponent } from './publication-page-details/publication-page-details-renderer.component';
 import { AsyncPipe, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ContextMenuComponent } from 'src/app/shared/context-menu/context-menu.component';
 import { ItemPageHeadingComponent } from '../../../shared/item-page/item-page-heading.component';
+import { ItemPageMetadataListComponent } from '../../../item-page/simple/field-components/specific-field/metadata-list/item-page-metadata-list.component';
 
 @listableObjectComponent('Publication', ViewMode.StandalonePage, Context.Any, 'uclouvain')
 @Component({
@@ -33,7 +33,6 @@ import { ItemPageHeadingComponent } from '../../../shared/item-page/item-page-he
 		ThemedFileSectionComponent,
 		GenericItemPageFieldComponent,
 		MetadataLinkViewComponent,
-		ItemPageAffiliationFieldComponent,
 		MetricDonutsRowComponent,
 		PublicationPageDetailsRendererComponent,
 		NgIf,
@@ -43,6 +42,7 @@ import { ItemPageHeadingComponent } from '../../../shared/item-page/item-page-he
 		NgFor,
 		NgTemplateOutlet,
 		ItemPageHeadingComponent,
+		ItemPageMetadataListComponent,
 	],
 })
 export class PublicationPageComponent extends ItemComponent implements OnInit {
