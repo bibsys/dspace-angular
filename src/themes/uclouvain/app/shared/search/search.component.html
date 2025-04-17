@@ -1,46 +1,51 @@
-<div class="container">
-    <div class="row mb-3">
+<div class="container" *ngIf="(isXsOrSm$ | async)">
+    <div class="row">
         <div class="col-12">
             <ng-template *ngTemplateOutlet="searchForm"></ng-template>
-            <ng-content select="[additionalSearchOptions]"></ng-content>
         </div>
     </div>
 </div>
 
-<ds-search-charts *ngIf="showCharts"
+<!-- Disable search-charts -->
+<!-- <ds-search-charts *ngIf="showCharts"
                   [configuration]="currentConfiguration$"
                   [collapseChart]="collapseCharts"
                   [filters]="chartFiltersRD$.asObservable()"
                   [inPlaceSearch]="inPlaceSearch"
                   [refreshFilters]="refreshFilters"
-                  [showChartsToggle]="showChartsToggle"></ds-search-charts>
+                  [showChartsToggle]="showChartsToggle"></ds-search-charts> -->
 
 <div *ngIf="!showSidebar && (initialized$ | async)">
     <ng-template *ngTemplateOutlet="searchContent"></ng-template>
 </div>
 
-<ds-page-with-sidebar *ngIf="showSidebar && (initialized$ | async)"
-                      [collapseSidebar]="collapseFilters"
-                      [id]="'search-page'"
-                      [sidebarContent]="sidebarContent"
-                      [sideBarWidth]="sideBarWidth">
-    <ng-template *ngTemplateOutlet="searchContent"></ng-template>
-</ds-page-with-sidebar>
+<div *ngIf="showSidebar && (initialized$ | async)">
+    <div class="container">
+        <div class="row">
+            <div class="col-12" *ngIf="!(isXsOrSm$ | async)">
+                <ng-template *ngTemplateOutlet="searchForm"></ng-template>
+                <ng-content select="[additionalSearchOptions]"></ng-content>
+            </div>
+        </div>
+    </div>
+    <ds-page-with-sidebar [collapseSidebar]="collapseFilters"
+                          [id]="'search-page'"
+                          [sidebarContent]="sidebarContent">
+        <ng-template *ngTemplateOutlet="searchContent"></ng-template>
+    </ds-page-with-sidebar>
+</div>
 
 <ng-template #searchContent>
     <div class="row">
         <div id="search-content" class="col-12">
             <div class="d-block d-md-none search-controls clearfix">
-                <ds-view-mode-switch *ngIf="inPlaceSearch && showViewModes" [viewModeList]="viewModeList"
-                                     [inPlaceSearch]="inPlaceSearch"></ds-view-mode-switch>
+                <ds-view-mode-switch [viewModeList]="viewModeList" [inPlaceSearch]="inPlaceSearch"></ds-view-mode-switch>
                 <button (click)="openSidebar()" aria-controls="#search-body"
-                        class="btn btn-outline-primary float-right open-sidebar"><i
-                        class="fas fa-sliders"></i>
-                    {{"search.sidebar.open" | translate}}
+                        class="btn btn-outline-primary float-right open-sidebar">
+                  <i class="fas fa-sliders"></i> {{"search.sidebar.open" | translate}}
                 </button>
             </div>
-            <ds-search-results *ngIf="inPlaceSearch"
-                               [searchResults]="resultsRD$ | async"
+            <ds-search-results [searchResults]="resultsRD$ | async"
                                [searchConfig]="searchOptions$ | async"
                                [configuration]="(currentConfiguration$ | async)"
                                [disableHeader]="!searchEnabled"
@@ -100,8 +105,8 @@
 </ng-template>
 
 <ng-template #searchForm>
-    <div class="d-flex flex-wrap flex-xl-nowrap search-form-flex-wrapper" [class.justify-content-end]="!searchEnabled">
-        <div *ngIf="(isXsOrSm$ | async) !== true && showFilterToggle && showSidebar">
+    <div class="d-flex flex-wrap flex-xl-nowrap search-form-flex-wrapper align-items-center" [class.justify-content-end]="!searchEnabled">
+        <div *ngIf="!(isXsOrSm$ | async) && showFilterToggle && showSidebar">
             <button class="btn btn-outline-secondary"
                     ngbTooltip="{{'search.sidebar.show.hide.filters.tooltip' | translate}}"
                     (click)="toggleSidebar()">
@@ -123,6 +128,7 @@
         </ds-search-form>
         <ng-content select="[additionalSearchFormOptions]"></ng-content>
         <ds-item-export-modal-launcher [searchOptions$]="searchOptions$" *ngIf="showExport"></ds-item-export-modal-launcher>
+        <ds-search-export-csv *ngIf="showCsvExport" [searchConfig]="searchOptions$ | async"></ds-search-export-csv>
     </div>
     <div class="row my-3 my-md-1">
         <div class="labels col-sm-9">
