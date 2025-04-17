@@ -3889,11 +3889,47 @@
   "item.truncatable-part.show-less": "Réduire",
 
 
+  // "item.page.specific-metadata.heading": "Specific metadata",
+  "item.page.specific-metadata.heading": "Métadonnées spécifiques",
+
+  // "item.page.heading.files": "Fichiers",
+  "item.page.heading.files": "Files",
+
+
+  // "item.page.heading.details": "Details",
+  "item.page.heading.details": "Détails",
+
+
+  // "item.page.heading.citations": "Citations",
+  "item.page.heading.citations": "Citations",
+
+
+  // "item.page.title": "Title",
+  "item.page.title": "Titre",
+
   // "item.page.abstract": "Abstract",
   "item.page.abstract": "Résumé",
 
+  // "item.page.date-issued": "Issue date",
+  "item.page.date-issued": "Date de soumission",
+
+  // "item.page.language": "Language",
+  "item.page.language": "Language",
+
+  // "item.page.subject": "Keywords",
+  "item.page.subject": "Mots-clés",
+
+  // "item.page.affiliation": "Affiliations",
+  "item.page.affiliation": "Affiliations",
+
+  // "item.page.doi": "DOI",
+  "item.page.doi": "DOI",
+
   // "item.page.author": "Authors",
   "item.page.author": "Auteurs",
+
+  // "item.page.advisor": "Supervisors",
+  "item.page.advisor": "Promoteurs",
 
   // "item.page.citation": "Citation",
   "item.page.citation": "Citation",
@@ -5596,7 +5632,7 @@
   "search.filters.filter.author.head": "Auteur",
 
   // "search.filters.filter.author.placeholder": "Author name",
-  "search.filters.filter.author.placeholder": "Nom de l'auteur",
+  "search.filters.filter.author.placeholder": "Rechercher un auteur...",
 
   // "search.filters.filter.author.label": "Search author name",
   "search.filters.filter.author.label": "Recherche du nom d'auteur",
@@ -5635,7 +5671,7 @@
   "search.filters.filter.creativeWorkKeywords.head": "Sujet",
 
   // "search.filters.filter.creativeWorkKeywords.placeholder": "Subject",
-  "search.filters.filter.creativeWorkKeywords.placeholder": "Sujet",
+  "search.filters.filter.creativeWorkKeywords.placeholder": "Rechercher un sujet...",
 
   // "search.filters.filter.creativeWorkKeywords.label": "Search subject",
   "search.filters.filter.creativeWorkKeywords.label": "Recherche d'un sujet",
@@ -5683,7 +5719,7 @@
   "search.filters.filter.entityType.head": "Type",
 
   // "search.filters.filter.entityType.placeholder": "Item Type",
-  "search.filters.filter.entityType.placeholder": "Type",
+  "search.filters.filter.entityType.placeholder": "Rechercher un type...",
 
   // "search.filters.filter.entityType.label": "Search item type",
   "search.filters.filter.entityType.label": "Recherche d'un type",
@@ -5701,7 +5737,13 @@
   "search.filters.filter.itemtype.placeholder": "Type",
 
   // "search.filters.filter.itemtype.label": "Search type",
-  "search.filters.filter.itemtype.label": "Recherche d'un type",
+  "search.filters.filter.itemtype.label": "Search type",
+
+  "search.filters.filter.itempublicationtype.head": "Type de publication",
+
+  "search.filters.filter.itempublicationtype.placeholder": "Rechercher un type...",
+
+  "search.filters.filter.itempublicationtype.label": "Recherche d'un type",
 
   // "search.filters.filter.jobTitle.head": "Job Title",
   "search.filters.filter.jobTitle.head": "Fonction",
@@ -5720,6 +5762,42 @@
 
   // "search.filters.filter.knowsLanguage.label": "Search known language",
   "search.filters.filter.knowsLanguage.label": "Recherche d'une langue parlée",
+
+  // "search.filters.filter.language.head": "Language",
+  // TODO New key - Add a translation
+  "search.filters.filter.language.head": "Language",
+
+  // "search.filters.filter.language.label": "Language",
+  // TODO New key - Add a translation
+  "search.filters.filter.language.label": "Language",
+
+  // "search.filters.filter.language.placeholder": "Language",
+  // TODO New key - Add a translation
+  "search.filters.filter.language.placeholder": "Rechercher une langue...",
+
+  // "search.filters.filter.projectOrgUnits.head": "Organizations",
+  // TODO New key - Add a translation
+  "search.filters.filter.projectOrgUnits.head": "Organizations",
+
+  // "search.filters.filter.projectOrgUnits.label": "Organizations",
+  // TODO New key - Add a translation
+  "search.filters.filter.projectOrgUnits.label": "Organizations",
+
+  // "search.filters.filter.projectOrgUnits.placeholder": "Organizations",
+  // TODO New key - Add a translation
+  "search.filters.filter.projectOrgUnits.placeholder": "Organizations",
+
+  // "search.filters.filter.personOrgUnits.head": "Organizations",
+  // TODO New key - Add a translation
+  "search.filters.filter.personOrgUnits.head": "Organizations",
+
+  // "search.filters.filter.personOrgUnits.label": "Search organizations",
+  // TODO New key - Add a translation
+  "search.filters.filter.personOrgUnits.label": "Search organizations",
+
+  // "search.filters.filter.personOrgUnits.placeholder": "Organizations",
+  // TODO New key - Add a translation
+  "search.filters.filter.personOrgUnits.placeholder": "Organizations",
 
   // "search.filters.filter.namedresourcetype.head": "Status",
   "search.filters.filter.namedresourcetype.head": "Statut",
@@ -5785,7 +5863,7 @@
   "search.filters.filter.subject.head": "Sujet",
 
   // "search.filters.filter.subject.placeholder": "Subject",
-  "search.filters.filter.subject.placeholder": "Sujet",
+  "search.filters.filter.subject.placeholder": "Rechercher un sujet...",
 
   // "search.filters.filter.subject.label": "Search subject",
   "search.filters.filter.subject.label": "Recherche d'un sujet",
@@ -5798,6 +5876,43 @@
 
   // "search.filters.filter.submitter.label": "Search submitter",
   "search.filters.filter.submitter.label": "Recherche d'un déposant",
+
+  // "search.filters.filter.show-tree": "Browse {{ name }} tree",
+  // TODO New key - Add a translation
+  "search.filters.filter.show-tree": "Browse {{ name }} tree",
+
+  // "search.filters.filter.supervisedBy.head": "Supervised By",
+  // TODO New key - Add a translation
+  "search.filters.filter.supervisedBy.head": "Supervised By",
+
+  // "search.filters.filter.supervisedBy.placeholder": "Supervised By",
+  // TODO New key - Add a translation
+  "search.filters.filter.supervisedBy.placeholder": "Supervised By",
+
+  // "search.filters.filter.supervisedBy.label": "Search Supervised By",
+  // TODO New key - Add a translation
+  "search.filters.filter.supervisedBy.label": "Search Supervised By",
+
+  // "search.filters.filter.types.head": "Type",
+  // TODO New key - Add a translation
+  "search.filters.filter.types.head": "Type de publication",
+
+  // "search.filters.filter.types.label": "Search Type",
+  // TODO New key - Add a translation
+  "search.filters.filter.types.label": "Search Type",
+
+  // "search.filters.filter.types.placeholder": "Type",
+  // TODO New key - Add a translation
+  "search.filters.filter.types.placeholder": "Rechercher un type...",
+
+  // "search.filters.filter.accessType.head": "Access type",
+  "search.filters.filter.accessType.head": "Type d'accès",
+
+  // "search.filters.filter.accessType.label": "Access type",
+  "search.filters.filter.accessType.label": "Type d'accès",
+
+  // "search.filters.filter.accessType.placeholder": "Access type",
+  "search.filters.filter.accessType.placeholder": "Rechercher un type d'accès...",
 
   // "search.filters.entityType.JournalIssue": "Journal Issue",
   "search.filters.entityType.JournalIssue": "Numéro de revue",
@@ -9118,6 +9233,22 @@
 
   //"submission-button.add.message": "Add a submission",
   "submission-button.add.message": "Soumettre",
+
+  // -- Facet entityType -- 
+  "search.filters.itempublicationtype.text::journal-article": "Article de périodique",
+  "search.filters.itempublicationtype.text::working-paper": "Document de travail",
+  "search.filters.itempublicationtype.text::book": "Monographie",
+  "search.filters.itempublicationtype.text::book-part": "Contribution à un ouvrage collectif",
+  "search.filters.itempublicationtype.text::conference-speech": "Communication à un colloque",
+  "search.filters.itempublicationtype.text::report": "Rapport",
+  "search.filters.itempublicationtype.text::patent": "Brevet",
+  "search.filters.itempublicationtype.text::thesis": "Thèse",
+
+  // -- Facet accesstype --
+  "search.filters.accessType.openaccess": "accès libre",
+  "search.filters.accessType.restricted": "accès restreint",
+  "search.filters.accessType.administrator": "accès interdit",
+  "search.filters.accessType.embargo": "accès embargo",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",
