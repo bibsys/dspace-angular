@@ -140,6 +140,8 @@ export class SearchFilterComponent implements OnInit, OnChanges, OnDestroy {
     this.active$ = this.isActive();
     this.collapsed$ = this.isCollapsed();
     this.initializeFilter();
+    // Expand all facets by default.
+    this.filterService.expand(this.filter.name);
     this.subs.push(
       this.appliedFilters$.subscribe((selectedValues: AppliedFilter[]) => {
         if (isNotEmpty(selectedValues)) {
