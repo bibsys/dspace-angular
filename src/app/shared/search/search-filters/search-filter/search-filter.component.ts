@@ -111,6 +111,8 @@ export class SearchFilterComponent implements OnInit {
     this.active$ = this.isActive();
     this.collapsed$ = this.isCollapsed();
     this.initializeFilter();
+    // Expand all facets by default.
+    this.filterService.expand(this.filter.name);
     this.selectedValues$.pipe(take(1)).subscribe((selectedValues) => {
       if (isNotEmpty(selectedValues)) {
         this.filterService.expand(this.filter.name);

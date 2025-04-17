@@ -16,7 +16,7 @@ import { SearchSettingConfig } from '../../../../../../config/search-page-config
 
 @Component({
   selector: 'ds-search-sidebar',
-  styleUrls: ['../../../../../../app/shared/search/search-sidebar/search-sidebar.component.scss'],
+  styleUrls: ['./search-sidebar.component.scss'],
   templateUrl: './search-sidebar.component.html',
   providers: [
     {
