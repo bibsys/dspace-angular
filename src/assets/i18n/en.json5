@@ -5670,7 +5670,7 @@
 
   "search.filters.filter.author.head": "Author",
 
-  "search.filters.filter.author.placeholder": "Author name",
+  "search.filters.filter.author.placeholder": "Search an author name...",
 
   "search.filters.filter.author.label": "Search author name",
 
@@ -5700,7 +5700,7 @@
 
   "search.filters.filter.creativeWorkKeywords.head": "Subject",
 
-  "search.filters.filter.creativeWorkKeywords.placeholder": "Subject",
+  "search.filters.filter.creativeWorkKeywords.placeholder": "Search a subject...",
 
   "search.filters.filter.creativeWorkKeywords.label": "Search subject",
 
@@ -5738,7 +5738,7 @@
 
   "search.filters.filter.entityType.head": "Item Type",
 
-  "search.filters.filter.entityType.placeholder": "Item Type",
+  "search.filters.filter.entityType.placeholder": "Search an item type...",
 
   "search.filters.filter.entityType.label": "Search item type",
 
@@ -5780,6 +5780,14 @@
 
   "search.filters.filter.projectinvestigators.head": "Researcher",
 
+  "search.filters.filter.itempublicationtype.head": "Publication type",
+
+  "search.filters.filter.itempublicationtype.placeholder": "Search a type...",
+
+  "search.filters.filter.itempublicationtype.label": "Search a type",
+
+  "search.filters.filter.investigators.head": "Researcher",
+
   "search.filters.filter.projectinvestigators.label": "Researcher",
 
   "search.filters.filter.projectinvestigators.placeholder": "Researcher",
@@ -5800,7 +5808,7 @@
 
   "search.filters.filter.language.label": "Language",
 
-  "search.filters.filter.language.placeholder": "Language",
+  "search.filters.filter.language.placeholder": "Search a language...",
 
   "search.filters.filter.projectOrgUnits.head": "Organizations",
 
@@ -5862,7 +5870,7 @@
 
   "search.filters.filter.subject.head": "Subject",
 
-  "search.filters.filter.subject.placeholder": "Subject",
+  "search.filters.filter.subject.placeholder": "Search a subject...",
 
   "search.filters.filter.subject.label": "Search subject",
 
@@ -5888,8 +5896,13 @@
 
   "search.filters.filter.types.label": "Search Type",
 
-  "search.filters.filter.types.placeholder": "Type",
+  "search.filters.filter.types.placeholder": "Search a type...",
 
+  "search.filters.filter.accessType.head": "Access type",
+
+  "search.filters.filter.accessType.label": "Access type",
+
+  "search.filters.filter.accessType.placeholder": "Search an access type...",
 
   "search.filters.entityType.JournalIssue": "Journal Issue",
 
@@ -9314,6 +9327,22 @@
   "home-info.project-description": "DIAL.pr aims to provide researchers and teachers from UCLouvain with tools enabling them to permanently host their scientific production, while ensuring online promotion and dissemination. The institutional repository can host any scientific work written by at least one author from UCLouvain, with different types of accesses to the texts.",
 
   "submission-button.add.message": "Add a submission",
+
+  // -- Facet entityType -- 
+  "search.filters.itempublicationtype.text::journal-article": "Journal article",
+  "search.filters.itempublicationtype.text::working-paper": "Working paper",
+  "search.filters.itempublicationtype.text::book": "Book",
+  "search.filters.itempublicationtype.text::book-part": "Book chapter",
+  "search.filters.itempublicationtype.text::conference-speech": "Conference speech",
+  "search.filters.itempublicationtype.text::report": "Report",
+  "search.filters.itempublicationtype.text::patent": "Patent",
+  "search.filters.itempublicationtype.text::thesis": "Dissertation",
+
+  // -- Facet accesstype --
+  "search.filters.accessType.openaccess": "openaccess",
+  "search.filters.accessType.restricted": "restricted",
+  "search.filters.accessType.administrator": "closed",
+  "search.filters.accessType.embargo": "embargo",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Dutch",
