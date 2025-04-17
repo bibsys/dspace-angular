@@ -1,5 +1,5 @@
 import { AsyncPipe, NgIf, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { ThemedSearchFormComponent } from '../../../../../app/shared/search-form/themed-search-form.component';
@@ -18,6 +18,7 @@ import { SearchComponent as BaseComponent } from '../../../../../app/shared/sear
 import { pushInOut } from '../../../../../app/shared/animations/push';
 import { PageWithSidebarComponent } from '../../../../../app/shared/sidebar/page-with-sidebar.component';
 import { ViewModeSwitchComponent } from '../../../../../app/shared/view-mode-switch/view-mode-switch.component';
+import { SearchExportCsvComponent } from 'src/app/shared/search/search-export-csv/search-export-csv.component';
 
 @Component({
   selector: 'ds-themed-search',
@@ -38,7 +39,8 @@ import { ViewModeSwitchComponent } from '../../../../../app/shared/view-mode-swi
     NgbTooltipModule,
     ThemedSearchFormComponent,
     ItemExportModalLauncherComponent,
-    SearchLabelsComponent
+    SearchLabelsComponent,
+    SearchExportCsvComponent,
   ],
   standalone: true
 })
@@ -46,5 +48,9 @@ import { ViewModeSwitchComponent } from '../../../../../app/shared/view-mode-swi
 /**
  * This component renders a sidebar, a search input bar and the search results.
  */
-export class SearchComponent extends BaseComponent {
+export class SearchComponent extends BaseComponent implements OnInit {
+  ngOnInit(): void {
+    super.ngOnInit();
+    this.showThumbnails = false;
+  }
 }
