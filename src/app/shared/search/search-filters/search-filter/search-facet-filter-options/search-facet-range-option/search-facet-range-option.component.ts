@@ -37,7 +37,7 @@ const rangeDelimiter = '-';
 
 @Component({
   selector: 'ds-search-facet-range-option',
-  styleUrls: ['./search-facet-range-option.component.scss'],
+  styleUrls: ['../search-facet-option/search-facet-option.component.scss'],
   // templateUrl: './search-facet-range-option.component.html',
   templateUrl: './search-facet-range-option.component.html',
   standalone: true,
