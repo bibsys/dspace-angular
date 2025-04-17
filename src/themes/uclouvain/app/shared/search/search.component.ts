@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { SearchComponent as BaseComponent } from '../../../../../app/shared/search/search.component';
 import { pushInOut } from '../../../../../app/shared/animations/push';
 
@@ -13,5 +13,9 @@ import { pushInOut } from '../../../../../app/shared/animations/push';
 /**
  * This component renders a sidebar, a search input bar and the search results.
  */
-export class SearchComponent extends BaseComponent {
+export class SearchComponent extends BaseComponent implements OnInit {
+  ngOnInit(): void {
+    super.ngOnInit();
+    this.showThumbnails = false;
+  }
 }
