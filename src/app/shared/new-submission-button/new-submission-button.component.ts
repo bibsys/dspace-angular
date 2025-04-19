@@ -2,12 +2,13 @@ import { MyDSpaceNewSubmissionDropdownComponent } from 'src/app/my-dspace-page/m
 import { Component } from '@angular/core';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'ds-new-submission-button',
     templateUrl: './new-submission-button.component.html',
     styleUrls: ['./new-submission-button.component.scss'],
-    imports: [NgIf, TranslateModule, AsyncPipe],
+    imports: [NgIf, TranslateModule, AsyncPipe, NgbTooltipModule],
     standalone: true,
 })
 export class NewSubmissionButtonComponent extends MyDSpaceNewSubmissionDropdownComponent{}
