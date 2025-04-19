@@ -23,6 +23,7 @@ import {
   mergeMap,
   take,
 } from 'rxjs/operators';
+import { AuthService } from '../../../core/auth/auth.service';
 
 import { EntityTypeDataService } from '../../../core/data/entity-type-data.service';
 import { FindListOptions } from '../../../core/data/find-list-options.model';
@@ -85,6 +86,10 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
    */
   public authorized$: Observable<boolean>;
 
+
+  /** TRUE if the user is logged in, FALSE otherwise */
+  public isLoggedIn$: Observable<boolean>;
+
   /**
    * Array to track all subscriptions and unsubscribe them onDestroy
    * @type {Array}
@@ -96,10 +101,12 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
    *
    * @param {EntityTypeDataService} entityTypeService
    * @param {NgbModal} modalService
+   * @param {AuthService} authService
    * @param {AuthorizationDataService} authorizationService
    */
   constructor(private entityTypeService: EntityTypeDataService,
               private modalService: NgbModal,
+              private authService: AuthService,
               private authorizationService: AuthorizationDataService) { }
 
   /**
@@ -107,6 +114,7 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
    */
   ngOnInit() {
     this.initialized$ = observableOf(false);
+    this.isLoggedIn$ = this.authService.isAuthenticated();
     this.moreThanOne$ = this.entityTypeService.hasMoreThanOneAuthorized();
     this.singleEntity$ = this.moreThanOne$.pipe(
       mergeMap((response: boolean) => {
