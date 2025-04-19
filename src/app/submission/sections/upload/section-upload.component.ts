@@ -360,7 +360,6 @@ export class SubmissionSectionUploadComponent extends SectionModelComponent {
           }).filter((error) => isNotNull(error));
 
           if (isNotEmpty(newErrors)) {
-            this.sectionService.checkSectionErrors(this.submissionId, this.sectionData.id, this.formId, newErrors);
             this.sectionData.errors = errors;
           } else {
             // Remove any section's errors
