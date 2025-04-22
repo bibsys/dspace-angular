@@ -14,6 +14,7 @@ import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-na
 import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
 import { NavbarComponent } from './app/navbar/navbar.component';
 import { OrgUnitInlineLabeledGroupContentComponent } from './app/shared/form/builder/models/org-unit/org-unit-inline-labeled-group-content.component';
+import { PublicationModule } from './app/entity-groups/publication-entity/publication.module';
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
@@ -42,6 +43,7 @@ const DECLARATIONS = [
     NavbarModule,
     ExploreModule,
     FooterModule,
+    PublicationModule,
   ],
   declarations: DECLARATIONS,
   providers: [

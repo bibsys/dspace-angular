@@ -26,6 +26,7 @@ import { SearchService } from '../../core/shared/search/search.service';
 import { NotificationOptions } from '../notifications/models/notification-options.model';
 import { NotificationsService } from '../notifications/notifications.service';
 import { MyDSpaceActionsServiceFactory } from './mydspace-actions-service.factory';
+import { getItemPageRoute } from 'src/app/item-page/item-page-routing-paths';
 
 export interface MyDSpaceActionsResult {
   result: boolean;
@@ -63,6 +64,8 @@ export abstract class MyDSpaceActionsComponent<T extends DSpaceObject, TService 
   protected objectDataService: TService;
 
   protected subscription: Subscription;
+
+  protected readonly getItemPageRoute = getItemPageRoute;
 
   /**
    * Initialize instance variables

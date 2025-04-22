@@ -68,6 +68,10 @@ import { SubmissionSectionUploadFileComponent } from './app/submission/sections/
 import { SharedThemeModule } from './shared-theme.module';
 import { CreativeCommonsLicenseComponent } from './app/shared/cc-license/creative-commons-licence.component';
 import { FileDownloadLinkComponent } from './app/shared/file-download-link/file-download-link.component';
+import { SearchResultsComponent } from './app/shared/search/search-results/search-results.component';
+import { ObjectListComponent } from './app/shared/object-list/object-list.component';
+import { BadgesComponent } from './app/shared/object-collection/shared/badges/badges.component';
+import { MyDSpaceStatusBadgeComponent } from './app/shared/object-collection/shared/badges/my-dspace-status-badge/my-dspace-status-badge.component';
 
 const DECLARATIONS = [
   AdminSidebarComponent,
@@ -81,7 +85,11 @@ const DECLARATIONS = [
   SearchSidebarComponent,
   SubmissionSectionUploadFileComponent,
   CreativeCommonsLicenseComponent,
-  FileDownloadLinkComponent
+  FileDownloadLinkComponent,
+  SearchResultsComponent,
+  ObjectListComponent,
+  BadgesComponent,
+  MyDSpaceStatusBadgeComponent,
 ];
 
 @NgModule({

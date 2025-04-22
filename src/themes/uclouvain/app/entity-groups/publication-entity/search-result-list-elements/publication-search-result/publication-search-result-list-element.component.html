@@ -1,0 +1,25 @@
+<div class="d-flex">
+    <div class="d-flex flex-column w-100">
+        <!-- Item type and access status if available -->
+        <div class="mb-2 w-100">
+            <ds-themed-badges [object]="item" [showAccessStatus]="true" [context]="context" [displayType]="false"/>
+        </div>
+        <!-- TITLE ==================================================== -->
+        <a *ngIf="linkType != linkTypes.None"
+           [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
+           [attr.rel]="(linkType == linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
+           [routerLink]="[itemPageRoute]"
+           [innerHTML]="itemTitle"
+           class="lead item-list-title dont-break-out"></a>
+        <div *ngIf="linkType == linkTypes.None" class="lead item-list-title dont-break-out" [innerHTML]="itemTitle"></div>
+        <!-- AUTHORS && SPECIFIC METADATA FOR TYPE =================================== -->
+        <div class="flex-grow-1 mb-1">
+            <div class="item-list-authors">
+                <ds-author-format-display [item]="item" />
+            </div>
+            <div class="font-italic text-muted">
+                [PLACE THE ITEM CITATION HERE]
+            </div>
+        </div>
+    </div>
+</div>
