@@ -21,6 +21,7 @@ peuvent être collectées par le biais de formulaires à remplir et cela, afin d
 - Constituer une archive des copies d’examen qui satisfasse aux exigences légales.
 - Rendre possible la consultation des travaux pour lesquels l’auteur·rice et l’institution ont l’un·e et l’autre
   souhaité la diffusion.
+- Soumettre à l’auteur·rice et aux éventuel·les co-auteur·rices ded demandes d’autorisation de consultation
 - Faciliter la détection de plagiat dans les TFE déposés (plagiats du fait des auteur·rices des TFE déposés).
 - Faciliter la détection de ces TFE comme source de plagiat dans d’autres œuvres (du fait d’auteur·rices internes ou
   externes à l’institution).
@@ -29,10 +30,12 @@ peuvent être collectées par le biais de formulaires à remplir et cela, afin d
 
 Ces données sont :
 
+
 - Le nom de la personne qui réalise le dépôt, son identifiant institutionnel (matricule « FGS »), et la date à laquelle
   le dépôt a été réalisé
 - Le nom de l’auteur·rice, des éventuel·le·s co-auteur·rices et des promoteurs·rices (nom de famille et prénom[s])
 - L’adresse mail institutionnelle de l’auteur·rice, des éventuel·les co-auteur·rices et des promoteurs·rices
+- Une adresse mail privée de l’auteur·rice et des éventuel·les co-auteur·rices
 - Le ou les programme(s) d’études pour le(s)quel le TFE déposé est défendu et la ou les faculté(s) qui gère(nt) ce(s)
   programme(s)
 - La session d’examen pour laquelle le TFE est déposé
@@ -59,10 +62,10 @@ Ces données sont :
     * Accès libre après une période d’embargo durant laquelle aucun accès n’est autorisé, pas même depuis le réseau
       informatique fermé de l’institution.
 
-Une fois rendues publiques, les données (à l’exception des fichiers qui font l’objet d’une restriction d’accès) peuvent
-être copiées par les utilisateurs de la plateforme, y compris par des robots collectant et dupliquant ces données
-ailleurs (par ex. Google). Les fichiers archivés, lorsqu’ils sont rendus accessibles, peuvent être consultés en ligne,
-téléchargés et utilisés dans le respect du droit d’auteur.
+Une fois rendues publiques, les données (à l’exception de l’information de la session de défense, des adresses mail et
+des fichiers qui font l’objet d’une restriction d’accès) peuvent être copiées par les utilisateurs de la plateforme, y 
+compris par des robots collectant et dupliquant ces données ailleurs (par ex. Google). Les fichiers archivés, lorsqu’ils 
+sont rendus accessibles, peuvent être consultés en ligne, téléchargés et utilisés dans le respect du droit d’auteur.
 
 Toutes ces données sont traitées conformément à la législation applicable en matière de protection des données à
 caractère personnel, et plus particulièrement au Règlement Général sur la Protection des Données (RGPD) et la loi du
