@@ -7154,6 +7154,16 @@
 
   "submission.sections.submit.progressbar.describe.publication_funding": "Funding data",
 
+  "submission.sections.submit.progressbar.describe.dissertation_type": "Dissertation type",
+
+  "submission.sections.submit.progressbar.describe.dissertation_authors": "Authors",
+
+  "submission.sections.submit.progressbar.describe.dissertation_advisors": "Supervisors",
+
+  "submission.sections.submit.progressbar.describe.dissertation_base": "Dissertation basic data",
+
+  "submission.sections.submit.progressbar.describe.dissertation_specific": "Dissertation specific data",
+
   "submit.progressbar.upload.shortcut": "Files",
 
   "submit.progressbar.describe.publication_type.shortcut": "Publication type",
