@@ -6753,6 +6753,16 @@
   // "submission.sections.submit.progressbar.describe.publication_funding": "Funding data",
   "submission.sections.submit.progressbar.describe.publication_funding": "Financements",
 
+  "submission.sections.submit.progressbar.describe.dissertation_type": "Type de thèse",
+
+  "submission.sections.submit.progressbar.describe.dissertation_authors": "Auteurs",
+
+  "submission.sections.submit.progressbar.describe.dissertation_advisors": "Promoteurs",
+
+  "submission.sections.submit.progressbar.describe.dissertation_base": "Donnée de base de la thèse",
+
+  "submission.sections.submit.progressbar.describe.dissertation_specific": "Données spécifiques de la thèse",
+
   // "submission.sections.submit.progressbar.detect-duplicate": "Potential duplicates",
   "submission.sections.submit.progressbar.detect-duplicate": "Doublon(s) potentiel(s)",
 
