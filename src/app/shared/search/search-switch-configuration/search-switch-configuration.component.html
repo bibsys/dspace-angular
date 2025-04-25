@@ -1,4 +1,4 @@
-<div class="search-switch-configuration">
+<div *ngIf="configurationList?.length > 0" class="search-switch-configuration">
   <h3 id="configuration-switch">{{ 'search.switch-configuration.title' | translate}}</h3>
 
   <select class="form-control"

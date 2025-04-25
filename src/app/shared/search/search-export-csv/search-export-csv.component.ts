@@ -72,12 +72,8 @@ export class SearchExportCsvComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.shouldShowButton$ = this.authorizationDataService.isAuthorized(FeatureID.AdministratorOf).pipe(
-      filter((isAuthorized: boolean) => isAuthorized),
-      switchMap(() => this.scriptDataService.scriptWithNameExistsAndCanExecute('metadata-export-search')),
-      map((canExecute: boolean) => canExecute),
-      startWith(false),
-    );
+    // This checks if the script exist and if the user is authorized to execute it
+    this.shouldShowButton$ = this.scriptDataService.scriptWithNameExistsAndCanExecute('metadata-export-search');
   }
 
   /**
