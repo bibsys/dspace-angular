@@ -52,6 +52,7 @@ export class ItemListPreviewComponent extends BaseComponent implements OnInit {
   accessCondition: AccessConditionObject;
   authorMetadata = ['dc.contributor.author'];
   promoterMetadata = ['dc.contributor.advisor'];
+  promoterEmailMetadata = ['advisors.email'];
   degreeCodes: string[];
 
   constructor(
