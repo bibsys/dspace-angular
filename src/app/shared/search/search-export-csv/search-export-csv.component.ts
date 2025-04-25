@@ -59,15 +59,17 @@ export class SearchExportCsvComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // This checks if the script exist and if the user is authorized to execute it
     const scriptExists$ = this.scriptDataService.findById('metadata-export-search').pipe(
       getFirstCompletedRemoteData(),
       map((rd) => rd.isSuccess && hasValue(rd.payload)),
     );
 
-    const isAuthorized$ = this.authorizationDataService.isAuthorized(FeatureID.AdministratorOf);
+    // Remove this since all the authorizations checks are done in the above script definition.
+    // const isAuthorized$ = this.authorizationDataService.isAuthorized(FeatureID.AdministratorOf);
 
-    this.shouldShowButton$ = observableCombineLatest([scriptExists$, isAuthorized$]).pipe(
-      map(([scriptExists, isAuthorized]: [boolean, boolean]) => scriptExists && isAuthorized),
+    this.shouldShowButton$ = observableCombineLatest([scriptExists$]).pipe(
+      map(([scriptExists]: [boolean]) => scriptExists),
     );
   }
 

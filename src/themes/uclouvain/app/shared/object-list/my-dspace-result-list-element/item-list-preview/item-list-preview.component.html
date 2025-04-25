@@ -26,6 +26,11 @@
                 <span *ngIf="item.allMetadataValues(promoterMetadata).length === 0">{{ 'mydspace.results.no-promoters' | translate }}</span>
                 <ng-container *ngFor="let promoter of item.allMetadata(promoterMetadata); let i=index; let last=last;">
                     <ds-metadata-link-view *ngIf="!!item && !!promoter" [item]="item" [metadata]="promoter" [metadataName]="authorMetadata"></ds-metadata-link-view>
+                    <ng-container *ngIf="showPromoterEmail">
+                      <ng-container *ngIf="item.findMetadataSortedByPlace(promoterEmailMetadata)[i]?.value as promoterEmail">
+                        <span class="font-italic"> ({{ promoterEmail }}) </span>
+                      </ng-container>
+                    </ng-container>
                     <span *ngIf="!last"> ; </span>
                 </ng-container>
             </span>

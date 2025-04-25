@@ -50,6 +50,11 @@ export class ItemListPreviewComponent implements OnInit {
   @Input() showSubmitter = false;
 
   /**
+   * A boolean representing if to show the email next to the promoter name.
+   */
+  @Input() showPromoterEmail = false;
+
+  /**
    * Whether to show the thumbnail preview
    */
   @Input() showThumbnails;
