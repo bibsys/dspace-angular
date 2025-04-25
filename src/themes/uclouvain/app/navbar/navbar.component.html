@@ -4,12 +4,11 @@
      role="navigation"
      [attr.aria-label]="'nav.main.description' | translate">
   <a *ngIf="!(isMobile$ | async)" href="https://uclouvain.be" target="_uclouvain_tab" class="mx-2 d-flex align-items-center h-100 position-absolute">
-    <img src="assets/uclouvain/images/uclouvain-logo.png" [attr.alt]="'UCLouvain'" [height]="40"/>
+    <img src="assets/uclouvain/images/uclouvain-logo.webp" [attr.alt]="'UCLouvain'" [height]="40"/>
   </a>
   <div class="navbar-inner-container w-100 h-100" [class.container]="!(isMobile$ | async)">
     <a class="navbar-brand" routerLink="/home">
       DIAL.mem
-      <!-- <img src="assets/uclouvain/images/dial-mem-logo-complete.svg" [attr.alt]="'menu.header.image.logo' | translate" /> -->
     </a>
     <div id="collapsingNav" class="w-100 h-100">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 h-100">
