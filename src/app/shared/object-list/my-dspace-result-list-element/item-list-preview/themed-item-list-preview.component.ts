@@ -22,7 +22,7 @@ import { ItemListPreviewComponent } from './item-list-preview.component';
   imports: [ItemListPreviewComponent],
 })
 export class ThemedItemListPreviewComponent extends ThemedComponent<ItemListPreviewComponent> {
-  protected inAndOutputNames: (keyof ItemListPreviewComponent & keyof this)[] = ['item', 'object', 'badgeContext', 'showLabel', 'showMetrics', 'showSubmitter', 'showThumbnails', 'showCorrection', 'workflowItem', 'metadataList', 'showWorkflowStatistics'];
+  protected inAndOutputNames: (keyof ItemListPreviewComponent & keyof this)[] = ['item', 'object', 'badgeContext', 'showLabel', 'showMetrics', 'showSubmitter', 'showPromoterEmail', 'showThumbnails', 'showCorrection', 'workflowItem', 'metadataList', 'showWorkflowStatistics'];
 
   @Input() item: Item;
 
@@ -39,6 +39,8 @@ export class ThemedItemListPreviewComponent extends ThemedComponent<ItemListPrev
   @Input() showThumbnails: boolean;
 
   @Input() showCorrection: boolean;
+
+  @Input() showPromoterEmail: boolean;
 
   @Input() showWorkflowStatistics: boolean;
 
