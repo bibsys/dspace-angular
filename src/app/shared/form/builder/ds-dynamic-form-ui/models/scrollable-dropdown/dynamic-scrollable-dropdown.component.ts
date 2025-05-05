@@ -68,6 +68,7 @@ import { VocabularyService } from '../../../../../../core/submission/vocabularie
 import {
   hasValue,
   isEmpty,
+  isNotEmpty
 } from '../../../../../empty.util';
 import { FormFieldMetadataValueObject } from '../../../models/form-field-metadata-value.model';
 import { DsDynamicVocabularyComponent } from '../dynamic-vocabulary.component';
@@ -171,9 +172,6 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
 
       if (this.model.metadataValue) {
         this.setCurrentValue(this.model.metadataValue, true);
-      } else if (this.model?.defaultValue) {
-        this.setCurrentValue(this.model.defaultValue, true);
-        this.dispatchUpdate(this.model.defaultValue);
       }
       this.updatePageInfo(this.model.maxOptions, 1);
       this.loadOptions(null, true);
@@ -230,6 +228,19 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
       if (initModel && this.model.value) {
         this.setCurrentValue(this.model.value, true);
       }
+
+      // After fetching the vocabulary entries, we can set a potential default value.
+      if (isEmpty(this.model.metadataValue) && isEmpty(this.currentValue) && this.model?.defaultValue) {
+        let vocabDefaultValue = this.optionsList.find(option => option['value'] == this.model.defaultValue);
+        if (isNotEmpty(vocabDefaultValue)) {
+          this.dispatchUpdate(vocabDefaultValue);
+          this.setCurrentValue(vocabDefaultValue, false);
+        } else {
+          this.dispatchUpdate(this.model.defaultValue);
+          this.setCurrentValue(this.model.defaultValue, false);
+        }
+      }
+
       this.updatePageInfo(
         list.pageInfo.elementsPerPage,
         list.pageInfo.currentPage,
