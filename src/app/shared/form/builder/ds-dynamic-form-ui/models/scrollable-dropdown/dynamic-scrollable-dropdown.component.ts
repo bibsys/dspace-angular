@@ -43,7 +43,7 @@ import { PageInfo } from '../../../../../../core/shared/page-info.model';
 import { VocabularyEntry } from '../../../../../../core/submission/vocabularies/models/vocabulary-entry.model';
 import { VocabularyService } from '../../../../../../core/submission/vocabularies/vocabulary.service';
 import { SubmissionService } from '../../../../../../submission/submission.service';
-import { isEmpty } from '../../../../../empty.util';
+import { isEmpty, isNotEmpty } from '../../../../../empty.util';
 import { FormBuilderService } from '../../../form-builder.service';
 import { FormFieldMetadataValueObject } from '../../../models/form-field-metadata-value.model';
 import { DsDynamicVocabularyComponent } from '../dynamic-vocabulary.component';
@@ -116,9 +116,6 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
   ngOnInit() {
     if (this.model.metadataValue) {
       this.setCurrentValue(this.model.metadataValue, true);
-    } else if (this.model?.defaultValue) {
-      this.setCurrentValue(this.model.defaultValue, true);
-      this.dispatchUpdate(this.model.defaultValue);
     }
 
     this.updatePageInfo(this.model.maxOptions, 1);
@@ -269,6 +266,7 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
    */
   onSelect(event) {
     this.group.markAsDirty();
+    console.log(event);
     this.dispatchUpdate(event);
     this.setCurrentValue(event);
   }
@@ -331,6 +329,18 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
         this.optionsList = (concatResults) ? this.optionsList.concat(list.page) : list.page;
         if (initModel && this.model.value) {
           this.setCurrentValue(this.model.value, true);
+        }
+
+        // After fetching the vocabulary entries, we can set a potential default value.
+        if (isEmpty(this.model.metadataValue) && isEmpty(this.currentValue) && this.model?.defaultValue) {
+          let vocabDefaultValue = this.optionsList.find(option => option.value == this.model.defaultValue);
+          if (isNotEmpty(vocabDefaultValue)) {
+            this.dispatchUpdate(vocabDefaultValue);
+            this.setCurrentValue(vocabDefaultValue, false);
+          } else {
+            this.dispatchUpdate(this.model.defaultValue);
+            this.setCurrentValue(this.model.defaultValue, false);
+          }
         }
         this.updatePageInfo(
           list.pageInfo.elementsPerPage,
