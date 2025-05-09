@@ -2566,7 +2566,7 @@
 
   "explore.index.knowsLanguage": "Knows languages",
 
-  "explore.index.organization": "Organization",
+  "explore.index.organization": "Affiliations",
 
   "explore.index.organizationAddressCountry": "Organization address country",
 
@@ -2596,13 +2596,15 @@
 
   "explore.index.rpname": "Name",
 
-  "explore.index.subject": "Subject",
+  "explore.index.subject": "Keywords",
 
   "explore.index.title": "Title",
 
   "explore.index.type": "Type",
 
   "explore.index.rsoTitle": "Title",
+
+  "explore.index.itempublicationtype": "Publication type",
 
   "explore.search-section.infrastructure.title": "Infrastructure",
 
@@ -2614,7 +2616,7 @@
 
   "explore.search-section.publications.title": "Search Research Outputs",
 
-  "explore.search-section.researchoutputs.title": "Search Research Outputs",
+  "explore.search-section.researchoutputs.title": "Advanced research",
 
   "explore.search-section.researcherprofiles.title": "Search People",
 
@@ -2634,7 +2636,7 @@
 
   "explore.publications.breadcrumbs": "Research Outputs",
 
-  "explore.researchoutputs.breadcrumbs": "Research Outputs",
+  "explore.researchoutputs.breadcrumbs": "Advanced research",
 
   "explore.researcherprofiles.breadcrumbs": "People",
 
@@ -4331,7 +4333,7 @@
 
   "menu.section.explore_publications": "Research Outputs",
 
-  "menu.section.explore_researchoutputs": "Research Outputs",
+  "menu.section.explore_researchoutputs": "Advanced research",
 
   "menu.section.explore_researcherprofiles": "People",
 
@@ -5984,7 +5986,7 @@
 
   "project_funding.search.results.head": "Projects Search Results",
 
-  "researchoutputs.search.results.head": "Publications Search Results",
+  "researchoutputs.search.results.head": "Advanced reasearch results",
 
   "orgunit.search.results.head": "Organizations Search Results",
 
