@@ -2539,11 +2539,11 @@
 
   // "explore.index.all": "All",
   // TODO New key - Add a translation
-  "explore.index.all": "All",
+  "explore.index.all": "Tous",
 
   // "explore.index.author": "Author",
   // TODO New key - Add a translation
-  "explore.index.author": "Author",
+  "explore.index.author": "Auteur",
 
   // "explore.index.graphitemtype": "Graph by type",
   // TODO New key - Add a translation
@@ -2592,15 +2592,15 @@
 
   // "explore.index.dc.title": "Title",
   // TODO New key - Add a translation
-  "explore.index.dc.title": "Title",
+  "explore.index.dc.title": "Titre",
 
   // "explore.index.editor": "Editor",
   // TODO New key - Add a translation
-  "explore.index.editor": "Editor",
+  "explore.index.editor": "Éditeur",
 
   // "explore.index.eqtitle": "Title",
   // TODO New key - Add a translation
-  "explore.index.eqtitle": "Title",
+  "explore.index.eqtitle": "Titre",
 
   // "explore.index.eqowner": "Researcher",
   // TODO New key - Add a translation
@@ -2620,7 +2620,7 @@
 
   // "explore.index.funding": "Funding",
   // TODO New key - Add a translation
-  "explore.index.funding": "Funding",
+  "explore.index.funding": "Financement",
 
   // "explore.index.givenName": "Given name",
   // TODO New key - Add a translation
@@ -2628,7 +2628,7 @@
 
   // "explore.index.has_content_in_original_bundle": "Has content in original bundle",
   // TODO New key - Add a translation
-  "explore.index.has_content_in_original_bundle": "Has content in original bundle",
+  "explore.index.has_content_in_original_bundle": "Contenu dans un fichier",
 
   // "explore.index.investigators": "Researchers",
   // TODO New key - Add a translation
@@ -2704,7 +2704,7 @@
 
   // "explore.index.organization": "Organization",
   // TODO New key - Add a translation
-  "explore.index.organization": "Organization",
+  "explore.index.organization": "Affiliation",
 
   // "explore.index.organizationAddressCountry": "Organization address country",
   // TODO New key - Add a translation
@@ -2724,11 +2724,11 @@
 
   // "explore.index.original_bundle_descriptions": "Original bundle descriptions",
   // TODO New key - Add a translation
-  "explore.index.original_bundle_descriptions": "Original bundle descriptions",
+  "explore.index.original_bundle_descriptions": "Description de fichier",
 
   // "explore.index.original_bundle_filenames": "Original bundle filenames",
   // TODO New key - Add a translation
-  "explore.index.original_bundle_filenames": "Original bundle filenames",
+  "explore.index.original_bundle_filenames": "Nom de fichier",
 
   // "explore.index.ouname": "Name",
   // TODO New key - Add a translation
@@ -2764,15 +2764,17 @@
 
   // "explore.index.subject": "Subject",
   // TODO New key - Add a translation
-  "explore.index.subject": "Subject",
+  "explore.index.subject": "Mots clés",
 
   // "explore.index.title": "Title",
   // TODO New key - Add a translation
-  "explore.index.title": "Title",
+  "explore.index.title": "Titre",
 
   // "explore.index.type": "Type",
   // TODO New key - Add a translation
   "explore.index.type": "Type",
+
+  "explore.index.itempublicationtype": "Type de publication",
 
   // "explore.search-section.infrastructure.title": "Infrastructure",
   // TODO New key - Add a translation
@@ -2796,7 +2798,7 @@
 
   // "explore.search-section.researchoutputs.title": "Search Research Outputs",
   // TODO New key - Add a translation
-  "explore.search-section.researchoutputs.title": "Search Research Outputs",
+  "explore.search-section.researchoutputs.title": "Recherche avancée",
 
   // "explore.search-section.researcherprofiles.title": "Search People",
   // TODO New key - Add a translation
@@ -2836,7 +2838,7 @@
 
   // "explore.researchoutputs.breadcrumbs": "Research Outputs",
   // TODO New key - Add a translation
-  "explore.researchoutputs.breadcrumbs": "Research Outputs",
+  "explore.researchoutputs.breadcrumbs": "Recherche avancée",
 
   // "explore.researcherprofiles.breadcrumbs": "People",
   // TODO New key - Add a translation
@@ -4486,6 +4488,10 @@
   // "menu.section.browse_global_by_dateissued": "By Issue Date",
   "menu.section.browse_global_by_dateissued": "Date de publication",
 
+  // "menu.section.explore_researchoutputs": "Research Outputs",
+  // TODO New key - Add a translation
+  "menu.section.explore_researchoutputs": "Recherche avancée",
+
   // "menu.section.browse_global_by_subject": "By Subject",
   "menu.section.browse_global_by_subject": "Sujet",
 
@@ -5961,6 +5967,36 @@
 
   // "search.results.head": "Search Results",
   "search.results.head": "Résultats de recherche",
+
+  // "default.search.results.head": "Search Results",
+  "default.search.results.head": "Résultats de recherche",
+
+  // "site.search.results.head": "Search Results",
+  // TODO New key - Add a translation
+  "site.search.results.head": "Search Results",
+
+  // "default-relationships.search.results.head": "Search Results",
+  "default-relationships.search.results.head": "Résultats de recherche",
+
+  // "defaultConfiguration.search.results.head": "Search Results",
+  // TODO New key - Add a translation
+  "defaultConfiguration.search.results.head": "Search Results",
+
+  // "infrastructure.search.results.head": "Infrastructures Search Results",
+  // TODO New key - Add a translation
+  "infrastructure.search.results.head": "Infrastructures Search Results",
+
+  // "project_funding.search.results.head": "Projects Search Results",
+  // TODO New key - Add a translation
+  "project_funding.search.results.head": "Projects Search Results",
+
+  // "researchoutputs.search.results.head": "Publications Search Results",
+  // TODO New key - Add a translation
+  "researchoutputs.search.results.head": "Résultats recherche avancée",
+
+  // "orgunit.search.results.head": "Organizations Search Results",
+  // TODO New key - Add a translation
+  "orgunit.search.results.head": "Organizations Search Results",
 
   // "search.results.no-results": "Your search returned no results. Having trouble finding what you're looking for? Try putting",
   "search.results.no-results": "Votre recherche n'a retourné aucun résultat. Vous n'arrivez pas à trouver ce que vous recherchez? Essayez de mettre",
