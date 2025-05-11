@@ -2,4 +2,5 @@
   [shouldShowFullscreenLoader]="(isAuthBlocking$ | async) || (isThemeLoading$ | async)"
   [shouldShowRouteLoader]="isRouteLoading$ | async"></ds-root>
 
-<ds-social *ngIf="browserPlatform"></ds-social>
+<!-- We don't need this component for now, just comment it. -->
+<!-- <ds-social *ngIf="browserPlatform"></ds-social> -->
