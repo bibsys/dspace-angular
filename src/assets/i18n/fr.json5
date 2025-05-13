@@ -2307,10 +2307,10 @@
   "dso-selector.create.community.top-level": "Créer une nouvelle communauté de 1er niveau",
 
   // "dso-selector.create.item.head": "New item",
-  "dso-selector.create.item.head": "Nouvel Item",
+  "dso-selector.create.item.head": "Créer un nouveau document",
 
   // "dso-selector.create.item.sub-level": "Create a new item in",
-  "dso-selector.create.item.sub-level": "Créer un nouvel Item dans",
+  "dso-selector.create.item.sub-level": "Sélectionnez le type d'objet à créer",
 
   // "dso-selector.create.submission.head": "New submission",
   "dso-selector.create.submission.head": "Nouveau dépôt",
