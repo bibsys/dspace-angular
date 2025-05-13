@@ -1,0 +1,13 @@
+:host {
+    button {
+      font-weight: bold;
+      &:hover {
+        background-color: var(--bs-primary);
+        color: var(--bs-white) !important;
+      }
+    }
+  
+    ::ng-deep .larger-tooltip .tooltip-inner {
+      max-width: 400px;
+    }
+  }
