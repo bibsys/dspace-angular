@@ -1,44 +1,35 @@
 <nav [ngClass]="{'open': (menuCollapsed | async) !== true}"
      [@slideMobileNav]="(isMobile$ | async) !== true ? 'default' : ((menuCollapsed | async) ? 'collapsed' : 'expanded')"
-     class="navbar navbar-light p-0 navbar-container"
+     class="navbar navbar-expand-md navbar-light p-0 navbar-container bg-white"
      role="navigation"
      [attr.aria-label]="'nav.main.description' | translate" id="main-navbar">
-    <a *ngIf="!(isMobile$ | async)"
-       href="https://uclouvain.be"
-       target="_uclouvain_tab"
-       class="mx-2 d-flex align-items-center h-100 position-absolute">
+    <a *ngIf="!(isMobile$ | async)" href="https://uclouvain.be" target="_uclouvain_tab" class="mx-2 d-flex align-items-center h-100 position-absolute">
         <img src="assets/uclouvain/images/uclouvain-logo.png" [attr.alt]="'UCLouvain'" [height]="40"/>
     </a>
-    <!-- TODO remove navbar-container class when https://github.com/twbs/bootstrap/issues/24726 is fixed -->
-    <div class="navbar-inner-container w-100 container" [class.container]="(isMobile$ | async) !== true">
+    <div class="navbar-inner-container w-100 h-100" [class.container]="(isMobile$ | async) !== true">
         <a class="navbar-brand" routerLink="/home">DIAL.pr</a>
-        <div id="collapsingNav" class="flex-grow-1">
-            <ng-container *ngIf="(isMobile$ | async) && (isAuthenticated$ | async)">
-                <ds-user-menu [inExpandableNavbar]="true"></ds-user-menu>
-            </ng-container>
-            <div class="d-flex navbar-nav">
-                <ng-container *ngFor="let section of (sections | async)">
-                    <ng-container *ngComponentOutlet="
-                        (sectionMap$ | async).get(section.id)?.component;
-                        injector: (sectionMap$ | async).get(section.id)?.injector;">
-                    </ng-container>
-                </ng-container>
-            </div>
+        <div id="collapsingNav" class="w-100 h-100">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 h-100">
+                <!-- The user profile dropdown -->
+                <li *ngIf="(isMobile$ | async) && (isAuthenticated$ | async)">
+                    <ds-user-menu [inExpandableNavbar]="true"></ds-user-menu>
+                </li>
+                <!-- Nav elements to be rendered and that allow to browse to pages, loaded from backend -->
+                <li *ngFor="let section of (sections | async)" class="nav-sections">
+                    <ng-container *ngComponentOutlet="(sectionMap$ | async).get(section.id)?.component; injector: (sectionMap$ | async).get(section.id)?.injector;"></ng-container>
+                </li>
+                <!-- Submit button -->
+                <li class="submit-btn">
+                    <ds-new-submission-button></ds-new-submission-button>
+                </li>
+            </ul>
         </div>
-        <nav role="navigation" [attr.aria-label]="'nav.user.description' | translate"
-             class="navbar navbar-light navbar-expand-md flex-shrink-0 px-0 gapx-1">
-            <ds-search-navbar></ds-search-navbar>
-            <ds-lang-switch></ds-lang-switch>
-            <ds-context-help-toggle></ds-context-help-toggle>
-            <ds-auth-nav-menu></ds-auth-nav-menu>
-            <ds-impersonate-navbar></ds-impersonate-navbar>
-            <div *ngIf="isMobile$ | async" class="pl-2">
-                <button class="navbar-toggler px-0" type="button" (click)="toggleNavbar()"
-                        aria-controls="collapsingNav"
-                        aria-expanded="false" [attr.aria-label]="'nav.toggle' | translate">
-                    <span class="fas fa-bars fa-fw toggler-icon" aria-hidden="true"></span>
-                </button>
-            </div>
-        </nav>
+        <div class="navbar-buttons d-flex align-items-center gapx-1">
+            <ds-search-navbar class="navbar-collapsed"></ds-search-navbar>
+            <ds-lang-switch class="navbar-collapsed"></ds-lang-switch>
+            <ds-context-help-toggle class="navbar-collapsed"></ds-context-help-toggle>
+            <ds-auth-nav-menu class="navbar-collapsed"></ds-auth-nav-menu>
+            <ds-impersonate-navbar class="navbar-collapsed"></ds-impersonate-navbar>
+        </div>
     </div>
 </nav>
