@@ -2221,9 +2221,9 @@
 
   "dso-selector.create.community.top-level": "Create a new top-level community",
 
-  "dso-selector.create.item.head": "New item",
+  "dso-selector.create.item.head": "Create a new item",
 
-  "dso-selector.create.item.sub-level": "Create a new item in",
+  "dso-selector.create.item.sub-level": "Select the type of item to create",
 
   "dso-selector.create.submission.head": "New submission",
 
@@ -9312,6 +9312,8 @@
   "home-news.second-title": "Digital access to libraries - Research publications",
   "home-info.what-is": "What is DIAL.pr ?",
   "home-info.project-description": "DIAL.pr aims to provide researchers and teachers from UCLouvain with tools enabling them to permanently host their scientific production, while ensuring online promotion and dissemination. The institutional repository can host any scientific work written by at least one author from UCLouvain, with different types of accesses to the texts.",
+
+  "submission-button.add.message": "Add a submission",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Dutch",
