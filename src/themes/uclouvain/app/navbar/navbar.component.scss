@@ -1,82 +1,84 @@
-:host {
-  --ds-expandable-navbar-height: auto;
-
-  nav.navbar {
-    background-color: var(--ds-navbar-bg);
-    align-items: baseline;
-    padding: 0;
-  }
-
-  /** Mobile menu styling **/
-  @media screen and (max-width: map-get($grid-breakpoints, md)-0.02) {
-    .navbar {
-      width: 100%;
-      background-color: var(--bs-white);
-      position: absolute;
-      overflow: hidden;
-      height: 0;
-      z-index: var(--ds-nav-z-index);
-      &.open {
-        height: auto;
-        min-height: 100vh; //doesn't matter because wrapper is sticky
-        border-bottom: 1px var(--ds-header-navbar-border-bottom-color) solid; // open navbar covers header-navbar-wrapper border
-      }
-    }
-  }
-
-  @media screen and (min-width: map-get($grid-breakpoints, md)) {
-    .reset-padding-md {
-      margin-left: calc(var(--bs-spacer) / -1);
-      margin-right: calc(var(--bs-spacer) / -1);
-    }
-  }
-
-  /* TODO remove when https://github.com/twbs/bootstrap/issues/24726 is fixed */
-  .navbar-expand-md.navbar-container {
-    @media screen and (max-width: map-get($grid-breakpoints, md)-0.02) {
-      > .navbar-inner-container {
-        padding: 0 var(--bs-spacer);
-      }
-      padding: 0;
-    }
-  }
-
-  #main-navbar ::ng-deep {
-    .ds-menu-item, .ds-menu-toggler-wrapper {
-      white-space: nowrap;
-      text-decoration: none;
-    }
-
-    .ds-menu-item {
-      display: block;
-      color: var(--ds-navbar-link-color);
-
-      &:hover, &:focus {
-        color: var(--ds-navbar-link-color-hover);
-      }
-    }
+nav.navbar {
+  align-items: baseline;
+  .navbar-inner-container {
+    border-top: 0;
   }
 }
 
+.navbar-nav {
+  background-color: var(--ds-navbar-bg);
+}
 
+/** Mobile menu styling **/
+@media screen and (max-width: map-get($grid-breakpoints, md)-0.02) {
+  .navbar {
+    width: 100vw;
+    background-color: var(--bs-white);
+    position: absolute;
+    overflow: hidden;
+    height: 0;
+    z-index: var(--ds-nav-z-index);
+    &.open {
+      height: 100vh; //doesn't matter because wrapper is sticky
+      border-bottom: 5px var(--ds-header-navbar-border-bottom-color) solid; // open navbar covers header-navbar-wrapper border
+    }
+  }
+  .submit-btn {
+    margin-left: -1rem !important;
+  }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, md)) {
+  .reset-padding-md {
+    margin-left: calc(var(--bs-spacer) / -2);
+    margin-right: calc(var(--bs-spacer) / -2);
+  }
+}
+
+/* TODO remove when https://github.com/twbs/bootstrap/issues/24726 is fixed */
+.navbar-expand-md.navbar-container {
+  @media screen and (max-width: map-get($grid-breakpoints, md)-0.02) {
+    > .navbar-inner-container {
+      padding: 0 var(--bs-spacer);
+      a.navbar-brand {
+        display: none;
+      }
+      .navbar-collapsed {
+        display: none;
+      }
+    }
+    padding: 0;
+  }
+}
 
 a.navbar-brand {
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.5rem;
   font-weight: 600;
   font-family: Nunito, sans-serif;
   padding: .5rem 1rem;
   background-color: var(--bs-primary);
   color: var(--bs-white);
-
-  &:hover, &:focus {
-    color: var(--bs-white);
-  }
 }
 
-.navbar-nav {
-  flex-direction: row;
+a.navbar-brand:hover {
+  color: var(--bs-white);
+}
 
+a.navbar-brand:focus {
+  color: var(--bs-white);
+}
+
+// a.navbar-brand img {
+//   max-height: var(--ds-header-logo-height);
+//   height: 80%;
+//   width: auto;
+// }
+
+.navbar-nav {
   ::ng-deep a.ds-menu-item {
     color: var(--ds-navbar-link-color);
     font-weight: 500;
@@ -84,7 +86,7 @@ a.navbar-brand {
     font-family: "Nunito", sans-serif;
     position: relative;
     padding: 0.05rem 0 0;
-    margin: 0 1rem;
+    margin: 0.5rem 1rem;
     font-variant: all-small-caps;
 
     &:hover, &:focus {
@@ -92,5 +94,10 @@ a.navbar-brand {
       text-decoration: none;
     }
   }
+}
 
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

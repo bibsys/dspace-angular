@@ -1,11 +1,13 @@
-<div class="form-group w-100 pr-2 pl-2">
+<ng-container *ngIf="listEntries$ | async">
+  <div class="form-group w-100 pr-2 pl-2" *ngIf="(listEntries$ | async).length > searchLimit">
     <input type="search"
            class="form-control"
            (click)="$event.stopPropagation();"
            [attr.aria-label]="'dso-selector.placeholder' | translate: { type: typesString }"
            placeholder="{{'dso-selector.placeholder' | translate: { type: typesString } }}"
            [formControl]="input" ngbAutofocus (keyup.enter)="selectSingleResult()">
-</div>
+  </div>
+</ng-container>
 <div class="dropdown-divider"></div>
 <div id="scrollable-menu-dso-selector-{{randomSeed}}" class="scrollable-menu list-group">
   <div
@@ -21,13 +23,16 @@
         {{'dso-selector.no-results' | translate: { type: typesString } }}
       </button>
       <button *ngFor="let listEntry of (listEntries$ | async)"
-              class="list-group-item list-group-item-action border-0 list-entry"
+              class="list-group-item list-group-item-action border-0 list-entry m-1 d-flex"
               [ngClass]="{'bg-primary': listEntry['id'] === currentDSOId}"
               title="{{ getName(listEntry) }}"
               dsHoverClass="ds-hover"
               (click)="onClick(listEntry)" #listEntryElement>
-        <ds-listable-object-component-loader [object]="listEntry" [viewMode]="viewMode"
-                                             [linkType]=linkTypes.None [context]="getContext(listEntry['id'])"></ds-listable-object-component-loader>
+        <ds-listable-object-component-loader [object]="listEntry"
+                                             [viewMode]="viewMode"
+                                             [linkType]=linkTypes.None
+                                             [context]="getContext(listEntry['id'])">
+        </ds-listable-object-component-loader>
       </button>
     </ng-container>
     <button *ngIf="loading"

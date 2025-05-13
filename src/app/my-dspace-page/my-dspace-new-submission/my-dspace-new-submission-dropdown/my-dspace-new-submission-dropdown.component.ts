@@ -22,6 +22,8 @@ import { RemoteData } from '../../../core/data/remote-data';
 import { ItemType } from '../../../core/shared/item-relationships/item-type.model';
 import { CreateItemParentSelectorComponent } from '../../../shared/dso-selector/modal-wrappers/create-item-parent-selector/create-item-parent-selector.component';
 import { hasValue } from '../../../shared/empty.util';
+import { AuthorizationDataService } from '../../../core/data/feature-authorization/authorization-data.service';
+import { FeatureID } from '../../../core/data/feature-authorization/feature-id';
 
 /**
  * This component represents the new submission dropdown
@@ -54,6 +56,13 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
   public initialized$: Observable<boolean>;
 
   /**
+   * TRUE if the user has the right to submit.
+   * FALSE if the user cannot.
+   * See backend feature class 'canSubmitFeature' for more information on the behavior.
+   */
+  public authorized$: Observable<boolean>;
+
+  /**
    * Array to track all subscriptions and unsubscribe them onDestroy
    * @type {Array}
    */
@@ -64,9 +73,11 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
    *
    * @param {EntityTypeDataService} entityTypeService
    * @param {NgbModal} modalService
+   * @param {AuthorizationDataService} authorizationService
    */
   constructor(private entityTypeService: EntityTypeDataService,
-              private modalService: NgbModal) { }
+              private modalService: NgbModal,
+              private authorizationService: AuthorizationDataService) { }
 
   /**
    * Initialize entity type list
@@ -95,6 +106,9 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
       }),
       take(1),
     );
+    this.authorized$ = this.authorizationService.isAuthorized(
+      FeatureID.CanSubmit, undefined, undefined, false
+    );
     this.subs.push(
       this.singleEntity$.subscribe((result) => this.singleEntity = result ),
     );
@@ -105,7 +119,7 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
    * select a collection.
    */
   openDialog(entity: ItemType) {
-    const modalRef = this.modalService.open(CreateItemParentSelectorComponent);
+    const modalRef = this.modalService.open(CreateItemParentSelectorComponent, { size: 'xl', backdrop: 'static' });
     modalRef.componentInstance.entityType = entity.label;
   }
 
