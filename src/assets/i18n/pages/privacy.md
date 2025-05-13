@@ -21,7 +21,7 @@ peuvent être collectées par le biais de formulaires à remplir et cela, afin d
 - Constituer une archive des copies d’examen qui satisfasse aux exigences légales.
 - Rendre possible la consultation des travaux pour lesquels l’auteur·rice et l’institution ont l’un·e et l’autre
   souhaité la diffusion.
-- Soumettre à l’auteur·rice et aux éventuel·les co-auteur·rices ded demandes d’autorisation de consultation
+- Soumettre à l’auteur·rice et aux éventuel·les co-auteur·rices des demandes d’autorisation de consultation
 - Faciliter la détection de plagiat dans les TFE déposés (plagiats du fait des auteur·rices des TFE déposés).
 - Faciliter la détection de ces TFE comme source de plagiat dans d’autres œuvres (du fait d’auteur·rices internes ou
   externes à l’institution).
