@@ -73,6 +73,7 @@ import { ListableNotificationObject } from '../../object-list/listable-notificat
 import { LISTABLE_NOTIFICATION_OBJECT } from '../../object-list/listable-notification-object/listable-notification-object.resource-type';
 import { PaginatedSearchOptions } from '../../search/models/paginated-search-options.model';
 import { SearchResult } from '../../search/models/search-result.model';
+import { slide } from '../../animations/slide';
 
 @Component({
   selector: 'ds-dso-selector',
@@ -80,6 +81,7 @@ import { SearchResult } from '../../search/models/search-result.model';
   templateUrl: './dso-selector.component.html',
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, InfiniteScrollModule, NgIf, NgFor, HoverClassDirective, NgClass, ListableObjectComponentLoaderComponent, ThemedLoadingComponent, AsyncPipe, TranslateModule],
+  animations: [slide],
 })
 
 /**
@@ -116,6 +118,11 @@ export class DSOSelectorComponent implements OnInit, OnDestroy {
    * The id that should be given to the input box, this is required for accessibility reasons
    */
   @Input() searchBoxId: string | null = null;
+
+  /**
+   * The limit beyond which the search box will be displayed
+   */
+  @Input() searchLimit = 10;
 
   // list of allowed selectable dsoTypes
   typesString: string;
