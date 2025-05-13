@@ -11,6 +11,9 @@ import { ThemedAuthNavMenuComponent } from '../../../../app/shared/auth-nav-menu
 import { ThemedUserMenuComponent } from '../../../../app/shared/auth-nav-menu/user-menu/themed-user-menu.component';
 import { ImpersonateNavbarComponent } from '../../../../app/shared/impersonate-navbar/impersonate-navbar.component';
 import { ThemedLangSwitchComponent } from '../../../../app/shared/lang-switch/themed-lang-switch.component';
+import {
+  NewSubmissionButtonComponent
+} from '../../../../app/shared/new-submission-button/new-submission-button.component';
 
 /**
  * Component representing the public navbar
@@ -34,7 +37,8 @@ import { ThemedLangSwitchComponent } from '../../../../app/shared/lang-switch/th
     ThemedLangSwitchComponent,
     ContextHelpToggleComponent,
     ThemedAuthNavMenuComponent,
-    ImpersonateNavbarComponent
+    ImpersonateNavbarComponent,
+    NewSubmissionButtonComponent
   ]
 })
 export class NavbarComponent extends BaseComponent {
