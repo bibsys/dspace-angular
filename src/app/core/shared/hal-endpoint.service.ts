@@ -58,6 +58,7 @@ export class HALEndpointService {
       filter((rd: RemoteData<CacheableObject>) => !rd.isStale),
       getFirstCompletedRemoteData(),
       map((response: RemoteData<CacheableObject>) => {
+        console.log(response);
         if (hasValue(response.payload)) {
           return response.payload._links;
         } else {

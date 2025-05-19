@@ -99,6 +99,16 @@ export function app() {
    */
   const server = express();
 
+  // server.ts (Angular SSR entrypoint)
+  server.use((req, res, next) => {
+    const startdate = Date.now();
+    res.on('finish', () => {
+      const duration = Date.now() - startdate;
+      console.log(`[SSR] ${req.method} ${req.url} rendered in ${duration}ms`);
+    });
+    next();
+  });
+
   // Tell Express to trust X-FORWARDED-* headers from proxies
   // See https://expressjs.com/en/guide/behind-proxies.html
   server.set('trust proxy', environment.ui.useProxies);
