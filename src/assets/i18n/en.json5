@@ -1406,6 +1406,7 @@
   "explore.index.rsoTitle": "Title",
   "explore.index.type": "Document type",
   "explore.index.faculty": "Faculty",
+  "explore.index.accessType": "Access type",
   "explore.search-section.infrastructure.title": "Infrastructure",
   "explore.search-section.fundings.title": "Search Projects",
   "explore.search-section.fundings_and_projects.title": "Search Projects",
@@ -1437,6 +1438,7 @@
   "footer.link.dspace-cris": "DSpace-CRIS software",
   "footer.link.lyrasis": "LYRASIS",
   "footer.link.cookies": "Cookie settings",
+  "footer.link.copyright-policy": "Copyright policy",
   "footer.link.privacy-policy": "Privacy policy",
   "footer.link.end-user-agreement": "End user agreement",
   "footer.link.feedback": "Send Feedback",
@@ -4752,6 +4754,14 @@
   "ldn-register-new-service.notification.success.title": "Success",
   "ldn-register-new-service.notification.success.content": "The process was successfully created",
 
+  "info.coar-notify-support.title": "Notify Support",
+  "info.coar-notify.breadcrumbs": "Notify Support",
+
+  "info.copyright-policy.breadcrumbs": "Copyright Policy",
+  "info.copyright-policy.content.fallback": "In construction...",
+  "info.copyright-policy.head": "Copyright Policy",
+  "info.copyright-policy.title": "Copyright Policy",
+
   "submission.sections.notify.info": "The selected service is compatible with the item according to its current status. {{ service.name }}: {{ service.description }}",
 
   "item.page.endorsement": "Endorsement",
@@ -5631,10 +5641,12 @@
   "footer.header.quick-links": "Quick links",
   "footer.header.help": "Help",
 
-  "footer.link.faq": "Q&A",
+  "footer.link.ask-question": "Ask a question",
+  "footer.link.faq": "FAQs",
+  "footer.link.faq.url": "https://www.uclouvain.be/en/bibliotheques/bdrt/dial-mem-faq",
   "footer.link.deposit-guide": "Deposit guide",
   "footer.link.deposit-guide.url": "https://uclouvain.sharepoint.com/:b:/r/sites/MySCEB/DIALmem/Aide/Aide_en_ligne_acces_public/DIALmem_Submission_Guide_EN.pdf",
-  "footer.link.ask-question": "Ask a question",
+
 
   // --- FACET TERMS ---
   "search.filters.accessType.administrator": "Closed",
