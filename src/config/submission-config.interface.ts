@@ -71,4 +71,5 @@ export interface SubmissionConfig extends Config {
   dynamicFields: DynamicFieldsConfig[];
   enableShortcutPanelFor?: string[];  // must contain the collection UUID for which the shortcut panel should be enabled
   disclaimerSectionFor?: string[]; // Provide collection to display a disclaimer when submitting a new item.
+  collectionSurveys?: { [key: string]: string } ;
 }
