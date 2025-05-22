@@ -773,16 +773,17 @@ export class DepositSubmissionSuccessAction implements Action {
   type = SubmissionObjectActionTypes.DEPOSIT_SUBMISSION_SUCCESS;
   payload: {
     submissionId: string;
+    collectionId: string;
   };
 
   /**
    * Create a new DepositSubmissionSuccessAction
    *
-   * @param submissionId
-   *    the submission's ID to deposit
+   * @param submissionId the submission's ID to deposit
+   * @param collectionId the collection's ID where the submission was submitted
    */
-  constructor(submissionId: string) {
-    this.payload = { submissionId };
+  constructor(submissionId: string, collectionId: string) {
+    this.payload = { submissionId, collectionId };
   }
 }
 

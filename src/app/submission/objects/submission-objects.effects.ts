@@ -53,6 +53,7 @@ import {
 import { FormState } from '../../shared/form/form.reducer';
 import { NotificationOptions } from '../../shared/notifications/models/notification-options.model';
 import { NotificationsService } from '../../shared/notifications/notifications.service';
+import { SurveysService } from '../../shared/surveys/surveys.service';
 import { followLink } from '../../shared/utils/follow-link-config.model';
 import { SectionsService } from '../sections/sections.service';
 import { SectionsType } from '../sections/sections-type';
@@ -356,7 +357,10 @@ export class SubmissionObjectEffects {
     withLatestFrom(this.store$),
     switchMap(([action, state]: [DepositSubmissionAction, any]) => {
       return this.submissionService.depositSubmission(state.submission.objects[action.payload.submissionId].selfUrl).pipe(
-        map(() => new DepositSubmissionSuccessAction(action.payload.submissionId)),
+        map(() => new DepositSubmissionSuccessAction(
+          action.payload.submissionId,
+          state.submission.objects[action.payload.submissionId].collection
+        )),
         catchError((error: unknown) => observableOf(new DepositSubmissionErrorAction(action.payload.submissionId))));
     })));
 
@@ -380,6 +384,12 @@ export class SubmissionObjectEffects {
    */
   depositSubmissionSuccess$ = createEffect(() => this.actions$.pipe(
     ofType(SubmissionObjectActionTypes.DEPOSIT_SUBMISSION_SUCCESS),
+    tap((action: DepositSubmissionSuccessAction) => {
+      const surveyId = this.surveysService.getCollectionSurvey(action.payload.collectionId);
+      if (isNotEmpty(surveyId)) {
+        this.notificationsService.info(null, this.translate.instant('submission.sections.general.survey.' + surveyId + '.content'), { timeOut: 0 }, true);
+      }
+    }),
     tap(() => this.notificationsService.success(null, this.translate.get('submission.sections.general.deposit_success_notice'))),
     tap((action: DepositSubmissionSuccessAction) => this.workspaceItemDataService.invalidateById(action.payload.submissionId)),
     tap(() => this.submissionService.redirectToMyDSpace())), { dispatch: false });
@@ -460,6 +470,7 @@ export class SubmissionObjectEffects {
     private submissionObjectService: SubmissionObjectDataService,
     private translate: TranslateService,
     private workspaceItemDataService: WorkspaceitemDataService,
+    private surveysService: SurveysService,
   ) {
   }
 
