@@ -11146,6 +11146,8 @@
   // "submission.sections.general.sections_not_valid": "There are incomplete sections.",
   "submission.sections.general.sections_not_valid": "Sections incomplètes.",
 
+  "submission.sections.general.survey.limeSurvey1.content": "Votre mémoire pour la science : <a href=\"https://limesurvey.uclouvain.be/limesurvey319/index.php/498887?lang=fr\" target=\"_blank\">cliquez ici</a> !<br/>Merci d’avance pour votre aide !",
+
   // "submission.sections.identifiers.info": "The following identifiers will be created for your item:",
   // TODO New key - Add a translation
   "submission.sections.identifiers.info": "The following identifiers will be created for your item:",
