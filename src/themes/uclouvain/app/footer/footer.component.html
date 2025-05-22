@@ -17,15 +17,19 @@
                     <ul class="list-unstyled">
                         <li>
                             <a class="text-white" href="javascript:void(0);"
-                               (click)="showCookieSettings()">{{ 'footer.link.cookies' | translate}}</a>
+                               (click)="showCookieSettings()">{{ 'footer.link.cookies' | translate }}</a>
                         </li>
                         <li *ngIf="showPrivacyPolicy">
                             <a class="text-white"
-                               routerLink="info/privacy">{{ 'footer.link.privacy-policy' | translate}}</a>
+                               routerLink="info/privacy">{{ 'footer.link.privacy-policy' | translate }}</a>
                         </li>
                         <li *ngIf="showEndUserAgreement">
                             <a class="text-white"
-                               routerLink="info/end-user-agreement">{{ 'footer.link.end-user-agreement' | translate}}</a>
+                               routerLink="info/end-user-agreement">{{ 'footer.link.end-user-agreement' | translate }}</a>
+                        </li>
+                        <li>
+                            <a class="text-white"
+                               routerLink="info/copyright-policy">{{ 'footer.link.copyright-policy' | translate }}</a>
                         </li>
                     </ul>
                 </div>
@@ -39,13 +43,13 @@
                                 {{ 'footer.link.feedback' | translate }}
                             </a>
                         </li>
-                        <!--<li>
-                            <a class="text-white" href="">
+                        <li>
+                            <a class="text-white" href="{{ 'footer.link.faq.url' | translate }}" target="_blank">
                                 {{ "footer.link.faq" | translate }}
                             </a>
-                        </li>-->
+                        </li>
                         <li>
-                            <a class="text-white" href="{{ 'footer.link.deposit-guide.url' | translate }}">
+                            <a class="text-white" href="{{ 'footer.link.deposit-guide.url' | translate }}" target="_blank">
                                 {{ "footer.link.deposit-guide" | translate }}
                             </a>
                         </li>
