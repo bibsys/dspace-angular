@@ -9,7 +9,7 @@ Les institutions partenaires sont propriétaires du Répertoire des mémoires é
 Il est protégé, au titre de base de données, par loi du 30 juin 1994 relative aux droits d'auteur et aux droits voisins.
 
 Les œuvres accessibles dans DIAL.mem sont également protégées par la loi du 30 juin 1994 relative aux droits d'auteur
-et aux droits voisins. Toute utilisation de ces œuvres est soumise aux conditions énoncées dans la licence d'utilisation.
+et aux droits voisins. Toute utilisation de ces œuvres est soumise aux conditions énoncées dans la [licence d'utilisation](/info/copyright-policy).
 
 ## Responsabilité
 
