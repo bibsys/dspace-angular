@@ -7,9 +7,11 @@ import { I18nBreadcrumbResolver } from '../core/breadcrumbs/i18n-breadcrumb.reso
 import { NotifyInfoComponent } from '../core/coar-notify/notify-info/notify-info.component';
 import { NotifyInfoGuard } from '../core/coar-notify/notify-info/notify-info.guard';
 import { FeedbackGuard } from '../core/feedback/feedback.guard';
+import { ThemedCopyrightPolicyComponent } from './copyright-policy/themed-copyright-policy.component';
 import { ThemedEndUserAgreementComponent } from './end-user-agreement/themed-end-user-agreement.component';
 import { ThemedFeedbackComponent } from './feedback/themed-feedback.component';
 import {
+  COPYRIGHT_POLICY_PATH,
   END_USER_AGREEMENT_PATH,
   FEEDBACK_PATH,
   PRIVACY_PATH,
@@ -35,6 +37,14 @@ const imports = [
       canActivate: [NotifyInfoGuard],
     },
   ]),
+  RouterModule.forChild([
+    {
+      path: COPYRIGHT_POLICY_PATH,
+      component: ThemedCopyrightPolicyComponent,
+      resolve: { breadcrumb: I18nBreadcrumbResolver },
+      data: { title: 'info.copyright-policy.title', breadcrumbKey: 'info.copyright-policy' },
+    },
+  ])
 ];
 
 if (environment.info.enableEndUserAgreement) {

@@ -5,6 +5,11 @@ import { NotifyInfoComponent } from '../core/coar-notify/notify-info/notify-info
 import { FeedbackGuard } from '../core/feedback/feedback.guard';
 import { MarkdownViewerModule } from '../shared/markdown-viewer/markdown-viewer.module';
 import { SharedModule } from '../shared/shared.module';
+import {
+  CopyrightPolicyContentComponent
+} from './copyright-policy/copyright-policy-content/copyright-policy-content.component';
+import { CopyrightPolicyComponent } from './copyright-policy/copyright-policy.component';
+import { ThemedCopyrightPolicyComponent } from './copyright-policy/themed-copyright-policy.component';
 import { EndUserAgreementComponent } from './end-user-agreement/end-user-agreement.component';
 import { EndUserAgreementContentComponent } from './end-user-agreement/end-user-agreement-content/end-user-agreement-content.component';
 import { ThemedEndUserAgreementComponent } from './end-user-agreement/themed-end-user-agreement.component';
@@ -30,6 +35,9 @@ const DECLARATIONS = [
   ThemedFeedbackFormComponent,
   ThemedFeedbackComponent,
   NotifyInfoComponent,
+  CopyrightPolicyComponent,
+  CopyrightPolicyContentComponent,
+  ThemedCopyrightPolicyComponent
 ];
 
 @NgModule({
