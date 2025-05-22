@@ -44,6 +44,7 @@ import { PaginationComponentOptions } from '../shared/pagination/pagination-comp
 import { SearchConfig } from '../shared/search/search-filters/search-config.model';
 import { SidebarService } from '../shared/sidebar/sidebar.service';
 import { Subscription } from '../shared/subscriptions/models/subscription.model';
+import { SurveysService } from '../shared/surveys/surveys.service';
 import { CoarNotifyConfigDataService } from '../submission/sections/section-coar-notify/coar-notify-config-data.service';
 import { SubmissionCoarNotifyConfig } from '../submission/sections/section-coar-notify/submission-coar-notify.config';
 import { AuditDataService } from './audit/audit-data.service';
@@ -316,7 +317,7 @@ const PROVIDERS = [
   SubmissionJsonPatchOperationsService,
   JsonPatchOperationsBuilder,
   UUIDService,
-  NotificationsService,
+  SurveysService,
   WorkspaceitemDataService,
   WorkflowItemDataService,
   DSpaceObjectDataService,
