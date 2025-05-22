@@ -4256,6 +4256,7 @@
   // "explore.index.type": "Type",
   "explore.index.type": "Type de document",
   "explore.index.faculty": "Faculté",
+  "explore.index.accessType": "Type d'accès",
 
   // "explore.search-section.infrastructure.title": "Infrastructure",
   // TODO New key - Add a translation
@@ -4367,6 +4368,8 @@
 
   // "footer.link.cookies": "Cookie settings",
   "footer.link.cookies": "Cookies",
+
+  "footer.link.copyright-policy": "Licence d’utilisation",
 
   // "footer.link.privacy-policy": "Privacy policy",
   "footer.link.privacy-policy": "Politique de protection de la vie privée",
@@ -4838,6 +4841,11 @@
   // "home.top-level-communities.help": "Search for a collection",
   // TODO Source message changed - Revise the translation
   "home.top-level-communities.help": "Sélectionner une communauté pour parcourir les collections sous-jacentes.",
+
+  "info.copyright-policy.breadcrumbs": "Licence d’utilisation",
+  "info.copyright-policy.content.fallback": "En construction ...",
+  "info.copyright-policy.head": "Licence d’utilisation",
+  "info.copyright-policy.title": "Licence d’utilisation",
 
   // "info.end-user-agreement.accept": "I have read and I agree to the End User Agreement",
   "info.end-user-agreement.accept": "J'ai lu et j'accepte la licence de l'utilisateur final",
@@ -14179,10 +14187,12 @@
   "footer.header.quick-links": "Liens utiles",
   "footer.header.help": "Aide",
 
+  "footer.link.ask-question": "Poser une question",
   "footer.link.faq": "FAQ",
+  "footer.link.faq.url": "https://www.uclouvain.be/fr/bibliotheques/bdrt/dial-mem-faq",
   "footer.link.deposit-guide": "Guide du déposant",
   "footer.link.deposit-guide.url": "https://uclouvain.sharepoint.com/:b:/r/sites/MySCEB/DIALmem/Aide/Aide_en_ligne_acces_public/DIALmem_Guide_du_deposant_FR.pdf",
-  "footer.link.ask-question": "Poser une question",
+
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",
