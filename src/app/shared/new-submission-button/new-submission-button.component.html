@@ -1,20 +1,6 @@
-<ng-container *ngIf="isLoggedIn$ | async">
-    <button *ngIf="authorized$ | async; else disabledButton"
-            class="btn ml-3 border-1 border-primary text-primary d-inline-flex align-items-center"
-            (click)="openDialog(singleEntity)">
-        <i class="fa fa-plus-circle mr-2" aria-hidden="true"></i>
-        {{ "submission-button.add.message" | translate }}
-    </button>
-</ng-container>
-
-<ng-template #disabledButton>
-    <span placement="bottom"
-          [ngbTooltip]="'submission-button.add.disable-message' | translate"
-          [tooltipClass]="'larger-tooltip'"
-    >
-        <button [disabled]="true" class="btn ml-3 btn-outline-primary" style="pointer-events: none">
-            <i class="fa fa-plus-circle mr-2" aria-hidden="true"></i>
-            {{ "submission-button.add.message" | translate }}
-        </button>
-    </span>
-</ng-template>
+<button *ngIf="canSubmit$ | async"
+        class="btn ml-3 border-1 border-primary text-primary d-inline-flex align-items-center"
+        (click)="openDialog(singleEntity)">
+    <i class="fa fa-plus-circle mr-2" aria-hidden="true"></i>
+    {{ "submission-button.add.message" | translate }}
+</button>
