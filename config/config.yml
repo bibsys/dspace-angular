@@ -111,6 +111,8 @@ layout:
 submission:
   disclaimerSectionFor: ['fakeIdToReplace']
   enableShortcutPanelFor: ['fakeIdToReplace']
+  collectionSurveys:
+    limeSurvey1: 'fakeIdToReplace'
   # Trigger an autosave when changing a given metadata field
   # Works with all metadata schemas
   # However does not seem to work in form groups
