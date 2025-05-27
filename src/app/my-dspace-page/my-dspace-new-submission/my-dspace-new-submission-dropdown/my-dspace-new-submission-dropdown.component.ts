@@ -5,8 +5,9 @@ import {
 } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
+  BehaviorSubject,
   Observable,
-  of as observableOf,
+  of as observableOf, Subject,
   Subscription,
 } from 'rxjs';
 import {
@@ -14,7 +15,6 @@ import {
   mergeMap,
   take,
 } from 'rxjs/operators';
-import { AuthService } from '../../../core/auth/auth.service';
 
 import { EntityTypeDataService } from '../../../core/data/entity-type-data.service';
 import { FindListOptions } from '../../../core/data/find-list-options.model';
@@ -54,6 +54,7 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
   /**
    * TRUE if the page is initialized
    */
+  private initializedSubject$: Subject<boolean> = new BehaviorSubject<boolean>(false);
   public initialized$: Observable<boolean>;
 
   /**
@@ -62,10 +63,6 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
    * See backend feature class 'canSubmitFeature' for more information on the behavior.
    */
   public authorized$: Observable<boolean>;
-
-
-  /** TRUE if the user is logged in, FALSE otherwise */
-  public isLoggedIn$: Observable<boolean>;
 
   /**
    * Array to track all subscriptions and unsubscribe them onDestroy
@@ -78,20 +75,17 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
    *
    * @param {EntityTypeDataService} entityTypeService
    * @param {NgbModal} modalService
-   * @param {AuthService} authService
    * @param {AuthorizationDataService} authorizationService
    */
   constructor(private entityTypeService: EntityTypeDataService,
               private modalService: NgbModal,
-              private authService: AuthService,
               private authorizationService: AuthorizationDataService) { }
 
   /**
    * Initialize entity type list
    */
   ngOnInit() {
-    this.initialized$ = observableOf(false);
-    this.isLoggedIn$ = this.authService.isAuthenticated();
+    this.initialized$ = this.initializedSubject$.asObservable();
     this.moreThanOne$ = this.entityTypeService.hasMoreThanOneAuthorized();
     this.singleEntity$ = this.moreThanOne$.pipe(
       mergeMap((response: boolean) => {
@@ -102,21 +96,19 @@ export class MyDSpaceNewSubmissionDropdownComponent implements OnInit, OnDestroy
           };
           return this.entityTypeService.getAllAuthorizedRelationshipType(findListOptions).pipe(
             map((entities: RemoteData<PaginatedList<ItemType>>) => {
-              this.initialized$ = observableOf(true);
+              this.initializedSubject$.next(true);
               return entities.payload.page[0];
             }),
             take(1),
           );
         } else {
-          this.initialized$ = observableOf(true);
+          this.initializedSubject$.next(true);
           return observableOf(null);
         }
       }),
       take(1),
     );
-    this.authorized$ = this.authorizationService.isAuthorized(
-      FeatureID.CanCreateSubmission, undefined, undefined, false
-    );
+    this.authorized$ = this.authorizationService.isAuthorized(FeatureID.CanSubmit, undefined, undefined, false);
     this.subs.push(
       this.singleEntity$.subscribe((result) => this.singleEntity = result ),
     );
