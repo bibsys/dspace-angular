@@ -9,6 +9,8 @@
     <ds-authorized-collection-selector [currentDSOId]="dsoRD?.payload.uuid"
                                        [entityType]="entityType"
                                        [types]="selectorTypes"
-                                       (onSelect)="selectObject($event)"></ds-authorized-collection-selector>
+                                       [allowDisabled]="true"
+                                       (onSelect)="selectObject($event)">
+    </ds-authorized-collection-selector>
   </div>
 </div>
