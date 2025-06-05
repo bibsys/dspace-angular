@@ -22,32 +22,11 @@
         {{'dso-selector.no-results' | translate: { type: typesString } }}
       </button>
       <ng-container *ngFor="let listEntry of listEntries">
-        <button class="list-group-item list-group-item-action border-0 list-entry"
-                [ngClass]="{'bg-primary': listEntry['id'] === currentDSOId}"
-                title="{{ getName(listEntry) }}"
-                dsHoverClass="ds-hover"
-                (click)="showDisclaimer(listEntry) ? toggleDisclaimer(listEntry) : onClick(listEntry)"
-                #listEntryElement
-        >
-          <div class="d-flex">
-            <ds-listable-object-component-loader
-                    [object]="listEntry"
-                    [viewMode]="viewMode"
-                    [linkType]=linkTypes.None
-                    [context]="getContext(listEntry['id'])">
-            </ds-listable-object-component-loader>
-            <div class="ml-auto btn-success p-2 rounded d-flex align-items-center">
-              <i class="fa fa-plus"></i>
-              <span *ngIf="(isMobile$ | async) !== true" class="ml-2">{{ 'dso-selector.start-new-deposit' | translate }}</span>
-            </div>
-          </div>
-        </button>
-        <div *ngIf="activeDisclaimers.includes(getID(listEntry))" @slide class="alert alert-danger mx-2 my-1">
-          <div class="mb-2" [innerHTML]="'dso-selector.disclaimer.content' | translate"></div>
-          <div class="d-flex flex-row-reverse">
-            <button class="btn btn-danger" (click)="onClick(listEntry)">{{ 'dso-selector.disclaimer.confirm' | translate }}</button>
-          </div>
-        </div>
+          <ng-container [ngSwitch]="isEnabled(listEntry) | async">
+              <ng-container *ngSwitchCase="true" [ngTemplateOutlet]="enabledEntry" [ngTemplateOutletContext]="{entry: listEntry}"></ng-container>
+              <ng-container *ngSwitchCase="false" [ngTemplateOutlet]="disabledEntry" [ngTemplateOutletContext]="{entry: listEntry}"></ng-container>
+              <ng-container *ngSwitchDefault [ngTemplateOutlet]="loadingEntry"></ng-container>
+          </ng-container>
       </ng-container>
     </ng-container>
     <button *ngIf="loading"
@@ -57,3 +36,55 @@
     </button>
   </div>
 </div>
+
+<ng-template #loadingEntry>
+    <ds-loading [showMessage]="false"></ds-loading>
+</ng-template>
+
+<ng-template #enabledEntry let-entry="entry">
+    <button class="list-group-item list-group-item-action border-0 list-entry"
+            [ngClass]="{'bg-primary': entry['id'] === currentDSOId}"
+            title="{{ getName(entry) }}"
+            dsHoverClass="ds-hover"
+            (click)="showDisclaimer(entry) ? toggleDisclaimer(entry) : onClick(entry)"
+            #listEntryElement>
+        <div class="d-flex">
+            <ds-listable-object-component-loader
+                    [object]="entry"
+                    [viewMode]="viewMode"
+                    [linkType]=linkTypes.None
+                    [context]="getContext(entry['id'])">
+            </ds-listable-object-component-loader>
+            <div class="ml-auto btn-success p-2 rounded d-flex align-items-center">
+                <i class="fa fa-plus"></i>
+                <span *ngIf="(isMobile$ | async) !== true" class="ml-2">{{ 'dso-selector.start-new-deposit' | translate }}</span>
+            </div>
+        </div>
+    </button>
+    <div *ngIf="activeDisclaimers.includes(getID(entry))" @slide class="alert alert-danger mx-2 my-1">
+        <div class="mb-2" [innerHTML]="'dso-selector.disclaimer.content' | translate"></div>
+        <div class="d-flex flex-row-reverse">
+            <button class="btn btn-danger" (click)="onClick(entry)">{{ 'dso-selector.disclaimer.confirm' | translate }}</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #disabledEntry let-entry="entry">
+    <button class="list-group-item list-group-item-action border-0 list-entry disabled-entry"
+            title="{{ getName(entry) }}"
+            [ngbTooltip]="'submission-button.add.disable-message' | translate"
+            #listEntryElement><!--[tooltipClass]="'larger-tooltip'"-->
+        <div class="d-flex">
+            <ds-listable-object-component-loader
+                    [object]="entry"
+                    [viewMode]="viewMode"
+                    [linkType]=linkTypes.None
+                    [context]="getContext(entry['id'])">
+            </ds-listable-object-component-loader>
+            <div class="ml-auto btn-secondary disabled p-2 rounded d-flex align-items-center">
+                <i class="fa fa-plus"></i>
+                <span *ngIf="(isMobile$ | async) !== true" class="ml-2">{{ 'dso-selector.start-new-deposit' | translate }}</span>
+            </div>
+        </div>
+    </button>
+</ng-template>

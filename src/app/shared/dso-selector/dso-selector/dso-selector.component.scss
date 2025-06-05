@@ -3,3 +3,25 @@
   max-height: var(--ds-dso-selector-list-max-height);
   overflow-x: hidden;
 }
+
+:host ::ng-deep {
+
+  .larger-tooltip .tooltip-inner {
+    max-width: 500px;
+  }
+
+  .disabled-entry {
+    background-color: #EFEFEF;
+    &:hover {
+      background-color: #EFEFEF;
+    }
+    *.text-body, *.text-primary {
+      color: gray !important;
+    }
+    * .clamp-default-1 .content:after {
+      background: none !important;
+    }
+  }
+}
+
+
