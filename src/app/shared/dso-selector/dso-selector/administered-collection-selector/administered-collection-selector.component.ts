@@ -2,7 +2,7 @@ import {
   AsyncPipe,
   NgClass,
   NgFor,
-  NgIf,
+  NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet,
 } from '@angular/common';
 import {
   Component,
@@ -12,6 +12,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import {
   TranslateModule,
   TranslateService,
@@ -46,7 +47,13 @@ import { HostWindowService } from '../../../host-window.service';
   styleUrls: ['../dso-selector.component.scss'],
   templateUrl: '../dso-selector.component.html',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, InfiniteScrollModule, NgIf, NgFor, HoverClassDirective, NgClass, ListableObjectComponentLoaderComponent, ThemedLoadingComponent, AsyncPipe, TranslateModule],
+  imports: [FormsModule, ReactiveFormsModule, InfiniteScrollModule, NgIf, NgFor, HoverClassDirective, NgClass, ListableObjectComponentLoaderComponent, ThemedLoadingComponent, AsyncPipe, TranslateModule,
+    NgSwitch,
+    NgTemplateOutlet,
+    NgbTooltipModule,
+    NgSwitchCase,
+    NgSwitchDefault
+  ],
 })
 /**
  * Component rendering a list of collections to select from
