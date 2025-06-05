@@ -14,7 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   BehaviorSubject,
   combineLatest as observableCombineLatest,
-  Observable,
+  Observable, of,
   of as observableOf,
   Subscription,
 } from 'rxjs';
@@ -106,6 +106,11 @@ export class DSOSelectorComponent implements OnInit, OnDestroy {
    * The limit beyond which the search box will be displayed
    */
   @Input() searchLimit = 10;
+
+  /**
+   * Is any entry could be disabled ?
+   */
+  @Input() allowDisabled: boolean = false;
 
   // list of allowed selectable dsoTypes
   typesString: string;
@@ -362,6 +367,13 @@ export class DSOSelectorComponent implements OnInit, OnDestroy {
       : null;
   }
 
+  /** Get the instance of a listable object. */
+  getInstance(listableObject: ListableObject): any {
+    return hasValue((listableObject as SearchResult<DSpaceObject>).indexableObject)
+      ? (listableObject as SearchResult<DSpaceObject>).indexableObject
+      : null;
+  }
+
   /** Is a disclaimer section should be available for a listable object. */
   showDisclaimer(entry: ListableObject): boolean {
     let objectUUIDs: Array<String> = hasValue(environment.submission) ? environment.submission['disclaimerSectionFor'] : [];
@@ -375,5 +387,14 @@ export class DSOSelectorComponent implements OnInit, OnDestroy {
     if (!this.activeDisclaimers.includes(uuid)) {
       this.activeDisclaimers.push(uuid);
     }
+  }
+
+  /**
+   * Determine if an entry should be disabled of not
+   * @param entry the entry to analyze
+   * @return is the corresponding entry should be disabled or not
+   */
+  isEnabled(entry: ListableObject): Observable<boolean> {
+    return of(true);
   }
 }

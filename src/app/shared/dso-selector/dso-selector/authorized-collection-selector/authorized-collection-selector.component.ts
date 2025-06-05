@@ -3,11 +3,13 @@ import {
   Input,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { DSONameService } from '../../../../core/breadcrumbs/dso-name.service';
 import { CollectionDataService } from '../../../../core/data/collection-data.service';
+import { AuthorizationDataService } from '../../../../core/data/feature-authorization/authorization-data.service';
+import { FeatureID } from '../../../../core/data/feature-authorization/feature-id';
 import { FindListOptions } from '../../../../core/data/find-list-options.model';
 import {
   buildPaginatedList,
@@ -21,6 +23,7 @@ import { SearchService } from '../../../../core/shared/search/search.service';
 import { hasValue } from '../../../empty.util';
 import { NotificationsService } from '../../../notifications/notifications.service';
 import { CollectionSearchResult } from '../../../object-collection/shared/collection-search-result.model';
+import { ListableObject } from '../../../object-collection/shared/listable-object.model';
 import { SearchResult } from '../../../search/models/search-result.model';
 import { followLink } from '../../../utils/follow-link-config.model';
 import { DSOSelectorComponent } from '../dso-selector.component';
@@ -40,13 +43,17 @@ export class AuthorizedCollectionSelectorComponent extends DSOSelectorComponent 
    */
   @Input() entityType: string;
 
+  /** Map to store calls to collection authorization */
+  private authorizedCollection: Map<String, Observable<boolean>> = new Map();
+
   constructor(
     protected searchService: SearchService,
     protected collectionDataService: CollectionDataService,
     protected notifcationsService: NotificationsService,
     protected translate: TranslateService,
     protected dsoNameService: DSONameService,
-    protected windowService: HostWindowService
+    protected windowService: HostWindowService,
+    protected authorizationService: AuthorizationDataService
   ) {
     super(searchService, notifcationsService, translate, dsoNameService, windowService);
   }
@@ -71,21 +78,35 @@ export class AuthorizedCollectionSelectorComponent extends DSOSelectorComponent 
       elementsPerPage: this.defaultPagination.pageSize,
     };
 
-    if (this.entityType) {
-      searchListService$ = this.collectionDataService
-        .getAuthorizedCollectionByEntityType(
-          query,
-          this.entityType,
-          findOptions);
-    } else {
-      searchListService$ = this.collectionDataService
-        .getAuthorizedCollection(query, findOptions, useCache, false, followLink('parentCommunity'));
-    }
+    searchListService$ = (this.entityType)
+      ? this.collectionDataService.getAuthorizedCollectionByEntityType(query, this.entityType, findOptions)
+      : this.collectionDataService.getAuthorizedCollection(query, findOptions, useCache, false, followLink('parentCommunity'));
     return searchListService$.pipe(
       getFirstCompletedRemoteData(),
       map((rd) => Object.assign(new RemoteData(null, null, null, null), rd, {
-        payload: hasValue(rd.payload) ? buildPaginatedList(rd.payload.pageInfo, rd.payload.page.map((col) => Object.assign(new CollectionSearchResult(), { indexableObject: col }))) : null,
+        payload: hasValue(rd.payload)
+          ? buildPaginatedList(rd.payload.pageInfo, rd.payload.page.map((col) => Object.assign(new CollectionSearchResult(), { indexableObject: col })))
+          : null,
       })),
     );
+  }
+
+  /**
+   * Determine if an entry should be enabled or not based on authorization return by backend call
+   * @param entry The entry object to check (only Collection are check)
+   * @return true if the entry should be enabled, false if not.
+   */
+  isEnabled(entry: ListableObject): Observable<boolean> {
+    const isCollection = this.getInstance(entry) instanceof Collection;
+    if (!this.allowDisabled || !isCollection) {
+      return of(true);
+    }
+
+    const collectionID = this.getID(entry);
+    if (!this.authorizedCollection.has(collectionID)) {
+      const auth$ = this.authorizationService.isAuthorized(FeatureID.CanCreateCollectionWorkspace, (entry as SearchResult<DSpaceObject>).indexableObject.self, undefined, false);
+      this.authorizedCollection.set(collectionID, auth$);
+    }
+    return this.authorizedCollection.get(collectionID)!;
   }
 }
