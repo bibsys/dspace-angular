@@ -194,6 +194,7 @@ export class SearchRangeFilterComponent extends SearchFacetFilterComponent imple
    * @returns {boolean} True if the platformId is a platform browser
    */
   shouldShowSlider(): boolean {
+    return false;
     return isPlatformBrowser(this.platformId);
   }
 }

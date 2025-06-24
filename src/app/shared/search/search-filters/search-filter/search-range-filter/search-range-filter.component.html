@@ -1,34 +1,22 @@
 <div>
     <div class="filters py-2">
-        <form #form="ngForm" (ngSubmit)="onSubmit()" class="add-filter row"
-              [action]="currentUrl">
-            <div class="col-6 form-group mb-0">
-                <label>
-                  <span class="font-weight-bold">
-                    {{'search.filters.filter.' + filterConfig.name + '.min.label' | translate}}
-                  </span>
-                  <input type="text" [(ngModel)]="range[0]" [name]="filterConfig.paramName + '.min'"
-                         class="form-control"
-                         [attr.aria-label]="minLabel"
-                         [placeholder]="minLabel"
-                  />
-                </label>
+        <form #form="ngForm" (ngSubmit)="onSubmit()" class="add-filter d-flex mb-2" [action]="currentUrl">
+            <div class="flex-grow-1 d-flex align-items-center">
+                <input type="text" [(ngModel)]="range[0]" [name]="filterConfig.paramName + '.min'"
+                       class="form-control"
+                       [attr.aria-label]="minLabel"
+                       [placeholder]="minLabel"
+                />
+                <span class="px-1">-</span>
+                <input type="text" [(ngModel)]="range[1]" [name]="filterConfig.paramName + '.max'"
+                       class="form-control"
+                       [attr.aria-label]="maxLabel"
+                       [placeholder]="maxLabel"
+                />
             </div>
-            <div class="col-6">
-                <label>
-                    <span class="font-weight-bold">
-                      {{'search.filters.filter.' + filterConfig.name + '.max.label' | translate}}
-                    </span>
-                    <input type="text" [(ngModel)]="range[1]" [name]="filterConfig.paramName + '.max'"
-                           class="form-control"
-                           [attr.aria-label]="maxLabel"
-                           [placeholder]="maxLabel"
-                    />
-                </label>
+            <div class="pl-1">
+                <button (click)="onSubmit()" class="btn btn-primary">{{'search.filters.search.submit' | translate}}</button>
             </div>
-            <button class="sr-only" type="submit">
-                {{'search.filters.search.submit' | translate}}
-            </button>
         </form>
 
         <ng-container *ngIf="shouldShowSlider()">
@@ -39,13 +27,13 @@
                         [(ngModel)]="range" ngDefaultControl>
             </nouislider>
         </ng-container>
-      <ng-container *ngFor="let page of (facetValues$ | async)">
-        <div [@facetLoad]="animationState">
-          <ds-search-facet-range-option *ngFor="let value of page.page; trackBy: trackUpdate" [filterConfig]="filterConfig" [filterValue]="value" [inPlaceSearch]="inPlaceSearch"></ds-search-facet-range-option>
+
+
+        <ng-container *ngFor="let page of (facetValues$ | async)">
+          <div [@facetLoad]="animationState">
+            <ds-search-facet-range-option *ngFor="let value of page.page; trackBy: trackUpdate" [filterConfig]="filterConfig" [filterValue]="value" [inPlaceSearch]="inPlaceSearch"></ds-search-facet-range-option>
           </div>
         </ng-container>
-        <button (click)="onSubmit()" class="btn btn-primary">
-          {{'search.filters.search.submit' | translate}}
-        </button>
+
     </div>
 </div>
