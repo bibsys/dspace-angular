@@ -383,18 +383,23 @@ export abstract class FieldParser {
    * @param submissionScope
    */
   private isFieldReadOnly(visibility: SubmissionVisibilityType, fieldScope: string, submissionScope: string) {
-    return isNotEmpty(submissionScope)
-      && isNotEmpty(fieldScope)
-      && isNotEmpty(visibility)
-      && ((
-        submissionScope === SubmissionScopeType.WorkspaceItem.valueOf()
-          && visibility.main === SubmissionVisibilityValue.ReadOnly
-      )
-        ||
-          (visibility.other === SubmissionVisibilityValue.ReadOnly
-          && submissionScope === SubmissionScopeType.WorkflowItem.valueOf()
-          )
-      );
+
+    return isNotEmpty(visibility)
+      && visibility.hasOwnProperty(submissionScope)
+      && visibility[submissionScope] === SubmissionVisibilityValue.ReadOnly;
+
+    // return isNotEmpty(submissionScope)
+    //   && isNotEmpty(fieldScope)
+    //   && isNotEmpty(visibility)
+    //   && ((
+    //     submissionScope === SubmissionScopeType.WorkspaceItem.valueOf()
+    //       && visibility.main === SubmissionVisibilityValue.ReadOnly
+    //   )
+    //     ||
+    //       (visibility.other === SubmissionVisibilityValue.ReadOnly
+    //       && submissionScope === SubmissionScopeType.WorkflowItem.valueOf()
+    //       )
+    //   );
   }
 
   /**
