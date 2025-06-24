@@ -27,7 +27,7 @@
     <button class="btn btn-primary mr-2" [dsBtnDisabled]="!researcherProfile" (click)="viewProfile(researcherProfile)">
       <i class="fas fa-info-circle"></i> {{'researcher.profile.view' | translate}}
     </button>
-    <ng-container *ngVar="(hasRoles(RoleType.Admin) | async) as adminRole">
+    <ng-container *ngVar="(isAdmin$ | async) as adminRole">
         <button class="btn btn-danger"
                 [dsBtnDisabled]="!researcherProfile || !adminRole"
                 [ngbTooltip]="'researcher.profile.delete.reserved-for-admin' | translate"
