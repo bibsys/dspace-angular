@@ -1,56 +1,29 @@
-import {
-  AsyncPipe,
-  NgIf,
-} from '@angular/common';
-import {
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { AsyncPipe, NgIf, } from '@angular/common';
+import { Component, Input, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import {
-  TranslateModule,
-  TranslateService,
-} from '@ngx-translate/core';
-import {
-  BehaviorSubject, combineLatest,
-  Observable,
-} from 'rxjs';
-import {
-  first,
-  map,
-  mergeMap,
-  switchMap,
-  take,
-  tap,
-} from 'rxjs/operators';
+import { TranslateModule, TranslateService, } from '@ngx-translate/core';
+import { BehaviorSubject, Observable, } from 'rxjs';
+import { map, mergeMap, switchMap, take, tap, } from 'rxjs/operators';
 
 import { AuthService } from '../../core/auth/auth.service';
 import { RemoteData } from '../../core/data/remote-data';
 import { EPerson } from '../../core/eperson/models/eperson.model';
 import { ResearcherProfile } from '../../core/profile/model/researcher-profile.model';
 import { ResearcherProfileDataService } from '../../core/profile/researcher-profile-data.service';
+import { RoleType } from '../../core/roles/role-types';
+import { RoleService } from '../../core/roles/role.service';
 import { NoContent } from '../../core/shared/NoContent.model';
-import {
-  getFirstCompletedRemoteData,
-  getFirstSucceededRemoteDataPayload,
-} from '../../core/shared/operators';
+import { getFirstCompletedRemoteData, getFirstSucceededRemoteDataPayload, } from '../../core/shared/operators';
 import { BtnDisabledDirective } from '../../shared/btn-disabled.directive';
 import { ConfirmationModalComponent } from '../../shared/confirmation-modal/confirmation-modal.component';
 import { isNotEmpty } from '../../shared/empty.util';
 import { NotificationsService } from '../../shared/notifications/notifications.service';
-import {
-  SwitchColor,
-  SwitchComponent,
-  SwitchOption,
-} from '../../shared/switch/switch.component';
+import { SwitchColor, SwitchComponent, SwitchOption, } from '../../shared/switch/switch.component';
 import { followLink } from '../../shared/utils/follow-link-config.model';
 import { VarDirective } from '../../shared/utils/var.directive';
-import { ProfileClaimService } from '../profile-claim/profile-claim.service';
 import { ProfileClaimItemModalComponent } from '../profile-claim-item-modal/profile-claim-item-modal.component';
-import { RoleType } from '../../core/roles/role-types';
-import { RoleService } from '../../core/roles/role.service';
+import { ProfileClaimService } from '../profile-claim/profile-claim.service';
 
 @Component({
   selector: 'ds-profile-page-researcher-form',
@@ -99,6 +72,11 @@ export class ProfilePageResearcherFormComponent implements OnInit {
   researcherProfileItemId: string;
 
   /**
+   * Is the user is an administrator
+   */
+  isAdmin$: Observable<boolean>;
+
+  /**
    * The custom options for the 'ds-switch' component
    */
   switchOptions: SwitchOption[] = [
@@ -123,6 +101,8 @@ export class ProfilePageResearcherFormComponent implements OnInit {
   ngOnInit(): void {
     // Retrieve researcherProfile if exists
     this.initResearchProfile();
+    // Is the user is member of administrator group
+    this.isAdmin$ = this.roleService.checkRole(RoleType.Admin);
   }
 
   /**
@@ -258,15 +238,4 @@ export class ProfilePageResearcherFormComponent implements OnInit {
       }
     });
   }
-
-  public hasRoles(roles: RoleType | RoleType[]): Observable<boolean> {
-    const toValidate: RoleType[] = (Array.isArray(roles)) ? roles : [roles];
-    const checks: Observable<boolean>[] = toValidate.map((role) => this.roleService.checkRole(role));
-    return combineLatest(checks).pipe(
-      map((permissions: boolean[]) => permissions.includes(true)),
-      first()
-    );
-  }
-
-  protected readonly RoleType = RoleType;
 }
