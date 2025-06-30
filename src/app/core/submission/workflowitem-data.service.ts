@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import {
   find,
   map,
@@ -15,6 +15,7 @@ import {
   DeleteData,
   DeleteDataImpl,
 } from '../data/base/delete-data';
+import { FindAllDataImpl } from '../data/base/find-all-data';
 import { IdentifiableDataService } from '../data/base/identifiable-data.service';
 import {
   SearchData,
@@ -23,11 +24,12 @@ import {
 import { FindListOptions } from '../data/find-list-options.model';
 import { PaginatedList } from '../data/paginated-list.model';
 import { RemoteData } from '../data/remote-data';
-import { DeleteByIDRequest } from '../data/request.models';
+import { DeleteByIDRequest, GetRequest } from '../data/request.models';
 import { RequestService } from '../data/request.service';
 import { HALEndpointService } from '../shared/hal-endpoint.service';
 import { NoContent } from '../shared/NoContent.model';
 import { getFirstCompletedRemoteData } from '../shared/operators';
+import { ClaimedTask } from '../tasks/models/claimed-task-object.model';
 import { WorkflowItem } from './models/workflowitem.model';
 
 /**
@@ -49,7 +51,6 @@ export class WorkflowItemDataService extends IdentifiableDataService<WorkflowIte
     protected notificationsService: NotificationsService,
   ) {
     super('workflowitems', requestService, rdbService, objectCache, halService);
-
     this.searchData = new SearchDataImpl(this.linkPath, requestService, rdbService, objectCache, halService, this.responseMsToLive);
     this.deleteData = new DeleteDataImpl(this.linkPath, requestService, rdbService, objectCache, halService, notificationsService, this.responseMsToLive, this.constructIdEndpoint);
   }
@@ -73,6 +74,15 @@ export class WorkflowItemDataService extends IdentifiableDataService<WorkflowIte
       getFirstCompletedRemoteData(),
       map((response: RemoteData<NoContent>) => response.hasSucceeded),
     );
+  }
+
+  getClaimedTasks(id: string): Observable<RemoteData<PaginatedList<ClaimedTask>>> {
+    const requestHref$ = this.getIDHrefObs(id)
+      .pipe(
+        map((endpoint: string) => endpoint + '/claimedTasks'),
+        find((endpoint: string) => hasValue(endpoint))
+      );
+    return this.rdbService.buildList(requestHref$);
   }
 
   /**

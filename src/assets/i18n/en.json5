@@ -929,6 +929,12 @@
 
   "admin.workflow.item.supervision": "Supervision",
 
+  "admin.workflow.item.unassign": "Return to pool",
+
+  "admin.workflow.item.unassign.success": "Successfully returned to the pool",
+
+  "admin.workflow.item.unassign.error": "Error during return to the pool",
+
   "admin.metadata-import.breadcrumbs": "Import Metadata",
 
   "admin.batch-import.breadcrumbs": "Import Batch",

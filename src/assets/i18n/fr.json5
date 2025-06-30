@@ -1146,6 +1146,12 @@
   // "admin.workflow.item.supervision": "Supervision",
   "admin.workflow.item.supervision": "Supervision",
 
+  "admin.workflow.item.unassign": "Se désassigner",
+
+  "admin.workflow.item.unassign.success": "Opération réussie",
+
+  "admin.workflow.item.unassign.error": "Une erreur est survenue",
+
   // "admin.metadata-import.breadcrumbs": "Import Metadata",
   "admin.metadata-import.breadcrumbs": "Importer Métadonnées",
 

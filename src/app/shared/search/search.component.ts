@@ -694,6 +694,7 @@ export class SearchComponent implements OnDestroy, OnInit {
 
     if (this.configuration === 'supervision') {
       followLinks.push(followLink<WorkspaceItem>('supervisionOrders', { isOptional: true }) as any);
+      followLinks.push(followLink<WorkspaceItem>('claimedTasks', { isOptional: true }));
     }
 
     searchOptions = Object.assign(new PaginatedSearchOptions({}), searchOptions);
