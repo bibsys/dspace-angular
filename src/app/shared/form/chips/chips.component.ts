@@ -192,6 +192,7 @@ export class ChipsComponent implements OnChanges, OnInit {
     return Object.keys(chipsItem.item[field]?.otherInformation)
       .filter((otherInformationKey: string) =>
         !otherInformationKey.startsWith('data-') &&
+        !otherInformationKey.startsWith('authority-') &&
         this.checkOtherInformationValue(chipsItem, field, otherInformationKey),
       );
   }

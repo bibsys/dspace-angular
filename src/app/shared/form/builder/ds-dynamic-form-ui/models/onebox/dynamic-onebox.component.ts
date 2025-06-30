@@ -298,7 +298,8 @@ export class DsDynamicOneboxComponent extends DsDynamicVocabularyComponent imple
     const item = event.item;
 
     if ( hasValue(item.otherInformation)) {
-      const otherInfoKeys = Object.keys(item.otherInformation).filter((key) => !key.startsWith('data'));
+      // Do not process keys starting with either 'data' or 'authority' as they are used for field autocomplete purpose only.
+      const otherInfoKeys = Object.keys(item.otherInformation).filter((key) => !key.startsWith('data') && !key.startsWith('authority'));
       const hasMultipleValues = otherInfoKeys.some(key => hasValue(item.otherInformation[key]) && item.otherInformation[key].includes('|||'));
 
       if (hasMultipleValues) {
