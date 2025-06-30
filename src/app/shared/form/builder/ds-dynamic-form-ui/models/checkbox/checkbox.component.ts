@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
 import { UntypedFormGroup } from "@angular/forms";
 import { DynamicFormControlComponent, DynamicFormLayoutService, DynamicFormValidationService } from "@ng-dynamic-forms/core";
 import { DynamicDsCheckboxModel } from "./checkbox.model";
-import { isEmpty } from "src/app/shared/empty.util";
+import { hasValue, isEmpty } from "src/app/shared/empty.util";
 import { NgClass, NgIf } from "@angular/common";
+import { Subscription } from "rxjs";
+import { FormFieldMetadataValueObject } from "../../../models/form-field-metadata-value.model";
 
 /**
  * Simple custom checkbox component to use in the dynamic form builder. Compared to {@link DynamicNGBootstrapCheckboxComponent}, it can be used in the submission form definition.
@@ -20,7 +22,7 @@ import { NgClass, NgIf } from "@angular/common";
     imports: [NgIf, NgClass],
     standalone: true,
 })
-export class CustomCheckboxComponent extends DynamicFormControlComponent implements OnInit {
+export class CustomCheckboxComponent extends DynamicFormControlComponent implements OnInit, OnDestroy {
     @Input() bindId = true;
     @Input() group: UntypedFormGroup;
     @Input() model: DynamicDsCheckboxModel;
@@ -30,6 +32,7 @@ export class CustomCheckboxComponent extends DynamicFormControlComponent impleme
     @Output() focus = new EventEmitter<any>();
 
     protected isEmpty = isEmpty;
+    private subs: Subscription[] = [];
 
     constructor(protected layoutService: DynamicFormLayoutService,
         protected validationService: DynamicFormValidationService,
@@ -45,6 +48,18 @@ export class CustomCheckboxComponent extends DynamicFormControlComponent impleme
             this.model.value = 'false';
             this.change.emit(this.model.value);
         }
+
+        this.subs.push(
+            // Listen for changes on the model value.
+            // This is useful for autocomplete scenario (authority based).
+            this.model.valueChanges.subscribe((value) => {
+                let modelValue: any = this.model.value;
+                if (this.model.value instanceof FormFieldMetadataValueObject) {
+                    modelValue = (modelValue as FormFieldMetadataValueObject).value;
+                }
+                this.model.checked = this.stringToBoolean(modelValue);
+            })
+        );
     }
 
     onChange(event): void {
@@ -61,5 +76,9 @@ export class CustomCheckboxComponent extends DynamicFormControlComponent impleme
 
     stringToBoolean(value: string): boolean {
         return value.toLowerCase() === 'true';
+    }
+
+    ngOnDestroy(): void {
+        this.subs.filter(sub => hasValue(sub)).forEach(sub => sub.unsubscribe());
     }
 }

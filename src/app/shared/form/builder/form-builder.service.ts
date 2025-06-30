@@ -164,43 +164,61 @@ export class FormBuilderService extends DynamicFormService {
 
   findById(id: string, groupModel: DynamicFormControlModel[], arrayIndex = null): DynamicFormControlModel | null {
 
-    let result = null;
-    const findByIdFn = (findId: string, findGroupModel: DynamicFormControlModel[], findArrayIndex): void => {
+    let candidates = [];
+    const findByIdFn = (findId: string, findGroupModel: DynamicFormControlModel[], findArrayIndex, candidates: any[] = []): void => {
 
       for (const controlModel of findGroupModel) {
-
+        // Make sure that we never return a hidden field model.
         if (controlModel.id === findId) {
 
           if (this.isArrayGroup(controlModel) && isNotNull(findArrayIndex)) {
-            result = (controlModel as DynamicFormArrayModel).get(findArrayIndex);
+            candidates.push((controlModel as DynamicFormArrayModel).get(findArrayIndex));
           } else {
-            result = controlModel;
+            candidates.push(controlModel);
           }
           break;
         }
 
         if (this.isConcatGroup(controlModel)) {
           if (controlModel.id.match(new RegExp(findId + CONCAT_GROUP_SUFFIX)) || controlModel.id.match(new RegExp(findId + CONCAT_GROUP_SUFFIX + `_\\d+$`))) {
-            result = (controlModel as DynamicConcatModel);
+            candidates.push(controlModel as DynamicConcatModel);
             break;
           }
         }
 
         if (this.isGroup(controlModel)) {
-          findByIdFn(findId, (controlModel as DynamicFormGroupModel).group, findArrayIndex);
+          findByIdFn(findId, (controlModel as DynamicFormGroupModel).group, findArrayIndex, candidates);
         }
 
         if (this.isArrayGroup(controlModel)
           && (isNull(findArrayIndex) || (controlModel as DynamicFormArrayModel).size > (findArrayIndex))) {
           const index = (isNull(findArrayIndex)) ? 0 : findArrayIndex;
-          findByIdFn(findId, (controlModel as DynamicFormArrayModel).get(index).group, index);
+          findByIdFn(findId, (controlModel as DynamicFormArrayModel).get(index).group, index, candidates);
         }
       }
     };
 
-    findByIdFn(id, groupModel, arrayIndex);
+    findByIdFn(id, groupModel, arrayIndex, candidates);
+    return this.getBestModel(candidates);
+  }
 
-    return result;
+  /**
+   * Get the best model from a given model list using the following criteria:
+   * - If there are visible models return the first one.
+   * - If there are hidden fields return the first one.
+   * - If there are no fields return null.
+   *  
+   * @param models The models to filter.
+   * @returns Returns the best possible model.
+   */
+  getBestModel(models: DynamicFormControlModel[]): DynamicFormControlModel | null {
+    // Check if there are visible models.
+    let visibleModels = models.filter(model => model.hasOwnProperty('hidden') && !model.hidden);
+    if (visibleModels.length) {
+      return visibleModels[0];
+    }
+    // If no visible models found, return the first model or null if none.
+    return models[0] || null;
   }
 
   clearAllModelsValue(groupModel: DynamicFormControlModel[]): void {
