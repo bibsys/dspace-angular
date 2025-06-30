@@ -20,6 +20,8 @@ import { HALLink } from '../../shared/hal-link.model';
 import { ITEM } from '../../shared/item.resource-type';
 import { SupervisionOrder } from '../../supervision-order/models/supervision-order.model';
 import { SUPERVISION_ORDER } from '../../supervision-order/models/supervision-order.resource-type';
+import { ClaimedTask } from '../../tasks/models/claimed-task-object.model';
+import { CLAIMED_TASK } from '../../tasks/models/claimed-task-object.resource-type';
 import { excludeFromEquals } from '../../utilities/equals.decorators';
 import { WorkspaceitemSectionsObject } from './workspaceitem-sections.model';
 
@@ -71,6 +73,7 @@ export abstract class SubmissionObject extends DSpaceObject implements Cacheable
     submissionDefinition: HALLink;
     submitter: HALLink;
     supervisionOrders: HALLink;
+    claimedTasks: HALLink;
   };
 
   get self(): string {
@@ -105,6 +108,13 @@ export abstract class SubmissionObject extends DSpaceObject implements Cacheable
    */
   @link(SUPERVISION_ORDER)
   /* This was changed from 'Observable<RemoteData<WorkspaceItem>> | WorkspaceItem' to 'any' to prevent issues in templates with async */
-    supervisionOrders?: Observable<RemoteData<PaginatedList<SupervisionOrder>>>;
+  supervisionOrders?: Observable<RemoteData<PaginatedList<SupervisionOrder>>>;
+
+  /**
+   * The claimed tasks related to this SubmissionObject
+   * Will be undefined unless the claimedTasks {@link HALLink} has been resolved.
+   */
+  @link(CLAIMED_TASK)
+  claimedTasks?: Observable<RemoteData<ClaimedTask>>;
 
 }
