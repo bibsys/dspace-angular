@@ -123,6 +123,8 @@ import { TruncatableComponent } from '../../shared/truncatable/truncatable.compo
 import { TruncatablePartComponent } from '../../shared/truncatable/truncatable-part/truncatable-part.component';
 import { ThemedThumbnailComponent } from '../../thumbnail/themed-thumbnail.component';
 import { ThumbnailComponent } from '../../thumbnail/thumbnail.component';
+import { PublicationListElementComponent } from 'src/themes/uclouvain/app/entity-groups/publication-entity/item-list-elements/publication-list-elements.component';
+import { PublicationSearchResultWrapperComponent } from 'src/themes/uclouvain/app/entity-groups/publication-entity/search-result-list-elements/publication-search-result/publicaton-search-result-wrapper.component.html/publication-search-result-wrapper.component';
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -209,6 +211,8 @@ const ENTRY_COMPONENTS = [
   RelationshipsListComponent,
   PublicationComponent,
   UntypedItemComponent,
+  PublicationListElementComponent,
+  PublicationSearchResultWrapperComponent,
 ];
 
 @NgModule({

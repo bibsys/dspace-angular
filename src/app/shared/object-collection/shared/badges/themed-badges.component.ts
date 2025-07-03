@@ -22,8 +22,9 @@ export class ThemedBadgesComponent extends ThemedComponent<BadgesComponent> {
   @Input() object: DSpaceObject;
   @Input() context: Context;
   @Input() showAccessStatus = false;
+  @Input() displayType = true;
 
-  protected inAndOutputNames: (keyof BadgesComponent & keyof this)[] = ['object', 'context', 'showAccessStatus'];
+  protected inAndOutputNames: (keyof BadgesComponent & keyof this)[] = ['object', 'context', 'showAccessStatus', 'displayType'];
 
   protected getComponentName(): string {
     return 'BadgesComponent';
