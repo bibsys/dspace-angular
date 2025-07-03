@@ -5,6 +5,13 @@ rest:
   nameSpace: /server
 ui:
   ssl: false
+
+item:
+  showAccessStatuses: true
+
+browseBy:
+  showThumbnails: false
+
 themes:
   - name: uclouvain
     headTags:
