@@ -126,6 +126,8 @@ import { ThumbnailComponent } from '../../thumbnail/thumbnail.component';
 import { PublicationListElementComponent } from 'src/themes/uclouvain/app/entity-groups/publication-entity/item-list-elements/publication-list-elements.component';
 import { PublicationSearchResultWrapperComponent } from 'src/themes/uclouvain/app/entity-groups/publication-entity/search-result-list-elements/publication-search-result/publicaton-search-result-wrapper.component.html/publication-search-result-wrapper.component';
 import { PublicationPageComponent } from 'src/themes/uclouvain/app/entity-groups/publication-entity/item-pages/publication-page.component';
+import { UCLouvainJournalSearchResultListElementComponent } from 'src/themes/uclouvain/app/entity-groups/journal-entity/search-result-list-element/journal-search-result-list-element.component';
+import { JournalPageComponent } from 'src/themes/uclouvain/app/entity-groups/journal-entity/item-pages/journal-page.component';
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -215,6 +217,8 @@ const ENTRY_COMPONENTS = [
   PublicationListElementComponent,
   PublicationSearchResultWrapperComponent,
   PublicationPageComponent,
+  UCLouvainJournalSearchResultListElementComponent,
+  JournalPageComponent,
 ];
 
 @NgModule({

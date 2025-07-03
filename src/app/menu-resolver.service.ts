@@ -2,8 +2,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID, } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot, } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { combineLatest as observableCombineLatest, mergeMap, Observable, of, } from 'rxjs';
-import { filter, find, map, switchMap, take, } from 'rxjs/operators';
+import { combineLatest as observableCombineLatest, mergeMap, Observable, of } from 'rxjs';
+import { filter, find, map, switchMap, take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 import { PUBLICATION_CLAIMS_PATH } from './admin/admin-notifications/admin-notifications-routing-paths';
@@ -57,6 +57,7 @@ import { OnClickMenuItemModel } from './shared/menu/menu-item/models/onclick.mod
 import { TextMenuItemModel } from './shared/menu/menu-item/models/text.model';
 import { MenuState } from './shared/menu/menu-state.model';
 import { MenuService } from './shared/menu/menu.service';
+import { RoleService } from './core/roles/role.service';
 
 /**
  * Creates all the app's menus
@@ -78,6 +79,7 @@ export class MenuResolverService  {
     protected configurationDataService: ConfigurationDataService,
     protected sectionDataService: SectionDataService,
     protected configService: ConfigurationDataService,
+    protected roleService: RoleService,
   ) {
   }
 
@@ -202,6 +204,34 @@ export class MenuResolverService  {
     this.authService.isAuthenticated().subscribe(v => myDialLinkModel.visible = v);
     this.menuService.addSection(MenuID.PUBLIC, myDialLinkModel);
 
+    // Make the journal managing url visible if the user is a journal manager.
+    this.roleService.isJournalManager().subscribe(isJournalManager => {
+      if (!isJournalManager) {
+        return;
+      }
+
+      // Adds a manage journal section
+      const manageJournalsLinkModel = Object.assign(
+        {
+          id: `manage_journals`,
+          active: false,
+          visible: true,
+          index: 1,
+          model: {
+            type: MenuItemType.LINK,
+            disabled: false,
+            text: `menu.section.manage_journal`,
+            link: `/search`,
+            queryParams: {
+              ['configuration']: 'journals',
+            },
+          } as LinkMenuItemModel
+        },
+        {shouldPersistOnRouteChange: true}
+      );
+
+      this.menuService.addSection(MenuID.PUBLIC, manageJournalsLinkModel);
+    });
     return this.waitForMenu$(MenuID.PUBLIC);
   }
 

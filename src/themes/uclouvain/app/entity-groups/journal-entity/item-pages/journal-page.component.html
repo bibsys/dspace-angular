@@ -1,0 +1,58 @@
+<div class="d-flex">
+  <ds-results-back-button *ngIf="showBackButton$ | async" [back]="back"/>
+  <ds-context-menu class="ml-auto" 
+                   [contextMenuObject]="object"
+                   [contextMenuObjectType]="DspaceObjectType.ITEM"/>
+</div>
+
+<div class="container my-3 p-0">
+  <article>
+    <!-- HEADER (Type + title) -->
+    <div class="mb-5">
+      <h3 class="text-muted m-0">{{ 'item.page.journal.type' | translate }}</h3>
+      <ds-item-page-title-field [item]="object" />
+    </div>
+    <!-- MAIN METADATA SECTION -->
+    <div>
+      <ds-item-page-heading [headerLabel]="'item.page.heading.details'"/>
+      <dl class="ml-1">
+        <ng-container *ngIf="object.hasMetadata('dc.publisher')">
+          <dt>{{ "item.page.publisher" | translate }}</dt>
+          <dd>
+            <ds-generic-item-page-field [item]="object" [fields]="['dc.publisher']"/>
+          </dd>
+        </ng-container>
+        <ng-container *ngIf="object.hasMetadata('dc.publisher.location')">
+          <dt>{{ "item.page.publisher.location" | translate }}</dt>
+          <dd>
+            <ds-generic-item-page-field [item]="object" [fields]="['dc.publisher.location']"/>
+          </dd>
+        </ng-container>
+        <ng-container *ngIf="object.hasMetadata('dc.identifier.issn')">
+          <dt>{{ "item.page.journal-issn" | translate }}</dt>
+          <dd>
+            <ds-generic-item-page-field [item]="object" [fields]="['dc.identifier.issn']"/>
+          </dd>
+        </ng-container>
+        <ng-container *ngIf="object.hasMetadata('dc.identifier.eissn')">
+          <dt>{{ "item.page.journal-eissn" | translate }}</dt>
+          <dd>
+            <ds-generic-item-page-field [item]="object" [fields]="['dc.identifier.eissn']"/>
+          </dd>
+        </ng-container>
+        <ng-container *ngIf="object.hasMetadata('journal.peerReviewed')">
+          <dt>{{ "item.page.peerreviewed" | translate }}</dt>
+          <dd>
+            <ds-journal-peer-reviewed [journal]="object"/>
+          </dd>
+        </ng-container>
+        <ng-container *ngIf="object.hasMetadata('journal.statusCode')">
+          <dt>{{ "item.page.statuscode" | translate }}</dt>
+          <dd>
+            <ds-generic-item-page-field [item]="object" [fields]="['journal.statusCode']"/>
+          </dd>
+        </ng-container>
+      </dl>
+    </div>
+  </article>
+</div>
