@@ -50,6 +50,11 @@ export class BadgesComponent {
   @Input() showAccessStatus = false;
 
   /**
+   * Whether or not to show the entity type of the object
+   */
+  @Input() displayType = true;
+
+  /**
    * Returns whether or not this context is a MyDSpace status context
    */
   get isMyDSpaceStatus(): boolean {
