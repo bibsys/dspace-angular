@@ -2,6 +2,7 @@ import {
   Component,
   Injector,
   Input,
+  OnInit,
 } from '@angular/core';
 import {
   Router,
@@ -20,6 +21,10 @@ import { WorkflowItemDataService } from '../../../core/submission/workflowitem-d
 import { getWorkflowItemViewRoute } from '../../../workflowitems-edit-page/workflowitems-edit-page-routing-paths';
 import { NotificationsService } from '../../notifications/notifications.service';
 import { MyDSpaceActionsComponent } from '../mydspace-actions';
+import { VarDirective } from '../../utils/var.directive';
+import { AsyncPipe } from '@angular/common';
+import { getFirstCompletedRemoteData, getRemoteDataPayload } from 'src/app/core/shared/operators';
+import { Item } from 'src/app/core/shared/item.model';
 
 /**
  * This component represents actions related to WorkflowItem object.
@@ -29,14 +34,16 @@ import { MyDSpaceActionsComponent } from '../mydspace-actions';
   styleUrls: ['./workflowitem-actions.component.scss'],
   templateUrl: './workflowitem-actions.component.html',
   standalone: true,
-  imports: [NgbTooltipModule, RouterLink, TranslateModule],
+  imports: [NgbTooltipModule, RouterLink, TranslateModule, VarDirective, AsyncPipe],
 })
-export class WorkflowitemActionsComponent extends MyDSpaceActionsComponent<WorkflowItem, WorkflowItemDataService> {
+export class WorkflowitemActionsComponent extends MyDSpaceActionsComponent<WorkflowItem, WorkflowItemDataService> implements OnInit {
 
   /**
    * The WorkflowItem object
    */
   @Input() object: WorkflowItem;
+
+  viewRoute: string;
 
   /**
    * Initialize instance variables
@@ -55,6 +62,15 @@ export class WorkflowitemActionsComponent extends MyDSpaceActionsComponent<Workf
               protected searchService: SearchService,
               protected requestService: RequestService) {
     super(WorkflowItem.type, injector, router, notificationsService, translate, searchService, requestService);
+  }
+
+  ngOnInit(): void {
+    this.object?.item.pipe(
+      getFirstCompletedRemoteData(),
+      getRemoteDataPayload(),
+    ).subscribe((item: Item) => {
+      this.viewRoute = this.getItemPageRoute(item);
+    })
   }
 
   /**
