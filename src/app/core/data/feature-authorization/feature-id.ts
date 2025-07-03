@@ -5,6 +5,7 @@ export enum FeatureID {
   LoginOnBehalfOf = 'loginOnBehalfOf',
   AdministratorOf = 'administratorOf',
   HasRoleManager = 'hasRoleManager',
+  HasRoleJournalManager = 'hasRoleJournalManager',
   CanDelete = 'canDelete',
   CanEditMetadata = 'canEditMetadata',
   WithdrawItem = 'withdrawItem',
@@ -45,5 +46,5 @@ export enum FeatureID {
   CanViewInWorkflowSinceStatistics = 'canViewInWorkflowSinceStatistics',
   CanSeeComment = 'canSeeComment',
   CanCreateComment = 'canCreateComment',
-  CanDeleteComment = 'canDeleteComment'
+  CanDeleteComment = 'canDeleteComment',
 }
