@@ -1,0 +1,45 @@
+<div class="d-flex flex-column">
+  <div class="mb-2 w-100 d-flex flex-row">
+    <div class="flex-grow-1">
+      <ds-badges [object]="dso" [showAccessStatus]="false" [context]="context" [displayType]="true"/>
+    </div>
+    <div>
+      <ds-journal-ceased-status-badge [item]="dso" />
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-grow-1">
+    <!-- TITLE ==================================================== -->
+    <a *ngIf="linkType != linkTypes.None"
+       [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
+       [attr.rel]="(linkType == linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
+       [routerLink]="[itemPageRoute]"
+       [innerHTML]="[dso.firstMetadataValue('dc.title')]"
+       class="lead item-list-title dont-break-out"></a>
+    <div *ngIf="linkType == linkTypes.None"
+         class="lead item-list-title dont-break-out"
+         [innerHTML]="dso.firstMetadataValue('dc.title')"></div>
+    <!-- Publisher name && location -->
+    <ul class="mt-1 list-inline d-flex gapx-1">
+      <li *ngIf="publisher">{{ publisher }}</li>
+      <li *ngIf="publisherLocation">({{ publisherLocation }})</li>
+    </ul>
+    <!-- ISSN, e-ISSN, StatusCode && Peer-reviewed -->
+    <ul class="list-inline list-inline-with-divider m-0 mt-1">
+      <li *ngIf="issn">
+        <ds-item-identifier-display [fieldLabel]="'ISSN'"
+                                    [item]="dso"
+                                    [metadataField]="'dc.identifier.issn'"/>
+      </li>
+      <li *ngIf="eissn">
+        <ds-item-identifier-display [fieldLabel]="'e-ISSN'"
+                                    [item]="dso"
+                                    [metadataField]="'dc.identifier.eissn'"/>
+      </li>
+      <li>
+        {{ 'journal.listelement.peerreviewed' | translate }}:
+        <ds-journal-peer-reviewed [journal]="dso" [displayIcon]="true" [displayText]="false"/>
+      </li>
+
+    </ul>
+  </div>
+</div>
