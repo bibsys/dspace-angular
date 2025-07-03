@@ -14,7 +14,7 @@ export function getItemModuleRoute() {
  * @param item  The item to retrieve the route for
  */
 export function getItemPageRoute(item: Item) {
-  const type = item.firstMetadataValue('dspace.entity.type');
+  const type = item.entityType || item.firstMetadataValue('dspace.entity.type');
   let url = item.uuid;
 
   if (isNotEmpty(item.metadata) && isNotEmpty(item.metadata['cris.customurl'])) {

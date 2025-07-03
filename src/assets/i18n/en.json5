@@ -4614,7 +4614,7 @@
 
   "mydspace.status.mydspaceArchived": "Archived",
 
-  "mydspace.status.mydspaceValidation": "Validation",
+  "mydspace.status.mydspaceValidation": "Awating validation",
 
   "mydspace.status.mydspaceWaitingController": "Waiting for reviewer",
 
@@ -9355,6 +9355,29 @@
   "search.filters.accessType.restricted": "restricted",
   "search.filters.accessType.administrator": "closed",
   "search.filters.accessType.embargo": "embargo",
+
+  // -- Publication types
+  "publication.type.journal-article.heading": "Journal Article",
+  "publication.type.book.heading": "Book",
+  "publication.type.book-part.heading": "Book Chapter",
+  "publication.type.working-paper.heading": "Working Paper",
+  "publication.type.report.heading": "Report",
+  "publication.type.patent.heading": "Patent",
+  "publication.type.conference-speech.heading": "Conference Speech",
+  "publication.type.dissertation.heading": "Dissertation",
+  "publication.type.unknown.heading": "Unknown type",
+
+  "item.entity-type.publication": "Publication",
+  "item.entity-type.orgunit": "OrgUnit",
+  "item.entity-type.person": "Person",
+  "item.entity-type.journal": "Journal",
+  "item.entity-type.unknown": "Unknown Type",
+
+  // ETAL ToolTip
+  "search.result.publication.authors.etal.tooltip": "This publication contains additional authors to those displayed here. See full item details for a complete list.",
+
+  // -- EMPTY TITLE PLACEHOLDER
+  "publication.list.element.title.placeholder": "Unkown title",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Dutch",

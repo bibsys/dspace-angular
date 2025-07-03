@@ -11,6 +11,13 @@ ui:
   enableGoogleOwnershipTag: false
   # If enableGoogleOwnershipTag is set to true, set this property with google token.
   googleOwnershipTagValue: 'placeholder'
+
+item:
+  showAccessStatuses: true
+
+browseBy:
+  showThumbnails: false
+
 themes:
   - name: uclouvain
     headTags:
