@@ -36,6 +36,7 @@ import { TruncatableComponent } from '../../../truncatable/truncatable.component
 import { TruncatableService } from '../../../truncatable/truncatable.service';
 import { TruncatablePartComponent } from '../../../truncatable/truncatable-part/truncatable-part.component';
 import { AdditionalMetadataComponent } from '../../search-result-list-element/additional-metadata/additional-metadata.component';
+import { ViewMode } from 'src/app/core/shared/view-mode.model';
 
 /**
  * This component show metadata for the given item object in the list view.
@@ -80,6 +81,11 @@ export class ItemListPreviewComponent implements OnInit {
    * Represents the badge context
    */
   @Input() badgeContext: Context;
+
+  /**
+   * The preferred view-mode to display
+   */
+  @Input() viewMode: ViewMode = ViewMode.ListElement;
 
   /**
    * Whether to show the badge label or not
