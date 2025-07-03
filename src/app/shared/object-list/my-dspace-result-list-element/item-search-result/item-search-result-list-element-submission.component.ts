@@ -27,6 +27,9 @@ import { ThemedItemListPreviewComponent } from '../item-list-preview/themed-item
 @listableObjectComponent(ItemSearchResult, ViewMode.ListElement, Context.Workspace)
 @listableObjectComponent(ItemSearchResult, ViewMode.ListElement, Context.Workflow)
 export class ItemSearchResultListElementSubmissionComponent extends SearchResultListElementComponent<ItemSearchResult, Item> implements OnInit {
+
+  ViewModes = ViewMode;
+  
   /**
    * Represents the badge context
    */
