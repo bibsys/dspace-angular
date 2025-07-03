@@ -1405,6 +1405,9 @@
   // "browse.metadata.title": "Title",
   "browse.metadata.title": "Titre",
 
+  // "browse.metadata.publicationjournal": "Browse by Journal",
+  "browse.metadata.publicationjournal": "Parcourir par Revue",
+
   // "browse.metadata.author.breadcrumbs": "Browse by Author",
   "browse.metadata.author.breadcrumbs": "Parcourir par Auteur",
 
@@ -1416,6 +1419,9 @@
 
   // "browse.metadata.title.breadcrumbs": "Browse by Title",
   "browse.metadata.title.breadcrumbs": "Parcourir par Titre",
+
+  // "browse.metadata.publicationjournal.breadcrumbs": "Browse by Journal",
+  "browse.metadata.publicationjournal.breadcrumbs": "Parcourir par Revue",
 
   // "browse.next.button": "Next",
   "browse.next.button": "Suivant(e)",
@@ -1489,11 +1495,11 @@
   // "browse.startsWith.type_text": "Type the first few letters and click on the Browse button",
   "browse.startsWith.type_text": "Ou saisir les premières lettres puis cliquer sur le bouton « Parcourir »",
 
-  // "browse.title": "Browsing {{ collection }} by {{ field }} {{ value }}",
-  "browse.title": "Parcourir la collection {{ collection }} par {{ field }} {{ value }}",
+  // "browse.title": "Browsing by {{ field }}{{ startsWith }} {{ value }}",
+  "browse.title": "Parcourir par {{ field }}{{ startsWith }} {{ value }}",
 
-  //"browse.title.page": "Browsing {{ collection }} by {{ field }} {{ value }}",
-  "browse.title.page": "Parcourir la collection {{ collection }} par {{ field }} {{ value }}",
+  //"browse.title.page": "Browsing by {{ field }} {{ value }}",
+  "browse.title.page": "Parcourir par {{ field }} {{ value }}",
 
   //"search.browse.item-back": "Back to Results",
   "search.browse.item-back": "Retour aux résultats",
@@ -3850,6 +3856,18 @@
   // "item.edit.withdraw.success": "The item was withdrawn successfully",
   "item.edit.withdraw.success": "L'Item a été retiré avec succès",
 
+  // "item.identifier.dc.identifier.issn.copy.tooltip": "Copy ISSN",
+  "item.identifier.dc.identifier.issn.copy.tooltip": "Copier l'ISSN",
+
+  // "item.identifier.dc.identifier.eissn.copy.tooltip": "Copy e-ISSN",
+  "item.identifier.dc.identifier.eissn.copy.tooltip": "Copier l'e-ISSN",
+
+  // "item.identifier.copy.success": "Identifier successfully copied to clipboard!",
+  "item.identifier.copy.success": "Identifiant copié avec succès!",
+
+  // "item.identifier.copy.error": "An error occured, could not copy the identifier to the clipboard!",
+  "item.identifier.copy.error": "Une erreur c'est produite, l'identifiant n'a pas pu être copié!",
+
   // "item.listelement.badge": "Item",
   "item.listelement.badge": "Item",
 
@@ -3863,14 +3881,29 @@
   // "item.page.description": "Description",
   "item.page.description": "Description",
 
+  // "item.page.journal.type": "Journal",
+  "item.page.journal.type": "Revue",
+
   // "item.page.journal-issn": "Journal ISSN",
   "item.page.journal-issn": "ISSN de la revue",
+
+  // "item.page.journal-eissn": "Journal e-ISSN",
+  "item.page.journal-eissn": "e-ISSN de la revue",
 
   // "item.page.journal-title": "Journal Title",
   "item.page.journal-title": "Nom de la revue",
 
   // "item.page.publisher": "Publisher",
   "item.page.publisher": "Éditeur",
+
+  // "item.page.publisher.location": "Publisher location",
+  "item.page.publisher.location": "Localisation de l'éditeur",
+
+  // "item.page.peerreviewed": "Peer-reviewed",
+  "item.page.peerreviewed": "Validé par les pairs",
+
+  // "item.page.statuscode": "Status",
+  "item.page.statuscode": "Status",
 
   // "item.page.titleprefix": "Item: ",
   "item.page.titleprefix": "Item : ",
@@ -4234,6 +4267,27 @@
   // "journal.listelement.badge": "Journal",
   "journal.listelement.badge": "Revue",
 
+  // "journal.listelement.status": "Status",
+  "journal.listelement.status": "Status",
+
+  // "journal.listelement.status.active": "Active",
+  "journal.listelement.status.active": "Actif",
+
+  // "journal.listelement.status.ceased": "Ceased",
+  "journal.listelement.status.ceased": "Arrêté",
+
+  // "journal.listelement.status.unknown": "Unknown",
+  "journal.listelement.status.unknown": "Inconnu",
+
+  // "journal.listelement.peerreviewed": "Peer-reviewed",
+  "journal.listelement.peerreviewed": "Validé par les pairs",
+
+  // "journal.listelement.peerreviewed.true": "Yes",
+  "journal.listelement.peerreviewed.true": "Oui",
+
+  // "journal.listelement.peerreviewed.false": "No",
+  "journal.listelement.peerreviewed.false": "Non",
+
   // "journal.page.description": "Description",
   "journal.page.description": "Description",
 
@@ -4455,6 +4509,9 @@
 
   // "menu.section.mydspace_shortcut": "MyDial.pr",
   "menu.section.mydspace_shortcut": "MyDIAL.pr",
+
+  // "menu.section.manage_journal": "Manage journals",
+  "menu.section.manage_journal": "Gestions des revues",
 
   //"menu.section.reports": "Reports",
   "menu.section.reports": "Rapports",
@@ -5920,6 +5977,32 @@
 
   // "search.filters.filter.accessType.placeholder": "Access type",
   "search.filters.filter.accessType.placeholder": "Rechercher un type d'accès...",
+
+  "search.filters.filter.journalPublisher.head": "Éditeur",
+
+  "search.filters.filter.journalPublisher.label": "Rechercher un éditeur",
+
+  "search.filters.filter.journalPublisher.placeholder": "Rechercher un éditeur",
+
+  "search.filters.applied.f.journalPublisher": "Éditeur",
+
+  "search.filters.filter.journalPeerReviewed.head": "Validation par les pairs",
+
+  "search.filters.applied.f.journalPeerReviewed": "Validation par les pairs",
+
+  "search.filters.journalPeerReviewed.true": "Validé",
+
+  "search.filters.journalPeerReviewed.false": "Non-validé",
+
+  "search.filters.filter.journalStatusCode.head": "Status de diffusion du journal",
+
+  "search.filters.applied.f.journalStatusCode": "Status du journal",
+
+  "search.filters.journalStatusCode.Active": "Actif",
+
+  "search.filters.journalStatusCode.Ceased": "Arrêté",
+
+  "search.filters.journalStatusCode.Unknown": "Inconnu",
 
   // "search.filters.entityType.JournalIssue": "Journal Issue",
   "search.filters.entityType.JournalIssue": "Numéro de revue",
@@ -7495,6 +7578,9 @@
 
   //"supervision.search.results.head": "Workflow and Workspace tasks",
   "supervision.search.results.head": "Tableau de suivi et dépôts en cours",
+
+  // "journals.search.results.head": "Journals",
+  "journals.search.results.head": "Journaux",
 
   // "workflow-item.edit.breadcrumbs": "Edit workflowitem",
   "workflow-item.edit.breadcrumbs": "Éditer l'Item du Workflow",
@@ -9404,5 +9490,8 @@
   "languages.iso-639-2.other": "Autre",
 
   "from": "à partir du",
+
+  "form.other-information.journal.searchresult.info": "ISSN",
+  "form.other-information.journal.searchresult.ceased": "Status",
 }
 

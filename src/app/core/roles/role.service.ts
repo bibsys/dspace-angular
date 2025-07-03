@@ -64,6 +64,19 @@ export class RoleService {
   }
 
   /**
+   * Check if the user can manager journal items.
+   */
+  isJournalManager(): Observable<boolean> {
+    return this.authService
+      .getAuthenticatedUserFromStore()
+      .pipe(
+        switchMap(
+          (eperson: EPerson) => this.authorizationService.isAuthorized(FeatureID.HasRoleJournalManager, eperson.self)
+        ),
+      );
+  }
+
+  /**
    * Check if current user by role type
    *
    * @param {RoleType} role
@@ -77,6 +90,9 @@ export class RoleService {
         break;
       case RoleType.Controller:
         check = this.isController();
+        break;
+      case RoleType.JournalManager:
+        check = this.isJournalManager();
         break;
       case RoleType.Admin:
         check = this.isAdmin();

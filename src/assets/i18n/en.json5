@@ -1275,6 +1275,8 @@
 
   "browse.metadata.rsoTitle": "Research Outputs Title",
 
+  "browse.metadata.publicationjournal": "Journal",
+
   "browse.metadata.author.breadcrumbs": "Browse by Author",
 
   "browse.metadata.dateissued.breadcrumbs": "Browse by Date",
@@ -1308,6 +1310,8 @@
   "browse.metadata.type.breadcrumbs": "Browse by Type",
 
   "browse.metadata.title.breadcrumbs": "Browse by Title",
+
+  "browse.metadata.publicationjournal.breadcrumbs": "Browse by Journal",
 
   "pagination.next.button": "Next",
 
@@ -3523,6 +3527,12 @@
 
   "item.orcid.return": "Back",
 
+  "item.identifier.dc.identifier.issn.copy.tooltip": "Copy ISSN",
+  "item.identifier.dc.identifier.eissn.copy.tooltip": "Copy e-ISSN",
+
+  "item.identifier.copy.success": "Identifier successfully copied to clipboard!",
+  "item.identifier.copy.error": "An error occurred, could not copy the identifier to the clipboard!",
+
   "item.listelement.badge": "Item",
 
   "item.page.comment.by": "By: ",
@@ -3534,11 +3544,21 @@
 
   "item.page.description": "Description",
 
+  "item.page.journal.type": "Journal",
+
   "item.page.journal-issn": "Journal ISSN",
+
+  "item.page.journal-eissn": "Journal e-ISSN",
 
   "item.page.journal-title": "Journal Title",
 
   "item.page.publisher": "Publisher",
+
+  "item.page.publisher.location": "Publisher location",
+
+  "item.page.peerreviewed": "Peer-reviewed",
+
+  "item.page.statuscode": "Status",
 
   "item.page.titleprefix": "Item: ",
 
@@ -4136,6 +4156,20 @@
 
   "journal.listelement.badge": "Journal",
 
+  "journal.listelement.status": "Status",
+
+  "journal.listelement.status.active": "Active",
+
+  "journal.listelement.status.ceased": "Ceased",
+
+  "journal.listelement.status.unknown": "Unknown",
+
+  "journal.listelement.peerreviewed": "Peer-reviewed",
+
+  "journal.listelement.peerreviewed.true": "Yes",
+
+  "journal.listelement.peerreviewed.false": "No",
+
   "journal.page.description": "Description",
 
   "journal.page.edit": "Edit this item",
@@ -4458,6 +4492,8 @@
   "menu.section.import_metadata": "Metadata",
 
   "menu.section.mydspace_shortcut": "MyDial.pr",
+
+  "menu.section.manage_journal": "Manage journals",
 
   "menu.section.new": "New",
 
@@ -5936,6 +5972,22 @@
 
   "search.filters.filter.accessType.placeholder": "Search an access type...",
 
+  "search.filters.filter.journalPublisher.head": "Publisher",
+
+  "search.filters.filter.journalPublisher.label": "Search a publisher",
+
+  "search.filters.filter.journalPublisher.placeholder": "Search for a publisher",
+
+  "search.filters.applied.f.journalPublisher": "Publisher",
+
+  "search.filters.filter.journalPeerReviewed.head": "Peer-reviewed",
+
+  "search.filters.applied.f.journalPeerReviewed": "Peer-reviewed",
+
+  "search.filters.filter.journalStatusCode.head": "Journal diffusion status",
+
+  "search.filters.applied.f.journalStatusCode": "Journal status",
+
   "search.filters.entityType.JournalIssue": "Journal Issue",
 
   "search.filters.entityType.JournalVolume": "Journal Volume",
@@ -6298,6 +6350,10 @@
   "form.other-information.miur.journal.enddate": "End Date",
 
   "form.other-information.dc.identifier.issn": "ISSN",
+
+  "form.other-information.journal.searchresult.info": "ISSN",
+
+  "form.other-information.journal.searchresult.ceased": "Status",
 
   "statistics.table.downloadReports.title.TotalVisits": "Most downloaded",
 
@@ -7758,6 +7814,8 @@
   "workflow.search.results.head": "Workflow tasks",
 
   "supervision.search.results.head": "Workflow and Workspace tasks",
+
+  "journals.search.results.head": "Journals",
 
   "orgunit.search.results.head": "Organizational Unit Search Results",
 
