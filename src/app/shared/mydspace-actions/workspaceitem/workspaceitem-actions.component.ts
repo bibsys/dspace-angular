@@ -24,6 +24,7 @@ import {
   BehaviorSubject,
   Observable,
   switchMap,
+  tap,
 } from 'rxjs';
 import { AuthorizationDataService } from 'src/app/core/data/feature-authorization/authorization-data.service';
 
@@ -43,6 +44,7 @@ import { WorkspaceitemDataService } from '../../../core/submission/workspaceitem
 import { getWorkspaceItemViewRoute } from '../../../workspaceitems-edit-page/workspaceitems-edit-page-routing-paths';
 import { NotificationsService } from '../../notifications/notifications.service';
 import { MyDSpaceActionsComponent } from '../mydspace-actions';
+import { VarDirective } from '../../utils/var.directive';
 
 /**
  * This component represents actions related to WorkspaceItem object.
@@ -52,7 +54,7 @@ import { MyDSpaceActionsComponent } from '../mydspace-actions';
   styleUrls: ['./workspaceitem-actions.component.scss'],
   templateUrl: './workspaceitem-actions.component.html',
   standalone: true,
-  imports: [NgbTooltipModule, RouterLink, NgIf, AsyncPipe, TranslateModule],
+  imports: [NgbTooltipModule, RouterLink, NgIf, AsyncPipe, TranslateModule, VarDirective, AsyncPipe],
 })
 export class WorkspaceitemActionsComponent extends MyDSpaceActionsComponent<WorkspaceItem, WorkspaceitemDataService> implements OnInit {
 
@@ -74,6 +76,8 @@ export class WorkspaceitemActionsComponent extends MyDSpaceActionsComponent<Work
    * @type {Observable<boolean>}
    */
   canEditItem$: Observable<boolean>;
+
+  viewRoute: string;
 
   /**
    * Initialize instance variables
@@ -133,6 +137,13 @@ export class WorkspaceitemActionsComponent extends MyDSpaceActionsComponent<Work
           }),
         ) as Observable<boolean>;
       }));
+
+    this.object?.item.pipe(
+      getFirstCompletedRemoteData(),
+      getRemoteDataPayload(),
+    ).subscribe(item => {
+      this.viewRoute = this.getItemPageRoute(item);
+    })
   }
 
   /**
