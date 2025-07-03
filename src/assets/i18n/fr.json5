@@ -4778,7 +4778,7 @@
   "mydspace.show.supervisedWorkspace": "Items supervisés",
 
   // "mydspace.status.mydspaceArchived": "Archived",
-  "mydspace.status.mydspaceArchived": "Archivés",
+  "mydspace.status.mydspaceArchived": "Archivé",
 
   // "mydspace.status.mydspaceValidation": "Validation",
   "mydspace.status.mydspaceValidation": "En cours de validation",
@@ -9281,6 +9281,55 @@
   "search.filters.accessType.restricted": "accès restreint",
   "search.filters.accessType.administrator": "accès interdit",
   "search.filters.accessType.embargo": "accès embargo",
+
+  // -- Publication types --
+  // "publication.type.journal-article.heading": "Journal Article",
+  "publication.type.journal-article.heading": "Article de périodique",
+
+  // "publication.type.book.heading": "Book",
+  "publication.type.book.heading": "Monographie",
+
+  // "publication.type.book-part.heading": "Book Chapter",
+  "publication.type.book-part.heading": "Contribution à un ouvrage collectif",
+
+  // "publication.type.working-paper.heading": "Working Paper",
+  "publication.type.working-paper.heading": "Document de travail",
+
+  // "publication.type.report.heading": "Report",
+  "publication.type.report.heading": "Rapport",
+
+  // "publication.type.patent.heading": "Patent",
+  "publication.type.patent.heading": "Brevet",
+
+  // "publication.type.conference-speech.heading": "Conference Speech",
+  "publication.type.conference-speech.heading": "Communication à un colloque",
+
+  // "publication.type.dissertation.heading": "Dissertation",
+  "publication.type.dissertation.heading": "Thèse",
+
+  // "publication.type.unknown.heading": "Unknown type",
+  "publication.type.unknown.heading": "Type inconnu",
+
+  // "item.entity-type.publication": "Publication",
+  "item.entity-type.publication": "Publication",
+
+  // "item.entity-type.orgunit": "OrgUnit",
+  "item.entity-type.orgunit": "Oganisation",
+
+  // "item.entity-type.person": "Person",
+  "item.entity-type.person": "Personne",
+
+  // "item.entity-type.journal": "Journal",
+  "item.entity-type.journal": "Journal",
+
+  // "item.entity-type.unknown": "Unknown Type",
+  "item.entity-type.unknown": "Type inconnu",
+
+  // ETAL ToolTip
+  "search.result.publication.authors.etal.tooltip": "Cette publication contient des auteurs additionnels à ceux affiché ici. Voir les détails de la publication pour une liste complète.",
+
+  // -- EMPTY TITLE PLACEHOLDER
+  "publication.list.element.title.placeholder": "Titre inconnu",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",
