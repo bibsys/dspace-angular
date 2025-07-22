@@ -3889,6 +3889,14 @@
   // "item.identifier.copy.error": "An error occured, could not copy the identifier to the clipboard!",
   "item.identifier.copy.error": "Une erreur c'est produite, l'identifiant n'a pas pu être copié!",
 
+  "item.journal.delete.button": "Supprimer la revue",
+  "item.journal.delete.button.loading": "Suppression en cours...",
+  "item.journal.delete.confirm.message": "Êtes-vous sûr de vouloir supprimer cette revue? Toutes les données liées seront perdues.",
+  "item.journal.delete.header": "Supprimer la revue",
+  "item.journal.delete.menu": "Supprimer la revue",
+  "item.journal.deleted.success": "Revue supprimée avec succès!",
+  "item.journal.deleted.error": "Erreur lors de la suppression de la revue! Cela pourrait être dû à un manque de permission, vérifier auprès de l'adinistrateur système.",
+
   // "item.listelement.badge": "Item",
   "item.listelement.badge": "Item",
 

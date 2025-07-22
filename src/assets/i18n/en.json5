@@ -3533,6 +3533,14 @@
   "item.identifier.copy.success": "Identifier successfully copied to clipboard!",
   "item.identifier.copy.error": "An error occurred, could not copy the identifier to the clipboard!",
 
+  "item.journal.delete.button": "Delete journal",
+  "item.journal.delete.button.loading": "Processing journal deletion...",
+  "item.journal.delete.confirm.message": "Are you sure you want to delete this journal ? The journal object will be lost forever.",
+  "item.journal.delete.header": "Delete journal",
+  "item.journal.delete.menu": "Delete journal",
+  "item.journal.deleted.success": "Journal successfully deleted!",
+  "item.journal.deleted.error": "Could not delete journal. It might be a permission issue, check with the system administrator.",
+
   "item.listelement.badge": "Item",
 
   "item.page.comment.by": "By: ",
