@@ -1,0 +1,28 @@
+<button *ngIf="(isAuthorized$ | async)"
+        class="dropdown-item"
+        [innerHTML]="'item.journal.delete.menu' | translate"
+        (click)="openConfirmModal(confirmDeleteModal)">
+</button>
+
+<ng-template #confirmDeleteModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{ 'item.journal.delete.header' | translate }}</h4>
+    <button type="button"
+            class="close"
+            aria-label="Close"
+            (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="alert alert-danger" role="alert">
+      {{ 'item.journal.delete.confirm.message' | translate }}
+    </div>
+    <button id="btn-chat"
+            class="btn btn-danger btn-lg btn-block mt-3"
+            (click)="deleteJournal()">
+      <span *ngIf="processing$ | async"><i class='fas fa-circle-notch fa-spin'></i>{{ 'item.journal.delete.button.loading' | translate }}</span>
+      <span *ngIf="!(processing$ | async)">{{ 'item.journal.delete.button' | translate }}</span>
+    </button>
+  </div>
+</ng-template>
