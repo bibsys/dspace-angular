@@ -2147,6 +2147,27 @@
 
   "context-menu.actions.comment-item.btn": "Commentaires",
 
+  // "context-menu.actions.dso-page-edit.COMMUNITY.btn": "Administer",
+  "context-menu.actions.dso-page-edit.COMMUNITY.btn": "Administrer",
+
+  // "context-menu.actions.dso-page-edit.COLLECTION.btn": "Administer",
+  "context-menu.actions.dso-page-edit.COLLECTION.btn": "Administrer",
+
+  // "context-menu.actions.dso-page-edit.ITEM.btn": "Administer",
+  "context-menu.actions.dso-page-edit.ITEM.btn": "Administrer",
+
+  // "context-menu.actions.edit-item.btn.FULL": "Edit all the details",
+  "context-menu.actions.edit-item.btn.FULL": "Editer les métadonnées",
+
+  // "context-menu.actions.show-all-metadata": "Show all metadata (technical view)",
+  "context-menu.actions.show-all-metadata": "Voir toutes les métadonnées",
+
+  // "context-menu.actions.statistics.btn": "Statistics",
+  "context-menu.actions.statistics.btn": "Statistiques",
+
+  // "context-menu.actions.subscribe.btn": "Subscribe",
+  "context-menu.actions.subscribe.btn": "S'abonner",
+
   // "cookies.consent.accept-all": "Accept all",
   "cookies.consent.accept-all": "Accepter tout",
 
@@ -2310,7 +2331,7 @@
   "dso-selector.create.item.head": "Créer un nouveau document",
 
   // "dso-selector.create.item.sub-level": "Create a new item in",
-  "dso-selector.create.item.sub-level": "Sélectionnez le type d'objet à créer",
+  "dso-selector.create.item.sub-level": "Sélectionnez le type de document à créer",
 
   // "dso-selector.create.submission.head": "New submission",
   "dso-selector.create.submission.head": "Nouveau dépôt",
@@ -2519,11 +2540,11 @@
 
   // "explore.browse-section.title": "Browse",
   // TODO New key - Add a translation
-  "explore.browse-section.title": "Browse",
+  "explore.browse-section.title": "Parcourir",
 
   // "explore.counters-section.rprofiles": "People",
   // TODO New key - Add a translation
-  "explore.counters-section.rprofiles": "People",
+  "explore.counters-section.rprofiles": "Personnes",
 
   // "explore.counters-section.publications": "Research outputs",
   // TODO New key - Add a translation
@@ -2535,7 +2556,7 @@
 
   // "explore.facet-section.title": "Discover",
   // TODO New key - Add a translation
-  "explore.facet-section.title": "Discover",
+  "explore.facet-section.title": "Découvrir",
 
   // "explore.index.all": "All",
   // TODO New key - Add a translation
@@ -2802,15 +2823,15 @@
 
   // "explore.search-section.researcherprofiles.title": "Search People",
   // TODO New key - Add a translation
-  "explore.search-section.researcherprofiles.title": "Search People",
+  "explore.search-section.researcherprofiles.title": "Rechercher des personnes",
 
   // "explore.search-section.search-button": "Search",
   // TODO New key - Add a translation
-  "explore.search-section.search-button": "Search",
+  "explore.search-section.search-button": "Rechercher",
 
   // "explore.search-section.reset-button": "Reset",
   // TODO New key - Add a translation
-  "explore.search-section.reset-button": "Reset",
+  "explore.search-section.reset-button": "Restaurer",
 
   // "explore.infrastructure.breadcrumbs": "Infrastructure",
   // TODO New key - Add a translation
@@ -2842,7 +2863,7 @@
 
   // "explore.researcherprofiles.breadcrumbs": "People",
   // TODO New key - Add a translation
-  "explore.researcherprofiles.breadcrumbs": "People",
+  "explore.researcherprofiles.breadcrumbs": "Personnes",
 
   // "explore.title": "Explore section",
   // TODO New key - Add a translation
@@ -4493,6 +4514,9 @@
   // TODO New key - Add a translation
   "menu.section.explore_researchoutputs": "Recherche avancée",
 
+  // "menu.section.explore_researcherprofiles": "People",
+  "menu.section.explore_researcherprofiles": "Personnes",
+
   // "menu.section.browse_global_by_subject": "By Subject",
   "menu.section.browse_global_by_subject": "Sujet",
 
@@ -4835,6 +4859,9 @@
   // "nav.mydspace": "MyDSpace",
   "nav.mydspace": "Mon compte DIAL.pr",
 
+  // "nav.processes": "My Processes",
+  "nav.processes": "Mes processus",
+
   // "nav.profile": "Profile",
   "nav.profile": "Profil",
 
@@ -5045,6 +5072,15 @@
   // "process.overview.table.finish": "Finish time (UTC)",
   "process.overview.table.finish": "Heure de fin (TUC)",
 
+  // "process.overview.table.empty": "No matching processes found.",
+  "process.overview.table.empty": "Aucun processus correspondant trouvé.",
+
+  // "process.overview.table.completed.title": "Succeeded processes",
+  "process.overview.table.completed.title": "Processus réussis",
+
+  // "process.overview.table.failed.title": "Failed processes",
+  "process.overview.table.failed.title": "Processus en échec",
+
   // "process.overview.table.id": "Process ID",
   "process.overview.table.id": "ID du processus",
 
@@ -5053,6 +5089,15 @@
 
   // "process.overview.table.start": "Start time (UTC)",
   "process.overview.table.start": "Heure de début (TUC)",
+
+  // "process.overview.table.running.title": "Running processes",
+  "process.overview.table.running.title": "Processus en cours",
+
+  // "process.overview.table.scheduled.info": "Creation time (UTC)",
+  "process.overview.table.scheduled.info": "Heure de création (UTC)",
+
+  // "process.overview.table.scheduled.title": "Scheduled processes",
+  "process.overview.table.scheduled.title": "Processus planifiés",
 
   // "process.overview.table.status": "Status",
   "process.overview.table.status": "Statut",
@@ -5100,6 +5145,9 @@
 
   // "profile.card.identify": "Identify",
   "profile.card.identify": "Identification",
+
+  // "profile.card.researcher": "Researcher Profile",
+  "profile.card.researcher": "Fiche personnelle",
 
   // "profile.card.security": "Security",
   "profile.card.security": "Sécurité",
