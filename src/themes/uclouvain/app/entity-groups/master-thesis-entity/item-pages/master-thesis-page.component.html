@@ -6,21 +6,11 @@
 
 <div class="row mt-3 mb-5">
     <article class="col-9">
-        <!-- HEADER :: Thumbnail + title, authors, date -->
-        <div class="clearfix pb-3 d-flex header">
-            <div class="pb-2 pr-3 thumbnail-or-media">
-                <ds-metadata-field-wrapper *ngIf="!(mediaViewer.image || mediaViewer.video)" [hideIfNoTextContent]="false">
-                    <ds-thumbnail [thumbnail]="object?.thumbnail | async"></ds-thumbnail>
-                </ds-metadata-field-wrapper>
-                <div *ngIf="mediaViewer.image || mediaViewer.video" class="mb-2">
-                    <ds-media-viewer [item]="object"></ds-media-viewer>
-                </div>
-            </div>
-            <div class="flex-grow-1">
-                <ds-item-page-title-field [item]="object"></ds-item-page-title-field>
-                <ds-generic-item-page-field [item]="object" [fields]="['dc.contributor.author']" [separator]="' ; '"></ds-generic-item-page-field>
-                <span *ngIf="dsoDate">({{ dsoDate }})</span>
-            </div>
+        <!-- HEADER :: title, authors, date -->
+        <div class="clearfix mb-5 header">
+            <ds-item-page-title-field [item]="object"></ds-item-page-title-field>
+            <ds-generic-item-page-field [item]="object" [fields]="['dc.contributor.author']" [separator]="' ; '"></ds-generic-item-page-field>
+            <span *ngIf="dsoDate">({{ dsoDate }})</span>
         </div>
         <!-- DOWNLOADS -->
         <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
