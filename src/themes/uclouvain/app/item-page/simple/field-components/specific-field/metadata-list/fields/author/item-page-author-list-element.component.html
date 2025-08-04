@@ -1,0 +1,37 @@
+<div *ngIf="isNotEmpty(authorsToDisplay)">
+  <ul class="pl-4 mb-0">
+    <ng-container *ngFor="let author of authorsToDisplay">
+      <li class="mb-1" *ngIf="author.displayed | async">
+        <div class="d-flex">
+          <span *ngIf="isNotEmpty(author.mv)">
+            <ds-item-link-view *ngIf="author.hasAuthority" [metadataValue]="author.mv" />
+            <!-- TODO: If not authority present, we should redirect to a search -->
+            <ds-item-link-view *ngIf="!author.hasAuthority" [metadataValue]="author.mv" />
+          </span>
+          <span *ngIf="isNotEmpty(author.orcid)" class="ml-1">
+            <img placement="top"
+                 ngbTooltip="{{ 'orcid.badge.tooltip' | translate }}"
+                 class="orcid-icon"
+                 alt="orcid-logo"
+                 src="assets/images/orcid.logo.icon.svg" />
+          </span>
+          <span *ngIf="isNotEmpty(author.role)" class="ml-2 text-muted font-italic">({{ author.role }})</span>
+          <span *ngIf="isNotEmpty(author.institution)" class="ml-2">{{ author.institution }}</span>
+        </div>
+      </li>
+    </ng-container>
+    <li *ngIf="hasEtal" class="mb-1">
+      et. al.
+    </li>
+  </ul>
+  <ng-container *ngIf="canExpand">
+    <a *ngIf="!(displayAll | async)" (click)="expandView()">
+      <i class="fa-solid fa-chevron-down"></i>
+      {{ 'item.truncatable-part.show-more' | translate }}
+    </a>
+    <a *ngIf="displayAll | async" (click)="shortenView()">
+      <i class="fa-solid fa-chevron-up"></i>
+      {{ 'item.truncatable-part.show-less' | translate }}
+    </a>
+  </ng-container>
+</div>
