@@ -32,9 +32,7 @@
             <ng-container *ngIf="object.hasMetadata('dc.contributor.author')">
               <dt>{{ "item.page.author" | translate }}</dt>
               <dd>
-                <ds-item-page-metadata-list [item]="object"
-                                            metadataField="dc.contributor.author"
-                                            truncateMinSpace="6"/>
+                <ds-item-page-author-list-element [item]="object"/>
               </dd>
             </ng-container>
             <ng-container *ngIf="object.hasMetadata('dc.contributor.advisor')">
