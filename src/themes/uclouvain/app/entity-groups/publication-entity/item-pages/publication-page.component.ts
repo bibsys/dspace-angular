@@ -25,6 +25,7 @@ import { Router } from '@angular/router';
 import { ItemCitationsService } from '../citations/item-citations.service';
 import { Observable } from 'rxjs';
 import { PublicationPageCitationsComponent } from './publication-page-citations/publication-page-citations.component';
+import { ItemPageAuthorListElementComponent } from '../../../item-page/simple/field-components/specific-field/metadata-list/fields/author/item-page-author-list-element.component';
 
 @listableObjectComponent('Publication', ViewMode.StandalonePage, Context.Any, 'uclouvain')
 @Component({
@@ -51,6 +52,7 @@ import { PublicationPageCitationsComponent } from './publication-page-citations/
 		ItemPageMetadataListComponent,
 		ItemPageAbstractCustomFieldComponent,
 		PublicationPageCitationsComponent,
+		ItemPageAuthorListElementComponent,
 	],
 })
 export class PublicationPageComponent extends ItemComponent implements OnInit {
