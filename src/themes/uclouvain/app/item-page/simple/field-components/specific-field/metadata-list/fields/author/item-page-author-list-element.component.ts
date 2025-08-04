@@ -7,7 +7,12 @@ import { AsyncPipe, NgFor, NgIf } from "@angular/common";
 import { ItemLinkViewComponent } from "src/themes/uclouvain/app/shared/item-link-view/item-link-view.component";
 import { NgbTooltipModule } from "@ng-bootstrap/ng-bootstrap";
 import { TranslateModule } from "@ngx-translate/core";
-import { BehaviorSubject, Observable, of } from "rxjs";
+import { BehaviorSubject, map, Observable, of, switchAll, switchMap } from "rxjs";
+import { VocabularyService } from "src/app/core/submission/vocabularies/vocabulary.service";
+import { getFirstSucceededRemoteDataPayload } from "src/app/core/shared/operators";
+import { PUBLICATION_ROLES_VOCABULARIES_MAPPING } from "src/themes/uclouvain/app/entity-groups/publication-entity/type-label-mapping";
+import { followLink } from "src/app/shared/utils/follow-link-config.model";
+import { VocabularyEntry } from "src/app/core/submission/vocabularies/models/vocabulary-entry.model";
 
 /**
  * Renders a list of element for an author.
@@ -43,10 +48,16 @@ export class ItemPageAuthorListElementComponent implements OnInit {
   protected authorsToDisplay: AuthorListElement[] = [];
   protected canExpand = false;
   protected hasEtal = false;
+  protected roleEntries: VocabularyEntry[];
 
   protected readonly CO_LAST_AUTHOR_ROLE = 'co_last_author';
 
+  constructor(
+    protected vocabularyService: VocabularyService,
+  ) {}
+
   ngOnInit(): void {
+    this.getRoleEntries().subscribe(entries => this.roleEntries = entries);
     this.hasEtal = this.item.firstMetadataValue('dc.contributor.etal') === 'true';
     let authorsMvs = this.item.allMetadata(this.metadataField);
 
@@ -81,6 +92,13 @@ export class ItemPageAuthorListElementComponent implements OnInit {
     return isNotEmpty(author.role) && (author.role === this.CO_LAST_AUTHOR_ROLE);
   }
 
+  /**
+   * Get a metadata value for a specific metadata field at a precise place.
+   * @param item The item to get a metadata value from.
+   * @param field The field to get a value for.
+   * @param place The place to get the value of.
+   * @returns The value for the metadata field at the given place. Could be undefined if not found.
+   */
   getMetadataValue(item: Item, field: string, place: number) {
     return item.findMetadataSortedByPlace(field)[place];
   }
@@ -88,6 +106,39 @@ export class ItemPageAuthorListElementComponent implements OnInit {
   isUCLouvainAuthor(author: AuthorListElement): boolean {
     // TODO: Update this to check for uclouvain membership.
     return isNotEmpty(author.mv?.authority);
+  }
+
+  /**
+   * Browse all role entries to find the right display role for a given role string.
+   * If no matching role is found, return the string as is.
+   * If a matching role is found, return the display version of it.
+   * 
+   * @param role The role value to get a display version of. 
+   * @returns The display version of the role if found, else the given value.
+   */
+  getDisplayRole(role: string): string {
+    return this.roleEntries?.find(entry => entry.value === role)?.display || role;
+  }
+
+  /**
+   * Retrieve all the possible author roles for the current item 'maintype'.
+   * Each 'maintype' is linked to a specific vocabulary name in the mapping 'PUBLICATION_ROLES_VOCABULARIES_MAPPING'.
+   * Each vocabulary name can be used to retrieve the corresponding roles list. 
+   *   
+   * @returns An observable of a vocabulary list containing all author roles for the current item. 
+   */
+  getRoleEntries(): Observable<VocabularyEntry[] | undefined> {
+    let vocabularyName = PUBLICATION_ROLES_VOCABULARIES_MAPPING[this.item.firstMetadataValue('dc.type.maintype')];
+    if (isEmpty(vocabularyName)) {
+      return of(undefined);
+    }
+    return this.vocabularyService.findVocabularyById(vocabularyName, true, false, followLink('entries')).pipe(
+      getFirstSucceededRemoteDataPayload(),
+      switchMap(vocabulary => vocabulary.entries.pipe(
+        getFirstSucceededRemoteDataPayload(),
+        map(entry => entry.page)
+      )),
+    );
   }
 
   expandView() {
