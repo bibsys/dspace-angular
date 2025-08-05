@@ -55,6 +55,8 @@ import { CustomCheckboxComponent } from './models/checkbox/checkbox.component';
 import { DsDynamicRelationInlineLabeledGroupComponent } from './models/relation-inline-labeled-group/dynamic-relation-inline-labeled-group.component';
 import { DsYearPickerComponent } from './models/year-picker/year-picker.component';
 import { DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER } from './models/year-picker/year-picker.model';
+import { DYNAMIC_FROM_CONTROL_TYPE_HIDDEN } from './models/hidden/dynamic-hidden.model';
+import { DsDynamicHiddenComponent } from './models/hidden/dynamic-hidden.component';
 
 export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<DynamicFormControl> | null {
   const datepickerModel = model as DynamicDatePickerModel;
@@ -90,6 +92,9 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FORM_CONTROL_TYPE_SELECT:
       return DynamicNGBootstrapSelectComponent;
+
+    case DYNAMIC_FROM_CONTROL_TYPE_HIDDEN:
+      return DsDynamicHiddenComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_TEXTAREA:
       return DynamicNGBootstrapTextAreaComponent;

@@ -71,6 +71,7 @@ import { DYNAMIC_FORM_CONTROL_TYPE_SCROLLABLE_DROPDOWN } from './ds-dynamic-form
 import { DYNAMIC_FORM_CONTROL_TYPE_TAG } from './ds-dynamic-form-ui/models/tag/dynamic-tag.model';
 import { FormFieldMetadataValueObject } from './models/form-field-metadata-value.model';
 import { RowParser } from './parsers/row-parser';
+import { DynamicHiddenModel } from './ds-dynamic-form-ui/models/hidden/dynamic-hidden.model';
 
 @Injectable({ providedIn: 'root' })
 export class FormBuilderService extends DynamicFormService {
@@ -610,7 +611,7 @@ export class FormBuilderService extends DynamicFormService {
     [...this.formModels.keys()].forEach((formId) => {
       const models = this.formModels.get(formId);
       let fieldModel: any = this.findById(fieldId, models);
-      if (hasValue(fieldModel) && !fieldModel.hidden) {
+      if (hasValue(fieldModel) && (!fieldModel.hidden || fieldModel instanceof DynamicHiddenModel)) {
         const isIterable = (typeof value[Symbol.iterator] === 'function');
         if (isNotEmpty(value)) {
           if (fieldModel.repeatable && isNotEmpty(fieldModel.value) && !(!isIterable && fieldModel instanceof DynamicRelationGroupModel)) {
