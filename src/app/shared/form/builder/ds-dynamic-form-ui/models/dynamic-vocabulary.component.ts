@@ -35,6 +35,7 @@ import { SubmissionService } from '../../../../../submission/submission.service'
 import {
   hasValue,
   isEmpty,
+  isUndefined,
   isNotEmpty,
 } from '../../../../empty.util';
 import { VocabularyExternalSourceComponent } from '../../../../vocabulary-external-source/vocabulary-external-source.component';
@@ -298,8 +299,16 @@ export abstract class DsDynamicVocabularyComponent extends DynamicFormControlCom
   }
 
   getOtherInformationValue(value: string, key: string): FormFieldMetadataValueObject {
-    if (isEmpty(value) || key === 'alternative-names' ) {
+    if (key === 'alternative-names' ){
       return null;
+    } else if (isUndefined(value)) {
+      // Allow using undefined values to empty a field
+      return new FormFieldMetadataValueObject(
+        '',
+        null,
+        null,
+        ''
+      );
     }
 
     let returnValue;

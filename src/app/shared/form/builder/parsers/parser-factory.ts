@@ -27,6 +27,7 @@ import { SeriesFieldParser } from './series-field-parser';
 import { TagFieldParser } from './tag-field-parser';
 import { TextareaFieldParser } from './textarea-field-parser';
 import { YearFieldParser } from './year-field-parser';
+import { HiddenFieldParser } from './hidden-field-parser';
 
 const fieldParserDeps = [
   SUBMISSION_ID,
@@ -147,6 +148,13 @@ export class ParserFactory {
         return {
           provide: FieldParser,
           useClass: YearFieldParser,
+          deps: [...fieldParserDeps]
+        };
+      }
+      case ParserType.Hidden: {
+        return {
+          provide: FieldParser,
+          useClass: HiddenFieldParser,
           deps: [...fieldParserDeps]
         };
       }

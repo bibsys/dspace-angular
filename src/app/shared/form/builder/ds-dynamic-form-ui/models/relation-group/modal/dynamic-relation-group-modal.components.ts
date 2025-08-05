@@ -64,6 +64,7 @@ import { FormFieldMetadataValueObject } from '../../../../models/form-field-meta
 import { PLACEHOLDER_PARENT_METADATA } from '../../../ds-dynamic-form-constants';
 import { DsDynamicInputModel } from '../../ds-dynamic-input.model';
 import { DynamicRelationGroupModel } from '../dynamic-relation-group.model';
+import { DYNAMIC_FROM_CONTROL_TYPE_HIDDEN } from '../../hidden/dynamic-hidden.model';
 
 /**
  * Component representing a group input field
@@ -346,18 +347,27 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
     });
     this.formModel.forEach((row) => {
       const modelRow = row as DynamicFormGroupModel;
-      modelRow.group.filter(control => !control.hidden).forEach((control: DynamicInputModel) => {
-        const controlValue: any = (control?.value as any)?.value || control?.value || PLACEHOLDER_PARENT_METADATA;
-        const controlAuthority: any = (control?.value as any)?.authority || null;
+      modelRow.group
+        .filter(control => !control.hidden || control.type === DYNAMIC_FROM_CONTROL_TYPE_HIDDEN) // 'hidden' input type field must be preserved !
+        .forEach((control: DynamicInputModel) => {
+          // IMPORTANT: We need to check for the type of the value:
+          //    - If it is a FormFieldMetadataValueObject, it is important to return its value or a placeholder.
+          //    - If it is not a FormFieldMetadataValueObject, return its value, itself or a placeholder.
+          // NEVER RETURN THE VALUE ITSELF IF NOT SURE OF ITS TYPE, IT COULD RESULT IN A RECURSIVE FormFieldMetadataValueObject.
+          const controlValue: any = (control?.value instanceof FormFieldMetadataValueObject)
+            ? ((control?.value as any)?.value || PLACEHOLDER_PARENT_METADATA)
+            : ((control?.value as any)?.value || control?.value || PLACEHOLDER_PARENT_METADATA);
+          // const controlValue: any = (control?.value as any)?.value || control?.value || PLACEHOLDER_PARENT_METADATA;
+          const controlAuthority: any = (control?.value as any)?.authority || null;
 
-        item[control.name] =
-          new FormFieldMetadataValueObject(
-            controlValue, (control as any)?.language,
-            controlValue === PLACEHOLDER_PARENT_METADATA ? null : mainModel.securityLevel,
-            controlAuthority,
-            null, 0, null,
-            (control?.value as any)?.otherInformation || null,
-          );
+          item[control.name] =
+            new FormFieldMetadataValueObject(
+              controlValue, (control as any)?.language,
+              controlValue === PLACEHOLDER_PARENT_METADATA ? null : mainModel.securityLevel,
+              controlAuthority,
+              null, 0, null,
+              (control?.value as any)?.otherInformation || null,
+            );
       });
     });
     return item;
