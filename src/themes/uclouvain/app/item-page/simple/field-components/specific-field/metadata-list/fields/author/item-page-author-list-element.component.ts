@@ -51,6 +51,7 @@ export class ItemPageAuthorListElementComponent implements OnInit {
   protected roleEntries: VocabularyEntry[];
 
   protected readonly CO_LAST_AUTHOR_ROLE = 'co_last_author';
+  protected readonly UCLOUVAIN_INSTITUTION = 'uclouvain';
 
   constructor(
     protected vocabularyService: VocabularyService,
@@ -104,8 +105,7 @@ export class ItemPageAuthorListElementComponent implements OnInit {
   }
 
   isUCLouvainAuthor(author: AuthorListElement): boolean {
-    // TODO: Update this to check for uclouvain membership.
-    return isNotEmpty(author.mv?.authority);
+    return isNotEmpty(author.institution) && (author.institution.toLowerCase() === this.UCLOUVAIN_INSTITUTION);
   }
 
   /**
@@ -187,8 +187,7 @@ class AuthorListElement {
 
     this.orcid = this.getMetadataValue(item, 'authors.identifier.orcid', this.place)?.value;
     this.role = this.getMetadataValue(item, 'authors.role', this.place)?.value;
-    // TODO: Set institution to a virtually loaded metadata.
-    this.institution = undefined;
+    this.institution = this.getMetadataValue(item, 'authors.institution.code', this.place)?.value;
   }
 
   getMetadataValue(item: Item, field: string, place: number) {
