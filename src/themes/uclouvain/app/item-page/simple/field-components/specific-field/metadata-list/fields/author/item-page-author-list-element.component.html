@@ -16,7 +16,6 @@
                  src="assets/images/orcid.logo.icon.svg" />
           </span>
           <span *ngIf="isNotEmpty(author.role)" class="ml-2 text-muted font-italic">({{ getDisplayRole(author.role) }})</span>
-          <span *ngIf="isNotEmpty(author.institution)" class="ml-2">{{ author.institution }}</span>
         </div>
       </li>
     </ng-container>
