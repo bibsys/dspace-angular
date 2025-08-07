@@ -3,6 +3,15 @@ rest:
   host: localhost
   port: 8080
   nameSpace: /server
+ssr:
+    enabled: false
+    enablePerformanceProfiler: false
+    inlineCriticalCss: false
+    transferState: true
+    replaceRestUrl: true
+    paths: [ '/home', '/items/', '/entities/', '/collections/', '/communities/', '/bitstream/', '/bitstreams/', '/handle/', '/reload/' ]
+    enableSearchComponent: false
+    enableBrowseComponent: false
 ui:
   releaseVersion: 0.2.2-beta
   ssl: false
