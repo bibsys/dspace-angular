@@ -6,6 +6,9 @@ rest:
 ui:
   releaseVersion: fakeReleaseVersion
   ssl: false
+  ezproxy:
+    enabled: false
+    proxyUrl: 'fakeIdToReplace'
   # Can be used to prevent search engines from indexing the website (set to true to disable indexation).
   seNoIndex: false
   # Set to true to activate the google meta tag to get site ownership (control on the indexation).
