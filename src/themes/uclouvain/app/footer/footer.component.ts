@@ -14,6 +14,7 @@ import { getFirstSucceededRemoteDataWithNotEmptyPayload } from '../../../../app/
 import { FooterComponent as BaseComponent } from '../../../../app/footer/footer.component';
 import { KlaroService } from '../../../../app/shared/cookies/klaro.service';
 import { APP_CONFIG, AppConfig } from '../../../../config/app-config.interface';
+import { isNotEmpty } from '../../../../app/shared/empty.util';
 import { environment } from '../../../../environments/environment';
 
 @Component({
@@ -33,6 +34,10 @@ export class FooterComponent extends BaseComponent {
   isAdmin: boolean = false;
   backendVersion: Observable<string>;
   frontendVersion: Observable<string>;
+  remoteAccess: {
+    enabled: boolean,
+    url?: string
+  } = { enabled: false };
 
   constructor(
     @Optional() public cookies: KlaroService,
@@ -49,7 +54,22 @@ export class FooterComponent extends BaseComponent {
 
   ngOnInit() {
     super.ngOnInit();
+    this.initRemoteAccess();
     this.initAppVersions();
+  }
+
+  /**
+   * Initialize remote access data based on app configuration.
+   * To allow remote access, `ui.ezproxy.enable` must be true AND `ui.ezproxy.proxyUrl` must be configured.
+   * @private
+   */
+  private initRemoteAccess() {
+    if (environment.ui?.ezproxy.enabled && isNotEmpty(environment.ui.ezproxy?.proxyUrl)) {
+      this.remoteAccess.enabled = true;
+      this.remoteAccess.url = environment.ui.ezproxy.proxyUrl;
+    } else {
+      this.remoteAccess.enabled = false;
+    }
   }
 
   /**
