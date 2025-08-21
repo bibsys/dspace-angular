@@ -5,6 +5,8 @@ import { ServerConfig } from './server-config.interface';
  */
 export class UIServerConfig extends ServerConfig {
 
+  baseUrl?: string;
+
   // version release
   releaseVersion?: string;
 
@@ -23,4 +25,9 @@ export class UIServerConfig extends ServerConfig {
   // Set to true to activate the google meta tag to get site ownership
   enableGoogleOwnershipTag: boolean;
   googleOwnershipTagValue: string;
+
+  ezproxy?: {
+    enabled: boolean;
+    proxyUrl?: string;
+  }
 }

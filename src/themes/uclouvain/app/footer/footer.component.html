@@ -31,6 +31,11 @@
                             <a class="text-white"
                                routerLink="info/copyright-policy">{{ 'footer.link.copyright-policy' | translate }}</a>
                         </li>
+                        <li *ngIf="remoteAccess.enabled">
+                            <a class="text-white" [href]="remoteAccess.url">
+                                {{ 'footer.link.remote-access' | translate }}
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-12 col-lg-4 small text-lg-left">

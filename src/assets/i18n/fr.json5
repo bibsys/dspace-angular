@@ -3469,8 +3469,10 @@
   "footer.link.end-user-agreement": "Mentions légales",
 
   // "footer.link.feedback": "Send Feedback",
-  // TODO Source message changed - Revise the translation
   "footer.link.feedback": "Envoyer un feedback",
+
+  //"footer.link.remote-access": "Remote access ?",
+  "footer.link.remote-access": "Accès à distance ?",
 
   // "footer.developed-by": "Application developed by",
   "footer.developed-by": "Application développé par",
