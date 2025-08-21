@@ -2934,6 +2934,9 @@
   // "footer.link.feedback":"Send Feedback",
   "footer.link.feedback": "Envoyer un commentaire",
 
+  //"footer.link.remote-access": "Remote access ?",
+  "footer.link.remote-access": "Accès à distance ?",
+
   // "forgot-email.form.header": "Forgot Password",
   "forgot-email.form.header": "Mot de passe oublié",
 
@@ -9558,7 +9561,7 @@
   "item.page.citations.none": "Pas de citation disponible",
   "item.page.details.none": "Rien à afficher pour ce type de publication.",
 
-  // -- Facet entityType -- 
+  // -- Facet entityType --
   "search.filters.itempublicationtype.text::journal-article": "Article de périodique",
   "search.filters.itempublicationtype.text::working-paper": "Document de travail",
   "search.filters.itempublicationtype.text::book": "Monographie",
