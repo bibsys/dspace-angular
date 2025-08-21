@@ -5,6 +5,8 @@ import { ServerConfig } from './server-config.interface';
  */
 export class UIServerConfig extends ServerConfig {
 
+  baseUrl?: string;
+
   // version release
   releaseVersion?: string;
 
@@ -24,7 +26,12 @@ export class UIServerConfig extends ServerConfig {
   enableGoogleOwnershipTag: boolean;
 
   googleOwnershipTagValue: string;
-  
+
   // Default url to use to redirect to orcid.
   orcidUrl: string
+
+  ezproxy?: {
+    enabled: boolean;
+    proxyUrl?: string;
+  }
 }
