@@ -13,6 +13,7 @@ import { getFirstSucceededRemoteDataWithNotEmptyPayload } from '../../../../app/
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { RoleService } from '../../../../app/core/roles/role.service';
+import { isNotEmpty } from '../../../../app/shared/empty.util';
 import { environment } from '../../../../environments/environment';
 import { APP_CONFIG, AppConfig } from 'src/config/app-config.interface';
 
@@ -28,6 +29,10 @@ export class FooterComponent extends BaseComponent {
   isAdmin: boolean = false;
   backendVersion: Observable<string>;
   frontendVersion: Observable<string>;
+  remoteAccess: {
+    enabled: boolean,
+    url?: string
+  } = { enabled: false };
 
 
   constructor(
@@ -45,6 +50,30 @@ export class FooterComponent extends BaseComponent {
 
   ngOnInit() {
     super.ngOnInit();
+    this.initRemoteAccess();
+    this.initAppVersions();
+  }
+
+  /**
+   * Initialize remote access data based on app configuration.
+   * To allow remote access, `ui.ezproxy.enable` must be true AND `ui.ezproxy.proxyUrl` must be configured.
+   * @private
+   */
+  private initRemoteAccess() {
+    if (environment.ui?.ezproxy.enabled && isNotEmpty(environment.ui.ezproxy?.proxyUrl)) {
+      this.remoteAccess.enabled = true;
+      this.remoteAccess.url = environment.ui.ezproxy.proxyUrl;
+    } else {
+      this.remoteAccess.enabled = false;
+    }
+  }
+
+  /**
+   * Initialize application version (backend & frontend).
+   * This allows admin to visualize SHA-1 of deployed commits.
+   * @private
+   */
+  private initAppVersions() {
     this.roleService.isAdmin().subscribe(
       isAdmin => {
         this.isAdmin = isAdmin;
@@ -57,6 +86,6 @@ export class FooterComponent extends BaseComponent {
             );
           this.frontendVersion = of(environment?.ui?.releaseVersion);
         }
-      })
+      });
   }
 }
