@@ -2713,6 +2713,8 @@
 
   "footer.link.coar-notify-support": "COAR Notify",
 
+  "footer.link.remote-access": "Remote access ?",
+
   "footer.link.copyright-policy": "Copyright policy",
 
   "footer.developed-by": "Application developed by",
@@ -9544,7 +9546,7 @@
   "personal-sites.url-label": "Link label",
   "personal-sites.url-value": "Link URL",
 
-  // -- Facet entityType -- 
+  // -- Facet entityType --
   "search.filters.itempublicationtype.text::journal-article": "Journal article",
   "search.filters.itempublicationtype.text::working-paper": "Working paper",
   "search.filters.itempublicationtype.text::book": "Book",
