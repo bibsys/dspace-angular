@@ -5,6 +5,8 @@ import { ServerConfig } from './server-config.interface';
  */
 export class UIServerConfig extends ServerConfig {
 
+  baseUrl?: string;
+
   // version release
   releaseVersion?: string;
 
@@ -16,4 +18,9 @@ export class UIServerConfig extends ServerConfig {
 
   // Trust X-FORWARDED-* headers from proxies
   useProxies: boolean;
+
+  ezproxy?: {
+    enabled: boolean;
+    proxy_url?: string;
+  }
 }
