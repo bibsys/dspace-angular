@@ -76,6 +76,9 @@ export class DefaultAppConfig implements AppConfig {
 
     // Trust X-FORWARDED-* headers from proxies
     useProxies: true,
+
+    // Default url to use to redirect to orcid.
+    orcidUrl: 'https://orcid.org/',
   };
 
   // The REST API server settings
