@@ -5,6 +5,8 @@ rest:
   nameSpace: /server
 ui:
   ssl: false
+  # Default url to use to redirect to orcid.
+  orcidUrl: https://orcid.org/
 
 browseBy:
   showThumbnails: false

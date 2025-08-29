@@ -13,4 +13,7 @@ export class UIServerConfig extends ServerConfig {
 
   // Trust X-FORWARDED-* headers from proxies
   useProxies: boolean;
+
+  // Default url to use to redirect to orcid.
+  orcidUrl: string
 }
