@@ -82,7 +82,11 @@ export class DefaultAppConfig implements AppConfig {
 
     // Set to true to activate the google meta tag to get site ownership
     enableGoogleOwnershipTag: false,
+
     googleOwnershipTagValue: 'placeholder',
+
+    // Default url to use to redirect to orcid.
+    orcidUrl: 'https://orcid.org/',
   };
 
   // The REST API server settings
