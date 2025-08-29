@@ -1,0 +1,27 @@
+<div class="d-flex flex-column w-100">
+  <!-- Item type and access status if available -->
+  <div class="mb-2 w-100">
+    <ds-badges [object]="dso" [showAccessStatus]="false" [context]="context" [displayType]="true" />
+  </div>
+  <!-- PERSON NAME ==================================================== -->
+  <a *ngIf="linkType != linkTypes.None"
+      [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
+      [attr.rel]="(linkType == linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
+      [routerLink]="[itemPageRoute]"
+      [innerHTML]="[dso.name]"
+      class="lead item-list-title dont-break-out"></a>
+  <div *ngIf="linkType == linkTypes.None" class="lead item-list-title dont-break-out" [innerHTML]="[dso.name]"></div>
+  <ul class="list-inline list-inline-with-divider m-0 mb-1">
+    <!-- PERSON INSTITUTION -->
+    <li *ngIf="institution">
+      <span *ngIf="institutionIcon" class="mr-1">
+        <img [src]="institutionIcon"/>
+      </span>
+      <span class="">{{ institution }}</span>
+    </li>
+    <!-- PERSON ORCID -->
+    <li *ngIf="orcid">
+      <ds-orcid-short-format [orcid]="orcid"/>
+    </li>
+  </ul>  
+</div>
