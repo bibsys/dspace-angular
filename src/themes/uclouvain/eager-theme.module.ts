@@ -9,6 +9,8 @@ import { AuthorInlineLabeledGroupContentComponent } from './app/shared/form/buil
 import { OrgUnitInlineLabeledGroupContentComponent } from './app/shared/form/builder/models/org-unit/org-unit-inline-labeled-group-content.component';
 import { ItemPageAffiliationListElementComponent } from './app/item-page/simple/field-components/specific-field/metadata-list/fields/affiliation/item-page-affiliation-list-element.component';
 import { ItemPageAuthorListElementComponent } from './app/item-page/simple/field-components/specific-field/metadata-list/fields/author/item-page-author-list-element.component';
+import { ItemPageAffiliationFieldComponent } from './app/item-page/simple/field-components/specific-field/affiliation/item-page-affiliation-field.component';
+import { OrcidShortFormatComponent } from './app/item-page/simple/field-components/specific-field/orcid/orcid-short-format.component';
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
@@ -26,6 +28,8 @@ const DECLARATIONS = [
   OrgUnitInlineLabeledGroupContentComponent,
   ItemPageAffiliationListElementComponent,
   ItemPageAuthorListElementComponent,
+  ItemPageAffiliationFieldComponent,
+  OrcidShortFormatComponent,
 ];
 
 @NgModule({

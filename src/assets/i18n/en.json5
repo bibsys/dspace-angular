@@ -3632,6 +3632,10 @@
 
   "item.page.heading.metrics": "Metrics",
 
+  "item.page.heading.person.details": "Author information",
+
+  "item.page.heading.person.publications": "Publications by this author",
+
   "item.page.title": "Title",
 
   "item.page.abstract": "Abstract",
@@ -3642,7 +3646,7 @@
 
   "item.page.subject": "Keywords",
 
-  "item.page.affiliation": "Affiliations",
+  "item.page.affiliation": "Affiliation",
 
   "item.page.doi": "DOI",
 
@@ -3726,7 +3730,19 @@
 
   "item.page.metric.label.plumX": "PlumX",
 
+  "item.page.person.birthDate": "Birtdate",
+
+  "item.page.person.crisrp.name": "Offical name",
+
+  "item.page.person.email": "Email",
+
+  "item.page.person.identifier.orcid": "ORCID",
+
+  "item.page.person.jobTitle": "Job title",
+
   "item.page.person.search.title": "Articles by this author",
+
+  "item.page.person.type": "Author",
 
   "item.page.related-items.view-more": "Show {{ amount }} more",
 
@@ -5634,6 +5650,8 @@
   "search.filters.applied.f.title": "Title",
 
   "search.filters.applied.f.author": "Author",
+
+  "search.filters.applied.f.authorAuthority": "Author UUID",
 
   "search.filters.applied.f.dateIssued.max": "End date",
 
