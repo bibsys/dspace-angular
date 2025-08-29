@@ -3969,6 +3969,12 @@
 
   "item.page.heading.metrics": "Métriques",
 
+  //   "item.page.heading.person.details": "Author information",
+  "item.page.heading.person.details": "Information sur l'auteur",
+
+  // "item.page.heading.person.publications": "Publications by this author",
+  "item.page.heading.person.publications": "Publications de cet auteur",
+
   // "item.page.title": "Title",
   "item.page.title": "Titre",
 
@@ -3984,8 +3990,8 @@
   // "item.page.subject": "Keywords",
   "item.page.subject": "Mots-clés",
 
-  // "item.page.affiliation": "Affiliations",
-  "item.page.affiliation": "Affiliations",
+  // "item.page.affiliation": "Affiliation",
+  "item.page.affiliation": "Affiliation",
 
   // "item.page.doi": "DOI",
   "item.page.doi": "DOI",
@@ -4044,8 +4050,26 @@
   // "item.page.link.simple": "Simple item page",
   "item.page.link.simple": "Notice brève",
 
+  // "item.page.person.birthDate": "Birtdate",
+  "item.page.person.birthDate": "Date de naissance",
+
+  // "item.page.person.crisrp.name": "Offical name",
+  "item.page.person.crisrp.name": "Nom officiel",
+
+  // "item.page.person.email": "Email",
+  "item.page.person.email": "Email",
+
+  // "item.page.person.identifier.orcid": "ORCID",
+  "item.page.person.identifier.orcid": "ORCID",
+
+  // "item.page.person.jobTitle": "Job title",
+  "item.page.person.jobTitle": "Fonction",
+
   // "item.page.person.search.title": "Articles by this author",
   "item.page.person.search.title": "Articles de cet auteur",
+
+  // "item.page.person.type": "Author",
+  "item.page.person.type": "Auteur",
 
   // "item.page.related-items.view-more": "Show {{ amount }} more",
   "item.page.related-items.view-more": "Afficher {{ amount }} résultats supplémentaires",
@@ -5705,6 +5729,9 @@
 
   // "search.filters.applied.f.author": "Author",
   "search.filters.applied.f.author": "Auteur",
+
+  // "search.filters.applied.f.authorAuthority": "Author UUID",
+  "search.filters.applied.f.authorAuthority": "UUID auteur",
 
   // "search.filters.applied.f.dateIssued.max": "End date",
   "search.filters.applied.f.dateIssued.max": "Jusque",
