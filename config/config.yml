@@ -11,6 +11,8 @@ ui:
   enableGoogleOwnershipTag: false
   # If enableGoogleOwnershipTag is set to true, set this property with google token.
   googleOwnershipTagValue: 'placeholder'
+  # Default url to use to redirect to orcid.
+  orcidUrl: https://orcid.org/
 
 browseBy:
   showThumbnails: false
