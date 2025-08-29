@@ -1,0 +1,78 @@
+<div class="d-flex">
+  <ds-results-back-button *ngIf="showBackButton$ | async" [back]="back" />
+  <ds-context-menu class="ml-auto"
+                   [contextMenuObject]="object"
+                   [contextMenuObjectType]="DspaceObjectType.ITEM" />
+</div>
+
+<div class="container my-3 p-0">
+  <article>
+    <!-- HEADER (Type + name) -->
+    <div class="mb-5 row">
+      <div class="mr-4">
+        <ds-metadata-field-wrapper [hideIfNoTextContent]="false">
+          <ds-thumbnail [thumbnail]="object?.thumbnail | async"
+                        [defaultImage]="'assets/images/person-placeholder.svg'"
+                        [alt]="'thumbnail.person.alt'"
+                        [placeholder]="'thumbnail.person.placeholder'">
+          </ds-thumbnail>
+        </ds-metadata-field-wrapper>
+      </div>
+      <div class="d-flex flex-column">
+        <h3 class="text-muted m-0">{{ 'item.page.person.type' | translate }}</h3>
+        <ds-item-page-title-field [item]="object" />
+      </div>
+    </div>
+    <!-- MAIN METADATA SECTION -->
+    <div class="mb-4">
+      <ds-item-page-heading [headerLabel]="'item.page.heading.person.details'"/>
+      <dl class="ml-1">
+        <ng-container *ngIf="object.hasMetadata('crisrp.name')">
+          <dt>{{ "item.page.person.crisrp.name" | translate }}</dt>
+          <dd>
+            <ds-generic-item-page-field [item]="object" [fields]="['crisrp.name']"/>
+          </dd>
+        </ng-container>
+        <ng-container *ngIf="object.hasMetadata('person.email')">
+          <dt>{{ "item.page.person.email" | translate }}</dt>
+          <dd>
+            <ds-generic-item-page-field [item]="object" [fields]="['person.email']"/>
+          </dd>
+        </ng-container>
+        <ng-container *ngIf="object.hasMetadata('person.identifier.orcid')">
+          <dt>{{ "item.page.person.identifier.orcid" | translate }}</dt>
+          <dd>
+            <ds-orcid-short-format [orcid]="object.firstMetadataValue('person.identifier.orcid')"/>
+          </dd>
+        </ng-container>
+        <ng-container *ngIf="object.hasMetadata('person.affiliation.institution')">
+          <dt>{{ "item.page.affiliation" | translate }}</dt>
+          <dd>
+            <ds-item-page-affiliation-field [item]="object"
+                                            [institutionField]="'person.affiliation.institution'"
+                                            [departmentField]="'person.affiliation.department'"/>
+          </dd>
+        </ng-container>
+        <ng-container *ngIf="object.hasMetadata('person.jobTitle')">
+          <dt>{{ "item.page.person.jobTitle" | translate }}</dt>
+          <dd>
+            <ds-generic-item-page-field [item]="object" [fields]="['person.jobTitle']"/>
+          </dd>
+        </ng-container>
+      </dl>
+    </div>
+    <div>
+      <ds-item-page-heading [headerLabel]="'item.page.heading.person.publications'"/>
+      <!-- Display all publication of this author -->
+      <div>
+        <ds-tabbed-related-entities-search  [item]="object"
+                                            [relationTypes]="[{
+                                              label: 'authorAuthority',
+                                              filter: 'authorAuthority',
+                                              configuration: 'default'
+                                            }]">
+        </ds-tabbed-related-entities-search>
+      </div>
+    </div>
+  </article>
+</div>
