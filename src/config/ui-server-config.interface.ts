@@ -19,5 +19,9 @@ export class UIServerConfig extends ServerConfig {
 
   // Set to true to activate the google meta tag to get site ownership
   enableGoogleOwnershipTag: boolean;
+
   googleOwnershipTagValue: string;
+  
+  // Default url to use to redirect to orcid.
+  orcidUrl: string
 }
