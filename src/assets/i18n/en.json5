@@ -7169,7 +7169,7 @@
 
   "submission.sections.general.add-more": "Add more",
 
-  "submission.sections.general.cannot_deposit": "Deposit cannot be completed due to errors in the form.<br>Please fill out all required fields to complete the deposit.",
+  "submission.sections.general.cannot_deposit": "Please fill out all required fields to complete the deposit.",
 
   "submission.sections.general.collection": "Collection",
 
@@ -7377,21 +7377,21 @@
 
   "submission.sections.upload.delete.confirm.submit": "Yes, I'm sure",
 
-  "submission.sections.upload.delete.confirm.title": "Delete bitstream",
+  "submission.sections.upload.delete.confirm.title": "Delete file",
 
   "submission.sections.upload.genericError": "The file details are incomplete or invalid. Please open edit the file details for more details",
 
   "submission.sections.upload.delete.submit": "Delete",
 
-  "submission.sections.upload.download.title": "Download bitstream",
+  "submission.sections.upload.download.title": "Download file",
 
-  "submission.sections.upload.drop-message": "Drop files to attach them to the item",
+  "submission.sections.upload.drop-message": "To add a file, drag-and-drop it here",
 
-  "submission.sections.upload.edit.title": "Edit bitstream",
+  "submission.sections.upload.edit.title": "Edit file",
 
-  "submission.sections.upload.form.access-condition-label": "Access condition type",
+  "submission.sections.upload.form.access-condition-label": "Access type",
 
-  "submission.sections.upload.form.access-condition-hint": "Select an access condition to apply on the bitstream once the item is deposited",
+  "submission.sections.upload.form.access-condition-hint": "Select an access condition to apply on the file once the document is deposited",
 
   "submission.sections.upload.form.date-required": "Date is required.",
 
@@ -7420,6 +7420,8 @@
   "submission.sections.upload.header.policy.default.withlist": "Please note that uploaded files in the {{collectionName}} collection will be accessible, in addition to what is explicitly decided for the single file, with the following group(s):",
 
   "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
+
+  "submission.sections.upload.info": "Add files to attach to your publication. By default, any added file will be in open access. You can change the access type if necessary by editing the deposited file.",
 
   "submission.sections.upload.no-entry": "No",
 
