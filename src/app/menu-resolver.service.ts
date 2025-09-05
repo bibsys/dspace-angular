@@ -184,6 +184,7 @@ export class MenuResolverService  {
       })));
     });
 
+    this.createManageMenu();
     this.createStatisticsMenu();
 
     // Add a link to the myDSpacePage
@@ -204,35 +205,74 @@ export class MenuResolverService  {
     this.authService.isAuthenticated().subscribe(v => myDialLinkModel.visible = v);
     this.menuService.addSection(MenuID.PUBLIC, myDialLinkModel);
 
-    // Make the journal managing url visible if the user is a journal manager.
-    this.roleService.isJournalManager().subscribe(isJournalManager => {
-      if (!isJournalManager) {
-        return;
-      }
+    return this.waitForMenu$(MenuID.PUBLIC);
+  }
 
-      // Adds a manage journal section
-      const manageJournalsLinkModel = Object.assign(
-        {
-          id: `manage_journals`,
+  /** Creates a menu in the navbar that will list all manage options. */
+  createManageMenu() {
+    observableCombineLatest(
+      [this.roleService.isController(), this.roleService.isJournalManager()]
+    ).pipe(take(1)).subscribe((([isController, isJournalManager]) => {
+      const menuList = [];
+      // Create a link to the manager view if the user is a manager
+      if (isController) {
+        menuList.push({
+          id: `manage_dissertation`,
+          parentID: 'manage',
           active: false,
           visible: true,
           index: 1,
           model: {
             type: MenuItemType.LINK,
             disabled: false,
-            text: `menu.section.manage_journal`,
+            text: `menu.section.manage.child.dissertation`,
+            link: `/mydspace`,
+            queryParams: {
+              ['configuration']: 'workflow',
+            },
+          } as LinkMenuItemModel
+        })
+        
+      }
+      // Make the journal managing url visible if the user is a journal manager.
+      if (isJournalManager) {
+        menuList.push({
+          id: `manage_journals`,
+          parentID: 'manage',
+          active: false,
+          visible: true,
+          index: 1,
+          model: {
+            type: MenuItemType.LINK,
+            disabled: false,
+            text: `menu.section.manage.child.journal`,
             link: `/search`,
             queryParams: {
               ['configuration']: 'journals',
             },
           } as LinkMenuItemModel
-        },
-        {shouldPersistOnRouteChange: true}
-      );
-
-      this.menuService.addSection(MenuID.PUBLIC, manageJournalsLinkModel);
-    });
-    return this.waitForMenu$(MenuID.PUBLIC);
+        })
+      }
+      // Display the parent dropdown section if at least one child exist.
+      if (menuList.length > 0) {
+        menuList.push({
+          id: 'manage',
+          active: false,
+          visible: true,
+          index: 2,
+          model: {
+            type: MenuItemType.TEXT,
+            text: 'menu.section.manage'
+          } as TextMenuItemModel,
+        })
+      }
+      menuList.forEach(menuSection =>
+        this.menuService.addSection(
+          MenuID.PUBLIC,
+          Object.assign(menuSection, {shouldPersistOnRouteChange: true}),
+        )
+      )
+    }));
   }
 
   createStatisticsMenu() {

@@ -38,6 +38,7 @@ import { MetadataRepresentationListComponent } from './app/item-page/simple/meta
 import { FullFileSectionComponent } from './app/item-page/full/field-components/file-section/full-file-section.component';
 import { UploadFileDescriptionComponent } from './app/item-page/full/field-components/file-section/upload-file-description/upload-file-description.component';
 import { FileSectionComponent } from './app/item-page/simple/field-components/file-section/file-section.component';
+import { ExpandableNavbarSectionComponent } from './app/navbar/expandable-navbar-section/expandable-navbar-section.component';
 
 const DECLARATIONS = [
   AdminSidebarComponent,
@@ -62,6 +63,7 @@ const DECLARATIONS = [
   FullFileSectionComponent,
   UploadFileDescriptionComponent,
   FileSectionComponent,
+  ExpandableNavbarSectionComponent,
 ];
 
 @NgModule({

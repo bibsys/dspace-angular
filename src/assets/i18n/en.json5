@@ -9553,4 +9553,10 @@
   "languages.iso-639-2.ger": "German",
   "languages.iso-639-2.spa": "Spanish",
   "languages.iso-639-2.other": "Other",
+
+  // --- MENU SECTIONS ---
+  "menu.section.manage": "Manage",
+
+  "menu.section.manage.child.dissertation": "Manage dissertations",
+  "menu.section.manage.child.journal": "Manage journals",
 }
