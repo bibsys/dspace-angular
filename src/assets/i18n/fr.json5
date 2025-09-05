@@ -9580,5 +9580,11 @@
 
   "form.other-information.journal.searchresult.info": "ISSN",
   "form.other-information.journal.searchresult.ceased": "Status",
+
+  // --- MENU SECTIONS ---
+  "menu.section.manage": "Gérer",
+
+  "menu.section.manage.child.dissertation": "Gérer les thèses",
+  "menu.section.manage.child.journal": "Gérer les revues",
 }
 
