@@ -145,6 +145,7 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
 
   /**
    * Generates a flat list of affiliation data to send to the department component.
+   * A sorting is applied before flattening on the weight or the name (alphabetical order).
    * Each affiliation is indexed to keep track of the hierarchy.
    *
    * @param affiliationData The affiliation data to flatten.
@@ -153,7 +154,7 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
    * @returns A flattened list of affiliation data that can be sent to the department component.
    */
   private flattenAndIndexAffiliationData(affiliationData: AffiliationData[], targetList: AffiliationData[] = [], index = 0): AffiliationData[] {
-    affiliationData.forEach((affiliation: AffiliationData) => {
+    [...affiliationData].sort((a, b) => this.sortAffiliations(a, b)).forEach((affiliation: AffiliationData) => {
       let newAffiliation = {
         ...affiliation, index: index
       };
@@ -163,5 +164,50 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
       }
     });
     return targetList;
+  }
+
+  /**
+   * Sort an affiliation by its weight and if necessary by its name.
+   * 
+   * @param affiliationA The first affiliation candidate for sorting.
+   * @param affiliationB The second affiliation candidate for sorting.
+   * @returns 1, -1 or 0 depending on which candidate wins.
+   */
+  private sortAffiliations(affiliationA: AffiliationData, affiliationB: AffiliationData): number {
+    let sorted = this.sortByWeight(affiliationA, affiliationB);
+    if (sorted === 0) {
+      sorted = this.sortByLabel(affiliationA, affiliationB);
+    }
+    return sorted;
+  }
+
+  /**
+   * Sort affiliations by weight. The higher the weight the lower you should be in the list.
+   * 
+   * @param a The first affiliation candidate for sorting.
+   * @param b The second affiliation candidate for sorting.
+   * @returns 1 or -1 depending on which candidate has the best weight.
+   */
+  private sortByWeight(a: AffiliationData, b: AffiliationData): number {
+    const aWeight = a.weight ?? 50;
+    const bWeight = b.weight ?? 50;
+    return bWeight - aWeight;
+  }
+
+  /**
+   * Sort affiliations by name. If an affiliation has no acronym use the name.
+   * The affiliation are sorted alphabetically.
+   * 
+   * @param a The first affiliation candidate for sorting.
+   * @param b The second affiliation candidate for sorting.
+   * @returns 1, -1 or 0 depending on which candidate wins.
+   */
+  private sortByLabel(a: AffiliationData, b: AffiliationData): number {
+    const aLowerCase = a.acronym ? a.acronym.toLowerCase(): a.name.toLowerCase();
+    const bLowerCase = b.acronym ? b.acronym.toLowerCase(): b.name.toLowerCase();
+
+    if (aLowerCase > bLowerCase) { return 1 }
+    if (aLowerCase < bLowerCase) { return -1 }
+    return 0
   }
 }
