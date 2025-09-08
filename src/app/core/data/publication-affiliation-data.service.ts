@@ -14,6 +14,7 @@ export interface AffiliationData {
   acronym: string;
   type: String;
   isSelectable: boolean;
+  weight: number;
   parent: string;
   children: AffiliationData[];
   index?: number;
