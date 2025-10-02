@@ -49,6 +49,7 @@ export class UCLouvainPersonPageComponent extends ItemComponent {
   @Input() showMetrics: boolean;
   @Input() viewMode: ViewMode;
   @Input() showCorrection: boolean;
+  @Input() showThumbnails: boolean;
 
   protected readonly DspaceObjectType = DSpaceObjectType;
 }
