@@ -8,8 +8,8 @@
 <div class="container my-3 p-0">
   <article>
     <!-- HEADER (Type + name) -->
-    <div class="mb-5 row">
-      <div class="mr-4">
+    <div class="mb-5 d-flex">
+      <div *ngIf="showThumbnails" class="mr-4">
         <ds-metadata-field-wrapper [hideIfNoTextContent]="false">
           <ds-thumbnail [thumbnail]="object?.thumbnail | async"
                         [defaultImage]="'assets/images/person-placeholder.svg'"
