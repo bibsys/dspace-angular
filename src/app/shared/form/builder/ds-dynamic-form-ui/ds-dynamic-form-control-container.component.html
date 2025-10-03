@@ -72,7 +72,6 @@
         </div>
         <div *ngIf="model.hasSecurityToggle" class="col-1 col-xs-2" [class.date-field-security]="model.type === 'DATE'">
           <ds-edit-metadata-security *ngIf="model.toggleSecurityVisibility"
-                                     [readOnly]="model.readOnly"
                                      [securityConfigLevel]="model.securityConfigLevel"
                                      [securityLevel]="securityLevel"
                                      (changeSecurityLevel)="addSecurityLevelToMetadata($event)">
