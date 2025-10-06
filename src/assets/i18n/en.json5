@@ -4755,7 +4755,9 @@
 
   "nav.processes": "My Processes",
 
-  "nav.profile": "Profile",
+  "nav.profile": "My profile",
+
+  "nav.myaccount": "My account",
 
   "nav.search": "Search",
 
@@ -5152,7 +5154,7 @@
 
   "product.listelement.badge": "Product",
 
-  "profile.breadcrumbs": "Update Profile",
+  "profile.breadcrumbs": "Update account",
 
   "profile.card.access-token": "Personal access token",
 
@@ -5238,7 +5240,7 @@
 
   "profile.security.form.notifications.error.general": "Please fill required fields of security form.",
 
-  "profile.title": "Update Profile",
+  "profile.title": "Update account",
 
   "profile.card.researcher": "Researcher Profile",
 
