@@ -48,6 +48,8 @@ import { followLink } from '../../shared/utils/follow-link-config.model';
 import { VarDirective } from '../../shared/utils/var.directive';
 import { ProfileClaimService } from '../profile-claim/profile-claim.service';
 import { ProfileClaimItemModalComponent } from '../profile-claim-item-modal/profile-claim-item-modal.component';
+import { RoleService } from 'src/app/core/roles/role.service';
+import { RoleType } from 'src/app/core/roles/role-types';
 
 @Component({
   selector: 'ds-profile-page-researcher-form',
@@ -95,6 +97,11 @@ export class ProfilePageResearcherFormComponent implements OnInit {
   researcherProfileItemId: string;
 
   /**
+   * If the current user is an administrator
+   */
+  isAdmin$: Observable<boolean>;
+
+  /**
    * The custom options for the 'ds-switch' component
    */
   switchOptions: SwitchOption[] = [
@@ -108,7 +115,8 @@ export class ProfilePageResearcherFormComponent implements OnInit {
               protected notificationService: NotificationsService,
               protected authService: AuthService,
               protected router: Router,
-              protected modalService: NgbModal) {
+              protected modalService: NgbModal,
+              protected roleService: RoleService) {
 
   }
 
@@ -118,6 +126,8 @@ export class ProfilePageResearcherFormComponent implements OnInit {
   ngOnInit(): void {
     // Retrieve researcherProfile if exists
     this.initResearchProfile();
+    // Check if the current logged in user is an admin.
+    this.isAdmin$ = this.roleService.checkRole(RoleType.Admin);
   }
 
   /**

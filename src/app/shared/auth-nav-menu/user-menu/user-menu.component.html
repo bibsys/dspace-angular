@@ -6,10 +6,15 @@
     {{dsoNameService.getName(user$ | async)}}<br>
     <span class="text-muted">{{(user$ | async)?.email}}</span>
   </li>
-  <li class="ds-menu-item-wrapper" role="presentation" (click)="onMenuItemClick()">
+  <li *ngIf="isNotEmpty(profileRoute)" class="ds-menu-item-wrapper" role="presentation" (click)="onMenuItemClick()">
     <a class="ds-menu-item" role="menuitem"
        [routerLink]="[profileRoute]"
        routerLinkActive="active">{{'nav.profile' | translate}}</a>
+  </li>
+  <li class="ds-menu-item-wrapper" role="presentation" (click)="onMenuItemClick()">
+    <a class="ds-menu-item" role="menuitem"
+       [routerLink]="[myAccountRoute]"
+       routerLinkActive="active">{{'nav.myaccount' | translate}}</a>
   </li>
   <li class="ds-menu-item-wrapper" role="presentation" (click)="onMenuItemClick()">
     <a class="ds-menu-item" role="menuitem"
