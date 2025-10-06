@@ -4946,13 +4946,16 @@
   "nav.main.description": "Barre de navigation principale",
 
   // "nav.mydspace": "MyDSpace",
-  "nav.mydspace": "Mon compte DIAL.pr",
+  "nav.mydspace": "Mon DIAL.pr",
 
   // "nav.processes": "My Processes",
   "nav.processes": "Mes processus",
 
   // "nav.profile": "Profile",
-  "nav.profile": "Profil",
+  "nav.profile": "Mon profil",
+
+  // "nav.myaccount": "My account",
+  "nav.myaccount": "Mon compte",
 
   // "nav.search": "Search",
   "nav.search": "Rechercher",
@@ -5230,7 +5233,7 @@
 
 
   // "profile.breadcrumbs": "Update Profile",
-  "profile.breadcrumbs": "Mise à jour profil",
+  "profile.breadcrumbs": "Mise à jour du compte",
 
   // "profile.card.identify": "Identify",
   "profile.card.identify": "Identification",
@@ -5248,7 +5251,7 @@
   "profile.groups.head": "Groupes auxquels vous appartenez",
 
   // "profile.head": "Update Profile",
-  "profile.head": "Mise à jour du profil",
+  "profile.head": "Mise à jour du compte",
 
   // "profile.metadata.form.error.firstname.required": "First Name is required",
   "profile.metadata.form.error.firstname.required": "Le prénom est obligatoire",
