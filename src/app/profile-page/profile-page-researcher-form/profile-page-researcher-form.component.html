@@ -1,39 +1,41 @@
 <div *ngVar="(researcherProfile$ | async) as researcherProfile">
-  <div *ngIf="researcherProfile">
-    <p>{{'researcher.profile.associated' | translate}}</p>
-    <p class="align-items-center researcher-profile-switch" >
-      <span class="mr-3">{{'researcher.profile.status' | translate}}</span>
-      <ds-switch
-        [options]="switchOptions"
-        [selectedValue]="researcherProfile.visible ? 'public' : 'private'"
-        (selectedValueChange)="toggleProfileVisibility(researcherProfile)">
-      </ds-switch>
-    </p>
-  </div>
-  <div *ngIf="!researcherProfile">
-    <p>{{'researcher.profile.not.associated' | translate}}</p>
-  </div>
-  <button *ngIf="!researcherProfile" class="btn btn-primary mr-2"
-          [dsBtnDisabled]="(isProcessingCreate() | async)"
-          (click)="createProfile()">
-    <span *ngIf="(isProcessingCreate() | async)">
-        <i class='fas fa-circle-notch fa-spin'></i> {{'researcher.profile.action.processing' | translate}}
-    </span>
-    <span *ngIf="(isProcessingCreate() | async) !== true">
-        <i class="fas fa-plus"></i> &nbsp;{{'researcher.profile.create.new' | translate}}
-    </span>
-  </button>
-  <ng-container *ngIf="researcherProfile">
-    <button class="btn btn-primary mr-2" [dsBtnDisabled]="!researcherProfile" (click)="viewProfile(researcherProfile)">
-      <i class="fas fa-info-circle"></i> {{'researcher.profile.view' | translate}}
+  <ng-container *ngVar="(isAdmin$ | async) as isAdmin">
+    <div *ngIf="researcherProfile">
+      <p>{{'researcher.profile.associated' | translate}}</p>
+      <p *ngIf="isAdmin" class="align-items-center researcher-profile-switch">
+        <span class="mr-3">{{'researcher.profile.status' | translate}}</span>
+        <ds-switch
+          [options]="switchOptions"
+          [selectedValue]="researcherProfile.visible ? 'public' : 'private'"
+          (selectedValueChange)="toggleProfileVisibility(researcherProfile)">
+        </ds-switch>
+      </p>
+    </div>
+    <div *ngIf="!researcherProfile">
+      <p>{{'researcher.profile.not.associated' | translate}}</p>
+    </div>
+    <button *ngIf="!researcherProfile" class="btn btn-primary mr-2"
+            [dsBtnDisabled]="(isProcessingCreate() | async) || !isAdmin"
+            (click)="createProfile()">
+      <span *ngIf="(isProcessingCreate() | async)">
+          <i class='fas fa-circle-notch fa-spin'></i> {{'researcher.profile.action.processing' | translate}}
+      </span>
+      <span *ngIf="(isProcessingCreate() | async) !== true">
+          <i class="fas fa-plus"></i> &nbsp;{{'researcher.profile.create.new' | translate}}
+      </span>
     </button>
-    <button class="btn btn-danger" [dsBtnDisabled]="!researcherProfile" (click)="deleteProfile(researcherProfile)">
-        <span *ngIf="(isProcessingDelete() | async)">
-            <i class='fas fa-circle-notch fa-spin'></i> {{'researcher.profile.action.processing' | translate}}
-        </span>
-        <span *ngIf="(isProcessingDelete() | async) !== true">
-            <i class="fas fa-trash-alt"></i> &nbsp;{{'researcher.profile.delete' | translate}}
-        </span>
-    </button>
+    <ng-container *ngIf="researcherProfile">
+      <button class="btn btn-primary mr-2" [dsBtnDisabled]="!researcherProfile" (click)="viewProfile(researcherProfile)">
+        <i class="fas fa-info-circle"></i> {{'researcher.profile.view' | translate}}
+      </button>
+      <button class="btn btn-danger" [dsBtnDisabled]="!researcherProfile || !isAdmin" (click)="deleteProfile(researcherProfile)">
+          <span *ngIf="(isProcessingDelete() | async)">
+              <i class='fas fa-circle-notch fa-spin'></i> {{'researcher.profile.action.processing' | translate}}
+          </span>
+          <span *ngIf="(isProcessingDelete() | async) !== true">
+              <i class="fas fa-trash-alt"></i> &nbsp;{{'researcher.profile.delete' | translate}}
+          </span>
+      </button>
+    </ng-container>
   </ng-container>
 </div>
