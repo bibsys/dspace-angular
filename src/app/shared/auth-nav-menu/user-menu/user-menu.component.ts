@@ -19,7 +19,7 @@ import {
   Store,
 } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { filter, map, mergeMap, Observable, switchMap } from 'rxjs';
 
 import { AppState } from '../../../app.reducer';
 import {
@@ -34,6 +34,10 @@ import { MYDSPACE_ROUTE } from '../../../my-dspace-page/my-dspace-route';
 import { getProcessListRoute } from '../../../process-page/process-page-routing.paths';
 import { ThemedLoadingComponent } from '../../loading/themed-loading.component';
 import { LogOutComponent } from '../../log-out/log-out.component';
+import { isNotEmpty } from '../../empty.util';
+import { getAllCompletedRemoteData, getRemoteDataPayload } from 'src/app/core/shared/operators';
+import { ResearcherProfileDataService } from 'src/app/core/profile/researcher-profile-data.service';
+import { followLink } from '../../utils/follow-link-config.model';
 
 /**
  * This component represents the user nav menu.
@@ -78,7 +82,12 @@ export class UserMenuComponent implements OnInit {
   /**
    * The profile page route
    */
-  public profileRoute = getProfileModuleRoute();
+  public profileRoute: string;
+
+  /**
+   * The my account route (old profile page route).
+   */
+  public myAccountRoute = getProfileModuleRoute();
 
   /**
    * The processes page route
@@ -90,9 +99,12 @@ export class UserMenuComponent implements OnInit {
    */
   public subscriptionsRoute = getSubscriptionsModuleRoute();
 
+  protected readonly isNotEmpty = isNotEmpty;
+
   constructor(
     protected store: Store<AppState>,
     protected authService: AuthService,
+    protected researcherProfileService: ResearcherProfileDataService,
     public dsoNameService: DSONameService,
   ) {
   }
@@ -108,6 +120,20 @@ export class UserMenuComponent implements OnInit {
     // set user
     this.user$ = this.authService.getAuthenticatedUserFromStore();
 
+    // Retrieve potential profile id using user id.
+    this.user$.pipe(
+      filter(isNotEmpty),
+      switchMap(
+        user => this.researcherProfileService.findById(user.id, false, true, followLink('item')).pipe(
+          getAllCompletedRemoteData(),
+          getRemoteDataPayload(),
+          switchMap((researcherProfile) => this.researcherProfileService.findRelatedItemId(researcherProfile))
+        )
+      ),
+      filter(isNotEmpty),
+    ).subscribe((profileId: String) => {
+      this.profileRoute = "/entities/person/" + profileId;
+    })
   }
 
   /**
