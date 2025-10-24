@@ -20,7 +20,10 @@ import { FileSizePipe } from 'src/app/shared/utils/file-size-pipe';
  */
 @Component({
   selector: 'ds-upload-file-description',
-  styles: ['.expendable {transition: 0.2s ease}'],
+  styles: [
+    '.expendable {transition: 0.2s ease}',
+    'h5 { text-overflow: ellipsis; overflow: hidden; white-space: nowrap; overflow-wrap: break-word; }'
+  ],
   templateUrl: './upload-file-description.component.html',
   standalone: true,
   imports: [
