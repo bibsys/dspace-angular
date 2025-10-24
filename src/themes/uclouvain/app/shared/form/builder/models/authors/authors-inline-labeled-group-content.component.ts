@@ -20,7 +20,7 @@ export class AuthorInlineLabeledGroupContentComponent {
   }
 
   isAuthorityLinked() {
-    return this.chip.hasMetadata('dc.contributor.author') && this.chip.item['dc.contributor.author'].authority;
+    return this.chip.hasMetadata('dc.contributor.author') && !!this.chip.item['dc.contributor.author']?.authority;
   }
 
 }

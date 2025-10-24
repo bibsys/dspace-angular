@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf, NgTemplateOutlet } from "@angular/common";
+import { AsyncPipe, NgIf } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { TranslateModule } from "@ngx-translate/core";
 import { Context } from "src/app/core/shared/context.model";
@@ -11,7 +11,7 @@ import { ContextMenuComponent } from "src/app/shared/context-menu/context-menu.c
 import { listableObjectComponent } from "src/app/shared/object-collection/shared/listable-object/listable-object.decorator";
 import { ThemedResultsBackButtonComponent } from "src/app/shared/results-back-button/themed-results-back-button.component";
 import { JournalPeerReviewedComponent } from "../specific-fields/journal-peer-reviewed.component";
-import { ItemPageHeadingComponent } from "../../../shared/item-page/item-page-heading.component";
+import { PageDetailSectionComponent } from "../../../shared/page-detail-section.component";
 
 /**
  * Item page rendered for the 'Journal' item type.
@@ -34,8 +34,7 @@ import { ItemPageHeadingComponent } from "../../../shared/item-page/item-page-he
     NgIf,
     GenericItemPageFieldComponent,
     JournalPeerReviewedComponent,
-    NgTemplateOutlet,
-    ItemPageHeadingComponent,
+    PageDetailSectionComponent,
   ],
 })
 export class JournalPageComponent extends ItemComponent {
@@ -43,6 +42,7 @@ export class JournalPageComponent extends ItemComponent {
   @Input() showMetrics: boolean;
   @Input() viewMode: ViewMode;
   @Input() showCorrection: boolean;
+  @Input() showThumbnails: boolean;
 
   protected readonly DspaceObjectType = DSpaceObjectType;
 }

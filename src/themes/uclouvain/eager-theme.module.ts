@@ -1,6 +1,51 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RootModule } from '../../app/root.module';
+import {
+  CollectionMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/collection-metadata-block.component';
+import {
+  ConferenceMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/conference-metadata-block.component';
+import {
+  DissertationMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/dissertation-metadata-block.component';
+import { DocumentTypeMetadataBlockComponent } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/document-type-metadata-block.component';
+import {
+  HostBookMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/host-book-metadata-block.component';
+import {
+  IdentifierArxivMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-arxiv-metadata-block.component';
+import { IdentifierDoiMetadataBlockComponent } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-doi-metadata-block.component';
+import {
+  HostJournalMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/host-journal-metadata-block.component';
+import {
+  IdentifierISBNMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-isbn-metadata-block.component';
+import {
+  IdentifierPatentMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-patent-metadata-block.component';
+import { IdentifierPubmedMetadataBlockComponent } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-pubmed-metadata-block.component';
+import {
+  KeywordsMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/keywords-metadata-block.component';
+import {
+  LanguageStatusMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/language-metadata-block.component';
+import {
+  NumberOfPagesMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/number-of-pages-metadata-block.component';
+import {
+  PublicationStatusMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/publication-status-metadata-block.component';
+import {
+  PublisherMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/publisher-metadata-block.component';
+import {
+  YearMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/year-metadata-block.component';
 import { FooterComponent } from './app/footer/footer.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
 import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
@@ -18,8 +63,29 @@ import { OrcidShortFormatComponent } from './app/item-page/simple/field-componen
  */
 const ENTRY_COMPONENTS = [];
 
+const METADATA_BLOCK_COMPONENTS = [
+  CollectionMetadataBlockComponent,
+  ConferenceMetadataBlockComponent,
+  DocumentTypeMetadataBlockComponent,
+  DissertationMetadataBlockComponent,
+  HostBookMetadataBlockComponent,
+  HostJournalMetadataBlockComponent,
+  IdentifierArxivMetadataBlockComponent,
+  IdentifierDoiMetadataBlockComponent,
+  IdentifierISBNMetadataBlockComponent,
+  IdentifierPatentMetadataBlockComponent,
+  IdentifierPubmedMetadataBlockComponent,
+  KeywordsMetadataBlockComponent,
+  LanguageStatusMetadataBlockComponent,
+  NumberOfPagesMetadataBlockComponent,
+  PublicationStatusMetadataBlockComponent,
+  PublisherMetadataBlockComponent,
+  YearMetadataBlockComponent
+]
+
 const DECLARATIONS = [
   ...ENTRY_COMPONENTS,
+  ...METADATA_BLOCK_COMPONENTS,
   AuthorInlineLabeledGroupContentComponent,
   FooterComponent,
   HeaderNavbarWrapperComponent,

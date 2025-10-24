@@ -27,6 +27,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import {
+  FormControl,
   FormsModule,
   ReactiveFormsModule,
   UntypedFormArray,
@@ -183,6 +184,9 @@ export class DsDynamicFormControlContainerComponent extends DynamicFormControlCo
   listId: string;
   searchConfig: string;
   value: MetadataValue;
+
+  isLinkedToAuthority: boolean;
+
   /**
    * List of subscriptions to unsubscribe from
    */
@@ -324,7 +328,9 @@ export class DsDynamicFormControlContainerComponent extends DynamicFormControlCo
     } else {
       this.securityLevel = this.model.securityLevel;
     }
-  }
+
+    this.isLinkedToAuthority = !!this.model?.metadataValue?.authority;
+ }
 
   get isCheckbox(): boolean {
     return this.model.type === DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX || this.model.type === DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_SWITCH;
@@ -363,6 +369,13 @@ export class DsDynamicFormControlContainerComponent extends DynamicFormControlCo
   }
 
   ngAfterViewInit() {
+    if (this.formGroup && this.model) {
+      const control = this.formBuilderService.getFormControlByModel(this.formGroup, this.model) as FormControl;
+      if (control) {
+        this.subs.push(control.valueChanges
+          .subscribe(value => this.isLinkedToAuthority = Object.prototype.hasOwnProperty.call(value, 'authority') && isNotEmpty(value.authority)));
+      }
+    }
     this.showErrorMessagesPreviousStage = this.showErrorMessages;
   }
 
