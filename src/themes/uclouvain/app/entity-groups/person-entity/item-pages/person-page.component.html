@@ -24,8 +24,7 @@
       </div>
     </div>
     <!-- MAIN METADATA SECTION -->
-    <div class="mb-4">
-      <ds-item-page-heading [headerLabel]="'item.page.heading.person.details'"/>
+    <ds-page-detail-section [label]="'item.page.heading.person.details' | translate" class="mb-4">
       <dl class="ml-1">
         <ng-container *ngIf="object.hasMetadata('crisrp.name')">
           <dt>{{ "item.page.person.crisrp.name" | translate }}</dt>
@@ -60,19 +59,16 @@
           </dd>
         </ng-container>
       </dl>
-    </div>
-    <div>
-      <ds-item-page-heading [headerLabel]="'item.page.heading.person.publications'"/>
-      <!-- Display all publication of this author -->
-      <div>
-        <ds-tabbed-related-entities-search  [item]="object"
-                                            [relationTypes]="[{
+    </ds-page-detail-section>
+    <!-- Display all publication of this author -->
+    <ds-page-detail-section [label]="'item.page.heading.person.publications' | translate">
+        <ds-tabbed-related-entities-search [item]="object"
+                                           [relationTypes]="[{
                                               label: 'isAuthorOfPublication',
                                               filter: 'isAuthorOfPublication',
                                               configuration: 'default'
-                                            }]">
+                                           }]">
         </ds-tabbed-related-entities-search>
-      </div>
-    </div>
+    </ds-page-detail-section>
   </article>
 </div>
