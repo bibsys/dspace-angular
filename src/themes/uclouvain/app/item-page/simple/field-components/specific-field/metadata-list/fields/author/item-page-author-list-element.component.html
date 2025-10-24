@@ -2,20 +2,17 @@
   <ul class="pl-4 mb-0">
     <ng-container *ngFor="let author of authorsToDisplay">
       <li class="mb-1" *ngIf="author.displayed | async">
-        <div class="d-flex">
-          <span *ngIf="isNotEmpty(author.mv)">
-            <ds-item-link-view *ngIf="author.hasAuthority" [metadataValue]="author.mv" />
-            <!-- TODO: If not authority present, we should redirect to a search -->
-            <ds-item-link-view *ngIf="!author.hasAuthority" [metadataValue]="author.mv" />
-          </span>
-          <span *ngIf="isNotEmpty(author.orcid)" class="ml-1">
-            <img placement="top"
-                 ngbTooltip="{{ 'orcid.badge.tooltip' | translate }}"
-                 class="orcid-icon"
-                 alt="orcid-logo"
-                 src="assets/images/orcid.logo.icon.svg" />
-          </span>
-          <span *ngIf="isNotEmpty(author.role)" class="ml-2 text-muted font-italic">({{ getDisplayRole(author.role) }})</span>
+        <div class="d-flex author-line">
+          <div class="author-data">
+            <ds-item-link-view [metadataValue]="author.mv" *ngIf="isNotEmpty(author.mv)"/>
+            <ng-container *ngVar="author.getOrcidURL() as orcidURL">
+              <a *ngIf="orcidURL !== null" class="ml-1 orcid-icon" [href]="orcidURL.href" [target]="'orcid'">
+                <img alt="orcid-logo" src="assets/images/orcid.logo.icon.svg" [width]="16" [height]="16"/>
+              </a>
+            </ng-container>
+            <span class="author-institution text-secondary" *ngIf="author.institution">{{ author.institution }}</span>
+          </div>
+          <span *ngIf="isNotEmpty(author.role)" class="ml-auto text-secondary author-role">{{ getDisplayRole(author.role) }}</span>
         </div>
       </li>
     </ng-container>
@@ -25,12 +22,10 @@
   </ul>
   <ng-container *ngIf="canExpand">
     <a *ngIf="!(displayAll | async)" (click)="expandView()">
-      <i class="fa-solid fa-chevron-down"></i>
-      {{ 'item.truncatable-part.show-more' | translate }}
+      <i class="fa-solid fa-chevron-down mr-2"></i>{{ 'item.truncatable-part.show-more' | translate }}
     </a>
     <a *ngIf="displayAll | async" (click)="shortenView()">
-      <i class="fa-solid fa-chevron-up"></i>
-      {{ 'item.truncatable-part.show-less' | translate }}
+      <i class="fa-solid fa-chevron-up mr-2"></i>{{ 'item.truncatable-part.show-less' | translate }}
     </a>
   </ng-container>
 </div>

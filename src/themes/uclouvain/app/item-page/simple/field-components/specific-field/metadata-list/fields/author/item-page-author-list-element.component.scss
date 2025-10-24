@@ -1,0 +1,59 @@
+.author-line {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top:50%;
+    left:0;
+    width: 100%;
+    border-top-width: 2px;
+    border-top-style: dotted;
+    border-top-color: var(--bs-gray-200);
+    transform: translateY(-50%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+  }
+}
+
+
+.author-data {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.author-institution, .author-role {
+  font-size: .85rem;
+}
+.author-institution {
+  padding-right: .25rem;
+  &::before {
+    content: '[';
+    padding-left: .25rem;
+  }
+  &::after {
+    content: ']';
+  }
+}
+.author-role {
+  font-style: italic;
+  padding-left: .25rem;
+  &::before {
+    content: '(';
+  }
+  &::after {
+    content: ')';
+  }
+}

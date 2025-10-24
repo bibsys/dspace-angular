@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf, NgTemplateOutlet } from "@angular/common";
+import { AsyncPipe, NgIf } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { TranslateModule } from "@ngx-translate/core";
 import { Context } from "src/app/core/shared/context.model";
@@ -13,7 +13,7 @@ import { listableObjectComponent } from "src/app/shared/object-collection/shared
 import { ThemedResultsBackButtonComponent } from "src/app/shared/results-back-button/themed-results-back-button.component";
 import { ThemedThumbnailComponent } from "src/app/thumbnail/themed-thumbnail.component";
 import { TabbedRelatedEntitiesSearchComponent } from "src/app/item-page/simple/related-entities/tabbed-related-entities-search/tabbed-related-entities-search.component";
-import { ItemPageHeadingComponent } from "../../../shared/item-page/item-page-heading.component";
+import { PageDetailSectionComponent } from "../../../shared/page-detail-section.component";
 import { ItemPageAffiliationFieldComponent } from "../../../item-page/simple/field-components/specific-field/affiliation/item-page-affiliation-field.component";
 import { OrcidShortFormatComponent } from "../../../item-page/simple/field-components/specific-field/orcid/orcid-short-format.component";
 
@@ -35,11 +35,10 @@ import { OrcidShortFormatComponent } from "../../../item-page/simple/field-compo
     ThemedResultsBackButtonComponent,
     GenericItemPageFieldComponent,
     ThemedItemPageTitleFieldComponent,
-    NgTemplateOutlet,
     MetadataFieldWrapperComponent,
     ThemedThumbnailComponent,
     TabbedRelatedEntitiesSearchComponent,
-    ItemPageHeadingComponent,
+    PageDetailSectionComponent,
     ItemPageAffiliationFieldComponent,
     OrcidShortFormatComponent,
   ],
