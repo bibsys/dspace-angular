@@ -2,6 +2,7 @@
   // For proper scoping, do not include the .css file suffix here
   @import "../../form.component";
 }
+@import "bootstrap/scss/bootstrap";
 
 :host {
   display: flex;
@@ -18,6 +19,14 @@
 
 .date-field-security {
   padding-top: 2rem;
+}
+
+.authority-linked {
+  position: absolute;
+  right:10px;
+  top: 50%;
+  transform: translateY(-50%);
+  @extend .text-success;
 }
 
 
