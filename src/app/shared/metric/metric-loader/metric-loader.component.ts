@@ -74,7 +74,7 @@ export class MetricLoaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.cookiesSubscription = this.klaroService.getSavedPreferences().subscribe((consents) => {
-      this.loadComponent(this.metric, this.getCanLoadScript(consents));
+      this.loadComponent(this.metric, this.getCanLoadScript(consents), true);
     });
   }
 
