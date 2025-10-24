@@ -153,6 +153,9 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
             value.value : value;
           if (isNotEmpty(nextValue)) {
             model.value = nextValue;
+            if (value instanceof FormFieldMetadataValueObject && Object.hasOwnProperty.call(model, 'metadataValue')) {
+              model['metadataValue'] = value;
+            }
           }
 
           this.initSecurityLevelConfig(model, modelRow);
