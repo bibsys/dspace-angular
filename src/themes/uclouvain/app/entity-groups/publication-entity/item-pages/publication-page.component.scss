@@ -1,4 +1,10 @@
+@import "bootstrap/scss/bootstrap";
+
 .publication-type-specific {
-  // box-shadow: rgba(0, 0, 0, 0.02) 0px 3px 12px 0px, rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
   background: var(--bs-gray-100);
+}
+
+::ng-deep {
+  dt { @extend .mb-2; }
+  dd { @extend .mb-3; }
 }
