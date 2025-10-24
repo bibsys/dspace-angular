@@ -7,18 +7,15 @@ import { MetadataValue } from "src/app/core/shared/metadata.models";
     selector: 'ds-item-link-view',
     template: `
         <ng-container [ngTemplateOutlet]="metadataValue?.authority ? displayWithAuthority : defaultDisplay"
-                  [ngTemplateOutletContext]="{metadataValue: metadataValue}"></ng-container>
+                      [ngTemplateOutletContext]="{metadataValue: metadataValue}">
+        </ng-container>
         <ng-template #displayWithAuthority let-metadataValue="metadataValue">
-            <a rel="noopener noreferrer" data-test="displayWithAuthority" [routerLink]="['/items/' + metadataValue.authority]">
-                <span>
-                    {{ metadataValue.value }}
-                </span>
+            <a rel="noopener noreferrer" [routerLink]="['/items/' + metadataValue.authority]">
+                <span class="text-nowrap">{{ metadataValue.value }}</span>
             </a>
         </ng-template>
         <ng-template #defaultDisplay let-metadataValue="metadataValue">
-            <span>
-                {{ metadataValue.value }}
-            </span>
+            <span class="text-nowrap">{{ metadataValue.value }}</span>
         </ng-template>
     `,
     standalone: true,

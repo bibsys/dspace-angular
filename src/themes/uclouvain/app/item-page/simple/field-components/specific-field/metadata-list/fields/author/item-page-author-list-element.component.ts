@@ -7,12 +7,14 @@ import { AsyncPipe, NgFor, NgIf } from "@angular/common";
 import { ItemLinkViewComponent } from "src/themes/uclouvain/app/shared/item-link-view/item-link-view.component";
 import { NgbTooltipModule } from "@ng-bootstrap/ng-bootstrap";
 import { TranslateModule } from "@ngx-translate/core";
-import { BehaviorSubject, map, Observable, of, switchAll, switchMap } from "rxjs";
+import { BehaviorSubject, map, Observable, of, switchMap } from "rxjs";
 import { VocabularyService } from "src/app/core/submission/vocabularies/vocabulary.service";
 import { getFirstSucceededRemoteDataPayload } from "src/app/core/shared/operators";
 import { PUBLICATION_ROLES_VOCABULARIES_MAPPING } from "src/themes/uclouvain/app/entity-groups/publication-entity/type-label-mapping";
 import { followLink } from "src/app/shared/utils/follow-link-config.model";
 import { VocabularyEntry } from "src/app/core/submission/vocabularies/models/vocabulary-entry.model";
+import { VarDirective } from '../../../../../../../../../../app/shared/utils/var.directive';
+import { environment } from "src/environments/environment";
 
 /**
  * Renders a list of element for an author.
@@ -27,7 +29,7 @@ import { VocabularyEntry } from "src/app/core/submission/vocabularies/models/voc
 @Component({
   selector: 'ds-item-page-author-list-element',
   templateUrl: './item-page-author-list-element.component.html',
-  styles: ['.orcid-icon { height: 1.2rem; }  a {cursor: pointer;}'],
+  styleUrls: ['./item-page-author-list-element.component.scss'],
   standalone: true,
   imports: [
     NgIf,
@@ -36,6 +38,7 @@ import { VocabularyEntry } from "src/app/core/submission/vocabularies/models/voc
     TranslateModule,
     NgFor,
     AsyncPipe,
+    VarDirective,
   ],
 })
 export class ItemPageAuthorListElementComponent implements OnInit {
@@ -127,10 +130,10 @@ export class ItemPageAuthorListElementComponent implements OnInit {
    *   
    * @returns An observable of a vocabulary list containing all author roles for the current item. 
    */
-  getRoleEntries(): Observable<VocabularyEntry[] | undefined> {
+  getRoleEntries(): Observable<VocabularyEntry[]> {
     let vocabularyName = PUBLICATION_ROLES_VOCABULARIES_MAPPING[this.item.firstMetadataValue('dc.type.maintype')];
     if (isEmpty(vocabularyName)) {
-      return of(undefined);
+      return of([]);
     }
     return this.vocabularyService.findVocabularyById(vocabularyName, true, false, followLink('entries')).pipe(
       getFirstSucceededRemoteDataPayload(),
@@ -185,12 +188,19 @@ class AuthorListElement {
     this.place = mv.place;
     this.hasAuthority = isNotEmpty(mv.authority);
 
-    this.orcid = this.getMetadataValue(item, 'authors.identifier.orcid', this.place)?.value;
-    this.role = this.getMetadataValue(item, 'authors.role', this.place)?.value;
-    this.institution = this.getMetadataValue(item, 'authors.institution.code', this.place)?.value;
+    this.orcid = this.getMetadataValue(item, 'authors.identifier.orcid');
+    this.role = this.getMetadataValue(item, 'authors.role');
+    this.institution = this.getMetadataValue(item, 'authors.institution.code');
   }
 
-  getMetadataValue(item: Item, field: string, place: number) {
-    return item.findMetadataSortedByPlace(field)[place];
+  private getMetadataValue(item: Item, field: string): string | null {
+    const value: MetadataValue = item.findMetadataSortedByPlace(field)[this.place];
+    return (value?.value !== PLACEHOLDER_PARENT_METADATA)
+      ? value.value
+      : null;
+  }
+
+  getOrcidURL(): URL | null {
+    return (isNotEmpty(this.orcid)) ? new URL(environment.ui.orcidUrl + this.orcid) : null;
   }
 }
