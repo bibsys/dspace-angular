@@ -2,17 +2,14 @@ import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
-import { AffiliationDisplayFormatPipe } from '../../../../../pipes/affiliation-display-format.pipe';
 import { AffiliationPaddingRenderingPipe } from '../../../../../pipes/affiliation-padding-rendering.pipe';
 import { DynamicDepartmentAffiliationSelectModel } from "./department-affiliation-select.model";
 import { filter } from "rxjs";
 import { isEmpty } from "src/app/shared/empty.util";
-import { AffiliationData, PublicationAffiliationDataService } from "src/app/core/data/publication-affiliation-data.service";
+import { AffiliationData } from "src/app/core/data/publication-affiliation-data.service";
 import { FormFieldMetadataValueObject } from "../../../../models/form-field-metadata-value.model";
 import { AffiliationSelectComponent } from "../affiliation-select.component";
-import { AffiliationUpdateData, FormAffiliationFieldUpdateService } from "src/app/core/data/publication-affiliation-field-update.service";
-import { DynamicFormLayoutService, DynamicFormValidationService } from "@ng-dynamic-forms/core";
-import { NotificationsService } from "src/app/shared/notifications/notifications.service";
+import { AffiliationUpdateData } from "src/app/core/data/publication-affiliation-field-update.service";
 
 /**
  *  1. Display empty select first with no selectable option.
@@ -32,7 +29,6 @@ import { NotificationsService } from "src/app/shared/notifications/notifications
     NgIf,
     AsyncPipe,
     TranslateModule,
-    AffiliationDisplayFormatPipe,
     AffiliationPaddingRenderingPipe,
     NgForOf
   ]
@@ -44,18 +40,6 @@ export class DsDynamicDepartmentAffiliationComponent extends AffiliationSelectCo
   public affiliations: AffiliationData[] = [];  // Global affiliations are static and reloaded only when the user changes the institution.
   public searchResult: AffiliationData[] = [];  // Displayed affiliations are filtered based on the user input.
   public selectMode = true;
-  private separator = ' - ';
-
-  constructor(
-    protected layoutService: DynamicFormLayoutService,
-    protected validationService: DynamicFormValidationService,
-    protected publicationAffiliationDataService: PublicationAffiliationDataService,
-    protected publicationAffiliationFieldUpdateService: FormAffiliationFieldUpdateService,
-    protected notificationsService: NotificationsService,
-    protected affiliationDisplayFormatPipe: AffiliationDisplayFormatPipe
-  ) {
-    super(layoutService, validationService, publicationAffiliationDataService, publicationAffiliationFieldUpdateService, notificationsService);
-  }
 
   public ngOnInit(): void {
     if (this.model.value) {
@@ -130,7 +114,7 @@ export class DsDynamicDepartmentAffiliationComponent extends AffiliationSelectCo
   private updateSearch(): void {
     this.currentValue.subscribe((value) => {
       this.searchResult = (value?.value)
-        ? this.affiliations.filter((aff: AffiliationData) => this.affiliationDisplayFormatPipe.transform(aff, this.separator).toLowerCase().includes(value.value.toLowerCase()))
+        ? this.affiliations.filter((aff: AffiliationData) => aff.name.toLowerCase().includes(value.value.toLowerCase()))
         : this.affiliations;
     });
   }
