@@ -45,10 +45,10 @@
                     (mousedown)="onSelect(affiliation); sdRef.close()"
                     [attr.id]="affiliation.name == (currentValue|async) ? ('combobox_' + id + '_selected') : null"
                 >
-                    {{ affiliation | affiliationDisplayFormat | affiliationPaddingRendering: affiliation.index }}
+                    {{ affiliation.name | affiliationPaddingRendering: affiliation.index }}
                 </button>
                 <p *ngIf="!affiliation.isSelectable" class="disabled-item text-truncate mt-1 mb-0 mx-1 p-0">
-                    {{ affiliation | affiliationDisplayFormat | affiliationPaddingRendering: affiliation.index }}
+                    {{ affiliation.name | affiliationPaddingRendering: affiliation.index }}
                 </p>
             </div>
         </ng-container>
