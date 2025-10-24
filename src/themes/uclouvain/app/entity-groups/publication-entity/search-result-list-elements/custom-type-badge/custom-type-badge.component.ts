@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Item } from 'src/app/core/shared/item.model';
 import { hasValue, isNotEmpty } from 'src/app/shared/empty.util';
-import { PUBLICATION_TYPES_MAPPING } from '../../type-label-mapping';
 import { DSpaceObject } from 'src/app/core/shared/dspace-object.model';
 import { getResourceTypeValueFor } from 'src/app/core/cache/object-cache.reducer';
 import { NgClass, NgIf } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'ds-custom-type-badge',
@@ -33,6 +32,10 @@ export class CustomTypeBadgeComponent implements OnInit {
     protected publicationType: string = undefined;
 
     protected readonly isNotEmpty = isNotEmpty;
+
+    constructor(
+      private translateService: TranslateService,
+    ) { }
 
     ngOnInit(): void {
         if (isNotEmpty(this.object)) {
@@ -74,9 +77,10 @@ export class CustomTypeBadgeComponent implements OnInit {
 
     // Used to translate a publication type to a label that can be displayed.
     parsePublicationType(type: string): string {
-        if (type.includes('text::')) {
-            return PUBLICATION_TYPES_MAPPING[type] ?? type.split('text::')[1];
-        }
-        return type;
+      let translatedType = this.translateService.instant(type);
+      if (translatedType === type) { // no translation found
+        translatedType = (translatedType.startsWith("text::")) ? translatedType.slice(6) : translatedType;
+      }
+      return translatedType;
     }
 }
