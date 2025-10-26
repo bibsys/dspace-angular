@@ -10662,7 +10662,7 @@
 
   //"submission-button.add.message": "Add a submission",
   "submission-button.add.message": "Déposer",
-  "submission-button.add.disable-message": "Vous n'êtes pas autorisé à déposer une nouvelle soumission car un précédent dépôt est encore en phase de soumission ou en attente de validation par un gestionnaire. Rendez vous sur la page 'MyDIAL.mem' pour voir vos précédentes soumissions",
+  "submission-button.add.disable-message": "Un dépôt à votre nom est déjà en cours de soumission ou de validation. Rendez-vous sur la page « MYDIAL.mem » pour afficher le(s) dépôt(s) à votre nom ou pour rouvrir un dépôt en cours.",
 
 
   "search.filters.accessType.openaccess": "Accès libre",
