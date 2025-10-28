@@ -1,9 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
@@ -13,32 +8,22 @@ import {
   DynamicFormLayoutService,
   DynamicFormValidationService,
 } from '@ng-dynamic-forms/core';
-import {
-  Observable,
-  of as observableOf,
-} from 'rxjs';
-import {
-  distinctUntilChanged,
-  filter,
-  map,
-  take,
-} from 'rxjs/operators';
+import { Observable, of as observableOf, } from 'rxjs';
+import { distinctUntilChanged, filter, map, take, } from 'rxjs/operators';
+import { ConfidenceType } from 'src/app/core/shared/confidence-type';
 
 import { Metadata } from '../../../../../core/shared/metadata.utils';
 import { getFirstSucceededRemoteDataPayload } from '../../../../../core/shared/operators';
 import { PageInfo } from '../../../../../core/shared/page-info.model';
 import { SubmissionScopeType } from '../../../../../core/submission/submission-scope-type';
-import { Vocabulary } from '../../../../../core/submission/vocabularies/models/vocabulary.model';
 import { VocabularyEntry } from '../../../../../core/submission/vocabularies/models/vocabulary-entry.model';
+import { Vocabulary } from '../../../../../core/submission/vocabularies/models/vocabulary.model';
 import { VocabularyService } from '../../../../../core/submission/vocabularies/vocabulary.service';
 import { SubmissionService } from '../../../../../submission/submission.service';
+import { hasNoValue, hasValue, isEmpty, isNotEmpty, isUndefined, } from '../../../../empty.util';
 import {
-  hasValue,
-  isEmpty,
-  isUndefined,
-  isNotEmpty,
-} from '../../../../empty.util';
-import { VocabularyExternalSourceComponent } from '../../../../vocabulary-external-source/vocabulary-external-source.component';
+  VocabularyExternalSourceComponent
+} from '../../../../vocabulary-external-source/vocabulary-external-source.component';
 import { FormBuilderService } from '../../form-builder.service';
 import { FormFieldMetadataValueObject } from '../../models/form-field-metadata-value.model';
 import { DsDynamicInputModel } from './ds-dynamic-input.model';
@@ -297,6 +282,31 @@ export abstract class DsDynamicVocabularyComponent extends DynamicFormControlCom
         this.createChangeEventOnUpdate(updatedModels);
       }
     }
+  }
+
+  /**
+   * Clear other fields authority informations when this authority is invalidated (because of user modification).
+   * @param authority The authority to invalidate.
+   */
+  clearAuthorityInformation(authority: string): void {
+    if (hasNoValue(authority)) return;
+
+    const models = this.formBuilderService.getModelsByAuthority(authority);
+
+    models.map(model => ({model, existingValue: this.getModelAuthorityValue(model)}))
+    .filter(({existingValue}) => hasValue(existingValue))
+    .forEach(({model, existingValue}) => {
+      const newValue = Object.assign(new FormFieldMetadataValueObject(), existingValue);
+      newValue.authority = null;
+      newValue.confidence = ConfidenceType.CF_UNSET;
+      this.formBuilderService.updateModelValue(model.id, newValue);
+    })
+    this.createChangeEventOnUpdate(models);
+  }
+
+  getModelAuthorityValue(model: any): FormFieldMetadataValueObject {
+    const value = model?.metadataValue ?? model?.value;
+    return (value instanceof FormFieldMetadataValueObject) ? value : undefined;
   }
 
   protected createChangeEventOnUpdate(models: DynamicFormControlModel[]) {
