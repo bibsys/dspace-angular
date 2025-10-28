@@ -636,6 +636,32 @@ export class FormBuilderService extends DynamicFormService {
   }
 
   /**
+   * Get an array of all models that use the given authority.
+   * @param authority The authority to lookup for.
+   * @returns An array of all models using the provided authority key.
+   */
+  getModelsByAuthority(authority: string): DynamicFormControlModel[] {
+    if (!authority) {
+      return [];
+    }
+
+    return Array.from(this.formModels.values())
+      // equivalent to 'flatMap' to flattent the top level arrays.
+      .reduce((acc, models) => acc.concat(models), [] as DynamicFormControlModel[])
+      // keep only the models that are DynamicRowGroupModel
+      .filter(model => model instanceof DynamicRowGroupModel)
+      // One more reduce ('flatMap' equivalent) to retrieve the models inside the groupModel.
+      .reduce((acc, rowGroup: DynamicRowGroupModel) => acc.concat(rowGroup.group), [] as DynamicFormControlModel[])
+      // Last filter to keep only valid authority linked models.
+      .filter(model => this.hasAuthority(model, authority))
+  }
+
+  private hasAuthority(model: any, authority: string) {
+    return model?.metadataValue?.authority === authority
+      || model?.value?.authority === authority;
+  }
+
+  /**
    * This method searches a field in all forms instantiated
    * by form.component and, if found, it updates its value
    *
