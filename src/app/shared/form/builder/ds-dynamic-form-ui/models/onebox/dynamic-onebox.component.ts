@@ -236,12 +236,17 @@ export class DsDynamicOneboxComponent extends DsDynamicVocabularyComponent imple
    * @param event
    */
   onInput(event) {
+    const previousValue = this.model.value;
     if (!this.model.vocabularyOptions.closed && isNotEmpty(event.target.value)) {
       this.inputValue = new FormFieldMetadataValueObject(event.target.value);
       if (this.model.value) {
         if ((this.model.value as any).securityLevel != null) {
           this.inputValue.securityLevel = (this.model.value as any).securityLevel;
         }
+      }
+      // Invalidate all fields linked to the previous authority.
+      if (hasValue(previousValue) && previousValue.hasOwnProperty('authority')) {
+        this.clearAuthorityInformation(previousValue['authority']);
       }
     }
   }
