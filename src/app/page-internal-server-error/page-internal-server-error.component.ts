@@ -5,6 +5,7 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 
 import { ServerResponseService } from '../core/services/server-response.service';
+import { RouterLink } from '@angular/router';
 
 /**
  * This component representing the `PageInternalServer` DSpace page.
@@ -15,7 +16,7 @@ import { ServerResponseService } from '../core/services/server-response.service'
   templateUrl: './page-internal-server-error.component.html',
   changeDetection: ChangeDetectionStrategy.Default,
   standalone: true,
-  imports: [TranslateModule],
+  imports: [TranslateModule, RouterLink],
 })
 export class PageInternalServerErrorComponent {
 
