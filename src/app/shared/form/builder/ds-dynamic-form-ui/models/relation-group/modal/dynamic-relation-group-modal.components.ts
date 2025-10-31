@@ -164,6 +164,7 @@ export class DsDynamicRelationGroupModalComponent extends DynamicFormControlComp
       this.retrieveVocabulary(mandatoryFieldModel.vocabularyOptions);
     }
 
+    this.cdr.detectChanges();
   }
 
   getHeader() {
