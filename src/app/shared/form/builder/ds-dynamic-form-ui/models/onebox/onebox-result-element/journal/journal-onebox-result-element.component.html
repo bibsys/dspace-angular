@@ -1,0 +1,18 @@
+<div class="px-3 py-1 d-flex flex-column" [ngClass]="{'journal-ceased': isCeased()}">
+  <!-- Journal title -->
+  <span class="text-primary font-weight-bold">
+    {{ entry.value }}
+  </span>
+  <!-- Journal additional data -->
+  <ng-container *ngIf="entry.hasOtherInformation()">
+    <ng-container *ngVar="otherInformationAsMap as otherInfo">
+      <span class="text-secondary" *ngIf="hasValue(otherInfo, infoKey)">
+        {{ otherInfo.get(infoKey) }}
+      </span>
+    </ng-container>
+  </ng-container>
+  <div *ngIf="isCeased()" class="text-warning">
+    <i class="fa-solid fa-triangle-exclamation mr-1"></i>
+    <span [innerHTML]="'onebox.searchresult.journal.ceased.warning' | translate"></span>
+  </div>
+</div>
