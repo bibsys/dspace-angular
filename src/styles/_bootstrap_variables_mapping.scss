@@ -527,7 +527,7 @@
   --bs-dropdown-box-shadow: #{$dropdown-box-shadow};
   --bs-dropdown-link-color: #{$dropdown-link-color};
   --bs-dropdown-link-hover-color: #{$dropdown-link-hover-color};
-  --bs-dropdown-link-hover-bg: #{$dropdown-link-hover-bg};
+  --bs-dropdown-link-hover-bg: var(--bs-gray-100); // #{$dropdown-link-hover-bg};
   --bs-dropdown-link-active-color: #{$dropdown-link-active-color};
   --bs-dropdown-link-active-bg: #{$dropdown-link-active-bg};
   --bs-dropdown-link-disabled-color: #{$dropdown-link-disabled-color};
