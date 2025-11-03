@@ -5,10 +5,12 @@
   max-height: var(--ds-dropdown-menu-max-height);
   overflow-y: auto !important;
   overflow-x: hidden;
+  z-index: 998 !important;
 }
 
 :host ::ng-deep .dropdown-item {
   border-bottom: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
+  padding: 0;
 }
 
 :host ::ng-deep .dropdown-item.active,
