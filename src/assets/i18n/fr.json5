@@ -9585,5 +9585,8 @@
 
   "menu.section.manage.child.dissertation": "Gérer les thèses",
   "menu.section.manage.child.journal": "Gérer les revues",
+
+  // --- ONEBOX FIELD SEARCH RESULTS ---
+  "onebox.searchresult.journal.ceased.warning": "Cette revue est en status <b>arrêté</b> et ne devrait pas être utilisée pour la soumission de nouvelles publications.",
 }
 
