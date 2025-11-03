@@ -9563,4 +9563,7 @@
 
   "menu.section.manage.child.dissertation": "Manage dissertations",
   "menu.section.manage.child.journal": "Manage journals",
+
+  // --- ONEBOX FIELD SEARCH RESULTS ---
+  "onebox.searchresult.journal.ceased.warning": "This journal is <b>ceased</b> and should not be used in any new publication.",
 }
