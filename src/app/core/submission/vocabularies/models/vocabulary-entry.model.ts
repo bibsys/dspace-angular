@@ -58,6 +58,12 @@ export class VocabularyEntry extends ListableObject {
   @autoserialize
   public type: any;
 
+  @autoserialize
+  public source: string;
+
+  @autoserialize
+  uniqueType: string;
+
   /**
    * The {@link HALLink}s for this ExternalSourceEntry
    */
