@@ -1,0 +1,15 @@
+<ul class="list-unstyled mb-0 px-3 py-1">
+  <li class="list-item d-flex align-items-center">
+    <img *ngIf="entry.source" class="mr-2" #imgTag [src]="getAuthoritySourceIcon(entry.source, imgTag)" [attr.alt]="('form.entry.source.' + entry.source) | translate" />
+    <div class="text-truncate text-primary font-weight-bold">{{entry.value}}</div>
+    <div *ngIf="entry.source" class="ml-2 text-truncate text-secondary">{{ ('form.entry.source.' + entry.source) | translate}}</div>
+  </li>
+  <ng-container *ngIf="entry.hasOtherInformation()">
+    <ng-container *ngFor="let item of entry.otherInformation | dsObjNgFor">
+      <!-- Do not display keys starting with either 'data-' or 'authority-' as they are used for autocomplete purpose only. -->
+      <li *ngIf="!item.key.startsWith('data-') && !item.key.startsWith('authority-')" class="list-item text-truncate text-secondary"  >
+        {{ 'form.other-information.' + item.key | translate }} : {{item.value !== '' ? getOtherInfoValue(item.value) : ('form.other-information.not-available' | translate)}}
+      </li>
+    </ng-container>
+  </ng-container>
+</ul>

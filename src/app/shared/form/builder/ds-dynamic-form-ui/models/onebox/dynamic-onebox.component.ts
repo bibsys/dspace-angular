@@ -1,5 +1,6 @@
 import {
   AsyncPipe,
+  JsonPipe,
   NgForOf,
   NgIf,
   NgTemplateOutlet,
@@ -8,6 +9,8 @@ import {
   ChangeDetectorRef,
   Component,
   EventEmitter,
+  forwardRef,
+  InjectionToken,
   Input,
   OnDestroy,
   OnInit,
@@ -76,6 +79,9 @@ import { FormBuilderService } from '../../../form-builder.service';
 import { FormFieldMetadataValueObject } from '../../../models/form-field-metadata-value.model';
 import { DsDynamicVocabularyComponent } from '../dynamic-vocabulary.component';
 import { DynamicOneboxModel } from './dynamic-onebox.model';
+import { OneboxResultElementComponentLoader } from './onebox-result-element/onebox-result-element-loader.component';
+
+export const ONEBOX_TYPEAHEAD_SELECT_HANDLER = new InjectionToken<(entry: any) => void>('TYPEAHEAD_SELECT_HANDLER');
 
 /**
  * Component representing a onebox input field.
@@ -97,6 +103,16 @@ import { DynamicOneboxModel } from './dynamic-onebox.model';
     FormsModule,
     BtnDisabledDirective,
     NgbTooltipModule,
+    OneboxResultElementComponentLoader,
+  ],
+  providers: [
+    {
+      // This provider allows to trigger the selection method (onSelectItem) from the loader component.
+      // This is mandatory to reproduce the correct behavior of the 'NgbTypeahead' component. 
+      provide: ONEBOX_TYPEAHEAD_SELECT_HANDLER,
+      useFactory: (parent: DsDynamicOneboxComponent) => (event: NgbTypeaheadSelectItemEvent) => parent.onSelectItem(event),
+      deps: [forwardRef(() => DsDynamicOneboxComponent)]
+    }
   ],
   standalone: true,
 })
@@ -304,6 +320,9 @@ export class DsDynamicOneboxComponent extends DsDynamicVocabularyComponent imple
   onSelectItem(event: NgbTypeaheadSelectItemEvent) {
     this.inputValue = null;
     const item = event.item;
+
+    // Make sure the modal is closed when an item has been selected.
+    this.instance.dismissPopup();
 
     if ( hasValue(item.otherInformation)) {
       // Do not process keys starting with either 'data' or 'authority' as they are used for field autocomplete purpose only.
