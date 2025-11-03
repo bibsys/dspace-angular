@@ -130,6 +130,8 @@ import { UCLouvainJournalSearchResultListElementComponent } from 'src/themes/ucl
 import { JournalPageComponent } from 'src/themes/uclouvain/app/entity-groups/journal-entity/item-pages/journal-page.component';
 import { UCLouvainPersonSearchResultListElementComponent } from 'src/themes/uclouvain/app/entity-groups/person-entity/search-result-list-elements/person-search-result/person-search-result-list-element.component';
 import { UCLouvainPersonPageComponent } from 'src/themes/uclouvain/app/entity-groups/person-entity/item-pages/person-page.component';
+import { AuthorOneboxResultElement } from 'src/app/shared/form/builder/ds-dynamic-form-ui/models/onebox/onebox-result-element/author/author-onebox-result-element.component';
+import { JournalOneboxResultElement } from 'src/app/shared/form/builder/ds-dynamic-form-ui/models/onebox/onebox-result-element/journal/journal-onebox-result-element.component';
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -223,6 +225,8 @@ const ENTRY_COMPONENTS = [
   JournalPageComponent,
   UCLouvainPersonSearchResultListElementComponent,
   UCLouvainPersonPageComponent,
+  AuthorOneboxResultElement,
+  JournalOneboxResultElement,
 ];
 
 @NgModule({
