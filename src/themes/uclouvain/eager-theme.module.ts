@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RootModule } from '../../app/root.module';
 import {
+  AdminMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/admin-metadata-block.component';
+import {
   CollectionMetadataBlockComponent
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/collection-metadata-block.component';
 import {
@@ -14,6 +17,9 @@ import { DocumentTypeMetadataBlockComponent } from './app/entity-groups/publicat
 import {
   HostBookMetadataBlockComponent
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/host-book-metadata-block.component';
+import {
+  IdentifierHandleMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/idenfifier-handle-metadatablock.component';
 import {
   IdentifierArxivMetadataBlockComponent
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-arxiv-metadata-block.component';
@@ -64,6 +70,7 @@ import { OrcidShortFormatComponent } from './app/item-page/simple/field-componen
 const ENTRY_COMPONENTS = [];
 
 const METADATA_BLOCK_COMPONENTS = [
+  AdminMetadataBlockComponent,
   CollectionMetadataBlockComponent,
   ConferenceMetadataBlockComponent,
   DocumentTypeMetadataBlockComponent,
@@ -72,6 +79,7 @@ const METADATA_BLOCK_COMPONENTS = [
   HostJournalMetadataBlockComponent,
   IdentifierArxivMetadataBlockComponent,
   IdentifierDoiMetadataBlockComponent,
+  IdentifierHandleMetadataBlockComponent,
   IdentifierISBNMetadataBlockComponent,
   IdentifierPatentMetadataBlockComponent,
   IdentifierPubmedMetadataBlockComponent,
