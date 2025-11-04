@@ -51,7 +51,7 @@
         </ds-page-detail-section>
       </div>
     </div>
-    <aside class="col-3 p-3 publication-type-specific">
+    <aside class="col-3 p-3 publication-type-specific d-flex flex-column">
       <ng-container *ngFor="let component of getMetadataBlockComponents()">
         <ng-container *ngComponentOutlet="component; inputs: { item: object }"></ng-container>
       </ng-container>
