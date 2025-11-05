@@ -12,7 +12,7 @@ export class TagFieldParser extends FieldParser {
   public modelFactory(fieldValue?: FormFieldMetadataValueObject, label?: boolean): any {
     const clsTag: DynamicFormControlLayout = {
       grid: {
-        container: 'mb-3 mt-3',
+        container: 'mb-1 mt-1',
       },
     };
     const tagModelConfig: DynamicTagModelConfig = this.initModel(null, label);
