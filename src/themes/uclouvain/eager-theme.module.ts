@@ -35,6 +35,9 @@ import {
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-patent-metadata-block.component';
 import { IdentifierPubmedMetadataBlockComponent } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-pubmed-metadata-block.component';
 import {
+  KeywordsMeshMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/keywords-mesh-metadata-block.component';
+import {
   KeywordsMetadataBlockComponent
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/keywords-metadata-block.component';
 import {
@@ -84,6 +87,7 @@ const METADATA_BLOCK_COMPONENTS = [
   IdentifierPatentMetadataBlockComponent,
   IdentifierPubmedMetadataBlockComponent,
   KeywordsMetadataBlockComponent,
+  KeywordsMeshMetadataBlockComponent,
   LanguageStatusMetadataBlockComponent,
   NumberOfPagesMetadataBlockComponent,
   PublicationStatusMetadataBlockComponent,
