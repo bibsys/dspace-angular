@@ -9539,6 +9539,7 @@
   "item.page.details.label.isbn": "ISBN",
   "item.page.details.label.last-modified": "Date de mise à jour",
   "item.page.details.label.subjects": "Sujets",
+  "item.page.details.label.subjects-mesh": "MeSH",
   "item.page.details.label.language": "Langue",
   "item.page.details.label.number-of-pages": "Nombre de pages",
   "item.page.details.label.pages": "pages",
