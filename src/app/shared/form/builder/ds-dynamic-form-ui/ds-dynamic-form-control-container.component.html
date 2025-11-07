@@ -22,9 +22,7 @@
         <div [ngClass]="getClass('grid', 'control')">
           <div class="position-relative">
             <ng-container #componentViewContainer></ng-container>
-            <div class="authority-linked" *ngIf="isLinkedToAuthority">
-              <i class="fa fa-link fa-xs"></i>
-            </div>
+            <div class="authority-linked" *ngIf="isLinkedToAuthority"></div>
           </div>
           <div class="d-flex flex-column w-100">
             <small
