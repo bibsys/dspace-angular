@@ -23,10 +23,14 @@
 
 .authority-linked {
   position: absolute;
-  right:10px;
-  top: 50%;
-  transform: translateY(-50%);
-  @extend .text-success;
+  right: 2px;
+  top: 2px;
+  z-index: 10;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--bs-success);
+
 }
 
 
