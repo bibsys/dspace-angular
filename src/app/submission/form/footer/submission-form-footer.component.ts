@@ -109,6 +109,10 @@ export class SubmissionFormFooterComponent implements OnChanges {
     this.submissionService.dispatchSaveForLater(this.submissionId);
   }
 
+  cancelEdit(event) {
+    this.submissionService.redirectToItemPage(this.submissionId);
+  }
+
   /**
    * Dispatch a submission deposit action
    */
