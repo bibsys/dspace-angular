@@ -6286,6 +6286,8 @@
   // "submission.general.cancel": "Cancel",
   "submission.general.cancel": "Annuler",
 
+  "submission.general.edit.cancel": "Retour",
+
   // "submission.general.cannot_submit": "You have not the privilege to make a new submission.",
   "submission.general.cannot_submit": "Vous n'avez pas les droits requis pour faire une nouvelle soumission.",
 
