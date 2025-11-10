@@ -232,6 +232,17 @@ export class DsDynamicTypeBindRelationService {
               // IMPORTANT: The library sets the boolean to the 'hidden' property of the model so 'true' will mean that the field is hidden.
               const hasMatch = relationsToProcess.reduce((state, relation) => state || this.matchesCondition(relation, matcher), false);
               matcher.onChange(hasMatch, model, control, this.injector);
+
+              // Update the status (Enabled/Disabled) of controls when the field is/isn't visible.
+              // This is necessary in order to not take hidden field into account when validating a form.
+              if (hasMatch && control.enabled) {
+                control.setErrors(null);
+                control.disable({emitEvent: false});
+              } else if (!hasMatch && control.disabled) {
+                control.enable({emitEvent: false});
+              }
+              // Make sure to update the trigger an update of validity.
+              control?.parent?.updateValueAndValidity({ onlySelf: false, emitEvent: false });
             }
           });
         }
