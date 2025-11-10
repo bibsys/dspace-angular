@@ -9,6 +9,13 @@
             (click)="$event.preventDefault();confirmDiscard(content)">
       <i class="fas fa-trash"></i> {{'submission.general.discard.submit' | translate}}
     </button>
+    <button *ngIf="(showDepositAndDiscard | async) !== true"
+            type="button"
+            id="cancel"
+            class="btn btn-danger"
+            (click)="cancelEdit($event)">
+      <i class="fa-solid fa-circle-left"></i> {{ 'submission.general.edit.cancel' | translate }}
+    </button>
   </div>
   <div class="col text-right d-flex justify-content-end align-items-center">
     <span *ngIf="(hasUnsavedModification | async) !== true && (processingSaveStatus | async) !== true && (processingDepositStatus | async) !== true && (submissionIsInvalid | async)">
@@ -28,7 +35,7 @@
     </div>
     <div class="ml-2 space-children-mr">
       <button type="button"
-              class="btn btn-secondary"
+              class="btn btn-primary"
               id="save"
               [attr.data-test]="'save' | dsBrowserOnly"
               [dsBtnDisabled]="(processingSaveStatus | async) || (hasUnsavedModification | async) !== true"
