@@ -12,9 +12,10 @@
 .submission-form-footer {
   border-radius: var(--bs-card-border-radius);
   bottom: 0;
-  background-color: var(--bs-gray-400);
+  background-color: var(--bs-gray-100);
   padding: calc(var(--bs-spacer) / 2);
   z-index: var(--ds-submission-footer-z-index);
+  border: 1px solid var(--bs-card-border-color);
 }
 
 .btn-link-focus {
