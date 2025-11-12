@@ -2462,6 +2462,9 @@
   // "error.top-level-communities": "Error fetching top-level communities",
   "error.top-level-communities": "Erreur lors de la récupération des communautés de 1er niveau",
 
+  //"error.validation.mustBeLinkToAuthority": "You need to choose an entry into the list",
+  "error.validation.mustBeLinkToAuthority": "Vous devez sélectionnez une valeur dans la liste des propositions",
+
   // "error.validation.license.notgranted": "You must grant this license to complete your submission. If you are unable to grant this license at this time you may save your work and return later or remove the submission.",
   "error.validation.license.notgranted": "Vous devez accepter cette licence pour terminer votre dépôt. Si vous êtes dans l'incapacité d'accepter cette licence actuellement, vous pouvez sauvegarder votre dépôt et y revenir ultérieurement ou le supprimer.",
 

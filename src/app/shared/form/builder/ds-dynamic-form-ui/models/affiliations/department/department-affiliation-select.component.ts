@@ -1,11 +1,11 @@
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
+import { FormControl } from '@angular/forms';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { AffiliationPaddingRenderingPipe } from '../../../../../pipes/affiliation-padding-rendering.pipe';
 import { DynamicDepartmentAffiliationSelectModel } from "./department-affiliation-select.model";
-import { filter } from "rxjs";
-import { isEmpty } from "src/app/shared/empty.util";
+import { isEmpty, isNotEmpty } from "src/app/shared/empty.util";
 import { AffiliationData } from "src/app/core/data/publication-affiliation-data.service";
 import { FormFieldMetadataValueObject } from "../../../../models/form-field-metadata-value.model";
 import { AffiliationSelectComponent } from "../affiliation-select.component";
@@ -40,8 +40,10 @@ export class DsDynamicDepartmentAffiliationComponent extends AffiliationSelectCo
   public affiliations: AffiliationData[] = [];  // Global affiliations are static and reloaded only when the user changes the institution.
   public searchResult: AffiliationData[] = [];  // Displayed affiliations are filtered based on the user input.
   public selectMode = true;
+  private formControl: FormControl;
 
   public ngOnInit(): void {
+    this.formControl = this.group.get(this.model.id) as FormControl;
     if (this.model.value) {
       this.setCurrentValue(this.model.value);
     }
@@ -57,12 +59,17 @@ export class DsDynamicDepartmentAffiliationComponent extends AffiliationSelectCo
         }
       ),
       // Subscription to watch for changes in the form group && update the current value.
-      this.group
-        .get(this.model.id).valueChanges
-        .pipe(
-          filter((value) => this.currentValue !== value)
-        )
-        .subscribe((value) => this.setCurrentValue(value))
+      // If it exists some suggestions, user must choose an entry into these suggestions (and then must be linked to
+      // an authority.
+      this.formControl.valueChanges.subscribe((value) => {
+        if (this.currentValue !== value) {
+          this.setCurrentValue(value);
+        }
+        if (isNotEmpty(this.affiliations) && isEmpty(value?.authority)) {
+          this.formControl.setErrors({ ...this.formControl.errors || {}, mustBeLinkToAuthority: true });
+          this.formControl.markAsTouched();
+        }
+      })
     );
   }
 
@@ -86,7 +93,7 @@ export class DsDynamicDepartmentAffiliationComponent extends AffiliationSelectCo
    * Emits a change event and set the current value with the given value.
    * @param event The value to emit.
    */
-  onSelect(event: AffiliationData) {
+  public onSelect(event: AffiliationData) {
     this.group.markAsDirty();
     this.selectOption(event);
   }
