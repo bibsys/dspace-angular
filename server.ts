@@ -148,6 +148,11 @@ export function app() {
 
   server.engine('ejs', ejs.renderFile);
 
+  // Tell Express to directly serve any assets files, not using any SSR.
+  //   With SSR enabled, if an asset is not found, the HTTP status will be "200" with "404" html content... so bad
+  server.use('/assets/i18n/pages', express.static(join(DIST_FOLDER, 'assets/i18n/pages'), { index: false, fallthrough: false }));
+
+
   /*
    * Register the view engines for html and ejs
    */
