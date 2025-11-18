@@ -2682,6 +2682,8 @@
 
   "footer.link.coar-notify-support": "COAR Notify",
 
+  "footer.link.copyright-policy": "Copyright policy",
+
   "footer.developed-by": "Application developed by",
 
   "forgot-email.form.header": "Forgot Password",
@@ -2955,6 +2957,11 @@
   "home.top-level-communities.head": "Communities in DSpace Cris",
 
   "home.top-level-communities.help": "Search for a collection",
+
+  "info.copyright-policy.breadcrumbs": "Copyright Policy",
+  "info.copyright-policy.content.fallback": "In construction...",
+  "info.copyright-policy.head": "Copyright Policy",
+  "info.copyright-policy.title": "Copyright Policy",
 
   "info.end-user-agreement.accept": "I have read and I agree to the End User Agreement",
 
