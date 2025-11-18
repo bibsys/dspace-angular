@@ -2909,6 +2909,9 @@
   // "footer.link.end-user-agreement": "End User Agreement",
   "footer.link.end-user-agreement": "Mentions légales",
 
+  // "footer.link.copyright-policy": "Copyright policy",
+  "footer.link.copyright-policy": "Licence d’utilisation",
+
   // "footer.link.feedback":"Send Feedback",
   "footer.link.feedback": "Envoyer un commentaire",
 
@@ -3151,6 +3154,11 @@
 
   // "home.top-level-communities.help": "Select a community to browse its collections.",
   "home.top-level-communities.help": "Sélectionner une communauté pour parcourir les collections sous-jacentes.",
+
+  "info.copyright-policy.breadcrumbs": "Licence d’utilisation",
+  "info.copyright-policy.content.fallback": "En construction ...",
+  "info.copyright-policy.head": "Licence d’utilisation",
+  "info.copyright-policy.title": "Licence d’utilisation",
 
   // "info.end-user-agreement.accept": "I have read and I agree to the End User Agreement",
   "info.end-user-agreement.accept": "J'ai lu et j'accepte la licence de l'utilisateur final",
