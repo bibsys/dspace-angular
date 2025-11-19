@@ -41,19 +41,12 @@ import { NgComponentOutlet, NgFor, NgIf } from "@angular/common";
   ]
 })
 export class ItemPageMetadataListComponent implements OnInit {
+
   @ViewChild(DynamicComponentLoaderDirective, { static: true }) dynamicComponentLoaderDirective: DynamicComponentLoaderDirective;
-
-  @Input()
-  item: Item;
-
-  @Input()
-  metadataField: string;
-
-  @Input()
-  truncateMinSpace: number = 5;
-
-  @Input()
-  toggleThreshold: number;
+  @Input() item: Item;
+  @Input() metadataField: string;
+  @Input() truncateMinSpace: number = 5;
+  @Input() toggleThreshold: number;
 
   protected metadataValues: MetadataValue[];
 
@@ -71,7 +64,7 @@ export class ItemPageMetadataListComponent implements OnInit {
     return getItemPageMetadataListElementComponent(this.metadataField);
   }
 
-  getInjector(item: Item, metadataValue: MetadataValue, elementIndex: string): Injector {
+  getInjector(item: Item, metadataValue: MetadataValue, elementIndex: number): Injector {
     return Injector.create({
       providers: [
         { provide: 'item', useFactory: () => item, deps: [] },
