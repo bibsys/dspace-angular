@@ -3903,6 +3903,7 @@
   // "item.listelement.badge": "Item",
   "item.listelement.badge": "Item",
 
+  "item.page.institution.icon": "Icône de l'institution",
   "item.page.comment.by": "Par: ",
   "item.page.comment.create-new": "Ajouter un commentaire",
   "item.page.comment.head": "Commentaires",
