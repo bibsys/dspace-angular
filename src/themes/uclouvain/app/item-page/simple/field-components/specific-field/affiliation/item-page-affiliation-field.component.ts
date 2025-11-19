@@ -1,45 +1,52 @@
 import { NgIf } from "@angular/common";
 import { Component, Input, OnInit } from "@angular/core";
-import { Item } from "src/app/core/shared/item.model";
-import { isNotEmpty } from "src/app/shared/empty.util";
+import { TranslateModule } from '@ngx-translate/core';
 import { affiliationIcons } from "src/themes/uclouvain/app/shared/affiliations/affiliations-icons-mapping";
+import { Item } from '../../../../../../../../app/core/shared/item.model';
+import { MetadataValue } from '../../../../../../../../app/core/shared/metadata.models';
+import { hasValue } from '../../../../../../../../app/shared/empty.util';
+import { ItemLinkViewComponent } from '../../../../../shared/item-link-view/item-link-view.component';
 
 @Component({
   selector: 'ds-item-page-affiliation-field',
-  template: `<div class="d-flex align-items-center" *ngIf="institution">
-    <span *ngIf="institutionIcon" class="mr-1">
-        <img [src]="institutionIcon"/>
-    </span>
-    <span class="institution-name">{{ institution }}</span>
-    <span class="department-name">{{ department }}</span>
+  template: `<div class="d-flex align-items-center" *ngIf="hasValue(institution)">
+    <img *ngIf="iconPath" [src]="iconPath" [alt]="'item.page.institution.icon' | translate" class="mr-1"/>
+    <ds-item-link-view class="institution-name" 
+                       [metadataValue]="institution"
+                       [relatedItemType]="'orgunit'">
+    </ds-item-link-view>
+    <ds-item-link-view class="department-name" 
+                       [metadataValue]="department"
+                       [relatedItemType]="'orgunit'"
+                       *ngIf="hasValue(department)">
+    </ds-item-link-view>
   </div>`,
   styles: ['.institution-name + .department-name::before { content: "—"; padding: 0.5rem; }'],
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, ItemLinkViewComponent, TranslateModule],
 })
 export class ItemPageAffiliationFieldComponent implements OnInit {
+
   @Input() item: Item;
   @Input() institutionField: string;
   @Input() departmentField: string;
-  // Potential index of the metadata to use (if multiple affiliations).
-  @Input() index: string;
+  @Input() index: number;  // Potential index of the metadata to use (if multiple affiliations).
 
-  institution: string;
-  department: string;
-  institutionIcon: string;
+  protected institution: MetadataValue;
+  protected department: MetadataValue;
+  protected iconPath: string;
+  protected readonly hasValue = hasValue;
 
   ngOnInit(): void {
-    if (isNotEmpty(this.index)) {
-      this.institution = this.item.findMetadataSortedByPlace(this.institutionField)[this.index]?.value;
-      this.department = this.item.findMetadataSortedByPlace(this.departmentField)[this.index]?.value;
+    if (this.index !== undefined) {
+      this.institution = this.item.findMetadataSortedByPlace(this.institutionField)[this.index];
+      this.department = this.item.findMetadataSortedByPlace(this.departmentField)[this.index];
     } else {
-      this.institution = this.item.firstMetadataValue(this.institutionField);
-      this.department = this.item.firstMetadataValue(this.departmentField);
+      this.institution = this.item.firstMetadata(this.institutionField);
+      this.department = this.item.firstMetadata(this.departmentField);
     }
-    this.institutionIcon = this.getInstitutionIcon();
-  }
-
-  getInstitutionIcon(): string {
-    return affiliationIcons.get(this.institution?.toLowerCase());
+    if (hasValue(this.institution)) {
+      this.iconPath = affiliationIcons.get(this.institution.value?.toLowerCase());
+    }
   }
 }

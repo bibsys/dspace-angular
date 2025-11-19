@@ -1,29 +1,28 @@
-import { NgTemplateOutlet } from "@angular/common";
-import { Component, Input } from "@angular/core";
+import { NgIf } from "@angular/common";
+import { Component, Input, OnInit } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { MetadataValue } from "src/app/core/shared/metadata.models";
+import { getEntityPageRoute } from '../../../../../app/item-page/item-page-routing-paths';
+import { isNotEmpty } from '../../../../../app/shared/empty.util';
 
 @Component({
     selector: 'ds-item-link-view',
     template: `
-        <ng-container [ngTemplateOutlet]="metadataValue?.authority ? displayWithAuthority : defaultDisplay"
-                      [ngTemplateOutletContext]="{metadataValue: metadataValue}">
-        </ng-container>
-        <ng-template #displayWithAuthority let-metadataValue="metadataValue">
-            <a rel="noopener noreferrer" [routerLink]="['/items/' + metadataValue.authority]">
-                <span class="text-nowrap">{{ metadataValue.value }}</span>
-            </a>
-        </ng-template>
-        <ng-template #defaultDisplay let-metadataValue="metadataValue">
-            <span class="text-nowrap">{{ metadataValue.value }}</span>
-        </ng-template>
+        <a *ngIf="itemPageUrl" rel="noopener noreferrer" [routerLink]="itemPageUrl" class="text-nowrap">{{ metadataValue.value }}</a>
+        <span *ngIf="!itemPageUrl" class="text-nowrap">{{ metadataValue.value }}</span>
     `,
     standalone: true,
-    imports: [
-        NgTemplateOutlet,
-        RouterLink,
-    ],
+  imports: [RouterLink, NgIf],
 })
-export class ItemLinkViewComponent {
+export class ItemLinkViewComponent implements OnInit {
     @Input() metadataValue: MetadataValue;
+    @Input() relatedItemType?: string = null;  // the item type related to this metadataValue if authority exists.
+
+    protected itemPageUrl: string;
+
+    ngOnInit() {
+      if (isNotEmpty(this.metadataValue?.authority)) {
+        this.itemPageUrl = getEntityPageRoute(this.relatedItemType, this.metadataValue.authority);
+      }
+    }
 }
