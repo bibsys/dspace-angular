@@ -12,6 +12,7 @@ import { listableObjectComponent } from "src/app/shared/object-collection/shared
 import { ThemedResultsBackButtonComponent } from "src/app/shared/results-back-button/themed-results-back-button.component";
 import { JournalPeerReviewedComponent } from "../specific-fields/journal-peer-reviewed.component";
 import { PageDetailSectionComponent } from "../../../shared/page-detail-section.component";
+import { TabbedRelatedEntitiesSearchComponent } from "src/app/item-page/simple/related-entities/tabbed-related-entities-search/tabbed-related-entities-search.component";
 
 /**
  * Item page rendered for the 'Journal' item type.
@@ -35,6 +36,7 @@ import { PageDetailSectionComponent } from "../../../shared/page-detail-section.
     GenericItemPageFieldComponent,
     JournalPeerReviewedComponent,
     PageDetailSectionComponent,
+    TabbedRelatedEntitiesSearchComponent,
   ],
 })
 export class JournalPageComponent extends ItemComponent {
