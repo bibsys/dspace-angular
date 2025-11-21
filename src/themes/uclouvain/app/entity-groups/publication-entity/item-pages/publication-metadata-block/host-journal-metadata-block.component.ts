@@ -8,6 +8,7 @@ import {
 } from '../../../../../../../app/item-page/simple/field-components/specific-field/generic/generic-item-page-field.component';
 import { listableMetadataBlockComponent } from '../listable-metadata-block.decorator';
 import { AbstractMetadataBlockComponent } from './abstract-metadata-block.component';
+import { ItemLinkViewComponent } from 'src/themes/uclouvain/app/shared/item-link-view/item-link-view.component';
 
 @listableMetadataBlockComponent('text::journal-article', ViewMode.StandalonePage, Context.Any, '*', 30)
 @Component({
@@ -15,7 +16,7 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
       <ng-container *ngIf="item.hasMetadata('dc.relation.journal')">
         <dt>{{ 'item.page.details.label.host-journal' | translate }}</dt>
         <dd>
-            <div class="journal-name"><ds-generic-item-page-field [item]='item' [fields]='["dc.relation.journal"]'/></div>
+            <div class="journal-name"><ds-item-link-view [metadataValue]="item.firstMetadata('dc.relation.journal')"/></div>
             <span class="journal-metadata journal-volume" *ngIf="item.hasMetadata('publication.serial.volume')">
                 <i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i>
                 {{ 'item.page.details.label.host-journal.volume' | translate }}: {{ item.firstMetadataValue("publication.serial.volume") }}
@@ -58,7 +59,8 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
   imports: [
     NgIf,
     GenericItemPageFieldComponent,
-    TranslateModule
+    TranslateModule,
+    ItemLinkViewComponent,
   ]
 })
 export class HostJournalMetadataBlockComponent extends AbstractMetadataBlockComponent {}
