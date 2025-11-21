@@ -41,5 +41,14 @@
         </ng-container>
       </dl>
     </ds-page-detail-section>
+    <ds-page-detail-section [label]="'item.page.heading.person.publications' | translate">
+        <ds-tabbed-related-entities-search [item]="object"
+                                           [relationTypes]="[{
+                                              label: 'isJournalOfPublication',
+                                              filter: 'isJournalOfPublication',
+                                              configuration: 'default'
+                                           }]">
+        </ds-tabbed-related-entities-search>
+    </ds-page-detail-section>
   </article>
 </div>
