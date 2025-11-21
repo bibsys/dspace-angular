@@ -5758,6 +5758,12 @@
   // "search.filters.applied.f.has_content_in_original_bundle": "Has files",
   "search.filters.applied.f.has_content_in_original_bundle": "Fichier(s) présent(s)",
 
+  "search.filters.applied.f.isAuthorOfPublication": "Identifiant de l'auteur",
+
+  "search.filters.applied.f.isJournalOfPublication": "Identifiant du journal",
+
+  "search.filters.applied.f.isOrgUnitOfPublication": "Identifiant de l'affiliation",
+
   // "search.filters.applied.f.itemtype": "Type",
   "search.filters.applied.f.itemtype": "Type",
 
