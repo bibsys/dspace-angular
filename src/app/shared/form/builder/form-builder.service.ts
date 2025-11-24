@@ -31,9 +31,11 @@ import mergeWith from 'lodash/mergeWith';
 import {
   BehaviorSubject,
   Observable,
+  Subject,
 } from 'rxjs';
 import {
   distinctUntilChanged,
+  shareReplay,
   switchMap,
 } from 'rxjs/operators';
 
@@ -94,6 +96,9 @@ export class FormBuilderService extends DynamicFormService {
    * Those are the fields to use for type binding
    */
   private typeFields: string[];
+
+  // Subject to notify of typeBindModels config update.
+  private typeBindFieldsChange$ = new Subject<void>();
 
   constructor(
     componentService: DynamicFormComponentService,
@@ -161,6 +166,8 @@ export class FormBuilderService extends DynamicFormService {
     } else {
       this.typeBindModels[id] = new BehaviorSubject<DynamicFormControlModel>(model);
     }
+    // Notify that the typeBindModels configuration has changed.
+    this.typeBindFieldsChange$.next();
   }
 
   findById(id: string, groupModel: DynamicFormControlModel[], arrayIndex = null): DynamicFormControlModel | null {
@@ -779,6 +786,10 @@ export class FormBuilderService extends DynamicFormService {
     formArray.insert(index, newGroup);
 
     return newGroup;
+  }
+
+  onTypeBindFieldsChange(): Observable<void> {
+    return this.typeBindFieldsChange$.asObservable();
   }
 
   /**
