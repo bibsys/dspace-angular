@@ -16,8 +16,8 @@ import {
   MATCH_VISIBLE,
   OR_OPERATOR,
 } from '@ng-dynamic-forms/core';
-import { Subscription } from 'rxjs';
-import { startWith } from 'rxjs/operators';
+import { Observable, of, Subscription } from 'rxjs';
+import { distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 
 import { VocabularyEntry } from '../../../../core/submission/vocabularies/models/vocabulary-entry.model';
 import {
@@ -62,27 +62,48 @@ export class DsDynamicTypeBindRelationService {
 
 
   /**
-   * Get models for this bind type
-   * @param model
+   * Get an observable of all type-bind models referenced by given model.
+   * Each time the type-bind configuration changes, a new array is emitted.
+   * @param model The model to get all the linked type-bind models of.
    */
-  public getRelatedFormModel(model: DynamicFormControlModel): DynamicFormControlModel[] {
+  public getRelatedFormModel(model: DynamicFormControlModel): Observable<DynamicFormControlModel[]> {
+    // Return a Observable<DynamicFormControlModel[]> so that if the list of type-bind models changes, the hidden status of the field is processed again.
+    return this.formBuilderService.onTypeBindFieldsChange().pipe(
+      // startWith here is required so we process the logic at least once even if this method (getRelatedFormModel) is called after the config was initialized.
+      startWith(null),
+      map(() => {
+        const models: DynamicFormControlModel[] = [];
 
-    const models: DynamicFormControlModel[] = [];
+        (model as any).typeBindRelations.forEach((relGroup) => relGroup.when.forEach((rel) => {
 
-    (model as any).typeBindRelations.forEach((relGroup) => relGroup.when.forEach((rel) => {
+          if (model.id === rel.id) {
+            throw new Error(`FormControl ${model.id} cannot depend on itself`);
+          }
 
-      if (model.id === rel.id) {
-        throw new Error(`FormControl ${model.id} cannot depend on itself`);
-      }
+          const bindModel: DynamicFormControlModel = this.formBuilderService.getTypeBindModel(rel.id);
 
-      const bindModel: DynamicFormControlModel = this.formBuilderService.getTypeBindModel(rel.id);
+          if (model && !models.some((modelElement) => modelElement === bindModel)) {
+            models.push(bindModel);
+          }
+        }));
 
-      if (model && !models.some((modelElement) => modelElement === bindModel)) {
-        models.push(bindModel);
-      }
-    }));
-
-    return models;
+        return models;
+      }),
+      // VERY IMPORTANT: This part detects if the emitted array has really changed or not.
+      // This prevents from emitting the same array twice in a row in the observable and by doing so it improves the performances.
+      distinctUntilChanged((prev, curr) => {
+        if ((prev.length !== curr.length)) {
+          return false;
+        }
+        // Sort the two lists on the ids and compare each id at index.
+        // This ensure that the order does not matter, only the content of the lists matters.
+        // Ex: [ModelA, ModelB] -> [ModelB, ModelA] => Does not trigger a change.
+        const prevIds = prev.map(m => m?.id).sort();
+        const currIds = curr.map(m => m?.id).sort();
+        
+        return prevIds.every((prevId, index) => prevId === currIds[index])
+      })
+    )
   }
 
   /**
@@ -174,8 +195,9 @@ export class DsDynamicTypeBindRelationService {
   }
 
   /**
-   * Return an array of subscriptions of type bind relation changes.
-   * Those will be used to determine if a field should be visible or not when another field changes its value.
+   * Return an Observable of array of subscriptions of type bind relation changes.
+   * Emit the observable each time the reference models change.
+   * The subs in the array will be used to determine if a field should be visible or not when another field changes its value.
    * 
    * NOTE: The type-bind relations are evaluated base on a `AND` logic. However in a relation, it is evaluated in a `OR` logic. 
    * ex: If we have two type bind relations:
@@ -194,62 +216,65 @@ export class DsDynamicTypeBindRelationService {
    * @param model
    * @param control
    */
-  subscribeRelations(model: DynamicFormControlModel, control: UntypedFormControl): Subscription[] {
+  subscribeRelations(model: DynamicFormControlModel, control: UntypedFormControl): Observable<Subscription[]> {
+    // We want to have an Observable that emits every time the getRelatedFormModel() emits a new model array.
+    return this.getRelatedFormModel(model).pipe(
+      switchMap(relatedModels => {
+        const subscriptions: Subscription[] = [];
 
-    const relatedModels = this.getRelatedFormModel(model);
-    const subscriptions: Subscription[] = [];
+        Object.values(relatedModels).forEach((relatedModel: any) => {
+          if (hasNoValue(relatedModel)) {
+            return;
+          }
+          // Get the initial value from the related model.
+          const initValue = (hasNoValue(relatedModel.value) || typeof relatedModel.value === 'string')
+            ? relatedModel.value
+            : (Array.isArray(relatedModel.value) ? relatedModel.value : relatedModel.value.value);
 
-    Object.values(relatedModels).forEach((relatedModel: any) => {
-      if (hasNoValue(relatedModel)) {
-        return;
-      }
-      // Get the initial value from the related model.
-      const initValue = (hasNoValue(relatedModel.value) || typeof relatedModel.value === 'string')
-        ? relatedModel.value
-        : (Array.isArray(relatedModel.value) ? relatedModel.value : relatedModel.value.value);
+          // Get an observable emitting the potential change of value for the given model. 
+          const valueChanges = this.formBuilderService.getTypeBindModelUpdates(relatedModel.id).pipe(
+            startWith(initValue),
+          );
 
-      const valueChanges = this.formBuilderService.getTypeBindModelUpdates(relatedModel.id).pipe(
-        startWith(initValue),
-      );
+          // Build up the subscriptions to watch for changes.
+          subscriptions.push(valueChanges.subscribe(() => {
+            // Iterate each matcher
+            if (hasValue(this.dynamicMatchers)) {
+              this.dynamicMatchers.forEach((matcher) => {
+                // Find the relation using the current matcher.
+                let relationsToProcess = [];
+                (model as any).typeBindRelations.forEach(typeBindRelation => {
+                  const relation = this.dynamicFormRelationService.findRelationByMatcher([typeBindRelation], matcher);
+                  if (relation !== undefined) {
+                    relationsToProcess.push(relation);
+                  }
+                })
+                if (relationsToProcess.length > 0) {
+                  // For each found relation, get a boolean that indicates if the relation matches the current state.
+                  // Reduce all the boolean using a OR logic. So if only one relation matches => the return will be true.
+                  // IMPORTANT: Note that 'true' in this case does not mean that the field will be visible.
+                  // IMPORTANT: The library sets the boolean to the 'hidden' property of the model so 'true' will mean that the field is hidden.
+                  const hasMatch = relationsToProcess.reduce((state, relation) => state || this.matchesCondition(relation, matcher), false);
+                  matcher.onChange(hasMatch, model, control, this.injector);
 
-      // Build up the subscriptions to watch for changes;
-      subscriptions.push(valueChanges.subscribe(() => {
-        // Iterate each matcher
-        if (hasValue(this.dynamicMatchers)) {
-          this.dynamicMatchers.forEach((matcher) => {
-            // Find the relation using the current matcher.
-            let relationsToProcess = [];
-            (model as any).typeBindRelations.forEach(typeBindRelation => {
-              const relation = this.dynamicFormRelationService.findRelationByMatcher([typeBindRelation], matcher);
-              if (relation !== undefined) {
-                relationsToProcess.push(relation);
-              }
-            })
-            if (relationsToProcess.length > 0) {
-              // For each found relation, get a boolean that indicates if the relation matches the current state.
-              // Reduce all the boolean using a OR logic. So if only one relation matches => the return will be true.
-              // IMPORTANT: Note that 'true' in this case does not mean that the field will be visible.
-              // IMPORTANT: The library sets the boolean to the 'hidden' property of the model so 'true' will mean that the field is hidden.
-              const hasMatch = relationsToProcess.reduce((state, relation) => state || this.matchesCondition(relation, matcher), false);
-              matcher.onChange(hasMatch, model, control, this.injector);
-
-              // Update the status (Enabled/Disabled) of controls when the field is/isn't visible.
-              // This is necessary in order to not take hidden field into account when validating a form.
-              if (hasMatch && control.enabled) {
-                control.setErrors(null);
-                control.disable({emitEvent: false});
-              } else if (!hasMatch && control.disabled) {
-                control.enable({emitEvent: false});
-              }
-              // Make sure to update the trigger an update of validity.
-              control?.parent?.updateValueAndValidity({ onlySelf: false, emitEvent: false });
+                  // Update the status (Enabled/Disabled) of controls when the field is/isn't visible.
+                  // This is necessary in order to not take hidden field into account when validating a form.
+                  if (hasMatch && control.enabled) {
+                    control.setErrors(null);
+                    control.disable({emitEvent: false});
+                  } else if (!hasMatch && control.disabled) {
+                    control.enable({emitEvent: false});
+                  }
+                  // Make sure to update the trigger an update of validity.
+                  control?.parent?.updateValueAndValidity({ onlySelf: false, emitEvent: false });
+                }
+              });
             }
-          });
-        }
-      }));
-    });
-
-    return subscriptions;
+          }));
+        });
+        return of(subscriptions);
+      })
+    );
   }
 
   /**

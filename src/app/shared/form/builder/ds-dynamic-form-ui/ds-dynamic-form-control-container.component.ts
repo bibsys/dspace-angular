@@ -67,6 +67,7 @@ import {
   Subscription,
 } from 'rxjs';
 import {
+  filter,
   find,
   map,
   startWith,
@@ -186,6 +187,11 @@ export class DsDynamicFormControlContainerComponent extends DynamicFormControlCo
    * List of subscriptions to unsubscribe from
    */
   private subs: Subscription[] = [];
+
+  /**
+   * Array of subscription linked to a specific model to unsubscribe form.
+   */
+  private relationSubs: Subscription[] = [];
 
   /* eslint-disable @angular-eslint/no-output-rename */
   @Output('dfBlur') blur: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
@@ -330,8 +336,21 @@ export class DsDynamicFormControlContainerComponent extends DynamicFormControlCo
       if (this.model && this.model.placeholder) {
         this.model.placeholder = this.translateService.instant(this.model.placeholder);
       }
-      if (this.model.typeBindRelations && this.model.typeBindRelations.length > 0) {
-        this.subscriptions.push(...this.typeBindRelationService.subscribeRelations(this.model, this.control));
+      if (this.model.typeBindRelations?.length > 0) {
+        // We want to register a new array of Subscription each time the observable changes.
+        this.subscriptions.push(
+          this.typeBindRelationService.subscribeRelations(this.model, this.control)
+            .subscribe(subs => {
+              // Clear previously stored array of subscriptions.
+              this.relationSubs
+                .filter((sub) => hasValue(sub))
+                .forEach((sub) => sub.unsubscribe());
+              
+              // Store new array of relations subscriptions.
+              this.relationSubs.push(...subs);
+            }
+          )
+        );
       }
     }
   }
@@ -460,6 +479,10 @@ export class DsDynamicFormControlContainerComponent extends DynamicFormControlCo
   ngOnDestroy(): void {
     super.ngOnDestroy();
     this.subs
+      .filter((sub) => hasValue(sub))
+      .forEach((sub) => sub.unsubscribe());
+    // Clear the array of relation subscriptions.
+    this.relationSubs
       .filter((sub) => hasValue(sub))
       .forEach((sub) => sub.unsubscribe());
   }
