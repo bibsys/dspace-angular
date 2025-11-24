@@ -1,11 +1,7 @@
 :host {
   footer {
     background-color: var(--bs-primary);
-    background-image: url("../../assets/images/footer-background.png");
-    background-position: bottom center;
-    background-repeat: no-repeat;
     margin-top: 3rem;
-    padding: 2rem;
 
     .list-title {
       color: var(--bs-gray-300);
@@ -15,7 +11,33 @@
     ul li {
       margin-bottom: .5rem;
     }
+
+    .foreground {
+      padding: 2rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    .background-image > img {
+      position: absolute;
+      z-index: 2;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom;
+    }
+  }
+
+  .version-container {
+    font-size: small;
+    i, label {
+      font-variant: all-small-caps;
+      color: var(--bs-secondary);
+      margin-right: .5rem;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
   }
 }
-
-
