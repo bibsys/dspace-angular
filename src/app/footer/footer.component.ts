@@ -70,8 +70,8 @@ export class FooterComponent implements OnInit {
     @Optional() public cookies: KlaroService,
     protected authorizationService: AuthorizationDataService,
     protected notifyInfoService: NotifyInfoService,
-    private locale: LocaleService,
-    private siteService: SiteDataService,
+    protected locale: LocaleService,
+    protected siteService: SiteDataService,
     @Inject(APP_CONFIG) protected appConfig: AppConfig,
   ) {
   }

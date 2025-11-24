@@ -4,6 +4,7 @@ rest:
   port: 8080
   nameSpace: /server
 ui:
+  releaseVersion: fakeReleaseVersion
   ssl: false
   # Can be used to prevent search engines from indexing the website (set to true to disable indexation).
   seNoIndex: false
@@ -48,7 +49,12 @@ search:
 
 submission:
   # disclaimerSectionFor: ['fakeIdToReplace']
-  enableShortcutPanelFor: ['fakeIdToReplace']
+  # DEV NOTES:
+  #   We need to set as many 'fakeID' as they are `DSPACE_SUBMISSION_ENABLESHORTCUTPANELFOR_`environment variables.
+  #   Without this fakeID, the `overrideWithEnvironment` (performing 'array' as 'object') can't determine there is a
+  #   potential key to override by environment.
+  #   This is an ugly workaround, but it works....
+  enableShortcutPanelFor: ['fakeIdToReplace0', 'fakeIdToReplace1']
   # Trigger an autosave when changing a given metadata field
   # Works with all metadata schemas
   # However does not seem to work in form groups
