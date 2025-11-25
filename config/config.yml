@@ -62,6 +62,7 @@ submission:
     metadata: [
       # 'authors.identifier.fgs',
       'dc.contributor.author',
+      'dc.contributor.advisor'
       # 'dc.identifier.doi',
       # 'masterthesis.degree.code',
       # 'masterthesis.faculty.code'
