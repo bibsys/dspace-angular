@@ -73,6 +73,9 @@ import { ThemedMetadataRepresentationListComponent } from '../../item-page/simpl
 import { TabbedRelatedEntitiesSearchComponent } from '../../item-page/simple/related-entities/tabbed-related-entities-search/tabbed-related-entities-search.component';
 import { RelatedItemsComponent } from '../../item-page/simple/related-items/related-items-component';
 import { DsoEditMenuComponent } from '../../shared/dso-page/dso-edit-menu/dso-edit-menu.component';
+import {
+  AdvisorOneboxResultElement
+} from '../../shared/form/builder/ds-dynamic-form-ui/models/onebox/onebox-result-element/advisor/advisor-onebox-result-element.component';
 import { ThemedLoadingComponent } from '../../shared/loading/themed-loading.component';
 import { MetadataFieldWrapperComponent } from '../../shared/metadata-field-wrapper/metadata-field-wrapper.component';
 import { ClaimedTaskActionsComponent } from '../../shared/mydspace-actions/claimed-task/claimed-task-actions.component';
@@ -225,6 +228,7 @@ const ENTRY_COMPONENTS = [
   JournalPageComponent,
   UCLouvainPersonSearchResultListElementComponent,
   UCLouvainPersonPageComponent,
+  AdvisorOneboxResultElement,
   AuthorOneboxResultElement,
   JournalOneboxResultElement,
 ];
