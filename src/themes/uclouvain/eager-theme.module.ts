@@ -59,6 +59,9 @@ import { FooterComponent } from './app/footer/footer.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
 import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
 import { NavbarComponent } from './app/navbar/navbar.component';
+import {
+  AdvisorInlineLabeledGroupContentComponent
+} from './app/shared/form/builder/models/advisors/advisors-inline-labeled-group-content.component';
 import { AuthorInlineLabeledGroupContentComponent } from './app/shared/form/builder/models/authors/authors-inline-labeled-group-content.component';
 import { OrgUnitInlineLabeledGroupContentComponent } from './app/shared/form/builder/models/org-unit/org-unit-inline-labeled-group-content.component';
 import { ItemPageAffiliationListElementComponent } from './app/item-page/simple/field-components/specific-field/metadata-list/fields/affiliation/item-page-affiliation-list-element.component';
@@ -98,6 +101,7 @@ const METADATA_BLOCK_COMPONENTS = [
 const DECLARATIONS = [
   ...ENTRY_COMPONENTS,
   ...METADATA_BLOCK_COMPONENTS,
+  AdvisorInlineLabeledGroupContentComponent,
   AuthorInlineLabeledGroupContentComponent,
   FooterComponent,
   HeaderNavbarWrapperComponent,
