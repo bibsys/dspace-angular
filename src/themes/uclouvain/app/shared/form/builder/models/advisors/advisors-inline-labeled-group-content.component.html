@@ -1,0 +1,15 @@
+<div class="d-flex align-items-center">
+    <div class="flex-grow-1">
+        <i class="far fa-user-circle pr-1"></i>
+        <span *ngIf="chip.hasMetadata('dc.contributor.advisor')" class="advisor-name mr-2">
+            {{ chip.getMetadataValue('dc.contributor.advisor') }}
+        </span>
+    </div>
+    <span *ngIf="chip.hasMetadata('advisors.identifier.orcid')" class="ml-3 d-flex align-items-center">
+        <img src="assets/uclouvain/images/orcid-logo-16x16.png" alt="orcid-logo" class="mr-1">
+        <span class="orcid-id">{{ chip.getMetadataValue('advisors.identifier.orcid') }}</span>
+    </span>
+    <i *ngIf="isAuthorityLinked()" class="fas fa-link text-success ml-3"></i>
+    <i *ngIf="!isAuthorityLinked()" class="fas fa-link-slash text-muted ml-3"></i>
+    <i *ngIf="chip.hasMetadata('advisors.email')" class="fas fa-at ml-3"></i>
+</div>
