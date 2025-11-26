@@ -24,6 +24,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     ]
 })
 export class CustomTypeBadgeComponent implements OnInit {
+
+    private static TRANSLATION_PREFIX = 'item.page.details.values.type';
+
     @Input() object: DSpaceObject;
     @Input() displayEntityType: boolean = true;
     @Input() customStyle = '';
@@ -77,9 +80,10 @@ export class CustomTypeBadgeComponent implements OnInit {
 
     // Used to translate a publication type to a label that can be displayed.
     parsePublicationType(type: string): string {
-      let translatedType = this.translateService.instant(type);
-      if (translatedType === type) { // no translation found
-        translatedType = (translatedType.startsWith("text::")) ? translatedType.slice(6) : translatedType;
+      const translateKey = CustomTypeBadgeComponent.TRANSLATION_PREFIX + '.' + type;
+      let translatedType = this.translateService.instant(translateKey);
+      if (translatedType === translateKey) { // no translation found
+        translatedType = (type.startsWith("text::")) ? type.slice(6) : type;
       }
       return translatedType;
     }
