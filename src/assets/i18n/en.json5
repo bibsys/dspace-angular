@@ -1930,6 +1930,10 @@
 
   "context-menu.actions.edit-item.btn.INVESTIGATOR": "Edit",
 
+  "context-menu.actions.edit-item.btn.PUBLICATION_AUTHOR": "Edit publication",
+
+  "context-menu.actions.edit-item.btn.PUBLICATION_MANAGER": "Edit publication",
+
   "context-menu.actions.request-correction.btn": "Request a correction",
 
   "context-menu.actions.request-correction.confirm.cancel": "Cancel",
