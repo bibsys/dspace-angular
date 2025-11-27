@@ -2165,6 +2165,12 @@
   // "context-menu.actions.edit-item.btn.FULL": "Edit all the details",
   "context-menu.actions.edit-item.btn.FULL": "Editer les métadonnées",
 
+  // "context-menu.actions.edit-item.btn.PUBLICATION_AUTHOR": "Edit publication",
+  "context-menu.actions.edit-item.btn.PUBLICATION_AUTHOR": "Éditer la publication",
+
+  // "context-menu.actions.edit-item.btn.PUBLICATION_MANAGER": "Edit publication",
+  "context-menu.actions.edit-item.btn.PUBLICATION_MANAGER": "Éditer la publication",
+
   // "context-menu.actions.show-all-metadata": "Show all metadata (technical view)",
   "context-menu.actions.show-all-metadata": "Voir toutes les métadonnées",
 
