@@ -3,9 +3,29 @@
   <ds-alert [type]="AlertType.Error">{{'person.page.orcid.link.error.message' | translate}}</ds-alert>
 </div>
 <ng-container *ngIf="(processingConnection | async) !== true && (item | async) && (connectionStatus | async)" >
+  <h1 class="container mb-5">{{ 'person.page.orcid.title' | translate }}</h1>
   <ds-orcid-auth [item]="(item | async)" (unlink)="updateItem()" data-test="orcid-auth"></ds-orcid-auth>
   <ds-orcid-sync-setting *ngIf="isLinkedToOrcid()" [item]="(item | async)" (settingsUpdated)="updateItem()" data-test="orcid-sync-setting"></ds-orcid-sync-setting>
-  <ds-orcid-queue *ngIf="isLinkedToOrcid()" [item]="(item | async)"></ds-orcid-queue>
+  <ng-container *ngIf="isLinkedToOrcid()">
+    <ul ngbNav #nav="ngbNav" class="container nav-tabs" [activeId]="'push'">
+      <li [ngbNavItem]="'push'" role="presentation">
+        <a ngbNavLink>{{ 'person.page.orcid.push.label' | translate }}</a>
+        <ng-template ngbNavContent>
+          <ds-orcid-queue [item]="(item | async)"></ds-orcid-queue>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="'pull'" role="presentation">
+        <a ngbNavLink>{{ 'person.page.orcid.pull.label' | translate }}</a>
+        <ng-template ngbNavContent>
+          <ds-orcid-object-pull [entity]="'Publication'"
+                                [sourceId]="'orcidWorks'"
+                                [orcid]="(item | async).firstMetadataValue('person.identifier.orcid')"
+                                [context]="context.ExternalImportORCID"/>
+        </ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-4"></div>
+  </ng-container>
 </ng-container>
 
 <div *ngIf="(processingConnection | async) !== true && (item | async)" class="container">
