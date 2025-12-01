@@ -1972,7 +1972,7 @@
 
   "context-menu.actions.edit-item-relationships.btn.projects": "Manage Projects",
 
-  "context-menu.actions.orcid-view": "Open ORCID setting page",
+  "context-menu.actions.orcid-view": "ORCID configuration",
 
   "context-menu.actions.statistics.btn": "Statistics",
 
@@ -4767,7 +4767,7 @@
 
   "nav.mydspace": "MyDIAL.pr",
 
-  "nav.processes": "My Processes",
+  "nav.processes": "My processes",
 
   "nav.profile": "My profile",
 
@@ -4781,7 +4781,7 @@
 
   "nav.stop-impersonating": "Stop impersonating EPerson",
 
-  "nav.subscriptions": "Subscriptions",
+  "nav.subscriptions": "My subscriptions",
 
   "nav.toggle": "Toggle navigation",
 
