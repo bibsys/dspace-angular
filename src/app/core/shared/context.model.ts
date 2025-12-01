@@ -44,5 +44,8 @@ export enum Context {
   CoarNotify = 'coarNotify',
 
   RelationshipItem = 'relationshipItem',
-  BrowseMostElements = 'browseMostElements'
+  BrowseMostElements = 'browseMostElements',
+
+  // External Import Results
+  ExternalImportORCID = 'externalImportOrcid',
 }
