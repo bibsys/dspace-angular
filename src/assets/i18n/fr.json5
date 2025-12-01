@@ -2180,6 +2180,8 @@
   // "context-menu.actions.subscribe.btn": "Subscribe",
   "context-menu.actions.subscribe.btn": "S'abonner",
 
+  "context-menu.actions.orcid-view": "Configuration ORCID",
+
   // "cookies.consent.accept-all": "Accept all",
   "cookies.consent.accept-all": "Accepter tout",
 
@@ -4977,7 +4979,7 @@
   "nav.stop-impersonating": "Retour à votre propre EPerson",
 
   //"nav.subscriptions" : "Subscriptions",
-  "nav.subscriptions": "Abonnements",
+  "nav.subscriptions": "Mes abonnements",
 
   // "nav.toggle": "Toggle navigation",
   "nav.toggle": "Basculer la navigation",
