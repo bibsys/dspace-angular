@@ -56,7 +56,7 @@ contextMenuEntriesMap.set(DSpaceObjectType.ITEM, [
   },
   {
     componentRef: OrcidViewPageMenuComponent,
-    isStandAlone: false,
+    isStandAlone: true,
   },
   {
     componentRef: RequestCorrectionMenuComponent,
