@@ -44,6 +44,9 @@ import { getItemPageRoute } from '../item-page-routing-paths';
 import { OrcidAuthComponent } from './orcid-auth/orcid-auth.component';
 import { OrcidQueueComponent } from './orcid-queue/orcid-queue.component';
 import { OrcidSyncSettingsComponent } from './orcid-sync-settings/orcid-sync-settings.component';
+import { OrcidObjectPullComponent } from './orcid-pull/orcid-object-pull.component';
+import { Context } from 'src/app/core/shared/context.model';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 /**
  * A component that represents the orcid settings page
@@ -61,11 +64,14 @@ import { OrcidSyncSettingsComponent } from './orcid-sync-settings/orcid-sync-set
     OrcidQueueComponent,
     TranslateModule,
     RouterLink,
+    OrcidObjectPullComponent,
+    NgbNavModule,
   ],
   standalone: true,
 })
 export class OrcidPageComponent implements OnInit {
   protected readonly AlertType = AlertType;
+  protected readonly context = Context;
 
   /**
    * A boolean representing if the connection operation with orcid profile is in progress
