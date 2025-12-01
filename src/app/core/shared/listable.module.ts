@@ -135,6 +135,7 @@ import { UCLouvainPersonSearchResultListElementComponent } from 'src/themes/uclo
 import { UCLouvainPersonPageComponent } from 'src/themes/uclouvain/app/entity-groups/person-entity/item-pages/person-page.component';
 import { AuthorOneboxResultElement } from 'src/app/shared/form/builder/ds-dynamic-form-ui/models/onebox/onebox-result-element/author/author-onebox-result-element.component';
 import { JournalOneboxResultElement } from 'src/app/shared/form/builder/ds-dynamic-form-ui/models/onebox/onebox-result-element/journal/journal-onebox-result-element.component';
+import { OrcidImportEntryListElementComponent } from 'src/themes/uclouvain/app/entity-groups/orcid-entity/entry-list-elements/orcid-import-entry/orcid-import-entry-list-element.component';
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -231,6 +232,7 @@ const ENTRY_COMPONENTS = [
   AdvisorOneboxResultElement,
   AuthorOneboxResultElement,
   JournalOneboxResultElement,
+  OrcidImportEntryListElementComponent,
 ];
 
 @NgModule({
