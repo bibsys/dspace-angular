@@ -3838,6 +3838,8 @@
 
   "item.preview.dc.relation.ispartofseries": "Serie",
 
+  "item.preview.dc.relation.journal": "Journal title",
+
   "item.preview.dc.identifier.uri": "Identifier:",
 
   "item.preview.dc.contributor.advisor": "Advisor",
@@ -3873,6 +3875,8 @@
   "item.preview.dc.title": "Title:",
 
   "item.preview.dc.type": "Type:",
+
+  "item.preview.dc.type.maintype": "Publication type",
 
   "item.preview.oaire.citation.issue": "Issue",
 
@@ -8049,6 +8053,18 @@
 
   "person.page.orcid.publications-preferences": "Publication preferences",
 
+  "person.page.orcid.push.label": "ORCID Push",
+
+  "person.page.orcid.pull.label": "ORCID Pull",
+
+  "person.page.orcid.pull.publication.title": "Import publications from ORCID",
+
+  "person.page.orcid.pull.publication.result.import.label": "Import publication",
+
+  "person.page.orcid.pull.publication.result.loading": "Loading publications from ORCID",
+
+  "person.page.orcid.pull.publication.result.empty": "No publication to import from ORCID",
+
   "person.page.orcid.remove-orcid-message": "If you need to remove your ORCID, please contact the repository administrator",
 
   "person.page.orcid.save.preference.changes": "Update settings",
@@ -8237,15 +8253,19 @@
 
   "person.page.orcid.scope.person-update": "Add/update other information about you",
 
+  "person.page.orcid.title": "ORCID configuration",
+
   "person.page.orcid.unlink.success": "The disconnection between the profile and the ORCID registry was successful",
 
   "person.page.orcid.unlink.error": "An error occurred while disconnecting between the profile and the ORCID registry. Try again",
 
   "person.orcid.sync.setting": "ORCID Synchronization settings",
 
-  "person.orcid.registry.queue": "ORCID Registry Queue",
+  "person.orcid.registry.queue": "Push publications to ORCID",
 
   "person.orcid.registry.auth": "ORCID Authorizations",
+
+  "person.orcid.page.title": "ORCID Configuration",
 
   "person.orcid-tooltip.authenticated": "{{orcid}}",
 
