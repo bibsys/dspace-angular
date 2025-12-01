@@ -1,4 +1,5 @@
-<button *ngIf="isAuthorized | async" class="dropdown-item"
-        [routerLink]="['/items', contextMenuObject.id, 'orcid']"
-        [innerHTML]="'context-menu.actions.orcid-view' | translate">
+<button *ngIf="isAuthorized | async" class="btn btn-success"
+        [routerLink]="['/items', contextMenuObject.id, 'orcid']">
+        <i class="fa-brands fa-orcid mr-1"></i>
+        <span>{{ 'context-menu.actions.orcid-view' | translate }}</span>
 </button>

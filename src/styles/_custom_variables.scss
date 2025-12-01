@@ -47,7 +47,7 @@
   --ds-user-menu-item-vertical-padding: 0.25rem;
   --ds-user-menu-dropdown-padding: 1rem;
   --ds-user-menu-dropdown-link-color: #{$dark};
-  --ds-user-menu-dropdown-link-background-hover: #{$gray-200};
+  --ds-user-menu-dropdown-link-background-hover: #{$gray-100};
 
   @include media-breakpoint-up(md) {
     --ds-header-logo-height: 50px;
