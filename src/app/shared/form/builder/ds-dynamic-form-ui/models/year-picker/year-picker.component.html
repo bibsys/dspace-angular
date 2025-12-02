@@ -4,8 +4,7 @@
         [id]="'legend_' + model.id"
         [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]"
         class="mb-1">
-            {{model.placeholder}}
-            <span *ngIf="!model.required" class="text-secondary ml-2 font-italic">({{ 'optional' | translate }})</span>
+            {{model.placeholder}} <span *ngIf="model.required" class="text-danger font-weight-bold">*</span>
         </legend>
         <ds-number-picker
             tabindex="1"
