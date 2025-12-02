@@ -47,6 +47,12 @@ import {
   NumberOfPagesMetadataBlockComponent
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/number-of-pages-metadata-block.component';
 import {
+  PatentDepositDateMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/patent-deposit-date.component';
+import {
+  PatentOfficeMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/patent-office.component';
+import {
   PublicationStatusMetadataBlockComponent
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/publication-status-metadata-block.component';
 import {
@@ -93,6 +99,8 @@ const METADATA_BLOCK_COMPONENTS = [
   KeywordsMeshMetadataBlockComponent,
   LanguageStatusMetadataBlockComponent,
   NumberOfPagesMetadataBlockComponent,
+  PatentDepositDateMetadataBlockComponent,
+  PatentOfficeMetadataBlockComponent,
   PublicationStatusMetadataBlockComponent,
   PublisherMetadataBlockComponent,
   YearMetadataBlockComponent

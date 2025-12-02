@@ -3,7 +3,7 @@
     <legend *ngIf="model.legend"
             [id]="'legend_' + model.id"
             [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]">
-      {{model.placeholder}} <span *ngIf="model.required">*</span>
+      {{model.placeholder}} <span *ngIf="model.required" class="text-danger font-weight-bold">*</span>
     </legend>
     <ds-number-picker
       tabindex="0"
