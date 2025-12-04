@@ -311,7 +311,10 @@ export class DsoEditMetadataComponent implements OnInit, OnDestroy {
     ).subscribe((rd: RemoteData<DSpaceObject>) => {
       this.saving$.next(false);
       if (rd.hasFailed) {
-        this.notificationsService.error(this.translateService.instant(`${this.dsoType}.edit.metadata.notifications.error.title`), rd.errorMessage);
+        this.notificationsService.error(
+          this.translateService.instant(`${this.dsoType}.edit.metadata.notifications.error.title`),
+          this.translateService.instant(rd.errorMessage)
+        );
       } else {
         this.notificationsService.success(
           this.translateService.instant(`${this.dsoType}.edit.metadata.notifications.saved.title`),
