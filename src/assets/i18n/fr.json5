@@ -9657,5 +9657,8 @@
 
   // --- ONEBOX FIELD SEARCH RESULTS ---
   "onebox.searchresult.journal.ceased.warning": "Cette revue est en status <b>arrêté</b> et ne devrait pas être utilisée pour la soumission de nouvelles publications.",
+
+  // --- ITEM VALIDATION ---
+  "item.validator.person.not-unique.message": "La valeur d'un des champs unique suivant est déjà présente dans un autre profil: 'fgs', 'email', 'email officiel' ou 'orcid'",
 }
 
