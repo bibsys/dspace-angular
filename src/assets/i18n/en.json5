@@ -9629,4 +9629,7 @@
 
   // --- ONEBOX FIELD SEARCH RESULTS ---
   "onebox.searchresult.journal.ceased.warning": "This journal is <b>ceased</b> and should not be used in any new publication.",
+
+  // --- ITEM VALIDATION ---
+  "item.validator.person.not-unique.message": "The value of one of the following unique fields is already present in another profile: 'fgs', 'email', 'official email' or 'orcid'",
 }

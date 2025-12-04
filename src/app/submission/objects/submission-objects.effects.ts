@@ -268,7 +268,15 @@ export class SubmissionObjectEffects {
   saveError$ = createEffect(() => this.actions$.pipe(
     ofType(SubmissionObjectActionTypes.SAVE_SUBMISSION_FORM_ERROR, SubmissionObjectActionTypes.SAVE_SUBMISSION_SECTION_FORM_ERROR),
     withLatestFrom(this.store$),
-    tap(() => this.notificationsService.error(null, this.translate.get('submission.sections.general.save_error_notice')))), { dispatch: false });
+    tap(([action, store]) => {
+      let message = (action as SaveSubmissionFormErrorAction).payload.errorMessage;
+      let translated = this.translate.instant(message);
+      if (translated == message) {
+        // If we could not translate, use the default error string.
+        translated = this.translate.get('submission.sections.general.save_error_notice');
+      }
+      return this.notificationsService.error(null, translated);
+    })), { dispatch: false });
 
   /**
    * Call parseSaveResponse and dispatch actions or dispatch [SaveSubmissionFormErrorAction] on error
