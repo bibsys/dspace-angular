@@ -54,12 +54,11 @@ submission:
   # However does not seem to work in form groups
   autosave:
     metadata: [
-      # 'authors.identifier.fgs',
       'dc.contributor.author',
-      'dc.contributor.advisor'
-      # 'dc.identifier.doi',
-      # 'masterthesis.degree.code',
-      # 'masterthesis.faculty.code'
+      'dc.contributor.advisor',
+      'dc.identifier.doi',
+      'dc.identifier.arxiv',
+      'dc.identifier.pmid'
     ]
   dynamicFields:
     # * Dynamic voc config must contain:
