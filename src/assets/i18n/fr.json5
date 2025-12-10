@@ -9662,6 +9662,29 @@
   // --- ONEBOX FIELD SEARCH RESULTS ---
   "onebox.searchresult.journal.ceased.warning": "Cette revue est en status <b>arrêté</b> et ne devrait pas être utilisée pour la soumission de nouvelles publications.",
 
+  // --- FNRS VALIDATION ---
+  "fnrs-validation.modal.title": "Validité de la publication par rapport aux règles du FNRS",
+  "fnrs-validation.modal.body.not-applicable": "pas applicable",
+  "item-export.form.btn.close": "Fermer",
+
+  "fnrs.category.1": "Ouvrage publié, en tant qu'auteur, co-auteur ou éditeur",
+  "fnrs.category.2": "Partie d'ouvrage, en tant qu'auteur ou co-auteur de la partie",
+  "fnrs.category.3": "Article publié dans une revue peer-reviewed",
+  "fnrs.category.4": "Article publié dans un compte rendu de conférence",
+  "fnrs.category.5": "Communication à colloque avec peer-reviewed",
+  "fnrs.category.6": "Brevet",
+
+  "fnrs.rule.bookDocumentType": "Le type de document est un 'ouvrage'",
+  "fnrs.rule.bookPartDocumentType": "Le type de document est une 'contribution dans un ouvrage'",
+  "fnrs.rule.journalArticleDocumentType": "Le type de document est un 'article de périodique'",
+  "fnrs.rule.conferenceSpeechDocumentType": "Le type de document est une 'communication à colloque'",
+  "fnrs.rule.patentDocumentType": "Le type de document est un 'brevet'",
+  "fnrs.rule.publishedStatus": "Le type de publication est \"publié\" ou (au moins) \"accepté\"",
+  "fnrs.rule.peerReviewedArticle": "Peer-reviewed",
+  "fnrs.rule.peerReviewedConference": "Le sous-type de document est \"communication dans une conférence peer-reviewed\", \"poster\", \"résumé\" ou \"keynote\"",
+  "fnrs.rule.hostExists": "Le document est publié dans une \"revue\" ou un \"ouvrage\"",
+  "fnrs.rule.notPublished": "Le type de publication n'est pas \"publié\" ou \"accepté\"",
+
   // --- ITEM VALIDATION ---
   "item.validator.person.not-unique.message": "La valeur d'un des champs unique suivant est déjà présente dans un autre profil: 'fgs', 'email', 'email officiel' ou 'orcid'",
 }
