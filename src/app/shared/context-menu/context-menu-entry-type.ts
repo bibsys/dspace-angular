@@ -15,4 +15,5 @@ export enum ContextMenuEntryType {
   FullItem = 'fullitem',
   OrcidView = 'orcidview',
   DeleteJournal = 'deletejournal',
+  FnrsValidation = 'fnrsvalidation',
 }
