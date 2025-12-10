@@ -9,6 +9,7 @@ import { EditItemMenuComponent } from './edit-item/edit-item-menu.component';
 import { EditItemRelationshipsMenuComponent } from './edit-item-relationships/edit-item-relationships-menu.component';
 import { ExportCollectionMenuComponent } from './export-collection/export-collection-menu.component';
 import { ExportItemMenuComponent } from './export-item/export-item-menu.component';
+import { FnrsItemMenuComponent } from './fnrs-item/fnrs-item-menu.component';
 import { FullItemMenuComponent } from './full-item/full-item-menu.component';
 import { ItemVersionMenuComponent } from './item-version/item-version-menu.component';
 import { OrcidViewPageMenuComponent } from './orcid-view-page/orcid-view-page-menu.component';
@@ -21,6 +22,7 @@ import { DeleteJournalMenuComponent } from './delete-journal/delete-journal-menu
 export interface ContextMenuEntryRenderOptions {
   componentRef: GenericConstructor<ContextMenuEntryComponent>;
   isStandAlone: boolean;
+  weight?: number;
 }
 
 const contextMenuEntriesMap: Map<DSpaceObjectType, ContextMenuEntryRenderOptions[]> = new Map();
@@ -57,6 +59,7 @@ contextMenuEntriesMap.set(DSpaceObjectType.ITEM, [
   {
     componentRef: OrcidViewPageMenuComponent,
     isStandAlone: true,
+    weight: 5
   },
   {
     componentRef: RequestCorrectionMenuComponent,
@@ -81,6 +84,11 @@ contextMenuEntriesMap.set(DSpaceObjectType.ITEM, [
   {
     componentRef: DeleteJournalMenuComponent,
     isStandAlone: false,
+  },
+  {
+    componentRef: FnrsItemMenuComponent,
+    isStandAlone: true,
+    weight: 10
   }
 ]);
 contextMenuEntriesMap.set(DSpaceObjectType.COMMUNITY, [
