@@ -1,0 +1,43 @@
+<div class="modal-header d-flex align-items-center">
+    <h4 class="modal-title">{{'fnrs-validation.modal.title' | translate}}</h4>
+    <div class="fnrs-global-validity ml-auto">
+        <i class="fa fa-xl pl-1" [ngClass]="{
+            'fa-circle-check text-success': valid,
+            'fa-circle-xmark text-danger': !valid
+        }"></i>
+    </div>
+</div>
+<div class="modal-body">
+
+    <div class="fnrs-category" *ngFor="let category of explanations" [class.not-applicable]="!category.applicable">
+        <div class="fnrs-category-header d-flex align-items-center">
+            <label>{{ category.name | translate }}</label>
+            <div class="fnrs-category-header-status ml-auto">
+                <ng-container *ngIf="category.applicable; else categoryNotApplicable">
+                    <i class="fa fa-circle-check text-success" *ngIf="category.valid"></i>
+                    <i class="fa fa-circle-xmark text-danger" *ngIf="!category.valid"></i>
+                </ng-container>
+                <ng-template #categoryNotApplicable>{{ 'fnrs-validation.modal.body.not-applicable' | translate }}</ng-template>
+            </div>
+        </div>
+        <div class="fnrs-category-body" *ngIf="category.applicable && category?.rules?.length > 0">
+            <ul>
+                <li *ngFor="let rule of category.rules" class="d-flex align-items-center">
+                    <span [class.text-danger]="!rule.valid">{{ rule.name | translate }}</span>
+                    <div class="ml-auto">
+                        <i class="fa fa-circle-check text-success" *ngIf="rule.valid"></i>
+                        <i class="fa fa-circle-xmark text-danger" *ngIf="!rule.valid"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <div class="text-right">
+        <button type="button" class="btn btn-primary" (click)="activeModal.close('Close click')">
+            <i class="fa fa-times"></i> {{ 'item-export.form.btn.close' | translate }}
+        </button>
+    </div>
+</div>
