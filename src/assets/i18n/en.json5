@@ -9630,6 +9630,29 @@
   // --- ONEBOX FIELD SEARCH RESULTS ---
   "onebox.searchresult.journal.ceased.warning": "This journal is <b>ceased</b> and should not be used in any new publication.",
 
+  // --- FNRS VALIDATION ---
+  "fnrs-validation.modal.title": "Publication validity according to FNRS rules",
+  "fnrs-validation.modal.body.not-applicable": "not applicable",
+  "item-export.form.btn.close": "Close",
+
+  "fnrs.category.1": "Book where the applicant is an author, a co-author or an editor",
+  "fnrs.category.2": "Book chapters where the applicant is an author or a co-author",
+  "fnrs.category.3": "Article published in a peer-reviewed journal",
+  "fnrs.category.4": "Article published in conference proceedings",
+  "fnrs.category.5": "Oral presentation with peer-review",
+  "fnrs.category.6": "Patent",
+
+  "fnrs.rule.bookDocumentType": "Document type is 'book'",
+  "fnrs.rule.bookPartDocumentType": "Document type is 'book-part'",
+  "fnrs.rule.journalArticleDocumentType": "Document type is 'journal-article'",
+  "fnrs.rule.conferenceSpeechDocumentType": "Document type is 'conference-speech'",
+  "fnrs.rule.patentDocumentType": "Document type is 'patent'",
+  "fnrs.rule.publishedStatus": "Publication status is \"Published\" or (at least) \"Accepted\"",
+  "fnrs.rule.peerReviewedArticle": "Peer-reviewed",
+  "fnrs.rule.peerReviewedConference": "Document subtype is \"speech in peer-review conference\", \"poster\", \"abstract\" or \"keynote\"",
+  "fnrs.rule.hostExists": "Document is published in a \"serial\" or a \"book\"",
+  "fnrs.rule.notPublished": "Publication status isn't \"Published\" or \"Accepted\"",
+
   // --- ITEM VALIDATION ---
   "item.validator.person.not-unique.message": "The value of one of the following unique fields is already present in another profile: 'fgs', 'email', 'official email' or 'orcid'",
 }

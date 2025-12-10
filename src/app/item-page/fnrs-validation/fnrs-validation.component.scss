@@ -1,0 +1,42 @@
+.fnrs-category {
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  margin-bottom: .5rem;
+  padding: 0;
+
+  .fnrs-category-header {
+    margin: .5rem;
+
+    label {
+      font-weight: var(--bs-font-weight-bold);
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &.not-applicable {
+    background-color: #E5E5E5;
+    color: var(--bs-text-muted);
+
+    .fnrs-category-header-status {
+      font-style: italic;
+      &::before {
+        content: "[";
+      }
+      &::after {
+        content: "]";
+      }
+    }
+  }
+
+  .fnrs-category-body {
+    padding: .5rem;
+    border-top: 1px solid var(--bs-border-color);
+  }
+
+  ul {
+    margin: 0 0 0 1rem;
+    padding: 0;
+    font-size: var(--bs-small-font-size);
+  }
+}
