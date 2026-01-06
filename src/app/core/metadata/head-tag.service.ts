@@ -146,6 +146,10 @@ export class HeadTagService {
   public listenForRouteChange(): void {
     // This never changes, set it only once
     this.setGenerator();
+    // Prevent site indexing for search engines if we want it.
+    this.setNoIndex();
+    // Set site ownership for Google Search Console.
+    this.setGoogleOwnership();
 
     this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
@@ -689,6 +693,25 @@ export class HeadTagService {
       this.meta.addTag({ name: 'Generator', content: root.dspaceVersion });
       this.meta.addTag({ name: 'Generator', content: root.crisVersion });
     });
+  }
+
+  /**
+   * Set a `<meta>` tag to mark the site as not indexable by search engines.
+   * This will prevent the site from being searchable on sites like Google, Yahoo, etc.
+   */
+  protected setNoIndex(): void {
+    if (environment.ui?.seNoIndex) {
+      this.meta.addTag({ name: 'robots', content: 'noindex' });
+    }
+  }
+
+  /**
+   * Set a `<meta>` tag to mark the site for ownership. This is use by google search console to enable site monitoring.
+   */
+  protected setGoogleOwnership(): void {
+    if (environment.ui?.enableGoogleOwnershipTag && environment.ui?.googleOwnershipTagValue) {
+      this.meta.addTag({ name: 'google-site-verification', content: environment.ui.googleOwnershipTagValue })
+    }
   }
 
   protected hasType(value: string): boolean {

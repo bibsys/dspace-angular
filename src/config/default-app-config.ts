@@ -76,6 +76,13 @@ export class DefaultAppConfig implements AppConfig {
 
     // Trust X-FORWARDED-* headers from proxies
     useProxies: true,
+
+    // By default enable indexing for search engines crawlers.
+    seNoIndex: false,
+
+    // Set to true to activate the google meta tag to get site ownership
+    enableGoogleOwnershipTag: false,
+    googleOwnershipTagValue: 'placeholder',
   };
 
   // The REST API server settings

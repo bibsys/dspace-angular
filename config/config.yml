@@ -5,5 +5,11 @@ rest:
   nameSpace: /server
 ui:
   ssl: false
+  # Can be used to prevent search engines from indexing the website (set to true to disable indexation).
+  seNoIndex: false
+  # Set to true to activate the google meta tag to get site ownership (control on the indexation).
+  enableGoogleOwnershipTag: false
+  # If enableGoogleOwnershipTag is set to true, set this property with google token.
+  googleOwnershipTagValue: 'placeholder'
 themes:
   - name: uclouvain

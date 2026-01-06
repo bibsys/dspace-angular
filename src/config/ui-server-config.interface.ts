@@ -13,4 +13,11 @@ export class UIServerConfig extends ServerConfig {
 
   // Trust X-FORWARDED-* headers from proxies
   useProxies: boolean;
+
+  // Prevents search engines from harvesting the website. This is useful for test version of the app.
+  seNoIndex: boolean;
+
+  // Set to true to activate the google meta tag to get site ownership
+  enableGoogleOwnershipTag: boolean;
+  googleOwnershipTagValue: string;
 }
