@@ -1974,6 +1974,14 @@
 
   "context-menu.actions.orcid-view": "ORCID configuration",
 
+  "context-menu.actions.person-export": "Export bibliography",
+
+  "context-menu.actions.person-export.modal.title": "Select an export format:",
+
+  "context-menu.actions.person-export.modal.export.fnrs-export": "FNRS PDF export",
+
+  "context-menu.actions.person-export.modal.export.fwb-export": "FWB PDF export",
+
   "context-menu.actions.statistics.btn": "Statistics",
 
   "context-menu.actions.subscription.title": "Subscription",
