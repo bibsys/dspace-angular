@@ -2182,6 +2182,14 @@
 
   "context-menu.actions.orcid-view": "Configuration ORCID",
 
+  "context-menu.actions.person-export": "Export bibliographique",
+
+  "context-menu.actions.person-export.modal.title": "Sélectionner un format d'export:",
+
+  "context-menu.actions.person-export.modal.export.fnrs-export": "Export PDF FNRS",
+
+  "context-menu.actions.person-export.modal.export.fwb-export": "Export PDF FWB",
+
   // "cookies.consent.accept-all": "Accept all",
   "cookies.consent.accept-all": "Accepter tout",
 
