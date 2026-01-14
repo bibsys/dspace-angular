@@ -18,6 +18,7 @@ import { StatisticsMenuComponent } from './statistics/statistics-menu.component'
 import { SubscriptionMenuComponent } from './subscription/subscription-menu.component';
 import { CommentItemMenuComponent } from './comment-item/comment-item-menu.component';
 import { DeleteJournalMenuComponent } from './delete-journal/delete-journal-menu.component';
+import { PersonExportMenuComponent } from './fnrs-person-export/person-export-menu.component';
 
 export interface ContextMenuEntryRenderOptions {
   componentRef: GenericConstructor<ContextMenuEntryComponent>;
@@ -89,6 +90,11 @@ contextMenuEntriesMap.set(DSpaceObjectType.ITEM, [
     componentRef: FnrsItemMenuComponent,
     isStandAlone: true,
     weight: 10
+  },
+  {
+    componentRef: PersonExportMenuComponent,
+    isStandAlone: true,
+    weight: 15
   }
 ]);
 contextMenuEntriesMap.set(DSpaceObjectType.COMMUNITY, [
