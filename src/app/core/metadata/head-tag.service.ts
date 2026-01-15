@@ -247,6 +247,7 @@ export class HeadTagService {
 
     if (this.isDissertation()) {
       this.setCitationDissertationNameTag();
+      this.setCitationDissertationInstitution();
     }
 
     this.setCitationJournalTitleTag();
@@ -320,7 +321,7 @@ export class HeadTagService {
    * Add <meta name="citation_issn" ... >  to the <head>
    */
   protected setCitationISSNTag(): void {
-    const value = this.getMetaTagValue('dc.relation.issn');
+    const value = this.getFirstMetaTagValue(['publication.serial.issn', 'publication.collection.issn']);
     this.addMetaTag('citation_issn', value);
   }
 
@@ -328,7 +329,7 @@ export class HeadTagService {
    * Add <meta name="citation_isbn" ... >  to the <head>
    */
   protected setCitationISBNTag(): void {
-    const value = this.getMetaTagValue('dc.identifier.isbn');
+    const value = this.getFirstMetaTagValue(['dc.identifier.isbn', 'publication.host.isbn']);
     this.addMetaTag('citation_isbn', value);
   }
 
@@ -346,6 +347,11 @@ export class HeadTagService {
   protected setCitationDissertationNameTag(): void {
     const value = this.getMetaTagValue('dc.title');
     this.addMetaTag('citation_dissertation_name', value);
+  }
+
+  protected setCitationDissertationInstitution(): void  {
+    const value = this.getMetaTagValue('dissertation.institution.name');
+    this.addMetaTag('citation_dissertation_institution', value);
   }
 
   /**
@@ -374,7 +380,7 @@ export class HeadTagService {
    * Add <meta name="citation_journal_title" ... >  to the <head>
    */
   private setCitationJournalTitleTag(): void {
-    const value = this.getMetaTagValue('dc.relation.ispartof');
+    const value = this.getMetaTagValue('dc.relation.journal');
     this.addMetaTag('citation_journal_title', value);
   }
 
@@ -382,7 +388,7 @@ export class HeadTagService {
    * Add <meta name="citation_volume" ... >  to the <head>
    */
   private setCitationVolumeTag(): void {
-    const value = this.getMetaTagValue('oaire.citation.volume');
+    const value = this.getMetaTagValue('publication.serial.volume');
     this.addMetaTag('citation_volume', value);
   }
 
@@ -390,7 +396,7 @@ export class HeadTagService {
    * Add <meta name="citation_issue" ... >  to the <head>
    */
   private setCitationIssueTag(): void {
-    const value = this.getMetaTagValue('oaire.citation.issue');
+    const value = this.getMetaTagValue('publication.serial.issue');
     this.addMetaTag('citation_issue', value);
   }
 
@@ -438,7 +444,7 @@ export class HeadTagService {
    * Add <meta name="citation_conference_title" ... >  to the <head>
    */
   private setCitationConferenceTag(): void {
-    const value = this.getMetaTagValue('dc.relation.conference');
+    const value = this.getMetaTagValue('publication.conference.name');
     this.addMetaTag('citation_conference_title', value);
   }
 
@@ -695,6 +701,10 @@ export class HeadTagService {
     return this.currentObject.value.hasMetadata('dc.type', { value: value, ignoreCase: true });
   }
 
+  protected hasMainType(value: string): boolean {
+    return this.currentObject.value.hasMetadata('dc.type.maintype', {value: value, ignoreCase: false });
+  }
+
   private hasEntityType(value: string): boolean {
     return this.currentObject.value.hasMetadata('dspace.entity.type', { value: value, ignoreCase: true });
   }
@@ -706,7 +716,7 @@ export class HeadTagService {
    *      true if this._item has a dc.type equal to 'Thesis'
    */
   protected isDissertation(): boolean {
-    return this.hasType('thesis');
+    return this.hasEntityType('Publication') && this.hasMainType('text::thesis');
   }
 
   /**
