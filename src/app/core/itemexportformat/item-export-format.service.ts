@@ -195,14 +195,21 @@ export class ItemExportFormatService extends IdentifiableDataService<ItemExportF
   }
 
   private filtersParameter(searchOptions: SearchOptions, parameterValues: ProcessParameter[]): ProcessParameter[] {
-    if (searchOptions.filters && searchOptions.filters.length > 0) {
-      const value = searchOptions.filters
+    let filters: string[] = [];
+    if ((searchOptions.filters && searchOptions.filters.length > 0)) {
+      filters = searchOptions.filters
         .filter((searchFilter) => searchFilter.key.includes('f.'))
         .map((searchFilter) => {
           const key = searchFilter.key.replace('f.', '');
           return searchFilter.values.map((filterValue) => `${key}=${filterValue}`).join('&');
-        })
-        .join('&');
+        });
+    }
+    if (isNotEmpty(searchOptions.fixedFilter)) {
+      filters.push(searchOptions.fixedFilter.replace('f.', ''));
+    }
+
+    if (filters.length > 0) {
+      const value = filters.join('&');
       return [...parameterValues, Object.assign(new ProcessParameter(), { name: '-sf', value })];
     }
     return parameterValues;
