@@ -340,7 +340,7 @@ export class HeadTagService {
    * Add <meta name="citation_language" ... >  to the <head>
    */
   protected setCitationLanguageTag(): void {
-    const value = this.getFirstMetaTagValue(['dc.language', 'dc.language.iso']);
+    const value = this.getFirstMetaTagValue(['dc.language', 'dc.language.iso*']);
     this.addMetaTag('citation_language', value);
   }
 
@@ -739,7 +739,7 @@ export class HeadTagService {
    *      true if this._item has a dc.type equal to 'Thesis'
    */
   private isResearchOutput(): boolean {
-    return this.hasEntityType('publication') || this.hasEntityType('product') || this.hasEntityType('patent');
+    return this.hasEntityType('publication') || this.hasEntityType('product') || this.hasEntityType('patent') || this.hasEntityType('MasterThesis');
   }
 
   /**
