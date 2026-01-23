@@ -1,4 +1,8 @@
 import { Component, Inject, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import { tap } from 'rxjs/operators';
+import { AuthorizationDataService } from '../../../core/data/feature-authorization/authorization-data.service';
+import { FeatureID } from '../../../core/data/feature-authorization/feature-id';
+import { Item } from '../../../core/shared/item.model';
 import { ContextMenuEntryComponent } from "../context-menu-entry.component";
 import { DSpaceObject } from "src/app/core/shared/dspace-object.model";
 import { DSpaceObjectType } from "src/app/core/shared/dspace-object-type.model";
@@ -6,7 +10,7 @@ import { ContextMenuEntryType } from "../context-menu-entry-type";
 import { environment } from "src/environments/environment";
 import { TranslateModule } from "@ngx-translate/core";
 import { AsyncPipe, NgFor, NgIf } from "@angular/common";
-import { Observable, of } from "rxjs";
+import { combineLatest, map, Observable, of } from "rxjs";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { isEmpty, isNotEmpty } from "../../empty.util";
 
@@ -60,34 +64,51 @@ export class PersonExportMenuComponent extends ContextMenuEntryComponent impleme
   constructor(
     @Inject('contextMenuObjectProvider') protected injectedContextMenuObject: DSpaceObject,
     @Inject('contextMenuObjectTypeProvider') protected injectedContextMenuObjectType: DSpaceObjectType,
+    protected authorizationService: AuthorizationDataService,
     protected modalService: NgbModal,
   ) {
     super(injectedContextMenuObject, injectedContextMenuObjectType, ContextMenuEntryType.ExportItem);
   }
 
   ngOnInit(): void {
-    // Only display the component if the current object is a Person profile.
-    if (isEmpty(this.contextMenuObject) || (this.contextMenuObject['entityType'] !== 'Person')) {
-      this.isAuthorized$ = of(false);
-      return;
-    }
     const profileUUID = this.contextMenuObject?.id;
-    this.availableExports = [
-      {
-        name: 'fnrs-export',
-        imagePath: 'assets/uclouvain/images/export/FNRS_logo.png',
-        exportPath: this.exportUrl + '/fnrs?authorUUID=' + profileUUID
-      },
-      {
-        name: 'fwb-export',
-        imagePath: 'assets/uclouvain/images/export/FWB_logo.png',
-        exportPath: this.exportUrl + '/fwb?authorUUID=' + profileUUID
-      },
-    ];
-    this.isAuthorized$ = of(true);
+    this.isAuthorized$ = combineLatest([
+      this.isObjectValid(),
+      this.authorizationService.isAuthorized(FeatureID.CanExportPersonBibliography, this.contextMenuObject.self)
+    ]).pipe(
+      tap(([valid, ignored]) => {
+        if (valid) {
+          this.availableExports = this.initAvailableExports(profileUUID);
+        }
+      }),
+      map(([valid, authorized]) => valid && authorized)
+    );
   }
 
   openModal(content: any): void {
     this.modalService.open(content, { size: 'lg' })
+  }
+
+  private initAvailableExports(profileUUID: string): any[] {
+    const baseUrl = `${this.exportUrl}/`;
+    const params = `?authorUUID=${profileUUID}`;
+    return [
+      { name: 'fnrs-export', image: 'FNRS_logo.png', path: 'fnrs' },
+      { name: 'fwb-export', image: 'FWB_logo.png', path: 'fwb' }
+    ].map(exp => ({
+      name: exp.name,
+      imagePath: `assets/uclouvain/images/export/${exp.image}`,
+      exportPath: baseUrl + exp.path + params
+    }));
+  }
+
+  private isObjectValid(): Observable<boolean> {
+    if (isNotEmpty(this.contextMenuObject) && (this.contextMenuObject instanceof Item)) {
+      let item = (this.contextMenuObject) as Item;
+      if (item?.entityType === "Person") {
+        return of(true);
+      }
+    }
+    return of(false);
   }
 }
