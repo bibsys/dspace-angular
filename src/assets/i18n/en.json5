@@ -9562,6 +9562,7 @@
   "item.page.details.label.document-type": "Document type",
   "item.page.details.label.dissertation.defense-date": "Defense date",
   "item.page.details.label.dissertation.degree-name": "Degree",
+  "item.page.details.label.edition-statement": "Edition statement",
   "item.page.details.label.fedora-pid": "Legacy Fedora PID",
   "item.page.details.label.host-book": "Host document",
   "item.page.details.label.host-book.authors": "By",
@@ -9616,8 +9617,9 @@
   "item.citation.loading": "Loading citation...",
 
   // [FORMATS]
-  "item.citations.format.publication-chicago.label": "Chicago",
-  "item.citations.format.publication-apa.label": "APA",
+  "item.citations.format.publication-chicago-html.label": "Chicago",
+  "item.citations.format.publication-apa-html.label": "APA",
+  "item.citations.format.publication-fwb-html.label": "FWB",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Dutch",
