@@ -8,6 +8,7 @@ export enum FeatureID {
   HasRoleJournalManager = 'hasRoleJournalManager',
   CanDelete = 'canDelete',
   CanEditMetadata = 'canEditMetadata',
+  CanExportPersonBibliography = 'canExportPersonBibliography',
   WithdrawItem = 'withdrawItem',
   ReinstateItem = 'reinstateItem',
   EPersonRegistration = 'epersonRegistration',
