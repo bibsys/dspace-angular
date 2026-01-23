@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ItemCitationsService } from '../../citations/item-citations.service';
 import { isNotEmpty } from 'src/app/shared/empty.util';
 import { Item } from 'src/app/core/shared/item.model';
@@ -50,6 +51,7 @@ export class PublicationPageCitationsComponent implements OnInit, OnDestroy {
     protected notificationService: NotificationsService,
     protected translateService: TranslateService,
     protected itemExportFormatService: ItemExportFormatService,
+    protected sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -59,6 +61,10 @@ export class PublicationPageCitationsComponent implements OnInit, OnDestroy {
       .pipe(
         take(1),
         map((formatTypes: ItemExportFormatMap) => formatTypes[this.dso.entityType]),
+        map((exportFormats: ItemExportFormat[]) => exportFormats
+          .filter(f => f.exposed)
+          .sort((a, b) => a.weight - b.weight)
+        ),
         tap(() => this.loadingFormats.next(false)),
       );
     // Create a new subscription on the selectedCitationFormat$ subject  to update the content when the format changes.
@@ -119,11 +125,12 @@ export class PublicationPageCitationsComponent implements OnInit, OnDestroy {
       take(1),
       filter(citation => isNotEmpty(citation)),
     ).subscribe(citationObj => {
-      navigator.clipboard.writeText(citationObj.citation).then(() => {
-        this.notificationService.success(this.translateService.get('item.citations.copy.success'));
-      }).catch((error) => {
-        this.notificationService.error(this.translateService.get('item.citations.copy.error') + error);
-      })
+      // Citation could embed HTML styling; when we copy the citation content, we want to remove these styles.
+      // Use a DOMParser to get the text content of the possible HTML document
+      const doc = new DOMParser().parseFromString(citationObj.citation, 'text/html');
+      navigator.clipboard.writeText(doc.body.textContent || citationObj.citation)
+        .then(() => this.notificationService.success(this.translateService.get('item.citations.copy.success')))
+        .catch((error) => this.notificationService.error(this.translateService.get('item.citations.copy.error') + error))
     });
   }
 
