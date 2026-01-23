@@ -27,37 +27,49 @@ export class ItemExportFormat extends CacheableObject {
    */
   @excludeFromEquals
   @autoserialize
-    type: ResourceType;
+  type: ResourceType;
 
   /**
    * The identifier of this Item Export Format.
    */
   @autoserialize
-    id: string;
+  id: string;
 
   /**
    * The mimeType of this Item Export Format.
    */
   @autoserialize
-    mimeType: string;
+  mimeType: string;
 
   /**
    * The entityType of this Item Export Format.
    */
   @autoserialize
-    entityType: string;
+  entityType: string;
 
   /**
    * The molteplicity of this Item Export Format.
    */
   @autoserialize
-    molteplicity: string;
+  molteplicity: string;
+
+  /**
+   * Is this format should be exposed into human interface.
+   */
+  @autoserialize
+  exposed: boolean;
+
+  /**
+   * A weight that could be used to sort the formats
+   */
+  @autoserialize
+  weight: number;
 
   /**
    * The {@link HALLink}s for this Researcher Profile
    */
   @deserialize
-    _links: {
+  _links: {
     self: HALLink
   };
 

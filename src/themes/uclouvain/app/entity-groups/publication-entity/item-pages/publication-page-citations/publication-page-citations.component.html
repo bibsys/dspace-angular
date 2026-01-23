@@ -20,7 +20,7 @@
       <ng-container *ngIf="!(loadingCitation | async); else loadingCitations">
         <ng-container *ngIf="(citationContent$ | async) as citationContent; else noContent">
           <div class="flex-grow">
-            <p class="card-text">{{ citationContent.citation }}</p>
+            <p class="card-text" [innerHTML]="sanitizer.bypassSecurityTrustHtml(citationContent.citation)"></p>
           </div>
           <div class="p-3 copy-clipboard"
                data-toggle="tooltip"

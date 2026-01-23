@@ -7889,6 +7889,12 @@
   //"person.page.orcid.publications-preferences": "Publication preferences",
   "person.page.orcid.publications-preferences": "Préférence pour la section Publication",
 
+  //"person.page.orcid.push.label": "ORCID Push",
+  "person.page.orcid.push.label": "Envoi vers ORCID",
+
+  //"person.page.orcid.pull.label": "ORCID Pull",
+  "person.page.orcid.pull.label": "Rapatriement depuis ORCID",
+
   // "person.page.orcid.pull.publication.title": "Import your publication from ORCID",
   "person.page.orcid.pull.publication.title": "Importer des publications depuis ORCID",
 
@@ -9584,6 +9590,7 @@
   "item.page.details.label.document-type": "Type de document",
   "item.page.details.label.dissertation.defense-date": "Date de défense",
   "item.page.details.label.dissertation.degree-name": "Diplôme",
+  "item.page.details.label.edition-statement": "Mention d'édition",
   "item.page.details.label.fedora-pid": "Ancien Fedora PID",
   "item.page.details.label.host-book": "Document hôte",
   "item.page.details.label.host-book.authors": "Par",
@@ -9639,8 +9646,9 @@
   "item.citation.loading": "Chargement de la citation...",
 
   // [FORMATS]
-  "item.citations.format.publication-chicago.label": "Chicago",
-  "item.citations.format.publication-apa.label": "APA",
+  "item.citations.format.publication-chicago-html.label": "Chicago",
+  "item.citations.format.publication-apa-html.label": "APA",
+  "item.citations.format.publication-fwb-html.label": "FWB",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",
