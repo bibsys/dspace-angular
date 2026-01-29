@@ -20,6 +20,7 @@ export interface DynamicScrollableDropdownModelConfig extends DsDynamicInputMode
   displayKey?: string;
   formatFunction?: (value: any) => string;
   resourceType?: ResourceType;
+  editable?: boolean;
 }
 
 export class DynamicScrollableDropdownModel extends DsDynamicInputModel {
@@ -35,6 +36,8 @@ export class DynamicScrollableDropdownModel extends DsDynamicInputModel {
    * Resource type to match data service
    */
   resourceType: ResourceType;
+  /** Wether or not the dropdown should be editable */
+  editable: boolean;
 
   constructor(config: DynamicScrollableDropdownModelConfig, layout?: DynamicFormControlLayout) {
 
@@ -42,10 +45,12 @@ export class DynamicScrollableDropdownModel extends DsDynamicInputModel {
 
     this.autoComplete = AUTOCOMPLETE_OFF;
     this.vocabularyOptions = config.vocabularyOptions;
-    this.maxOptions = config.maxOptions || 10;
+    // DEV_NOTE: keep this option above 10: if 10: the list does not load entirely because of the on scroll system and the custom max-height.
+    this.maxOptions = config.maxOptions || 20;
     this.displayKey = config.displayKey || 'display';
     this.formatFunction = config.formatFunction;
     this.resourceType = config.resourceType;
+    this.editable = config.editable;
   }
 
 }

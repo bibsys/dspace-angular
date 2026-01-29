@@ -17,14 +17,15 @@
            [class.scrollable-dropdown-input]="!model.readOnly"
            [id]="id"
            [name]="model.name"
-           [readonly]="true"
+           [readonly]="!model.editable"
            [disabled]="model.readOnly"
            [type]="model.inputType"
            [value]="(currentValue | async)"
            (blur)="onBlur($event)"
            (click)="$event.stopPropagation(); openDropdown(sdRef);"
            (focus)="onFocus($event)"
-           (keydown)="selectOnKeyDown($event, sdRef)">
+           (keydown)="selectOnKeyDown($event, sdRef)"
+           (input)="onInput($event)">
   </div>
 
   <div #dropdownMenu ngbDropdownMenu

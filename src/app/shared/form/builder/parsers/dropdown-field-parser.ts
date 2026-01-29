@@ -18,6 +18,7 @@ import {
   SUBMISSION_ID,
 } from './field-parser';
 import { ParserOptions } from './parser-options';
+import { getSetting } from './parser.utils';
 
 export class DropdownFieldParser extends FieldParser {
 
@@ -35,6 +36,8 @@ export class DropdownFieldParser extends FieldParser {
   public modelFactory(fieldValue?: FormFieldMetadataValueObject, label?: boolean): any {
     const dropdownModelConfig: DynamicScrollableDropdownModelConfig = this.initModel(null, label);
     let layout: DynamicFormControlLayout;
+
+    dropdownModelConfig.editable = getSetting(this.configData, 'editable', Boolean) ?? false;
 
     if (isNotEmpty(this.configData.selectableMetadata[0].controlledVocabulary)) {
       this.setVocabularyOptions(dropdownModelConfig, this.parserOptions.collectionUUID);
