@@ -1,6 +1,7 @@
 export enum ParserType {
   Date = 'date',
   Dropdown = 'dropdown',
+  EditableDropdown = 'editable-dropdown',
   RelationGroup = 'group',
   InlineGroup = 'inline-group',
   InlineLabeledGroup = 'inline-labeled-group',

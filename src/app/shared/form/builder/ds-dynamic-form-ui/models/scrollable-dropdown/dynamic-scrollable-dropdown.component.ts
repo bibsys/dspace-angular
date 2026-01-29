@@ -68,6 +68,7 @@ import { VocabularyService } from '../../../../../../core/submission/vocabularie
 import {
   hasValue,
   isEmpty,
+  isNotEmpty,
 } from '../../../../../empty.util';
 import { FormFieldMetadataValueObject } from '../../../models/form-field-metadata-value.model';
 import { DsDynamicVocabularyComponent } from '../dynamic-vocabulary.component';
@@ -361,6 +362,13 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
         this.pageInfo.totalPages,
       );
       this.loadOptions(this.searchText, false, true, true);
+    }
+  }
+
+  onInput(event: any): void {
+    if (this.model.editable && isNotEmpty(event.target.value)) {
+      this.dispatchUpdate(event.target.value);
+      this.setCurrentValue(event.target.value);
     }
   }
 
