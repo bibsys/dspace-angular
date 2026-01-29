@@ -30,6 +30,7 @@ import { YearFieldParser } from './year-field-parser';
 import { HiddenFieldParser } from './hidden-field-parser';
 import { InstitutionAffiliationFieldParser } from './institution-affiliation-field-parser';
 import { DepartmentAffiliationFieldParser } from './department-affiliation-field-parser'
+import { EditableDropdownFieldParser } from './editable-dropdown-field-parser';
 
 const fieldParserDeps = [
   SUBMISSION_ID,
@@ -66,6 +67,13 @@ export class ParserFactory {
           useClass: DropdownFieldParser,
           deps: [...fieldParserDeps],
         };
+      }
+      case ParserType.EditableDropdown : {
+        return {
+          provide: FieldParser,
+          useClass: EditableDropdownFieldParser,
+          deps: [...fieldParserDeps]
+        }
       }
       case ParserType.RelationGroup:
       case ParserType.InlineGroup:
