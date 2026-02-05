@@ -27,14 +27,30 @@ export class ItemCitationsService {
   /**
    * Generate a specific citation using the given format and itemUUID.
    * @param itemUUID The UUID of the item to generate a citation for.
-   * @param format 
-   * @returns 
+   * @param style The desired citation style (apa, chicago, ...)
+   * @param format The desired format of the citation (text, html, ...)
+   * @returns An observable containing the generated citation
    */
-  getCitationByFormat(itemUUID: string, format: string): Observable<ItemCitation> {
-    return this.itemCitationsRDS.findByIdAndFormat(itemUUID, format)
+  getCitationByFormat(itemUUID: string, style: string, format?: string): Observable<ItemCitation> {
+    format = format || 'text';
+    return this.itemCitationsRDS.findByIdAndStyle(itemUUID, style, format)
       .pipe(
         getFirstSucceededRemoteDataWithNotEmptyPayload(),
         map(response => response.citations.find((citation: ItemCitation) => format === citation.format))
+      );
+  }
+
+  /**
+   * Generate a specific citation using a specific crosswalk for an item.
+   * @param itemUUID The UUID of the item to generate a citation for.
+   * @param crosswalk The desired crosswalk to use to generate the citation
+   * @returns An observable containing the generated citation
+   */
+  getCitationByCrosswalk(itemUUID: string, crosswalk: string): Observable<ItemCitation> {
+    return this.itemCitationsRDS.findByIdAndCrosswalk(itemUUID, crosswalk)
+      .pipe(
+        getFirstSucceededRemoteDataWithNotEmptyPayload(),
+        map(response => response.citations.find((citation: ItemCitation) => crosswalk === citation.format))
       );
   }
 
@@ -46,7 +62,7 @@ export class ItemCitationsService {
    * @return The main citation for the given item or null if nothing could be generated.
    */
   getMainCitationForItem(itemUUID: string): Observable<string> {
-    return this.getCitationByFormat(itemUUID, this.mainFormat)
+    return this.getCitationByCrosswalk(itemUUID, this.mainFormat)
       .pipe(map(response => response?.citation));
   }
 
