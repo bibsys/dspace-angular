@@ -3,15 +3,15 @@
     <h5 class="text-muted text-center">{{ 'item.citations.formats.loading' | translate }}</h5>
   </div>
 </ng-container>
-<ng-container *ngIf="(citationFormats$ | async) as citationFormats">
-  <div *ngIf="isNotEmpty(citationFormats); else noCitationFormats" class="card text-left">
+<ng-container *ngIf="(citationCrosswalks$ | async) as citationCrosswalks">
+  <div *ngIf="isNotEmpty(citationCrosswalks); else noCitationFormats" class="card text-left">
     <div class="card-header">
       <ul class="nav nav-pills card-header-pills">
-        <li *ngFor="let format of citationFormats" class="nav-item mx-3 mb-1">
+        <li *ngFor="let crosswalk of citationCrosswalks" class="nav-item mx-3 mb-1">
           <span class="nav-link pt-2 pb-1 px-0"
-                [ngClass]="{'active': (isFormatSelected(format) | async)}"
-                (click)="selectCitationFormat(format)">
-            {{ ('item.citations.format.' + format.id + '.label') | translate }}
+                [ngClass]="{'active': (isFormatSelected(crosswalk) | async)}"
+                (click)="selectCitationFormat(crosswalk)">
+            {{ ('item.citations.format.' + crosswalk.id + '.label') | translate }}
           </span>
         </li>
       </ul>
