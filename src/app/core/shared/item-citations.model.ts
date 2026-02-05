@@ -39,6 +39,7 @@ export class ItemCitations implements CacheableObject {
 }
 
 export interface ItemCitation {
+    style: string;
     format: string;
-    citation: string
+    citation: string;
 }
