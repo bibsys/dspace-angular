@@ -3,7 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ItemCitationsService } from '../../citations/item-citations.service';
 import { isNotEmpty } from 'src/app/shared/empty.util';
 import { Item } from 'src/app/core/shared/item.model';
-import { BehaviorSubject, distinctUntilChanged, filter, finalize, map, Observable, of, Subscription, switchMap, take, tap } from 'rxjs';
+import { BehaviorSubject, distinctUntilChanged, filter, finalize, map, Observable, of, Subscription, switchMap, take } from 'rxjs';
 import { ItemCitation } from 'src/app/core/shared/item-citations.model';
 import { NotificationsService } from 'src/app/shared/notifications/notifications.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -39,8 +39,7 @@ export class PublicationPageCitationsComponent implements OnInit, OnDestroy {
   protected loadingCitation: BehaviorSubject<boolean> = new BehaviorSubject(false);
   protected loadingFormats: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  protected citationFormats$: Observable<ItemExportFormat[]> = of(null)
-
+  protected citationCrosswalks$: Observable<ItemExportFormat[]> = of(null)
   protected citationContent$: Observable<ItemCitation> = of(null);
   protected selectedCitationFormat$: BehaviorSubject<ItemExportFormat> = new BehaviorSubject(null);
 
@@ -57,7 +56,8 @@ export class PublicationPageCitationsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // Retrieve the publication export formats.
     this.loadingFormats.next(true);
-    this.citationFormats$ = this.itemExportFormatService.byEntityTypeAndMolteplicity(this.dso.entityType, ItemExportFormatMolteplicity.SINGLE)
+    this.citationCrosswalks$ = this.itemExportFormatService
+      .byEntityTypeAndMolteplicity(this.dso.entityType, ItemExportFormatMolteplicity.SINGLE)
       .pipe(
         take(1),
         map((formatTypes: ItemExportFormatMap) => formatTypes[this.dso.entityType]),
@@ -65,18 +65,21 @@ export class PublicationPageCitationsComponent implements OnInit, OnDestroy {
           .filter(f => f.exposed)
           .sort((a, b) => a.weight - b.weight)
         ),
-        tap(() => this.loadingFormats.next(false)),
+        finalize(() => this.loadingCitation.next(false))
       );
     // Create a new subscription on the selectedCitationFormat$ subject  to update the content when the format changes.
     this.subs.push(
       this.selectedCitationFormat$.pipe(
         filter(format => !!format),
         distinctUntilChanged(),
-        tap(() => this.loadingCitation.next(true)),
-        switchMap(
-          format => this.itemCitationsService.getCitationByFormat(this.dso.id, format.id)
-            .pipe(finalize(() => this.loadingCitation.next(false)))
-        ),
+        switchMap(format => {
+          this.loadingCitation.next(true);
+          return this.itemCitationsService
+            .getCitationByCrosswalk(this.dso.id, format.id)
+            .pipe(
+              finalize(() => this.loadingCitation.next(false))
+            );
+        }),
       ).subscribe(
         citationContent => this.citationContent$ = of(citationContent)
       )
@@ -84,7 +87,7 @@ export class PublicationPageCitationsComponent implements OnInit, OnDestroy {
 
     // If selectFirst flag is set to true, select the first citation  format and display it.
     if (this.selectFirst) {
-      this.citationFormats$.pipe(
+      this.citationCrosswalks$.pipe(
         take(1),
         filter(citationFormats => isNotEmpty(citationFormats)),
       ).subscribe((citationFormats: ItemExportFormat[]) => {
