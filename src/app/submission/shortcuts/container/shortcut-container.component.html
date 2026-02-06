@@ -1,23 +1,34 @@
 <button *ngIf="sectionRef && (sectionRef.isEnabled() | async)"
-        class="section-shortcut-container py-2 px-3 mb-2 rounded d-flex"
+        class="section-shortcut-container py-2 px-3 mb-2 rounded d-flex flex-column"
         (click)="scrollToSection()"
 >
-    <label class="flex-grow-1">{{ sectionData.header + '.shortcut' | translate }}</label>
-    <span class="status ml-3">
-        <i *ngIf="(sectionRef.isValid() | async) !== true && !(sectionRef.hasErrors()) && !(sectionRef.isInfo())"
-           class="fas fa-exclamation-circle text-warning"
-           title="{{'submission.sections.status.warnings.title' | translate}}" role="img"
-           [attr.aria-label]="'submission.sections.status.warnings.aria' | translate"></i>
-        <i *ngIf="(sectionRef.hasErrors()) && !(sectionRef.isInfo())"
-           class="fas fa-exclamation-circle text-danger"
-           title="{{'submission.sections.status.errors.title' | translate}}" role="img"
-           [attr.aria-label]="'submission.sections.status.errors.aria' | translate"></i>
-        <i *ngIf="(sectionRef.isValid() | async) && !(sectionRef.hasErrors()) && !(sectionRef.isInfo())"
-           class="fas fa-check-circle text-success"
-           title="{{'submission.sections.status.valid.title' | translate}}" role="img"
-           [attr.aria-label]="'submission.sections.status.valid.aria' | translate"></i>
-        <i *ngIf="sectionRef.isInfo()" class="fas fa-info-circle text-white"
-           title="{{'submission.sections.status.info.title' | translate}}" role="img"
-           [attr.aria-label]="'submission.sections.status.info.aria' | translate"></i>
-    </span>
+   <div class="d-flex">
+      <label class="flex-grow-1">{{ sectionData.header + '.shortcut' | translate }}</label>
+      <span class="status ml-3">
+         <i *ngIf="(sectionRef.isValid() | async) !== true && !(sectionRef.hasErrors()) && !(sectionRef.isInfo())"
+            class="fas fa-exclamation-circle text-warning"
+            title="{{'submission.sections.status.warnings.title' | translate}}" role="img"
+            [attr.aria-label]="'submission.sections.status.warnings.aria' | translate"></i>
+         <i *ngIf="(sectionRef.hasErrors()) && !(sectionRef.isInfo())"
+            class="fas fa-exclamation-circle text-danger"
+            title="{{'submission.sections.status.errors.title' | translate}}" role="img"
+            [attr.aria-label]="'submission.sections.status.errors.aria' | translate"></i>
+         <i *ngIf="(sectionRef.isValid() | async) && !(sectionRef.hasErrors()) && !(sectionRef.isInfo())"
+            class="fas fa-check-circle text-success"
+            title="{{'submission.sections.status.valid.title' | translate}}" role="img"
+            [attr.aria-label]="'submission.sections.status.valid.aria' | translate"></i>
+         <i *ngIf="sectionRef.isInfo()" class="fas fa-info-circle text-white"
+            title="{{'submission.sections.status.info.title' | translate}}" role="img"
+            [attr.aria-label]="'submission.sections.status.info.aria' | translate"></i>
+      </span>
+   </div>
+   <ng-container *ngIf="(sectionRef.hasErrors()) && !(sectionRef.isInfo())" >
+      <div class="dropdown-divider">
+      </div>
+      <ul class="mt-2 pl-3">
+         <li *ngFor="let error of sectionErrors" class="small text-danger text-left">
+            {{ getTranslatedError(error) }}
+         </li>
+      </ul>
+   </ng-container>
 </button>

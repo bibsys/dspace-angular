@@ -74,6 +74,7 @@ import { DYNAMIC_FORM_CONTROL_TYPE_TAG } from './ds-dynamic-form-ui/models/tag/d
 import { FormFieldMetadataValueObject } from './models/form-field-metadata-value.model';
 import { RowParser } from './parsers/row-parser';
 import { DynamicHiddenModel } from './ds-dynamic-form-ui/models/hidden/dynamic-hidden.model';
+import { DynamicRowGroupModel } from './ds-dynamic-form-ui/models/ds-dynamic-row-group-model';
 
 @Injectable({ providedIn: 'root' })
 export class FormBuilderService extends DynamicFormService {
@@ -168,6 +169,35 @@ export class FormBuilderService extends DynamicFormService {
     }
     // Notify that the typeBindModels configuration has changed.
     this.typeBindFieldsChange$.next();
+  }
+
+  /**
+   * Get the all field config models matching the given sectionId and metadataFieldName.
+   * @param sectionId The id of the section containing the field.
+   * @param metadataFieldName The name of the metadata field to find.
+   * @returns All field config models found matching the given sectionId and metadataFieldName. Can return an empty array if none found.
+   */
+  findAllFieldConfig(sectionId: string, metadataFieldName: string): DynamicFormControlModel[] {
+    for (const [key, value] of this.formModels.entries()) {
+      if (key.includes(sectionId)) {
+        return value
+          // Reduce ('flatMap' equivalent) to retrieve the models inside the groupModel.
+          .reduce((acc, rowGroup: DynamicFormControlModel) => {
+            if (rowGroup instanceof DynamicRowGroupModel) {
+              // If the model is a row group, retrieve the inner models.
+              return acc.concat(rowGroup.group);
+            } else if (rowGroup instanceof DynamicRelationGroupModel) {
+              // If the model is a relation group keep it like it is since we cannot retrieve the inner models directly.
+              return acc.concat(rowGroup);
+            }
+            // If any other type, skip it.
+            return acc;
+          }, [] as DynamicFormControlModel[])
+          // Get all models where the name matches the metadataField.
+          .filter((model: DynamicFormControlModel) => model.name === metadataFieldName);
+      }
+    }
+    return [];
   }
 
   findById(id: string, groupModel: DynamicFormControlModel[], arrayIndex = null): DynamicFormControlModel | null {
