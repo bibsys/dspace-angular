@@ -6167,6 +6167,10 @@
   // "submission.sections.submit.progressbar.detect-duplicate": "Potential duplicates",
   "submission.sections.submit.progressbar.detect-duplicate": "Doublon(s) potentiel(s)",
 
+  "submit.progressbar.field.error.required": "Un champ requis n'a pas de valeur.",
+
+  "submit.progressbar.field.error.pattern": "La valeur d'un champ n'est pas valide.",
+
   // "submission.sections.submit.progressbar.license": "Deposit license",
   "submission.sections.submit.progressbar.license": "Licence du dépôt",
 

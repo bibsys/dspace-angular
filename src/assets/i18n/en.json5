@@ -7111,6 +7111,10 @@
 
   "submission.sections.submit.progressbar.detect-duplicate": "Potential duplicates",
 
+  "submit.progressbar.field.error.required": "A required field has no value.",
+
+  "submit.progressbar.field.error.pattern": "A field value is not valid.",
+
   "submission.sections.submit.progressbar.duplicates": "Potential duplicates",
 
   "submission.sections.submit.progressbar.identifiers": "Identifiers",
