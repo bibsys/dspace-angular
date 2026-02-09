@@ -77,6 +77,7 @@ import { ItemPageAffiliationListElementComponent } from './app/item-page/simple/
 import { ItemPageAuthorListElementComponent } from './app/item-page/simple/field-components/specific-field/metadata-list/fields/author/item-page-author-list-element.component';
 import { ItemPageAffiliationFieldComponent } from './app/item-page/simple/field-components/specific-field/affiliation/item-page-affiliation-field.component';
 import { OrcidShortFormatComponent } from './app/item-page/simple/field-components/specific-field/orcid/orcid-short-format.component';
+import { LangSwitchComponent } from './app/shared/lang-switch/lang-switch.component';
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
@@ -124,6 +125,7 @@ const DECLARATIONS = [
   ItemPageAuthorListElementComponent,
   ItemPageAffiliationFieldComponent,
   OrcidShortFormatComponent,
+  LangSwitchComponent,
 ];
 
 @NgModule({
