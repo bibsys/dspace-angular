@@ -231,13 +231,13 @@ export class OrcidSyncSettingsComponent implements OnInit, OnDestroy {
     this.fillOperationsFor(operations, '/orcid/publications', form.value.syncPublications);
     this.fillOperationsFor(operations, '/orcid/products', 'DISABLED');
     this.fillOperationsFor(operations, '/orcid/fundings', 'DISABLED');
+    // const syncProfileValue = this.syncProfileOptions
+    //   .map((syncProfileOption => syncProfileOption.value))
+    //   .filter((value) => form.value['syncProfile_' + value])
+    //   .join(',');
 
-    const syncProfileValue = this.syncProfileOptions
-      .map((syncProfileOption => syncProfileOption.value))
-      .filter((value) => form.value['syncProfile_' + value])
-      .join(',');
-
-    this.fillOperationsFor(operations, '/orcid/profile', syncProfileValue);
+    // Send empty string to set profile option to none.
+    this.fillOperationsFor(operations, '/orcid/profile', "");
 
     if (operations.length === 0) {
       return;
