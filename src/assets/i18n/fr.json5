@@ -4586,8 +4586,8 @@
   // "menu.section.access_control_people": "People",
   "menu.section.access_control_people": "Utilisateurs",
 
-  // "menu.section.mydspace_shortcut": "MyDial.pr",
-  "menu.section.mydspace_shortcut": "MyDIAL.pr",
+  // "menu.section.mydspace_shortcut": "My Dashboard",
+  "menu.section.mydspace_shortcut": "Mon Dashboard",
 
   // "menu.section.manage_journal": "Manage journals",
   "menu.section.manage_journal": "Gestions des revues",
@@ -4972,7 +4972,7 @@
   "nav.main.description": "Barre de navigation principale",
 
   // "nav.mydspace": "MyDSpace",
-  "nav.mydspace": "Mon DIAL.pr",
+  "nav.mydspace": "Mon Dashboard",
 
   // "nav.processes": "My Processes",
   "nav.processes": "Mes processus",

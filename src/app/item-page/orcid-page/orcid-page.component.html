@@ -1,3 +1,6 @@
+<div *ngIf="(processingConnection | async) !== true && (item | async)" class="container">
+  <ds-results-back-button [back]="back" [buttonLabel]="backButtonLabel" />
+</div>
 <ds-loading *ngIf="(processingConnection | async)" [message]="'person.page.orcid.link.processing' | translate"></ds-loading>
 <div class="container" *ngIf="(processingConnection | async) !== true && (connectionStatus | async) !== true" data-test="error-box">
   <ds-alert [type]="AlertType.Error">{{'person.page.orcid.link.error.message' | translate}}</ds-alert>
@@ -27,13 +30,3 @@
     <div [ngbNavOutlet]="nav" class="mt-4"></div>
   </ng-container>
 </ng-container>
-
-<div *ngIf="(processingConnection | async) !== true && (item | async)" class="container">
-  <div class="button-row bottom mb-3">
-    <div class="text-right">
-      <a [routerLink]="getItemPage()" role="button" class="btn btn-outline-secondary" data-test="back-button">
-        <i class="fas fa-arrow-left"></i> {{'item.orcid.return' | translate}}
-      </a>
-    </div>
-  </div>
-</div>
