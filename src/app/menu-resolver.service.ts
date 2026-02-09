@@ -193,7 +193,7 @@ export class MenuResolverService  {
         id: `mydspace_shortcut`,
         active: false,
         visible: false,
-        index: 0,
+        index: 1,
         model: {
           type: MenuItemType.LINK,
           text: `menu.section.mydspace_shortcut`,
@@ -221,7 +221,7 @@ export class MenuResolverService  {
           parentID: 'manage',
           active: false,
           visible: true,
-          index: 1,
+          index: 2,
           model: {
             type: MenuItemType.LINK,
             disabled: false,
@@ -241,7 +241,7 @@ export class MenuResolverService  {
           parentID: 'manage',
           active: false,
           visible: true,
-          index: 1,
+          index: 2,
           model: {
             type: MenuItemType.LINK,
             disabled: false,

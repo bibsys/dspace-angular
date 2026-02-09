@@ -14,7 +14,7 @@ import {
   Router,
   RouterLink,
 } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
   BehaviorSubject,
   combineLatest,
@@ -47,6 +47,7 @@ import { OrcidSyncSettingsComponent } from './orcid-sync-settings/orcid-sync-set
 import { OrcidObjectPullComponent } from './orcid-pull/orcid-object-pull.component';
 import { Context } from 'src/app/core/shared/context.model';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { ThemedResultsBackButtonComponent } from 'src/app/shared/results-back-button/themed-results-back-button.component';
 
 /**
  * A component that represents the orcid settings page
@@ -66,6 +67,7 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
     RouterLink,
     OrcidObjectPullComponent,
     NgbNavModule,
+    ThemedResultsBackButtonComponent,
   ],
   standalone: true,
 })
@@ -93,6 +95,8 @@ export class OrcidPageComponent implements OnInit {
    */
   processingConnection: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
+  backButtonLabel = this.translateService.get('item.orcid.return');
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     private authService: AuthService,
@@ -100,6 +104,7 @@ export class OrcidPageComponent implements OnInit {
     private orcidAuthService: OrcidAuthService,
     private route: ActivatedRoute,
     private router: Router,
+    private translateService: TranslateService,
   ) {
   }
 
@@ -210,4 +215,7 @@ export class OrcidPageComponent implements OnInit {
       );
   }
 
+  back = () => {
+    this.router.navigateByUrl(getItemPageRoute(this.item.value));
+  }
 }
