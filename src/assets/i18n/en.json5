@@ -4541,7 +4541,7 @@
 
   "menu.section.import_metadata": "Metadata",
 
-  "menu.section.mydspace_shortcut": "MyDial.pr",
+  "menu.section.mydspace_shortcut": "MyDashboard",
 
   "menu.section.manage_journal": "Manage journals",
 
@@ -4650,7 +4650,7 @@
   "metric-badges.download": "<span class=\"fa fa-download\" title=\"Downloads\">&nbsp;</span>",
 
 
-  "mydspace.breadcrumbs": "MyDIAL.pr",
+  "mydspace.breadcrumbs": "MyDashboard",
 
   "mydspace.description": "",
 
@@ -4712,7 +4712,7 @@
 
   "mydspace.results.in-workflow-for": "In workflow for:",
 
-  "mydspace.search-form.placeholder": "Search in MyDIAL.pr...",
+  "mydspace.search-form.placeholder": "Search in MyDashboard...",
 
   "mydspace.show.workflow": "Workflow tasks",
 
@@ -4734,7 +4734,7 @@
 
   "mydspace.status.submitted": "Submitted",
 
-  "mydspace.title": "MyDIAL.pr",
+  "mydspace.title": "MyDashboard",
 
   "mydspace.upload.upload-failed": "Error creating new workspace. Please verify the content uploaded before retry.",
 
@@ -4777,7 +4777,7 @@
 
   "nav.main.description": "Main navigation bar",
 
-  "nav.mydspace": "MyDIAL.pr",
+  "nav.mydspace": "MyDashboard",
 
   "nav.processes": "My processes",
 
@@ -6661,9 +6661,9 @@
 
   "submission.import-external.page.hint": "Enter a query above to find items from the web to import in to DIAL.pr.",
 
-  "submission.import-external.page.noentity": "An entity type must be selected in order to use this page. Select it using the 'Import metadata from an external source' button in 'MyDIAL.pr' page.",
+  "submission.import-external.page.noentity": "An entity type must be selected in order to use this page. Select it using the 'Import metadata from an external source' button in 'MyDashboard' page.",
 
-  "submission.import-external.back-to-my-dspace": "Back to MyDIAL.pr",
+  "submission.import-external.back-to-my-dspace": "Back to MyDashboard",
 
   "submission.import-external.search.placeholder": "Search the external source",
 
