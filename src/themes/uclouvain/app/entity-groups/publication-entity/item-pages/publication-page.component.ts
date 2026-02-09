@@ -75,6 +75,7 @@ export class PublicationPageComponent extends ItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    super.ngOnInit();
     this.documentType = this.object.firstMetadataValue("dc.type.maintype");
     this.itemCitation$ = this.itemCitationsService.getMainCitationForItem(this.object.id);
   }
