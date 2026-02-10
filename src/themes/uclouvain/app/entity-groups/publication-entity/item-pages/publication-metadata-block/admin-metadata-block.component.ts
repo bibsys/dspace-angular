@@ -1,10 +1,13 @@
 import { AsyncPipe, DatePipe, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { BehaviorSubject, merge, Subject } from 'rxjs';
+import { BehaviorSubject, merge, Observable, of, Subject } from 'rxjs';
 import { filter, first } from 'rxjs/operators';
+import { RemoteData } from '../../../../../../../app/core/data/remote-data';
+import { EPerson } from '../../../../../../../app/core/eperson/models/eperson.model';
 import { RoleService } from '../../../../../../../app/core/roles/role.service';
 import { Context } from '../../../../../../../app/core/shared/context.model';
+import { getFirstSucceededRemoteDataPayload } from '../../../../../../../app/core/shared/operators';
 import { ViewMode } from '../../../../../../../app/core/shared/view-mode.model';
 import { GenericItemPageFieldComponent } from '../../../../../../../app/item-page/simple/field-components/specific-field/generic/generic-item-page-field.component';
 import { listableMetadataBlockComponent } from '../listable-metadata-block.decorator';
@@ -31,6 +34,10 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
             <div class="datetime time">{{ archivedDate | date:hourFormat}}</div>
           </dd>
         </ng-container>
+        <ng-container *ngIf="(submitter$ | async) as submitter">
+          <dt>{{ 'item.page.details.label.submitter' | translate }}</dt>
+          <dd>{{ submitter.email }}</dd>
+        </ng-container>
       </div>
   `,
   styles: [
@@ -48,6 +55,7 @@ export class AdminMetadataBlockComponent extends AbstractMetadataBlockComponent 
   protected archivedDate: string = null;
   protected dateFormat = "yyyy-MM-dd";
   protected hourFormat = "HH:mm:ss.SSS zzzz";
+  protected submitter$: Observable<EPerson>;
 
   private conditions = [
     this.roleService.isAdmin(),
@@ -62,6 +70,12 @@ export class AdminMetadataBlockComponent extends AbstractMetadataBlockComponent 
 
   ngOnInit() {
     this.archivedDate = this.item.firstMetadataValue("dc.date.available");
+    this.submitter$ = (this.item.submitter)
+      ? (this.item.submitter instanceof Observable)
+        ? this.item.submitter.pipe(getFirstSucceededRemoteDataPayload())
+        : of(this.item.submitter)
+      : of(null);
+
     // We want call all condition in parallel mode.
     // When a condition return `true`, no need to continue waiting other response.
     merge(...this.conditions)
