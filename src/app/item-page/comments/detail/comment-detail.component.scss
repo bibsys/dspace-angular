@@ -184,4 +184,46 @@
       }
     }
   }
+
+  .diff-viewer {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    line-height: 1.4;
+    width: 100%;
+  }
+
+  .raw-line {
+    white-space: pre-wrap;
+    display: block;
+    padding: 2px 5px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  /* Indentation demandée pour le contenu (tout sauf les @...) */
+  .indent-content {
+    padding-left: 25px; /* 20px + le padding de base */
+  }
+
+  /* Style optionnel pour rendre les headers plus clairs */
+  .is-header {
+    font-weight: bold;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 8px;
+    margin-top: 4px;
+  }
+
+  /* Couleurs de fond */
+  .line-add { background-color: #bbdbc2; color: #1e7e34; }
+  .line-remove { background-color: #dbc1c5; color: #d73a49; }
+  .line-update { background-color: #dccfbb; color: #856404; }
+  .line-default { background-color: transparent; color: inherit; }
+
+  /* On enlève la bordure du tout premier header */
+  .raw-line:first-child {
+    border-top: none;
+    margin-top: 0;
+  }
 }
