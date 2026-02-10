@@ -34,6 +34,7 @@ export function getItemPageLinksToFollow(): FollowLinkConfig<Item>[] {
     followLink('bundles', {}, followLink('bitstreams')),
     followLink('thumbnail'),
     followLink('metrics'),
+    followLink('submitter'),
   ];
   if (environment.item.showAccessStatuses) {
     followLinks.push(followLink('accessStatus'));
