@@ -19,6 +19,8 @@ import {
 } from '../cache/builders/build-decorators';
 import { PaginatedList } from '../data/paginated-list.model';
 import { RemoteData } from '../data/remote-data';
+import { EPerson } from '../eperson/models/eperson.model';
+import { EPERSON } from '../eperson/models/eperson.resource-type';
 import { Bitstream } from './bitstream.model';
 import { BITSTREAM } from './bitstream.resource-type';
 import { Bundle } from './bundle.model';
@@ -102,6 +104,7 @@ export class Item extends DSpaceObject implements ChildHALResource, HandleObject
     metrics: HALLink;
     citations: HALLink;
     self: HALLink;
+    submitter: HALLink;
   };
 
   /**
@@ -161,7 +164,10 @@ export class Item extends DSpaceObject implements ChildHALResource, HandleObject
     metrics?: Observable<RemoteData<PaginatedList<Metric>>>;
 
   @link(CITATION)
-    citations?: Observable<RemoteData<ItemCitations>>;
+  citations?: Observable<RemoteData<ItemCitations>>;
+
+  @link(EPERSON)
+  submitter?: Observable<RemoteData<EPerson>> | EPerson;
 
   /**
    * Method that returns as which type of object this object should be rendered
