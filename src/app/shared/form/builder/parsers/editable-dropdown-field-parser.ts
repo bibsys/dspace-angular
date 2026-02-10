@@ -15,7 +15,6 @@ export class EditableDropdownFieldParser extends DropdownFieldParser {
   public modelFactory(fieldValue?: FormFieldMetadataValueObject, label?: boolean): any {
     const dropdownModelConfig: DynamicScrollableDropdownModelConfig = this.initModel(null, label);
     let layout: DynamicFormControlLayout;
-    console.log(this.configData);
     if (isNotEmpty(this.configData.selectableMetadata[0].controlledVocabulary)) {
       this.setVocabularyOptions(dropdownModelConfig, this.parserOptions.collectionUUID);
       this.setValues(dropdownModelConfig, fieldValue, true);
