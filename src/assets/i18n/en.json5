@@ -1930,9 +1930,11 @@
 
   "context-menu.actions.edit-item.btn.INVESTIGATOR": "Edit",
 
-  "context-menu.actions.edit-item.btn.PUBLICATION_AUTHOR": "Edit publication",
+  "context-menu.actions.edit-item.btn.PUBLICATION_EDIT": "Edit publication",
 
-  "context-menu.actions.edit-item.btn.PUBLICATION_MANAGER": "Edit publication",
+  "context-menu.actions.edit-item.btn.PROFILE_OWNER": "Edit my profile",
+
+  "context-menu.actions.edit-item.btn.PROFILE_ADMIN": "Edit profile (admin)",
 
   "context-menu.actions.request-correction.btn": "Request a correction",
 
@@ -7340,6 +7342,16 @@
   "submit.progressbar.describe.publication_specific.shortcut": "Publication specific",
 
   "submit.progressbar.describe.publication_funding.shortcut": "Funding",
+
+  "submit.progressbar.describe.dissertation_type.shortcut": "Type",
+
+  "submit.progressbar.describe.dissertation_authors.shortcut": "Authors",
+
+  "submit.progressbar.describe.dissertation_advisors.shortcut": "Supervisors",
+
+  "submit.progressbar.describe.dissertation_base.shortcut": "Dissertation basic data",
+
+  "submit.progressbar.describe.dissertation_specific.shortcut": "Dissertation specific data",
 
   "submit.progressbar.detect-duplicate.shortcut": "Duplicates",
 

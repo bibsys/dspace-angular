@@ -2165,11 +2165,11 @@
   // "context-menu.actions.edit-item.btn.FULL": "Edit all the details",
   "context-menu.actions.edit-item.btn.FULL": "Editer les métadonnées",
 
-  // "context-menu.actions.edit-item.btn.PUBLICATION_AUTHOR": "Edit publication",
-  "context-menu.actions.edit-item.btn.PUBLICATION_AUTHOR": "Éditer la publication",
+  "context-menu.actions.edit-item.btn.PUBLICATION_EDIT": "Éditer la publication",
 
-  // "context-menu.actions.edit-item.btn.PUBLICATION_MANAGER": "Edit publication",
-  "context-menu.actions.edit-item.btn.PUBLICATION_MANAGER": "Éditer la publication",
+  "context-menu.actions.edit-item.btn.PROFILE_OWNER": "Éditer mon profil",
+
+  "context-menu.actions.edit-item.btn.PROFILE_ADMIN": "Éditer le profil (admin)",
 
   // "context-menu.actions.show-all-metadata": "Show all metadata (technical view)",
   "context-menu.actions.show-all-metadata": "Voir toutes les métadonnées",
@@ -7144,6 +7144,16 @@
 
   // "submit.progressbar.describe.publication_funding.shortcut": "Funding",
   "submit.progressbar.describe.publication_funding.shortcut": "Financements",
+
+  "submit.progressbar.describe.dissertation_type.shortcut": "Type",
+
+  "submit.progressbar.describe.dissertation_authors.shortcut": "Auteurs",
+
+  "submit.progressbar.describe.dissertation_advisors.shortcut": "Promoteurs",
+
+  "submit.progressbar.describe.dissertation_base.shortcut": "Donnée de base de la thèse",
+
+  "submit.progressbar.describe.dissertation_specific.shortcut": "Données spécifiques de la thèse",
 
   // "submit.progressbar.detect-duplicate.shortcut": "Duplicates",
   "submit.progressbar.detect-duplicate.shortcut": "Doublons",
