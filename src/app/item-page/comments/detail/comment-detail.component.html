@@ -36,7 +36,12 @@
                             <span class="obj-reference">[{{ commentReference.type }}&#64;{{ commentReference.uuid }}]</span>
                         </div>
                     </div>
-                    <div class="event-info-body" [innerHTML]="commentContent"></div>
+                    <ng-container *ngIf="diffLines && diffLines.length > 0; else rawComment">
+                        <ng-container *ngTemplateOutlet="diffOperationsTemplate"></ng-container>
+                    </ng-container>
+                    <ng-template #rawComment>
+                        <div class="event-info-body" [innerHTML]="commentContent"></div>
+                    </ng-template>
                     <div class="event-info-modified" *ngIf="comment.modified">
                         <i class="fa-regular fa-calendar mr-2"></i>{{ comment.modified | date : 'dd/MM/y - hh:mm:ss'}} ({{ 'item.page.comment.modified' | translate }})
                     </div>
@@ -47,6 +52,20 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #diffOperationsTemplate>
+    <div class="event-info-body diff-viewer">
+        <div *ngFor="let line of diffLines; let i = index"
+             [ngClass]="{
+                 'is-header': line.isHeader,
+                 'indent-content': !line.isHeader
+             }"
+             [class]="'raw-line line-'+line.type"
+             [innerHTML]="line.text"
+        >
         </div>
     </div>
 </ng-template>
