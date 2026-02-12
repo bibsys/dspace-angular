@@ -49,6 +49,10 @@ import { MyDSpaceStatusBadgeComponent as BaseComponent } from "src/app/shared/ob
             this.badgeClass += 'badge-workflow';
             this.badgeLogo = 'fa-solid fa-clock';
             break;
+          case Context.MyDSpaceWithdrawn:
+            this.badgeClass += 'badge-withdrawn';
+            this.badgeLogo = 'fa-solid fa-eye-slash';
+            break;
         }
       }
   }
