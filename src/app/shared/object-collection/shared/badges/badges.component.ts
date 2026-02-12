@@ -22,6 +22,7 @@ const MY_DSPACE_STATUS_CONTEXTS = [
   Context.MyDSpaceApproved,
   Context.MyDSpaceWaitingController,
   Context.MyDSpaceValidation,
+  Context.MyDSpaceWithdrawn,
 ];
 
 /**
