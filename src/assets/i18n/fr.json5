@@ -9618,6 +9618,8 @@
   "item.page.details.label.identifier-ecla": "Identifiant ECLA",
   "item.page.details.label.identifier-patentID": "Identifiant du brevet",
   "item.page.details.label.identifier-priorityNumber": "Numéro de priorité",
+  "item.page.details.label.identifier-scopus": "Scopus ID",
+  "item.page.details.label.identifier-wos": "WebOfScience ID",
   "item.page.details.label.isbn": "ISBN",
   "item.page.details.label.last-modified": "Date de mise à jour",
   "item.page.details.label.subjects": "Sujets",

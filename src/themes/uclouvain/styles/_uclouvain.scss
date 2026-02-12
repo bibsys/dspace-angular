@@ -4,7 +4,7 @@ html {
 
 :root {
   --uclouvain-publication-title-font: 'Nunito', sans-serif;
-  --uclouvain-publication-title-color: #933;
+  --uclouvain-publication-title-color: #{$gray-800};
   --search-form-spacing: .6rem;
   --search-form-background-opacity: .35;
   --search-form-btn-color: #{$gray-700};

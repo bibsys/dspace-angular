@@ -8,8 +8,8 @@ import { isNotEmpty } from '../../../../../app/shared/empty.util';
 @Component({
     selector: 'ds-item-link-view',
     template: `
-        <a *ngIf="itemPageUrl" rel="noopener noreferrer" [routerLink]="itemPageUrl" class="text-nowrap">{{ metadataValue.value }}</a>
-        <span *ngIf="!itemPageUrl" class="text-nowrap">{{ metadataValue.value }}</span>
+        <a *ngIf="itemPageUrl" rel="noopener noreferrer" [routerLink]="itemPageUrl">{{ metadataValue.value }}</a>
+        <span *ngIf="!itemPageUrl">{{ metadataValue.value }}</span>
     `,
     standalone: true,
   imports: [RouterLink, NgIf],
