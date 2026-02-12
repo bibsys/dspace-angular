@@ -16,7 +16,7 @@ import { ItemPageAffiliationFieldComponent } from "../../../affiliation/item-pag
   template: `<ds-item-page-affiliation-field [item]="item"
                 [institutionField]="institutionField"
                 [departmentField]="departmentField"
-                [index]="index"/>`,
+                [index]="index" class="align-middle"/>`,
   standalone: true,
   imports: [ItemPageAffiliationFieldComponent],
 })
