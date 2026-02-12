@@ -9592,6 +9592,8 @@
   "item.page.details.label.identifier-ecla": "ECLA identifiant",
   "item.page.details.label.identifier-patentID": "Patent identifier",
   "item.page.details.label.identifier-priorityNumber": "Priority number",
+  "item.page.details.label.identifier-scopus": "Scopus ID",
+  "item.page.details.label.identifier-wos": "WebOfScience ID",
   "item.page.details.label.isbn": "ISBN",
   "item.page.details.label.last-modified": "Last modified",
   "item.page.details.label.subjects": "Subjects",
