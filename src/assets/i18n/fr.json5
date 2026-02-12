@@ -4932,6 +4932,9 @@
   // "mydspace.status.mydspaceWorkspace": "Workspace",
   "mydspace.status.mydspaceWorkspace": "Dépôts en cours",
 
+  // "mydspace.status.mydspaceWithdrawn": "Retired",
+  "mydspace.status.mydspaceWithdrawn": "Retiré",
+
   // "mydspace.status.submitted": "Submitted",
   "mydspace.status.submitted": "Soumit",
 
