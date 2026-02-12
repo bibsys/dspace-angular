@@ -38,6 +38,7 @@ export enum Context {
   MyDSpaceApproved = 'mydspaceApproved',
   MyDSpaceWaitingController = 'mydspaceWaitingController',
   MyDSpaceValidation = 'mydspaceValidation',
+  MyDSpaceWithdrawn = 'mydspaceWithdrawn',
 
   Bitstream = 'bitstream',
 
