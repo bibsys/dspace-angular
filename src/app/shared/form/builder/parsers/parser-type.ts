@@ -19,6 +19,7 @@ export enum ParserType {
   Link = 'link',
   Year = 'year',
   Checkbox = 'checkbox',
+  ToggleSwitch = 'toggle-switch',
   Hidden = 'hidden',
   InstitutionAffiliationSelect = 'institution-affiliation-select',
   DepartmentAffiliationSelect = 'department-affiliation-select',
