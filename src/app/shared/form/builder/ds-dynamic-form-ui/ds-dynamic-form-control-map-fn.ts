@@ -65,6 +65,8 @@ import { DYNAMIC_FORM_CONTROL_TYPE_TAG } from './models/tag/dynamic-tag.model';
 import { DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX } from './models/checkbox/checkbox.model';
 import { CustomCheckboxComponent } from './models/checkbox/checkbox.component';
 import { DsDynamicRelationInlineLabeledGroupComponent } from './models/relation-inline-labeled-group/dynamic-relation-inline-labeled-group.component';
+import { DsToggleSwitchComponent } from './models/toggle-switch/toggle-switch.component';
+import { DYNAMIC_FORM_CONTROL_TYPE_TOGGLE_SWITCH } from './models/toggle-switch/toggle-switch.model';
 import { DsYearPickerComponent } from './models/year-picker/year-picker.component';
 import { DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER } from './models/year-picker/year-picker.model';
 import { DYNAMIC_FROM_CONTROL_TYPE_HIDDEN } from './models/hidden/dynamic-hidden.model';
@@ -83,6 +85,9 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX:
       return CustomCheckboxComponent;
+
+    case DYNAMIC_FORM_CONTROL_TYPE_TOGGLE_SWITCH:
+      return DsToggleSwitchComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_CHECKBOX_GROUP:
       return (model instanceof DynamicListCheckboxGroupModel) ? DsDynamicListComponent : DynamicNGBootstrapCheckboxGroupComponent;
