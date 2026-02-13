@@ -26,6 +26,7 @@ import { RelationGroupFieldParser } from './relation-group-field-parser';
 import { SeriesFieldParser } from './series-field-parser';
 import { TagFieldParser } from './tag-field-parser';
 import { TextareaFieldParser } from './textarea-field-parser';
+import { ToggleSwitchFieldParser } from './toggle-switch-field-parser';
 import { YearFieldParser } from './year-field-parser';
 import { HiddenFieldParser } from './hidden-field-parser';
 import { InstitutionAffiliationFieldParser } from './institution-affiliation-field-parser';
@@ -166,6 +167,13 @@ export class ParserFactory {
           provide: FieldParser,
           useClass: HiddenFieldParser,
           deps: [...fieldParserDeps]
+        };
+      }
+      case ParserType.ToggleSwitch: {
+        return {
+          provide: FieldParser,
+          useClass: ToggleSwitchFieldParser,
+          deps: [...fieldParserDeps],
         };
       }
       case ParserType.Checkbox: {
