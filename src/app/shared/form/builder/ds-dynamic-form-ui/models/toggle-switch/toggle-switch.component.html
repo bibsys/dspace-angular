@@ -1,0 +1,26 @@
+<div>
+    <label *ngIf="model.showFieldLabel"
+           [for]="id"
+           [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]"
+           class="mb-1"
+    >
+        {{model.placeholder}}
+        <span *ngIf="model.required" class="pl-1 text-danger font-weight-bold">*</span>
+    </label>
+    <div class="position-relative d-flex flex-row align-items-center">
+        <input type="checkbox"
+               class="toggle-switch-input mr-2 my-1"
+               [id]="id"
+               [name]="model.name"
+               [disabled]="model.disabled"
+               [checked]="model.checked"
+               (blur)="onBlur($event)"
+               (focus)="onFocus($event)"
+               (change)="onChange($event)"
+        />
+        <small class="text-muted ds-hint ml-2">{{model.hint}}</small>
+    </div>
+    <!--<div class="d-flex flex-column w-100" *ngIf="!isEmpty(model.hint)">
+        <small class="text-muted ds-hint">{{model.hint}}</small>
+    </div>-->
+</div>
