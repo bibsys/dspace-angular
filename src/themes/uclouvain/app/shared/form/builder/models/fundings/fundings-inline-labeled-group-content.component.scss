@@ -1,0 +1,15 @@
+:host {
+
+  .funding-grant {
+    color: $text-muted;
+    font-size: .875rem;
+    font-style: italic;
+
+    &:before {
+      content: "(";
+    }
+    &:after {
+      content: ")";
+    }
+  }
+}
