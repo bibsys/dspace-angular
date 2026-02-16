@@ -78,6 +78,9 @@ import {
   AdvisorInlineLabeledGroupContentComponent
 } from './app/shared/form/builder/models/advisors/advisors-inline-labeled-group-content.component';
 import { AuthorInlineLabeledGroupContentComponent } from './app/shared/form/builder/models/authors/authors-inline-labeled-group-content.component';
+import {
+  FundingsInlineLabeledGroupContentComponent
+} from './app/shared/form/builder/models/fundings/fundings-inline-labeled-group-content.component';
 import { OrgUnitInlineLabeledGroupContentComponent } from './app/shared/form/builder/models/org-unit/org-unit-inline-labeled-group-content.component';
 import { ItemPageAffiliationListElementComponent } from './app/item-page/simple/field-components/specific-field/metadata-list/fields/affiliation/item-page-affiliation-list-element.component';
 import { ItemPageAuthorListElementComponent } from './app/item-page/simple/field-components/specific-field/metadata-list/fields/author/item-page-author-list-element.component';
@@ -124,6 +127,7 @@ const DECLARATIONS = [
   ...METADATA_BLOCK_COMPONENTS,
   AdvisorInlineLabeledGroupContentComponent,
   AuthorInlineLabeledGroupContentComponent,
+  FundingsInlineLabeledGroupContentComponent,
   FooterComponent,
   HeaderNavbarWrapperComponent,
   HomeNewsComponent,
