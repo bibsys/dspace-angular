@@ -2584,11 +2584,15 @@
   "explore.facet-section.title": "Découvrir",
 
   // "explore.index.all": "All",
-  // TODO New key - Add a translation
   "explore.index.all": "Tous",
 
+  // "explore.index.accessType": "Access type",
+  "explore.index.accessType": "Type d'accès",
+
+  // "explore.index.advisor": "Supervisor",
+  "explore.index.advisor": "Promoteur",
+
   // "explore.index.author": "Author",
-  // TODO New key - Add a translation
   "explore.index.author": "Auteur",
 
   // "explore.index.graphitemtype": "Graph by type",
@@ -2600,52 +2604,41 @@
   "explore.index.graphpubldate": "Graph by date",
 
   // "explore.index.birthDate": "Birthday",
-  // TODO New key - Add a translation
-  "explore.index.birthDate": "Birthday",
+  "explore.index.birthDate": "Date de naissance",
 
   // "explore.index.metric.view": "Most viewed",
-  // TODO New key - Add a translation
-  "explore.index.metric.view": "Most viewed",
+  "explore.index.metric.view": "Les plus vues",
 
   // "explore.index.metric.download": "Most downloaded",
-  // TODO New key - Add a translation
-  "explore.index.metric.download": "Most downloaded",
+  "explore.index.metric.download": "Les plus téléchargées",
 
   // "explore.index.metric.scopus.citation": "Most cited",
-  // TODO New key - Add a translation
-  "explore.index.metric.scopus.citation": "Most cited",
+  "explore.index.metric.scopus.citation": "Les plus citées",
 
   // "explore.index.chart.pie.itemtype_filter": "Item Type",
   // TODO New key - Add a translation
   "explore.index.chart.pie.itemtype_filter": "Item Type",
 
   // "explore.index.chart.bar.dateIssued.year": "Year",
-  // TODO New key - Add a translation
-  "explore.index.chart.bar.dateIssued.year": "Year",
+  "explore.index.chart.bar.dateIssued.year": "Année",
 
 
   // "explore.index.dateIssued": "Date issued",
-  // TODO New key - Add a translation
-  "explore.index.dateIssued": "Date issued",
+  "explore.index.dateIssued": "Date de publication",
 
   // "explore.index.dateissued": "Date issued",
-  // TODO New key - Add a translation
-  "explore.index.dateissued": "Date issued",
+  "explore.index.dateissued": "Date de publication",
 
   // "explore.index.dc.date.accessioned": "Recent Additions",
-  // TODO New key - Add a translation
   "explore.index.dc.date.accessioned": "Dépots récents",
 
   // "explore.index.dc.title": "Title",
-  // TODO New key - Add a translation
   "explore.index.dc.title": "Titre",
 
   // "explore.index.editor": "Editor",
-  // TODO New key - Add a translation
   "explore.index.editor": "Éditeur",
 
   // "explore.index.eqtitle": "Title",
-  // TODO New key - Add a translation
   "explore.index.eqtitle": "Titre",
 
   // "explore.index.eqowner": "Researcher",
@@ -2653,27 +2646,23 @@
   "explore.index.eqowner": "Researcher",
 
   // "explore.index.eqorgunit": "Organization",
-  // TODO New key - Add a translation
-  "explore.index.eqorgunit": "Organization",
+  "explore.index.eqorgunit": "Organisation",
 
   // "explore.index.entityType": "Entity type",
   // TODO New key - Add a translation
   "explore.index.entityType": "Entity type",
 
   // "explore.index.familyName": "Family name",
-  // TODO New key - Add a translation
-  "explore.index.familyName": "Family name",
+  "explore.index.familyName": "Nom de famille",
 
   // "explore.index.funding": "Funding",
-  // TODO New key - Add a translation
-  "explore.index.funding": "Financement",
+  "explore.index.funding": "Source de financement",
 
   // "explore.index.givenName": "Given name",
   // TODO New key - Add a translation
   "explore.index.givenName": "Given name",
 
   // "explore.index.has_content_in_original_bundle": "Has content in original bundle",
-  // TODO New key - Add a translation
   "explore.index.has_content_in_original_bundle": "Contenu dans un fichier",
 
   // "explore.index.investigators": "Researchers",
@@ -2741,8 +2730,10 @@
   "explore.index.itemidentifier": "Item identifier",
 
   // "explore.index.jobTitle": "Job title",
-  // TODO New key - Add a translation
-  "explore.index.jobTitle": "Job title",
+  "explore.index.jobTitle": "Profession",
+
+  // "explore.index.journalTitle": "Journal title",
+  "explore.index.journalTitle": "Titre de la revue",
 
   // "explore.index.knowsLanguage": "Knows languages",
   // TODO New key - Add a translation
@@ -4090,6 +4081,11 @@
 
   // "item.page.person.type": "Author",
   "item.page.person.type": "Auteur",
+
+  //"item.page.oairecerif.identifier.url": "Personal site",
+  "item.page.oairecerif.identifier.url": "Site personnel",
+  //"item.page.oairecerif.identifier.urls": "Personal sites",
+  "item.page.oairecerif.identifier.urls": "Sites personnels",
 
   // "item.page.related-items.view-more": "Show {{ amount }} more",
   "item.page.related-items.view-more": "Afficher {{ amount }} résultats supplémentaires",
@@ -9507,6 +9503,9 @@
   "access.condition.value.administrator": "Accès interdit",
   //"access.condition.value.lease": "Accès embargo",
   "access.condition.value.lease": "Accès limité",
+
+  "personal-sites.url-label": "Libellé du lien",
+  "personal-sites.url-value": "Adresse URL du lien",
 
 
   // "publication.type.journal-article.heading": "Journal Article",
