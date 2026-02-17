@@ -1,5 +1,5 @@
-import { AsyncPipe, NgIf } from "@angular/common";
-import { Component, Input } from "@angular/core";
+import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
+import { Component, Input, OnInit } from "@angular/core";
 import { TranslateModule } from "@ngx-translate/core";
 import { Context } from "src/app/core/shared/context.model";
 import { DSpaceObjectType } from "src/app/core/shared/dspace-object-type.model";
@@ -13,6 +13,7 @@ import { listableObjectComponent } from "src/app/shared/object-collection/shared
 import { ThemedResultsBackButtonComponent } from "src/app/shared/results-back-button/themed-results-back-button.component";
 import { ThemedThumbnailComponent } from "src/app/thumbnail/themed-thumbnail.component";
 import { TabbedRelatedEntitiesSearchComponent } from "src/app/item-page/simple/related-entities/tabbed-related-entities-search/tabbed-related-entities-search.component";
+import { MetadataValue } from '../../../../../../app/core/shared/metadata.models';
 import { PageDetailSectionComponent } from "../../../shared/page-detail-section.component";
 import { ItemPageAffiliationFieldComponent } from "../../../item-page/simple/field-components/specific-field/affiliation/item-page-affiliation-field.component";
 import { OrcidShortFormatComponent } from "../../../item-page/simple/field-components/specific-field/orcid/orcid-short-format.component";
@@ -41,9 +42,10 @@ import { OrcidShortFormatComponent } from "../../../item-page/simple/field-compo
     PageDetailSectionComponent,
     ItemPageAffiliationFieldComponent,
     OrcidShortFormatComponent,
-  ],
+    NgForOf
+  ]
 })
-export class UCLouvainPersonPageComponent extends ItemComponent {
+export class UCLouvainPersonPageComponent extends ItemComponent implements OnInit {
   @Input() showLabel: boolean;
   @Input() showMetrics: boolean;
   @Input() viewMode: ViewMode;
@@ -51,4 +53,21 @@ export class UCLouvainPersonPageComponent extends ItemComponent {
   @Input() showThumbnails: boolean;
 
   protected readonly DspaceObjectType = DSpaceObjectType;
+  protected sites: MetadataValue[];
+
+  get hasDetails(): boolean {
+    const metadataKeys = [
+      'crisrp.name',
+      'person.email',
+      'person.identifier.orcid',
+      'person.affiliation.institution',
+      'person.jobTitle',
+      'oairecerif.identifier.url'
+    ];
+    return metadataKeys.some(key => this.object.hasMetadata(key));
+  }
+
+  ngOnInit() {
+    this.sites = this.object.allMetadata('oairecerif.identifier.url');
+  }
 }
