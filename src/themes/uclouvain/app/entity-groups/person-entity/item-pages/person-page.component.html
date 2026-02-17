@@ -8,7 +8,7 @@
 <div class="container my-3 p-0">
   <article>
     <!-- HEADER (Type + name) -->
-    <div class="mb-5 d-flex">
+    <div class="d-flex">
       <div *ngIf="showThumbnails" class="mr-4">
         <ds-metadata-field-wrapper [hideIfNoTextContent]="false">
           <ds-thumbnail [thumbnail]="object?.thumbnail | async"
@@ -23,8 +23,15 @@
         <ds-item-page-title-field [item]="object" />
       </div>
     </div>
+    <!-- BIOGRAPHY -->
+    <div *ngIf="object.hasMetadata('dc.description.abstract')"
+         class="abstract-biography mt-3 content dont-break-out preserve-line-breaks"
+         [innerHTML]="object.firstMetadataValue('dc.description.abstract')">
+    </div>
     <!-- MAIN METADATA SECTION -->
-    <ds-page-detail-section [label]="'item.page.heading.person.details' | translate" class="mb-4">
+    <ds-page-detail-section *ngIf="hasDetails"
+                            [label]="'item.page.heading.person.details' | translate"
+                            class="mt-5">
       <dl class="ml-1">
         <ng-container *ngIf="object.hasMetadata('crisrp.name')">
           <dt>{{ "item.page.person.crisrp.name" | translate }}</dt>
@@ -58,10 +65,19 @@
             <ds-generic-item-page-field [item]="object" [fields]="['person.jobTitle']"/>
           </dd>
         </ng-container>
+        <ng-container *ngIf="sites && sites.length > 0">
+          <dt *ngIf="sites.length == 1">{{ "item.page.oairecerif.identifier.url" | translate }}</dt>
+          <dt *ngIf="sites.length > 1">{{ "item.page.oairecerif.identifier.urls" | translate }}</dt>
+          <dd><ul class="pl-4 mb-0">
+            <li class="mb-1" *ngFor="let metadata of sites">
+              <a [href]="metadata.authority" target="_blank">{{ metadata.value }}</a>
+            </li>
+          </ul></dd>
+        </ng-container>
       </dl>
     </ds-page-detail-section>
     <!-- Display all publication of this author -->
-    <ds-page-detail-section [label]="'item.page.heading.person.publications' | translate">
+    <ds-page-detail-section [label]="'item.page.heading.person.publications' | translate" class="mt-5">
         <ds-tabbed-related-entities-search [item]="object"
                                            [relationTypes]="[{
                                               label: 'isAuthorOfPublication',
