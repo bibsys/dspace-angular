@@ -109,6 +109,10 @@ export class LinkFieldParser extends ConcatFieldParser {
       input2ModelConfig.placeholder = placeholder[1];
     }
 
+    // Check config to determine placeHolder
+    input1ModelConfig.placeholder = this.configData?.settings?.firstPlaceholder ?? input1ModelConfig.placeholder;
+    input2ModelConfig.placeholder = this.configData?.settings?.secondPlaceholder ?? input2ModelConfig.placeholder;
+
     const model1 = new DsDynamicInputModel(input1ModelConfig, clsInput1);
     const model2 = new DsDynamicInputModel(input2ModelConfig, clsInput2);
 
