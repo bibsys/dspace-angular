@@ -9666,6 +9666,25 @@
   "item.citations.format.publication-apa-html.label": "APA",
   "item.citations.format.publication-fwb-html.label": "FWB",
 
+  "item.format.export.mimeType.application/json": "Format JSON",
+  "item.format.export.mimeType.application/pdf": "Format PDF",
+  "item.format.export.mimeType.application/vnd.ms-excel": "Format Microsoft Excel",
+  "item.format.export.mimeType.application/xml": "Format XML",
+  "item.format.export.mimeType.application/x-bibtex": "Format BibTeX",
+  "item.format.export.mimeType.application/x-endnote-refer": "Format EndNote",
+  "item.format.export.mimeType.application/x-research-info-systems": "Format RIS",
+  "item.format.export.mimeType.text/csv": "Format CSV (pour application de type tableur)",
+  "item.format.export.mimeType.text/html": "Format HTML",
+  "item.format.export.mimeType.text/plain": "Format Texte",
+
+  "item.format.export.publication-apa-html.value": "Citation au format APA",
+  "item.format.export.publication-chicago-html.value": "Citation au format Chicago",
+  "item.format.export.publication-csv.value": "Format CSV générique",
+  "item.format.export.publication-fnrs-pdf.value": "Format PDF générique",
+  "item.format.export.publication-fwb-html.value": "Citation au format FWB",
+  "item.format.export.publication-ris.value": "Format RIS générique",
+  "item.format.export.publication-xls.value": "Format XLS générique",
+
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",
   "languages.iso-639-2.eng": "Anglais",
