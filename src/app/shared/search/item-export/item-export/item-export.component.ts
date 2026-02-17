@@ -41,6 +41,7 @@ import { BtnDisabledDirective } from 'src/app/shared/btn-disabled.directive';
 import { SearchManager } from '../../../../core/browse/search-manager';
 import { RemoteData } from '../../../../core/data/remote-data';
 import { ItemExportFormatMolteplicity } from '../../../../core/itemexportformat/item-export-format.service';
+import { ItemExportFormat } from '../../../../core/itemexportformat/model/item-export-format.model';
 import { DSpaceObject } from '../../../../core/shared/dspace-object.model';
 import { DSpaceObjectType } from '../../../../core/shared/dspace-object-type.model';
 import { Item } from '../../../../core/shared/item.model';
@@ -99,6 +100,12 @@ export class ItemExportComponent implements OnInit, OnDestroy {
    * Export format suitable for bulk import
    */
   public static BULK_IMPORT_READY_XLS = 'collection-xls';
+
+  public static MIMETYPE_WEIGHTS: Record<string, number> = {
+    'application/pdf': 100,
+    'text/csv': 90,
+    'application/vnd.ms-excel': 95,
+  }
 
   @Input() molteplicity: ItemExportFormatMolteplicity;
   @Input() item: Item;
@@ -334,5 +341,45 @@ export class ItemExportComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.router.navigateByUrl(this.currentUrl);
     this.selectableListService.removeSelection(this.listId);
+  }
+
+  /**
+   * Allows to sort and group possible export format defined by configuration.
+   * @return a list of groups, each one with a list of possible export format
+   */
+  protected prepareGroupedFormats(): { mimeType: string, formats: ItemExportFormat[] }[] {
+    const sorted = this.sortExportFormats(this.configuration.formats);
+    const groups = new Map<string, ItemExportFormat[]>();
+    sorted.forEach(format => {
+      if (!groups.has(format.mimeType)) {
+        groups.set(format.mimeType, []);
+      }
+      groups.get(format.mimeType)?.push(format);
+    });
+    return Array.from(groups, ([mimeType, formats]) => ({ mimeType, formats }));
+  }
+
+  /**
+   * Sorting export format defined by configuration. The sorting rules are:
+   *   0) find the weight of export format mimeType (default is 0)
+   *   1) sort on mimeType weight descending (more weight, more important)
+   *   2) sort on mimeType label (if weight are same)
+   *   3) sort on item export format weight descending (default is 0)
+   * @param formats the format list to sort
+   * @return the sorted format list
+   */
+  private sortExportFormats(formats: ItemExportFormat[]): ItemExportFormat[] {
+    if (!formats || !formats.length) return [];
+    return [...formats].sort((a, b) => {
+      const mimeWeightA = ItemExportComponent.MIMETYPE_WEIGHTS[a.mimeType] ?? 0;
+      const mimeWeightB = ItemExportComponent.MIMETYPE_WEIGHTS[b.mimeType] ?? 0;
+      if (mimeWeightA !== mimeWeightB) {
+        return mimeWeightB - mimeWeightA; // descending order
+      }
+      if (a.mimeType !== b.mimeType) {
+        return a.mimeType.localeCompare(b.mimeType); // compare on mimeType name
+      }
+      return (b.weight || 0) - (a.weight || 0); // compare export format weight
+    });
   }
 }

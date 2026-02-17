@@ -9666,6 +9666,16 @@
   "item.citations.format.publication-apa-html.label": "APA",
   "item.citations.format.publication-fwb-html.label": "FWB",
 
+  "item.format.export.mimeType.application/json": "Format JSON",
+  "item.format.export.mimeType.application/pdf": "Format PDF",
+  "item.format.export.mimeType.application/vnd.ms-excel": "Format Microsoft Excel",
+  "item.format.export.mimeType.application/xml": "Format XML",
+  "item.format.export.mimeType.application/x-bibtex": "Format BibTeX",
+  "item.format.export.mimeType.application/x-endnote-refer": "Format EndNote",
+  "item.format.export.mimeType.text/csv": "Format CSV (pour application de type tableur)",
+  "item.format.export.mimeType.text/html": "Format HTML",
+  "item.format.export.mimeType.text/plain": "Format Texte",
+
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",
   "languages.iso-639-2.eng": "Anglais",
