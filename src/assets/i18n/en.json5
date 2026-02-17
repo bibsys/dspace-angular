@@ -2505,6 +2505,10 @@
 
   "explore.facet-section.title": "Discover",
 
+  "explore.index.accessType": "Access type",
+
+  "explore.index.advisor": "Supervisor",
+
   "explore.index.all": "All",
 
   "explore.index.author": "Author",
@@ -2524,7 +2528,6 @@
   "explore.index.chart.pie.itemtype_filter": "Item Type",
 
   "explore.index.chart.bar.dateIssued.year": "Year",
-
 
   "explore.index.dateIssued": "Date issued",
 
@@ -2583,6 +2586,8 @@
   "explore.index.itemidentifier": "Item identifier",
 
   "explore.index.jobTitle": "Job title",
+
+  "explore.index.journalTitle": "Journal title",
 
   "explore.index.knowsLanguage": "Knows languages",
 
@@ -3767,6 +3772,9 @@
   "item.page.person.search.title": "Articles by this author",
 
   "item.page.person.type": "Author",
+
+  "item.page.oairecerif.identifier.url": "Personal site",
+  "item.page.oairecerif.identifier.urls": "Personal sites",
 
   "item.page.related-items.view-more": "Show {{ amount }} more",
 
@@ -9518,6 +9526,9 @@
 
   "item.page.citations.none": "No citations to display",
   "item.page.details.none": "Nothing to display for this publication type.",
+
+  "personal-sites.url-label": "Link label",
+  "personal-sites.url-value": "Link URL",
 
   // -- Facet entityType -- 
   "search.filters.itempublicationtype.text::journal-article": "Journal article",
