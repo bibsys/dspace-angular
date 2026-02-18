@@ -1,9 +1,9 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { catchError, tap } from 'rxjs/operators';
 import { ItemCitationsService } from '../../citations/item-citations.service';
 import { isNotEmpty } from 'src/app/shared/empty.util';
 import { Item } from 'src/app/core/shared/item.model';
-import { BehaviorSubject, distinctUntilChanged, filter, finalize, map, Observable, of, Subscription, switchMap, take } from 'rxjs';
+import { BehaviorSubject, distinctUntilChanged, filter, finalize, map, Observable, of, shareReplay, switchMap } from 'rxjs';
 import { ItemCitation } from 'src/app/core/shared/item-citations.model';
 import { NotificationsService } from 'src/app/shared/notifications/notifications.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -16,6 +16,7 @@ import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
  * You can select a format to see the related citation and copy it to the clipboard.
  * 
  * @author Michaël Pourbaix (michael.pourbaix@uclouvain.be)
+ * @author Renaud Michotte (renaud.michotte@uclouvain.be)
  */
 @Component({
   selector: 'ds-publication-citations',
@@ -30,114 +31,75 @@ import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
     NgClass,
   ]
 })
-export class PublicationPageCitationsComponent implements OnInit, OnDestroy {
+export class PublicationPageCitationsComponent implements OnInit {
   @Input() dso: Item;
   @Input() selectFirst: boolean = true;
 
   protected readonly isNotEmpty = isNotEmpty;
 
-  protected loadingCitation: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  protected loadingFormats: BehaviorSubject<boolean> = new BehaviorSubject(false);
-
-  protected citationCrosswalks$: Observable<ItemExportFormat[]> = of(null)
-  protected citationContent$: Observable<ItemCitation> = of(null);
-  protected selectedCitationFormat$: BehaviorSubject<ItemExportFormat> = new BehaviorSubject(null);
-
-  protected subs: Subscription[] = [];
+  protected loadingCitation$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  protected loadingFormats$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  protected citationCrosswalks$: Observable<ItemExportFormat[]>;
+  protected selectedFormatSubject$: BehaviorSubject<ItemExportFormat> = new BehaviorSubject(null);
+  protected citationContent$: Observable<ItemCitation>;
 
   constructor(
     protected itemCitationsService: ItemCitationsService,
     protected notificationService: NotificationsService,
     protected translateService: TranslateService,
-    protected itemExportFormatService: ItemExportFormatService,
-    protected sanitizer: DomSanitizer
+    protected itemExportFormatService: ItemExportFormatService
   ) { }
 
   ngOnInit(): void {
-    // Retrieve the publication export formats.
-    this.loadingFormats.next(true);
+    // Retrieve all possible exportation formats
     this.citationCrosswalks$ = this.itemExportFormatService
       .byEntityTypeAndMolteplicity(this.dso.entityType, ItemExportFormatMolteplicity.SINGLE)
       .pipe(
-        take(1),
-        map((formatTypes: ItemExportFormatMap) => formatTypes[this.dso.entityType]),
-        map((exportFormats: ItemExportFormat[]) => exportFormats
+        tap(() => this.loadingFormats$.next(true)),
+        map((formatTypes: ItemExportFormatMap) => (formatTypes[this.dso.entityType] || [])
           .filter(f => f.exposed)
           .sort((a, b) => a.weight - b.weight)
         ),
-        finalize(() => this.loadingCitation.next(false))
-      );
-    // Create a new subscription on the selectedCitationFormat$ subject  to update the content when the format changes.
-    this.subs.push(
-      this.selectedCitationFormat$.pipe(
-        filter(format => !!format),
-        distinctUntilChanged(),
-        switchMap(format => {
-          this.loadingCitation.next(true);
-          return this.itemCitationsService
-            .getCitationByCrosswalk(this.dso.id, format.id)
-            .pipe(
-              finalize(() => this.loadingCitation.next(false))
-            );
+        tap((formats) => {
+          this.loadingFormats$.next(false);
+          // auto select if requested
+          if (this.selectFirst && formats.length > 0 && !this.selectedFormatSubject$.value) {
+            this.selectCitationFormat(formats[0]);
+          }
         }),
-      ).subscribe(
-        citationContent => this.citationContent$ = of(citationContent)
-      )
-    )
+        shareReplay(1) // Avoid multiple request
+      );
 
-    // If selectFirst flag is set to true, select the first citation  format and display it.
-    if (this.selectFirst) {
-      this.citationCrosswalks$.pipe(
-        take(1),
-        filter(citationFormats => isNotEmpty(citationFormats)),
-      ).subscribe((citationFormats: ItemExportFormat[]) => {
-        this.selectCitationFormat(citationFormats[0]);
-      });
-    }
-  }
-
-  /**
-   * Select the given format as the format to display.
-   * 
-   * @param citationFormat The format to display.
-   */
-  protected selectCitationFormat(citationFormat: ItemExportFormat): void {
-    this.selectedCitationFormat$.next(citationFormat);
-  }
-
-  /**
-   * Check if a given format is currently selected.
-   * 
-   * @param format The format to check.
-   * @returns True if the id of the selected format equals the id of the given format. False otherwise.
-   * If the selected format is null or undefined, always returns false.
-   */
-  protected isFormatSelected(format: ItemExportFormat): Observable<boolean> {
-    return this.selectedCitationFormat$.pipe(
-      map(
-        selectedFormat => isNotEmpty(selectedFormat) ? selectedFormat.id == format.id : false
-      )
+    // Get citation content based on selected format
+    this.citationContent$ = this.selectedFormatSubject$.pipe(
+      filter(format => !!format),
+      distinctUntilChanged((a, b) => a.id === b.id),
+      tap(() => this.loadingCitation$.next(true)),
+      switchMap(format => this.itemCitationsService
+        .getCitationByCrosswalk(this.dso.id, format.id)
+        .pipe(
+          catchError(() => of(null)), // In case of error
+          finalize(() => this.loadingCitation$.next(false))
+        )
+      ),
+      shareReplay(1)
     );
   }
 
-  /**
-   * Copy the currently displayed citation to the clip board of the user.
-   */
-  protected copyCitation(): void {
-    this.citationContent$.pipe(
-      take(1),
-      filter(citation => isNotEmpty(citation)),
-    ).subscribe(citationObj => {
-      // Citation could embed HTML styling; when we copy the citation content, we want to remove these styles.
-      // Use a DOMParser to get the text content of the possible HTML document
-      const doc = new DOMParser().parseFromString(citationObj.citation, 'text/html');
-      navigator.clipboard.writeText(doc.body.textContent || citationObj.citation)
-        .then(() => this.notificationService.success(this.translateService.get('item.citations.copy.success')))
-        .catch((error) => this.notificationService.error(this.translateService.get('item.citations.copy.error') + error))
-    });
+  protected selectCitationFormat(format: ItemExportFormat): void {
+    this.selectedFormatSubject$.next(format);
   }
 
-  ngOnDestroy(): void {
-    this.subs.forEach(sub => sub.unsubscribe());
+  protected isFormatSelected(format: ItemExportFormat, selected: ItemExportFormat): boolean {
+    return selected?.id === format.id;
+  }
+
+  protected copyCitation(citation: string): void {
+    if (!citation) return;
+    const doc = new DOMParser().parseFromString(citation, 'text/html');
+    const text = doc.body.textContent || citation;
+    navigator.clipboard.writeText(text)
+      .then(() => this.notificationService.success(this.translateService.get('item.citations.copy.success')))
+      .catch(() => this.notificationService.error(this.translateService.get('item.citations.copy.error')));
   }
 }
