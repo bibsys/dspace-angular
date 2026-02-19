@@ -13,6 +13,9 @@ import {
 import {
   DissertationMetadataBlockComponent
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/dissertation-metadata-block.component';
+import {
+  DissertationMetadataListComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/dissertation-metadata-list.component';
 import { DocumentTypeMetadataBlockComponent } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/document-type-metadata-block.component';
 import {
   EditionStatementMetadataBlockComponent
@@ -100,6 +103,7 @@ const METADATA_BLOCK_COMPONENTS = [
   ConferenceMetadataBlockComponent,
   DocumentTypeMetadataBlockComponent,
   DissertationMetadataBlockComponent,
+  DissertationMetadataListComponent,
   EditionStatementMetadataBlockComponent,
   HostBookMetadataBlockComponent,
   HostJournalMetadataBlockComponent,
