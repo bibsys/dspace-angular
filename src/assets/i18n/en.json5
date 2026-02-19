@@ -9587,6 +9587,7 @@
   "item.page.details.label.document-type": "Document type",
   "item.page.details.label.dissertation.defense-date": "Defense date",
   "item.page.details.label.dissertation.degree-name": "Degree",
+  "item.page.details.label.dissertation.faculty": "Faculty",
   "item.page.details.label.edition-statement": "Edition statement",
   "item.page.details.label.fedora-pid": "Legacy Fedora PID",
   "item.page.details.label.host-book": "Host document",
