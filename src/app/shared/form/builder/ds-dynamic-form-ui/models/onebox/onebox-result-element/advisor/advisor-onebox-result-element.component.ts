@@ -12,6 +12,10 @@ import { OneboxResultElementComponent } from "../onebox-result-element-decorator
           <label class="text-primary font-weight-bold m-0">{{ entry.value }}</label>
           <ul *ngIf="entry.hasOtherInformation()" class="list-inline list-inline-with-divider m-0 text-secondary">
               <ng-container *ngVar="otherInformationAsMap as otherInfo">
+                  <li *ngIf="hasValue(otherInfo, entity)">
+                      <i class="fas fa-sitemap mr-1"></i>
+                      {{ otherInfo.get(entity) }}
+                  </li>
                   <li *ngIf="hasValue(otherInfo, emailKey)">
                       <i class="fa fa-envelope mr-1"></i>
                       {{ otherInfo.get(emailKey) }}
@@ -30,4 +34,5 @@ import { OneboxResultElementComponent } from "../onebox-result-element-decorator
 export class AdvisorOneboxResultElement extends AbstractOneboxResultElement {
   protected readonly emailKey = 'data-advisors_email';
   protected readonly orcidKey = 'data-advisors_identifier_orcid';
+  protected readonly entity = 'data-advisors_entity_name';
 }
