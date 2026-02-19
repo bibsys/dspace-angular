@@ -11,6 +11,7 @@
            class="dropdown-toggle position-absolute toggle-icon"
            aria-hidden="true"></i>
         <input class="form-control"
+            [autocomplete]="'off'"
             [attr.aria-controls]="'combobox_' + id + '_listbox'"
             [attr.aria-label]="model.placeholder"
             [class.is-invalid]="showErrorMessages"

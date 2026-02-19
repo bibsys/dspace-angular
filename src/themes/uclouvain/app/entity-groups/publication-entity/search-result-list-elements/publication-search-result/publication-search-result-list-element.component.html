@@ -17,8 +17,14 @@
             <div class="item-list-authors">
                 <ds-author-format-display [item]="item" />
             </div>
-            <div *ngIf="(itemCitation$ | async) as itemCitations" class="font-italic text-muted">
-                {{ itemCitations }}
+            <div *ngIf="(itemCitation$ | async) as itemCitations"
+                 class="font-italic text-muted"
+                 [innerHTML]="itemCitations">
+            </div>
+            <div class="container" *ngIf="blockComponents.length>0">
+                <ng-container *ngFor="let component of blockComponents">
+                    <ng-container *ngComponentOutlet="component; inputs: { item: item }"></ng-container>
+                </ng-container>
             </div>
         </div>
     </div>
