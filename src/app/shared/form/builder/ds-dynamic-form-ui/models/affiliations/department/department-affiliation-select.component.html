@@ -11,6 +11,7 @@
            class="dropdown-toggle scrollable-dropdown-toggle"
            aria-hidden="true"></i>
         <input class="form-control"
+            [autocomplete]="'off'"
             [attr.aria-controls]="'combobox_' + id + '_listbox'"
             [attr.aria-activedescendant]="'combobox_' + id + '_selected'"
             [attr.aria-label]="model.placeholder"
