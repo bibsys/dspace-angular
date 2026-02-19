@@ -26,8 +26,9 @@
       <div class="dropdown-divider">
       </div>
       <ul class="mt-2 pl-3">
-         <li *ngFor="let error of sectionErrors" class="small text-danger text-left">
-            {{ getTranslatedError(error) }}
+         <li *ngFor="let error of sectionErrors"
+             class="small text-danger text-left"
+             [innerHTML]="getTranslatedError(error)">
          </li>
       </ul>
    </ng-container>
