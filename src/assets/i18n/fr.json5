@@ -9602,6 +9602,7 @@
   "item.page.details.label.document-type": "Type de document",
   "item.page.details.label.dissertation.defense-date": "Date de défense",
   "item.page.details.label.dissertation.degree-name": "Diplôme",
+  "item.page.details.label.dissertation.faculty": "Faculté",
   "item.page.details.label.edition-statement": "Mention d'édition",
   "item.page.details.label.fedora-pid": "Ancien Fedora PID",
   "item.page.details.label.host-book": "Document hôte",
