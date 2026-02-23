@@ -1,0 +1,49 @@
+<ng-container *ngIf="(isAuthorized | async)">
+    <button *ngIf="item.isWithdrawn" class="dropdown-item"
+            [innerHTML]="'context-menu.actions.reinstate-item.btn' | translate"
+            (click)="confirmWithdrawn(reinstateModal)">
+    </button>
+    <button *ngIf="!item.isWithdrawn" class="dropdown-item"
+            [innerHTML]="'context-menu.actions.withdrawn-item.btn' | translate"
+            (click)="confirmWithdrawn(withdrawnModal)">
+    </button>
+</ng-container>
+
+<ng-template #withdrawnModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">{{ 'withdraw-item.modal.title' | translate }}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p [innerHTML]="'withdraw-item.modal.body' | translate"></p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">
+            {{ 'withdraw-item.modal.confirm.cancel' | translate }}
+        </button>
+        <button type="button" class="btn btn-primary" (click)="modal.close('confirm')">
+            {{ 'withdraw-item.modal.confirm.submit' | translate }}
+        </button>
+    </div>
+</ng-template>
+<ng-template #reinstateModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">{{ 'reinstate-item.modal.title' | translate }}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p [innerHTML]="'reinstate-item.modal.body' | translate"></p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">
+            {{ 'withdraw-item.modal.confirm.cancel' | translate }}
+        </button>
+        <button type="button" class="btn btn-primary" (click)="modal.close('confirm')">
+            {{ 'withdraw-item.modal.confirm.submit' | translate }}
+        </button>
+    </div>
+</ng-template>
