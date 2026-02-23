@@ -19,6 +19,7 @@ import { SubscriptionMenuComponent } from './subscription/subscription-menu.comp
 import { CommentItemMenuComponent } from './comment-item/comment-item-menu.component';
 import { DeleteJournalMenuComponent } from './delete-journal/delete-journal-menu.component';
 import { PersonExportMenuComponent } from './fnrs-person-export/person-export-menu.component';
+import { WithdrawItemMenuComponent } from './withdraw-item/withdraw-item.menu.component';
 
 export interface ContextMenuEntryRenderOptions {
   componentRef: GenericConstructor<ContextMenuEntryComponent>;
@@ -80,6 +81,10 @@ contextMenuEntriesMap.set(DSpaceObjectType.ITEM, [
   },
   {
     componentRef: CommentItemMenuComponent,
+    isStandAlone: false
+  },
+  {
+    componentRef: WithdrawItemMenuComponent,
     isStandAlone: false
   },
   {

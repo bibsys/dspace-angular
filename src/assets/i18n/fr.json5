@@ -2190,6 +2190,10 @@
 
   "context-menu.actions.person-export.modal.export.fwb-export": "Export PDF FWB",
 
+  "context-menu.actions.withdrawn-item.btn": "Retirer cette publication",
+
+  "context-menu.actions.reinstate-item.btn": "Réintégrer cette publication",
+
   // "cookies.consent.accept-all": "Accept all",
   "cookies.consent.accept-all": "Accepter tout",
 
@@ -3827,19 +3831,19 @@
   "item.edit.tabs.status.buttons.public.label": "Définir l'Item en tant que document public",
 
   // "item.edit.tabs.status.buttons.reinstate.button": "Reinstate...",
-  "item.edit.tabs.status.buttons.reinstate.button": "Réintégrer...",
+  "item.edit.tabs.status.buttons.reinstate.button": "Réintégrer la publication",
 
   // "item.edit.tabs.status.buttons.reinstate.label": "Reinstate item into the repository",
-  "item.edit.tabs.status.buttons.reinstate.label": "Réintégrer l'Item dans le dépôt",
+  "item.edit.tabs.status.buttons.reinstate.label": "Réintégrer la publication dans le dépôt",
 
   // "item.edit.tabs.status.buttons.unauthorized": "You're not authorized to perform this action",
   "item.edit.tabs.status.buttons.unauthorized": "Vous n'êtes pas autorisé à effectuer cette action",
 
   // "item.edit.tabs.status.buttons.withdraw.button": "Withdraw this item",
-  "item.edit.tabs.status.buttons.withdraw.button": "Retirer cet article",
+  "item.edit.tabs.status.buttons.withdraw.button": "Retirer cette publication",
 
   // "item.edit.tabs.status.buttons.withdraw.label": "Withdraw item from the repository",
-  "item.edit.tabs.status.buttons.withdraw.label": "Retirer l'Item du dépôt",
+  "item.edit.tabs.status.buttons.withdraw.label": "Retirer la publication du dépôt",
 
   // "item.edit.tabs.status.description": "Welcome to the item management page. From here you can withdraw, reinstate, move or delete the item. You may also update or add new metadata / bitstreams on the other tabs.",
   "item.edit.tabs.status.description": "Bienvenue sur la page de gestion de l'Item. D'ici, vous pouvez retirer, réintégrer, déplacer ou supprimer l'Item. Dans les autres onglets, vous pouvez également mettre à jour, ajouter ou supprimer des métadonnées et/ou Bitstreams.",
@@ -9700,6 +9704,14 @@
 
   "menu.section.manage.child.dissertation": "Gérer les thèses",
   "menu.section.manage.child.journal": "Gérer les revues",
+
+  "reinstate-item.modal.title": "Réintégrer la publication",
+  "reinstate-item.modal.body": "Êtes vous certain de vouloir réintégrer cette publication ? La confirmation de votre demande aura les implications suivantes :<ul><li>La publication sera de nouveau accessible à tout le monde sur le portail</li><li>La publication sera candidate pour les exportation bibliographique</li><li>Les fichiers attachés seront de nouveau accessibles suviant les restrictions d'accès précédemment choisies</li></ul>",
+  "withdraw-item.modal.title": "Retirer la publication",
+  "withdraw-item.modal.body": "Êtes vous certain de vouloir retirer cette publication ? La confirmation de votre demande aura les implications suivantes :<ul><li>La publication ne sera plus accessible sur le portail</li><li>La publication n'apparaitra plus dans les exports bibliographiques</li><li>La publication pourra uniquement être réintégrée par les auteurs en utilisant leur \"tableau de bord\"</li></ul>",
+  "withdraw-item.modal.confirm.cancel": "Annuler",
+  "withdraw-item.modal.confirm.submit": "Confirmer",
+  "withdraw-item.notification.error": "Une erreur est survenue. Veuillez contacter les administrateurs du site",
 
   // --- ONEBOX FIELD SEARCH RESULTS ---
   "onebox.searchresult.journal.ceased.warning": "Cette revue est en status <b>arrêté</b> et ne devrait pas être utilisée pour la soumission de nouvelles publications.",
