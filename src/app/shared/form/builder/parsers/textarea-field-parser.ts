@@ -11,7 +11,7 @@ export class TextareaFieldParser extends FieldParser {
   public modelFactory(fieldValue?: FormFieldMetadataValueObject, label?: boolean): any {
     const textAreaModelConfig: DsDynamicTextAreaModelConfig = this.initModel(null, label);
 
-    textAreaModelConfig.rows = 10;
+    textAreaModelConfig.rows = this.configData?.settings?.rows ?? 10;
     textAreaModelConfig.spellCheck = environment.form.spellCheck;
     this.setValues(textAreaModelConfig, fieldValue);
     return new DsDynamicTextAreaModel(textAreaModelConfig);
