@@ -1978,7 +1978,7 @@
 
   "context-menu.actions.person-export": "Export bibliography",
 
-  "context-menu.actions.person-export.modal.title": "Select an export format:",
+  "context-menu.actions.person-export.modal.title": "Export bibliography",
 
   "context-menu.actions.person-export.modal.export.fnrs-export": "FNRS PDF export",
 
@@ -9726,6 +9726,19 @@
   "fnrs.rule.peerReviewedConference": "Document subtype is \"speech in peer-review conference\", \"poster\", \"abstract\" or \"keynote\"",
   "fnrs.rule.hostExists": "Document is published in a \"serial\" or a \"book\"",
   "fnrs.rule.notPublished": "Publication status isn't \"Published\" or \"Accepted\"",
+
+  // --- BIBLIOGRAPHY EXPORT ---
+  "export.modal.form.style.label": "Bibliography style",
+  "export.modal.form.style.hint": "Select the output style for your bibliography",
+  "export.modal.form.startYear.label": "Start year",
+  "export.modal.form.startYear.hint": "Limit result from start year (included). Leave empty for no-limit",
+  "export.modal.form.endYear.label": "End year",
+  "export.modal.form.endYear.hint": "Limit result to end year (included). Leave empty for no-limit",
+  "export.modal.form.includePoster.label": "Include poster",
+  "export.modal.form.submit": "Generate bibliography",
+  "export.modal.form.cancel": "Cancel",
+  "export.modal.process.success": "Bibliography successfully generated",
+  "export.modal.process.error": "Error occurred during bibliography generation",
 
   // --- ITEM VALIDATION ---
   "item.validator.person.not-unique.message": "The value of one of the following unique fields is already present in another profile: 'fgs', 'email', 'official email' or 'orcid'",
