@@ -1,0 +1,57 @@
+<button *ngIf="isAuthorized$ | async" class="btn btn-primary" (click)="openModal(exportModal)">
+    <i class="fas fa-file-export mr-1"></i>
+    <span>{{ 'context-menu.actions.person-export' | translate }}</span>
+</button>
+
+<ng-template #exportModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'context-menu.actions.person-export.modal.title' | translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form [formGroup]="exportForm" (ngSubmit)="onSubmit(); c()">
+        <div class="modal-body container">
+            <div class="row">
+                <div class="col-3 d-flex align-items-center justify-content-center">
+                    <img [src]="styles[exportForm.get('style').value === 'fnrs' ? 0 : 1].logo" height="80" alt="logo-style">
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="styleSelect">{{ 'export.modal.form.style.label' | translate }}</label>
+                        <select id="styleSelect" formControlName="style" class="form-control">
+                            <option *ngFor="let s of styles" [value]="s.id">{{ s.label }}</option>
+                        </select>
+                        <small class="text-muted">{{ 'export.modal.form.style.hint' | translate}}</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>{{ 'export.modal.form.startYear.label' | translate }}</label>
+                                <input type="number" formControlName="startYear" class="form-control" placeholder="Ex: 2020">
+                                <small class="text-muted">{{ 'export.modal.form.startYear.hint' | translate}}</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>{{ 'export.modal.form.endYear.label' | translate }}</label>
+                                <input type="number" formControlName="endYear" class="form-control" placeholder="Ex: 2026">
+                                <small class="text-muted">{{ 'export.modal.form.endYear.hint' | translate}}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" id="posterCheck" formControlName="includePoster">
+                        <label class="form-check-label" for="posterCheck">{{ 'export.modal.form.includePoster.label' | translate }}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" (click)="d()">{{ 'export.modal.form.cancel' | translate }}</button>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-download mr-1"></i> {{ 'export.modal.form.submit' | translate }}
+            </button>
+        </div>
+    </form>
+</ng-template>

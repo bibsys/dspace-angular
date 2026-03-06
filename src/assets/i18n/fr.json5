@@ -2184,7 +2184,7 @@
 
   "context-menu.actions.person-export": "Export bibliographique",
 
-  "context-menu.actions.person-export.modal.title": "Sélectionner un format d'export:",
+  "context-menu.actions.person-export.modal.title": "Export bibliographique",
 
   "context-menu.actions.person-export.modal.export.fnrs-export": "Export PDF FNRS",
 
@@ -9747,6 +9747,19 @@
   "fnrs.rule.peerReviewedConference": "Le sous-type de document est \"communication dans une conférence peer-reviewed\", \"poster\", \"résumé\" ou \"keynote\"",
   "fnrs.rule.hostExists": "Le document est publié dans une \"revue\" ou un \"ouvrage\"",
   "fnrs.rule.notPublished": "Le type de publication n'est pas \"publié\" ou \"accepté\"",
+
+  // --- BIBLIOGRAPHY EXPORT ---
+  "export.modal.form.style.label": "Style bibliographique",
+  "export.modal.form.style.hint": "Sélectionnez le style bibliographique désiré",
+  "export.modal.form.startYear.label": "Année de début",
+  "export.modal.form.startYear.hint": "Limiter le résultat à l'année de départ (incluse).",
+  "export.modal.form.endYear.label": "Année de fin",
+  "export.modal.form.endYear.hint": "Limiter le résultat jusqu'a l'année de fin (incluse).",
+  "export.modal.form.includePoster.label": "Inclure les posters de conférence",
+  "export.modal.form.submit": "Générer la bibliographie",
+  "export.modal.form.cancel": "Annuler",
+  "export.modal.process.success": "Bibliographie générée avec succès",
+  "export.modal.process.error": "Une erreur est survenue durant le génération de la bibliographie",
 
   // --- ITEM VALIDATION ---
   "item.validator.person.not-unique.message": "La valeur d'un des champs unique suivant est déjà présente dans un autre profil: 'fgs', 'email', 'email officiel' ou 'orcid'",
