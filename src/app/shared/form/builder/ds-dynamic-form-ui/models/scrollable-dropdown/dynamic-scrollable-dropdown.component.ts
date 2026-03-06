@@ -73,6 +73,7 @@ import {
 import { FormFieldMetadataValueObject } from '../../../models/form-field-metadata-value.model';
 import { DsDynamicVocabularyComponent } from '../dynamic-vocabulary.component';
 import { DynamicScrollableDropdownModel } from './dynamic-scrollable-dropdown.model';
+import { VocabularyEntry } from 'src/app/core/submission/vocabularies/models/vocabulary-entry.model';
 
 /**
  * Component representing a dropdown input field
@@ -232,8 +233,25 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
         list.pageInfo.totalPages,
       );
       this.selectedIndex = 0;
+      this.selectDefaultValue(this.model, this.optionsList);
       this.cdr.detectChanges();
     });
+  }
+
+  /**
+   * Select a default value for the dropdown if the setting is present in the configuration.
+   * If a 'defaultValue' is given (through config), try to find an option using that value and select it.
+   * if no matching option found or no 'defaultValue' setting, select the first option.
+   * 
+   * @param model The current field model.
+   * @param optionsList The list of options 
+   */
+  selectDefaultValue(model: DynamicScrollableDropdownModel, optionsList: CacheableObject[]) {
+    if (!model.useDefaultValue || model.value || !optionsList?.length) {
+      return;
+    }
+    const selectedEntry = optionsList.find((entry: VocabularyEntry) => entry.value === model.defaultValue) || optionsList[0];
+    this.onSelect(selectedEntry);
   }
 
   /**
