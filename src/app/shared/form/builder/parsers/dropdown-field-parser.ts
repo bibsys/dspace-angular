@@ -38,6 +38,8 @@ export class DropdownFieldParser extends FieldParser {
     let layout: DynamicFormControlLayout;
 
     dropdownModelConfig.editable = getSetting(this.configData, 'editable', Boolean) ?? false;
+    dropdownModelConfig.useDefaultValue = getSetting(this.configData, 'useDefault', Boolean) ?? false;
+    dropdownModelConfig.defaultValue = getSetting(this.configData, 'defaultValue', String);
 
     if (isNotEmpty(this.configData.selectableMetadata[0].controlledVocabulary)) {
       this.setVocabularyOptions(dropdownModelConfig, this.parserOptions.collectionUUID);
