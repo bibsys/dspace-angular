@@ -21,6 +21,8 @@ export interface DynamicScrollableDropdownModelConfig extends DsDynamicInputMode
   formatFunction?: (value: any) => string;
   resourceType?: ResourceType;
   editable?: boolean;
+  useDefaultValue?: boolean;
+  defaultValue?: string;
 }
 
 export class DynamicScrollableDropdownModel extends DsDynamicInputModel {
@@ -38,6 +40,10 @@ export class DynamicScrollableDropdownModel extends DsDynamicInputModel {
   resourceType: ResourceType;
   /** Wether or not the dropdown should be editable */
   editable: boolean;
+  /** If we should use a default value or not for this field */
+  useDefaultValue: boolean;
+  /** If a default value has to be set, this indicate the value to set (must exist in vocabulary options). */
+  defaultValue: string;
 
   constructor(config: DynamicScrollableDropdownModelConfig, layout?: DynamicFormControlLayout) {
 
@@ -51,6 +57,8 @@ export class DynamicScrollableDropdownModel extends DsDynamicInputModel {
     this.formatFunction = config.formatFunction;
     this.resourceType = config.resourceType;
     this.editable = config.editable;
+    this.useDefaultValue = config?.useDefaultValue;
+    this.defaultValue = config?.defaultValue;
   }
 
 }
