@@ -123,10 +123,11 @@ export class MyDSpaceConfigurationService extends SearchConfigurationService {
       take(1),
       map(([isSubmitter, isController, isAdmin]: [boolean, boolean, boolean]) => {
         const availableConf: MyDSpaceConfigurationValueType[] = [];
-        if (isSubmitter) {
-          availableConf.push(MyDSpaceConfigurationValueType.Workspace);
-          // availableConf.push(MyDSpaceConfigurationValueType.OtherWorkspace); // NOT USED FOR DIAL.PR
-        }
+        // By default, 'workspace' is displayed (this prevents a pag loading error).
+        availableConf.push(MyDSpaceConfigurationValueType.Workspace);
+        // if (isSubmitter) {
+        //    availableConf.push(MyDSpaceConfigurationValueType.OtherWorkspace); // NOT USED FOR DIAL.PR
+        // }
         if (isController || isAdmin) {
           // availableConf.push(MyDSpaceConfigurationValueType.SupervisedItems); // NOT USED FOR DIAL.PR
           availableConf.push(MyDSpaceConfigurationValueType.Workflow);

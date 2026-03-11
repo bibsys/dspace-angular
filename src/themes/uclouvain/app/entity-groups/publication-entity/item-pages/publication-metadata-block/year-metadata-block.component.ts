@@ -12,7 +12,7 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
   template: `
       <ng-container *ngIf="item.hasMetadata('dc.date.issued')">
           <dt>{{ 'item.page.details.label.date-issued' | translate }}</dt>
-          <dd><ds-generic-item-page-field [item]='item' [fields]='["dc.date.issued"]'/></dd>
+          <dd>{{ item.firstMetadataValue("dc.date.issued") }}</dd>
       </ng-container>
   `,
   standalone: true,
