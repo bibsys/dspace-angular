@@ -66,6 +66,7 @@ import { VarDirective } from '../../shared/utils/var.directive';
 import { StatisticsChartComponent } from './statistics-chart/statistics-chart.component';
 import { StatisticsMapComponent } from './statistics-map/statistics-map.component';
 import { FilterMapPipe } from './statistics-pipes/filter-map.pipe';
+import { getEntityPageRoute } from 'src/app/item-page/item-page-routing-paths';
 
 @Component({
   selector: 'ds-cris-statistics-page',
@@ -139,6 +140,11 @@ export class CrisStatisticsPageComponent implements OnInit, OnDestroy {
    */
   selectedReportId: string;
 
+  /**
+   * Uuid of current object to get stats of.
+   */
+  objectId: string;
+
   constructor(
     protected route: ActivatedRoute,
     protected router: Router,
@@ -156,6 +162,7 @@ export class CrisStatisticsPageComponent implements OnInit, OnDestroy {
    * Get the scope from site or from dso.
    */
   ngOnInit(): void {
+    this.objectId = this.route?.snapshot?.params?.id;
     this.route.data.subscribe((res) => {
       if ( res.type === 'site' ) {
         this.scope$ = this.getSiteScope$();
@@ -355,5 +362,9 @@ export class CrisStatisticsPageComponent implements OnInit, OnDestroy {
    */
   ngOnDestroy(): void {
     this.store.dispatch(new CleanCategoryReportAction());
+  }
+
+  back(): void {
+    this.router.navigateByUrl(getEntityPageRoute(null, this.objectId))
   }
 }
