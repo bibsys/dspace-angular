@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
+  Params,
   Router,
   RouterLink,
 } from '@angular/router';
@@ -20,6 +21,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import {
   BehaviorSubject,
   Observable,
+  of,
 } from 'rxjs';
 import {
   distinctUntilChanged,
@@ -64,7 +66,7 @@ export class SearchFiltersComponent implements OnInit, AfterViewChecked, OnDestr
    * List of all filters that are currently active with their value set to null.
    * Used to reset all filters at once
    */
-  clearParams;
+  clearParams: Observable<Params> = of({});
 
   /**
    * The configuration to use for the search options
