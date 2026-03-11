@@ -4,11 +4,13 @@
             <ds-search-filter [filter]="filter" [inPlaceSearch]="inPlaceSearch" [refreshFilters]="refreshFilters" [scope]="currentScope"></ds-search-filter>
         </div>
     </div>
-    <a class="btn btn-primary"
-       [routerLink]="[searchLink]"
-       [queryParams]="clearParams | async"
-       queryParamsHandling="merge"
-       role="button">
-        <i class="fas fa-undo"></i> {{"search.filters.reset" | translate}}
-    </a>
+    <div *ngIf="isNotEmpty(clearParams | async)" class="reset-filters-btn px-2 py-3">
+        <a class="btn btn-primary d-block flex-grow-1"
+            [routerLink]="[searchLink]"
+            [queryParams]="clearParams | async"
+            queryParamsHandling="merge"
+            role="button">
+            <i class="fas fa-undo"></i> {{"search.filters.reset" | translate}}
+        </a>
+    </div>
 </div>

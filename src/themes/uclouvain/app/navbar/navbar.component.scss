@@ -101,3 +101,9 @@ a.navbar-brand:focus {
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 1450px) {
+  #uclouvainLogo {
+    display: none !important;
+  }
+}
