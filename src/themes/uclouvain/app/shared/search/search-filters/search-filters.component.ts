@@ -16,6 +16,7 @@ import {
   SearchFilterComponent
 } from '../../../../../../app/shared/search/search-filters/search-filter/search-filter.component';
 import { SearchFiltersComponent as BaseComponent } from '../../../../../../app/shared/search/search-filters/search-filters.component';
+import { isNotEmpty } from 'src/app/shared/empty.util';
 
 
 @Component({
@@ -40,4 +41,5 @@ import { SearchFiltersComponent as BaseComponent } from '../../../../../../app/s
 })
 
 export class SearchFiltersComponent extends BaseComponent {
+  protected isNotEmpty = isNotEmpty;
 }

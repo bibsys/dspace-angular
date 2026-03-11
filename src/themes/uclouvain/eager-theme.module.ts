@@ -34,6 +34,9 @@ import {
   HostJournalMetadataBlockComponent
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/host-journal-metadata-block.component';
 import {
+  HostJournalPeerReviewedBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/host-journal-peer-reviewed-metadata-block.component';
+import {
   IdentifierISBNMetadataBlockComponent
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-isbn-metadata-block.component';
 import {
@@ -107,6 +110,7 @@ const METADATA_BLOCK_COMPONENTS = [
   EditionStatementMetadataBlockComponent,
   HostBookMetadataBlockComponent,
   HostJournalMetadataBlockComponent,
+  HostJournalPeerReviewedBlockComponent,
   IdentifierArxivMetadataBlockComponent,
   IdentifierDoiMetadataBlockComponent,
   IdentifierHandleMetadataBlockComponent,
