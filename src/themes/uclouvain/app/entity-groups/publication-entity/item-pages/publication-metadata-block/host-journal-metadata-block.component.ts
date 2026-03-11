@@ -11,6 +11,7 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 import { ItemLinkViewComponent } from 'src/themes/uclouvain/app/shared/item-link-view/item-link-view.component';
 
 @listableMetadataBlockComponent('text::journal-article', ViewMode.StandalonePage, Context.Any, '*', 30)
+@listableMetadataBlockComponent('text::conference-speech', ViewMode.StandalonePage, Context.Any, '*', 30)
 @Component({
   template: `
       <ng-container *ngIf="item.hasMetadata('dc.relation.journal')">
@@ -42,10 +43,6 @@ import { ItemLinkViewComponent } from 'src/themes/uclouvain/app/shared/item-link
                 {{ 'item.page.details.label.host-journal.eissn' | translate }}: {{ item.firstMetadataValue("publication.serial.eissn") }}
             </span>
         </dd>
-      </ng-container>
-      <ng-container *ngIf="item.firstMetadataValue('publication.serial.peerReviewed')">
-        <dt>{{ 'journal.listelement.peerreviewed' | translate }}</dt>
-        <dd>{{ 'journal.listelement.peerreviewed.true' | translate }}</dd>
       </ng-container>
   `,
   styles: `

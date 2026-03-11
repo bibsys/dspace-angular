@@ -10,3 +10,13 @@
     box-shadow: none;
   }
 }
+
+.reset-filters-btn {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-top: 1px solid var(--bs-gray-200);
+}

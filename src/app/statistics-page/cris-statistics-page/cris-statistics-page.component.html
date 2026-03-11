@@ -1,6 +1,13 @@
 <div class="test"></div>
 <ng-container *ngVar="(categories$ | async) as categories">
 
+  <div *ngIf="objectId" class="container mb-1 btn-sm">
+    <button class="btn btn-primary btn-sm ml-2" (click)="back()">
+      <i class="fa-solid fa-arrow-left"></i>
+      {{ 'statistics.page.back' | translate }}
+    </button>
+  </div>
+
   <ng-container *ngIf="!categories">
     <div class="container">
       <div class="row">
