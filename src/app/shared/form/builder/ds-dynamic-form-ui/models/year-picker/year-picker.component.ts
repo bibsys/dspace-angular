@@ -37,9 +37,9 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
     valueToDisplay: number;
 
     constructor(protected layoutService: DynamicFormLayoutService,
-        protected validationService: DynamicFormValidationService,
+      protected validationService: DynamicFormValidationService,
     ) {
-        super(layoutService, validationService);
+      super(layoutService, validationService);
     }
 
     ngOnInit(): void {
@@ -95,14 +95,24 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
       this.valueToDisplay = parseInt(this.model.value);
     }
 
+    emptyField(): void {
+      if (isNotEmpty(this.model.value)) {
+        this.model.value = '';
+        this.change.emit('');
+        this.valueToDisplay = undefined;
+      }
+    }
+
     onBlur($event: any): void {
-        this.blur.emit();
+      this.blur.emit();
     }
 
     onChange(event: any): void {
-        if (this.isYearValid(event.value)){
-            this.setModelValue(event.value);
-        }
+      if (this.isYearValid(event.value)){
+        this.setModelValue(event.value);
+      } else {
+        this.emptyField()
+      }
     }
 
     /**
@@ -113,8 +123,8 @@ export class DsYearPickerComponent extends DynamicFormControlComponent implement
      * @return True if the year is defined and does not contain letters. False if not.
      */
     isYearValid(year: string) {
-        // 1XXX to 21XX are valid
-        let isValidData = /^(1[\d]{3}|2[0-1][\d]{2})$/.test(year);
-        return !isUndefined(year) && isValidData;
+      // 1XXX to 21XX are valid
+      let isValidData = /^(1[\d]{3}|2[0-1][\d]{2})$/.test(year);
+      return !isUndefined(year) && isValidData;
     }
 }
