@@ -2553,6 +2553,8 @@
   // "error.validation.wrongaccesstype": "All articles after 2022 must be in either open access or embargo. Please change the access conditions of the bitstreams according to this rule.",
   "error.validation.wrongaccesstype": "Tous les articles après 2022 doivent être soit en accès ouvert ou en embargo. Veuillez modifier les conditions d'accès des fichiers attachés afin de respecter cette règle.",
 
+  "error.validation.fwb.no-date": "Veuillez fournir une date de publication pour la validation FWB.",
+
   // "error.validation.fwb.wrongembargodate": "Following the <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>FWB's Open Access decree</u></a>, all embargo dates can be set to maximum 1 year from the publication date. Please modify the embargo date to meet this requirement.",
   "error.validation.fwb.wrongembargodate": "D'après le <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>décret Open Access de la FWB</u></a>, la période d’embargo ne peut pas dépasser 1 an après la date de publication (6 mois dans les secteurs SST et SSS). Veuillez modifier la période d’embargo pour vous y conformer.",
 

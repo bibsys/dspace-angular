@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import {
   Component,
   Input,
@@ -73,10 +73,12 @@ export class SubmissionFormFooterComponent implements OnChanges {
    * @param {NgbModal} modalService
    * @param {SubmissionRestService} restService
    * @param {SubmissionService} submissionService
+   * @param {Location} location
    */
   constructor(private modalService: NgbModal,
               private restService: SubmissionRestService,
-              private submissionService: SubmissionService) {
+              private submissionService: SubmissionService,
+              private location: Location) {
   }
 
   /**
@@ -110,7 +112,7 @@ export class SubmissionFormFooterComponent implements OnChanges {
   }
 
   cancelEdit(event) {
-    this.submissionService.redirectToItemPage(this.submissionId);
+    this.location.back();
   }
 
   /**
