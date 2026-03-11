@@ -22,7 +22,7 @@
 <div *ngIf="showSidebar && (initialized$ | async)">
     <div class="container">
         <div class="row">
-            <div class="col-12" *ngIf="!(isXsOrSm$ | async)">
+            <div class="col-12 mb-3" *ngIf="!(isXsOrSm$ | async)">
                 <ng-template *ngTemplateOutlet="searchForm"></ng-template>
                 <ng-content select="[additionalSearchOptions]"></ng-content>
             </div>

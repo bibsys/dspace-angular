@@ -40,8 +40,8 @@
 
 @include media-breakpoint-up(md) {
   .sidebar-content {
-    position: sticky;
-    position: -webkit-sticky;
+    // position: sticky;
+    // position: -webkit-sticky;
     top: 0;
     z-index: var(--bs-zindex-sticky);
     padding-top: var(--ds-content-spacing);
