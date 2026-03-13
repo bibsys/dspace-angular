@@ -13,7 +13,8 @@ import {
   OnInit,
   PLATFORM_ID,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   BehaviorSubject,
   Observable,
@@ -44,6 +45,8 @@ import {
 } from '../core/services/link-head.service';
 import { ServerResponseService } from '../core/services/server-response.service';
 import { getFirstSucceededRemoteDataPayload } from '../core/shared/operators';
+import { SearchConfigurationService } from '../core/shared/search/search-configuration.service';
+import { SearchService } from '../core/shared/search/search.service';
 import { Site } from '../core/shared/site.model';
 import { SuggestionsPopupComponent } from '../notifications/suggestions-popup/suggestions-popup.component';
 import {
@@ -81,6 +84,8 @@ import { ThemedHomeNewsComponent } from './home-news/themed-home-news.component'
     ViewTrackerComponent,
     SuggestionsPopupComponent,
     AsyncPipe,
+    TranslateModule,
+    RouterLink,
   ],
 })
 export class HomePageComponent implements OnInit, OnDestroy {
@@ -89,6 +94,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
   recentSubmissionspageSize: number;
 
   sectionId = 'site';
+
+  searchPath: String;
+  openAccessQueryParam: Observable<Params>;
 
   /**
    * Two-dimensional array (rows and columns) of section components
@@ -119,6 +127,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
     private responseService: ServerResponseService,
     private notifyInfoService: NotifyInfoService,
     protected linkHeadService: LinkHeadService,
+    protected searchService: SearchService,
+    protected searchConfigService: SearchConfigurationService,
   ) {
     this.recentSubmissionspageSize = environment.homePage.recentSubmissions.pageSize;
     // Get COAR REST API URLs from REST configuration
@@ -139,6 +149,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.searchPath = this.searchService.getSearchLink();
+    this.openAccessQueryParam = this.searchConfigService.selectNewAppliedFilterParams("accessType", "openaccess", "equals");
+
     this.route.data.pipe(
       map((data) => data.site as Site),
       take(1),

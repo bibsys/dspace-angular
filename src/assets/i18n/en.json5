@@ -1277,6 +1277,12 @@
 
   "browse.metadata.publicationjournal": "Journal",
 
+  "browse.byAffiliation.breadcrumbs": "Browse by Affiliation",
+  "browse.byAffiliation.title": "Browse by Affiliation",
+  "browse.byAffiliation.no-affiliation-found.message": "No affiliation found",
+
+  "browse.byOpenAccess.title": "OpenAccess publications",
+
   "browse.metadata.author.breadcrumbs": "Browse by Author",
 
   "browse.metadata.dateissued.breadcrumbs": "Browse by Date",
@@ -5718,6 +5724,8 @@
   "search.filters.applied.f.isJournalOfPublication": "Journal's UUID",
 
   "search.filters.applied.f.isOrgUnitOfPublication": "Affiliation's UUID",
+
+  "search.filters.applied.f.isHierarchicalOrgUnitOfPublication": "Inherited affiliation's UUID",
 
   "search.filters.applied.f.projectinvestigators": "Investigator",
 

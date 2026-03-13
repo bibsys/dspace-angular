@@ -1,4 +1,6 @@
 import { Route } from '@angular/router';
+import { i18nBreadcrumbResolver } from '../core/breadcrumbs/i18n-breadcrumb.resolver';
+import { BrowseByAffiliationComponent } from './browse-by-affiliation/browse-by-affiliation.component';
 
 import { browseByDSOBreadcrumbResolver } from './browse-by-dso-breadcrumb.resolver';
 import { browseByGuard } from './browse-by-guard';
@@ -12,6 +14,12 @@ export const ROUTES: Route[] = [
       breadcrumb: browseByDSOBreadcrumbResolver,
     },
     children: [
+      {
+        path: 'byAffiliation',
+        component: BrowseByAffiliationComponent,
+        resolve: { breadcrumb: i18nBreadcrumbResolver },
+        data: { breadcrumbKey: 'browse.byAffiliation' },
+      },
       {
         path: ':id',
         component: BrowseByPageComponent,

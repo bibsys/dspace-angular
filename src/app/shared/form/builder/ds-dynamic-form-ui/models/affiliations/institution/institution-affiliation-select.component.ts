@@ -116,7 +116,7 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
     return Object.assign(new VocabularyEntry(), {
       display: affiliation.acronym,
       value: affiliation.acronym,
-      authority: affiliation.UUID
+      authority: affiliation.uuid
     });
   }
 
@@ -132,7 +132,7 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
     // Get all child affiliation for a given uuid.
     // In case the user types a new institution, we don't have an authority value, and we can't get the children, so we send an empty list.
     if (!isEmpty(authority)) {
-      let targetEntity = this.affiliationsList.find((affiliation: AffiliationData) => affiliation.UUID === authority);
+      let targetEntity = this.affiliationsList.find((affiliation: AffiliationData) => affiliation.uuid === authority);
       if (!isEmpty(targetEntity?.children)) {
         let affiliationsToSend = this.flattenAndIndexAffiliationData(targetEntity.children);
         this.publicationAffiliationFieldUpdateService.triggerFieldUpdateEvent(new AffiliationUpdateData(affiliationsToSend, this.model.parent, clearDepartmentData));
