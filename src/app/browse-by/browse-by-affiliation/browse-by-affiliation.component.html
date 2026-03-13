@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">{{ 'browse.byAffiliation.title' | translate }}</h1>
+            <ng-container *ngIf="(affiliations$ | async) as affiliations">
+                <div class="affiliations-table" *ngIf="affiliations.length > 0; else noAffiliations">
+                    <ng-container *ngFor="let affiliation of affiliations">
+                        <ng-container *ngTemplateOutlet="affiliationTemplate; context{affiliation: affiliation, level: 0}"></ng-container>
+                    </ng-container>
+                </div>
+                <ng-template #noAffiliations>
+                    <span>{{ 'browse.byAffiliation.no-affiliation-found.message' | translate }}</span>
+                </ng-template>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #affiliationTemplate let-affiliation="affiliation" let-level="level">
+    <div class="affiliation-node affiliation-type-{{ affiliation.type | lowercase }}">
+        <a class="affiliation-row d-flex align-items-center"
+           [routerLink]="[searchPath]"
+           [queryParams]="buildQueryParam(affiliation) | async"
+        >
+            <div class="toggle-spacer level-{{ level }}">
+                <button *ngIf="affiliation.children?.length > 0"
+                        (click)="toggleAffiliation(affiliation); $event.stopPropagation(); $event.preventDefault();"
+                        class="btn btn-link btn-toggle">
+                    <i class="fas fa-fw" [ngClass]="isCollapsed(affiliation) ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+                </button>
+            </div>
+            <div class="affiliation-content d-flex align-items-baseline overflow-hidden">
+                <span class="affiliation-acronym" *ngIf="affiliation?.acronym">
+                    {{ affiliation.acronym }}
+                </span>
+                <span class="affiliation-name text-truncate" [title]="affiliation.name">
+                    {{ cleanAffiliationName(affiliation) }}
+                </span>
+            </div>
+            <div class="ml-auto pl-3">
+                <span class="badge badge-pill count-pill">{{ affiliation.documentCount }}</span>
+            </div>
+        </a>
+        <div *ngIf="affiliation.children?.length > 0 && !isCollapsed(affiliation)"
+             class="affiliation-children-wrapper">
+            <ng-container *ngFor="let child of affiliation.children">
+                <ng-container *ngTemplateOutlet="affiliationTemplate; context:{affiliation: child, level: level + 1}"></ng-container>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>

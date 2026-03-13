@@ -9,7 +9,7 @@ import { GetRequest } from "./request.models";
 import { RequestService } from "./request.service";
 
 export interface AffiliationData {
-  UUID: string;
+  uuid: string;
   name: string;
   acronym: string;
   type: String;
@@ -18,6 +18,7 @@ export interface AffiliationData {
   parent: string;
   children: AffiliationData[];
   index?: number;
+  documentCount?: number;
 }
 
 /**
@@ -48,6 +49,7 @@ export class PublicationAffiliationDataService {
       .get(url)
       .pipe(
         map((rd: RemoteData<AffiliationData[]>) => rd.payload ? Object.values(rd.payload) : []),
+        map((affiliations: AffiliationData[]) => this.sortAffiliations(affiliations)),
       );
   }
 
@@ -62,6 +64,31 @@ export class PublicationAffiliationDataService {
 
   public getAffiliationsTree(): Observable<AffiliationData[]> {
     return this.getAffiliation();
+  }
+
+  /**
+   * Sort affiliations and recursively affiliations children. First on weight, secondly on name
+   * @param items the affiliations data to sort
+   * @return the sorted affiliations
+   */
+  private sortAffiliations(items: AffiliationData[]): AffiliationData[] {
+    if (!items || items.length === 0) {
+      return [];
+    }
+    // create shallow copy to avoid mutation of original value during sort
+    const sortedItems = [...items];
+    // sort the current level
+    sortedItems.sort((a, b) => {
+      return (a.weight !== b.weight)
+        ? b.weight - a.weight
+        : a.name.localeCompare(b.name);
+    });
+    // recursively sort children for each item in the current level
+    return sortedItems.map((item) => {
+      return (item.children && item.children.length > 0)
+         ? {...item, children: this.sortAffiliations(item.children)}
+         : item;
+    });
   }
 
   /**
