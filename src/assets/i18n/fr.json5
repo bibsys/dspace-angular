@@ -7304,7 +7304,7 @@
   "submission.sections.upload.header.policy.default.withlist": "Veuillez noter que, en complément des accès spécifiquement accordés pour le fichier, les fichiers téléchargés dans la collection {{collectionName}} seront accessibles par défaut au(x) groupe(s) suivant(s):",
 
   // "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
-  "submission.sections.upload.info": "Vous trouverez ici tous les fichiers actuellement associés à l'Item. Vous pouvez éditer les métadonnés et les niveaux d'accès de ce(s) fichier(s) ou <strong>télécharger des fichiers complémentaires simplement en les glissant n'importe où sur cette page</strong>",
+  "submission.sections.upload.info": "<b>Par défaut, tout fichier chargé est en <u>Open Access</u>.</b> Pour restreindre l'accès (embargo, restreint ou interdit), cliquez sur le bouton « Modifier » associé au fichier.",
 
   // "submission.sections.upload.no-entry": "No",
   "submission.sections.upload.no-entry": "Non",
