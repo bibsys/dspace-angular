@@ -1408,6 +1408,12 @@
   // "browse.metadata.publicationjournal": "Browse by Journal",
   "browse.metadata.publicationjournal": "Parcourir par Revue",
 
+  "browse.byAffiliation.breadcrumbs": "Parcourir par Affiliation",
+  "browse.byAffiliation.title": "Parcourir par Affiliation",
+  "browse.byAffiliation.no-affiliation-found.message": "Aucune affiliation trouvée.",
+
+  "browse.byOpenAccess.title": "Publications en OpenAccess",
+
   // "browse.metadata.author.breadcrumbs": "Browse by Author",
   "browse.metadata.author.breadcrumbs": "Parcourir par Auteur",
 
@@ -5790,6 +5796,8 @@
   "search.filters.applied.f.isJournalOfPublication": "Identifiant du journal",
 
   "search.filters.applied.f.isOrgUnitOfPublication": "Identifiant de l'affiliation",
+
+  "search.filters.applied.f.isHierarchicalOrgUnitOfPublication": "Identifiant de l'affiliation parente",
 
   // "search.filters.applied.f.itemtype": "Type",
   "search.filters.applied.f.itemtype": "Type",
