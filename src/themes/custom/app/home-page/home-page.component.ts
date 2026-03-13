@@ -6,6 +6,8 @@ import {
   NgSwitchCase,
 } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { HomeCoarComponent } from '../../../../app/home-page/home-coar/home-coar.component';
 import { ThemedHomeNewsComponent } from '../../../../app/home-page/home-news/themed-home-news.component';
@@ -42,6 +44,8 @@ import { ViewTrackerComponent } from '../../../../app/statistics/angulartics/dsp
     ViewTrackerComponent,
     SuggestionsPopupComponent,
     AsyncPipe,
+    RouterLink, // Shame !!! What a pity .... beuuuurkkkk
+    TranslateModule // Shame !!! What a pity .... beuuuurkkkk
   ],
 })
 export class HomePageComponent extends BaseComponent {
