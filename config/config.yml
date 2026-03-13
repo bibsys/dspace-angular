@@ -18,6 +18,15 @@ ui:
   # Default url to use to redirect to orcid.
   orcidUrl: https://orcid.org/
 
+auth:
+  ui:
+    # if user is idle during 15 minutes (aka 900000ms) (token is valid for 30 minutes)
+    timeUntilIdle: 900000
+    idleGracePeriod: 300000
+  rest:
+    # if user is still working, but token is st
+    timeLeftBeforeTokenRefresh: 120000
+
 browseBy:
   showThumbnails: false
 
