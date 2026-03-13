@@ -7489,9 +7489,7 @@
 
   "submission.sections.upload.header.policy.default.withlist": "Please note that uploaded files in the {{collectionName}} collection will be accessible, in addition to what is explicitly decided for the single file, with the following group(s):",
 
-  "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
-
-  "submission.sections.upload.info": "Add files to attach to your publication. By default, any added file will be in open access. You can change the access type if necessary by editing the deposited file.",
+  "submission.sections.upload.info": "<b>All uploaded files are set to <u>Open Access</u> by default.</b> To restrict access (closed, restricted, or embargo), please click the 'Edit' button next to the file.",
 
   "submission.sections.upload.no-entry": "No",
 
