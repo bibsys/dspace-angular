@@ -2,6 +2,29 @@
   #home-header-wrapper {
     margin-top: calc(var(--ds-content-spacing) * -1);
   }
+
+  .browse-box {
+    background-color: $gray-300;
+    border: 1px solid $gray-400;
+    padding: .5rem;
+    text-transform: uppercase;
+    line-height: 1.5rem;
+    color: $secondary;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: left;
+
+    .fa-chevron-right {
+      transition: transform 0.3s ease-in-out;
+      margin-right: 10px;
+    }
+
+    &:hover {
+      .fa-chevron-right {
+        transform: translateX(10px);
+      }
+    }
+  }
 }
 
 @include media-breakpoint-down(md) {
