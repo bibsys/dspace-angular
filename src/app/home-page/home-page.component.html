@@ -12,6 +12,22 @@
   <ds-home-news></ds-home-news>
 </ng-template>
 
+<!-- CUSTOM BROWSE BY - QUICK AND EASY. TODO :: create a complex and heavy CRIS section ... -->
+<div class="container py-4">
+    <a class="browse-box btn btn-link col-12 px-3 mb-2 d-flex align-items-center justify-content-start"
+       [routerLink]="['/', 'browse', 'byAffiliation']">
+        <i class="fa-solid fa-building-columns mr-4"></i>
+        <span class="flex-grow-1">{{ 'browse.byAffiliation.title' | translate }}</span>
+        <i class="fa fa-chevron-right"></i>
+    </a>
+    <a class="browse-box btn btn-link col-12 px-3 mb-2 d-flex align-items-center justify-content-start"
+       [routerLink]="[searchPath]" [queryParams]="openAccessQueryParam | async">
+        <i class="fa-solid fa-unlock-alt mr-4"></i>
+        <span class="flex-grow-1">{{ 'browse.byOpenAccess.title' | translate }}</span>
+        <i class="fa fa-chevron-right"></i>
+    </a>
+</div>
+
 <ng-container *ngIf="site$.value">
   <div *ngFor="let sectionComponentRow of ( sectionComponents | async )">
     <div class="container">

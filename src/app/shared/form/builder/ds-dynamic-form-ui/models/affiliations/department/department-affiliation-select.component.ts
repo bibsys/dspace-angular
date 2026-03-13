@@ -131,7 +131,7 @@ export class DsDynamicDepartmentAffiliationComponent extends AffiliationSelectCo
    * @param option The selected option.
    */
   protected selectOption(option: AffiliationData) {
-    let newValue = new FormFieldMetadataValueObject(option.name, null, null, option.UUID, option.name);
+    let newValue = new FormFieldMetadataValueObject(option.name, null, null, option.uuid, option.name);
     this.setCurrentValue(newValue);
     this.dispatchUpdate(newValue);
     this.searchResult = this.affiliations;  // Reset search results
