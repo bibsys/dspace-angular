@@ -6,6 +6,7 @@ export enum FeatureID {
   AdministratorOf = 'administratorOf',
   HasRoleManager = 'hasRoleManager',
   HasRoleJournalManager = 'hasRoleJournalManager',
+  HasRoleDelegator = 'hasRoleDelegator',
   CanDelete = 'canDelete',
   CanEditMetadata = 'canEditMetadata',
   CanExportPersonBibliography = 'canExportPersonBibliography',

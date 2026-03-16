@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
-import {
-  Observable,
-  of as observableOf,
-} from 'rxjs';
+import { Observable, of as observableOf, } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AuthService } from '../auth/auth.service';
 
 import { CollectionDataService } from '../data/collection-data.service';
 import { AuthorizationDataService } from '../data/feature-authorization/authorization-data.service';
 import { FeatureID } from '../data/feature-authorization/feature-id';
-import { RoleType } from './role-types';
-import { AuthService } from '../auth/auth.service';
 import { EPerson } from '../eperson/models/eperson.model';
+import { RoleType } from './role-types';
 
 /**
  * A service that provides methods to identify user role.
@@ -44,37 +41,26 @@ export class RoleService {
   }
 
   /**
-   * Check if current user is a controller
-   */
-  isController(): Observable<boolean> {
-    return this.authService
-      .getAuthenticatedUserFromStore()
-      .pipe(
-        switchMap(
-          (eperson: EPerson) => this.authorizationService.isAuthorized(FeatureID.HasRoleManager, eperson.self)
-        ),
-      );
-  }
-
-  /**
    * Check if current user is an admin
    */
   isAdmin(): Observable<boolean> {
     return this.authorizationService.isAuthorized(FeatureID.AdministratorOf);
   }
 
-  /**
-   * Check if the user can manager journal items.
-   */
-  isJournalManager(): Observable<boolean> {
-    return this.authService
-      .getAuthenticatedUserFromStore()
-      .pipe(
-        switchMap(
-          (eperson: EPerson) => this.authorizationService.isAuthorized(FeatureID.HasRoleJournalManager, eperson.self)
-        ),
-      );
-  }
+  /** Check if the user has specific role */
+  private hasFeaturedRole = (feature: FeatureID): () => Observable<boolean> => {
+    return () =>
+      this.authService
+        .getAuthenticatedUserFromStore()
+        .pipe(
+          switchMap(
+            (eperson: EPerson) => this.authorizationService.isAuthorized(feature, eperson.self)
+          ),
+        );
+  };
+  isJournalManager = this.hasFeaturedRole(FeatureID.HasRoleJournalManager);
+  isDelegator = this.hasFeaturedRole(FeatureID.HasRoleDelegator);
+  isController = this.hasFeaturedRole(FeatureID.HasRoleManager);
 
   /**
    * Check if current user by role type
@@ -90,6 +76,9 @@ export class RoleService {
         break;
       case RoleType.Controller:
         check = this.isController();
+        break;
+      case RoleType.Delegator:
+        check = this.isDelegator();
         break;
       case RoleType.JournalManager:
         check = this.isJournalManager();
