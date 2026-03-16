@@ -1,8 +1,9 @@
 import { AsyncPipe, DatePipe, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { BehaviorSubject, merge, Observable, of, Subject } from 'rxjs';
-import { filter, first } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, merge, Observable, of, shareReplay, Subject } from 'rxjs';
+import { filter, first, map, startWith, switchMap } from 'rxjs/operators';
+import { AuthService } from '../../../../../../../app/core/auth/auth.service';
 import { RemoteData } from '../../../../../../../app/core/data/remote-data';
 import { EPerson } from '../../../../../../../app/core/eperson/models/eperson.model';
 import { RoleService } from '../../../../../../../app/core/roles/role.service';
@@ -16,28 +17,31 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @listableMetadataBlockComponent('*', ViewMode.StandalonePage, Context.Any, '*', Number.MAX_SAFE_INTEGER)
 @Component({
   template: `
-      <div class="align-self-end" *ngIf="canViewMetadata$ | async">
-        <hr/>
-        <ng-container *ngIf="item.hasMetadata('fedora.pid')">
-          <dt>{{ 'item.page.details.label.fedora-pid' | translate }}</dt>
-          <dd><ds-generic-item-page-field [item]='item' [fields]='["fedora.pid"]'/></dd>
-        </ng-container>
-        <dt>{{ 'item.page.details.label.last-modified' | translate }}</dt>
-        <dd>
-            <div class="datetime date">{{ item.lastModified | date:dateFormat }}</div>
-            <div class="datetime time">{{ item.lastModified | date:hourFormat}}</div>
-        </dd>
-        <ng-container *ngIf="archivedDate">
-          <dt>{{ 'item.page.details.label.created-date' | translate }}</dt>
-          <dd>
-            <div class="datetime date">{{ archivedDate | date:dateFormat }}</div>
-            <div class="datetime time">{{ archivedDate | date:hourFormat}}</div>
-          </dd>
-        </ng-container>
-        <ng-container *ngIf="(submitter$ | async) as submitter">
-          <dt>{{ 'item.page.details.label.submitter' | translate }}</dt>
-          <dd>{{ submitter.email }}</dd>
-        </ng-container>
+      <div class="align-self-end" *ngIf="viewData$ | async as data">
+          <ng-container *ngIf="data.showGeneral">
+            <hr/>
+            <ng-container *ngIf="item.hasMetadata('fedora.pid')">
+              <dt>{{ 'item.page.details.label.fedora-pid' | translate }}</dt>
+              <dd><ds-generic-item-page-field [item]='item' [fields]='["fedora.pid"]'/></dd>
+            </ng-container>
+            <dt>{{ 'item.page.details.label.last-modified' | translate }}</dt>
+            <dd>
+              <div class="datetime date">{{ item.lastModified | date:dateFormat }}</div>
+              <div class="datetime time">{{ item.lastModified | date:hourFormat}}</div>
+            </dd>
+          </ng-container>
+          <ng-container *ngIf="data.archivedDate">
+            <dt>{{ 'item.page.details.label.created-date' | translate }}</dt>
+            <dd>
+              <div class="datetime date">{{ data.archivedDate | date:dateFormat }}</div>
+              <div class="datetime time">{{ data.archivedDate | date:hourFormat}}</div>
+            </dd>
+          </ng-container>
+          <ng-container *ngIf="data.submitter">
+            <hr *ngIf="!data.showGeneral"/> 
+            <dt>{{ 'item.page.details.label.submitter' | translate }}</dt>
+            <dd>{{ data.submitter.email }}</dd>
+          </ng-container>
       </div>
   `,
   styles: [
@@ -51,38 +55,57 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 })
 export class AdminMetadataBlockComponent extends AbstractMetadataBlockComponent implements OnInit {
 
-  protected canViewMetadata$: Subject<boolean> = new BehaviorSubject(false);
-  protected archivedDate: string = null;
+  protected viewData$: Observable<{
+    showGeneral: boolean,
+    submitter: EPerson | null,
+    archivedDate: string | null
+  } | null>;
   protected dateFormat = "yyyy-MM-dd";
   protected hourFormat = "HH:mm:ss.SSS zzzz";
-  protected submitter$: Observable<EPerson>;
-
-  private conditions = [
-    this.roleService.isAdmin(),
-    this.roleService.isController()
-  ];
 
   constructor(
     private roleService: RoleService,
+    private authService: AuthService,
   ) {
     super();
   }
 
   ngOnInit() {
-    this.archivedDate = this.item.firstMetadataValue("dc.date.available");
-    this.submitter$ = (this.item.submitter)
-      ? (this.item.submitter instanceof Observable)
+    const archivedDate = this.item.firstMetadataValue("dc.date.available");
+
+    // Submitter stream
+    const submitter$ = (this.item.submitter)
+      ? (this.item.submitter instanceof Observable
         ? this.item.submitter.pipe(getFirstSucceededRemoteDataPayload())
-        : of(this.item.submitter)
+        : of(this.item.submitter))
       : of(null);
 
-    // We want call all condition in parallel mode.
-    // When a condition return `true`, no need to continue waiting other response.
-    merge(...this.conditions)
-      .pipe(
-        filter(r => r === true),
-        first()
-      )
-      .subscribe(() => this.canViewMetadata$.next(true));
+    // Permissions streams
+    const isAdminOrController$ = merge(this.roleService.isAdmin(), this.roleService.isController());
+    const isDelegator$ = this.roleService.isDelegator();
+    const currentUser$ = this.authService.getAuthenticatedUserFromStore();
+
+    this.viewData$ = combineLatest([
+      isAdminOrController$,
+      isDelegator$,
+      submitter$,
+      currentUser$,
+    ]).pipe(
+      map(([isAdminOrCtrl, isDelegator, submitter, currentUser]) => {
+        const isOwner = !!currentUser && !!submitter && currentUser.uuid === submitter.uuid;
+        const hasGeneralAccess = isAdminOrCtrl === true;
+        const hasSubmitterAccess = (isAdminOrCtrl === true || isDelegator === true || isOwner === true) && !!submitter;
+        // If no access at all, return null to hide the entire DIV
+        return (!hasGeneralAccess && !hasSubmitterAccess)
+          ? null
+          : {
+            showGeneral: hasGeneralAccess,
+            submitter: hasSubmitterAccess ? submitter : null,
+            archivedDate: archivedDate
+          };
+      }),
+      startWith(null),
+      shareReplay(1)
+    );
   }
 }
