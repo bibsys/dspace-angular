@@ -4760,6 +4760,8 @@
 
   "mydspace.status.submitted": "Submitted",
 
+  "mydspace.submitter": "Submitter",
+
   "mydspace.title": "MyDashboard",
 
   "mydspace.upload.upload-failed": "Error creating new workspace. Please verify the content uploaded before retry.",
