@@ -9,14 +9,16 @@ import { ThemedMyDSpaceStatusBadgeComponent } from 'src/app/shared/object-collec
 import { CustomTypeBadgeComponent } from 'src/themes/uclouvain/app/entity-groups/publication-entity/search-result-list-elements/custom-type-badge/custom-type-badge.component';
 import { Context } from '../../../../../../../app/core/shared/context.model';
 import { AccessConditionsComponent } from '../../../access-conditions/access-conditions.component';
+import { SubmitterBadgeComponent } from 'src/themes/uclouvain/app/entity-groups/publication-entity/search-result-list-elements/submitter-badge/submitter-badge.component';
 
 @Component({
     selector: 'ds-themed-badges',
     styleUrls: ['../../../../../../../app/shared/object-collection/shared/badges/badges.component.scss'],
-    template: `<div class="d-flex flex-row align-items-center gapx-1">
-        <div class="d-flex flex-grow-1">
-            <ds-custom-type-badge [object]="object" [displayEntityType]="displayType" customStyle="mr-2" />
+    template: `<div class="d-flex flex-row align-items-center">
+        <div class="d-flex flex-grow-1 gapx-2">
+            <ds-custom-type-badge [object]="object" [displayEntityType]="displayType"/>
             <ng-container *ngIf="isMyDSpaceStatus">
+                <ds-submitter-badge [object]="object"/>
                 <ds-my-dspace-status-badge [context]="context"></ds-my-dspace-status-badge>
             </ng-container>
         </div> 
@@ -30,6 +32,7 @@ import { AccessConditionsComponent } from '../../../access-conditions/access-con
         NgIf,
         ThemedMyDSpaceStatusBadgeComponent,
         AccessConditionsComponent,
+        SubmitterBadgeComponent,
     ],
 })
 export class BadgesComponent extends BaseComponent implements OnInit {
