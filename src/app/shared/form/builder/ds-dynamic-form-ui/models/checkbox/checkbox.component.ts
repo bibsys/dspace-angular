@@ -44,7 +44,7 @@ export class CustomCheckboxComponent extends DynamicFormControlComponent impleme
         let currentValue = this.model.value;
         if (currentValue && (typeof currentValue === 'string') && (['true', 'false'].includes(currentValue.toString()))) {
             this.model.checked = this.stringToBoolean(currentValue);
-        } else {
+        } else if(!this.model.hidden) {
             this.model.value = 'false';
             this.change.emit(this.model.value);
         }
@@ -75,7 +75,7 @@ export class CustomCheckboxComponent extends DynamicFormControlComponent impleme
     }
 
     stringToBoolean(value: string): boolean {
-        return value.toLowerCase() === 'true';
+        return value?.toLowerCase() === 'true';
     }
 
     ngOnDestroy(): void {
