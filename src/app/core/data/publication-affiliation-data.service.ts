@@ -12,6 +12,7 @@ export interface AffiliationData {
   uuid: string;
   name: string;
   acronym: string;
+  displayAcronym?: string;
   type: String;
   isSelectable: boolean;
   weight: number;
