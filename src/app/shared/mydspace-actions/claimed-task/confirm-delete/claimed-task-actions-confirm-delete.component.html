@@ -1,0 +1,36 @@
+<ng-template #tipContent>
+    <p [innerHTML]="'submission.workflow.tasks.claimed.confirm-delete_help' | translate"></p>
+</ng-template>
+<button [className]="'btn btn-danger'"
+        [ngbTooltip]="tipContent"
+        [openDelay]="500"
+        [disabled]="processing$ | async"
+        (click)="openConfirmModal(modal)" >
+  <span *ngIf="processing$ | async"><i class='fas fa-circle-notch fa-spin'></i> {{'submission.workflow.tasks.generic.processing' | translate}}</span>
+  <span *ngIf="!(processing$ | async)"><i class="fa-solid fa-trash-can"></i> {{'submission.workflow.tasks.claimed.confirm-delete.submit' | translate}}</span>
+</button>
+
+<ng-template #modal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{'submission.workflow.tasks.claimed.confirm-delete.reason.title' | translate}}</h4>
+    <button type="button"
+            class="close"
+            aria-label="Close"
+            (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="alert alert-danger text-center" role="alert">
+      {{'submission.workflow.tasks.claimed.confirm-delete.reason.info' | translate}}
+    </div>
+    <form (ngSubmit)="submitTask();">
+      <button id="btn-chat"
+              class="btn btn-danger btn-lg btn-block mt-3"
+              type="submit">
+        <span *ngIf="processing$ | async"><i class='fas fa-circle-notch fa-spin'></i> {{'submission.workflow.tasks.generic.processing' | translate}}</span>
+        <span *ngIf="!(processing$ | async)">{{'submission.workflow.tasks.claimed.confirm-delete.reason.submit' | translate}}</span>
+      </button>
+    </form>
+  </div>
+</ng-template>
