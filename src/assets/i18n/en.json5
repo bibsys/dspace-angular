@@ -1411,11 +1411,13 @@
 
   "chart.load-more": "Load more results",
 
-  "claimed-approved-search-result-list-element.title": "Approved",
+  "claimed-approved-search-result-list-element.title": "Dissertation approved",
 
   "claimed-declined-search-result-list-element.title": "Rejected, sent back to submitter",
 
   "claimed-declined-task-search-result-list-element.title": "Declined, sent back to Review Manager's workflow",
+
+  "claimed-deleted-search-result-list-element.title": "Dissertation deleted",
 
   "collection.create.breadcrumbs": "Create collection",
 
@@ -7667,9 +7669,23 @@
 
   "submission.workflow.tasks.claimed.approve_selected_help": "Approve selected tasks.",
 
-  "submission.workflow.tasks.claimed.approve": "Approve",
+  "submission.workflow.tasks.claimed.approve": "Approve dissertation",
 
-  "submission.workflow.tasks.claimed.approve_help": "If you have reviewed the item and it is suitable for inclusion in the collection, select \"Approve\"",
+  "submission.workflow.tasks.claimed.approve_help": "The dissertation will be approved and publicly available in the archive.",
+
+  "submission.workflow.tasks.claimed.confirm-delete": "Delete dissertation",
+
+  "submission.workflow.tasks.claimed.confirm-delete_help": "The dissertation will be deleted: it will not be recoverable after this action.",
+
+  "submission.workflow.tasks.claimed.confirm-delete.reason.title": "Delete dissertation",
+
+  "submission.workflow.tasks.claimed.confirm-delete.reason.info": "Are you sure you want to delete this dissertation ? After that, it will not be possible to recover any information about this dissertation.",
+  
+  "submission.workflow.tasks.claimed.confirm-delete.reason.placeholder": "",
+
+  "submission.workflow.tasks.claimed.confirm-delete.reason.submit": "Delete",
+
+  "submission.workflow.tasks.claimed.confirm-delete.submit": "Delete dissertation",
 
   "submission.workflow.tasks.claimed.edit": "Edit",
 

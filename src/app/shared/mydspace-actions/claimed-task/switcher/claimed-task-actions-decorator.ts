@@ -13,6 +13,7 @@ import {
   ClaimedTaskActionsApproveComponent,
   WORKFLOW_TASK_OPTION_APPROVE,
 } from '../approve/claimed-task-actions-approve.component';
+import { ClaimedTaskActionsConfirmDeleteComponent, WORKFLOW_TASK_OPTION_CONFIRM_DELETE } from '../confirm-delete/claimed-task-actions-confirm-delete.component';
 import {
   ClaimedTaskActionsDeclineTaskComponent,
   WORKFLOW_TASK_OPTION_DECLINE_TASK,
@@ -39,7 +40,8 @@ export type WorkflowTaskOptionComponent =
   typeof AdvancedClaimedTaskActionRatingComponent |
   typeof ClaimedTaskActionsRejectComponent |
   typeof ClaimedTaskActionsReturnToPoolComponent |
-  typeof AdvancedClaimedTaskActionSelectReviewerComponent;
+  typeof AdvancedClaimedTaskActionSelectReviewerComponent |
+  typeof ClaimedTaskActionsConfirmDeleteComponent;
 
 export type AdvancedWorkflowTaskOptionComponent =
   typeof AdvancedWorkflowActionRatingComponent |
@@ -53,6 +55,7 @@ export const WORKFLOW_TASK_OPTION_DECORATOR_MAP = new Map<string, WorkflowTaskOp
   [WORKFLOW_TASK_OPTION_REJECT, ClaimedTaskActionsRejectComponent],
   [WORKFLOW_TASK_OPTION_RETURN_TO_POOL, ClaimedTaskActionsReturnToPoolComponent],
   [ADVANCED_WORKFLOW_TASK_OPTION_SELECT_REVIEWER, AdvancedClaimedTaskActionSelectReviewerComponent],
+  [WORKFLOW_TASK_OPTION_CONFIRM_DELETE, ClaimedTaskActionsConfirmDeleteComponent],
 ]);
 
 export const ADVANCED_WORKFLOW_TASK_OPTION_DECORATOR_MAP = new Map<string, AdvancedWorkflowTaskOptionComponent>([
