@@ -136,6 +136,7 @@ import { UCLouvainPersonPageComponent } from 'src/themes/uclouvain/app/entity-gr
 import { AuthorOneboxResultElement } from 'src/app/shared/form/builder/ds-dynamic-form-ui/models/onebox/onebox-result-element/author/author-onebox-result-element.component';
 import { JournalOneboxResultElement } from 'src/app/shared/form/builder/ds-dynamic-form-ui/models/onebox/onebox-result-element/journal/journal-onebox-result-element.component';
 import { OrcidImportEntryListElementComponent } from 'src/themes/uclouvain/app/entity-groups/orcid-entity/entry-list-elements/orcid-import-entry/orcid-import-entry-list-element.component';
+import { ClaimedDeletedSearchResultListElementComponent } from 'src/app/shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-delete-search-result/claimed-deleted-search-result-list-element.component';
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -233,6 +234,7 @@ const ENTRY_COMPONENTS = [
   AuthorOneboxResultElement,
   JournalOneboxResultElement,
   OrcidImportEntryListElementComponent,
+  ClaimedDeletedSearchResultListElementComponent,
 ];
 
 @NgModule({

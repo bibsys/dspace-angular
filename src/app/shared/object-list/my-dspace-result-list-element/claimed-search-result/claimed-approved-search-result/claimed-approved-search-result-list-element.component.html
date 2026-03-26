@@ -1,5 +1,5 @@
 <ng-container *ngVar="(workflowitemRD$ | async)?.payload as workflowitem">
-  <div class="alert alert-success w-100" role="alert">
+  <div class="alert alert-success w-100 mb-0" role="alert">
     <h4 class="alert-heading mb-0">{{ 'claimed-approved-search-result-list-element.title' | translate }}</h4>
     <ds-item-list-preview *ngIf="workflowitem"
                           [item]="(workflowitem?.item | async)?.payload"
@@ -10,5 +10,6 @@
                           [showSubmitter]="showSubmitter"
                           [showThumbnails]="showThumbnails"
                           [showWorkflowStatistics]="true"
-                          [showCorrection]="showCorrection"></ds-item-list-preview>  </div>
+                          [showCorrection]="showCorrection"></ds-item-list-preview>
+  </div>
 </ng-container>
