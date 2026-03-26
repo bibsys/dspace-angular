@@ -7496,10 +7496,24 @@
   "submission.workflow.generic.view-help": "Sélectionner cette option pour afficher les métadonnées de l'Item.",
 
   // "submission.workflow.tasks.claimed.approve": "Approve",
-  "submission.workflow.tasks.claimed.approve": "Approuver",
+  "submission.workflow.tasks.claimed.approve": "Approuver la thèse",
 
   // "submission.workflow.tasks.claimed.approve_help": "If you have reviewed the item and it is suitable for inclusion in the collection, select \"Approve\".",
-  "submission.workflow.tasks.claimed.approve_help": "Si vous avez bien révisé cet Item et qu'il peut être ajouté à la collection, sélectionner « Approuver ».",
+  "submission.workflow.tasks.claimed.approve_help": "La thèse sera approuvée et disponible publiquement dans l'archive.",
+
+  "submission.workflow.tasks.claimed.confirm-delete": "Supprimer la thèse",
+
+  "submission.workflow.tasks.claimed.confirm-delete_help": "La thèse sera supprimée: cette action est irréversible.",
+
+  "submission.workflow.tasks.claimed.confirm-delete.reason.title": "Supprimer la thèse",
+
+  "submission.workflow.tasks.claimed.confirm-delete.reason.info": "Êtes-vous sure de vouloir supprimer cette thèse ? Cette action est irréversible.",
+  
+  "submission.workflow.tasks.claimed.confirm-delete.reason.placeholder": "",
+
+  "submission.workflow.tasks.claimed.confirm-delete.reason.submit": "Supprimer",
+
+  "submission.workflow.tasks.claimed.confirm-delete.submit": "Supprimer la thèse",
 
   // "submission.workflow.tasks.claimed.edit": "Edit",
   "submission.workflow.tasks.claimed.edit": "Éditer",
