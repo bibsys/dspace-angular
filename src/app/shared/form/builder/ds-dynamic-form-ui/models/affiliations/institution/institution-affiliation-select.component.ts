@@ -49,7 +49,9 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
       this.publicationAffiliationDataService.getAffiliationsTree().subscribe((affiliations: any) => {
         if (!isEmpty(affiliations)) {
           this.affiliationsList = affiliations;
-          this.optionsList = this.affiliationsList.map((affiliation: AffiliationData) => this.generateVocabularyEntry(affiliation));
+          this.optionsList = this.affiliationsList
+            .map((affiliation: AffiliationData) => this.generateVocabularyEntry(affiliation))
+            .filter(affiliation => !this.model.excludedValues.has(affiliation.value));
           if (!isEmpty(modelValue) && !isEmpty(modelValue.authority)) {
             // If we have a model value we can check if it is in the options list and select it.
             this.selectAuthorityIfAvailable(modelValue.authority, false);
@@ -114,7 +116,7 @@ export class DsDynamicInstitutionAffiliationComponent extends AffiliationSelectC
    */
   protected generateVocabularyEntry(affiliation: AffiliationData): VocabularyEntry {
     return Object.assign(new VocabularyEntry(), {
-      display: affiliation.acronym,
+      display: affiliation?.displayAcronym ?? affiliation.acronym,
       value: affiliation.acronym,
       authority: affiliation.uuid
     });
