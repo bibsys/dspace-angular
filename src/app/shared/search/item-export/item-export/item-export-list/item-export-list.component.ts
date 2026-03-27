@@ -100,7 +100,7 @@ export class ItemExportListComponent implements OnInit {
     this.currentPagination$ = this.paginationService.getCurrentPagination(this.initialPagination.id, this.initialPagination);
     this.currentPagination$.subscribe((paginationOptions: PaginationComponentOptions) => {
       this.searchOptions = Object.assign(new PaginatedSearchOptions({}), this.searchOptions, {
-        fixedFilter: `f.entityType=${this.itemEntityType},equals`,
+        fixedFilter: this.searchOptions.fixedFilter ?? `f.entityType=${this.itemEntityType},equals`,
         pagination: paginationOptions,
       });
       this.retrieveResultList(this.searchOptions);
