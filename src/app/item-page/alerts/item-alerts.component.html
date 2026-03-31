@@ -1,3 +1,7 @@
+<div *ngIf="item.isArchived !== true" class="private-warning">
+    <ds-alert [type]="AlertTypeEnum.Warning" [content]="'item.alerts.notArchived' | translate"/>
+</div>
+
 <div *ngIf="item && (item.isDiscoverable !== true || item.isWithdrawn)" class="pb-3">
     <div *ngIf="item.isDiscoverable !== true" class="private-warning">
         <ds-alert [type]="AlertTypeEnum.Warning" [content]="'item.alerts.private' | translate"></ds-alert>
