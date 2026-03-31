@@ -1,15 +1,16 @@
 ## Accès
-Tout accès au site du Répertoire des publications de recherche de l’UCLouvain (DIAL.mem) et aux œuvres et données
+Tout accès au site du Répertoire des publications de recherche de l’UCLouvain (DIAL.pr) et aux œuvres et données
 qu’il contient implique automatiquement et sans aucune réserve l’acceptation expresse de ces conditions
 générales dans leur intégralité de la part du visiteur et/ou de l’utilisateur.
 
 ## Propriété intellectuelle
 
-Les institutions partenaires sont propriétaires du Répertoire des publications de recherche de l’UCLouvain (DIAL.pr).
-Il est protégé, au titre de base de données, par loi du 30 juin 1994 relative aux droits d'auteur et aux droits voisins.
+L'UCLouvain est propriétaires du Répertoire des publications de recherche de l’UCLouvain (DIAL.pr).
+Il est protégé, au titre de base de données, par le Livre XI du Code de droit économique relatif aux droits d'auteur et 
+aux droits voisins.
 
-Les œuvres accessibles dans DIAL.pr sont également protégées par la loi du 30 juin 1994 relative aux droits d'auteur
-et aux droits voisins. Toute utilisation de ces œuvres est soumise aux conditions énoncées dans la [licence d'utilisation](/info/copyright-policy).
+Les œuvres accessibles dans DIAL.pr sont également protégées par ledit Code. Toute utilisation de ces œuvres est soumise 
+aux conditions énoncées dans la [licence d'utilisation](/info/copyright-policy).
 
 ## Responsabilité
 
