@@ -4159,6 +4159,9 @@
   // "item.preview.dc.identifier.uri": "Identifier:",
   "item.preview.dc.identifier.uri": "Identifiant :",
 
+  // "item.preview.dc.identifier.handle": "Handle identifier"
+  "item.preview.dc.identifier.handle": "Identifiant Handle :",
+
   // "item.preview.dc.contributor.author": "Authors:",
   "item.preview.dc.contributor.author": "Auteurs :",
 
