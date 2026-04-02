@@ -1,3 +1,23 @@
 .close:focus {
   outline: none !important;
 }
+
+.author-institution, .author-email {
+  color: var(--text-secondary);
+}
+
+.author-institution {
+  &:before { content: '['; }
+  &:after { content: ']'; }
+}
+
+.author-email {
+  font-style: italic;
+  &:before {
+    font-style: normal;
+    content: "\f0e0";
+    font-family: var(--fa-style-family, "Font Awesome 6 Free");
+    margin-right: .25rem;
+  }
+}
+

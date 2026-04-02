@@ -1,6 +1,6 @@
 import {
   NgFor,
-  NgIf,
+  NgIf, NgTemplateOutlet,
 } from '@angular/common';
 import {
   Component,
@@ -17,15 +17,26 @@ import { TranslateModule } from '@ngx-translate/core';
 import { mergeMap } from 'rxjs/operators';
 
 import { ExternalSourceEntry } from '../../../core/shared/external-source-entry.model';
-import { MetadataValue } from '../../../core/shared/metadata.models';
+import { MetadataMap, MetadataValue } from '../../../core/shared/metadata.models';
 import { Metadata } from '../../../core/shared/metadata.utils';
 import { SubmissionObject } from '../../../core/submission/models/submission-object.model';
 import { CollectionListEntry } from '../../../shared/collection-dropdown/collection-dropdown.component';
+import { PLACEHOLDER_PARENT_METADATA } from '../../../shared/form/builder/ds-dynamic-form-ui/ds-dynamic-form-constants';
 import { NotificationsService } from '../../../shared/notifications/notifications.service';
 import { TruncatableComponent } from '../../../shared/truncatable/truncatable.component';
 import { TruncatablePartComponent } from '../../../shared/truncatable/truncatable-part/truncatable-part.component';
 import { SubmissionService } from '../../submission.service';
 import { SubmissionImportExternalCollectionComponent } from '../import-external-collection/submission-import-external-collection.component';
+
+
+export interface Author {
+  name: string,
+  role: string,
+  institution?: string;
+  orcid?: string;
+  fgs?: string;
+  email?: string;
+}
 
 /**
  * This component display a preview of an external source item.
@@ -40,6 +51,7 @@ import { SubmissionImportExternalCollectionComponent } from '../import-external-
     TruncatablePartComponent,
     TruncatableComponent,
     NgIf,
+    NgTemplateOutlet,
   ],
   standalone: true,
 })
@@ -52,6 +64,7 @@ export class SubmissionImportExternalPreviewComponent implements OnInit {
    * The entry metadata list
    */
   public metadataList: { key: string, values: MetadataValue[] }[];
+  public authorList: Author[] = [];
   /**
    * The label prefix to use to generate the translation label
    */
@@ -60,6 +73,15 @@ export class SubmissionImportExternalPreviewComponent implements OnInit {
    * The modal for the entry preview
    */
   modalRef: NgbModalRef;
+
+  private hiddenMetadataKeys = [
+    "dc.contributor.author",
+    "authors.identifier.fgs",
+    "authors.identifier.orcid",
+    "authors.institution.code",
+    "authors.email",
+    "authors.role"
+  ];
 
   /**
    * Initialize the component variables.
@@ -82,14 +104,37 @@ export class SubmissionImportExternalPreviewComponent implements OnInit {
    */
   ngOnInit(): void {
     this.metadataList = [];
-    const metadataKeys = Object.keys(this.externalSourceEntry.metadata);
+    Metadata.all(this.externalSourceEntry.metadata, "dc.contributor.author")
+      .forEach((authorMd, idx) => this.authorList.push(this._getAuthorInformation(authorMd, idx)));
+    const metadataKeys = Object
+      .keys(this.externalSourceEntry.metadata)
+      .filter(k => !this.hiddenMetadataKeys.includes(k));
     metadataKeys.forEach((key) => {
       this.metadataList.push({
         key: key,
         values: Metadata.all(this.externalSourceEntry.metadata, key),
       });
     });
+
   }
+  private _getAuthorInformation(metadata: MetadataValue, idx: number) {
+    return Object.assign({
+      name: metadata.value,
+      role: this._getMetadataForIndex(this.externalSourceEntry.metadata, "authors.role", idx),
+      institution: this._getMetadataForIndex(this.externalSourceEntry.metadata, "authors.institution.code", idx),
+      email: this._getMetadataForIndex(this.externalSourceEntry.metadata, "authors.email", idx),
+      fgs: this._getMetadataForIndex(this.externalSourceEntry.metadata, "authors.identifier.fgs", idx),
+      orcid: this._getMetadataForIndex(this.externalSourceEntry.metadata, "authors.identifier.orcid", idx),
+    }) as Author;
+  }
+
+  private _getMetadataForIndex(mdMap: MetadataMap, key: string, idx: number) {
+    const mdValues: string[] = Metadata.allValues(mdMap, key);
+    return (idx <= mdValues.length && mdValues[idx] !== PLACEHOLDER_PARENT_METADATA)
+      ? mdValues[idx]
+      : null;
+  }
+
 
   /**
    * Closes the modal.
