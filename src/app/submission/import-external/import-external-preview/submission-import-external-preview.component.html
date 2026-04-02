@@ -17,6 +17,16 @@
         <hr>
       </div>
     </div>
+    <div class="row" *ngIf="authorList.length > 0">
+      <div class="col-md-12">
+        <strong>{{'item.preview.dc.contributor.author' | translate}}</strong>
+        <ul class="list-unstyled">
+          <li *ngFor="let author of authorList">
+            <ng-container *ngTemplateOutlet="authorTmpl; context: { author: author }"></ng-container>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div *ngFor="let metadata of metadataList" class="row">
       <div class="col-md-12">
         <strong>{{'item.preview.' + metadata.key | translate}}</strong>
@@ -29,7 +39,12 @@
             </ds-truncatable>
           </ng-container>
         </div>
-        <p *ngIf="metadata.key !== 'dc.description.abstract'">
+        <p *ngIf="metadata.key == 'dc.type.maintype'">
+          <ng-container *ngFor="let metadatum of metadata.values">
+            <span>{{ 'item.page.details.values.type.' + metadatum.value | translate }}</span><br>
+          </ng-container>
+        </p>
+        <p *ngIf="metadata.key !== 'dc.description.abstract' && metadata.key !== 'dc.type.maintype'">
           <ng-container *ngFor="let metadatum of metadata.values">
             <span>{{metadatum.value}}</span><br>
           </ng-container>
@@ -46,3 +61,10 @@
     </button>
   </div>
 </div>
+
+<ng-template #authorTmpl let-author="author">
+    <span class="author-name">{{ author.name }}</span>
+    <i class="fa-brands fa-orcid text-success ml-2" *ngIf="author.orcid" [title]="author.orcid"></i>
+    <span class="author-institution ml-2" *ngIf="author.institution">{{ author.institution }}</span>
+    <span class="author-email ml-2" *ngIf="author.email">{{ author.email }}</span>
+</ng-template>
