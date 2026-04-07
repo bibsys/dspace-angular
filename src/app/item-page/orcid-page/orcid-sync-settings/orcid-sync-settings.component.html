@@ -2,28 +2,6 @@
   <h2>{{'person.orcid.sync.setting' | translate}}</h2>
   <form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
     <div class="row mb-3">
-      <div class="col-md">
-        <div class="card" data-test="sync-mode">
-          <div class="card-header">{{ 'person.page.orcid.synchronization-mode'| translate }}</div>
-          <div class="card-body">
-            <div class="container">
-              <div class="row">
-                <ds-alert [type]="AlertType.Info">
-                  {{ 'person.page.orcid.synchronization-mode-message' | translate}}
-                </ds-alert>
-              </div>
-              <div class="form-group row">
-                <label for="syncMode">{{ 'person.page.orcid.synchronization-mode.label'| translate }}</label>
-                <select class="form-control" [(ngModel)]="currentSyncMode" name="syncMode" id="syncMode"
-                        required>
-                  <option *ngFor="let syncMode of syncModes"
-                          [value]="syncMode.value">{{ syncMode.label | translate }}</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="col-md mb-3">
         <div class="card h-100" data-test="sync-mode-publication">
           <div class="card-header">{{ 'person.page.orcid.publications-preferences'| translate }}</div>
@@ -47,6 +25,28 @@
           </div>
         </div>
       </div>
+        <div class="col-md">
+            <div class="card" data-test="sync-mode">
+                <div class="card-header">{{ 'person.page.orcid.synchronization-mode'| translate }}</div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <ds-alert [type]="AlertType.Info">
+                                <span [innerHTML]="'person.page.orcid.synchronization-mode-message' | translate"></span>
+                            </ds-alert>
+                        </div>
+                        <div class="form-group row">
+                            <label for="syncMode">{{ 'person.page.orcid.synchronization-mode.label'| translate }}</label>
+                            <select class="form-control" [(ngModel)]="currentSyncMode" name="syncMode" id="syncMode"
+                                    required>
+                                <option *ngFor="let syncMode of syncModes"
+                                        [value]="syncMode.value">{{ syncMode.label | translate }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- <div class="row">
       <div class="col-md mb-3">
