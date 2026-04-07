@@ -24,8 +24,10 @@ import {
 } from 'rxjs';
 import {
   map,
+  mergeMap,
   switchMap,
   take,
+  tap,
 } from 'rxjs/operators';
 import { NotifyInfoService } from 'src/app/core/coar-notify/notify-info/notify-info.service';
 
@@ -116,6 +118,8 @@ export class ItemPageComponent implements OnInit, OnDestroy {
    */
   isAdmin$: Observable<boolean>;
 
+  canReinstate$: Observable<boolean>;
+
   itemUrl: string;
 
   /**
@@ -164,7 +168,9 @@ export class ItemPageComponent implements OnInit, OnDestroy {
     );
 
     this.isAdmin$ = this.authorizationService.isAuthorized(FeatureID.AdministratorOf);
-
+    this.canReinstate$ = this.itemRD$.pipe(
+      mergeMap(item => this.authorizationService.isAuthorized(FeatureID.ReinstateItem, item?.payload.self, undefined, false))
+    )
   }
 
   /**
