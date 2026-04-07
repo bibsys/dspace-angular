@@ -12,7 +12,7 @@ import {
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import {
-  Observable,
+  Observable, of,
   of as observableOf,
 } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -79,7 +79,8 @@ export class FooterComponent implements OnInit {
     this.showPrivacyPolicy = this.appConfig.info.enablePrivacyStatement;
     this.showEndUserAgreement = this.appConfig.info.enableEndUserAgreement;
     this.coarLdnEnabled$ = this.appConfig.info.enableCOARNotifySupport ? this.notifyInfoService.isCoarConfigEnabled() : observableOf(false);
-    this.showSendFeedback$ = this.authorizationService.isAuthorized(FeatureID.CanSendFeedback);
+    //this.showSendFeedback$ = this.authorizationService.isAuthorized(FeatureID.CanSendFeedback);
+    this.showSendFeedback$ = of(false);
 
     this.section = {
       content: 'cris.cms.footer',

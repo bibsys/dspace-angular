@@ -352,7 +352,7 @@ export abstract class FieldParser {
     if (help) {
       controlModel.help = this.configData.help;
     }
-    controlModel.placeholder = this.configData.label;
+    controlModel.placeholder = getSetting(this.configData, 'placeholder') ?? this.configData.label;
 
     if (this.configData.mandatory && setErrors) {
       this.markAsRequired(controlModel);
