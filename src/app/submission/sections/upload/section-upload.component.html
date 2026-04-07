@@ -1,6 +1,9 @@
 <ds-alert [content]="'submission.sections.upload.info'"
           [dismissible]="true"
           [type]="AlertTypeEnum.Warning"></ds-alert>
+<ds-alert [content]="'submission.sections.upload.access-type'"
+          [dismissible]="false"
+          [type]="AlertTypeEnum.Info"></ds-alert>
 
 <div *ngIf="(uploadEnabled$ | async)" class="w-100">
     <ds-submission-upload-files [submissionId]="submissionId"
