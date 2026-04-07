@@ -1412,7 +1412,7 @@
   "browse.byAffiliation.title": "Parcourir par Affiliation",
   "browse.byAffiliation.no-affiliation-found.message": "Aucune affiliation trouvée.",
 
-  "browse.byOpenAccess.title": "Publications en OpenAccess",
+  "browse.byOpenAccess.title": "Publications en Open Access",
 
   // "browse.metadata.author.breadcrumbs": "Browse by Author",
   "browse.metadata.author.breadcrumbs": "Parcourir par Auteur",
@@ -2662,7 +2662,7 @@
 
   // "explore.index.entityType": "Entity type",
   // TODO New key - Add a translation
-  "explore.index.entityType": "Entity type",
+  "explore.index.entityType": "Type de données",
 
   // "explore.index.familyName": "Family name",
   "explore.index.familyName": "Nom de famille",
@@ -2920,7 +2920,7 @@
   "footer.link.lyrasis": "LYRASIS",
 
   // "footer.link.cookies": "Cookie settings",
-  "footer.link.cookies": "Paramètres des témoins de connexion",
+  "footer.link.cookies": "Paramètres des cookies",
 
   // "footer.link.privacy-policy": "Privacy policy",
   "footer.link.privacy-policy": "Politique de protection de la vie privée",
@@ -2930,6 +2930,22 @@
 
   // "footer.link.copyright-policy": "Copyright policy",
   "footer.link.copyright-policy": "Licence d’utilisation",
+
+  "footer.link.osticket": "Poser une question",
+
+  "footer.link.support-guides": "Guides utilisateur",
+
+  "footer.link.faq": "FAQ",
+
+  "footer.menu.informations": "Informations",
+
+  "footer.menu.help": "Aide",
+
+  "footer.link.what-is-open-access": "Qu'est ce que l'open access ?",
+
+  "footer.link.rights-and-obligations": "Droits et obligations en matière OA",
+
+  "footer.link.cc-licence": "Licences CC ?",
 
   // "footer.link.feedback":"Send Feedback",
   "footer.link.feedback": "Envoyer un commentaire",
@@ -3866,7 +3882,7 @@
   "item.edit.tabs.status.head": "Statut",
 
   // "item.edit.tabs.status.labels.handle": "Handle",
-  "item.edit.tabs.status.labels.handle": "Handle",
+  "item.edit.tabs.status.labels.handle": "Permalien",
 
   // "item.edit.tabs.status.labels.id": "Item Internal ID",
   "item.edit.tabs.status.labels.id": "Identifiant interne de l'Item",
@@ -3999,7 +4015,7 @@
   "item.page.heading.metrics": "Métriques",
 
   //   "item.page.heading.person.details": "Author information",
-  "item.page.heading.person.details": "Information sur l'auteur",
+  "item.page.heading.person.details": "Informations sur l'auteur",
 
   // "item.page.heading.person.publications": "Publications by this author",
   "item.page.heading.person.publications": "Publications de cet auteur",
@@ -4014,7 +4030,7 @@
   "item.page.date-issued": "Date de publication",
 
   // "item.page.language": "Language",
-  "item.page.language": "Language",
+  "item.page.language": "Langue",
 
   // "item.page.subject": "Keywords",
   "item.page.subject": "Mots-clés",
@@ -4047,7 +4063,7 @@
   "item.page.date": "Date",
 
   // "item.page.edit": "Edit this item",
-  "item.page.edit": "Éditer cet Item",
+  "item.page.edit": "Éditer cette publication",
 
   // "item.page.files": "Files",
   "item.page.files": "Fichiers",
@@ -4057,7 +4073,6 @@
 
   // "item.page.filesection.download": "Download",
   "item.page.filesection.download": "Télécharger",
-
   "item.page.filesection.request-a-copy": "Demander un accès",
   "item.page.filesection.no-access": "Aucun accès",
 
@@ -4896,7 +4911,7 @@
   "mydspace.new-submission-external-short": "Importer métadonnées",
 
   // "mydspace.results.head": "Your submissions",
-  "mydspace.results.head": "Vos dépôts",
+  "mydspace.results.head": "Mes dépôts",
 
   // "mydspace.results.no-abstract": "No Abstract",
   "mydspace.results.no-abstract": "Aucun résumé",
@@ -4929,7 +4944,7 @@
   "mydspace.show.workflow": "Tableau de suivi",
 
   // "mydspace.show.workspace": "Your Submissions",
-  "mydspace.show.workspace": "Vos dépôts",
+  "mydspace.show.workspace": "Mes dépôts",
 
   //"mydspace.show.supervisedWorkspace": "Supervised items",
   "mydspace.show.supervisedWorkspace": "Items supervisés",
@@ -4947,13 +4962,13 @@
   "mydspace.status.mydspaceWorkflow": "En attente de validation",
 
   // "mydspace.status.mydspaceWorkspace": "Workspace",
-  "mydspace.status.mydspaceWorkspace": "Dépôts en cours",
+  "mydspace.status.mydspaceWorkspace": "Dépôt en cours",
 
   // "mydspace.status.mydspaceWithdrawn": "Retired",
   "mydspace.status.mydspaceWithdrawn": "Retiré",
 
   // "mydspace.status.submitted": "Submitted",
-  "mydspace.status.submitted": "Soumit",
+  "mydspace.status.submitted": "Soumis",
 
   "mydspace.submitter": "Déposant",
 
@@ -5000,7 +5015,7 @@
   "nav.processes": "Mes processus",
 
   // "nav.profile": "Profile",
-  "nav.profile": "Mon profil",
+  "nav.profile": "Mon profil auteur",
 
   // "nav.myaccount": "My account",
   "nav.myaccount": "Mon compte",
@@ -5246,10 +5261,10 @@
   "process.overview.table.user": "Utilisateur",
 
   // "process.overview.title": "Processes Overview",
-  "process.overview.title": "Sommaire des processus",
+  "process.overview.title": "Liste des processus",
 
   // "process.overview.breadcrumbs": "Processes Overview",
-  "process.overview.breadcrumbs": "Sommaire des processus",
+  "process.overview.breadcrumbs": "Liste des processus",
 
   // "process.overview.new": "New",
   "process.overview.new": "Nouveau",
@@ -5971,11 +5986,11 @@
 
   // "search.filters.filter.language.head": "Language",
   // TODO New key - Add a translation
-  "search.filters.filter.language.head": "Language",
+  "search.filters.filter.language.head": "Langue",
 
   // "search.filters.filter.language.label": "Language",
   // TODO New key - Add a translation
-  "search.filters.filter.language.label": "Language",
+  "search.filters.filter.language.label": "Langue",
 
   // "search.filters.filter.language.placeholder": "Language",
   // TODO New key - Add a translation
@@ -6025,6 +6040,9 @@
 
   // "search.filters.filter.organizationAddressCountry.head": "Country",
   "search.filters.filter.organizationAddressCountry.head": "Pays",
+
+  "search.filters.filter.organization.head": "Organisation",
+  "search.filters.filter.organization.label": "Recherche d'une organisation",
 
   // "search.filters.filter.organizationAddressCountry.placeholder": "Country",
   "search.filters.filter.organizationAddressCountry.placeholder": "Pays",
@@ -6301,6 +6319,20 @@
 
   // "sorting.dc.date.accessioned.DESC": "Accessioned Date Descending",
   "sorting.dc.date.accessioned.DESC": "Date de dépôt (décroissante)",
+
+  "sorting.dc.type.maintype.DESC": "Type de publication (décroissante)",
+
+  "sorting.metric.view.ASC": "Nombre de vues (croissante)",
+
+  "sorting.metric.view.DESC": "Nombre de vues (décroissante)",
+
+  "sorting.metric.download.ASC": "Nombre de téléchargements (croissante)",
+
+  "sorting.metric.download.DESC": "Nombre de téléchargements (décroissante)",
+
+  "sorting.metric.scopus.citation.ASC": "Nombre de citations (croissante)",
+
+  "sorting.metric.scopus.citation.DESC": "Nombre de citations (décroissante)",
 
   // "sorting.lastModified.ASC": "Last modified Ascending",
   "sorting.lastModified.ASC": "Dernière modification (croissante)",
@@ -7263,7 +7295,7 @@
   "submission.sections.upload.delete.confirm.submit": "Oui, je suis certain(e)",
 
   // "submission.sections.upload.delete.confirm.title": "Delete bitstream",
-  "submission.sections.upload.delete.confirm.title": "Supprimer le Bitstream",
+  "submission.sections.upload.delete.confirm.title": "Supprimer le fichier",
 
   // "submission.sections.upload.delete.submit": "Delete",
   "submission.sections.upload.delete.submit": "Supprimer",
@@ -7272,13 +7304,13 @@
   "submission.sections.upload.download.title": "Télécharger un Bitstream",
 
   // "submission.sections.upload.drop-message": "Drop files to attach them to the item",
-  "submission.sections.upload.drop-message": "Déposer des fichiers pour les lier à l'Item",
+  "submission.sections.upload.drop-message": "Glisser-Déposer des fichiers",
 
   // "submission.sections.upload.edit.title": "Edit bitstream",
   "submission.sections.upload.edit.title": "Éditer le fichier",
 
   // "submission.sections.upload.form.access-condition-label": "Access condition type",
-  "submission.sections.upload.form.access-condition-label": "Type d'autorisations d'accès",
+  "submission.sections.upload.form.access-condition-label": "Type d'accès",
 
   // "submission.sections.upload.form.access-condition-hint": "Select an access condition to apply on the bitstream once the item is deposited",
   "submission.sections.upload.form.access-condition-hint": "Sélectionner une autorisation d'accès à appliquer sur le Bitstream une fois l'Item déposé",
@@ -7293,10 +7325,10 @@
   "submission.sections.upload.form.date-required-until": "L'autorisation d'accès jusqu'à une date est obligatoire",
 
   // "submission.sections.upload.form.from-label": "Grant access from",
-  "submission.sections.upload.form.from-label": "Accorder l'accès depuis",
+  "submission.sections.upload.form.from-label": "Date de fin d'embargo (si applicable).",
 
   // "submission.sections.upload.form.from-hint": "Select the date from which the related access condition is applied",
-  "submission.sections.upload.form.from-hint": "Sélectionner la date à partir de laquelle l'autorisation d'accès liée est appliquée.",
+  "submission.sections.upload.form.from-hint": "Sélectionner la date de fin d'embargo.<br/>Après cette date, votre fichier sera disponible en accès ouvert",
 
   // "submission.sections.upload.form.from-placeholder": "From",
   "submission.sections.upload.form.from-placeholder": "Depuis",
@@ -7353,7 +7385,7 @@
   "submission.sections.accesses.form.access-condition-label": "Type d'autorisations d'accès",
 
   // "submission.sections.accesses.form.access-condition-hint": "Select an access condition to apply on the item once it is deposited",
-  "submission.sections.accesses.form.access-condition-hint": "Sélectionner une autorisation d'accès à appliquer une fois l'Item déposé.",
+  "submission.sections.accesses.form.access-condition-hint": "Sélectionner le type d'accès à appliqué au fichier attaché.",
 
   // "submission.sections.accesses.form.date-required": "Date is required.",
   "submission.sections.accesses.form.date-required": "La date est obligatoire",
@@ -7743,7 +7775,7 @@
   "supervisedWorkspace.search.results.head": "Documents supervisés",
 
   //"workspace.search.results.head": "Your submissions",
-  "workspace.search.results.head": "Vos dépôts",
+  "workspace.search.results.head": "Mes dépôts",
 
   // "workflowAdmin.search.results.head": "Administer Workflow",
   "workflowAdmin.search.results.head": "Workflow Administrateur",
@@ -7962,7 +7994,7 @@
   "person.page.orcid.save.preference.changes": "Mettre à jour les configurations",
 
   //"person.page.orcid.sync-profile.affiliation": "Affiliation",
-  "person.page.orcid.sync-profile.affiliation": "Affiliation",
+  "person.page.orcid.sync-profile.affiliation": "Affiliations",
 
   //"person.page.orcid.sync-profile.biographical": "Biographical data",
   "person.page.orcid.sync-profile.biographical": "Données biographiques",
@@ -9551,7 +9583,7 @@
   "publication.type.journal-article.heading": "Article de périodique",
 
   // "publication.type.book.heading": "Book",
-  "publication.type.book.heading": "Monographie",
+  "publication.type.book.heading": "Livre",
 
   // "publication.type.book-part.heading": "Book Chapter",
   "publication.type.book-part.heading": "Contribution à un ouvrage collectif",
@@ -9583,11 +9615,16 @@
   "item.page.citations.none": "Pas de citation disponible",
   "item.page.details.none": "Rien à afficher pour ce type de publication.",
 
+  // -- Facet itemResourceType --
+  "search.filters.namedresourcetype.Archived": "Archivé",
+  "search.filters.namedresourcetype.Workspace": "Dépôt en cours",
+  "search.filters.namedresourcetype.Workflow": "En attente de validation",
+
   // -- Facet entityType --
   "search.filters.itempublicationtype.text::journal-article": "Article de périodique",
   "search.filters.itempublicationtype.text::working-paper": "Document de travail",
-  "search.filters.itempublicationtype.text::book": "Monographie",
-  "search.filters.itempublicationtype.text::book-part": "Contribution à un ouvrage collectif",
+  "search.filters.itempublicationtype.text::book": "Livre",
+  "search.filters.itempublicationtype.text::book-part": "Chapitre de livre",
   "search.filters.itempublicationtype.text::conference-speech": "Communication à un colloque",
   "search.filters.itempublicationtype.text::report": "Rapport",
   "search.filters.itempublicationtype.text::patent": "Brevet",
@@ -9599,11 +9636,25 @@
   "search.filters.accessType.administrator": "accès interdit",
   "search.filters.accessType.embargo": "accès embargo",
 
+  // -- Facet language
+  "search.filters.language.French": "Français",
+  "search.filters.language.English": "Anglais",
+  "search.filters.language.Italian": "Italien",
+  "search.filters.language.Dutch": "Néerlandais",
+  "search.filters.language.Spanish": "Espagnol",
+  "search.filters.language.(Other)": "(Autre)",
+  "search.filters.language.Greek": "Grec",
+  "search.filters.language.German": "Allemand",
+  "search.filters.language.Multiple languages": "Multilingue",
+  "search.filters.language.Polish": "Polonais",
+  "search.filters.language.Portuguese": "Portugais",
+  "search.filters.language.Russian": "Russe",
+
   // -- Publication types --
   // "publication.type.journal-article.heading": "Journal Article",
   "publication.type.journal-article.heading": "Article de périodique",
-  "publication.type.book.heading": "Monographie",
-  "publication.type.book-part.heading": "Contribution à un ouvrage collectif",
+  "publication.type.book.heading": "Livre",
+  "publication.type.book-part.heading": "Chatpire de livre",
   "publication.type.working-paper.heading": "Document de travail",
   "publication.type.report.heading": "Rapport",
   "publication.type.patent.heading": "Brevet",
@@ -9678,12 +9729,38 @@
   // [VALUES]
   "item.page.details.values.type.text::journal-article": "Article de périodique",
   "item.page.details.values.type.text::working-paper": "Document de travail",
-  "item.page.details.values.type.text::book": "Monographie",
-  "item.page.details.values.type.text::book-part": "Contribution à un ouvrage collectif",
+  "item.page.details.values.type.text::book": "Livre",
+  "item.page.details.values.type.text::book-part": "Chapitre de livre",
   "item.page.details.values.type.text::conference-speech": "Communication à un colloque",
   "item.page.details.values.type.text::report": "Rapport",
   "item.page.details.values.type.text::patent": "Brevet",
   "item.page.details.values.type.text::thesis": "Thèse",
+
+  "item.page.details.values.subtype.conference-proceedings": "Actes de colloque",
+  "item.page.details.values.subtype.dictionary/encyclopaedia": "Dictionnaire/Encyclopédie",
+  "item.page.details.values.subtype.book": "Monographie",
+  "item.page.details.values.subtype.handbook/textbook": "Manuel/précis/textbook",
+  "item.page.details.values.subtype.mixed-content": "Mélanges",
+  "item.page.details.values.subtype.other": "Autre",
+  "item.page.details.values.subtype.book-chapter": "Chapitre",
+  "item.page.details.values.subtype.preface/postface/foreword": "Avant-propos/préface/postface",
+  "item.page.details.values.subtype.none": "Aucun",
+  "item.page.details.values.subtype.keynote": "Conférence invitée / Keynote",
+  "item.page.details.values.subtype.with-selection-speech": "Présentation orale avec comité de sélection",
+  "item.page.details.values.subtype.without-selection-speech": "Présentation orale sans comité de sélection",
+  "item.page.details.values.subtype.conference-poster": "Poster",
+  "item.page.details.values.subtype.research-article": "Article de recherche",
+  "item.page.details.values.subtype.popularising-article": "Article de vulgarisation",
+  "item.page.details.values.subtype.report": "Compte-rendu",
+  "item.page.details.values.subtype.editorial": "Éditorial",
+  "item.page.details.values.subtype.clinical-study": "Essai clinique",
+  "item.page.details.values.subtype.letter-to-the-editor": "Lettre à l'éditeur",
+  "item.page.details.values.subtype.law-case-note": "Note ou chronique de jurisprudence",
+  "item.page.details.values.subtype.full-issue": "Numéro entier",
+  "item.page.details.values.subtype.literature-review": "Synthèse de littérature",
+  "item.page.details.values.subtype.feature-article": "Dossier dans une revue",
+  "item.page.details.values.subtype.internal": "Interne",
+  "item.page.details.values.subtype.external": "Externe",
 
   "item.page.details.values.publication-status.published": "Publié",
   "item.page.details.values.publication-status.submitted": "Soumis",
@@ -9764,7 +9841,22 @@
   // --- FNRS VALIDATION ---
   "fnrs-validation.modal.title": "Validité de la publication par rapport aux règles du FNRS",
   "fnrs-validation.modal.body.not-applicable": "pas applicable",
+
   "item-export.form.btn.close": "Fermer",
+  "item-export.modal.title": "Exportation de résultats",
+  "item-export.alert.multiple": "Exporter tous les documents d'un type spécifique de la recherche en cours.",
+  "item-export.alert.multiple-with-type": "Exporter tous les documents du type <b>{{type}}</b> de la recherche en cours.",
+  "item-export.alert.export.limit": "Cette exportation sera limitée à maximum {{limit}} documents.",
+  "item-export.cannot-msg": "Il n'y a aucun document à exporter au regard de la configuration choisie",
+  "item-export.form.entityType": "Type de document",
+  "item-export.form.entityType.tip": "Choisissez un type de document",
+  "item-export.form.format": "Format",
+  "item-export.form.format.tip": "Choisissez un format d'exportation",
+  "item-export.form.btn.submit": "Exporter",
+  "item-export.form.btn.cancel": "Annuler",
+  "item-export.form.selection": "Mode d'exportation",
+  "item-export.form.selection.all": "Tout exporter",
+  "item-export.form.selection.only-selected": "Seulement les documents sélectionnés",
 
   "fnrs.category.1": "Ouvrage publié, en tant qu'auteur, co-auteur ou éditeur",
   "fnrs.category.2": "Partie d'ouvrage, en tant qu'auteur ou co-auteur de la partie",
@@ -9799,5 +9891,7 @@
 
   // --- ITEM VALIDATION ---
   "item.validator.person.not-unique.message": "La valeur d'un des champs unique suivant est déjà présente dans un autre profil: 'fgs', 'email', 'email officiel' ou 'orcid'",
+
+  "dropdown.clear": "Effacer la saisie"
 }
 

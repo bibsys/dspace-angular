@@ -871,9 +871,9 @@
 
   "admin.reports.commons.filters.bundle.has_non_generated_thumb": "Has non-generated thumbnail",
 
-  "admin.reports.commons.filters.bundle.no_license": "Doesn't have a license",
+  "admin.reports.commons.filters.bundle.no_license": "Doesn't have a licence",
 
-  "admin.reports.commons.filters.bundle.has_license_documentation": "Has documentation in the license bundle",
+  "admin.reports.commons.filters.bundle.has_license_documentation": "Has documentation in the licence bundle",
 
   "admin.reports.commons.filters.permission": "Permission Filters",
 
@@ -1281,7 +1281,7 @@
   "browse.byAffiliation.title": "Browse by Affiliation",
   "browse.byAffiliation.no-affiliation-found.message": "No affiliation found",
 
-  "browse.byOpenAccess.title": "OpenAccess publications",
+  "browse.byOpenAccess.title": "Open access publications",
 
   "browse.metadata.author.breadcrumbs": "Browse by Author",
 
@@ -1625,7 +1625,7 @@
 
   "collection.form.errors.title.required": "Please enter a collection name",
 
-  "collection.form.license": "License",
+  "collection.form.license": "Licence",
 
   "collection.form.provenance": "Provenance",
 
@@ -1663,7 +1663,7 @@
 
   "collection.page.handle": "Permanent URI for this collection",
 
-  "collection.page.license": "License",
+  "collection.page.license": "Licence",
 
   "collection.page.news": "News",
 
@@ -1901,7 +1901,7 @@
 
   "community.page.handle": "Permanent URI for this community",
 
-  "community.page.license": "License",
+  "community.page.license": "Licence",
 
   "community.page.news": "News",
 
@@ -1982,7 +1982,7 @@
 
   "context-menu.actions.edit-item-relationships.btn.projects": "Manage Projects",
 
-  "context-menu.actions.orcid-view": "ORCID configuration",
+  "context-menu.actions.orcid-view": "ORCID settings",
 
   "context-menu.actions.person-export": "Export bibliography",
 
@@ -2453,7 +2453,7 @@
 
   "error.validation.mustBeLinkToAuthority": "You need to choose an entry into the suggestion list",
 
-  "error.validation.cclicense.required": "You must grant this cclicense to complete your submission. If you are unable to grant the cclicense at this time, you may save your work and return later or remove the submission.",
+  "error.validation.cclicense.required": "You must grant this cc-licence to complete your submission. If you are unable to grant the cc-licence at this time, you may save your work and return later or remove the submission.",
 
   "error.validation.custom-url.conflict": "The custom url has been already used, please try with a new one.",
 
@@ -2461,7 +2461,7 @@
 
   "error.validation.custom-url.invalid-characters": "The custom url contains invalid characters.",
 
-  "error.validation.license.required": "You must grant this license to complete your submission. If you are unable to grant this license at this time you may save your work and return later or remove the submission.",
+  "error.validation.license.required": "You must grant this licence to complete your submission. If you are unable to grant this licence at this time you may save your work and return later or remove the submission.",
 
   "error.validation.pattern": "This input is restricted by the current pattern: {{ pattern }}.",
 
@@ -2696,6 +2696,22 @@
   "footer.copyright": "copyright © 2002-{{ year }}",
 
   "footer.extension-by": "- Extension maintained and optimized by",
+
+  "footer.link.osticket": "Ask a question",
+
+  "footer.link.support-guides": "Support guides",
+
+  "footer.link.faq": "FAQ",
+
+  "footer.menu.informations": "Information",
+
+  "footer.menu.help": "Help",
+
+  "footer.link.what-is-open-access": "What is Open access ?",
+
+  "footer.link.rights-and-obligations": "Rights & obligations regarding OA",
+
+  "footer.link.cc-licence": "About CC licences",
 
   "footer.link.4science": "4Science",
 
@@ -3679,9 +3695,9 @@
 
   "item.page.heading.metrics": "Metrics",
 
-  "item.page.heading.person.details": "Author information",
+  "item.page.heading.person.details": "Author details",
 
-  "item.page.heading.person.publications": "Publications by this author",
+  "item.page.heading.person.publications": "Author's publications",
 
   "item.page.title": "Title",
 
@@ -3693,7 +3709,7 @@
 
   "item.page.subject": "Keywords",
 
-  "item.page.affiliation": "Affiliation",
+  "item.page.affiliation": "Affiliations",
 
   "item.page.doi": "DOI",
 
@@ -3818,7 +3834,7 @@
 
   "item.page.filesection.original.bundle": "Original bundle",
 
-  "item.page.filesection.license.bundle": "License bundle",
+  "item.page.filesection.license.bundle": "Licence bundle",
 
   "item.page.return": "Back",
 
@@ -4718,7 +4734,7 @@
 
   "mydspace.new-submission-external-short": "Import metadata",
 
-  "mydspace.results.head": "Your submissions",
+  "mydspace.results.head": "My submissions",
 
   "mydspace.results.no-abstract": "No Abstract",
 
@@ -4746,7 +4762,7 @@
 
   "mydspace.show.workflow": "Workflow tasks",
 
-  "mydspace.show.workspace": "Your submissions",
+  "mydspace.show.workspace": "My submissions",
 
   "mydspace.show.supervisedWorkspace": "Supervised items",
 
@@ -4760,9 +4776,9 @@
 
   "mydspace.status.mydspaceWorkflow": "Awaiting validation",
 
-  "mydspace.status.mydspaceWorkspace": "Workspace",
+  "mydspace.status.mydspaceWorkspace": "Submission in process",
 
-  "mydspace.status.mydspaceWithdrawn": "Retired",
+  "mydspace.status.mydspaceWithdrawn": "Withdrawn",
 
   "mydspace.status.submitted": "Submitted",
 
@@ -4815,7 +4831,7 @@
 
   "nav.processes": "My processes",
 
-  "nav.profile": "My profile",
+  "nav.profile": "My author profile",
 
   "nav.myaccount": "My account",
 
@@ -6222,6 +6238,8 @@
 
   "sorting.dc.title.DESC": "Title Descending",
 
+  "sorting.dc.type.maintype.DESC": "Publication type Descending",
+
   "sorting.metric.view.ASC": "Views Ascending",
 
   "sorting.metric.view.DESC": "Views Descending",
@@ -7227,19 +7245,19 @@
 
   "submission.sections.describe.relationship-lookup.name-variant.notification.decline": "Use only for this submission",
 
-  "submission.sections.ccLicense.type": "License Type",
+  "submission.sections.ccLicense.type": "Licence Type",
 
-  "submission.sections.ccLicense.select": "Select a license type…",
+  "submission.sections.ccLicense.select": "Select a licence type…",
 
-  "submission.sections.ccLicense.change": "Change your license type…",
+  "submission.sections.ccLicense.change": "Change your licence type…",
 
-  "submission.sections.ccLicense.none": "No licenses available",
+  "submission.sections.ccLicense.none": "No licences available",
 
   "submission.sections.ccLicense.option.select": "Select an option…",
 
-  "submission.sections.ccLicense.link": "You’ve selected the following license:",
+  "submission.sections.ccLicense.link": "You’ve selected the following licence:",
 
-  "submission.sections.ccLicense.confirmation": "I grant the license above",
+  "submission.sections.ccLicense.confirmation": "I grant the licence above",
 
   "submission.sections.general.add-more": "Add more",
 
@@ -7291,7 +7309,7 @@
 
   "error.validation.accessconditions.required": "You must provide a value for the access condition",
 
-  "submission.sections.submit.progressbar.CClicense": "Creative commons license",
+  "submission.sections.submit.progressbar.CClicense": "Creative commons licence",
 
   "submission.sections.submit.progressbar.custom-url": "Custom url",
 
@@ -7314,6 +7332,8 @@
   "submission.sections.submit.progressbar.describe.patent_references": "Patent references",
 
   "submission.sections.submit.progressbar.describe.person": "Person basic information",
+
+  "submission.sections.submit.progressbar.describe.person-edit": "Person basic information",
 
   "submission.sections.submit.progressbar.describe.product": "Product basic information",
 
@@ -7377,9 +7397,9 @@
 
   "submit.progressbar.describe.publication_authors.shortcut": "Authors",
 
-  "submit.progressbar.describe.publication_base.shortcut": "Publication base",
+  "submit.progressbar.describe.publication_base.shortcut": "Basic metadata",
 
-  "submit.progressbar.describe.publication_specific.shortcut": "Publication specific",
+  "submit.progressbar.describe.publication_specific.shortcut": "Specific metadata",
 
   "submit.progressbar.describe.publication_funding.shortcut": "Funding",
 
@@ -7389,19 +7409,19 @@
 
   "submit.progressbar.describe.dissertation_advisors.shortcut": "Supervisors",
 
-  "submit.progressbar.describe.dissertation_base.shortcut": "Dissertation basic data",
+  "submit.progressbar.describe.dissertation_base.shortcut": "Basic metadata",
 
-  "submit.progressbar.describe.dissertation_specific.shortcut": "Dissertation specific data",
+  "submit.progressbar.describe.dissertation_specific.shortcut": "Specific metadata",
 
   "submit.progressbar.detect-duplicate.shortcut": "Duplicates",
 
-  "submit.progressbar.license.shortcut": "License",
+  "submit.progressbar.license.shortcut": "Licence",
 
   "submission.sections.submit.progressbar.duplicates": "Potential duplicates",
 
   "submission.sections.submit.progressbar.identifiers": "Identifiers",
 
-  "submission.sections.submit.progressbar.license": "Deposit license",
+  "submission.sections.submit.progressbar.license": "Deposit licence",
 
   "submission.sections.submit.progressbar.sherpapolicy": "Sherpa policies",
 
@@ -7449,7 +7469,7 @@
 
   "submission.sections.upload.accesstype.title": "Selected access type",
 
-  "submission.sections.upload.license.title": "Selected CC license",
+  "submission.sections.upload.license.title": "Selected CC licence",
 
   "submission.sections.upload.format": "Bitstream format",
 
@@ -7487,9 +7507,9 @@
 
   "submission.sections.upload.form.date-required-until": "Grant access until date is required.",
 
-  "submission.sections.upload.form.from-label": "Grant access from",
+  "submission.sections.upload.form.from-label": "Select the embargo end date (if applicable)",
 
-  "submission.sections.upload.form.from-hint": "Select the date from which the related access condition is applied",
+  "submission.sections.upload.form.from-hint": "Select the embargo end date.<br/> When embargo ends, your file will be available on open access",
 
   "submission.sections.upload.form.from-placeholder": "From",
 
@@ -7575,11 +7595,11 @@
 
   "access.condition.value.restricted": "Restricted Access",
 
-  "submission.sections.license.granted-label": "I confirm the license above",
+  "submission.sections.license.granted-label": "I confirm the licence above",
 
-  "submission.sections.license.required": "You must accept the license",
+  "submission.sections.license.required": "You must accept the licence",
 
-  "submission.sections.license.notgranted": "You must accept the license",
+  "submission.sections.license.notgranted": "You must accept the licene",
 
   "submission.sections.sherpa.publication.information": "Publication information",
 
@@ -7611,7 +7631,7 @@
 
   "submission.sections.sherpa.publisher.policy.nolocation": "None",
 
-  "submission.sections.sherpa.publisher.policy.license": "License",
+  "submission.sections.sherpa.publisher.policy.license": "Licence",
 
   "submission.sections.sherpa.publisher.policy.prerequisites": "Prerequisites",
 
@@ -7935,7 +7955,7 @@
 
   "supervisedWorkspace.search.results.head": "Supervised Items",
 
-  "workspace.search.results.head": "Your submissions",
+  "workspace.search.results.head": "My submissions",
 
   "workflowAdmin.search.results.head": "Administer Workflow",
 
@@ -8121,9 +8141,9 @@
 
   "person.page.orcid.publications-preferences": "Publication preferences",
 
-  "person.page.orcid.push.label": "ORCID Push",
+  "person.page.orcid.push.label": "Send to ORCID",
 
-  "person.page.orcid.pull.label": "ORCID Pull",
+  "person.page.orcid.pull.label": "Import from ORCID",
 
   "person.page.orcid.pull.publication.title": "Import publications from ORCID",
 
@@ -8321,7 +8341,7 @@
 
   "person.page.orcid.scope.person-update": "Add/update other information about you",
 
-  "person.page.orcid.title": "ORCID configuration",
+  "person.page.orcid.title": "ORCID settings",
 
   "person.page.orcid.unlink.success": "The disconnection between the profile and the ORCID registry was successful",
 
@@ -8333,7 +8353,7 @@
 
   "person.orcid.registry.auth": "ORCID Authorizations",
 
-  "person.orcid.page.title": "ORCID Configuration",
+  "person.orcid.page.title": "ORCID Settings",
 
   "person.orcid-tooltip.authenticated": "{{orcid}}",
 
@@ -9159,9 +9179,9 @@
 
   "search.filters.filter.notifyEndorsement.label": "Search Notify Endorsement",
 
-  "item.page.cc.license.title": "Creative Commons license",
+  "item.page.cc.license.title": "Creative Commons licence",
 
-  "item.page.cc.license.disclaimer": "Except where otherwised noted, this item's license is described as",
+  "item.page.cc.license.disclaimer": "Except where otherwised noted, this item's licence is described as",
 
   "browse.search-form.placeholder": "Search the repository",
 
@@ -9579,7 +9599,7 @@
   "search.filters.itempublicationtype.text::thesis": "Dissertation",
 
   // -- Facet accesstype --
-  "search.filters.accessType.openaccess": "openaccess",
+  "search.filters.accessType.openaccess": "open access",
   "search.filters.accessType.restricted": "restricted",
   "search.filters.accessType.administrator": "closed",
   "search.filters.accessType.embargo": "embargo",
@@ -9602,13 +9622,13 @@
   "item.entity-type.unknown": "Unknown Type",
 
   // ETAL ToolTip
-  "search.result.publication.authors.etal.tooltip": "This publication contains additional authors to those displayed here. See full item details for a complete list.",
+  "search.result.publication.authors.etal.tooltip": "This publication contains additional authors to those displayed here. See full publication details for a complete list.",
 
   // -- EMPTY TITLE PLACEHOLDER
-  "publication.list.element.title.placeholder": "Unkown title",
+  "publication.list.element.title.placeholder": "Unnkown title",
 
   // ----- FILE SECTION -------
-  "file.section.no-file.message": "No bitstream found for this item.",
+  "file.section.no-file.message": "No attached file found for this publication.",
 
   // ----- ITEM PAGE DETAILS BLOCKS -------
 
@@ -9622,8 +9642,8 @@
   "item.page.details.label.created-date": "Creation date",
   "item.page.details.label.date-issued": "Year",
   "item.page.details.label.deposit-date": "Deposit date",
-  "item.page.details.label.document-type": "Document type",
-  "item.page.details.label.dissertation.defense-date": "Defense date",
+  "item.page.details.label.document-type": "Publication type",
+  "item.page.details.label.dissertation.defense-date": "Defence date",
   "item.page.details.label.dissertation.degree-name": "Degree",
   "item.page.details.label.dissertation.faculty": "Faculty",
   "item.page.details.label.edition-statement": "Edition statement",
@@ -9641,14 +9661,14 @@
   "item.page.details.label.host-journal.eissn": "eISSN",
   "item.page.details.label.identifier-handle": "Handle",
   "item.page.details.label.identifier-ipc": "IPC identifier",
-  "item.page.details.label.identifier-ecla": "ECLA identifiant",
+  "item.page.details.label.identifier-ecla": "ECLA identifier",
   "item.page.details.label.identifier-patentID": "Patent identifier",
   "item.page.details.label.identifier-priorityNumber": "Priority number",
   "item.page.details.label.identifier-scopus": "Scopus ID",
   "item.page.details.label.identifier-wos": "WebOfScience ID",
   "item.page.details.label.isbn": "ISBN",
   "item.page.details.label.last-modified": "Last modified",
-  "item.page.details.label.subjects": "Subjects",
+  "item.page.details.label.subjects": "Keywords",
   "item.page.details.label.subjects-mesh": "MeSH",
   "item.page.details.label.submitter": "Submitter",
   "item.page.details.label.language": "Language",
@@ -9668,6 +9688,32 @@
   "item.page.details.values.type.text::report": "Report",
   "item.page.details.values.type.text::patent": "Patent",
   "item.page.details.values.type.text::thesis": "Dissertation",
+
+  "item.page.details.values.subtype.conference-proceedings": "Conference proceedings",
+  "item.page.details.values.subtype.dictionary/encyclopaedia": "Dictionary/Encyclopaedia",
+  "item.page.details.values.subtype.book": "Book",
+  "item.page.details.values.subtype.handbook/textbook": "Handbook/Textbook",
+  "item.page.details.values.subtype.mixed-content": "Mixed content",
+  "item.page.details.values.subtype.other": "Other",
+  "item.page.details.values.subtype.book-chapter": "Book chapter",
+  "item.page.details.values.subtype.preface/postface/foreword": "Preface/Postface/Foreword",
+  "item.page.details.values.subtype.none": "None",
+  "item.page.details.values.subtype.keynote": "Keynote",
+  "item.page.details.values.subtype.with-selection-speech": "Conference speech with selection board",
+  "item.page.details.values.subtype.without-selection-speech": "Conference speech without selection board",
+  "item.page.details.values.subtype.conference-poster": "Conference poster",
+  "item.page.details.values.subtype.research-article": "Research article",
+  "item.page.details.values.subtype.popularising-article": "Popularising article",
+  "item.page.details.values.subtype.report": "Report",
+  "item.page.details.values.subtype.editorial": "Editorial",
+  "item.page.details.values.subtype.clinical-study": "Clinical study",
+  "item.page.details.values.subtype.letter-to-the-editor": "Letter to the editor",
+  "item.page.details.values.subtype.law-case-note": "Law case note",
+  "item.page.details.values.subtype.full-issue": "Full issue",
+  "item.page.details.values.subtype.literature-review": "Literature review",
+  "item.page.details.values.subtype.feature-article": "Feature article",
+  "item.page.details.values.subtype.internal": "Internal",
+  "item.page.details.values.subtype.external": "External",
 
   "item.page.details.values.publication-status.published": "Published",
   "item.page.details.values.publication-status.submitted": "Submitted",
@@ -9763,7 +9809,7 @@
   "fnrs.rule.notPublished": "Publication status isn't \"Published\" or \"Accepted\"",
 
   // --- BIBLIOGRAPHY EXPORT ---
-  "export.modal.form.style.label": "Bibliography style",
+  "export.modal.form.style.label": "Bibliography template",
   "export.modal.form.style.hint": "Select the output style for your bibliography",
   "export.modal.form.startYear.label": "Start year",
   "export.modal.form.startYear.hint": "Limit result from start year (included). Leave empty for no-limit",
