@@ -17,6 +17,11 @@ import { APP_CONFIG, AppConfig } from '../../../../config/app-config.interface';
 import { isNotEmpty } from '../../../../app/shared/empty.util';
 import { environment } from '../../../../environments/environment';
 
+interface LinkEntry {
+  default: string;
+  [lang: string]: string; // Allows any language code as a key
+}
+
 @Component({
   selector: 'ds-themed-footer',
   templateUrl: 'footer.component.html',
@@ -39,6 +44,25 @@ export class FooterComponent extends BaseComponent {
     url?: string
   } = { enabled: false };
 
+  private customLinks: Record<string, LinkEntry> = {
+    "open-access": {
+      "default": "https://www.uclouvain.be/fr/bibliotheques/open-access",
+      "en": "https://www.uclouvain.be/en/university-libraries/open-access"
+    },
+    "rights-and-obligations": {
+      "default": "https://www.uclouvain.be/fr/bibliotheques/droits-et-obligations",
+      "en": "https://www.uclouvain.be/en/university-libraries/rights-and-requirements"
+    },
+    "cc-licence": {
+      "default": "https://oer.uclouvain.be/jspui/bitstream/20.500.12279/889.2/8/Flyer_Creative%20Commons%20_cl%c3%a9s%20en%20main_v2.pdf"
+    },
+    "support-guides": {
+      "default": "https://www.uclouvain.be/fr/bibliotheques/dial.pr",
+      "en": "https://www.uclouvain.be/en/university-libraries/dial.pr"
+    }
+  }
+
+
   constructor(
     @Optional() public cookies: KlaroService,
     protected authorizationService: AuthorizationDataService,
@@ -56,6 +80,15 @@ export class FooterComponent extends BaseComponent {
     super.ngOnInit();
     this.initRemoteAccess();
     this.initAppVersions();
+  }
+
+  public getCustomLink(key: string): string {
+    const entry = this.customLinks[key];
+    if (!entry) {
+      return '';
+    }
+    const currentLang = this.locale.getCurrentLanguageCode();
+    return entry[currentLang] || entry.default;
   }
 
   /**

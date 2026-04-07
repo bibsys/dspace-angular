@@ -1412,7 +1412,7 @@
   "browse.byAffiliation.title": "Parcourir par Affiliation",
   "browse.byAffiliation.no-affiliation-found.message": "Aucune affiliation trouvée.",
 
-  "browse.byOpenAccess.title": "Publications en OpenAccess",
+  "browse.byOpenAccess.title": "Publications en Open Access",
 
   // "browse.metadata.author.breadcrumbs": "Browse by Author",
   "browse.metadata.author.breadcrumbs": "Parcourir par Auteur",
@@ -2493,6 +2493,7 @@
 
   // "error.validation.license.notgranted": "You must grant this license to complete your submission. If you are unable to grant this license at this time you may save your work and return later or remove the submission.",
   "error.validation.license.notgranted": "Vous devez accepter cette licence pour terminer votre dépôt. Si vous êtes dans l'incapacité d'accepter cette licence actuellement, vous pouvez sauvegarder votre dépôt et y revenir ultérieurement ou le supprimer.",
+  "error.validation.license.required": "Vous devez accepter cette licence pour terminer votre dépôt. Si vous êtes dans l'incapacité d'accepter cette licence actuellement, vous pouvez sauvegarder votre dépôt et y revenir ultérieurement ou le supprimer.",
 
   // "error.validation.pattern": "This input is restricted by the current pattern: {{ pattern }}.",
   "error.validation.pattern": "Cette entrée est invalide en vertu du modèle actuel : {{ pattern }}.",
@@ -2662,7 +2663,7 @@
 
   // "explore.index.entityType": "Entity type",
   // TODO New key - Add a translation
-  "explore.index.entityType": "Entity type",
+  "explore.index.entityType": "Type de données",
 
   // "explore.index.familyName": "Family name",
   "explore.index.familyName": "Nom de famille",
@@ -2920,7 +2921,7 @@
   "footer.link.lyrasis": "LYRASIS",
 
   // "footer.link.cookies": "Cookie settings",
-  "footer.link.cookies": "Paramètres des témoins de connexion",
+  "footer.link.cookies": "Paramètres des cookies",
 
   // "footer.link.privacy-policy": "Privacy policy",
   "footer.link.privacy-policy": "Politique de protection de la vie privée",
@@ -2930,6 +2931,22 @@
 
   // "footer.link.copyright-policy": "Copyright policy",
   "footer.link.copyright-policy": "Licence d’utilisation",
+
+  "footer.link.osticket": "Poser une question",
+
+  "footer.link.support-guides": "Guides utilisateur",
+
+  "footer.link.faq": "FAQ",
+
+  "footer.menu.informations": "Informations",
+
+  "footer.menu.help": "Aide",
+
+  "footer.link.what-is-open-access": "Qu'est ce que l'open access ?",
+
+  "footer.link.rights-and-obligations": "Droits et obligations en matière OA",
+
+  "footer.link.cc-licence": "Licences CC ?",
 
   // "footer.link.feedback":"Send Feedback",
   "footer.link.feedback": "Envoyer un commentaire",
@@ -3027,8 +3044,18 @@
   // "form.clear": "Clear",
   "form.clear": "Effacer",
 
+  "form.group.add": "Ajouter",
+
+  "form.group.close": "Fermer",
+
+  "form.group.set": "Mettre à jour",
+
   // "form.clear-help": "Click here to remove the selected value",
   "form.clear-help": "Cliquer ici pour supprimer la valeur sélectionnée",
+
+  "form.date-picker.placeholder.year": "Année",
+  "form.date-picker.placeholder.month": "Mois",
+  "form.date-picker.placeholder.day": "Jour",
 
   // "form.discard": "Discard",
   "form.discard": "Rejeter",
@@ -3190,6 +3217,7 @@
 
   // "info.end-user-agreement.accept.success": "Successfully updated the End User Agreement",
   "info.end-user-agreement.accept.success": "Licence de l'utilisateur final mise à jour avec succès",
+  "info.end-user-agreement.accept.warning": "Avant de pouvoir continuer, vous devez accepter la licence de l'utilisateur",
 
   // "info.end-user-agreement.breadcrumbs": "End User Agreement",
   "info.end-user-agreement.breadcrumbs": "Licence de l'utilisateur final",
@@ -3866,7 +3894,7 @@
   "item.edit.tabs.status.head": "Statut",
 
   // "item.edit.tabs.status.labels.handle": "Handle",
-  "item.edit.tabs.status.labels.handle": "Handle",
+  "item.edit.tabs.status.labels.handle": "Permalien",
 
   // "item.edit.tabs.status.labels.id": "Item Internal ID",
   "item.edit.tabs.status.labels.id": "Identifiant interne de l'Item",
@@ -3999,7 +4027,7 @@
   "item.page.heading.metrics": "Métriques",
 
   //   "item.page.heading.person.details": "Author information",
-  "item.page.heading.person.details": "Information sur l'auteur",
+  "item.page.heading.person.details": "Informations sur l'auteur",
 
   // "item.page.heading.person.publications": "Publications by this author",
   "item.page.heading.person.publications": "Publications de cet auteur",
@@ -4014,7 +4042,7 @@
   "item.page.date-issued": "Date de publication",
 
   // "item.page.language": "Language",
-  "item.page.language": "Language",
+  "item.page.language": "Langue",
 
   // "item.page.subject": "Keywords",
   "item.page.subject": "Mots-clés",
@@ -4047,7 +4075,7 @@
   "item.page.date": "Date",
 
   // "item.page.edit": "Edit this item",
-  "item.page.edit": "Éditer cet Item",
+  "item.page.edit": "Éditer cette publication",
 
   // "item.page.files": "Files",
   "item.page.files": "Fichiers",
@@ -4057,7 +4085,6 @@
 
   // "item.page.filesection.download": "Download",
   "item.page.filesection.download": "Télécharger",
-
   "item.page.filesection.request-a-copy": "Demander un accès",
   "item.page.filesection.no-access": "Aucun accès",
 
@@ -4604,7 +4631,7 @@
   "menu.section.access_control_people": "Utilisateurs",
 
   // "menu.section.mydspace_shortcut": "My Dashboard",
-  "menu.section.mydspace_shortcut": "Mon Dashboard",
+  "menu.section.mydspace_shortcut": "Mes dépôts",
 
   // "menu.section.manage_journal": "Manage journals",
   "menu.section.manage_journal": "Gestions des revues",
@@ -4842,7 +4869,7 @@
   "menu.section.workflow": "Workflow Administrateur",
 
   // "mydspace.breadcrumbs": "MyDSpace",
-  "mydspace.breadcrumbs": "Mon compte DIAL.pr",
+  "mydspace.breadcrumbs": "Mes dépôts",
 
   // "mydspace.description": "",
   "mydspace.description": "",
@@ -4896,7 +4923,7 @@
   "mydspace.new-submission-external-short": "Importer métadonnées",
 
   // "mydspace.results.head": "Your submissions",
-  "mydspace.results.head": "Vos dépôts",
+  "mydspace.results.head": "Mes dépôts",
 
   // "mydspace.results.no-abstract": "No Abstract",
   "mydspace.results.no-abstract": "Aucun résumé",
@@ -4929,7 +4956,7 @@
   "mydspace.show.workflow": "Tableau de suivi",
 
   // "mydspace.show.workspace": "Your Submissions",
-  "mydspace.show.workspace": "Vos dépôts",
+  "mydspace.show.workspace": "Mes dépôts",
 
   //"mydspace.show.supervisedWorkspace": "Supervised items",
   "mydspace.show.supervisedWorkspace": "Items supervisés",
@@ -4947,13 +4974,13 @@
   "mydspace.status.mydspaceWorkflow": "En attente de validation",
 
   // "mydspace.status.mydspaceWorkspace": "Workspace",
-  "mydspace.status.mydspaceWorkspace": "Dépôts en cours",
+  "mydspace.status.mydspaceWorkspace": "Dépôt en cours",
 
   // "mydspace.status.mydspaceWithdrawn": "Retired",
   "mydspace.status.mydspaceWithdrawn": "Retiré",
 
   // "mydspace.status.submitted": "Submitted",
-  "mydspace.status.submitted": "Soumit",
+  "mydspace.status.submitted": "Soumis",
 
   "mydspace.submitter": "Déposant",
 
@@ -5000,7 +5027,7 @@
   "nav.processes": "Mes processus",
 
   // "nav.profile": "Profile",
-  "nav.profile": "Mon profil",
+  "nav.profile": "Mon dashboard",
 
   // "nav.myaccount": "My account",
   "nav.myaccount": "Mon compte",
@@ -5246,10 +5273,10 @@
   "process.overview.table.user": "Utilisateur",
 
   // "process.overview.title": "Processes Overview",
-  "process.overview.title": "Sommaire des processus",
+  "process.overview.title": "Liste des processus",
 
   // "process.overview.breadcrumbs": "Processes Overview",
-  "process.overview.breadcrumbs": "Sommaire des processus",
+  "process.overview.breadcrumbs": "Liste des processus",
 
   // "process.overview.new": "New",
   "process.overview.new": "Nouveau",
@@ -5776,7 +5803,7 @@
   "search.breadcrumbs": "Recherche",
 
   // "search.search-form.placeholder": "Search the repository ...",
-  "search.search-form.placeholder": "Rechercher dans le dépôt...",
+  "search.search-form.placeholder": "Rechercher ...",
 
   // "search.filters.applied.f.author": "Author",
   "search.filters.applied.f.author": "Auteur",
@@ -5833,6 +5860,10 @@
 
   // "search.filters.applied.f.withdrawn": "Withdrawn",
   "search.filters.applied.f.withdrawn": "Retiré",
+
+  "search.filters.applied.f.accessType": "Type d'accès",
+  "search.filters.applied.f.itempublicationtype": "Type de publication",
+  "search.filters.applied.f.language": "Langue",
 
   // "search.filters.filter.author.head": "Author",
   "search.filters.filter.author.head": "Auteur",
@@ -5971,11 +6002,11 @@
 
   // "search.filters.filter.language.head": "Language",
   // TODO New key - Add a translation
-  "search.filters.filter.language.head": "Language",
+  "search.filters.filter.language.head": "Langue",
 
   // "search.filters.filter.language.label": "Language",
   // TODO New key - Add a translation
-  "search.filters.filter.language.label": "Language",
+  "search.filters.filter.language.label": "Langue",
 
   // "search.filters.filter.language.placeholder": "Language",
   // TODO New key - Add a translation
@@ -6025,6 +6056,11 @@
 
   // "search.filters.filter.organizationAddressCountry.head": "Country",
   "search.filters.filter.organizationAddressCountry.head": "Pays",
+
+  "search.filters.filter.organization.head": "Unité de recherche",
+  "search.filters.filter.organization.label": "Recherche ...",
+  "search.filters.filter.funding.head": "Financement",
+  "search.filters.filter.funding.label": "Recherche ...",
 
   // "search.filters.filter.organizationAddressCountry.placeholder": "Country",
   "search.filters.filter.organizationAddressCountry.placeholder": "Pays",
@@ -6302,6 +6338,20 @@
   // "sorting.dc.date.accessioned.DESC": "Accessioned Date Descending",
   "sorting.dc.date.accessioned.DESC": "Date de dépôt (décroissante)",
 
+  "sorting.dc.type.maintype.DESC": "Type de publication (décroissante)",
+
+  "sorting.metric.view.ASC": "Nombre de vues (croissante)",
+
+  "sorting.metric.view.DESC": "Nombre de vues (décroissante)",
+
+  "sorting.metric.download.ASC": "Nombre de téléchargements (croissante)",
+
+  "sorting.metric.download.DESC": "Nombre de téléchargements (décroissante)",
+
+  "sorting.metric.scopus.citation.ASC": "Nombre de citations (croissante)",
+
+  "sorting.metric.scopus.citation.DESC": "Nombre de citations (décroissante)",
+
   // "sorting.lastModified.ASC": "Last modified Ascending",
   "sorting.lastModified.ASC": "Dernière modification (croissante)",
 
@@ -6338,8 +6388,61 @@
   // "statistics.table.title.TopCities": "Top city views",
   "statistics.table.title.TopCities": "Vues par villes",
 
+  "statistics.page.back": "Retour",
+
   // "statistics.table.header.views": "Views",
   "statistics.table.header.views": "Vues",
+
+  "statistics-page.export-map-as-image": "Télécharger la carte",
+
+  "statistics.categories.title": "Statistique par catégorie",
+
+  "statistics.categories.startDate": "Date de début",
+  "statistics.categories.EndDate": "Date de fin",
+
+  "statistics.categories.mainReports.tab": "Vues",
+  "statistics.categories.projectsReports.tab": "Projets",
+  "statistics.categories.rpprojectsReports.tab": "Researchers projects reports",
+  "statistics.categories.publicationsReports.tab": "Publications",
+  "statistics.categories.rppublicationsReports.tab": "Researchers publication reports",
+  "statistics.categories.downloadReports.tab": "Téléchargements",
+  "statistics.categories.itemReports.tab": "Item views reports",
+
+  "statistics.table.mainReports.header.community": "Communauté",
+  "statistics.table.mainReports.header.collection": "Collection",
+  "statistics.table.mainReports.header.item": "Document",
+  "statistics.table.mainReports.header.view": "Vues",
+  "statistics.table.mainReports.title.TotalVisits": "Nombre de visites",
+  "statistics.table.mainReports.title.TopItems": "Les plus consultés",
+  "statistics.table.mainReports.title.TotalVisitsPerMonth": "Nombre de visites par mois",
+  "statistics.table.mainReports.title.TotalDownloads": "Nombre de téléchargements",
+  "statistics.table.mainReports.title.TotalVisitsAndDownloads": "Nombre de vues et téléchargement",
+  "statistics.table.mainReports.title.TopCountries": "Top visites par pays",
+  "statistics.table.mainReports.title.TopContinents": "Top visites par région",
+  "statistics.table.mainReports.title.TopCategories": "Catégories",
+  "statistics.table.mainReports.title.TopCities": "Top visites par ville",
+
+  "statistics.table.publicationReports.title.TotalVisits": "Nombre de visites",
+  "statistics.table.publicationReports.title.TotalVisitsPerMonth": "Nombre de visites par mois",
+  "statistics.table.publicationReports.title.TopCities": "Top visites par ville",
+
+  "statistics.table.itemReports.title.TopContinents": "Top des visites par région",
+  "statistics.table.itemReports.title.TopCities": "Top des visites par ville",
+  "statistics.table.itemReports.title.TopItems": "Les plus consultées",
+  "statistics.table.itemReports.title.TopCategories": "Top categories",
+  "statistics.table.itemReports.title.TotalVisitsPerMonth": "Les plus consultées par mois",
+  "statistics.table.itemReports.header.continent": "Continent",
+  "statistics.table.itemReports.header.views": "visites",
+  "statistics.table.itemReports.header.city": "Ville",
+  "statistics.table.itemReports.header.item": "Document",
+
+  "statistics.table.publicationsReports.header.item": "Document",
+  "statistics.table.publicationsReports.header.views": "visites",
+  "statistics.table.publicationsReports.header.city": "Ville",
+  "statistics.table.projectsReports.header.item": "Document",
+
+  "statistics.reports.title": "Rapports",
+
 
   // "submission.edit.breadcrumbs": "Edit Submission",
   "submission.edit.breadcrumbs": "Éditer la soumission",
@@ -6373,17 +6476,21 @@
   // "submission.general.discard.submit": "Discard",
   "submission.general.discard.submit": "Annuler",
 
+  "submission.general.info.invalid": "Le formulaire contient des erreurs !",
+
   // "submission.general.info.saved": "Saved",
   "submission.general.info.saved": "Sauvegardées",
 
   // "submission.general.info.pending-changes": "Unsaved changes",
   "submission.general.info.pending-changes": "Modifications non sauvegardées",
 
+
   // "submission.general.save": "Save",
   "submission.general.save": "Sauvegarder",
 
   // "submission.general.save-later": "Save for later",
   "submission.general.save-later": "Sauvegarder pour plus tard",
+  "submission.general.save-later.edit-item": "Sauvegarder pour plus tard",
 
   // "submission.import-external.page.title": "Import metadata from an external source",
   "submission.import-external.page.title": "Importer les métadonnées depuis une source externe",
@@ -6618,6 +6725,7 @@
   // "submission.sections.detect-duplicate.duplicate": "It's a duplicate",
   // TODO New key - Add a translation
   "submission.sections.detect-duplicate.duplicate": "C'est un doublon",
+  "submission.sections.detect-duplicate.duplicate.validate": "Confirmer",
 
   // "submission.sections.detect-duplicate.duplicate-ctrl": "Mark the record to merge",
   // TODO New key - Add a translation
@@ -7057,8 +7165,12 @@
   // "submission.sections.ccLicense.confirmation": "I grant the license above",
   "submission.sections.ccLicense.confirmation": "J'accorde  la licence ci-dessus",
 
+  "submission.sections.external-source.duplicate-matches.header": " potentiel(s) doublon(s) trouvé(s)",
+
   // "submission.sections.general.add-more": "Add more",
   "submission.sections.general.add-more": "Ajouter",
+
+  "submission.sections.general.cannot_deposit": "Veuillez remplir tous les champs obligatoires pour finaliser le dépôt.",
 
   // "submission.sections.general.collection": "Collection",
   "submission.sections.general.collection": "Collection",
@@ -7121,7 +7233,7 @@
   "submission.sections.submit.progressbar.describe.publication_type": "Type de publication",
 
   // "submission.sections.submit.progressbar.describe.publication_identifiers": "Publication identifiers",
-  "submission.sections.submit.progressbar.describe.publication_identifiers": "Identifiant de la publication",
+  "submission.sections.submit.progressbar.describe.publication_identifiers": "Identifiants de la publication",
 
   // "submission.sections.submit.progressbar.describe.publication_authors": "Publication authors",
   "submission.sections.submit.progressbar.describe.publication_authors": "Auteurs de la publication",
@@ -7141,7 +7253,7 @@
 
   "submission.sections.submit.progressbar.describe.dissertation_advisors": "Promoteurs",
 
-  "submission.sections.submit.progressbar.describe.dissertation_base": "Donnée de base de la thèse",
+  "submission.sections.submit.progressbar.describe.dissertation_base": "Données de base de la thèse",
 
   "submission.sections.submit.progressbar.describe.dissertation_specific": "Données spécifiques de la thèse",
 
@@ -7187,7 +7299,7 @@
   "submit.progressbar.detect-duplicate.shortcut": "Doublons",
 
   // "submit.progressbar.license.shortcut": "License",
-  "submit.progressbar.license.shortcut": "License",
+  "submit.progressbar.license.shortcut": "Licence",
 
   // "submission.sections.submit.progressbar.identifiers": "Identifiers",
   // TODO New key - Add a translation
@@ -7197,7 +7309,7 @@
   "submission.sections.submit.progressbar.license": "Licence du dépôt",
 
   // "submission.sections.submit.progressbar.upload": "Upload files",
-  "submission.sections.submit.progressbar.upload": "Télécharger des fichiers",
+  "submission.sections.submit.progressbar.upload": "Télécharger un ou plusieurs fichiers",
 
   // "submission.sections.status.errors.title": "Errors",
   "submission.sections.status.errors.title": "Erreurs",
@@ -7263,7 +7375,7 @@
   "submission.sections.upload.delete.confirm.submit": "Oui, je suis certain(e)",
 
   // "submission.sections.upload.delete.confirm.title": "Delete bitstream",
-  "submission.sections.upload.delete.confirm.title": "Supprimer le Bitstream",
+  "submission.sections.upload.delete.confirm.title": "Supprimer le fichier",
 
   // "submission.sections.upload.delete.submit": "Delete",
   "submission.sections.upload.delete.submit": "Supprimer",
@@ -7272,16 +7384,16 @@
   "submission.sections.upload.download.title": "Télécharger un Bitstream",
 
   // "submission.sections.upload.drop-message": "Drop files to attach them to the item",
-  "submission.sections.upload.drop-message": "Déposer des fichiers pour les lier à l'Item",
+  "submission.sections.upload.drop-message": "Glisser-Déposer des fichiers",
 
   // "submission.sections.upload.edit.title": "Edit bitstream",
   "submission.sections.upload.edit.title": "Éditer le fichier",
 
   // "submission.sections.upload.form.access-condition-label": "Access condition type",
-  "submission.sections.upload.form.access-condition-label": "Type d'autorisations d'accès",
+  "submission.sections.upload.form.access-condition-label": "Type d'accès",
 
   // "submission.sections.upload.form.access-condition-hint": "Select an access condition to apply on the bitstream once the item is deposited",
-  "submission.sections.upload.form.access-condition-hint": "Sélectionner une autorisation d'accès à appliquer sur le Bitstream une fois l'Item déposé",
+  "submission.sections.upload.form.access-condition-hint": "Sélectionnez le type d'accès à appliquer au fichier",
 
   // "submission.sections.upload.form.date-required": "Date is required.",
   "submission.sections.upload.form.date-required": "La date est obligatoire.",
@@ -7293,10 +7405,10 @@
   "submission.sections.upload.form.date-required-until": "L'autorisation d'accès jusqu'à une date est obligatoire",
 
   // "submission.sections.upload.form.from-label": "Grant access from",
-  "submission.sections.upload.form.from-label": "Accorder l'accès depuis",
+  "submission.sections.upload.form.from-label": "Date de fin d'embargo (si applicable).",
 
   // "submission.sections.upload.form.from-hint": "Select the date from which the related access condition is applied",
-  "submission.sections.upload.form.from-hint": "Sélectionner la date à partir de laquelle l'autorisation d'accès liée est appliquée.",
+  "submission.sections.upload.form.from-hint": "Sélectionner la date de fin d'embargo.<br/>Après cette date, votre fichier sera disponible en accès ouvert",
 
   // "submission.sections.upload.form.from-placeholder": "From",
   "submission.sections.upload.form.from-placeholder": "Depuis",
@@ -7324,6 +7436,7 @@
 
   // "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
   "submission.sections.upload.info": "<b>Par défaut, tout fichier chargé est en <u>Open Access</u>.</b> Pour restreindre l'accès (embargo, restreint ou interdit), cliquez sur le bouton « Modifier » associé au fichier.",
+  "submission.sections.upload.access-type": "Comprendre les différents niveaux d'accès : <a href=\"https://uclouvain.sharepoint.com/sites/MySCEB/DIALPR/Forms/AllItems.aspx?id=%2Fsites%2FMySCEB%2FDIALPR%2FSupports%20DIAL%20%28formation%20%2D%20tutoriels%20%2D%20plaquettes%29%20%C3%A0%20partager%2FGuides%20et%20tutoriels%20partag%C3%A9s%20%C3%A0%20tous%20utilisateurs%2FTypes%20d%27acc%C3%A8s%20DIAL%2Epr%20EN%20et%20FR%2Ejpg&parent=%2Fsites%2FMySCEB%2FDIALPR%2FSupports%20DIAL%20%28formation%20%2D%20tutoriels%20%2D%20plaquettes%29%20%C3%A0%20partager%2FGuides%20et%20tutoriels%20partag%C3%A9s%20%C3%A0%20tous%20utilisateurs&p=true&ga=1\" target=\"external\">cliquer ici</a>",
 
   // "submission.sections.upload.no-entry": "No",
   "submission.sections.upload.no-entry": "Non",
@@ -7353,7 +7466,7 @@
   "submission.sections.accesses.form.access-condition-label": "Type d'autorisations d'accès",
 
   // "submission.sections.accesses.form.access-condition-hint": "Select an access condition to apply on the item once it is deposited",
-  "submission.sections.accesses.form.access-condition-hint": "Sélectionner une autorisation d'accès à appliquer une fois l'Item déposé.",
+  "submission.sections.accesses.form.access-condition-hint": "Sélectionner le type d'accès à appliqué au fichier attaché.",
 
   // "submission.sections.accesses.form.date-required": "Date is required.",
   "submission.sections.accesses.form.date-required": "La date est obligatoire",
@@ -7537,7 +7650,7 @@
   "submission.workflow.tasks.claimed.reject.reason.submit": "Rejeter l'Item",
 
   // "submission.workflow.tasks.claimed.reject.reason.title": "Reason",
-  "submission.workflow.tasks.claimed.reject.reason.title": "Raison",
+  "submission.workflow.tasks.claimed.reject.reason.title": "Confirmation",
 
   // "submission.workflow.tasks.claimed.reject.submit": "Reject",
   "submission.workflow.tasks.claimed.reject.submit": "Rejeter",
@@ -7743,7 +7856,7 @@
   "supervisedWorkspace.search.results.head": "Documents supervisés",
 
   //"workspace.search.results.head": "Your submissions",
-  "workspace.search.results.head": "Vos dépôts",
+  "workspace.search.results.head": "Mes dépôts",
 
   // "workflowAdmin.search.results.head": "Administer Workflow",
   "workflowAdmin.search.results.head": "Workflow Administrateur",
@@ -7758,10 +7871,10 @@
   "journals.search.results.head": "Journaux",
 
   // "workflow-item.edit.breadcrumbs": "Edit workflowitem",
-  "workflow-item.edit.breadcrumbs": "Éditer l'Item du Workflow",
+  "workflow-item.edit.breadcrumbs": "Éditer",
 
   // "workflow-item.edit.title": "Edit workflowitem",
-  "workflow-item.edit.title": "Éditer l'Item du Workflow",
+  "workflow-item.edit.title": "Éditer",
 
   // "workflow-item.delete.notification.success.title": "Deleted",
   "workflow-item.delete.notification.success.title": "Supprimé",
@@ -7776,10 +7889,10 @@
   "workflow-item.delete.notification.error.content": "L'Item du Workflow n'a pas pu être supprimé",
 
   // "workflow-item.delete.title": "Delete workflow item",
-  "workflow-item.delete.title": "Supprimer l'Item du Workflow",
+  "workflow-item.delete.title": "Supprimer",
 
   // "workflow-item.delete.header": "Delete workflow item",
-  "workflow-item.delete.header": "Supprimer l'Item du Workflow",
+  "workflow-item.delete.header": "Supprimer",
 
   // "workflow-item.delete.button.cancel": "Cancel",
   "workflow-item.delete.button.cancel": "Annuler",
@@ -7893,7 +8006,7 @@
   "person.page.orcid.create": "Créer un identifiant ORCID",
 
   //"person.page.orcid.granted-authorizations": "Granted authorizations",
-  "person.page.orcid.granted-authorizations": "Autorisations accordées",
+  "person.page.orcid.granted-authorizations": "Autorisations accordées à DIAL.pr",
 
   //"person.page.orcid.grant-authorizations": "Grant authorizations",
   "person.page.orcid.grant-authorizations": "Accorder des autorisations",
@@ -7917,7 +8030,7 @@
   "person.page.orcid.unlink.processing": "Traitement en cours...",
 
   //"person.page.orcid.missing-authorizations": "Missing authorizations",
-  "person.page.orcid.missing-authorizations": "Autorisations manquantes",
+  "person.page.orcid.missing-authorizations": "Autorisations manquantes à DIAL.pr",
 
   //"person.page.orcid.missing-authorizations-message": "The following authorizations are missing:",
   "person.page.orcid.missing-authorizations-message": "Les autorisations suivantes sont manquantes :",
@@ -7935,13 +8048,13 @@
   "person.page.orcid.funding-preferences": "Préférence pour la section Financement",
 
   //"person.page.orcid.publications-preferences": "Publication preferences",
-  "person.page.orcid.publications-preferences": "Préférence pour la section Publication",
+  "person.page.orcid.publications-preferences": "Activer / désactiver la synchronisation",
 
   //"person.page.orcid.push.label": "ORCID Push",
-  "person.page.orcid.push.label": "Envoi vers ORCID",
+  "person.page.orcid.push.label": "Exporter vers ORCID",
 
   //"person.page.orcid.pull.label": "ORCID Pull",
-  "person.page.orcid.pull.label": "Rapatriement depuis ORCID",
+  "person.page.orcid.pull.label": "Importer depuis ORCID",
 
   // "person.page.orcid.pull.publication.title": "Import your publication from ORCID",
   "person.page.orcid.pull.publication.title": "Importer des publications depuis ORCID",
@@ -7959,10 +8072,10 @@
   "person.page.orcid.remove-orcid-message": "Si vous avez besoin de retirer votre ORCID, contacter la personne administratrice du dépôt.",
 
   //"person.page.orcid.save.preference.changes": "Update settings",
-  "person.page.orcid.save.preference.changes": "Mettre à jour les configurations",
+  "person.page.orcid.save.preference.changes": "Mettre à jour les paramètres",
 
   //"person.page.orcid.sync-profile.affiliation": "Affiliation",
-  "person.page.orcid.sync-profile.affiliation": "Affiliation",
+  "person.page.orcid.sync-profile.affiliation": "Affiliations",
 
   //"person.page.orcid.sync-profile.biographical": "Biographical data",
   "person.page.orcid.sync-profile.biographical": "Données biographiques",
@@ -7986,7 +8099,7 @@
   "person.page.orcid.sync-fundings.disabled": "Désactivé",
 
   //"person.page.orcid.sync-publications.all": "All publications",
-  "person.page.orcid.sync-publications.all": "Toutes les publications",
+  "person.page.orcid.sync-publications.all": "Activer",
 
   //"person.page.orcid.sync-publications.mine": "My publications",
   "person.page.orcid.sync-publications.mine": "Mes publications",
@@ -7995,10 +8108,10 @@
   "person.page.orcid.sync-publications.my_selected": "Publications sélectionnées",
 
   //"person.page.orcid.sync-publications.disabled": "Disabled",
-  "person.page.orcid.sync-publications.disabled": "Désactivé",
+  "person.page.orcid.sync-publications.disabled": "Désactiver",
 
   //"person.page.orcid.sync-queue.discard": "Discard the change and do not synchronize with the ORCID registry",
-  "person.page.orcid.sync-queue.discard": "Ignorer les changements et ne pas synchroniser avec le registre ORCID.",
+  "person.page.orcid.sync-queue.discard": "Ignorer les changements et ne pas synchroniser avec votre compte ORCID.",
 
   //"person.page.orcid.sync-queue.discard.error": "The discarding of the ORCID queue record failed",
   "person.page.orcid.sync-queue.discard.error": "L'annulation de la file d'attente ORCID a échoué.",
@@ -8013,7 +8126,7 @@
   "person.page.orcid.sync-queue.table.header.type": "Type",
 
   //"person.page.orcid.sync-queue.table.header.description": "Description",
-  "person.page.orcid.sync-queue.table.header.description": "Description",
+  "person.page.orcid.sync-queue.table.header.description": "Titre",
 
   //"person.page.orcid.sync-queue.table.header.action": "Action",
   "person.page.orcid.sync-queue.table.header.action": "Action",
@@ -8043,7 +8156,7 @@
   "person.page.orcid.sync-queue.description.keywords": "Mots clés",
 
   //"person.page.orcid.sync-queue.tooltip.insert": "Add a new entry in the ORCID registry",
-  "person.page.orcid.sync-queue.tooltip.insert": "Ajouter une nouvelle entrée dans le registre ORCID",
+  "person.page.orcid.sync-queue.tooltip.insert": "Exporter vers votre compte ORCID",
 
   //"person.page.orcid.sync-queue.tooltip.update": "Update this entry on the ORCID registry",
   "person.page.orcid.sync-queue.tooltip.update": "Mettre à jour cette entrée dans le registre ORCID",
@@ -8163,13 +8276,13 @@
   "person.page.orcid.synchronization-mode": "Mode de synchronisation",
 
   //"person.page.orcid.synchronization-mode.batch": "Batch",
-  "person.page.orcid.synchronization-mode.batch": "En lot",
+  "person.page.orcid.synchronization-mode.batch": "Automatique",
 
   //"person.page.orcid.synchronization-mode.label": "Synchronization mode",
   "person.page.orcid.synchronization-mode.label": "Mode de synchronisation",
 
   //"person.page.orcid.synchronization-mode-message": "Please select how you would like synchronization to ORCID to occur. The options include \"Manual\" (you must send your data to ORCID manually), or \"Batch\" (the system will send your data to ORCID via a scheduled script).",
-  "person.page.orcid.synchronization-mode-message": "Sélectionner le mode de synchronisation vers ORCID. Les options sont \"Manuel\" (vous devrez sélectionner les données à transmettre vers ORCID manuellement), ou \"En lot\" (le système transmettra vos données vers ORCID automatiquement).",
+  "person.page.orcid.synchronization-mode-message": "Sélectionner le mode de synchronisation de vos publications DIAL.pr vers votre compte ORCID. Choisissez <ul><li><b>\"Manuel\"</b> vous devrez sélectionner manuellement les publications que vous souhaitez exporter vers votre compte ORCID.</li><li><b>\"Automatique\"</b> DIAL.pr enverra automatiquement une fois par jours les nouvelles publications et les modifications apportées à vos publication vers votre profile ORCID.</li></<ul>",
 
   //"person.page.orcid.synchronization-mode-funding-message": "Select whether to send your linked Project entities to your ORCID record's list of funding information.",
   "person.page.orcid.synchronization-mode-funding-message": "Sélectionnez si vous souhaitez transmettre vos projets de recherche vers votre profil ORCID.",
@@ -8202,7 +8315,7 @@
   "person.page.orcid.scope.person-update": "Ajouter ou mettre à jour d'autre information sur vous",
 
   // "person.page.orcid.title": "Orcid settings",
-  "person.page.orcid.title": "Paramètres ORCID",
+  "person.page.orcid.title": "Configuration ORCID",
 
   //"person.page.orcid.unlink.success": "The disconnection between the profile and the ORCID registry was successful",
   "person.page.orcid.unlink.success": "La déconnexion entre votre profil et le registre ORCID a été effectuée avec succès.",
@@ -8211,13 +8324,13 @@
   "person.page.orcid.unlink.error": "Une erreur s'est produite lors de la déconnexion entre votre profil et le registre ORCID. Veuillez réessayer.",
 
   //"person.orcid.sync.setting": "ORCID Synchronization settings",
-  "person.orcid.sync.setting": "Paramètres de synchronisation ORCID",
+  "person.orcid.sync.setting": "Paramètres de synchronisation DIAL.pr -> ORCID",
 
   //"person.orcid.registry.queue": "ORCID Registry Queue",
   "person.orcid.registry.queue": "Exporter des publications dans ORCID",
 
   //"person.orcid.registry.auth": "ORCID Authorizations",
-  "person.orcid.registry.auth": "Autorisation ORCID",
+  "person.orcid.registry.auth": "Connexion à votre compte ORCID",
 
   //"home.recent-submissions.head": "Recent Submissions",
   "home.recent-submissions.head": "Dépôts récents",
@@ -9532,7 +9645,8 @@
   "home-news.main-title": "DIAL.pr",
   "home-news.second-title": "Digital access to libraries - Publications de recherche",
   "home-info.what-is": "Qu'est ce que DIAL.pr ?",
-  "home-info.project-description": "DIAL.pr vise à mettre à la disposition des chercheurs et des enseignants de l'UCLouvain des outils leur permettant d’héberger leur production scientifique de manière définitive, tout en assurant la promotion et la diffusion en ligne. Le dépôt institutionnel peut ainsi accueillir tout travail scientifique rédigé par au moins un auteur de l'UCLouvain, les textes pouvant être consulables selon différentes modalités d'accès.",
+  "home-info.project-description": "DIAL.pr vise à mettre à la disposition des chercheurs et des enseignants de l'UCLouvain des outils leur permettant d’héberger leur production scientifique de manière définitive, tout en assurant la promotion et la diffusion en ligne. Le dépôt institutionnel peut ainsi accueillir tout travail scientifique rédigé par au moins un auteur de l'UCLouvain, les textes pouvant être consultables selon différentes modalités d'accès.",
+  "home-info.dial-pr.welcome": "<h2 class=\"text-center\">Bienvenue sur la nouvelle interface de DIAL.pr !</h2><br/>Un nouvel environnement, et quelques modifications.</br>Découvrez <a href=\"https://uclouvain.sharepoint.com/:i:/s/MySCEB/IQAlBrWOIRzHSbDd5Tx0VUTWARzXY9Xa0wiWUAmaqs7KEh4\" target=\"external\">ce qui change</a> et une <a href=\"https://uclouvain.sharepoint.com/:b:/s/MySCEB/IQBMBfkiPO2QRY9jhokHUdSVAejXJ1Ouzf4Em3J1g3bZT44?e=qzfh9q\" target=\"external\">présentation générale</a>.<br/>Envie d’en savoir plus ? Consultez les guides et tutoriels via le lien en bas de page.",
 
   //"access.condition.value.openaccess": "Open Access",
   "access.condition.value.openaccess": "Accès ouvert",
@@ -9551,7 +9665,7 @@
   "publication.type.journal-article.heading": "Article de périodique",
 
   // "publication.type.book.heading": "Book",
-  "publication.type.book.heading": "Monographie",
+  "publication.type.book.heading": "Ouvrage",
 
   // "publication.type.book-part.heading": "Book Chapter",
   "publication.type.book-part.heading": "Contribution à un ouvrage collectif",
@@ -9583,11 +9697,16 @@
   "item.page.citations.none": "Pas de citation disponible",
   "item.page.details.none": "Rien à afficher pour ce type de publication.",
 
+  // -- Facet itemResourceType --
+  "search.filters.namedresourcetype.Archived": "Archivé",
+  "search.filters.namedresourcetype.Workspace": "Dépôt en cours",
+  "search.filters.namedresourcetype.Workflow": "En attente de validation",
+
   // -- Facet entityType --
   "search.filters.itempublicationtype.text::journal-article": "Article de périodique",
   "search.filters.itempublicationtype.text::working-paper": "Document de travail",
-  "search.filters.itempublicationtype.text::book": "Monographie",
-  "search.filters.itempublicationtype.text::book-part": "Contribution à un ouvrage collectif",
+  "search.filters.itempublicationtype.text::book": "Ouvrage",
+  "search.filters.itempublicationtype.text::book-part": "Contribution à ouvrage collectif",
   "search.filters.itempublicationtype.text::conference-speech": "Communication à un colloque",
   "search.filters.itempublicationtype.text::report": "Rapport",
   "search.filters.itempublicationtype.text::patent": "Brevet",
@@ -9599,11 +9718,25 @@
   "search.filters.accessType.administrator": "accès interdit",
   "search.filters.accessType.embargo": "accès embargo",
 
+  // -- Facet language
+  "search.filters.language.French": "Français",
+  "search.filters.language.English": "Anglais",
+  "search.filters.language.Italian": "Italien",
+  "search.filters.language.Dutch": "Néerlandais",
+  "search.filters.language.Spanish": "Espagnol",
+  "search.filters.language.(Other)": "(Autre)",
+  "search.filters.language.Greek": "Grec",
+  "search.filters.language.German": "Allemand",
+  "search.filters.language.Multiple languages": "Multilingue",
+  "search.filters.language.Polish": "Polonais",
+  "search.filters.language.Portuguese": "Portugais",
+  "search.filters.language.Russian": "Russe",
+
   // -- Publication types --
   // "publication.type.journal-article.heading": "Journal Article",
   "publication.type.journal-article.heading": "Article de périodique",
-  "publication.type.book.heading": "Monographie",
-  "publication.type.book-part.heading": "Contribution à un ouvrage collectif",
+  "publication.type.book.heading": "Ouvrage",
+  "publication.type.book-part.heading": "Contribution à ouvrage collectif",
   "publication.type.working-paper.heading": "Document de travail",
   "publication.type.report.heading": "Rapport",
   "publication.type.patent.heading": "Brevet",
@@ -9678,12 +9811,38 @@
   // [VALUES]
   "item.page.details.values.type.text::journal-article": "Article de périodique",
   "item.page.details.values.type.text::working-paper": "Document de travail",
-  "item.page.details.values.type.text::book": "Monographie",
-  "item.page.details.values.type.text::book-part": "Contribution à un ouvrage collectif",
+  "item.page.details.values.type.text::book": "Livre",
+  "item.page.details.values.type.text::book-part": "Chapitre de livre",
   "item.page.details.values.type.text::conference-speech": "Communication à un colloque",
   "item.page.details.values.type.text::report": "Rapport",
   "item.page.details.values.type.text::patent": "Brevet",
   "item.page.details.values.type.text::thesis": "Thèse",
+
+  "item.page.details.values.subtype.conference-proceedings": "Actes de colloque",
+  "item.page.details.values.subtype.dictionary/encyclopaedia": "Dictionnaire/Encyclopédie",
+  "item.page.details.values.subtype.book": "Monographie",
+  "item.page.details.values.subtype.handbook/textbook": "Manuel/précis/textbook",
+  "item.page.details.values.subtype.mixed-content": "Mélanges",
+  "item.page.details.values.subtype.other": "Autre",
+  "item.page.details.values.subtype.book-chapter": "Chapitre",
+  "item.page.details.values.subtype.preface/postface/foreword": "Avant-propos/préface/postface",
+  "item.page.details.values.subtype.none": "Aucun",
+  "item.page.details.values.subtype.keynote": "Conférence invitée / Keynote",
+  "item.page.details.values.subtype.with-selection-speech": "Présentation orale avec comité de sélection",
+  "item.page.details.values.subtype.without-selection-speech": "Présentation orale sans comité de sélection",
+  "item.page.details.values.subtype.conference-poster": "Poster",
+  "item.page.details.values.subtype.research-article": "Article de recherche",
+  "item.page.details.values.subtype.popularising-article": "Article de vulgarisation",
+  "item.page.details.values.subtype.report": "Compte-rendu",
+  "item.page.details.values.subtype.editorial": "Éditorial",
+  "item.page.details.values.subtype.clinical-study": "Essai clinique",
+  "item.page.details.values.subtype.letter-to-the-editor": "Lettre à l'éditeur",
+  "item.page.details.values.subtype.law-case-note": "Note ou chronique de jurisprudence",
+  "item.page.details.values.subtype.full-issue": "Numéro entier",
+  "item.page.details.values.subtype.literature-review": "Synthèse de littérature",
+  "item.page.details.values.subtype.feature-article": "Dossier dans une revue",
+  "item.page.details.values.subtype.internal": "Interne",
+  "item.page.details.values.subtype.external": "Externe",
 
   "item.page.details.values.publication-status.published": "Publié",
   "item.page.details.values.publication-status.submitted": "Soumis",
@@ -9764,7 +9923,22 @@
   // --- FNRS VALIDATION ---
   "fnrs-validation.modal.title": "Validité de la publication par rapport aux règles du FNRS",
   "fnrs-validation.modal.body.not-applicable": "pas applicable",
+
   "item-export.form.btn.close": "Fermer",
+  "item-export.modal.title": "Exportation de résultats",
+  "item-export.alert.multiple": "Exporter tous les documents d'un type spécifique de la recherche en cours.",
+  "item-export.alert.multiple-with-type": "Choisissez un format et un mode d'exportation",
+  "item-export.alert.export.limit": "Cette exportation sera limitée à maximum {{limit}} documents.",
+  "item-export.cannot-msg": "Il n'y a aucun document à exporter au regard de la configuration choisie",
+  "item-export.form.entityType": "Type de document",
+  "item-export.form.entityType.tip": "Choisissez un type de document",
+  "item-export.form.format": "Format",
+  "item-export.form.format.tip": "Choisissez un format d'exportation",
+  "item-export.form.btn.submit": "Exporter",
+  "item-export.form.btn.cancel": "Annuler",
+  "item-export.form.selection": "Mode d'exportation",
+  "item-export.form.selection.all": "Tout exporter",
+  "item-export.form.selection.only-selected": "Seulement les documents sélectionnés",
 
   "fnrs.category.1": "Ouvrage publié, en tant qu'auteur, co-auteur ou éditeur",
   "fnrs.category.2": "Partie d'ouvrage, en tant qu'auteur ou co-auteur de la partie",
@@ -9785,11 +9959,11 @@
   "fnrs.rule.notPublished": "Le type de publication n'est pas \"publié\" ou \"accepté\"",
 
   // --- BIBLIOGRAPHY EXPORT ---
-  "export.modal.form.style.label": "Style bibliographique",
-  "export.modal.form.style.hint": "Sélectionnez le style bibliographique désiré",
-  "export.modal.form.startYear.label": "Année de début",
+  "export.modal.form.style.label": "Type de liste",
+  "export.modal.form.style.hint": "Sélectionnez le type de liste souhaité",
+  "export.modal.form.startYear.label": "Année de début (optionnel)",
   "export.modal.form.startYear.hint": "Limiter le résultat à l'année de départ (incluse).",
-  "export.modal.form.endYear.label": "Année de fin",
+  "export.modal.form.endYear.label": "Année de fin (optionnel)",
   "export.modal.form.endYear.hint": "Limiter le résultat jusqu'a l'année de fin (incluse).",
   "export.modal.form.includePoster.label": "Inclure les posters de conférence",
   "export.modal.form.submit": "Générer la bibliographie",
@@ -9799,5 +9973,7 @@
 
   // --- ITEM VALIDATION ---
   "item.validator.person.not-unique.message": "La valeur d'un des champs unique suivant est déjà présente dans un autre profil: 'fgs', 'email', 'email officiel' ou 'orcid'",
+
+  "dropdown.clear": "Effacer la saisie"
 }
 

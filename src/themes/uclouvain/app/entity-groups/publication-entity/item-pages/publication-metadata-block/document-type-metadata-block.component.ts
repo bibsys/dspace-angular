@@ -26,7 +26,7 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 })
 export class DocumentTypeMetadataBlockComponent extends AbstractMetadataBlockComponent implements OnInit {
 
-  private static TRANSLATION_PREFIX = "item.page.details.values.type.";
+  private static TRANSLATION_PREFIX = "item.page.details.values.";
   protected translatedDocumentType: String;
   protected translatedDocumentSubtype: String;
 
@@ -37,13 +37,13 @@ export class DocumentTypeMetadataBlockComponent extends AbstractMetadataBlockCom
   }
 
   ngOnInit() {
-    this.translatedDocumentType = this.translateOrDefault(this.item.firstMetadataValue("dc.type.maintype"));
-    this.translatedDocumentSubtype = this.translateOrDefault(this.item.firstMetadataValue("dc.type.subtype"));
+    this.translatedDocumentType = this.translateOrDefault(this.item.firstMetadataValue("dc.type.maintype"), "type");
+    this.translatedDocumentSubtype = this.translateOrDefault(this.item.firstMetadataValue("dc.type.subtype"), "subtype");
   }
 
-  private translateOrDefault(key: string): string {
+  private translateOrDefault(key: string, category: string): string {
     if (isNotEmpty(key)) {
-      const prefixedKey = DocumentTypeMetadataBlockComponent.TRANSLATION_PREFIX + key;
+      const prefixedKey = DocumentTypeMetadataBlockComponent.TRANSLATION_PREFIX + category + "." + key;
       const translated = this.translateService.instant(prefixedKey);
       return (translated !== prefixedKey) ? translated : key;
     }

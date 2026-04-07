@@ -82,7 +82,7 @@
               [dsBtnDisabled]="!rejectForm.valid"
               type="submit">
         <span *ngIf="(processingReject | async) === true"><i class='fas fa-circle-notch fa-spin'></i> {{'submission.workflow.tasks.generic.processing' | translate}}</span>
-        <span *ngIf="(processingReject | async) !== true">{{'submission.sections.detect-duplicate.duplicate' | translate}}</span>
+        <span *ngIf="(processingReject | async) !== true">{{'submission.sections.detect-duplicate.duplicate.validate' | translate}}</span>
       </button>
     </form>
   </div>
