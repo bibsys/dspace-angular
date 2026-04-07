@@ -2,15 +2,15 @@
     <div class="d-flex justify-content-center text-white foreground">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-3">
                     <a href="https://www.uclouvain.be">
                         <img src="assets/uclouvain/images/logo-uclouvain-2.png"
                              alt="UCLouvain"
-                             style="max-width: 300px;"
+                             style="max-width: 200px;"
                         />
                     </a>
                 </div>
-                <div class="col-12 col-lg-4 small text-lg-left">
+                <div class="col-12 col-lg-3 small text-lg-left">
                     <div class="text-uppercase mb-3 list-title">
                         {{ 'Quick links' | translate }}
                     </div>
@@ -38,14 +38,39 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-12 col-lg-4 small text-lg-left">
+                <div class="col-12 col-lg-3 small text-lg-left">
                     <div class="text-uppercase mb-3 list-title">
-                        {{ 'Help' | translate }}
+                        {{ 'footer.menu.informations' | translate }}
+                    </div>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="text-white" [href]="getCustomLink('open-access')" target="external">{{ 'footer.link.what-is-open-access' | translate}}</a>
+                        </li>
+                        <li>
+                            <a class="text-white" [href]="getCustomLink('rights-and-obligations')" target="external">{{ 'footer.link.rights-and-obligations' | translate}}</a>
+                        </li>
+                        <li>
+                            <a class="text-white" [href]="getCustomLink('cc-licence')" target="external">{{ 'footer.link.cc-licence' | translate}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-3 small text-lg-left">
+                    <div class="text-uppercase mb-3 list-title">
+                        {{ 'footer.menu.help' | translate }}
                     </div>
                     <ul class="list-unstyled">
                         <li *ngIf="showSendFeedback$ | async">
                             <a class="text-white"
                                routerLink="info/feedback">{{ 'footer.link.feedback' | translate}}</a>
+                        </li>
+                        <li>
+                            <a class="text-white" [href]="'https://dial.uclouvain.be/osTicket'" target="external">{{ 'footer.link.osticket' | translate}}</a>
+                        </li>
+                        <!--<li>
+                            <a class="text-white" [href]="'<TO_BE_DEFINED>'">{{ 'footer.link.faq' | translate}}</a>
+                        </li>-->
+                        <li>
+                            <a class="text-white" [href]="getCustomLink('support-guides')" target="external">{{ 'footer.link.support-guides' | translate}}</a>
                         </li>
                     </ul>
                 </div>

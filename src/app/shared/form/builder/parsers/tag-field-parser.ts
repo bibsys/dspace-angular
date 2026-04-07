@@ -7,6 +7,7 @@ import {
 } from '../ds-dynamic-form-ui/models/tag/dynamic-tag.model';
 import { FormFieldMetadataValueObject } from '../models/form-field-metadata-value.model';
 import { FieldParser } from './field-parser';
+import { getSetting } from './parser.utils';
 
 export class TagFieldParser extends FieldParser {
   public modelFactory(fieldValue?: FormFieldMetadataValueObject, label?: boolean): any {
@@ -22,7 +23,6 @@ export class TagFieldParser extends FieldParser {
     }
     tagModelConfig.minChars = environment.submission.minChars;
     this.setValues(tagModelConfig, fieldValue, null, true);
-    tagModelConfig.placeholder = 'Enter the Keywords';
     const tagModel = new DynamicTagModel(tagModelConfig, clsTag);
     return tagModel;
   }
