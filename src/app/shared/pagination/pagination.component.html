@@ -7,7 +7,15 @@
       </div>
       <div class="col">
         <div *ngIf="!hideGear" ngbDropdown #paginationControls="ngbDropdown" placement="bottom-right" class="d-inline-block float-right">
-          <button class="btn btn-secondary" id="paginationControls" ngbDropdownToggle [title]="'pagination.options.description' | translate" [attr.aria-label]="'pagination.options.description' | translate" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cog" aria-hidden="true"></i></button>
+          <button class="btn btn-primary btn-sm"
+                  id="paginationControls"
+                  ngbDropdownToggle
+                  [title]="'pagination.options.description' | translate"
+                  [attr.aria-label]="'pagination.options.description' | translate"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+            <i class="fas fa-cog" aria-hidden="true"></i>
+          </button>
           <ul id="paginationControlsDropdownMenu" aria-labelledby="paginationControls" role="menu" ngbDropdownMenu>
             <li role="menuitem">
               <span class="dropdown-header" id="pagination-control_results-per-page" role="heading">{{ 'pagination.results-per-page' | translate}}</span>
