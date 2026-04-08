@@ -158,7 +158,7 @@ export class PaginationComponent implements OnChanges, OnDestroy, OnInit {
   /**
    * Option for hiding the gear
    */
-  @Input() public hideSortOptions = false;
+  @Input() public hideSortOptions = true;
 
   /**
    * Option for hiding the pager when there is less than 2 pages
