@@ -12,7 +12,7 @@
        [routerLink]="[profileRoute]"
        routerLinkActive="active">{{'nav.profile' | translate}}</a>
   </li>
-  <li class="ds-menu-item-wrapper" role="presentation" (click)="onMenuItemClick()">
+  <li class="ds-menu-item-wrapper" role="presentation" (click)="onMenuItemClick()" *ngIf="isAdmin$ | async">
     <a class="ds-menu-item" role="menuitem"
        [routerLink]="[myAccountRoute]"
        routerLinkActive="active">{{'nav.myaccount' | translate}}</a>
