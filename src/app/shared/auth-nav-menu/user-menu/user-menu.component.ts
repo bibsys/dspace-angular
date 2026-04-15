@@ -19,7 +19,7 @@ import {
   Store,
 } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
-import { filter, map, mergeMap, Observable, switchMap } from 'rxjs';
+import { BehaviorSubject, filter, map, mergeMap, Observable, Subject, switchMap } from 'rxjs';
 
 import { AppState } from '../../../app.reducer';
 import {
@@ -30,6 +30,7 @@ import { AuthService } from '../../../core/auth/auth.service';
 import { isAuthenticationLoading } from '../../../core/auth/selectors';
 import { DSONameService } from '../../../core/breadcrumbs/dso-name.service';
 import { EPerson } from '../../../core/eperson/models/eperson.model';
+import { RoleService } from '../../../core/roles/role.service';
 import { MYDSPACE_ROUTE } from '../../../my-dspace-page/my-dspace-route';
 import { getProcessListRoute } from '../../../process-page/process-page-routing.paths';
 import { ThemedLoadingComponent } from '../../loading/themed-loading.component';
@@ -74,6 +75,11 @@ export class UserMenuComponent implements OnInit {
   public user$: Observable<EPerson>;
 
   /**
+   * Is the authenticated user is admin ?
+   */
+  public isAdmin$: Subject<boolean> = new BehaviorSubject<boolean>(false);
+
+  /**
    * The mydspace page route.
    * @type {string}
    */
@@ -106,6 +112,7 @@ export class UserMenuComponent implements OnInit {
     protected authService: AuthService,
     protected researcherProfileService: ResearcherProfileDataService,
     public dsoNameService: DSONameService,
+    protected roleService: RoleService,
   ) {
   }
 
@@ -133,6 +140,7 @@ export class UserMenuComponent implements OnInit {
       ),
       filter(isNotEmpty),
     ).subscribe((profileId: String) => {
+      this.roleService.isAdmin().subscribe(isAdmin => this.isAdmin$.next(isAdmin));
       this.profileRoute = "/entities/person/" + profileId;
     })
   }
