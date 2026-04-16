@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import {
   AffiliationData,
   PublicationAffiliationDataService
@@ -42,7 +43,11 @@ export class BrowseByAffiliationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.affiliations$ = this.publicationAffiliationDataService.getAffiliation({'documentCount': true});
+    this.affiliations$ = this.publicationAffiliationDataService
+      .getAffiliation({'documentCount': true})
+      .pipe(
+        map((affiliations: AffiliationData[]) => affiliations.filter(a => a.acronym !== "UNamur"))
+      );
     this.searchPath = this.searchService.getSearchLink();
   }
 
