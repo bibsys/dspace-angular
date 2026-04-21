@@ -5631,11 +5631,8 @@
   // "repository.image.logo": "Repository logo",
   "repository.image.logo": "Logo du dépôt",
 
-  // "repository.title.prefix": "DSpace Angular :: ",
-  "repository.title.prefix": "DSpace Angular :: ",
-
-  // "repository.title.prefixDSpace": "DSpace Angular ::",
-  "repository.title.prefixDSpace": "DSpace Angular :: ",
+  "repository.title": "{{ repositoryName }}",
+  "repository.title.prefix": "{{ repositoryName }} - ",
 
   // "resource-policies.add.button": "Add",
   "resource-policies.add.button": "Ajouter",
@@ -7387,7 +7384,7 @@
   "submission.sections.upload.drop-message": "Glisser-Déposer des fichiers",
 
   // "submission.sections.upload.edit.title": "Edit bitstream",
-  "submission.sections.upload.edit.title": "Éditer le fichier",
+  "submission.sections.upload.edit.title": "Modifier",
 
   // "submission.sections.upload.form.access-condition-label": "Access condition type",
   "submission.sections.upload.form.access-condition-label": "Type d'accès",
@@ -9690,6 +9687,7 @@
 
   //"access.condition.value.UCLouvain networks restriction": "Restricted Access"
   "access.condition.value.restricted": "Accès restreint",
+  "access.condition.value.UCLouvain networks restriction": "Accès restreint",
 
   //"submission-button.add.message": "Add a submission",
   "submission-button.add.message": "Soumettre",
