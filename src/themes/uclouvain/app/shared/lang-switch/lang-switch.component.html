@@ -1,0 +1,22 @@
+<div ngbDropdown class="navbar-nav" *ngIf="moreThanOneLanguage" display="dynamic" placement="bottom-right">
+  <a href="javascript:void(0);" role="menuitem"
+     [attr.aria-label]="'nav.language' |translate"
+     aria-controls="language-menu-list"
+     aria-haspopup="menu"
+     [title]="'nav.language' | translate"
+     (click)="$event.preventDefault()" data-toggle="dropdown" ngbDropdownToggle
+     tabindex="0"
+     class="mx-2">
+    {{ currentLangCode() }}
+  </a>
+  <ul ngbDropdownMenu class="dropdown-menu" [attr.aria-label]="'nav.language' |translate" id="language-menu-list" role="menu">
+    <li tabindex="0" #langSelect *ngFor="let lang of translate.getLangs()"
+        role="menuitem"
+        class="dropdown-item d-inline-flex align-items-center w-100"
+        (keyup.enter)="useLang(lang)"
+        (click)="useLang(lang)"
+        [class.active]="lang === translate.currentLang">
+      <span>{{ langLabel(lang) }}</span>
+    </li>
+  </ul>
+</div>
