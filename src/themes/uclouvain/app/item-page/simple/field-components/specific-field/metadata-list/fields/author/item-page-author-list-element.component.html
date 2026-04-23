@@ -1,0 +1,26 @@
+<div *ngIf="isNotEmpty(authorsToDisplay)">
+  <ul class="pl-4 mb-0">
+    <ng-container *ngFor="let author of authorsToDisplay">
+      <li class="mb-1" *ngIf="author.displayed | async">
+        <div class="d-flex author-line">
+          <div class="author-data">
+            <ds-item-link-view [metadataValue]="author.mv" *ngIf="isNotEmpty(author.mv)"/>
+            <span class="author-institution text-secondary" *ngIf="author.institution">{{ author.institution }}</span>
+          </div>
+          <span *ngIf="isNotEmpty(author.role)" class="ml-auto text-secondary author-role">{{ getDisplayRole(author.role) }}</span>
+        </div>
+      </li>
+    </ng-container>
+    <li *ngIf="hasEtal" class="mb-1">
+      et. al.
+    </li>
+  </ul>
+  <ng-container *ngIf="canExpand">
+    <a *ngIf="!(displayAll | async)" (click)="expandView()">
+      <i class="fa-solid fa-chevron-down mr-2"></i>{{ 'item.truncatable-part.show-more' | translate }}
+    </a>
+    <a *ngIf="displayAll | async" (click)="shortenView()">
+      <i class="fa-solid fa-chevron-up mr-2"></i>{{ 'item.truncatable-part.show-less' | translate }}
+    </a>
+  </ng-container>
+</div>

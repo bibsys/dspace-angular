@@ -16,10 +16,12 @@ import { RequestCorrectionMenuComponent } from './request-correction/request-cor
 import { StatisticsMenuComponent } from './statistics/statistics-menu.component';
 import { SubscriptionMenuComponent } from './subscription/subscription-menu.component';
 import { CommentItemMenuComponent } from './comment-item/comment-item-menu.component';
+import {VersionHistoryItemMenuComponent} from "./version-history-item/version-history-item-menu.component";
 
 export interface ContextMenuEntryRenderOptions {
   componentRef: GenericConstructor<ContextMenuEntryComponent>;
   isStandAlone: boolean;
+  weight?: number;
 }
 
 const contextMenuEntriesMap: Map<DSpaceObjectType, ContextMenuEntryRenderOptions[]> = new Map();
@@ -75,8 +77,13 @@ contextMenuEntriesMap.set(DSpaceObjectType.ITEM, [
   },
   {
     componentRef: CommentItemMenuComponent,
-    isStandAlone: false
-  }
+    isStandAlone: false,
+  },
+  {
+    componentRef: VersionHistoryItemMenuComponent,
+    isStandAlone: true,
+    weight: 5,
+  },
 ]);
 contextMenuEntriesMap.set(DSpaceObjectType.COMMUNITY, [
   {

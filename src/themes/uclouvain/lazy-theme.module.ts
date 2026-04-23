@@ -25,19 +25,35 @@ import {ObjectListComponent} from "./app/shared/object-list/object-list.componen
 import {
   ExpandableNavbarSectionComponent
 } from "./app/navbar/expandable-navbar-section/expandable-navbar-section.component";
+import {FullFileSectionComponent} from "./app/item-page/full/field-components/file-section/full-file-section.component";
+import {FileSectionComponent} from "./app/item-page/simple/field-components/file-section/file-section.component";
+import {
+  MetadataRepresentationListComponent
+} from "./app/item-page/simple/metadata-representation-list/metadata-representation-list.component";
+import {FileDownloadLinkComponent} from "./app/shared/file-download-link/file-download-link.component";
+import {CreativeCommonsLicenseComponent} from "./app/shared/cc-license/creative-commons-licence.component";
+import {ItemVersionsComponent} from "./app/item-page/versions/item-versions.component";
+import {FullItemPageComponent} from "./app/item-page/full/full-item-page.component";
 
 const DECLARATIONS = [
-  LoginPageComponent,
-  AdminSidebarComponent,
-  ExpandableNavbarSectionComponent,
-  SearchPageComponent,
-  ConfigurationSearchPageComponent,
-  SearchFormComponent,
-  SearchComponent,
-  SearchFiltersComponent,
-  SearchResultsComponent,
-  SearchSidebarComponent,
-  ObjectListComponent,
+    LoginPageComponent,
+    AdminSidebarComponent,
+    ExpandableNavbarSectionComponent,
+    SearchPageComponent,
+    ConfigurationSearchPageComponent,
+    SearchFormComponent,
+    SearchComponent,
+    SearchFiltersComponent,
+    SearchResultsComponent,
+    SearchSidebarComponent,
+    ObjectListComponent,
+    FileDownloadLinkComponent,
+    CreativeCommonsLicenseComponent,
+    MetadataRepresentationListComponent,
+    FullItemPageComponent,
+    FullFileSectionComponent,
+    FileSectionComponent,
+    ItemVersionsComponent,
 ];
 
 /**

@@ -10,6 +10,7 @@ import { Item } from '../../../../core/shared/item.model';
 import { SearchResult } from '../../../search/models/search-result.model';
 import { ThemedComponent } from '../../../theme-support/themed.component';
 import { ItemListPreviewComponent } from './item-list-preview.component';
+import { ViewMode } from "../../../../core/shared/view-mode.model";
 
 /**
  * Themed wrapper for ItemListPreviewComponent
@@ -22,13 +23,15 @@ import { ItemListPreviewComponent } from './item-list-preview.component';
   imports: [ItemListPreviewComponent],
 })
 export class ThemedItemListPreviewComponent extends ThemedComponent<ItemListPreviewComponent> {
-  protected inAndOutputNames: (keyof ItemListPreviewComponent & keyof this)[] = ['item', 'object', 'badgeContext', 'showLabel', 'showMetrics', 'showSubmitter', 'showThumbnails', 'showCorrection', 'workflowItem', 'metadataList', 'showWorkflowStatistics'];
+  protected inAndOutputNames: (keyof ItemListPreviewComponent & keyof this)[] = ['item', 'object', 'badgeContext', 'viewMode', 'showLabel', 'showMetrics', 'showSubmitter', 'showThumbnails', 'showCorrection', 'workflowItem', 'metadataList', 'showWorkflowStatistics'];
 
   @Input() item: Item;
 
   @Input() object: SearchResult<any>;
 
   @Input() badgeContext: Context;
+
+  @Input() viewMode: ViewMode;
 
   @Input() showLabel: boolean;
 

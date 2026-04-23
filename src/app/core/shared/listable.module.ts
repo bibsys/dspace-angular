@@ -129,6 +129,9 @@ import {
 import {
   PublicationListElementComponent
 } from "../../../themes/uclouvain/app/entity-groups/publication-entity/item-list-elements/publication-list-elements.component";
+import {
+  PublicationPageComponent
+} from "../../../themes/uclouvain/app/entity-groups/publication-entity/item-pages/publication-page.component";
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -217,6 +220,7 @@ const ENTRY_COMPONENTS = [
   UntypedItemComponent,
   PublicationSearchResultWrapperComponent,
   PublicationListElementComponent,
+  PublicationPageComponent,
 ];
 
 @NgModule({

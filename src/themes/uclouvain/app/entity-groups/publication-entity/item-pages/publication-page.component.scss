@@ -1,0 +1,10 @@
+@import "bootstrap/scss/bootstrap";
+
+.publication-type-specific {
+  background: var(--bs-gray-100);
+}
+
+::ng-deep {
+  dt { @extend .mb-2; }
+  dd { @extend .mb-3; }
+}
