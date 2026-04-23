@@ -1,0 +1,29 @@
+<div class="d-flex">
+  <div class="d-flex flex-column w-100">
+    <div class="mb-2 w-100">
+      <ds-badges [object]="item" [showAccessStatus]="true" [context]="context"/>
+    </div>
+    <!-- TITLE ==================================================== -->
+    <a *ngIf="linkType != linkTypes.None"
+       [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
+       [attr.rel]="(linkType == linkTypes.ExternalLink) ? 'noopener noreferrer' : null"
+       [routerLink]="[itemPageRoute]"
+       [innerHTML]="itemTitle"
+       class="lead item-list-title dont-break-out"></a>
+    <div *ngIf="linkType == linkTypes.None" class="lead item-list-title dont-break-out" [innerHTML]="itemTitle"></div>
+    <!-- AUTHORS && SPECIFIC METADATA FOR TYPE =================================== -->
+    <div class="flex-grow-1 mb-1">
+      <div class="item-list-authors mt-3">
+        <ds-author-format-display [item]="item" />
+      </div>
+    </div>
+    <!-- ADDITIONAL METADATA ================================== -->
+    <div class="d-flex">
+      <ul class="list-inline list-inline-with-divider mt-3 small">
+        <li *ngIf="dsoDate">
+          <i class="far fa-calendar mr-2"></i>{{ dsoDate }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

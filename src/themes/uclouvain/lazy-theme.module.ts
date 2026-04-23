@@ -5,7 +5,6 @@ import { ConfigurationSearchPageComponent } from './app/search-page/configuratio
 import { LoginPageComponent } from './app/login-page/login-page.component';
 import { SearchFormComponent } from './app/shared/search-form/search-form.component';
 import {AdminSidebarComponent} from "./app/admin/admin-sidebar/admin-sidebar.component";
-
 import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
@@ -24,25 +23,21 @@ import {SearchResultsComponent} from "./app/shared/search/search-results/search-
 import {SearchSidebarComponent} from "./app/shared/search/search-sidebar/search-sidebar.component";
 import {ObjectListComponent} from "./app/shared/object-list/object-list.component";
 import {
-  ItemListPreviewComponent
-} from "./app/shared/object-list/my-dspace-result-list-element/item-list-preview/item-list-preview.component";
-import {
   ExpandableNavbarSectionComponent
 } from "./app/navbar/expandable-navbar-section/expandable-navbar-section.component";
-import {FullFileSectionComponent} from "./app/item-page/full/field-components/file-section/full-file-section.component";
-import {FileSectionComponent} from "./app/item-page/simple/field-components/file-section/file-section.component";
-import {
-  MetadataRepresentationListComponent
-} from "./app/item-page/simple/metadata-representation-list/metadata-representation-list.component";
-import {FileDownloadLinkComponent} from "./app/shared/file-download-link/file-download-link.component";
-import {CreativeCommonsLicenseComponent} from "./app/shared/cc-license/creative-commons-licence.component";
-import {ItemVersionsComponent} from "./app/item-page/versions/item-versions.component";
-import {FullItemPageComponent} from "./app/item-page/full/full-item-page.component";
 
 const DECLARATIONS = [
   LoginPageComponent,
   AdminSidebarComponent,
   ExpandableNavbarSectionComponent,
+  SearchPageComponent,
+  ConfigurationSearchPageComponent,
+  SearchFormComponent,
+  SearchComponent,
+  SearchFiltersComponent,
+  SearchResultsComponent,
+  SearchSidebarComponent,
+  ObjectListComponent,
 ];
 
 /**
@@ -69,7 +64,9 @@ const DECLARATIONS = [
     NgxGalleryModule,
     ...DECLARATIONS,
   ],
-  declarations: [],
+  exports: [
+    ConfigurationSearchPageComponent,
+  ],
 })
 class LazyThemeModule {
 }
