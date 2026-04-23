@@ -1,0 +1,62 @@
+<div class="d-flex">
+  <ds-results-back-button *ngIf="showBackButton$ | async" [back]="back"></ds-results-back-button>
+  <ds-context-menu [contextMenuObject]="object" [contextMenuObjectType]="DspaceObjectType.ITEM"
+    class="ml-auto"></ds-context-menu>
+</div>
+
+<div *ngIf="isNotEmpty(object); else noDso" class="container my-3 p-0">
+  <!-- Main 'Title' section containing main information like title, authors and specific ref. -->
+  <article class="row mb-4 d-block">
+    <ds-item-page-title-field [item]="object" class="mb-1"></ds-item-page-title-field>
+    <ds-author-format-display [item]="object"/>
+  </article>
+  <!-- detailed metadata:: Left-side for common and large metadata, right-side for specific metadata -->
+  <article class="row">
+    <div class="col-9 p-0">
+      <div class="mr-4">
+        <ds-page-detail-section [label]="'item.page.heading.files' | translate" [class]="'mb-5'">
+          <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
+        </ds-page-detail-section>
+        <ds-page-detail-section [label]="'item.page.heading.details' | translate" [class]="'mb-5'">
+          <dl>
+            <ng-container *ngIf="object.hasMetadata('dc.contributor.author')">
+              <dt>{{ "item.page.author" | translate }}</dt>
+              <dd><ds-item-page-author-list-element [item]="object"/></dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('dc.contributor.advisor')">
+              <dt>{{ "item.page.advisor" | translate }}</dt>
+              <dd>
+                <ng-container *ngFor="let advisor of object.allMetadata(['dc.contributor.advisor']); let last=last;">
+                  <ds-metadata-link-view [item]="object" [metadata]="advisor" [metadataName]="'dc.contributor.advisor'"></ds-metadata-link-view>
+                  <span *ngIf="!last"> ; </span>
+                </ng-container>
+              </dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('dc.description.abstract')">
+              <dt>{{ "item.page.abstract" | translate }}</dt>
+              <dd><ds-item-page-abstract-custom-field [item]="object"/></dd>
+            </ng-container>
+            <ng-container *ngIf="object.hasMetadata('oairecerif.affiliation.orgunitDepartment')">
+              <dt>{{ "item.page.affiliation" | translate }}</dt>
+              <dd><ds-item-page-metadata-list [item]="object" [metadataField]="'oairecerif.affiliation.orgunitDepartment'" [truncateMinSpace]="6"/></dd>
+            </ng-container>
+          </dl>
+        </ds-page-detail-section>
+        <!--<ds-page-detail-section [label]="'item.page.heading.metrics' | translate" [class]="'mb-5'">
+          <ds-metric-donuts-row [item]="object" />
+        </ds-page-detail-section>-->
+      </div>
+    </div>
+    <aside class="col-3 p-3 publication-type-specific d-flex flex-column">
+      <ng-container *ngFor="let component of getMetadataBlockComponents()">
+        <ng-container *ngComponentOutlet="component; inputs: { item: object }"></ng-container>
+      </ng-container>
+    </aside>
+  </article>
+</div>
+
+<ng-template #noDso>
+  <div class="container">
+    <h1>No data could be loaded for this object, please try again later.</h1>
+  </div>
+</ng-template>

@@ -6,12 +6,47 @@ import { HomeNewsComponent } from './app/home-page/home-news/home-news.component
 import { NavbarComponent } from './app/navbar/navbar.component';
 import { FooterComponent } from './app/footer/footer.component';
 import {LangSwitchComponent} from "./app/shared/lang-switch/lang-switch.component";
+import {
+  DocumentTypeMetadataBlockComponent
+} from "./app/entity-groups/publication-entity/item-pages/publication-metadata-block/document-type-metadata-block.component";
+import {
+  IdentifierHandleMetadataBlockComponent
+} from "./app/entity-groups/publication-entity/item-pages/publication-metadata-block/idenfifier-handle-metadatablock.component";
+import {
+  IdentifierISBNMetadataBlockComponent
+} from "./app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-isbn-metadata-block.component";
+import {
+  KeywordsMetadataBlockComponent
+} from "./app/entity-groups/publication-entity/item-pages/publication-metadata-block/keywords-metadata-block.component";
+import {
+  LanguageStatusMetadataBlockComponent
+} from "./app/entity-groups/publication-entity/item-pages/publication-metadata-block/language-metadata-block.component";
+import {
+  YearMetadataBlockComponent
+} from "./app/entity-groups/publication-entity/item-pages/publication-metadata-block/year-metadata-block.component";
+import {
+  LicenceMetadataBlockComponent
+} from "./app/entity-groups/publication-entity/item-pages/publication-metadata-block/licence-metadata-block.component";
+import {
+  AudienceMetadataBlockComponent
+} from "./app/entity-groups/publication-entity/item-pages/publication-metadata-block/audience-metadata-block.component";
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
  * This will ensure that decorator gets picked up when the app loads
  */
 const ENTRY_COMPONENTS = [];
+
+const METADATA_BLOCK_COMPONENTS = [
+  DocumentTypeMetadataBlockComponent,
+  IdentifierHandleMetadataBlockComponent,
+  IdentifierISBNMetadataBlockComponent,
+  KeywordsMetadataBlockComponent,
+  LanguageStatusMetadataBlockComponent,
+  LicenceMetadataBlockComponent,
+  YearMetadataBlockComponent,
+  AudienceMetadataBlockComponent,
+]
 
 const DECLARATIONS = [
   ...ENTRY_COMPONENTS,
@@ -20,6 +55,7 @@ const DECLARATIONS = [
   HeaderComponent,
   LangSwitchComponent,
   NavbarComponent,
+  ...METADATA_BLOCK_COMPONENTS,
 ];
 
 @NgModule({
