@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RootModule } from '../../app/root.module';
+import { HeaderComponent } from './app/header/header.component';
+import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
+import { NavbarComponent } from './app/navbar/navbar.component';
+import { FooterComponent } from './app/footer/footer.component';
+import {LangSwitchComponent} from "./app/shared/lang-switch/lang-switch.component";
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
@@ -10,6 +15,11 @@ const ENTRY_COMPONENTS = [];
 
 const DECLARATIONS = [
   ...ENTRY_COMPONENTS,
+  FooterComponent,
+  HomeNewsComponent,
+  HeaderComponent,
+  LangSwitchComponent,
+  NavbarComponent,
 ];
 
 @NgModule({

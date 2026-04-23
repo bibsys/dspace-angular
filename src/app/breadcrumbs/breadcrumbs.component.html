@@ -1,20 +1,23 @@
 <ng-container *ngVar="(breadcrumbs$ | async) as breadcrumbs">
-    <nav *ngIf="(showBreadcrumbs$ | async)" aria-label="breadcrumb" class="nav-breadcrumb">
-        <ol class="breadcrumb my-0" [class.container-fluid]="showBreadcrumbsFluid" [class.container]="!showBreadcrumbsFluid">
-            <ng-container
-                    *ngTemplateOutlet="breadcrumbs?.length > 0 ? breadcrumb : activeBreadcrumb; context: {text: 'home.breadcrumbs', url: '/'}"></ng-container>
-            <ng-container *ngFor="let bc of breadcrumbs; let last = last;">
-                <ng-container *ngTemplateOutlet="!last ? breadcrumb : activeBreadcrumb; context: bc"></ng-container>
-            </ng-container>
-        </ol>
-    </nav>
+  <nav *ngIf="(showBreadcrumbs$ | async)" aria-label="breadcrumb" class="nav-breadcrumb">
+    <ol class="breadcrumb my-0" [class.container-fluid]="showBreadcrumbsFluid" [class.container]="!showBreadcrumbsFluid">
+      <ng-container
+        *ngTemplateOutlet="breadcrumbs?.length > 0 ? breadcrumb : activeBreadcrumb; context: {text: 'home.breadcrumbs', url: '/'}"></ng-container>
+      <ng-container *ngFor="let bc of breadcrumbs; let last = last;">
+        <!-- We need to hide all breadcrumbs links to avoid pages like 'browse by collection' or 'browse by community'. -->
+        <!-- So, we are just rendering the last element which is the active element. -->
+        <ng-container *ngIf="last">
+          <ng-container *ngTemplateOutlet="activeBreadcrumb; context: bc"></ng-container>
+        </ng-container>
+      </ng-container>
+    </ol>
+  </nav>
 
-    <ng-template #breadcrumb let-text="text" let-url="url">
-        <li class="breadcrumb-item"><div class="breadcrumb-item-limiter"><a [routerLink]="url" class="text-truncate" [ngbTooltip]="text | translate" placement="bottom" >{{text | translate}}</a></div></li>
-    </ng-template>
+  <ng-template #breadcrumb let-text="text" let-url="url">
+    <li class="breadcrumb-item"><div class="breadcrumb-item-limiter"><a [routerLink]="url" class="text-truncate" [ngbTooltip]="text | translate" placement="bottom" >{{text | translate}}</a></div></li>
+  </ng-template>
 
-    <ng-template #activeBreadcrumb let-text="text">
-        <li class="breadcrumb-item active" aria-current="page"><div class="breadcrumb-item-limiter"><span class="text-truncate" [innerHTML]="text | translate"></span></div></li>
-    </ng-template>
+  <ng-template #activeBreadcrumb let-text="text">
+    <li class="breadcrumb-item active" aria-current="page"><div class="breadcrumb-item-limiter"><span class="text-truncate" [innerHTML]="text | translate"></span></div></li>
+  </ng-template>
 </ng-container>
-

@@ -1,0 +1,21 @@
+:host {
+  footer {
+    background-color: var(--bs-primary);
+    background-image: url("../../assets/images/footer-background.webp");
+    background-position: bottom center;
+    background-repeat: repeat;
+    margin-top: 3rem;
+    padding: 2rem;
+
+    .list-title {
+      color: var(--bs-white);
+      font-weight: bold;
+    }
+
+    ul li {
+      margin-bottom: .5rem;
+    }
+  }
+}
+
+
