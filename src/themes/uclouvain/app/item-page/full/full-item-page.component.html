@@ -1,0 +1,52 @@
+<div class="container" *ngVar="(itemRD$ | async) as itemRD">
+  <div class="item-page" *ngIf="itemRD?.hasSucceeded" @fadeInOut>
+    <div *ngIf="itemRD?.payload as item">
+      <ds-item-alerts [item]="item"></ds-item-alerts>
+      <ds-item-versions-notice [item]="item"></ds-item-versions-notice>
+      <ds-view-tracker [object]="item"></ds-view-tracker>
+      <div *ngIf="!item.isWithdrawn || (isAdmin$|async)" class="full-item-info">
+        <div class="d-flex flex-row-reverse mb-3">
+          <ds-context-menu [contextMenuObject]="item" [contextMenuObjectType]="$any('ITEM')"></ds-context-menu>
+        </div>
+        <div class="d-flex flex-row">
+          <ds-item-page-title-field class="mr-auto" [item]="item"></ds-item-page-title-field>
+        </div>
+        <div class="simple-view-link my-3" *ngIf="!fromSubmissionObject">
+          <a class="btn btn-outline-primary" [routerLink]="[(itemPageRoute$ | async)]">
+            {{"item.page.link.simple" | translate}}
+          </a>
+        </div>
+        <div class="table-responsive">
+          <table class="table  table-striped">
+            <tbody>
+            <ng-container *ngFor="let mdEntry of (metadata$ | async) | keyvalue">
+              <tr *ngFor="let mdValue of mdEntry.value | slice:0:(metadataMapLimit$ | async).get(mdEntry.key)">
+                <td>{{mdEntry.key}}</td>
+                <td>{{mdValue.value}}</td>
+                <td>{{mdValue.language}}</td>
+              </tr>
+              <tr *ngIf="mdEntry.value.length > (metadataMapLimit$ | async).get(mdEntry.key)">
+                <td class="text-center" colspan="3">
+                  <button class="btn btn-link" (click)="increaseLimit(mdEntry.key)" data-test="btn-more">
+                    {{'item.truncatable-part.show-more' | translate}}
+                  </button>
+                </td>
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+        <ds-item-page-full-file-section [item]="item"></ds-item-page-full-file-section>
+        <ds-item-page-collections [item]="item"></ds-item-page-collections>
+        <div class="button-row bottom" *ngIf="fromSubmissionObject">
+          <div class="text-right">
+            <button class="btn btn-outline-secondary mr-1" (click)="back()"><i
+              class="fas fa-arrow-left"></i> {{'item.page.return' | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ds-error *ngIf="itemRD?.hasFailed" message="{{'error.item' | translate}}"></ds-error>
+  <ds-loading *ngIf="itemRD?.isLoading" message="{{'loading.item' | translate}}"></ds-loading>
+</div>

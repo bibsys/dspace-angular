@@ -44,5 +44,6 @@ export enum FeatureID {
   CanViewInWorkflowSinceStatistics = 'canViewInWorkflowSinceStatistics',
   CanSeeComment = 'canSeeComment',
   CanCreateComment = 'canCreateComment',
-  CanDeleteComment = 'canDeleteComment'
+  CanDeleteComment = 'canDeleteComment',
+  CanSeeVersions = 'canSeeVersions'
 }

@@ -1,0 +1,10 @@
+.shadowy {
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 3px 12px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 2px;
+  transition: 0.2s ease;
+}
+
+.shadowy:hover {
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 3px 12px 0px, rgba(0, 0, 0, 0.16) 0px 0px 0px 1px;
+  transition: 0.1s ease;
+}

@@ -1,0 +1,31 @@
+<div class="file-section d-flex my-1 p-2">
+  <div class="row flex-grow-1 mr-0" style="min-width: 0">
+    <div class="col-2" *ngIf="showThumbnail">
+      <ds-thumbnail [thumbnail]="(bitstream.thumbnail | async)?.payload"></ds-thumbnail>
+    </div>
+    <div class="col d-flex flex-column">
+      <div class="flex-grow-1 expendable">
+        <div>
+          <h5>{{dsoNameService.getName(bitstream)}}</h5>
+          <i *ngIf="showDescription && bitstream.hasMetadata('dc.description')"
+            class="fas fa-info-circle text-info ml-2" (click)="hideDescription=!hideDescription"></i>
+        </div>
+        <p *ngIf="showDescription && bitstream.hasMetadata('dc.description')" [hidden]="hideDescription" class="mb-1">
+          {{bitstream.firstMetadataValue("dc.description")}}
+        </p>
+      </div>
+      <ul class="list-inline list-inline-with-divider m-0 small">
+        <li>{{(bitstream.format | async)?.payload?.shortDescription}}</li>
+        <li>{{(bitstream.sizeBytes) | dsFileSize }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ml-auto d-flex flex-column align-items-end justify-content-start text-nowrap">
+    <ds-file-download-link *ngIf="!hasNoDownload()"
+                           [bitstream]="bitstream"
+                           [item]="item"
+                           [cssClasses]="'btn btn-primary'"
+                           [showIcon]="true"
+    ></ds-file-download-link>
+  </div>
+</div>

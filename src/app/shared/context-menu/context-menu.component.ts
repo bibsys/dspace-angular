@@ -146,7 +146,7 @@ export class ContextMenuComponent implements OnInit, AfterViewChecked {
 
   private retrieveSelectedContextMenuEntries(isStandAlone: boolean): Observable<any[]> {
     const list = this.contextMenuObjectType ? getContextMenuEntriesForDSOType(this.contextMenuObjectType) : [];
-    return from(list).pipe(
+    return from(list.sort(this.sortContextMenuEntries)).pipe(
       filter((renderOptions: ContextMenuEntryRenderOptions) => isNotEmpty(renderOptions?.componentRef) && renderOptions?.isStandAlone === isStandAlone),
       map((renderOptions: ContextMenuEntryRenderOptions) => renderOptions.componentRef),
       concatMap((constructor: GenericConstructor<ContextMenuEntryComponent>) => {
@@ -159,6 +159,12 @@ export class ContextMenuComponent implements OnInit, AfterViewChecked {
       reduce((acc: any, value: any) => [...acc, value], []),
       take(1),
     );
+  }
+
+  private sortContextMenuEntries(a: ContextMenuEntryRenderOptions, b: ContextMenuEntryRenderOptions): number {
+    const weightA = a?.weight ?? 50; // Default weight if not defined is '50'
+    const weightB = b?.weight ?? 50;
+    return weightA - weightB;
   }
 
   /**

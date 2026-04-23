@@ -201,6 +201,7 @@ export const environment: BuildConfig = {
         { label: 'Document type', name: 'dc.type' },
       ],
     },
+    dynamicFields: [],
   },
 
   // NOTE: will log all redux actions and transfers in console
@@ -575,6 +576,7 @@ export const environment: BuildConfig = {
     navbar: {
       // If true, show the "Community and Collections" link in the navbar; otherwise, show it in the admin sidebar
       showCommunityCollection: true,
+      showStatistics: true,
     },
   },
   security: {

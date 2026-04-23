@@ -29,6 +29,8 @@ export class ThemedFileDownloadLinkComponent extends ThemedComponent<FileDownloa
 
   @Input() showIcon: boolean;
 
+  @Input() showText: boolean;
+
   protected inAndOutputNames: (keyof FileDownloadLinkComponent & keyof this)[] = ['bitstream', 'item', 'cssClasses', 'isBlank', 'enableRequestACopy', 'showIcon'];
 
   protected getComponentName(): string {
