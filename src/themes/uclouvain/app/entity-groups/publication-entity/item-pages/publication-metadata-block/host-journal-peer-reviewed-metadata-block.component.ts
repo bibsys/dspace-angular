@@ -10,17 +10,10 @@ import { TranslateModule } from "@ngx-translate/core";
 @listableMetadataBlockComponent('text::conference-speech', ViewMode.StandalonePage, Context.Any, '*', 32)
 @Component({
     template: `
-      <ng-container *ngIf="item.firstMetadataValue('publication.serial.peerReviewed')">
+      <ng-container *ngIf="item.firstMetadataValue('publication.serial.peerReviewed') === 'true'">
         <dt>{{ 'journal.listelement.peerreviewed' | translate }}</dt>
         <dd>{{ 'journal.listelement.peerreviewed.true' | translate }}</dd>
       </ng-container>
-  `,
-  styles: `
-    .journal-metadata {
-        display: block;
-        color: var(--bs-secondary);
-        font-style: italic;
-    }
   `,
   standalone: true,
   imports: [
