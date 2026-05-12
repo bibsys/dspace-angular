@@ -2984,7 +2984,7 @@
   // "forgot-email.form.error.head": "Error when trying to register email",
   "forgot-email.form.error.head": "Erreur lors de l'enregistrement de l'adresse électronique",
 
-  // "forgot-email.form.error.content": "An error occured when registering the following email address: {{ email }}",
+  // "forgot-email.form.error.content": "An error occurred when registering the following email address: {{ email }}",
   "forgot-email.form.error.content": "Une erreur s'est produite au niveau de l'adresse électronique suivante : {{ email }}",
 
   // "forgot-password.title": "Forgot Password",
@@ -2994,7 +2994,7 @@
   "forgot-password.form.head": "Modification du mot de passe",
 
   // "forgot-password.form.info": "Enter a new password in the box below, and confirm it by typing it again into the second box. It should be at least six characters long.",
-  "forgot-password.form.info": "Entrer un nouveau mot de passe dans la case ci-dessous et le confirmer en l'entrant à nouveau dans la seconde case.<br/>Le mot de passe doit : <ol><li>Comporter entre 8 et 15caractères.</li><li>Contenir au moins une lettre minuscules et une lettre minuscule.</li><li>Contenir au moins un chiffre.</li><li>Contenir un caractère spécial.</li></ol>",
+  "forgot-password.form.info": "Entrer un nouveau mot de passe dans la case ci-dessous et le confirmer en l'entrant à nouveau dans la seconde case.<br/>Le mot de passe doit : <ol><li>Comporter entre 8 et 15 caractères.</li><li>Contenir au moins une lettre minuscules et une lettre minuscule.</li><li>Contenir au moins un chiffre.</li><li>Contenir un caractère spécial.</li></ol>",
 
   // "forgot-password.form.card.security": "Security",
   "forgot-password.form.card.security": "Sécurité",
@@ -7433,7 +7433,7 @@
 
   // "submission.sections.upload.info": "Here you will find all the files currently in the item. You can update the file metadata and access conditions or <strong>upload additional files by dragging & dropping them anywhere on the page.</strong>",
   "submission.sections.upload.info": "<b>Par défaut, tout fichier chargé est en <u>Open Access</u>.</b> Pour restreindre l'accès (embargo, restreint ou interdit), cliquez sur le bouton « Modifier » associé au fichier.",
-  "submission.sections.upload.access-type": "Comprendre les différents niveaux d'accès : <a href=\"https://uclouvain.sharepoint.com/sites/MySCEB/DIALPR/Forms/AllItems.aspx?id=%2Fsites%2FMySCEB%2FDIALPR%2FSupports%20DIAL%20%28formation%20%2D%20tutoriels%20%2D%20plaquettes%29%20%C3%A0%20partager%2FGuides%20et%20tutoriels%20partag%C3%A9s%20%C3%A0%20tous%20utilisateurs%2FTypes%20d%27acc%C3%A8s%20DIAL%2Epr%20EN%20et%20FR%2Ejpg&parent=%2Fsites%2FMySCEB%2FDIALPR%2FSupports%20DIAL%20%28formation%20%2D%20tutoriels%20%2D%20plaquettes%29%20%C3%A0%20partager%2FGuides%20et%20tutoriels%20partag%C3%A9s%20%C3%A0%20tous%20utilisateurs&p=true&ga=1\" target=\"external\">cliquer ici</a>",
+  "submission.sections.upload.access-type": "Comprendre les différents niveaux d'accès : <a href=\"https://www.uclouvain.be/fr/system/files/uclouvain_assetmanager/groups/cms-editors-biul/Aide%20et%20formation%20-%20guides%20%26%20tutoriels/DIAL.pr/Types%20d%27acc%C3%A8s%20DIAL.pr%20EN%20et%20FR.jpg\" target=\"external\">cliquer ici</a>",
 
   // "submission.sections.upload.no-entry": "No",
   "submission.sections.upload.no-entry": "Non",
@@ -9643,7 +9643,7 @@
   "home-news.second-title": "Digital access to libraries - Publications de recherche",
   "home-info.what-is": "Qu'est ce que DIAL.pr ?",
   "home-info.project-description": "DIAL.pr vise à mettre à la disposition des chercheurs et des enseignants de l'UCLouvain des outils leur permettant d’héberger leur production scientifique de manière définitive, tout en assurant la promotion et la diffusion en ligne. Le dépôt institutionnel peut ainsi accueillir tout travail scientifique rédigé par au moins un auteur de l'UCLouvain, les textes pouvant être consultables selon différentes modalités d'accès.",
-  "home-info.dial-pr.welcome": "<h2 class=\"text-center\">Bienvenue sur la nouvelle interface de DIAL.pr !</h2><br/>Un nouvel environnement, et quelques modifications.</br>Découvrez <a href=\"https://uclouvain.sharepoint.com/:i:/s/MySCEB/IQAlBrWOIRzHSbDd5Tx0VUTWARzXY9Xa0wiWUAmaqs7KEh4\" target=\"external\">ce qui change</a> et une <a href=\"https://uclouvain.sharepoint.com/:b:/s/MySCEB/IQBMBfkiPO2QRY9jhokHUdSVAejXJ1Ouzf4Em3J1g3bZT44?e=qzfh9q\" target=\"external\">présentation générale</a>.<br/>Envie d’en savoir plus ? Consultez les guides et tutoriels via le lien en bas de page.",
+  "home-info.dial-pr.welcome": "<h2 class=\"text-center\">Bienvenue sur la nouvelle interface de DIAL.pr !</h2><br/>Un nouvel environnement, et quelques modifications.</br>Découvrez <a href=\"https://www.uclouvain.be/fr/system/files/uclouvain_assetmanager/groups/cms-editors-biul/Aide%20et%20formation%20-%20guides%20%26%20tutoriels/DIAL.pr/DIAL.pr%20qu%27est-ce%20qui%20change.jpg\" target=\"external\">ce qui change</a> et une <a href=\"https://www.uclouvain.be/fr/system/files?file=uclouvain_assetmanager/groups/cms-editors-biul/Aide%20et%20formation%20-%20guides%20%26%20tutoriels/DIAL.pr/DIALPR_presentation%20generale.pdf\" target=\"external\">présentation générale</a>.<br/>Envie d’en savoir plus ? Consultez les guides et tutoriels via le lien en bas de page.",
 
   //"access.condition.value.openaccess": "Open Access",
   "access.condition.value.openaccess": "Accès ouvert",
