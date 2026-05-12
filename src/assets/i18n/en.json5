@@ -2759,11 +2759,11 @@
 
   "forgot-email.form.error.content": "An error occurred when attempting to reset the password for the account associated with the following email address: {{ email }}",
 
-  "forgot-password.title": "Forgot Password",
+  "forgot-password.title": "Change password",
 
-  "forgot-password.form.head": "Forgot Password",
+  "forgot-password.form.head": "Change password",
 
-  "forgot-password.form.info": "Enter a new password in the box below, and confirm it by typing it again into the second box.",
+  "forgot-password.form.info": "Enter a new password in the box below, and confirm it by typing it again into the second box.<br/>To be valid, the password must:<ol><li>Contains between 8 and 15 characters.</li><li>Contains lowercase AND uppercase characters.</li><li>Contains at least one digit.</li><li>Contains at least one special characters.</li></ol>",
 
   "forgot-password.form.card.security": "Security",
 
