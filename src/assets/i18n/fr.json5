@@ -2988,13 +2988,13 @@
   "forgot-email.form.error.content": "Une erreur s'est produite au niveau de l'adresse électronique suivante : {{ email }}",
 
   // "forgot-password.title": "Forgot Password",
-  "forgot-password.title": "Mot de passe oublié",
+  "forgot-password.title": "Modification du mot de passe",
 
   // "forgot-password.form.head": "Forgot Password",
-  "forgot-password.form.head": "Mot de passe oublié",
+  "forgot-password.form.head": "Modification du mot de passe",
 
   // "forgot-password.form.info": "Enter a new password in the box below, and confirm it by typing it again into the second box. It should be at least six characters long.",
-  "forgot-password.form.info": "Entrer un nouveau mot de passe dans la case ci-dessous et le confirmer en l'entrant à nouveau dans la seconde case. Le mot de passe doit comporter au moins six caractères.",
+  "forgot-password.form.info": "Entrer un nouveau mot de passe dans la case ci-dessous et le confirmer en l'entrant à nouveau dans la seconde case.<br/>Le mot de passe doit : <ol><li>Comporter entre 8 et 15caractères.</li><li>Contenir au moins une lettre minuscules et une lettre minuscule.</li><li>Contenir au moins un chiffre.</li><li>Contenir un caractère spécial.</li></ol>",
 
   // "forgot-password.form.card.security": "Security",
   "forgot-password.form.card.security": "Sécurité",
@@ -3018,7 +3018,7 @@
   "forgot-password.form.error.matching-passwords": "Les mots de passe ne correspondent pas.",
 
   // "forgot-password.form.error.password-length": "The password should be at least 6 characters long.",
-  "forgot-password.form.error.password-length": "Le mot de passe doit comporter au moins six caractères.",
+  "forgot-password.form.error.password-length": "Le mot de passe doit comporter au moins 8 caractères.",
 
   // "forgot-password.form.notification.error.title": "Error when trying to submit new password",
   "forgot-password.form.notification.error.title": "Erreur lors de la soumission du nouveau mot de passe",
