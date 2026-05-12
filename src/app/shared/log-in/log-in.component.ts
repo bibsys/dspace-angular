@@ -20,7 +20,7 @@ import uniqBy from 'lodash/uniqBy';
 import {
   combineLatest,
   map,
-  Observable,
+  Observable, of,
   Subscription,
 } from 'rxjs';
 import {
@@ -148,7 +148,9 @@ export class LogInComponent implements OnInit, OnDestroy {
 
     this.canRegister$ = this.authorizationService.isAuthorized(FeatureID.EPersonRegistration);
 
-    this.canForgot$ = this.authorizationService.isAuthorized(FeatureID.EPersonForgotPassword).pipe(shareReplay({ refCount: false, bufferSize: 1 }));
+    //this.canForgot$ = this.authorizationService.isAuthorized(FeatureID.EPersonForgotPassword).pipe(shareReplay({ refCount: false, bufferSize: 1 }));
+    this.canForgot$ = of(false);
+
     this.canShowDivider$ = combineLatest([this.canRegister$, this.canForgot$])
       .pipe(
         map(([canRegister, canForgot]) => canRegister || canForgot),
