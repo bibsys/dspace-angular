@@ -3136,10 +3136,10 @@
   "grant-deny-request-copy.email.message.empty": "Veuillez entrer un message",
 
   // "grant-deny-request-copy.email.permissions.info": "You may use this occasion to reconsider the access restrictions on the document, to avoid having to respond to these requests. If you’d like to ask the repository administrators to remove these restrictions, please check the box below.",
-  "grant-deny-request-copy.email.permissions.info": "Vous pouvez profiter de cette occasion pour réévaluer les restrictions d'accès au document, afin d'éviter d'avoir à répondre à ces demandes. Si vous souhaitez demander aux administrateurs du dépôt de supprimer ces restrictions, veuillez cocher la case ci-dessous.",
+  "grant-deny-request-copy.email.permissions.info": "Vous pouvez profiter de cette occasion pour réévaluer les restrictions d'accès au document sur DIAL.pr, afin d'éviter d'avoir à répondre à ces demandes dans le futur.\nSi vous souhaitez demander aux administrateurs du dépôt institutionnel de supprimer ces restrictions et de faire passer votre document en Open Access, veuillez cocher la case ci-dessous.",
 
   // "grant-deny-request-copy.email.permissions.label": "Change to open access",
-  "grant-deny-request-copy.email.permissions.label": "Passer en libre accès",
+  "grant-deny-request-copy.email.permissions.label": "Passer en Open Access",
 
   // "grant-deny-request-copy.email.send": "Send",
   "grant-deny-request-copy.email.send": "Envoyer",
