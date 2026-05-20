@@ -10,7 +10,7 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @listableMetadataBlockComponent('*', ViewMode.StandalonePage, Context.Any, '*', 20)
 @Component({
   template: `
-      <ng-container *ngIf="item.hasMetadata('dc.identifier.isi')">
+      <ng-container *ngIf="hasValidMetadata('dc.identifier.isi')">
         <dt>{{ 'item.page.details.label.identifier-wos' | translate }}</dt>
         <dd><ds-generic-item-page-field [item]='item' [fields]='["dc.identifier.isi"]' [separator]="' ; '"/></dd>
       </ng-container>

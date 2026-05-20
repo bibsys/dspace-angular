@@ -12,11 +12,11 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @Component({
   standalone: true,
   template: `
-      <ng-container *ngIf="item.hasMetadata('publication.conference.name')">
+      <ng-container *ngIf="hasValidMetadata('publication.conference.name')">
         <dt>{{ 'item.page.details.label.conference' | translate }}</dt>
         <dd>
             <div class="conference-name"><ds-generic-item-page-field [item]="item" [fields]="['publication.conference.name']"/></div>
-            <span class="conference-metadata conference-location" *ngIf="item.hasMetadata('publication.conference.location')">
+            <span class="conference-metadata conference-location" *ngIf="hasValidMetadata('publication.conference.location')">
                 <i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i>{{ item.firstMetadataValue("publication.conference.location") }}
             </span>
             <span class="conference-metadata conference-dates" *ngIf="isNotEmpty(conferenceDates)">
