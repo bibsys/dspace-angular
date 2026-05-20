@@ -16,15 +16,15 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @Component({
   standalone: true,
   template: `
-      <ng-container *ngIf="item.hasMetadata('publication.collection.name')">
+      <ng-container *ngIf="hasValidMetadata('publication.collection.name')">
         <dt>{{ 'item.page.details.label.collection' | translate }}</dt>
         <dd>
             <div class="collection-name"><ds-generic-item-page-field [item]="item" [fields]="['publication.collection.name']"/></div>
-            <span class="collection-metadata collection-number" *ngIf="item.hasMetadata('publication.collection.number')">
+            <span class="collection-metadata collection-number" *ngIf="hasValidMetadata('publication.collection.number')">
                 <i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i>
                 {{ 'item.page.details.label.collection.number' | translate }}: {{ item.firstMetadataValue("publication.collection.number") }}
             </span>
-            <span class="collection-metadata collection-issn" *ngIf="item.hasMetadata('publication.collection.issn')">
+            <span class="collection-metadata collection-issn" *ngIf="hasValidMetadata('publication.collection.issn')">
                 <i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i>
                 {{ 'item.page.details.label.collection.issn' | translate }}: {{ item.firstMetadataValue("publication.collection.issn") }}
             </span>

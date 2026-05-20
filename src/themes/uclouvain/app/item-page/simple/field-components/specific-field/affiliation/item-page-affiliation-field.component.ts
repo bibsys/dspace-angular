@@ -12,8 +12,8 @@ import { ItemLinkViewComponent } from '../../../../../shared/item-link-view/item
 
 @Component({
   selector: 'ds-item-page-affiliation-field',
-  template: `<div class="d-inline-flex align-items-center" *ngIf="hasValue(institution) && institution.value !== PLACEHOLDER_PARENT_METADATA">
-    <img *ngIf="iconPath" [src]="iconPath" [alt]="'item.page.institution.icon' | translate" class="mr-1"/>
+  template: `<div class="d-inline-flex align-items-start" *ngIf="hasValue(institution) && institution.value !== PLACEHOLDER_PARENT_METADATA">
+    <img *ngIf="iconPath" [src]="iconPath" [alt]="'item.page.institution.icon' | translate" class="mr-1 institution-icon"/>
     <ds-item-link-view class="institution-name" 
                        [metadataValue]="institution"
                        [relatedItemType]="'orgunit'">
@@ -24,7 +24,12 @@ import { ItemLinkViewComponent } from '../../../../../shared/item-link-view/item
                        *ngIf="hasValue(department) && department.value !== PLACEHOLDER_PARENT_METADATA">
     </ds-item-link-view>
   </div>`,
-  styles: ['.institution-name + .department-name::before { content: "—"; padding: 0.5rem; }'],
+  styles: [
+    '.institution-icon { margin-top: 4px; }',
+    '.institution-name { white-space: nowrap; }',
+    '.department-name { display: inline-flex; align-items: flex-start; }',
+    '.institution-name + .department-name::before { content: "—"; padding: 0 0.5rem; display: inline-block; flex-shrink: 0; }',
+  ],
   standalone: true,
   imports: [NgIf, ItemLinkViewComponent, TranslateModule],
 })

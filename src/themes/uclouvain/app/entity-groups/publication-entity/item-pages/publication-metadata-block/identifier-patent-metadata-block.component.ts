@@ -10,19 +10,19 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @listableMetadataBlockComponent('text::patent', ViewMode.StandalonePage, Context.Any, '*', 20)
 @Component({
   template: `
-      <ng-container *ngIf="item.hasMetadata('dc.identifier.ipc')">
+      <ng-container *ngIf="hasValidMetadata('dc.identifier.ipc')">
         <dt>{{ 'item.page.details.label.identifier-ipc' | translate }}</dt>
         <dd><ds-generic-item-page-field [item]='item' [fields]='["dc.identifier.ipc"]' [separator]="' ; '"/></dd>
       </ng-container>
-      <ng-container *ngIf="item.hasMetadata('dc.identifier.ecla')">
+      <ng-container *ngIf="hasValidMetadata('dc.identifier.ecla')">
           <dt>{{ 'item.page.details.label.identifier-ecla' | translate }}</dt>
           <dd><ds-generic-item-page-field [item]='item' [fields]='["dc.identifier.ecla"]' [separator]="' ; '"/></dd>
       </ng-container>
-      <ng-container *ngIf="item.hasMetadata('dc.identifier.patentID')">
+      <ng-container *ngIf="hasValidMetadata('dc.identifier.patentID')">
           <dt>{{ 'item.page.details.label.identifier-patentID' | translate }}</dt>
           <dd><ds-generic-item-page-field [item]='item' [fields]='["dc.identifier.patentID"]' [separator]="' ; '"/></dd>
       </ng-container>
-      <ng-container *ngIf="item.hasMetadata('dc.identifier.priorityNumber')">
+      <ng-container *ngIf="hasValidMetadata('dc.identifier.priorityNumber')">
           <dt>{{ 'item.page.details.label.identifier-priorityNumber' | translate }}</dt>
           <dd><ds-generic-item-page-field [item]='item' [fields]='["dc.identifier.priorityNumber"]' [separator]="' ; '"/></dd>
       </ng-container>

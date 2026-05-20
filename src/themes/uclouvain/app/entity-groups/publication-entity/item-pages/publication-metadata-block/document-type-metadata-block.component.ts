@@ -18,6 +18,10 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
                   <i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i>
                   <span class="font-italic">{{ translatedDocumentSubtype }}</span>
               </span>
+              <span class="subtype d-block text-secondary" *ngIf="item.firstMetadataValue('publication.isAbstract') === 'true'">
+                  <i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i>
+                  <span class="font-italic">{{ 'item.page.details.label.isAbstract' | translate }}</span>
+              </span>
           </dd>
       </ng-container>
   `,

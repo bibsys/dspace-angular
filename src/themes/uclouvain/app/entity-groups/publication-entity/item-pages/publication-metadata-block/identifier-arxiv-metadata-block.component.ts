@@ -19,7 +19,9 @@ export class IdentifierArxivMetadataBlockComponent extends AbstractMetadataBlock
   protected url: {link: URL, target?: string, content: string};
 
   ngOnInit() {
-    const identifier = this.item.firstMetadataValue("dc.identifier.arxiv");
+    const identifier = (this.hasValidMetadata("dc.identifier.arxiv"))
+      ? this.item.firstMetadataValue("dc.identifier.arxiv")
+      : undefined;
     if (isNotEmpty(identifier)) {
       const url = new URL('https://arxiv.org/abs/' + identifier);
       this.url = { link: url, content: identifier };
