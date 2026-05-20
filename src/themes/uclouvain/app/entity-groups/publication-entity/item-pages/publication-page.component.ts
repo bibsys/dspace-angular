@@ -87,4 +87,5 @@ export class PublicationPageComponent extends ItemComponent implements OnInit {
   getMetadataBlockComponents(): any {
     return getListableMetadataBlockComponent(this.documentType, ViewMode.StandalonePage, Context.Any, this.themeService.getThemeName());
   }
+  protected readonly Number = Number;
 }

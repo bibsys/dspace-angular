@@ -9,7 +9,7 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @listableMetadataBlockComponent('*', ViewMode.StandalonePage, Context.Any, '*', 15)
 @Component({
   template: `
-      <ng-container *ngIf="item.hasMetadata('dc.language.iso')">
+      <ng-container *ngIf="hasValidMetadata('dc.language.iso')">
           <dt>{{ 'item.page.details.label.language' | translate }}</dt>
           <dd>{{ 'languages.iso-639-2.' + item.firstMetadataValue("dc.language.iso") | translate }}</dd>
       </ng-container>

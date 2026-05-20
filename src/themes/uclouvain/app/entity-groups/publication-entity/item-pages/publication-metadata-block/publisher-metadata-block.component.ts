@@ -15,11 +15,11 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @Component({
   standalone: true,
   template: `
-      <ng-container *ngIf="item.hasMetadata('publication.editor.name')">
+      <ng-container *ngIf="hasValidMetadata('publication.editor.name')">
         <dt>{{ 'item.page.details.label.publisher' | translate }}</dt>
         <dd>
             <div class="editor-name"><ds-generic-item-page-field [item]="item" [fields]="['publication.editor.name']"/></div>
-            <span class="editor-metadata editor-location" *ngIf="item.hasMetadata('publication.editor.location')">
+            <span class="editor-metadata editor-location" *ngIf="hasValidMetadata('publication.editor.location')">
                 <i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i>{{ item.firstMetadataValue("publication.editor.location") }}
             </span>
         </dd>

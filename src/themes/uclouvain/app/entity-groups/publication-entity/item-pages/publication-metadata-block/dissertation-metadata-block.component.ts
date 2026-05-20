@@ -9,11 +9,11 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @listableMetadataBlockComponent('text::thesis', ViewMode.StandalonePage, Context.Any, '*', 50)
 @Component({
   template: `
-      <ng-container *ngIf="item.hasMetadata('dissertation.defenseDate')">
+      <ng-container *ngIf="hasValidMetadata('dissertation.defenseDate')">
           <dt>{{ 'item.page.details.label.dissertation.defense-date' | translate }}</dt>
           <dd>{{ item.firstMetadataValue("dissertation.defenseDate") }}</dd>
       </ng-container>
-      <ng-container *ngIf="item.hasMetadata('dissertation.degree.name')">
+      <ng-container *ngIf="hasValidMetadata('dissertation.degree.name')">
           <dt>{{ 'item.page.details.label.dissertation.degree-name' | translate }}</dt>
           <dd>{{ item.firstMetadataValue("dissertation.degree.name") }}</dd>
       </ng-container>
