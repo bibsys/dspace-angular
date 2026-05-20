@@ -19,7 +19,9 @@ export class IdentifierDoiMetadataBlockComponent extends AbstractMetadataBlockCo
   protected url: {link: URL, target?: string, content: string};
 
   ngOnInit() {
-    const identifier = this.item.firstMetadataValue("dc.identifier.doi");
+    const identifier = (this.hasValidMetadata("dc.identifier.doi"))
+      ? this.item.firstMetadataValue("dc.identifier.doi")
+      : undefined;
     if (isNotEmpty(identifier)) {
       const url = new URL(this.item.firstMetadataValue("dc.relation.doi") || 'https://doi.org/' + identifier);
       this.url = { link: url, content: identifier };

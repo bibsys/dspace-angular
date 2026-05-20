@@ -11,7 +11,7 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @listableMetadataBlockComponent('text::book', ViewMode.StandalonePage, Context.Any, '*', 60)
 @Component({
   template: `
-      <ng-container *ngIf="item.hasMetadata('publication.numberOfPages')">
+      <ng-container *ngIf="hasValidMetadata('publication.numberOfPages')">
           <dt>{{ 'item.page.details.label.number-of-pages' | translate }}</dt>
           <dd>{{ item.firstMetadataValue("publication.numberOfPages") }} {{ 'item.page.details.label.pages' | translate }}</dd>
       </ng-container>

@@ -12,7 +12,7 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @listableMetadataBlockComponent('text::journal-article', ViewMode.StandalonePage, Context.Any, '*', 70)
 @Component({
   template: `
-    <ng-container *ngIf="item.hasMetadata('dc.subject.mesh')">
+    <ng-container *ngIf="hasValidMetadata('dc.subject.mesh')">
       <dt>{{ 'item.page.details.label.subjects-mesh' | translate }}</dt>
       <dd>
         <ul class="list-unstyled m-0">

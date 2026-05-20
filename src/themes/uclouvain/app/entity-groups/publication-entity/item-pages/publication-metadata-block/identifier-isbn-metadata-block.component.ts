@@ -28,7 +28,9 @@ export class IdentifierISBNMetadataBlockComponent extends AbstractMetadataBlockC
   protected readonly isNotEmpty = isNotEmpty;
 
   ngOnInit() {
-    this.identifier = this.item.firstMetadataValue("dc.identifier.isbn");
+    this.identifier = this.hasValidMetadata("dc.identifier.isbn")
+      ? this.item.firstMetadataValue("dc.identifier.isbn")
+      : undefined;
     if (isNotEmpty(this.identifier) && this.item.hasMetadata('dc.relation.isbn')) {
       this.url = {link: new URL(this.item.firstMetadataValue('dc.relation.isbn')), content: this.identifier};
     }
