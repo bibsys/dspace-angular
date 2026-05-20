@@ -236,6 +236,10 @@ export class ItemExportComponent implements OnInit, OnDestroy {
   onEntityTypeChange(entityType: string) {
     this.configurationLoaded$.next(false);
     this.itemExportService.onSelectEntityType(this.configuration.entityTypes, entityType).pipe(take(1)).subscribe((configuration) => {
+      // HACK UCLouvain :: `configuration.format`
+      //   The initial configuration.format is the first format returned by backend.
+      //   We want to determine a better default format based on exposed format, mime-type, and weight of format.
+      configuration.format = this.getDefaultFormat(configuration);
       this.configuration = configuration;
       this.selectedEntityType = entityType;
       this.exportForm.controls.format.patchValue(this.configuration.format);
@@ -350,40 +354,46 @@ export class ItemExportComponent implements OnInit, OnDestroy {
    * @return a list of groups, each one with a list of possible export format
    */
   protected prepareGroupedFormats(): { mimeType: string, formats: ItemExportFormat[] }[] {
-    const filteredFormats = this.configuration.formats.filter(f => f.exposed);
-    const sorted = this.sortExportFormats(filteredFormats);
-    const groups = new Map<string, ItemExportFormat[]>();
-    sorted.forEach(format => {
+    const sortedFormats = this.configuration.formats
+      .filter(f => f.exposed)
+      .sort((a, b) => this.compareExportFormats(a, b));
+
+    const groupedMap = sortedFormats.reduce((groups, format) => {
       const groupName = format.mimeType.split(';')[0].trim();
-      if (!groups.has(groupName)) {
-        groups.set(groupName, []);
-      }
-      groups.get(groupName)?.push(format);
-    });
-    return Array.from(groups, ([mimeType, formats]) => ({ mimeType, formats }));
+      const currentGroup = groups.get(groupName) ?? [];
+      return groups.set(groupName, [...currentGroup, format]);
+    }, new Map<string, ItemExportFormat[]>());
+
+    return Array.from(groupedMap, ([mimeType, formats]) => ({ mimeType, formats }));
   }
 
   /**
-   * Sorting export format defined by configuration. The sorting rules are:
+   * Comparison function to sort `ItemExportFormat` object.
+   * The sorting rules are:
    *   0) find the weight of export format mimeType (default is 0)
    *   1) sort on mimeType weight descending (more weight, more important)
    *   2) sort on mimeType label (if weight are same)
    *   3) sort on item export format weight descending (default is 0)
-   * @param formats the format list to sort
-   * @return the sorted format list
    */
-  private sortExportFormats(formats: ItemExportFormat[]): ItemExportFormat[] {
-    if (!formats || !formats.length) return [];
-    return [...formats].sort((a, b) => {
-      const mimeWeightA = ItemExportComponent.MIMETYPE_WEIGHTS[a.mimeType] ?? 0;
-      const mimeWeightB = ItemExportComponent.MIMETYPE_WEIGHTS[b.mimeType] ?? 0;
-      if (mimeWeightA !== mimeWeightB) {
-        return mimeWeightB - mimeWeightA; // descending order
-      }
-      if (a.mimeType !== b.mimeType) {
-        return a.mimeType.localeCompare(b.mimeType); // compare on mimeType name
-      }
-      return (b.weight || 0) - (a.weight || 0); // compare export format weight
-    });
+  private compareExportFormats(a: ItemExportFormat, b: ItemExportFormat): number {
+    const mimeWeightA = ItemExportComponent.MIMETYPE_WEIGHTS[a.mimeType] ?? 0;
+    const mimeWeightB = ItemExportComponent.MIMETYPE_WEIGHTS[b.mimeType] ?? 0;
+    if (mimeWeightA !== mimeWeightB) {
+      return mimeWeightB - mimeWeightA; // descending
+    }
+    if (a.mimeType !== b.mimeType) {
+      return a.mimeType.localeCompare(b.mimeType); // alphabetical
+    }
+    return (b.weight || 0) - (a.weight || 0); // descending weight
+  }
+
+  /**
+   * Get the best default format to used from a ExportFormConfiguration object.
+   * @param configuration the configuration to analyze
+   */
+  private getDefaultFormat(configuration: ItemExportFormConfiguration): ItemExportFormat {
+    return configuration?.formats
+      ?.filter(f => f.exposed)
+      .sort((a, b) => this.compareExportFormats(a, b))[0] ?? null;
   }
 }
