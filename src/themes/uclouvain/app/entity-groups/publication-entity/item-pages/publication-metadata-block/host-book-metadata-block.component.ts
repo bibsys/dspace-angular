@@ -11,29 +11,29 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @listableMetadataBlockComponent('text::conference-speech', ViewMode.StandalonePage, Context.Any, '*', 30)
 @Component({
   template: `
-      <ng-container *ngIf="item.hasMetadata('publication.host.title')">
+      <ng-container *ngIf="hasValidMetadata('publication.host.title')">
         <dt>{{ 'item.page.details.label.host-book' | translate }}</dt>
         <dd>
             <div class="book-name"><ds-generic-item-page-field [item]='item' [fields]='["publication.host.title"]'/></div>
-            <span class="book-metadata book-statement d-flex" *ngIf="item.hasMetadata('publication.host.editionStatement')">
+            <span class="book-metadata book-statement d-flex" *ngIf="hasValidMetadata('publication.host.editionStatement')">
                 <div><i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i></div>
                 <div>{{ item.firstMetadataValue("publication.host.editionStatement") }}</div>
             </span>
-            <span class="book-metadata book-authors d-flex" *ngIf="item.hasMetadata('publication.host.authors')">
+            <span class="book-metadata book-authors d-flex" *ngIf="hasValidMetadata('publication.host.authors')">
                 <div><i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i></div>
                 <div>{{ 'item.page.details.label.host-book.authors' | translate }}: {{ item.firstMetadataValue("publication.host.authors") }}</div>
             </span>
-            <span class="book-metadata book-pages" *ngIf="item.hasMetadata('publication.host.pages')">
+            <span class="book-metadata book-pages" *ngIf="hasValidMetadata('publication.host.pages')">
                 <i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i>
                 {{ 'item.page.details.label.host-book.pages' | translate }}: {{ item.firstMetadataValue("publication.host.pages") }}
             </span>
-            <span class="book-metadata book-date" *ngIf="item.hasMetadata('publication.host.dateIssued')">
+            <span class="book-metadata book-date" *ngIf="hasValidMetadata('publication.host.dateIssued')">
                 <i class="fas fa-arrow-turn-up fa-rotate-90 mx-2"></i>
                 {{ 'item.page.details.label.host-book.date' | translate }}: {{ item.firstMetadataValue("publication.host.dateIssued") }}
             </span>
         </dd>
       </ng-container>
-      <ng-container *ngIf="item.firstMetadataValue('publication.host.isbn')">
+      <ng-container *ngIf="hasValidMetadata('publication.host.isbn')">
           <dt>{{ 'item.page.details.label.isbn' | translate }}</dt>
           <dd><ds-generic-item-page-field [item]='item' [fields]='["publication.host.isbn"]'/></dd>
       </ng-container>

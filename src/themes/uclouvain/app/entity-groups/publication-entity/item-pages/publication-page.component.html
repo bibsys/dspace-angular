@@ -39,7 +39,7 @@
             </ng-container>
             <ng-container *ngIf="object.hasMetadata('oairecerif.affiliation.orgunitDepartment')">
               <dt>{{ "item.page.affiliation" | translate }}</dt>
-              <dd><ds-item-page-metadata-list [item]="object" [metadataField]="'oairecerif.affiliation.orgunitDepartment'" [truncateMinSpace]="6"/></dd>
+              <dd><ds-item-page-metadata-list [item]="object" [metadataField]="'oairecerif.affiliation.orgunitDepartment'" [truncateMinSpace]="Number.MAX_VALUE"/></dd>
             </ng-container>
           </dl>
         </ds-page-detail-section>
