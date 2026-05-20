@@ -12,7 +12,7 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @listableMetadataBlockComponent('text::conference-speech', ViewMode.StandalonePage, Context.Any, '*', 50)
 @Component({
   template: `
-      <ng-container *ngIf="item.hasMetadata('publication.publicationStatus')">
+      <ng-container *ngIf="hasValidMetadata('publication.publicationStatus')">
           <dt>{{ 'item.page.details.label.publication-status' | translate }}</dt>
           <dd>{{ 'item.page.details.values.publication-status.' + item.firstMetadataValue("publication.publicationStatus") | translate }}</dd>
       </ng-container>

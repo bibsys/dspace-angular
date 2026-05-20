@@ -19,7 +19,9 @@ export class IdentifierPubmedMetadataBlockComponent extends AbstractMetadataBloc
   protected url: {link: URL, target?: string, content: string};
 
   ngOnInit() {
-    const identifier = this.item.firstMetadataValue("dc.identifier.pmid");
+    const identifier = (this.hasValidMetadata("dc.identifier.pmid"))
+      ? this.item.firstMetadataValue("dc.identifier.pmid")
+      : undefined;
     if (isNotEmpty(identifier)) {
       const url = new URL(this.item.firstMetadataValue("dc.relation.pubmed") || 'https://pubmed.ncbi.nlm.nih.gov/' + identifier);
       this.url = { link: url, content: identifier };

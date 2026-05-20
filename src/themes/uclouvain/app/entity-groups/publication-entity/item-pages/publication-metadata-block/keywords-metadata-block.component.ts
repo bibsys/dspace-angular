@@ -9,7 +9,7 @@ import { AbstractMetadataBlockComponent } from './abstract-metadata-block.compon
 @listableMetadataBlockComponent('*', ViewMode.StandalonePage, Context.Any, '*', 70)
 @Component({
   template: `
-    <ng-container *ngIf="item.hasMetadata('dc.subject')">
+    <ng-container *ngIf="hasValidMetadata('dc.subject')">
       <dt>{{ 'item.page.details.label.subjects' | translate }}</dt>
       <dd>
         <ul class="list-unstyled m-0">
