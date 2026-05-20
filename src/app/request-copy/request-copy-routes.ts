@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import { authenticatedGuard } from '../core/auth/authenticated.guard';
 
 import { ThemedDenyRequestCopyComponent } from './deny-request-copy/themed-deny-request-copy.component';
 import { GrantDenyRequestCopyComponent } from './grant-deny-request-copy/grant-deny-request-copy.component';
@@ -11,6 +12,7 @@ import {
 
 export const ROUTES: Route[] = [
   {
+    canActivate: [authenticatedGuard],
     path: ':token',
     resolve: {
       request: requestCopyResolver,
