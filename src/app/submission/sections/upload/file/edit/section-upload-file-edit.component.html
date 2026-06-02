@@ -6,6 +6,9 @@
     </button>
   </div>
   <div class="modal-body">
+    <ds-alert [type]="AlertType.Error" class="d-block my-2" *ngIf="isNotEmpty(errorMessages)">
+        <span *ngFor="let errorMessage of errorMessages" [innerHTML]="errorMessage | translate"></span>
+    </ds-alert>
     <ds-form *ngIf="formModel"
              #formRef="formComponent"
              [formId]="formId"
@@ -14,7 +17,24 @@
              [displayReset]="!isSaving"
              (submitForm)="onSubmit()"
              (cancel)="onModalClose()"
-             (dfChange)="onChange($event)"></ds-form>
-
+             (dfChange)="onChange($event)">
+    </ds-form>
+    <!-- When the form is saving, we won't hide the button action form !
+         We want to disable them but `ds-form` don't allow allow this behavior. So we "rebuild" the buttons section
+    -->
+    <ng-container *ngIf="isSaving">
+       <hr/>
+       <div class="form-group row">
+           <div class="col text-right space-children-mr">
+               <button type="reset" class="btn btn-outline-secondary" [dsBtnDisabled]="true">
+                   <i aria-hidden="true" class="fas fa-undo-alt mr-1"></i>Reset
+               </button>
+               <button type="submit" class="btn btn-primary" [dsBtnDisabled]="true">
+                   <span aria-hidden="true" class="spinner-border spinner-border-sm mr-1" role="status"></span>
+                   <span class="d-none d-sm-inline">&nbsp;{{ 'item.edit.metadata.save-button' | translate }}</span>
+               </button>
+           </div>
+       </div>
+    </ng-container>
   </div>
 </div>
