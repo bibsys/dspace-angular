@@ -2505,6 +2505,8 @@
 
   "error.validation.fwb.accesstype": "Following the <a href='https://uclouvain.sharepoint.com/:b:/s/MySCEB/EfUlqIVtdl1CmwPz3puGhwMBrLaQWcYuibMoWNzUKEBa8A' target='_blank' class='font-weight-bold'><u>FWB's Open Access decree</u></a>, the attached file containing your full text may only be made available in open access or under embargo, no other access option is possible.",
 
+  "error.validation.unexpected-error": "An unexpected error occurred. If the problem persists, please contact support",
+
   "event.listelement.badge": "Event",
 
   "event.page.titleprefix": "Event:",
