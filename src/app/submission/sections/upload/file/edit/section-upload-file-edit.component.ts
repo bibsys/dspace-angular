@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
@@ -39,11 +39,14 @@ import { DynamicCustomSwitchModel } from 'src/app/shared/form/builder/ds-dynamic
 
 import { AccessConditionOption } from '../../../../../core/config/models/config-access-condition-option.model';
 import { SubmissionFormsModel } from '../../../../../core/config/models/config-submission-forms.model';
+import { RemoteData } from '../../../../../core/data/remote-data';
 import { JsonPatchOperationPathCombiner } from '../../../../../core/json-patch/builder/json-patch-operation-path-combiner';
 import { JsonPatchOperationsBuilder } from '../../../../../core/json-patch/builder/json-patch-operations-builder';
 import { WorkspaceitemSectionUploadFileObject } from '../../../../../core/submission/models/workspaceitem-section-upload-file.model';
 import { SubmissionJsonPatchOperationsService } from '../../../../../core/submission/submission-json-patch-operations.service';
 import { normalizeSectionData } from '../../../../../core/submission/submission-response-parsing.service';
+import { AlertType } from '../../../../../shared/alert/alert-type';
+import { AlertComponent } from '../../../../../shared/alert/alert.component';
 import { BtnDisabledDirective } from '../../../../../shared/btn-disabled.directive';
 import { dateToISOFormat } from '../../../../../shared/date.util';
 import {
@@ -91,6 +94,8 @@ import {
     NgIf,
     TranslateModule,
     BtnDisabledDirective,
+    AlertComponent,
+    NgForOf,
   ],
   standalone: true,
 })
@@ -193,12 +198,20 @@ export class SubmissionSectionUploadFileEditComponent implements OnInit, OnDestr
   isSaving = false;
 
   /**
+   * Content errorMessage from submitted form
+   */
+  errorMessages: string[] = [];
+
+  /**
    * The [JsonPatchOperationPathCombiner] object
    * @type {JsonPatchOperationPathCombiner}
    */
   protected pathCombiner: JsonPatchOperationPathCombiner;
 
   protected subscriptions: Subscription[] = [];
+
+  protected readonly AlertType = AlertType;
+  protected readonly isNotEmpty = isNotEmpty;
 
   /**
    * Initialize instance variables
@@ -440,6 +453,7 @@ export class SubmissionSectionUploadFileEditComponent implements OnInit, OnDestr
       mergeMap(() => this.formService.getFormData(this.formId)),
       take(1),
       mergeMap((formData: any) => {
+        this.errorMessages = [];  // clear previous errors
         this.uploadService.updatePrimaryBitstreamOperation(this.pathCombiner.getPath('primary'), this.isPrimary, formData.primary[0], this.fileId);
 
         // collect bitstream metadata
@@ -525,27 +539,37 @@ export class SubmissionSectionUploadFileEditComponent implements OnInit, OnDestr
           this.pathCombiner.rootElement,
           this.pathCombiner.subRootElement);
       }),
-    ).subscribe((result: SubmissionObject[]) => {
-      if (result[0].sections[this.sectionId]) {
-        const resultSection = result[0].sections[this.sectionId];
-        const uploadSection = (resultSection as WorkspaceitemSectionUploadObject);
-        const { errors } = result[0];
-        const errorsList = parseSectionErrors(errors);
-        const sectionData = normalizeSectionData(resultSection);
-        const sectionErrors = errorsList[this.sectionId];
+    ).subscribe({
+      next: (result: SubmissionObject[]) => {
+        if (result[0].sections[this.sectionId]) {
+          const resultSection = result[0].sections[this.sectionId];
+          const uploadSection = (resultSection as WorkspaceitemSectionUploadObject);
+          const {errors} = result[0];
+          const errorsList = parseSectionErrors(errors);
+          const sectionData = normalizeSectionData(resultSection);
+          const sectionErrors = errorsList[this.sectionId];
 
-        this.uploadService.updateFilePrimaryBitstream(this.submissionId, this.sectionId, uploadSection.primary);
+          this.uploadService.updateFilePrimaryBitstream(this.submissionId, this.sectionId, uploadSection.primary);
 
-        Object.keys(uploadSection.files)
-          .filter((key) => uploadSection.files[key].uuid === this.fileId)
-          .forEach((key) => this.uploadService.updateFileData(
-            this.submissionId, this.sectionId, this.fileId, uploadSection.files[key]),
-          );
+          Object.keys(uploadSection.files)
+            .filter((key) => uploadSection.files[key].uuid === this.fileId)
+            .forEach((key) => this.uploadService.updateFileData(
+              this.submissionId, this.sectionId, this.fileId, uploadSection.files[key]),
+            );
 
-        this.sectionService.updateSectionData(this.submissionId, this.sectionId, sectionData, sectionErrors, sectionErrors);
+          this.sectionService.updateSectionData(this.submissionId, this.sectionId, sectionData, sectionErrors, sectionErrors);
+        }
+        this.isSaving = false;
+        this.activeModal.close();
+      },
+      error: (error: RemoteData<any>) => {
+        this.errorMessages = (error?.errors || []).map((error) => error.message);
+        if (this.errorMessages.length == 0) {
+          this.errorMessages.push('error.validation.unexpected-error');
+          this.errorMessages.push('ERROR :: ' + (error?.errorMessage || error?.statusCode));
+        }
+        this.isSaving = false;
       }
-      this.isSaving = false;
-      this.activeModal.close();
     });
     this.subscriptions.push(saveBitstreamDataSubscription);
   }
@@ -585,5 +609,4 @@ export class SubmissionSectionUploadFileEditComponent implements OnInit, OnDestr
   private unsubscribeAll() {
     this.subscriptions.filter((sub) => hasValue(sub)).forEach((sub) => sub.unsubscribe());
   }
-
 }
