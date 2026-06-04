@@ -62,7 +62,15 @@ export class ChipsItem {
   }
 
   hasMetadata(key: string): boolean {
-    return this.item && this.item.hasOwnProperty(key);
+    // Check if item exists and has the property
+    if (!this.item || !this.item.hasOwnProperty(key)) {
+      return false;
+    }
+    const metadata = this.item[key];
+    // If it's an object, check its .value property
+    return (metadata && typeof metadata === 'object' && 'value' in metadata)
+      ? metadata.value !== PLACEHOLDER_PARENT_METADATA
+      : metadata !== PLACEHOLDER_PARENT_METADATA;
   }
 
   getMetadataValue(key: string): string | null {
