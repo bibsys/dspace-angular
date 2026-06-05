@@ -6,7 +6,7 @@
    [ngClass]="cssClasses">
     <ng-container *ngIf="canDownload$ | async">
         <i *ngIf="showIcon" class="fas fa-download pr-1"></i>
-        <span *ngIf="showText">{{ "item.page.filesection.download" | translate }}</span>
+        <span *ngIf="showText" class="mr-1">{{ "item.page.filesection.download" | translate }}</span>
     </ng-container>
     <ng-container *ngIf="!(canDownload$ | async)">
         <i *ngIf="showIcon" class="fas fa-lock pr-1"></i>
