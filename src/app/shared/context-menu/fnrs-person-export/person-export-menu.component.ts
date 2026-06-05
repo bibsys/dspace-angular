@@ -10,11 +10,16 @@ import { DSpaceObject } from "src/app/core/shared/dspace-object.model";
 import { DSpaceObjectType } from "src/app/core/shared/dspace-object-type.model";
 import { ContextMenuEntryType } from "../context-menu-entry-type";
 import { environment } from "src/environments/environment";
-import { TranslateModule } from "@ngx-translate/core";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { AsyncPipe, NgFor, NgIf } from "@angular/common";
 import { combineLatest, map, Observable, of } from "rxjs";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { isNotEmpty } from "../../empty.util";
+import { isEmpty, isNotEmpty } from "../../empty.util";
+import { PUBLICATION_EXPORT_SCRIPT_NAME, ScriptDataService } from 'src/app/core/data/processes/script-data.service';
+import { getFirstCompletedRemoteData } from 'src/app/core/shared/operators';
+import { RemoteData } from 'src/app/core/data/remote-data';
+import { Process } from 'src/app/process-page/processes/process.model';
+import { ProcessParameter } from 'src/app/process-page/processes/process-parameter.model';
 
 /**
  * Component to export a user profile bibliography.
@@ -50,8 +55,9 @@ export class PersonExportMenuComponent extends ContextMenuEntryComponent impleme
     protected authorizationService: AuthorizationDataService,
     protected modalService: NgbModal,
     private formBuilder: FormBuilder,
-    private httpClient: HttpClient,
     private notificationsService: NotificationsService,
+    private scriptDataService: ScriptDataService,
+    private translate: TranslateService,
   ) {
     super(injectedContextMenuObject, injectedContextMenuObjectType, ContextMenuEntryType.ExportItem);
   }
@@ -85,43 +91,44 @@ export class PersonExportMenuComponent extends ContextMenuEntryComponent impleme
     const values = this.exportForm.value;
     const profileUUID = this.contextMenuObject.id;
 
-    // Build baseURL : /api/uclouvain/export/{style}?uuid={uuid}
-    let url = `${this.restBaseUrl}/${values.style}?uuid=${profileUUID}`;
+    const params = [];
 
-    // Add additional parameters if needed
-    if (values.startYear) url += `&startYear=${values.startYear}`;
-    if (values.endYear) url += `&endYear=${values.endYear}`;
-    if (values.includePoster) url += `&includePoster=true`;
+    // NOTE: This is an updated version that will retrieve the export result trough a process rather than through an HTTP call.
+    // This avoids timeouts when fetching a big export for 1000+ publications.
+    this.addParamIfExists("-u", profileUUID, params);
+    this.addParamIfExists("-s", values.startYear, params);
+    this.addParamIfExists("-e", values.endYear, params);
+    this.addParamIfExists("-i", values.includePoster ? "true" : "false", params);
+    this.addParamIfExists("-t", values.style, params);
 
-    this.httpClient.get(url, {
-      responseType: 'blob',
-      observe: 'response'
-    }).subscribe({
-      next: (response: HttpResponse<Blob>) => {
-        this.downloadFile(response, values.style);
-        this.notificationsService.success(null, 'export.modal.process.success');
-      },
-      error: (err) => {
-        this.notificationsService.error(null, 'export.modal.process.error' + " : " + err);
-    }});
+    this.scriptDataService.invoke(PUBLICATION_EXPORT_SCRIPT_NAME, params, [])
+      .pipe(
+        getFirstCompletedRemoteData(),
+        map((rd: RemoteData<Process>) => {
+          if (rd.isSuccess) {
+            const payload: any = rd.payload;
+            return payload.processId;
+          } else {
+            const title = this.translate.get('process.new.notification.error.title');
+            const content = this.translate.get('process.new.notification.error.content');
+            this.notificationsService.error(title, content);
+            return null;
+          }
+        })
+      ).subscribe((processId) => {
+        if (!isEmpty(processId)) {
+          const title = this.translate.get('item-export.process.title');
+          this.notificationsService.process(processId.toString(), 5000, title);
+        }
+      })
   }
 
-  private downloadFile(response: HttpResponse<Blob>, style: string) {
-    const contentDisposition = response.headers.get('Content-Disposition');
-    const fileName = contentDisposition
-      ? contentDisposition.split('filename=')[1]?.replace(/"/g, '')
-      : `export-${style}.pdf`;
-
-    const blob = response.body;
-    if (blob) {
-      const downloadURL = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = downloadURL;
-      link.download = fileName;
-      link.click();
-      window.URL.revokeObjectURL(downloadURL);
+  addParamIfExists(label: string, value: any, params: ProcessParameter[]): void {
+    if (!isEmpty(value)) {
+      params.push(Object.assign(new ProcessParameter(), { "name": label, "value": value }));
     }
   }
+
 
   private isObjectValid(): Observable<boolean> {
     if (isNotEmpty(this.contextMenuObject) && (this.contextMenuObject instanceof Item)) {
