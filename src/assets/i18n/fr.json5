@@ -9968,6 +9968,14 @@
   // --- ITEM VALIDATION ---
   "item.validator.person.not-unique.message": "La valeur d'un des champs unique suivant est déjà présente dans un autre profil: 'fgs', 'email', 'email officiel' ou 'orcid'",
 
-  "dropdown.clear": "Effacer la saisie"
+  // --- PROCESS RESULT ---
+  "process.new.notification.process.processing": "Traitement...",
+  "process.new.notification.process.files": "Résultats:",
+  "process.new.notification.process.status.completed": "Complété",
+  "process.new.notification.process.status.failed": "Échec",
+  "item-export.process.title": "Processus d'export d'items",
+
+  // --- MISC --- 
+  "dropdown.clear": "Effacer la saisie",
 }
 
