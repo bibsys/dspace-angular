@@ -373,7 +373,11 @@ export class DsDynamicFormControlContainerComponent extends DynamicFormControlCo
       const control = this.formBuilderService.getFormControlByModel(this.formGroup, this.model) as FormControl;
       if (control) {
         this.subs.push(control.valueChanges
-          .subscribe(value => this.isLinkedToAuthority = Object.prototype.hasOwnProperty.call(value, 'authority') && isNotEmpty(value.authority)));
+          .subscribe(value => {
+            if (isNotEmpty(value)) {
+              this.isLinkedToAuthority = Object.prototype.hasOwnProperty.call(value, 'authority') && isNotEmpty(value.authority);
+            }
+          }));
       }
     }
     this.showErrorMessagesPreviousStage = this.showErrorMessages;
