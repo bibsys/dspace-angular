@@ -261,9 +261,11 @@ export class DsDynamicTypeBindRelationService {
                   // This is necessary in order to not take hidden field into account when validating a form.
                   if (hasMatch && control.enabled) {
                     control.setErrors(null);
-                    control.disable({emitEvent: false});
+                    // Emit event to allow other component to react to the type-bind changes.
+                    control.disable({emitEvent: true});
                   } else if (!hasMatch && control.disabled) {
-                    control.enable({emitEvent: false});
+                    // Emit event to allow other component to react to the type-bind changes.
+                    control.enable({emitEvent: true});
                   }
                   // Make sure to update the trigger an update of validity.
                   control?.parent?.updateValueAndValidity({ onlySelf: false, emitEvent: false });
