@@ -179,6 +179,7 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
       .subscribe((value) => {
         this.setCurrentValue(value, true);
       });
+    this.control.statusChanges.subscribe(() => this.selectDefaultValue(this.model, this.optionsList));
     this.initFilterSubscriber();
   }
 
@@ -247,7 +248,12 @@ export class DsDynamicScrollableDropdownComponent extends DsDynamicVocabularyCom
    * @param optionsList The list of options 
    */
   selectDefaultValue(model: DynamicScrollableDropdownModel, optionsList: CacheableObject[]) {
-    if (!model.useDefaultValue || model.value || !optionsList?.length) {
+    // Cancel select of default value if:
+    //  - The configuration does not enable default value,
+    //  - The model already has a value,
+    //  - There are no option available,
+    //  - The control is undefined or disabled
+    if (!model.useDefaultValue || model.value || !optionsList?.length || !this.control || this.control.disabled) {
       return;
     }
     const selectedEntry = optionsList.find((entry: VocabularyEntry) => entry.value === model.defaultValue) || optionsList[0];
