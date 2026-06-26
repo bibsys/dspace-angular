@@ -3080,7 +3080,7 @@
 
   "item.alerts.private": "This item is non-discoverable",
 
-  "item.alerts.withdrawn": "This item has been withdrawn",
+  "item.alerts.withdrawn": "This item has been withdrawn. It will no longer appear in search results or exports.",
 
   "item.alerts.reinstate-request": "Request reinstate",
 
@@ -7576,7 +7576,7 @@
 
   "submission.sections.accesses.form.from-hint": "Select the date from which the related access condition is applied",
 
-  "submission.sections.accesses.form.from-placeholder": "From",
+  "submission.sections.accesses.form.from-placeholder": "Embargo end date",
 
   "submission.sections.accesses.form.group-label": "Group",
 
@@ -7598,7 +7598,7 @@
 
   "access.condition.value.openaccess": "Open Access",
 
-  "access.condition.value.embargo": "Embargo",
+  "access.condition.value.embargo": "Embargo Access",
 
   "access.condition.value.administrator": "Closed Access",
 
