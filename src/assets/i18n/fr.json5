@@ -3287,10 +3287,10 @@
   "item.alerts.notArchived": "Cette publication n'est pas encore archivée",
 
   // "item.alerts.private": "This item is private",
-  "item.alerts.private": "Cet publication est privé",
+  "item.alerts.private": "Cette publication est privé",
 
   // "item.alerts.withdrawn": "This item has been withdrawn",
-  "item.alerts.withdrawn": "Cet publication a été retiré",
+  "item.alerts.withdrawn": "Cette publication a été retiré. Elle n'apparaitra plus dans les résultats de recherche ni dans les exports.",
 
   // "item.edit.authorizations.heading": "With this editor you can view and alter the policies of an item, plus alter policies of individual item components: bundles and bitstreams. Briefly, an item is a container of bundles, and bundles are containers of bitstreams. Containers usually have ADD/REMOVE/READ/WRITE policies, while bitstreams only have READ/WRITE policies.",
   "item.edit.authorizations.heading": "Avec cet éditeur, il vous est possible de visualiser et modifier les autorisations d'un Item de même que de modifier les autorisations de ses composants Bundles et Bitstream. En bref, Un Item peut inclure un ou plusieurs Bundle(s) et chaque Bundle peut inclure un ou plusieurs Bitstream(s). Les Items et Bundles ont habituellement des autorisations de type ADD/REMOVE/READ/WRITE alors que les Bitstreams ont uniquement des autorisations READ/WRITE.",
@@ -7403,7 +7403,7 @@
   "submission.sections.upload.form.from-hint": "Sélectionner la date de fin d'embargo.<br/>Après cette date, votre fichier sera disponible en accès ouvert",
 
   // "submission.sections.upload.form.from-placeholder": "From",
-  "submission.sections.upload.form.from-placeholder": "Depuis",
+  "submission.sections.upload.form.from-placeholder": "Date de fin d'embargo",
 
   // "submission.sections.upload.form.group-label": "Group",
   "submission.sections.upload.form.group-label": "Groupe",
@@ -7476,7 +7476,7 @@
   "submission.sections.accesses.form.from-hint": "Sélectionner la date à partir de laquelle l'autorisation d'accès liée est appliquée.",
 
   // "submission.sections.accesses.form.from-placeholder": "From",
-  "submission.sections.accesses.form.from-placeholder": "Depuis",
+  "submission.sections.accesses.form.from-placeholder": "Date de fin d'embargo",
 
   // "submission.sections.accesses.form.group-label": "Group",
   "submission.sections.accesses.form.group-label": "Groupe",
@@ -9893,6 +9893,7 @@
   "languages.iso-639-2.other": "Autre",
 
   "from": "à partir du",
+  "until": "jusqu'au",
 
   "form.other-information.journal.searchresult.info": "ISSN",
   "form.other-information.journal.searchresult.ceased": "Status",
