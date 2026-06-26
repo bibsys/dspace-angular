@@ -16,8 +16,8 @@ import {  SubmissionUploadFileAccessConditionObject } from '../../../../../app/c
         <span class="badge px-2 py-1" [ngClass]="getAccessConditionBadgeColor(access)">
             <i class="fa mr-1" [ngClass]="getAccessConditionIcon(access)"></i>
             {{ 'access.condition.value.' + access.name | translate }}
-            <ng-container *ngIf="isNotEmpty(access.startDate)"> {{ 'from' | translate }} {{ access.startDate }}</ng-container>
-            <ng-container *ngIf="isNotEmpty(access.endDate)"> {{ 'until' | translate }} {{ access.endDate }}</ng-container>
+            <ng-container *ngIf="isNotEmpty(access.startDate)"> {{ 'until' | translate }} {{ access.startDate }}</ng-container>
+            <ng-container *ngIf="isNotEmpty(access.endDate)"> {{ 'from' | translate }} {{ access.endDate }}</ng-container>
         </span>
           <i *ngIf="!last" class="fa fa-plus-circle text-dark mx-2" aria-hidden="true"></i>
       </ng-container>`,
