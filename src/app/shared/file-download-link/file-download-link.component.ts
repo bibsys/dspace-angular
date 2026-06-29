@@ -10,7 +10,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
   combineLatest as observableCombineLatest,
   Observable,
@@ -85,6 +85,8 @@ export class FileDownloadLinkComponent implements OnInit {
   }>;
 
   canDownload$: Observable<boolean>;
+  canRequestACopy$: Observable<boolean>;
+  noAccess$: Observable<boolean>;
 
   /**
    * Whether or not the user can request a copy of the item
@@ -97,14 +99,17 @@ export class FileDownloadLinkComponent implements OnInit {
     private authorizationService: AuthorizationDataService,
     private configurationService: ConfigurationDataService,
     public dsoNameService: DSONameService,
+    private translateService: TranslateService,
   ) {
   }
 
   ngOnInit() {
     if (this.enableRequestACopy) {
       this.canDownload$ = this.authorizationService.isAuthorized(FeatureID.CanDownload, isNotEmpty(this.bitstream) ? this.bitstream.self : undefined);
-      const canRequestACopy$ = this.authorizationService.isAuthorized(FeatureID.CanRequestACopy, isNotEmpty(this.bitstream) ? this.bitstream.self : undefined);
-      this.bitstreamPath$ = observableCombineLatest([this.canDownload$, canRequestACopy$]).pipe(
+      this.canRequestACopy$ = this.authorizationService.isAuthorized(FeatureID.CanRequestACopy, isNotEmpty(this.bitstream) ? this.bitstream.self : undefined);
+      this.noAccess$ = observableCombineLatest([this.canDownload$, this.canRequestACopy$])
+        .pipe(map(([canDownload, canRequestACopy]) => !canDownload && !canRequestACopy));
+      this.bitstreamPath$ = observableCombineLatest([this.canDownload$, this.canRequestACopy$]).pipe(
         map(([canDownload, canRequestACopy]) => this.getBitstreamPath(canDownload, canRequestACopy)),
       );
 
@@ -137,5 +142,15 @@ export class FileDownloadLinkComponent implements OnInit {
       routerLink: getBitstreamDownloadRoute(this.bitstream),
       queryParams: {},
     };
+  }
+
+  getNoAccessExplanation(): Observable<String> {
+    let hasAuthorEmail$ = this.authorizationService.isAuthorized(FeatureID.HasAuthorEmail, isNotEmpty(this.bitstream) ? this.bitstream.self : undefined);
+    return observableCombineLatest([hasAuthorEmail$]).pipe(map(([hasAuthorEmail]) => {
+      if (!hasAuthorEmail) {
+        return this.translateService.instant('item.page.filesection.no-access.explanation.no-email');
+      }
+      return this.translateService.instant('item.page.filesection.no-access.explanation.generic');
+    }))
   }
 }
