@@ -3738,6 +3738,8 @@
   "item.page.filesection.download": "Download",
   "item.page.filesection.request-a-copy": "Request a copy",
   "item.page.filesection.no-access": "No access",
+  "item.page.filesection.no-access.explanation.no-email": "This file cannot be downloaded. The request copy is not available because no author email is provided for this publication.",
+  "item.page.filesection.no-access.explanation.generic": "This file cannot be downloaded. For an unknown reason, the request copy is not available for this publication.",
   "item.page.filesection.format": "Format:",
 
   "item.page.filesection.name": "Name:",

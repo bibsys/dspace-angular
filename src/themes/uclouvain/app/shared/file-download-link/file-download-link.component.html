@@ -1,23 +1,27 @@
-<a [ngbTooltip]="'item.page.filesection.download' | translate"
-   [routerLink]="(bitstreamPath$| async)?.routerLink"
-   [queryParams]="(bitstreamPath$| async)?.queryParams"
+<a [ngbTooltip]="(noAccess$ | async) ? (getNoAccessExplanation() | async) : ('item.page.filesection.download' | translate)"
+   [routerLink]="(noAccess$ | async) ? null : (bitstreamPath$ | async)?.routerLink" 
    class="dont-break-out"
+   [queryParams]="(noAccess$ | async) ? null : (bitstreamPath$ | async)?.queryParams"
    [target]="isBlank ? '_blank': '_self'"
-   [ngClass]="cssClasses">
-    <ng-container *ngIf="canDownload$ | async">
-        <i *ngIf="showIcon" class="fas fa-download pr-1"></i>
-        <span *ngIf="showText" class="mr-1">{{ "item.page.filesection.download" | translate }}</span>
-    </ng-container>
-    <ng-container *ngIf="!(canDownload$ | async)">
-        <i *ngIf="showIcon" class="fas fa-lock pr-1"></i>
-        <ng-container *ngIf="showText">
-            <ng-container *ngIf="(canRequestItemCopy$ | async)">{{ "item.page.filesection.request-a-copy" | translate }}</ng-container>
-            <ng-container *ngIf="!(canRequestItemCopy$ | async)">{{ "item.page.filesection.no-access" | translate }}</ng-container>
-        </ng-container>
-    </ng-container>
-    <ng-container *ngTemplateOutlet="content"></ng-container>
+   [ngClass]="cssClasses"
+   [attr.aria-disabled]="(noAccess$ | async) ? 'true' : null"
+   [attr.aria-label]="('file-download-link.download' | translate) + dsoNameService.getName(bitstream)">
+
+  <ng-container *ngIf="canDownload$ | async">
+    <i *ngIf="showIcon" class="fas fa-download pr-1"></i>
+    <span *ngIf="showText" class="mr-1">{{ "item.page.filesection.download" | translate }}</span>
+  </ng-container>
+  <ng-container *ngIf="canRequestACopy$ | async">
+    <i *ngIf="showIcon" class="fas fa-lock pr-1"></i>
+    <span *ngIf="showText" class="mr-1">{{ "item.page.filesection.request-a-copy" | translate }}</span>
+  </ng-container>
+  <ng-container *ngIf="noAccess$ | async">
+    <i *ngIf="showIcon" class="fas fa-lock pr-1"></i>
+    <span *ngIf="showText" class="mr-1">{{ 'item.page.filesection.no-access' | translate }}</span>
+  </ng-container>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
 </a>
 
 <ng-template #content>
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </ng-template>
