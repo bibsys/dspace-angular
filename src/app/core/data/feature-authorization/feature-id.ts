@@ -49,4 +49,5 @@ export enum FeatureID {
   CanSeeComment = 'canSeeComment',
   CanCreateComment = 'canCreateComment',
   CanDeleteComment = 'canDeleteComment',
+  HasAuthorEmail = 'hasAuthorEmail',
 }

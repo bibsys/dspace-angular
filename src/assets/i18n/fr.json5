@@ -4084,6 +4084,8 @@
   "item.page.filesection.download": "Télécharger",
   "item.page.filesection.request-a-copy": "Demander un accès",
   "item.page.filesection.no-access": "Aucun accès",
+  "item.page.filesection.no-access.explanation.no-email": "Ce fichier ne peut pas être téléchargé. La demande de copie est indisponible car aucun email d'auteur n'est fourni pour cette publication.",
+  "item.page.filesection.no-access.explanation.generic": "Ce fichier ne peut pas être téléchargé. Pour une raison inconue, la demande de copie est indisponible pour cette publication.",
 
   // "item.page.filesection.format": "Format:",
   "item.page.filesection.format": "Format:",
