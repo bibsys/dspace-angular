@@ -1942,6 +1942,8 @@
 
   "context-menu.actions.edit-item.btn.PROFILE_OWNER": "Edit my profile",
 
+  "context-menu.actions.edit-item.btn.PROFILE_MANAGER": "Edit profile (manager)",
+
   "context-menu.actions.edit-item.btn.PROFILE_ADMIN": "Edit profile (admin)",
 
   "context-menu.actions.request-correction.btn": "Request a correction",
