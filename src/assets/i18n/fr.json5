@@ -2175,6 +2175,8 @@
 
   "context-menu.actions.edit-item.btn.PROFILE_OWNER": "Éditer mon profil",
 
+  "context-menu.actions.edit-item.btn.PROFILE_MANAGER": "Éditer le profil (manager)",
+
   "context-menu.actions.edit-item.btn.PROFILE_ADMIN": "Éditer le profil (admin)",
 
   // "context-menu.actions.show-all-metadata": "Show all metadata (technical view)",
@@ -9806,7 +9808,7 @@
   "item.page.details.values.type.text::journal-article": "Article de périodique",
   "item.page.details.values.type.text::working-paper": "Document de travail",
   "item.page.details.values.type.text::book": "Livre",
-  "item.page.details.values.type.text::book-part": "Chapitre de livre",
+  "item.page.details.values.type.text::book-part": "Contribution à ouvrage collectif",
   "item.page.details.values.type.text::conference-speech": "Communication à un colloque",
   "item.page.details.values.type.text::report": "Rapport",
   "item.page.details.values.type.text::patent": "Brevet",
