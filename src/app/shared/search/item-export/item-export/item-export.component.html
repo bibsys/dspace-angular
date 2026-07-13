@@ -10,6 +10,11 @@
         <ds-item-export-alert [item]="item"
                               [entityType]="itemType?.label"
                               [bulkExportLimit]="bulkExportLimit"></ds-item-export-alert>
+        
+        <div class="alert alert-warning">
+          <i class="fa-solid fa-triangle-exclamation mr-1"></i>
+          <span class="font-weight-bold">{{ 'item-export.form.warning' | translate }}</span>
+        </div>
 
         <form *ngIf="exportForm; else loader" [formGroup]="exportForm">
 

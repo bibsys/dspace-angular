@@ -4189,6 +4189,8 @@
   "item-export.form.selection.all": "Export all",
 
   "item-export.form.selection.only-selected": "Export only selected",
+  
+  "item-export.form.warning": "This export does not produce a valid FNRS or FWB bibliographic export. Please use the dedicated profile bibliographic export for that.",
 
   "item-export.modal.title": "Item Export Process Launcher",
 
