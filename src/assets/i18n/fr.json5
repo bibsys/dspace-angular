@@ -9934,6 +9934,7 @@
   "item-export.form.selection": "Mode d'exportation",
   "item-export.form.selection.all": "Tout exporter",
   "item-export.form.selection.only-selected": "Seulement les documents sélectionnés",
+  "item-export.form.warning": "Ceci n'est pas un export bibliographique FNRS ou FWB valide. Veuillez utiliser l'export bibliographique prévu à cet effet sur la page de profil d'auteur.",
 
   "fnrs.category.1": "Ouvrage publié, en tant qu'auteur, co-auteur ou éditeur",
   "fnrs.category.2": "Partie d'ouvrage, en tant qu'auteur ou co-auteur de la partie",
