@@ -1,0 +1,95 @@
+<div class="file-panel container-fluid shadow-sm mb-2 px-2 py-3">
+    <div class="row">
+        <!-- Main file information -->
+        <div class="col d-flex">
+            <!-- File type logo -->
+            <div class="mx-3 position-relative">
+                <i *ngIf="isPrimary" [ngbTooltip]="'bitstream.edit.form.primaryBitstream.label' | translate"
+                    class="primary-tag fa fa-star"
+                ></i>
+                <img [src]="getFileIcon()" [alt]="fileName"/>
+            </div>
+            <!-- File metadata -->
+            <div class="col container mr-2 pl-1 d-flex flex-column">
+                <!-- Title && description (if present) -->
+                <div>
+                    <span class="font-weight-bold file-name">
+                        {{ fileName }}
+                    </span>
+                    <span *ngIf="metadata[fileDescriptionKey] && isNotEmpty(metadata[fileDescriptionKey])"
+                          class="font-italic text-muted ml-2"
+                    >({{ metadata[fileDescriptionKey] }})</span>
+                </div>
+                <!-- File size, access type and CC license -->
+                <ul class="list-inline-with-divider p-0 small">
+                    <li>
+                        <span class="text-muted font-italic"
+                              [ngbTooltip]="'submission.sections.upload.filesize.title' | translate"
+                        >{{fileData?.sizeBytes | dsFileSize}}</span>
+                    </li>
+                    <li *ngIf="isNotEmpty(fileLicense)">
+                        <ds-cc-license [licenseUri]="fileLicense"
+                                       [height]="16"
+                                       [ngbTooltip]="'submission.sections.upload.license.title' | translate"
+                        ></ds-cc-license>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Action buttons -->
+        <div class="col-md-3 col-sm-4 text-right my-auto">
+            <ng-container *ngIf="!readOnly">
+                <ng-container *ngTemplateOutlet="action_buttons"></ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<!-- Template to render the action buttons for a file -->
+<ng-template #action_buttons>
+    <button [ngbTooltip]="'submission.sections.upload.edit.title' | translate"
+            class="btn btn-primary mr-1"
+            [attr.aria-label]="'submission.sections.upload.edit.title' | translate"
+            title="{{ 'submission.sections.upload.edit.title' | translate }}"
+            (click)="$event.preventDefault();editBitstreamData();">
+        <i class="fa fa-edit text-normal"></i>
+    </button>
+    <ds-file-download-link
+        [cssClasses]="'btn btn-success mr-1'"
+        [isBlank]="true"
+        [bitstream]="getBitstream()"
+        [enableRequestACopy]="false"
+        [showText]="false"
+        [showIcon]="true">
+    </ds-file-download-link>
+    <button [ngbTooltip]="'submission.sections.upload.delete.confirm.title' | translate"
+            class="btn btn-danger"
+            [attr.aria-label]="'submission.sections.upload.delete.confirm.title' | translate"
+            title="{{ 'submission.sections.upload.delete.confirm.title' | translate }}"
+            [disabled]="(processingDelete$ | async)"
+            (click)="$event.preventDefault(); confirmDelete(content);">
+        <i *ngIf="(processingDelete$ | async)" class="fas fa-circle-notch fa-spin"></i>
+        <i *ngIf="!(processingDelete$ | async)" class="fa fa-trash"></i>
+    </button>
+</ng-template>
+
+<!-- Deletion confirm modal -->
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title text-danger">{{ 'submission.sections.upload.delete.confirm.title' | translate }}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('cancel')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>{{ 'submission.sections.upload.delete.confirm.info' | translate }}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="c('cancel')">
+            {{ 'submission.sections.upload.delete.confirm.cancel' | translate }}
+        </button>
+        <button type="button" class="btn btn-danger" (click)="c('ok')">
+            {{ 'submission.sections.upload.delete.confirm.submit' | translate }}
+        </button>
+    </div>
+</ng-template>

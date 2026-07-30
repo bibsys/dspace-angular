@@ -60,7 +60,7 @@ import { SubmissionService } from '../../../../submission.service';
 import parseSectionErrors from '../../../../utils/parseSectionErrors';
 import { SectionsService } from '../../../sections.service';
 import { SectionUploadService } from '../../section-upload.service';
-import { POLICY_DEFAULT_WITH_LIST } from '../../section-upload-constants';
+import {POLICY_DEFAULT_NO_LIST, POLICY_DEFAULT_WITH_LIST} from '../../section-upload-constants';
 import {
   BITSTREAM_ACCESS_CONDITION_GROUP_CONFIG,
   BITSTREAM_ACCESS_CONDITION_GROUP_LAYOUT,
@@ -360,7 +360,7 @@ export class SubmissionSectionUploadFileEditComponent implements OnInit, OnDestr
     const accessConditionsArrayConfig = Object.assign({}, BITSTREAM_ACCESS_CONDITIONS_FORM_ARRAY_CONFIG);
     const accessConditionTypeOptions = [];
 
-    if (this.collectionPolicyType === POLICY_DEFAULT_WITH_LIST) {
+    if (this.collectionPolicyType === POLICY_DEFAULT_NO_LIST) {
       for (const accessCondition of this.availableAccessConditionOptions) {
         accessConditionTypeOptions.push(
           {
