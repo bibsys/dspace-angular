@@ -1766,6 +1766,8 @@
   // "claimed-change-request-search-result-list-element.title" : "Sent back to submitter for modification",
   "claimed-change-request-search-result-list-element.title" : "Renvoyé au soummissionaire pour modification",
 
+  "claimed-return-to-manager-search-result-list-element.title": "Renvoyé au manager pour modification",
+
   // "claimed-approve-without-diffusion-search-result-list-element.title": "Approved without diffusion",
   "claimed-approve-without-diffusion-search-result-list-element.title": "Approuvé sans diffusion",
 
@@ -5705,6 +5707,8 @@
   // "mydspace.show.workflow": "Workflow tasks",
   "mydspace.show.workflow": "Espace gestionnaire",
 
+  "mydspace.show.workflowEdit": "Espace bibliothèque",
+
   // "mydspace.show.workspace": "Your Submissions",
   "mydspace.show.workspace": "Vos dépôts",
 
@@ -8931,6 +8935,14 @@
 
   // "submission.workflow.tasks.claimed.return-to-submitter.reason.default": "",
   "submission.workflow.tasks.claimed.return-to-submitter.reason.default": "",
+
+  "submission.workflow.tasks.claimed.return-to-manager": "Renvoyer au manager",
+  "submission.workflow.tasks.claimed.return-to-manager_help": "Utilisez cette option pour renvoyer le dépôt au manager.",
+  "submission.workflow.tasks.claimed.return-to-manager.reason.title": "Renvoi au manager",
+  "submission.workflow.tasks.claimed.return-to-manager.reason.info": "Veuillez détailler le besoin en modifications.",
+  "submission.workflow.tasks.claimed.return-to-manager.reason.placeholder": "Décrivez les modifications nécessaires",
+  "submission.workflow.tasks.claimed.return-to-manager.reason.submit": "Renvoyez au manager",
+  "submission.workflow.tasks.claimed.return-to-manager.reason.default": "",
 
   // "submission.workflow.tasks.claimed.return-to-submitter_help": "Send the thesis back to the submitter to make some modifications.",
   "submission.workflow.tasks.claimed.return-to-submitter_help": "Utiliser cette option pour permettre à la personne qui a réalisé le dépôt de le rouvrir et de le modifier.",

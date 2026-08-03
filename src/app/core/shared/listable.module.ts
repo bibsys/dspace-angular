@@ -130,6 +130,7 @@ import { MasterThesisSearchResultListElementComponent } from 'src/themes/uclouva
 import { MyDSpaceMasterThesisListElementComponent } from 'src/themes/uclouvain/app/shared/object-list/my-dspace-result-list-element/my-dspace-master-thesis-list-element/my-dspace-master-thesis-list-element.component';
 import { ClaimedChangeRequestSearchResultListElementComponent } from 'src/app/shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-change-request-search-result/claimed-change-request-search-result-list-element.component';
 import { ClaimedApproveWithoutDiffusionSearchResultListElementComponent } from 'src/app/shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-approve-without-diffusion-search-result-list-element/claimed-approve-without-diffusion-search-result-list-element.component';
+import { ClaimedReturnToManagerSearchResultListElementComponent } from 'src/app/shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-return-to-manager-search-result/claimed-return-to-manager-search-result-list-element.component';
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -221,6 +222,7 @@ const ENTRY_COMPONENTS = [
   MasterThesisSearchResultListElementComponent,
   MyDSpaceMasterThesisListElementComponent,
   ClaimedChangeRequestSearchResultListElementComponent,
+  ClaimedReturnToManagerSearchResultListElementComponent,
   ClaimedApproveWithoutDiffusionSearchResultListElementComponent,
 ];
 
