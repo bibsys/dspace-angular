@@ -13,6 +13,7 @@ export enum Context {
   Search = 'search',
 
   Workflow = 'workflow',
+  WorkflowEdit = 'workflowEdit',
   Workspace = 'workspace',
   SupervisedItems = 'supervisedWorkspace',
   OtherWorkspace = 'otherworkspace',
