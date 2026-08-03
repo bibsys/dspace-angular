@@ -28,6 +28,7 @@ import {
   ClaimedTaskActionsRejectComponent,
   WORKFLOW_TASK_OPTION_REJECT,
 } from '../reject/claimed-task-actions-reject.component';
+import { ClaimedTaskActionsReturnToManagerComponent, WORKFLOW_TASK_OPTION_RETURN_TO_MANAGER } from '../return-to-manager/claimed-task-actions-return-to-manager.component';
 import {
   ClaimedTaskActionsReturnToPoolComponent,
   WORKFLOW_TASK_OPTION_RETURN_TO_POOL,
@@ -47,7 +48,8 @@ export type WorkflowTaskOptionComponent =
   typeof ClaimedTaskActionsRejectComponent |
   typeof ClaimedTaskActionsReturnToPoolComponent |
   typeof AdvancedClaimedTaskActionSelectReviewerComponent |
-  typeof ClaimedTaskActionsReturnToSubmitterComponent;
+  typeof ClaimedTaskActionsReturnToSubmitterComponent |
+  typeof ClaimedTaskActionsReturnToManagerComponent;
 
 export type AdvancedWorkflowTaskOptionComponent =
   typeof AdvancedWorkflowActionRatingComponent |
@@ -65,6 +67,7 @@ export const WORKFLOW_TASK_OPTION_DECORATOR_MAP = new Map<string, WorkflowTaskOp
   [WORKFLOW_TASK_OPTION_RETURN_TO_POOL, ClaimedTaskActionsReturnToPoolComponent],
   [ADVANCED_WORKFLOW_TASK_OPTION_SELECT_REVIEWER, AdvancedClaimedTaskActionSelectReviewerComponent],
   [WORKFLOW_TASK_OPTION_RETURN_TO_SUBMITTER, ClaimedTaskActionsReturnToSubmitterComponent],
+  [WORKFLOW_TASK_OPTION_RETURN_TO_MANAGER, ClaimedTaskActionsReturnToManagerComponent],
 ]);
 
 export const ADVANCED_WORKFLOW_TASK_OPTION_DECORATOR_MAP = new Map<string, AdvancedWorkflowTaskOptionComponent>([
