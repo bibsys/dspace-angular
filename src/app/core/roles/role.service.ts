@@ -59,6 +59,18 @@ export class RoleService {
       );
   }
 
+  isLibrarian(): Observable<boolean> {
+    return this.authService
+      .getAuthenticatedUserFromStore()
+      .pipe(
+        switchMap((eperson: EPerson) => {
+          return (hasValue(eperson) && hasValue(eperson?._links) && isNotEmpty(eperson?.self))
+            ? this.authorizationService.isAuthorized(FeatureID.HasRoleLibrarian, eperson.self)
+            : observableOf(false);
+        }),
+      );
+  }
+
   /**
    * Check if current user is an admin
    */

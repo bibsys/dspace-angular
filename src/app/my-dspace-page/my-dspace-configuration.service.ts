@@ -40,6 +40,7 @@ export const MyDSpaceConfigurationToContextMap = new Map([
   [MyDSpaceConfigurationValueType.SupervisedItems, Context.SupervisedItems],
   [MyDSpaceConfigurationValueType.OtherWorkspace, Context.OtherWorkspace],
   [MyDSpaceConfigurationValueType.Workflow, Context.Workflow],
+  [MyDSpaceConfigurationValueType.WorkflowEdit, Context.WorkflowEdit],
   [MyDSpaceConfigurationValueType.Promoter, Context.Promoter],
 ]);
 
@@ -81,6 +82,7 @@ export class MyDSpaceConfigurationService extends SearchConfigurationService {
 
   private isAdmin$: Observable<boolean>;
   private isController$: Observable<boolean>;
+  private isLibrarian$: Observable<boolean>;
   private isSubmitter$: Observable<boolean>;
 
   constructor(protected roleService: RoleService,
@@ -110,6 +112,7 @@ export class MyDSpaceConfigurationService extends SearchConfigurationService {
 
     this.isSubmitter$ = this.roleService.isSubmitter();
     this.isController$ = this.roleService.isController();
+    this.isLibrarian$ = this.roleService.isLibrarian();
     this.isAdmin$ = this.roleService.isAdmin();
   }
 
@@ -120,9 +123,9 @@ export class MyDSpaceConfigurationService extends SearchConfigurationService {
    *    Emits the available configuration list
    */
   public getAvailableConfigurationTypes(): Observable<MyDSpaceConfigurationValueType[]> {
-    return combineLatest([this.isSubmitter$, this.isController$, this.isAdmin$]).pipe(
+    return combineLatest([this.isSubmitter$, this.isController$, this.isLibrarian$, this.isAdmin$]).pipe(
       take(1),
-      map(([isSubmitter, isController, isAdmin]: [boolean, boolean, boolean]) => {
+      map(([isSubmitter, isController, isLibrarian, isAdmin]: [boolean, boolean, boolean, boolean]) => {
         const availableConf: MyDSpaceConfigurationValueType[] = [];
         if (isSubmitter) {
           availableConf.push(MyDSpaceConfigurationValueType.Workspace);
@@ -131,6 +134,10 @@ export class MyDSpaceConfigurationService extends SearchConfigurationService {
         if (isController || isAdmin) {
           // availableConf.push(MyDSpaceConfigurationValueType.SupervisedItems); // NOT USED for Dial.mem
           availableConf.push(MyDSpaceConfigurationValueType.Workflow);
+        }
+
+        if (isLibrarian || isAdmin) {
+          availableConf.push(MyDSpaceConfigurationValueType.WorkflowEdit);
         }
         availableConf.push(MyDSpaceConfigurationValueType.Promoter);
         return availableConf;
