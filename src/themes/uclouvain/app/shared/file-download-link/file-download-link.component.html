@@ -8,13 +8,6 @@
         <i *ngIf="showIcon" class="fas fa-download pr-1"></i>
         <span *ngIf="showText">{{ "item.page.filesection.download" | translate }}</span>
     </ng-container>
-    <ng-container *ngIf="!(canDownload$ | async)">
-        <i *ngIf="showIcon" class="fas fa-lock pr-1"></i>
-        <ng-container *ngIf="showText">
-            <ng-container *ngIf="(canRequestItemCopy$ | async)">{{ "item.page.filesection.request-a-copy" | translate }}</ng-container>
-            <ng-container *ngIf="!(canRequestItemCopy$ | async)">{{ "item.page.filesection.no-access" | translate }}</ng-container>
-        </ng-container>
-    </ng-container>
     <ng-container *ngTemplateOutlet="content"></ng-container>
 </a>
 
