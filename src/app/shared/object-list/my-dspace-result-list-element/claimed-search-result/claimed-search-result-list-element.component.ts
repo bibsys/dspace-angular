@@ -112,7 +112,7 @@ export class ClaimedSearchResultListElementComponent extends SearchResultListEle
   ngOnInit() {
     super.ngOnInit();
     this.linkService.resolveLinks(this.dso, followLink('workflowitem', {},
-      followLink('item'),
+      followLink('item', {}, followLink<Item>('accessStatus')),
       followLink('submitter'),
     ), followLink('action'));
 
