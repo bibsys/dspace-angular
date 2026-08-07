@@ -2882,6 +2882,7 @@
 
   "dynamic-relation-group-modal.dc_contributor_author.header": "Auteur",
   "dynamic-relation-group-modal.dc_contributor_advisor.header": "Promoteur",
+  "dynamic-relation-group-modal.masterthesis_degree_label.header": "Diplôme",
 
   // "supervision-group-selector.header": "Supervision Group Selector",
   // TODO New key - Add a translation
