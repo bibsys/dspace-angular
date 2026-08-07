@@ -1242,6 +1242,7 @@
   "dso-selector.results-could-not-be-retrieved": "Something went wrong, please refresh again ↻",
   "dynamic-relation-group-modal.dc_contributor_author.header": "Author",
   "dynamic-relation-group-modal.dc_contributor_advisor.header": "Supervisor",
+  "dynamic-relation-group-modal.masterthesis_degree_label.header": "Degree",
   "supervision-group-selector.header": "Supervision Group Selector",
   "supervision-group-selector.select.type-of-order.label": "Select a type of Order",
   "supervision-group-selector.select.type-of-order.option.none": "NONE",
