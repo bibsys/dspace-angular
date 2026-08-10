@@ -86,11 +86,28 @@ export class MetadataValuesComponent implements OnChanges {
    */
   @Input() img?: ImageField;
 
+  /**
+   * Whether to deduplicate metadata values with the exact same string value.
+   * When enabled, only the first occurrence of each unique value will be displayed.
+   */
+  @Input() deduplicate = false;
+
   hasValue = hasValue;
 
   ngOnChanges(changes: SimpleChanges): void {
     this.renderMarkdown = !!this.appConfig.markdown.enabled && this.enableMarkdown;
+    // Filter to not display placeholders
     this.mdValues = this.mdValues.filter(mdValue => mdValue.value !== PLACEHOLDER_PARENT_METADATA);
+    if (this.deduplicate) {
+      // If de-duplication is enabled, proceed to filter out duplicate metadata values based on their string value.
+      this.mdValues = this.mdValues.reduce((unique: MetadataValue[], mdValue: MetadataValue) => {
+        // If value is not yet present in array, push it.
+        if (!unique.some(uv => uv.value === mdValue.value)) {
+          unique.push(mdValue);
+        }
+        return unique;
+      }, []);
+    }
   }
 
   /**

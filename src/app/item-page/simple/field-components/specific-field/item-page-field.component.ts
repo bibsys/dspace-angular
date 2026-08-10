@@ -55,6 +55,11 @@ export class ItemPageFieldComponent implements OnInit {
   enableMarkdown = false;
 
   /**
+   * Whether to deduplicate metadata values with the exact same string value.
+   */
+  @Input() deduplicate = false;
+
+  /**
    * Fields (schema.element.qualifier) used to render their values.
    */
   fields: string[] = [];
