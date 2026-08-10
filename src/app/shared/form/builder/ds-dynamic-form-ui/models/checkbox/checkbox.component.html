@@ -1,24 +1,19 @@
-<div class="d-flex flex-row align-items-center">
-    <label *ngIf="model.showFieldLabel"
-           [id]="'legend_' + model.id"
-           [ngClass]="[
-             getClass('element', 'label'),
-             getClass('grid', 'label')
-           ]"
-           class="mx-2 my-0"
-    >
-      {{model.placeholder}}
-      <span *ngIf="model.required" class="pl-1 text-danger font-weight-bold">*</span>
-    </label>
-    <input class="mx-2"
-        [class.is-invalid]="showErrorMessages"
-        [id]="id"
-        [name]="model.name"
-        [disabled]="model.disabled"
-        type = "checkbox"
-        [checked]="model.checked"
-        (blur)="onBlur($event)"
-        (focus)="onFocus($event)"
-        (change)="onChange($event)">
-    <label *ngIf="!isEmpty(model.hint)" class="m-0 flex-grow-1" (click)="toggleCheckbox()">{{model.hint}}</label>
+<div>
+    <div class="d-flex flex-row align-items-center">
+        <input class="mr-2 ml-0"
+            [class.is-invalid]="showErrorMessages"
+            [id]="id"
+            [name]="model.name"
+            [disabled]="model.disabled"
+            type="checkbox"
+            [checked]="model.checked"
+            (blur)="onBlur($event)"
+            (focus)="onFocus($event)"
+            (change)="onChange($event)">
+        <label [for]="id" class="m-0 cursor-pointer">
+            {{model.placeholder}}
+            <span *ngIf="model.required" class="pl-1 text-danger font-weight-bold">*</span>
+        </label>
+    </div>
+    <small *ngIf="!isEmpty(model.hint)" class="text-muted ds-hint">{{model.hint}}</small>
 </div>

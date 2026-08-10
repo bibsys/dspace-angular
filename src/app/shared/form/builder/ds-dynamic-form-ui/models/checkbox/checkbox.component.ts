@@ -42,11 +42,16 @@ export class CustomCheckboxComponent extends DynamicFormControlComponent impleme
 
     ngOnInit(): void {
         let currentValue = this.model.value;
-        if (currentValue && (typeof currentValue === 'string') && (['true', 'false'].includes(currentValue.toString()))) {
-            this.model.checked = this.stringToBoolean(currentValue);
-        } else if(!this.model.hidden) {
-            this.model.value = 'false';
-            this.change.emit(this.model.value);
+        let stringValue: string | null = null;
+
+        if (currentValue instanceof FormFieldMetadataValueObject) {
+            stringValue = currentValue.value;
+        } else if (typeof currentValue === 'string') {
+            stringValue = currentValue;
+        }
+
+        if (stringValue && ['true', 'false'].includes(stringValue.toLowerCase())) {
+            this.model.checked = this.stringToBoolean(stringValue);
         }
 
         this.subs.push(

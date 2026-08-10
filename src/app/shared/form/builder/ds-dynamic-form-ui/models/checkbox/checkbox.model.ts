@@ -11,18 +11,15 @@ export const DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX = 'CUSTOM_CHECKBOX';
  */
 
 export interface DynamicDsCheckboxModelConfig extends DsDynamicInputModelConfig {
-  showFieldLabel: boolean;
 }
 
 export class DynamicDsCheckboxModel extends DsDynamicInputModel {
     checked: boolean;
     @serializable() readonly type: string = DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_CHECKBOX;
     @serializable() hideHint: boolean = true;
-    @serializable() showFieldLabel: boolean = true;
 
     constructor(config: DynamicDsCheckboxModelConfig, layout?: DynamicFormControlLayout) {
       super(config, layout);
       this.checked = false;
-      this.showFieldLabel = config?.showFieldLabel;
     }
 }
