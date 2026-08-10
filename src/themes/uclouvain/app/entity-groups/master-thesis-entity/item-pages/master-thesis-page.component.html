@@ -30,7 +30,8 @@
                 <dd>
                     <ds-generic-item-page-field
                             [item]="object"
-                            [fields]="['masterthesis.faculty.name']">
+                            [fields]="['masterthesis.faculty.name']"
+                            [deduplicate]="true">
                     </ds-generic-item-page-field>
                 </dd>
             </ng-container>
@@ -39,7 +40,8 @@
                 <dd>
                     <ds-generic-item-page-field
                             [item]="object"
-                            [fields]="['masterthesis.degree.label']">
+                            [fields]="['masterthesis.degree.label']"
+                            [deduplicate]="true">
                     </ds-generic-item-page-field>
                 </dd>
             </ng-container>
