@@ -15,7 +15,7 @@
             [iconPosition]="iconPosition"
             [entityType]="metadataView.entityType"
             [entityStyle]="metadataView.entityStyle">
-                {{metadataView.value}}
+                {{metadataView.value | translate}}
         </span>
     </a>
   </span>
@@ -34,11 +34,11 @@
         [iconPosition]="iconPosition"
         [entityType]="metadataView.entityType"
         [entityStyle]="metadataView.entityStyle"
-        [fallbackOnDefault]="false">{{normalizeValue(metadataView.value)}}</span>
+        [fallbackOnDefault]="false">{{normalizeValue(metadataView.value) | translate}}</span>
 </ng-template>
 
 <ng-template #textWithoutIcon let-metadataView="metadataView">
-  <span data-test="textWithoutIcon">{{normalizeValue(metadataView.value)}}</span>
+  <span data-test="textWithoutIcon">{{normalizeValue(metadataView.value) | translate}}</span>
 </ng-template>
 
 <ng-template #popContent>
