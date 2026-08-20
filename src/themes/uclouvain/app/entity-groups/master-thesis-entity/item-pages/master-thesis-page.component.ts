@@ -27,6 +27,7 @@ import { RoleService } from '../../../../../../app/core/roles/role.service';
 import { Observable } from 'rxjs';
 import { RoleType } from '../../../../../../app/core/roles/role-types';
 import { MasterThesisIdentifierPipe } from '../pipes/master-thesis-identifier.pipe';
+import { PublicationPageCitationsComponent } from '../../publication-entity/item-pages/publication-page-citations/publication-page-citations.component';
 
 
 /** How to find and extract publication identifiers
@@ -83,6 +84,7 @@ const identifiersExtractors = [
     NgFor,
     MasterThesisIdentifierPipe,
     KeyValuePipe,
+    PublicationPageCitationsComponent,
   ],
   standalone: true,
 })
@@ -128,6 +130,4 @@ export class MasterThesisPageComponent extends ItemComponent {
       });
     });
   }
-
-
 }

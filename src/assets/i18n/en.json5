@@ -3239,7 +3239,9 @@
   "search.filters.filter.original_bundle_descriptions.placeholder": "File description",
   "search.filters.filter.original_bundle_descriptions.label": "Search File description",
   "search.filters.filter.itemtype.head": "Type",
-  "search.filters.filter.itemtype.placeholder": "Type",
+
+  "search.filters.filter.itemtype.placeholder": "Search a type...",
+
   "search.filters.filter.itemtype.label": "Search type",
   "search.filters.filter.projectinvestigators.head": "Researcher",
   "search.filters.filter.projectinvestigators.label": "Researcher",
@@ -5622,6 +5624,7 @@
   "submission-button.add.disable-message": "A previous submission is already being in submission or in validation. Go to the “MYDIAL.mem” page to view your deposit(s) or to reopen a pending deposit.",
 
   "item.page.details.label": "Details",
+  "item.page.citations.label": "Citations",
 
   "session.january": "January",
   "session.june": "June",
@@ -5665,6 +5668,40 @@
   // --- FACET TERMS ---
   "search.filters.accessType.administrator": "Closed",
 
+  // -------- ITEM CITATIONS --------
+  "item.citations.select-format": "Select a format to generate a citation.",
+  "item.citations.no-display": "No citations to display for this thesis.",
+  "item.citations.copy.title": "Copy citation",
+  "item.citations.copy.success": "Citation copied to clipboard !",
+  "item.citations.copy.error": "Could not copy citation to clipboard: \n",
+
+  "item.citations.formats.loading": "Loading formats...",
+  "item.citation.loading": "Loading citation...",
+
+  "masterthesis.listelement.badge": "Master Thesis",
+
+  // [FORMATS]
+  "item.citations.format.master-thesis-apa-html.label": "APA",
+  "item.citations.format.master-thesis-apa.label": "APA",
+
+  "item.format.export.mimeType.application/json": "JSON format",
+  "item.format.export.mimeType.application/pdf": "PDF format",
+  "item.format.export.mimeType.application/vnd.ms-excel": "Microsoft Excel format",
+  "item.format.export.mimeType.application/xml": "XML format",
+  "item.format.export.mimeType.application/x-bibtex": "BibTeX format",
+  "item.format.export.mimeType.application/x-endnote-refer": "EndNote format",
+  "item.format.export.mimeType.application/x-research-info-systems": "RIS format",
+  "item.format.export.mimeType.text/csv": "CSV Format (for spreadsheet app)",
+  "item.format.export.mimeType.text/html": "HTML format",
+  "item.format.export.mimeType.text/plain": "Plain text format",
+
+  "item.format.export.master-thesis-apa-html.value": "APA citation style",
+  "item.format.export.master-thesis-apa.value": "Citation au format APA",
+  "item.format.export.master-thesis-chicago-html.value": "Chicago citation style",
+  "item.format.export.master-thesis-csv.value": "Generic CSV format",
+  "item.format.export.master-thesis-ris.value": "Generic RIS format",
+  "item.format.export.master-thesis-xls.value": "Generic XLS format",
+
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Dutch",
   "languages.iso-639-2.eng": "English",
@@ -5675,5 +5712,5 @@
   "languages.iso-639-2.other": "Other",
 
   // --- DOC TYPES ---
-  "text::thesis::master thesis": "Master thesis"
+  "text::thesis::master thesis": "Master thesis",
 }
