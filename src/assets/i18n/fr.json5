@@ -10741,5 +10741,8 @@
   // --- DOC TYPES ---
   "text::thesis::master thesis": "Mémoire de master",
 
-  "Enter the main title of the item.": "Entrez le titre principal du mémoire."
+  "Enter the main title of the item.": "Entrez le titre principal du mémoire.",
+
+  // --- MISC ---
+  "Anonymous": "Auteur anonyme",
 }

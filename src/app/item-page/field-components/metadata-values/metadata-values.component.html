@@ -40,12 +40,12 @@
 <!-- Render simple value in a span  -->
 <ng-template #simple let-value="value" let-lang="lang">
   <span class="metadata-language mr-2" *ngIf="lang">{{lang}}</span>
-  <span class="dont-break-out preserve-line-breaks">{{value}}</span>
+  <span class="dont-break-out preserve-line-breaks">{{value | translate}}</span>
 </ng-template>
 
 <!-- Render value as a link to browse index -->
 <ng-template #browselink let-value="value">
   <a class="dont-break-out preserve-line-breaks ds-browse-link"
      [routerLink]="['/browse', browseDefinition.id]"
-     [queryParams]="getQueryParams(value)">{{value}}</a>
+     [queryParams]="getQueryParams(value)">{{value | translate}}</a>
 </ng-template>
