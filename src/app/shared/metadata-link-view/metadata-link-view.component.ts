@@ -43,6 +43,7 @@ import { VarDirective } from '../utils/var.directive';
 import { MetadataLinkViewPopoverComponent } from './metadata-link-view-popover/metadata-link-view-popover.component';
 import { MetadataView } from './metadata-view.model';
 import { StickyPopoverDirective } from './sticky-popover.directive';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'ds-metadata-link-view',
@@ -59,6 +60,7 @@ import { StickyPopoverDirective } from './sticky-popover.directive';
     NgTemplateOutlet,
     AsyncPipe,
     StickyPopoverDirective,
+    TranslateModule,
   ],
   standalone: true,
 })
