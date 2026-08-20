@@ -6851,7 +6851,7 @@
   "search.filters.filter.itemtype.head": "Type",
 
   // "search.filters.filter.itemtype.placeholder": "Type",
-  "search.filters.filter.itemtype.placeholder": "Type",
+  "search.filters.filter.itemtype.placeholder": "Rechercher un type...",
 
   // "search.filters.filter.itemtype.label": "Search type",
   "search.filters.filter.itemtype.label": "Recherche d'un type",
@@ -10663,6 +10663,7 @@
 
   // "item.page.details.label": "Details",
   "item.page.details.label": "Détails",
+  "item.page.citations.label": "Citations",
 
   //"access.condition.value.openaccess": "Open Access",
   "access.condition.value.openaccess": "Accès libre",
@@ -10728,6 +10729,41 @@
   "footer.link.deposit-guide": "Guide du déposant",
   "footer.link.deposit-guide.url": "https://uclouvain.sharepoint.com/:b:/r/sites/MySCEB/DIALmem/Aide/Aide_en_ligne_acces_public/DIALmem_Guide_du_deposant_FR.pdf",
 
+
+  // -------- ITEM CITATIONS --------
+  "item.citations.select-format": "Sélectionner un format pour générer une citation.",
+  "item.citations.no-display": "Aucun format de citation disponible pour ce mémoire.",
+  "item.citations.copy.title": "Copier la citation.",
+  "item.citations.copy.success": "Citation copiée dans le presse-papier !",
+  "item.citations.copy.error": "Impossible de copier la citation: \n",
+
+  "item.citations.loading": "",
+  "item.citations.formats.loading": "Chargement des formats...",
+  "item.citation.loading": "Chargement de la citation...",
+
+  "masterthesis.listelement.badge": "Mémoires de master",
+
+  // [FORMATS]
+  "item.citations.format.master-thesis-apa-html.label": "APA",
+  "item.citations.format.master-thesis-apa.label": "APA",
+
+  "item.format.export.mimeType.application/json": "Format JSON",
+  "item.format.export.mimeType.application/pdf": "Format PDF",
+  "item.format.export.mimeType.application/vnd.ms-excel": "Format Microsoft Excel",
+  "item.format.export.mimeType.application/xml": "Format XML",
+  "item.format.export.mimeType.application/x-bibtex": "Format BibTeX",
+  "item.format.export.mimeType.application/x-endnote-refer": "Format EndNote",
+  "item.format.export.mimeType.application/x-research-info-systems": "Format RIS",
+  "item.format.export.mimeType.text/csv": "Format CSV (pour application de type tableur)",
+  "item.format.export.mimeType.text/html": "Format HTML",
+  "item.format.export.mimeType.text/plain": "Format Texte",
+
+  "item.format.export.master-thesis-apa-html.value": "Citation au format APA",
+  "item.format.export.master-thesis-apa.value": "Citation au format APA",
+  "item.format.export.master-thesis-chicago-html.value": "Citation au format Chicago",
+  "item.format.export.master-thesis-csv.value": "Format CSV générique",
+  "item.format.export.master-thesis-ris.value": "Format RIS générique",
+  "item.format.export.master-thesis-xls.value": "Format XLS générique",
 
   // --- LANGUAGES ---
   "languages.iso-639-2.dut": "Néérlandais",
