@@ -37,6 +37,8 @@ import { Metric } from './metric.model';
 import { METRIC } from './metric.resource-type';
 import { Version } from './version.model';
 import { VERSION } from './version.resource-type';
+import { CITATION } from './citations.resource.type';
+import { ItemCitations } from './item-citations.model';
 
 /**
  * Class representing a DSpace Item
@@ -104,6 +106,7 @@ export class Item extends DSpaceObject implements ChildHALResource, HandleObject
     accessStatus: HALLink;
     identifiers: HALLink;
     metrics: HALLink;
+    citations: HALLink;
     self: HALLink;
   };
 
@@ -162,6 +165,9 @@ export class Item extends DSpaceObject implements ChildHALResource, HandleObject
    */
   @link(METRIC, true)
     metrics?: Observable<RemoteData<PaginatedList<Metric>>>;
+
+  @link(CITATION)
+  citations?: Observable<RemoteData<ItemCitations>>;
 
   /**
    * Method that returns as which type of object this object should be rendered
