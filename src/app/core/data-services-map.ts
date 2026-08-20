@@ -83,6 +83,7 @@ import { WORKFLOW_ACTION } from './tasks/models/workflow-action-object.resource-
 import { COMMENT } from './shared/comment.resource-type';
 import { BITSTREAM_ACCESS_CONDITIONS } from './shared/bitstream-access-conditions.resource-type';
 import { BITSTREAM_DIRECT_DOWNLOAD_URL } from './shared/bitstream-direct-download-url.resource-type';
+import { CITATION } from './shared/citations.resource.type';
 
 export const LAZY_DATA_SERVICES: LazyDataServicesMap = new Map([
   [AUTHORIZATION.value, () => import('./data/feature-authorization/authorization-data.service').then(m => m.AuthorizationDataService)],
@@ -166,4 +167,5 @@ export const LAZY_DATA_SERVICES: LazyDataServicesMap = new Map([
   [COMMENT.value, () => import('./comment/comment-data.service').then(m => m.CommentDataService)],
   [BITSTREAM_ACCESS_CONDITIONS.value, () => import('./data/bitstream-access-conditions-data.service').then(m => m.BitstreamAccessConditionsDataService)],
   [BITSTREAM_DIRECT_DOWNLOAD_URL.value, () => import('./data/bitstream-direct-download-url-data.service').then(m => m.BitstreamDirectDownloadUrlDataService)],
+  [CITATION.value, () => import('./data/item-citations-data.service').then(m => m.ItemCitationsDataService)],
 ]);

@@ -1,0 +1,51 @@
+<ng-container *ngIf="citationCrosswalks$ | async as formats">
+    <h5 *ngIf="formats.length === 0" class="text-muted font-italic text-center py-3">
+        {{ 'item.citations.no-display' | translate }}
+    </h5>
+    <div *ngIf="formats.length > 0" class="card text-left">
+        <ng-container *ngIf="selectedFormatSubject$ | async as selected">
+            <div class="card-header">
+                <ul class="nav nav-pills card-header-pills">
+                    <li *ngFor="let crosswalk of formats" class="nav-item mx-3 mb-1">
+                        <span class="nav-link pt-2 pb-1 px-0"
+                                [class.active]="isFormatSelected(crosswalk, selected)"
+                                (click)="selectCitationFormat(crosswalk)">
+                            {{ ('item.citations.format.' + crosswalk.id + '.label') | translate }}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body p-4 d-flex justify-content-center align-items-center flex-nowrap">
+                <ng-container *ngIf="!(loadingCitation$ | async); else loadingCitations">
+                    <ng-container *ngIf="citationContent$ | async as content; else noContent">
+                        <div class="flex-grow-1">
+                            <p class="card-text" [innerHTML]="content.citation"></p>
+                        </div>
+                        <div class="p-3 copy-clipboard"
+                             style="cursor: pointer;"
+                             [title]="'item.citations.copy.title' | translate"
+                             (click)="copyCitation(content.citation)">
+                            <i class="fas fa-copy text-muted mx-2 my-0"></i>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>
+
+<ng-template #loadingCitations>
+    <div class="w-100 py-2">
+        <h5 class="text-muted text-center">
+            <i class="fas fa-circle-notch fa-spin"></i> {{ 'item.citation.loading' | translate }}
+        </h5>
+    </div>
+</ng-template>
+
+<ng-template #noCitationFormats>
+    <h5 class="text-muted font-italic text-center py-3">{{ 'item.citations.no-display' | translate }}</h5>
+</ng-template>
+
+<ng-template #noContent>
+    <p class="card-text font-italic text-muted">{{ 'item.citations.select-format' | translate }}</p>
+</ng-template>
