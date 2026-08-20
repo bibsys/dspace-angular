@@ -101,6 +101,7 @@ import { WorkflowAction } from './tasks/models/workflow-action-object.model';
 import { Comment } from './shared/comment.model';
 import { BitstreamAccessConditions } from './shared/bitstream-access-conditions.model';
 import { BitstreamDirectDownloadURL } from './shared/bitstream-direct-download-url.model';
+import { ItemCitations } from './shared/item-citations.model';
 
 
 export const provideCore = () => {
@@ -223,4 +224,5 @@ export const models =
     Comment,
     BitstreamAccessConditions,
     BitstreamDirectDownloadURL,
+    ItemCitations,
   ];

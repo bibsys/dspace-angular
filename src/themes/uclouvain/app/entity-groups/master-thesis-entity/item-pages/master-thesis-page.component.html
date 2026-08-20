@@ -55,6 +55,10 @@
             </ng-container>
         </dl>
         <!-- CITATION -->
+        <h2 class="mt-4 simple-view-element-header">{{ "item.page.citations.label" | translate }}</h2>
+        <dl>
+            <ds-publication-citations [dso]="object" />
+        </dl>
     </article>
     <!-- METADATA SIDEBAR -->
     <aside class="additional-metadata col-3 p-3">

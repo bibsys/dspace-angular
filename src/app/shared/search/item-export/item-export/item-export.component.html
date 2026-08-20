@@ -28,9 +28,11 @@
               <label for="format">{{ 'item-export.form.format' | translate }}</label>
               <select id="format" class="custom-select" formControlName="format">
                 <option [ngValue]="null" disabled>{{ 'item-export.form.format.tip' | translate }}</option>
-                <option *ngFor="let format of configuration.formats" [ngValue]="format">
-                  {{ format.id }}
-                </option>
+                <optgroup *ngFor="let group of prepareGroupedFormats()" [label]="'item.format.export.mimeType.'+group.mimeType | translate">
+                  <option *ngFor="let format of group.formats" [ngValue]="format">
+                      {{ format.id | dsSafeTranslate: 'item.format.export.' : '.value' }}
+                  </option>
+                </optgroup>
               </select>
             </div>
             <div *ngIf="showListSelection" class="form-group" data-test="selection-radio">
