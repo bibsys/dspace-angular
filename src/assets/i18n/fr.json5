@@ -2931,7 +2931,7 @@
 
   "footer.link.osticket": "Poser une question",
 
-  "footer.link.support-guides": "Guides utilisateur",
+  "footer.link.support-guides": "Guides & Tutoriels",
 
   "footer.link.faq": "FAQ",
 
@@ -2939,7 +2939,7 @@
 
   "footer.menu.help": "Aide",
 
-  "footer.link.what-is-open-access": "Qu'est ce que l'open access ?",
+  "footer.link.what-is-open-access": "Qu'est-ce que l'open access ?",
 
   "footer.link.rights-and-obligations": "Droits et obligations en matière OA",
 
@@ -9640,7 +9640,7 @@
   // --- UCLOUVAIN Additions ---
   "home-news.main-title": "DIAL.pr",
   "home-news.second-title": "Digital access to libraries - Publications de recherche",
-  "home-info.what-is": "Qu'est ce que DIAL.pr ?",
+  "home-info.what-is": "Qu'est-ce que DIAL.pr ?",
   "home-info.project-description": "DIAL.pr vise à mettre à la disposition des chercheurs et des enseignants de l'UCLouvain des outils leur permettant d’héberger leur production scientifique de manière définitive, tout en assurant la promotion et la diffusion en ligne. Le dépôt institutionnel peut ainsi accueillir tout travail scientifique rédigé par au moins un auteur de l'UCLouvain, les textes pouvant être consultables selon différentes modalités d'accès.",
   "home-info.dial-pr.welcome": "<h2 class=\"text-center\">Bienvenue sur la nouvelle interface de DIAL.pr !</h2><br/>Un nouvel environnement, et quelques modifications.</br>Découvrez <a href=\"https://www.uclouvain.be/fr/system/files/uclouvain_assetmanager/groups/cms-editors-biul/Aide%20et%20formation%20-%20guides%20%26%20tutoriels/DIAL.pr/DIAL.pr%20qu%27est-ce%20qui%20change.jpg\" target=\"external\">ce qui change</a> et une <a href=\"https://www.uclouvain.be/fr/system/files?file=uclouvain_assetmanager/groups/cms-editors-biul/Aide%20et%20formation%20-%20guides%20%26%20tutoriels/DIAL.pr/DIALPR_presentation%20generale.pdf\" target=\"external\">présentation générale</a>.<br/>Envie d’en savoir plus ? Consultez les guides et tutoriels via le lien en bas de page.",
 
