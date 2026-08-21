@@ -2703,7 +2703,7 @@
 
   "footer.link.osticket": "Ask a question",
 
-  "footer.link.support-guides": "Support guides",
+  "footer.link.support-guides": "Support guides & Tutorials",
 
   "footer.link.faq": "FAQ",
 
@@ -6024,7 +6024,7 @@
 
   "search.filters.filter.objectpeople.label": "Search people",
 
-  "search.filters.filter.organization.head": "Department",
+  "search.filters.filter.organization.head": "Research Unit",
 
   "search.filters.filter.organization.placeholder": "Entity name",
 

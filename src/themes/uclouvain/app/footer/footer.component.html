@@ -63,13 +63,15 @@
                             <a class="text-white"
                                routerLink="info/feedback">{{ 'footer.link.feedback' | translate}}</a>
                         </li>
-                        <li>
+                        <li class="highlight">
+                            <i class="fa-regular fa-circle-question mr-2"></i>
                             <a class="text-white" [href]="'https://dial.uclouvain.be/osTicket'" target="external">{{ 'footer.link.osticket' | translate}}</a>
                         </li>
                         <!--<li>
                             <a class="text-white" [href]="'<TO_BE_DEFINED>'">{{ 'footer.link.faq' | translate}}</a>
                         </li>-->
-                        <li>
+                        <li class="highlight">
+                            <i class="fa-solid fa-book mr-2"></i>
                             <a class="text-white" [href]="getCustomLink('support-guides')" target="external">{{ 'footer.link.support-guides' | translate}}</a>
                         </li>
                     </ul>
