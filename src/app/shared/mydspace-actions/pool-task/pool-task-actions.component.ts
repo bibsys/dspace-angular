@@ -38,6 +38,7 @@ import { NotificationsService } from '../../notifications/notifications.service'
 import { MyDSpaceReloadableActionsComponent } from '../mydspace-reloadable-actions';
 import { PdfAttestationActionComponent } from '../pdf-attestation-action/pdf-attestation-action.component';
 import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
+import { SendAttestationEmailsActionComponent } from '../claimed-task/send-attestation-emails-action/send-attestation-emails-action.component';
 
 /**
  * This component represents mydspace actions related to PoolTask object.
@@ -47,7 +48,7 @@ import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
   styleUrls: ['./pool-task-actions.component.scss'],
   templateUrl: './pool-task-actions.component.html',
   standalone: true,
-  imports: [NgbTooltipModule, NgIf, RouterLink, AsyncPipe, TranslateModule, BtnDisabledDirective, PdfAttestationActionComponent],
+  imports: [NgbTooltipModule, NgIf, RouterLink, AsyncPipe, TranslateModule, BtnDisabledDirective, PdfAttestationActionComponent, SendAttestationEmailsActionComponent],
 })
 export class PoolTaskActionsComponent extends MyDSpaceReloadableActionsComponent<PoolTask, PoolTaskDataService> implements OnDestroy {
 
