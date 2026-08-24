@@ -8811,6 +8811,12 @@
   // "submission.workflow.generic.attestation.error.content": "Could not generate the PDF attestation for the given submission.",
   "submission.workflow.generic.attestation.error.content": "Impossible de générer l'attestation PDF pour cette soumission.",
 
+  "submission.workflow.generic.attestation.email.label": "Envoyer mails d'attestation",
+  "submission.workflow.generic.attestation.email.error.title": "Une erreur s'est produite !",
+  "submission.workflow.generic.attestation.email.error.content": "Impossible d'envoyer les mails d'attestation pour cet objet",
+  "submission.workflow.generic.attestation.email.success.title": "Emails envoyés",
+  "submission.workflow.generic.attestation.email.success.content": "Les emails d'attestation ont été envoyés avec succès.",
+
   // "submission.workflow.generic.delete": "Delete",
   "submission.workflow.generic.delete": "Supprimer",
 

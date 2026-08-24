@@ -34,6 +34,7 @@ import { MyDSpaceActionsComponent } from '../mydspace-actions';
 import { ClaimedTaskActionsLoaderComponent } from './switcher/claimed-task-actions-loader.component';
 import { PdfAttestationActionComponent } from '../pdf-attestation-action/pdf-attestation-action.component';
 import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
+import { SendAttestationEmailsActionComponent } from './send-attestation-emails-action/send-attestation-emails-action.component';
 
 /**
  * This component represents actions related to ClaimedTask object.
@@ -43,7 +44,17 @@ import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
   styleUrls: ['./claimed-task-actions.component.scss'],
   templateUrl: './claimed-task-actions.component.html',
   standalone: true,
-  imports: [VarDirective, NgFor, ClaimedTaskActionsLoaderComponent, NgbTooltipModule, RouterLink, AsyncPipe, TranslateModule, PdfAttestationActionComponent],
+  imports: [
+    VarDirective,
+    NgFor,
+    ClaimedTaskActionsLoaderComponent,
+    NgbTooltipModule,
+    RouterLink,
+    AsyncPipe,
+    TranslateModule,
+    PdfAttestationActionComponent,
+    SendAttestationEmailsActionComponent,
+  ],
 })
 export class ClaimedTaskActionsComponent extends MyDSpaceActionsComponent<ClaimedTask, ClaimedTaskDataService> implements OnInit {
 

@@ -50,4 +50,5 @@ export enum FeatureID {
   CanDownloadPDFAttestation = 'canDownloadPDFAttestation',
   CanSeeFullItem = 'canSeeFullItem',
   CanCreateCollectionWorkspace = 'canCreateCollectionWorkspace',
+  CanSendAttestationEmails = 'canSendAttestationEmails',
 }
