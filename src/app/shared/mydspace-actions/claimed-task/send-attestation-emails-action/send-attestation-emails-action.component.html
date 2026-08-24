@@ -1,0 +1,7 @@
+<button *ngIf="isAuthorized$ | async"
+        (click)="sendAttestationEmails()"
+        class="btn btn-primary {{ additionalClasses.join(' ') }}">
+    <i *ngIf="isLoading" class="fa-solid fa-circle-notch fa-spin"></i>
+    <i *ngIf="!isLoading" class="fa-solid fa-envelope"></i>
+    {{ "submission.workflow.generic.attestation.email.label" | translate }}
+</button>

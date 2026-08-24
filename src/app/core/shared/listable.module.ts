@@ -131,6 +131,7 @@ import { MyDSpaceMasterThesisListElementComponent } from 'src/themes/uclouvain/a
 import { ClaimedChangeRequestSearchResultListElementComponent } from 'src/app/shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-change-request-search-result/claimed-change-request-search-result-list-element.component';
 import { ClaimedApproveWithoutDiffusionSearchResultListElementComponent } from 'src/app/shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-approve-without-diffusion-search-result-list-element/claimed-approve-without-diffusion-search-result-list-element.component';
 import { ClaimedReturnToManagerSearchResultListElementComponent } from 'src/app/shared/object-list/my-dspace-result-list-element/claimed-search-result/claimed-return-to-manager-search-result/claimed-return-to-manager-search-result-list-element.component';
+import { SendAttestationEmailsActionComponent } from 'src/app/shared/mydspace-actions/claimed-task/send-attestation-emails-action/send-attestation-emails-action.component';
 
 const ENTRY_COMPONENTS = [
   BitstreamListItemComponent,
@@ -250,6 +251,7 @@ const ENTRY_COMPONENTS = [
     ClaimedTaskActionsComponent,
     WorkflowitemActionsComponent,
     PdfAttestationActionComponent,
+    SendAttestationEmailsActionComponent,
     ItemAdminSearchResultActionsComponent,
     MetadataFieldWrapperComponent,
     ThemedThumbnailComponent,
