@@ -269,7 +269,11 @@ export class SubmissionObjectEffects {
   saveError$ = createEffect(() => this.actions$.pipe(
     ofType(SubmissionObjectActionTypes.SAVE_SUBMISSION_FORM_ERROR, SubmissionObjectActionTypes.SAVE_SUBMISSION_SECTION_FORM_ERROR),
     withLatestFrom(this.store$),
-    tap(() => this.notificationsService.error(null, this.translate.get('submission.sections.general.save_error_notice')))), { dispatch: false });
+    tap(([action]) => {
+      let message = (action as SaveSubmissionFormErrorAction).payload.errorMessage;
+      let translated = this.translateOrDefault(message, 'submission.sections.general.save_error_notice');
+      return this.notificationsService.error(null, translated);
+    })), { dispatch: false });
 
   /**
    * Call parseSaveResponse and dispatch actions or dispatch [SaveSubmissionFormErrorAction] on error
@@ -361,7 +365,7 @@ export class SubmissionObjectEffects {
           action.payload.submissionId,
           state.submission.objects[action.payload.submissionId].collection
         )),
-        catchError((error: unknown) => observableOf(new DepositSubmissionErrorAction(action.payload.submissionId))));
+        catchError((error: any) => observableOf(new DepositSubmissionErrorAction(action.payload.submissionId, error.statusText))));
     })));
 
   /**
@@ -399,7 +403,11 @@ export class SubmissionObjectEffects {
    */
   depositSubmissionError$ = createEffect(() => this.actions$.pipe(
     ofType(SubmissionObjectActionTypes.DEPOSIT_SUBMISSION_ERROR),
-    tap(() => this.notificationsService.error(null, this.translate.get('submission.sections.general.deposit_error_notice')))), { dispatch: false });
+    tap((action) => {
+      let message = (action as DepositSubmissionErrorAction).payload.errorMessage;
+      let translated = this.translateOrDefault(message, 'submission.sections.general.deposit_error_notice');
+      return this.notificationsService.error(null, translated, {}, true);
+    })), { dispatch: false });
 
   /**
    * Dispatch a [DiscardSubmissionSuccessAction] or a [DiscardSubmissionErrorAction] on error
@@ -645,6 +653,12 @@ export class SubmissionObjectEffects {
     }
 
     return mappedActions;
+  }
+
+  /** Try to translate the given key. If not translatable, translate the default key. */
+  private translateOrDefault(toTranslate: string, defaultString: string) {
+    let translated = this.translate.instant(toTranslate);
+    return (translated == toTranslate) ? this.translate.get(defaultString) : translated;
   }
 }
 

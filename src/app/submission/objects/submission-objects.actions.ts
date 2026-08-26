@@ -791,6 +791,7 @@ export class DepositSubmissionErrorAction implements Action {
   type = SubmissionObjectActionTypes.DEPOSIT_SUBMISSION_ERROR;
   payload: {
     submissionId: string;
+    errorMessage: string;
   };
 
   /**
@@ -799,8 +800,8 @@ export class DepositSubmissionErrorAction implements Action {
    * @param submissionId
    *    the submission's ID to deposit
    */
-  constructor(submissionId: string) {
-    this.payload = { submissionId };
+  constructor(submissionId: string, errorMessage: string) {
+    this.payload = { submissionId, errorMessage };
   }
 }
 

@@ -10784,4 +10784,8 @@
 
   // --- MISC ---
   "Anonymous": "Auteur anonyme",
+
+  // --- FORM VALIDATION ERRORS ---
+  "error.validation.authors.missing-degree": "Au moins un des auteurs n'a pas de diplôme associé. Chaque auteur doit être associé à un diplôme.",
+  "mail.server.unavailable.exception": "Une erreur c'est produite en contactant le serveur de mail, par concéquent la soumission est temporairement indisponible. Veuillez réessayer plus tard.",
 }
