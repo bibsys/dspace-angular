@@ -130,6 +130,8 @@ export class DsDynamicOneboxComponent extends DsDynamicVocabularyComponent imple
   private isHierarchicalVocabulary$: Observable<boolean>;
   private subs: Subscription[] = [];
 
+  protected isNotEmpty = isNotEmpty;
+
   constructor(protected vocabularyService: VocabularyService,
               protected cdr: ChangeDetectorRef,
               protected layoutService: DynamicFormLayoutService,
