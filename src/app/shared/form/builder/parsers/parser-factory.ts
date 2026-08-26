@@ -28,6 +28,7 @@ import { TagFieldParser } from './tag-field-parser';
 import { TextareaFieldParser } from './textarea-field-parser';
 import { YearFieldParser } from './year-field-parser';
 import { HiddenFieldParser } from './hidden-field-parser';
+import {LicenseSelectorFieldParser} from "./license-selector-field-parser";
 
 const fieldParserDeps = [
   SUBMISSION_ID,
@@ -162,6 +163,13 @@ export class ParserFactory {
         return {
           provide: FieldParser,
           useClass: CheckboxFieldParser,
+          deps: [...fieldParserDeps],
+        };
+      }
+      case ParserType.LicenseSelector: {
+        return {
+          provide: FieldParser,
+          useClass: LicenseSelectorFieldParser,
           deps: [...fieldParserDeps],
         };
       }
