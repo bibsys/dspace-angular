@@ -5715,4 +5715,8 @@
 
   // --- DOC TYPES ---
   "text::thesis::master thesis": "Master thesis",
+
+  // --- FORM VALIDATION ERRORS ---
+  "error.validation.authors.missing-degree": "At least one of the author is missing degree information. Every author should be matched with a degree.",
+  "mail.server.unavailable.exception": "An error occurred reaching the email server. The submission is not accessible for now, please try again later.",
 }
