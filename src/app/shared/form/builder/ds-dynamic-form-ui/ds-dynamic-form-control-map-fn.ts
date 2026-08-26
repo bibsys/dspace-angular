@@ -57,6 +57,8 @@ import { DsYearPickerComponent } from './models/year-picker/year-picker.componen
 import { DYNAMIC_FORM_CONTROL_TYPE_DSYEARPICKER } from './models/year-picker/year-picker.model';
 import { DYNAMIC_FROM_CONTROL_TYPE_HIDDEN } from './models/hidden/dynamic-hidden.model';
 import { DsDynamicHiddenComponent } from './models/hidden/dynamic-hidden.component';
+import {DYNAMIC_FORM_CONTROL_TYPE_LICENSE_SELECTOR} from "./models/license-selector/dynamic-license-selector.model";
+import {DsDynamicLicenseSelectorComponent} from "./models/license-selector/dynamic-license-selector.component";
 
 export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<DynamicFormControl> | null {
   const datepickerModel = model as DynamicDatePickerModel;
@@ -132,6 +134,9 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_SWITCH:
       return CustomSwitchComponent;
+
+    case DYNAMIC_FORM_CONTROL_TYPE_LICENSE_SELECTOR:
+      return DsDynamicLicenseSelectorComponent;
 
     default:
       return null;

@@ -1,0 +1,161 @@
+.license-selector-wrapper {
+  width: 85%;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #fff;
+
+  /* --- Questions --- */
+  .license-question {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f1f3f5;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .license-question-title {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .disabled-step {
+    opacity: 0.45;
+  }
+
+  /* Groupe de boutons à choix unique */
+  .btn-segment {
+    display: inline-flex;
+    flex-wrap: wrap;
+    border: 1px solid #ced4da;
+    border-radius: 0.4rem;
+    overflow: hidden;
+
+    button {
+      border: 0;
+      border-right: 1px solid #ced4da;
+      background-color: #fff;
+      color: #212529;
+      padding: 0.35rem 0.9rem;
+      transition: background-color 0.15s ease-in-out;
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      &:hover:not(:disabled):not(.selected) {
+        background-color: #f0f7ff;
+      }
+
+      &:focus-visible {
+        outline: none;
+        box-shadow: inset 0 0 0 0.2rem rgba(0, 123, 255, 0.35);
+      }
+
+      &.selected {
+        background-color: var(--bs-primary, #007bff);
+        color: #fff;
+        font-weight: 600;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .license-hint {
+    font-size: 0.82rem;
+    color: #495057;
+    margin: 0.35rem 0 0;
+  }
+
+  /* --- Panneau de la licence sélectionnée --- */
+  .license-summary {
+    background-color: #f8f9fa;
+    border-left: 1px solid #dee2e6;
+  }
+
+  .license-summary-heading {
+    font-size: 0.82rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+  }
+
+  .license-summary-title {
+    font-size: 0.82rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+  }
+
+  .license-permissions {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.85rem;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.6rem;
+    }
+  }
+
+  .permission-icon {
+    flex-shrink: 0;
+    width: 1.2em;
+    font-weight: 700;
+  }
+
+  .permission-label {
+    display: block;
+    font-weight: 600;
+  }
+
+  /* Explication de la réponse, sous le droit concerné */
+  .permission-description {
+    display: block;
+    font-size: 0.8rem;
+    color: #6c757d;
+    line-height: 1.35;
+  }
+
+  .permission-allowed {
+    color: #198754;
+  }
+
+  .permission-forbidden {
+    color: #dc3545;
+  }
+
+  .permission-required {
+    color: var(--bs-primary, #007bff);
+  }
+
+  /* Le badge est le lien vers la licence */
+  .license-badge-link {
+    border-radius: 0.2rem;
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.35);
+    }
+  }
+}
+
+/* Sur mobile, le panneau passe sous les questions */
+@media (max-width: 767.98px) {
+  .license-selector-wrapper {
+    width: 100%;
+  }
+
+  .license-selector-wrapper .license-summary {
+    border-left: 0;
+    border-top: 1px solid #dee2e6;
+  }
+}
