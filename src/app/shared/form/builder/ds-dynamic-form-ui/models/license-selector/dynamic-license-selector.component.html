@@ -1,0 +1,171 @@
+<div class="license-selector-wrapper p-3 border rounded-3 bg-white">
+
+  <!-- BREADCRUMB / STEPPER (Top section) -->
+  <div class="d-flex align-items-center justify-content-between mb-4 position-relative px-3 py-2 bg-light rounded-3 border">
+    <div class="position-absolute top-50 start-0 end-0 translate-middle-y bg-secondary opacity-25" style="height: 2px; z-index: 1;"></div>
+
+    <!-- Step 1: Commercial -->
+    <div class="step-item text-center position-relative" style="z-index: 2;">
+      <div class="badge rounded-circle p-2 mb-1"
+           [ngClass]="commercial ? 'bg-success text-dark' : 'bg-secondary text-white'">1</div>
+      <div class="small fw-bold">{{ 'item.edit.license.step.commercial' | translate }}</div>
+      <!-- Traduction dynamique de la valeur sélectionnée -->
+      <div class="small text-muted">
+        <ng-container *ngIf="commercial; else toChooseCommercial">
+          {{ (commercial === 'yes' ? 'item.edit.license.option.yes' : 'item.edit.license.option.no') | translate }}
+        </ng-container>
+        <ng-template #toChooseCommercial>
+          {{ 'item.edit.license.step.to-choose' | translate }}
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Step 2: Modifications -->
+    <div class="step-item text-center position-relative" style="z-index: 2;" [class.disabled-step]="!commercial">
+      <div class="badge rounded-circle p-2 mb-1"
+           [ngClass]="modification ? 'bg-success text-dark' : 'bg-secondary text-white'">2</div>
+      <div class="small fw-bold">{{ 'item.edit.license.step.modifications' | translate }}</div>
+      <!-- Traduction dynamique de la valeur sélectionnée -->
+      <div class="small text-muted">
+        <ng-container *ngIf="modification; else toChooseMod">
+          <ng-container [ngSwitch]="modification">
+            <span *ngSwitchCase="'yes'">{{ 'item.edit.license.option.yes' | translate }}</span>
+            <span *ngSwitchCase="'share'">{{ 'item.edit.license.option.share-alike' | translate }}</span>
+            <span *ngSwitchCase="'no'">{{ 'item.edit.license.option.no' | translate }}</span>
+          </ng-container>
+        </ng-container>
+        <ng-template #toChooseMod>
+          {{ 'item.edit.license.step.to-choose' | translate }}
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Step 3: Rights -->
+    <div class="step-item text-center position-relative" style="z-index: 2;" [class.disabled-step]="!(commercial === 'yes' && modification === 'yes')">
+      <div class="badge rounded-circle p-2 mb-1"
+           [ngClass]="rights ? 'bg-success text-dark' : 'bg-secondary text-white'">3</div>
+      <div class="small fw-bold">{{ 'item.edit.license.step.rights' | translate }}</div>
+      <!-- Traduction dynamique de la valeur sélectionnée -->
+      <div class="small text-muted">
+        <ng-container *ngIf="rights; else toChooseRights">
+          {{ (rights === 'yes' ? 'item.edit.license.option.yes-cc0' : 'item.edit.license.option.no-cc-by') | translate }}
+        </ng-container>
+        <ng-template #toChooseRights>
+          {{ 'item.edit.license.step.to-choose' | translate }}
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Final Step: License Badge -->
+    <div class="step-item text-center position-relative" style="z-index: 2;">
+      <div class="fw-bold text-dark mb-1">
+        <a *ngIf="selectedLicense"
+           [href]="selectedLicense"
+           target="_blank">
+          <ds-cc-license
+            [licenseUri]="selectedLicense"
+            [height]="25">
+          </ds-cc-license>
+        </a>
+        <div *ngIf="!selectedLicense">
+          {{ 'item.edit.license.step.no-license' | translate }}
+        </div>
+      </div>
+      <div class="small text-success fw-bold" *ngIf="selectedLicense">
+        {{ 'item.edit.license.step.selected' | translate }}
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-COLUMN LAYOUT: STEP 1 | STEP 2 | STEP 3 -->
+  <div class="row g-3">
+
+    <!-- COLUMN 1: COMMERCIAL -->
+    <div class="col-12 col-md-4">
+      <div class="p-3 border rounded-3 bg-light h-100 d-flex flex-column">
+        <label class="form-label fw-bold text-dark mb-3">
+          {{ 'item.edit.license.question.commercial' | translate }}
+        </label>
+        <div class="d-flex flex-column gap-2 mt-auto">
+          <div class="card option-card"
+               [class.selected]="commercial === 'yes'"
+               (click)="selectCommercial('yes')">
+            <div class="card-body p-3 text-center">
+              <span class="fw-medium">{{ 'item.edit.license.option.yes' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="card option-card"
+               [class.selected]="commercial === 'no'"
+               (click)="selectCommercial('no')">
+            <div class="card-body p-3 text-center">
+              <span class="fw-medium">{{ 'item.edit.license.option.no' | translate }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMN 2: MODIFICATIONS -->
+    <div class="col-12 col-md-4">
+      <div class="p-3 border rounded-3 bg-light h-100 d-flex flex-column" [class.disabled-step]="!commercial">
+        <label class="form-label fw-bold text-dark mb-3">
+          {{ 'item.edit.license.question.modifications' | translate }}
+        </label>
+        <div class="d-flex flex-column gap-2 mt-auto">
+          <div class="card option-card"
+               [class.selected]="modification === 'yes'"
+               (click)="selectModification('yes')">
+            <div class="card-body p-3 text-center">
+              <span class="fw-medium">{{ 'item.edit.license.option.yes' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="card option-card"
+               [class.selected]="modification === 'share'"
+               (click)="selectModification('share')">
+            <div class="card-body p-3 text-center">
+              <span class="fw-medium">{{ 'item.edit.license.option.share-alike' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="card option-card"
+               [class.selected]="modification === 'no'"
+               (click)="selectModification('no')">
+            <div class="card-body p-3 text-center">
+              <span class="fw-medium">{{ 'item.edit.license.option.no' | translate }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMN 3: RIGHTS -->
+    <div class="col-12 col-md-4">
+      <div class="p-3 border rounded-3 bg-light h-100 d-flex flex-column" [class.disabled-step]="!(commercial === 'yes' && modification === 'yes')">
+        <label class="form-label fw-bold text-dark mb-3">
+          {{ 'item.edit.license.question.rights' | translate }}
+        </label>
+        <div class="d-flex flex-column gap-2 mt-auto">
+          <div class="card option-card"
+               [class.selected]="rights === 'yes'"
+               (click)="selectRights('yes')">
+            <div class="card-body p-3 text-center">
+              <span class="fw-medium">{{ 'item.edit.license.option.yes-cc0' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="card option-card"
+               [class.selected]="rights === 'no'"
+               (click)="selectRights('no')">
+            <div class="card-body p-3 text-center">
+              <span class="fw-medium">{{ 'item.edit.license.option.no-cc-by' | translate }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
