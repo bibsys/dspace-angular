@@ -17,7 +17,11 @@ import {AuthorizationDataService} from "../../../core/data/feature-authorization
 @Component({
   selector: 'ds-version-history-item-menu',
   template: `
-      <button *ngIf="isAuthorized$ | async" class="btn btn-primary" (click)="$event.preventDefault(); openVersionHistoryModal();">
+      <button
+        *ngIf="isAuthorized$ | async"
+        class="btn btn-primary"
+        (click)="$event.preventDefault(); openVersionHistoryModal();"
+      >
         {{ "item.version.history.head" | translate }}
       </button>
   `,
@@ -44,12 +48,13 @@ export class VersionHistoryItemMenuComponent extends ContextMenuEntryComponent i
     this.isAuthorized$ = this.authorizationService.isAuthorized(FeatureID.CanSeeVersions, this.contextMenuObject.self);
   }
 
-  /** Open the FNRS modal */
+  /** Open the Version History modal */
   openVersionHistoryModal() {
     if (this.contextMenuObject) {
       const modalRef = this.modalService.open(ItemVersionsComponent, { size: 'lg', backdrop: 'static' });
       modalRef.componentInstance.item = this.contextMenuObject;
       modalRef.componentInstance.displayTitle = false;
+      modalRef.componentInstance.displayWhenEmpty = true;
     }
   }
 }
