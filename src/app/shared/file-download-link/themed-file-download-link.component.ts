@@ -1,6 +1,7 @@
 import {
   Component,
   Input,
+  TemplateRef,
 } from '@angular/core';
 
 import { Bitstream } from '../../core/shared/bitstream.model';
@@ -29,7 +30,9 @@ export class ThemedFileDownloadLinkComponent extends ThemedComponent<FileDownloa
 
   @Input() showIcon: boolean;
 
-  protected inAndOutputNames: (keyof FileDownloadLinkComponent & keyof this)[] = ['bitstream', 'item', 'cssClasses', 'isBlank', 'enableRequestACopy', 'showIcon'];
+  @Input() accessTooltipTemplate?: TemplateRef<any>;
+
+  protected inAndOutputNames: (keyof FileDownloadLinkComponent & keyof this)[] = ['bitstream', 'item', 'cssClasses', 'isBlank', 'enableRequestACopy', 'showIcon', 'accessTooltipTemplate'];
 
   protected getComponentName(): string {
     return 'FileDownloadLinkComponent';

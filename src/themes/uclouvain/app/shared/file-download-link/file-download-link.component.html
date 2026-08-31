@@ -1,29 +1,37 @@
-<!-- ACCESS POSSIBLE ====================================================== -->
-<ng-container *ngIf="(canDownload$ | async) || (canRequestItemCopy$ | async); else noAccess">
-    <a [routerLink]="(bitstreamPath$| async)?.routerLink" class="dont-break-out"
-       [queryParams]="(bitstreamPath$| async)?.queryParams"
-       [target]="isBlank ? '_blank': '_self'"
-       [ngClass]="cssClasses"
-    >
-        <ng-container *ngIf="canDownload$ | async">
-            <i *ngIf="showIcon" class="fas fa-download pr-1"></i>
-            {{ "item.page.filesection.download" | translate }}
-        </ng-container>
-        <ng-container *ngIf="!(canDownload$ | async)">
-            <i *ngIf="showIcon" class="fas fa-lock pr-1"></i>
-            {{ "item.page.filesection.request-a-copy" | translate }}
-        </ng-container>
-        <ng-container *ngTemplateOutlet="content"></ng-container>
-    </a>
-</ng-container>
+<a [ngbTooltip]="(canDownload$ | async) ? '' : tooltipTemplate"
+   tooltipClass="large-tooltip"
+   [routerLink]="(noAccess$ | async) ? null : (bitstreamPath$ | async)?.routerLink" 
+   class="dont-break-out {{ (noAccess$ | async) ? 'disabled': '' }}"
+   [queryParams]="(noAccess$ | async) ? null : (bitstreamPath$ | async)?.queryParams"
+   [target]="isBlank ? '_blank': '_self'"
+   [ngClass]="cssClasses"
+   [attr.aria-disabled]="(noAccess$ | async) ? 'true' : null"
+   [attr.aria-label]="('file-download-link.download' | translate) + dsoNameService.getName(bitstream)"
+   role="button">
 
-<!-- NO ACCESS ============================================================ -->
-<ng-template #noAccess>
-    <button [disabled]="true" [ngClass]="cssClasses">
-        <i class="fa fa-lock pr-1"></i>
-        {{ "item.page.filesection.no-access" | translate }}
-    </button>
-    <ng-container *ngTemplateOutlet="content"></ng-container>
+  <ng-container *ngIf="canDownload$ | async">
+    <i *ngIf="showIcon" class="fas fa-download pr-2"></i>
+    <span>{{ "item.page.filesection.download" | translate }}</span>
+  </ng-container>
+  <ng-container *ngIf="!(canDownload$ | async) && (canRequestACopy$ | async)">
+    <i *ngIf="showIcon" class="fas fa-envelope pr-2"></i>
+    <span>{{ "item.page.filesection.request-a-copy" | translate }}</span>
+  </ng-container>
+  <ng-container *ngIf="noAccess$ | async">
+    <i *ngIf="showIcon" class="fas fa-ban pr-2"></i>
+    <span>{{ 'item.page.filesection.no-access' | translate }}</span>
+  </ng-container>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</a>
+
+<ng-template #tooltipTemplate>
+  <div class="pb-1 text-primary">
+    <ng-container *ngIf="accessTooltipTemplate">
+      <ng-container *ngTemplateOutlet="accessTooltipTemplate"></ng-container>
+      <span> — </span>
+    </ng-container>
+    <span [innerHTML]="(tooltipKey$ | async) | translate"></span>
+  </div>
 </ng-template>
 
 <!-- ADDITIONAL CONTENT =================================================== -->
