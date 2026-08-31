@@ -8,6 +8,7 @@ import {
   Component,
   Input,
   OnInit,
+  TemplateRef,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -16,10 +17,13 @@ import {
   Observable,
   of as observableOf,
   shareReplay,
+  of,
 } from 'rxjs';
 import {
   catchError,
   map,
+  switchMap,
+  take,
 } from 'rxjs/operators';
 import {
   getFirstCompletedRemoteData,
@@ -41,6 +45,7 @@ import {
   hasValue,
   isNotEmpty,
 } from '../empty.util';
+import { AccessConditionObject } from 'src/app/core/submission/models/access-condition.model';
 
 @Component({
   selector: 'ds-base-file-download-link',
@@ -77,18 +82,25 @@ export class FileDownloadLinkComponent implements OnInit {
 
   @Input() showIcon = false;
 
+  @Input() accessTooltipTemplate?: TemplateRef<any>;
+
   bitstreamPath$: Observable<{
     routerLink: string,
     queryParams: any,
   }>;
 
   canDownload$: Observable<boolean>;
+  canRequestACopy$: Observable<boolean>;
+  noAccess$: Observable<boolean>;
 
   /**
    * Whether or not the user can request a copy of the item
    * based on the configuration property `request.item.type`.
    */
-  public canRequestItemCopy$: Observable<boolean>;
+  canRequestItemCopy$: Observable<boolean>;
+
+  // Store tooltip key that changes accordingly to available actions (download, request_copy or no_access)
+  tooltipKey$: Observable<string>;
 
 
   constructor(
@@ -101,8 +113,12 @@ export class FileDownloadLinkComponent implements OnInit {
   ngOnInit() {
     if (this.enableRequestACopy) {
       this.canDownload$ = this.authorizationService.isAuthorized(FeatureID.CanDownload, isNotEmpty(this.bitstream) ? this.bitstream.self : undefined);
-      const canRequestACopy$ = this.authorizationService.isAuthorized(FeatureID.CanRequestACopy, isNotEmpty(this.bitstream) ? this.bitstream.self : undefined);
-      this.bitstreamPath$ = observableCombineLatest([this.canDownload$, canRequestACopy$]).pipe(
+      this.canRequestACopy$ = this.authorizationService.isAuthorized(FeatureID.CanRequestACopy, isNotEmpty(this.bitstream) ? this.bitstream.self : undefined);
+
+      this.noAccess$ = observableCombineLatest([this.canDownload$, this.canRequestACopy$]).pipe(
+        map(([canDownload, canRequestACopy]) => !canDownload && !canRequestACopy),
+      )
+      this.bitstreamPath$ = observableCombineLatest([this.canDownload$, this.canRequestACopy$]).pipe(
         map(([canDownload, canRequestACopy]) => this.getBitstreamPath(canDownload, canRequestACopy)),
       );
 
@@ -120,7 +136,16 @@ export class FileDownloadLinkComponent implements OnInit {
       this.bitstreamPath$ = observableOf(this.getBitstreamDownloadPath());
       this.canDownload$ = observableOf(true);
       this.canRequestItemCopy$ = observableOf(false);
+      this.noAccess$ = this.canDownload$.pipe(map(cd => !cd));
     }
+
+    this.tooltipKey$ = this.canRequestACopy$.pipe(
+      map((canRequestACopy) => {
+        return canRequestACopy
+          ? "item.page.filesection.request-copy.tooltip"
+          : "item.page.filesection.no-access.tooltip";
+      }
+    ));
   }
 
   getBitstreamPath(canDownload: boolean, canRequestACopy: boolean) {
