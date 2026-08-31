@@ -3696,6 +3696,7 @@
   "form.repeatable.sort.tip": "Déposer l'objet dans la nouvelle position",
 
   "from": "à partir de",
+  "until": "jusqu'au",
 
   // "funding.listelement.badge": "Funding",
   // TODO New key - Add a translation
@@ -4610,8 +4611,8 @@
   // "item.page.filesection.download": "Download",
   "item.page.filesection.download": "Télécharger",
 
-  "item.page.filesection.request-a-copy": "Demander un accès",
-  "item.page.filesection.no-access": "Aucun accès",
+  "item.page.filesection.request-a-copy": "Demander un tiré à part",
+  "item.page.filesection.no-access": "Pas de téléchargement",
 
   // "item.page.filesection.format": "Format:",
   "item.page.filesection.format": "Format:",
@@ -7747,7 +7748,7 @@
 
   // "submission.general.save-later.edit-item": "Save and return",
   // TODO New key - Add a translation
-  "submission.general.save-later.edit-item": "Sauvegarder",
+  "submission.general.save-later.edit-item": "Sauvegarder et fermer",
 
   "submission.header.information": "Vous pouvez consulter le guide du déposant en visitant ce lien : <a href=\"https://uclouvain.sharepoint.com/:b:/r/sites/MySCEB/DIALmem/Aide/Aide_en_ligne_acces_public/DIALmem_Guide_du_deposant_FR.pdf\">guide du déposant</a>",
 
@@ -10717,6 +10718,8 @@
 
   "item.page.filesection.bitstream.download_url.tooltip": "Cliquer ici pour copier le lien permettant au promoteur de télécharger le contenu du bitstream. <strong>Pour des raisons de sécurité, veuillez partager uniquement ce lien avec les promoteurs en charge de la soumission</strong>.",
   "item.page.filesection.bitstream.download_url.label": "Copier le lien de téléchargement",
+  "item.page.filesection.no-access.tooltip": "Téléchargement non autorisé",
+  "item.page.filesection.request-copy.tooltip": "Envoyer une demande à l'auteur·rice. (<b>Membres UCLouvain : téléchargement autorisé depuis le réseau UCLouvain</b>)",
 
   "explore.facet-focus-section.facultyname.title": "Mémoires par faculté",
 

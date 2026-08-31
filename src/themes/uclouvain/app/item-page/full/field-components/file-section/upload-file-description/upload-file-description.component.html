@@ -17,12 +17,7 @@
             </div>
             <ul class="list-inline list-inline-with-divider m-0 small">
                 <li *ngIf="accessConditions">
-                    <ds-access-conditions *ngIf="policyView === 'allPolicies'"
-                                          [accessConditions]="accessConditions.policies">
-                    </ds-access-conditions>
-                    <ds-access-conditions *ngIf="policyView === 'masterPolicy'"
-                                          [accessConditions]="[accessConditions.masterPolicy]">
-                    </ds-access-conditions>
+                    <ng-container *ngTemplateOutlet="accessBadgeTpl; context: { showIcon: true }"></ng-container>
                 </li>
                 <li>{{(bitstream.format | async)?.payload?.shortDescription}}</li>
                 <li>{{(bitstream.sizeBytes) | dsFileSize }}</li>
@@ -39,9 +34,19 @@
                 [item]="item"
                 [cssClasses]="'btn btn-primary'"
                 [showIcon]="true"
+                [accessTooltipTemplate]="accessConditions ? accessBadgeTpl : null"
         ></ds-file-download-link>
         <div *ngIf="downloadUrl" class="pt-1">
             <ds-promoter-file-download-url [downloadUrl]="downloadUrl"/>
         </div>
     </div>
 </div>
+
+<ng-template #accessBadgeTpl let-showIcon="showIcon">
+    <ds-access-conditions *ngIf="policyView === 'allPolicies'"
+                        [accessConditions]="accessConditions.policies" [showIcon]="showIcon ?? false">
+    </ds-access-conditions>
+    <ds-access-conditions *ngIf="policyView === 'masterPolicy'"
+                        [accessConditions]="[accessConditions.masterPolicy]" [showIcon]="showIcon ?? false">
+    </ds-access-conditions>
+</ng-template>
