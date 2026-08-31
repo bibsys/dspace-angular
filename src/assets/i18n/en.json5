@@ -1959,8 +1959,8 @@
   "item.page.files": "Files",
   "item.page.filesection.description": "Description:",
   "item.page.filesection.download": "Download",
-  "item.page.filesection.request-a-copy": "Request a copy",
-  "item.page.filesection.no-access": "No access",
+  "item.page.filesection.request-a-copy": "Request access from the author",
+  "item.page.filesection.no-access": "Download not available",
   "item.page.filesection.format": "Format:",
   "item.page.filesection.name": "Name:",
   "item.page.filesection.size": "Size:",
@@ -5652,6 +5652,8 @@
 
   "item.page.filesection.bitstream.download_url.tooltip": "Click here to copy the link that allows the supervisor to download the bitstream content. <strong>For safety reason, please only share this link with a supervisor in charge of the submission</strong>.",
   "item.page.filesection.bitstream.download_url.label": "Copy download link",
+  "item.page.filesection.no-access.tooltip": "Download is not allowed",
+  "item.page.filesection.request-copy.tooltip": "Send a request to the author. (<b>For UCLouvain members</b>: access is authorized from UCLouvain network)",
 
   "explore.facet-focus-section.facultyname.title": "Theses by faculty",
 

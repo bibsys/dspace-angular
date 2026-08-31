@@ -10,7 +10,7 @@ import { ThemedThumbnailComponent } from 'src/app/thumbnail/themed-thumbnail.com
 import { AccessConditionsComponent } from 'src/themes/uclouvain/app/shared/access-conditions/access-condition.component';
 import { CreativeCommonsLicenseComponent } from 'src/themes/uclouvain/app/shared/cc-license/creative-commons-licence.component';
 import { ThemedFileDownloadLinkComponent } from 'src/app/shared/file-download-link/themed-file-download-link.component';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgIf, NgTemplateOutlet } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { FileSizePipe } from 'src/app/shared/utils/file-size-pipe';
 import { BitstreamDirectDownloadURL } from '../../../../../../../../app/core/shared/bitstream-direct-download-url.model';
@@ -35,6 +35,7 @@ import { isNotEmpty } from 'src/app/shared/empty.util';
     AsyncPipe,
     FileSizePipe,
     PromoterFileDownloadUrlComponent,
+    NgTemplateOutlet,
   ],
   standalone: true,
 })

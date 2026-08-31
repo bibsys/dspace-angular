@@ -3,11 +3,12 @@ import { FileDownloadLinkComponent as BaseComponent } from '../../../../../app/s
 import { RouterLink } from '@angular/router';
 import { AsyncPipe, NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'ds-themed-file-download-link',
   templateUrl: './file-download-link.component.html',
-  styleUrls: ['../../../../../app/shared/file-download-link/file-download-link.component.scss'],
+  styleUrls: ['./file-download-link.component.scss'],
   imports: [
     RouterLink,
     NgIf,
@@ -15,6 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
     NgClass,
     NgTemplateOutlet,
+    NgbTooltipModule,
   ],
   standalone: true,
 })
