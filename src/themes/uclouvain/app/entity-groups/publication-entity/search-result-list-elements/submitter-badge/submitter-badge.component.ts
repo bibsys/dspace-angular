@@ -2,10 +2,12 @@ import { AsyncPipe, NgIf } from "@angular/common";
 import { Component, Input, OnInit } from "@angular/core";
 import { NgbTooltipModule } from "@ng-bootstrap/ng-bootstrap";
 import { TranslateModule } from "@ngx-translate/core";
-import { Observable } from "rxjs";
+import { combineLatest, Observable } from "rxjs";
 import { DSpaceObject } from "src/app/core/shared/dspace-object.model";
 import { Item } from "src/app/core/shared/item.model";
 import ItemSubmitterService from "src/app/core/submitter/item-submitter.service";
+import { RoleService } from "src/app/core/roles/role.service";
+import { AuthService } from '../../../../../../../app/core/auth/auth.service';
 
 /**
  * Custom Badge to display the submitter of an item in MyDspace.
@@ -18,11 +20,12 @@ import ItemSubmitterService from "src/app/core/submitter/item-submitter.service"
     <span *ngIf="(submitter$ | async) as submitter"
           class="badge text-muted py-1 px-2"
           [ngbTooltip]="'mydspace.submitter' | translate">
+      <i *ngIf="!isSubmitter" class="fa-solid fa-triangle-exclamation text-warning highlight-marker"></i>
       <i class="fa-solid fa-user-pen"></i>
       {{ submitter }}
     </span>
   `,
-  styles: ['span {font-size: 0.8rem; line-height: 1.5; box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;}'],
+  styleUrls: ['./submitter-badge.component.scss'],
   standalone: true,
   imports: [NgIf, AsyncPipe, TranslateModule, NgbTooltipModule]
 })
@@ -30,13 +33,21 @@ export class SubmitterBadgeComponent implements OnInit {
 
   @Input() object: DSpaceObject;
 
-  submitter$: Observable<string>;
+  protected submitter$: Observable<string>;
+  protected isSubmitter: boolean = false
 
-  constructor(protected itemSubmitterService: ItemSubmitterService) {}
+  constructor(
+    protected itemSubmitterService: ItemSubmitterService,
+    protected authService: AuthService,
+  ) {}
 
   ngOnInit(): void {
     if (this.object instanceof Item) {
       this.submitter$ = this.itemSubmitterService.getItemSubmitterEmail(this.object.id);
+      const user$ = this.authService.getAuthenticatedUserFromStore();
+      combineLatest([this.submitter$, user$]).subscribe(([submitter, user]) => {
+        this.isSubmitter = submitter === user.email;
+      });
     }
   }
 }
