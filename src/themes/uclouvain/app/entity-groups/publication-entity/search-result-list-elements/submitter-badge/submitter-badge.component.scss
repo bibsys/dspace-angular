@@ -1,0 +1,18 @@
+:host {
+  span {
+    position: relative;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+  }
+
+  .highlight-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.7rem;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 2px #fff;
+  }
+}
