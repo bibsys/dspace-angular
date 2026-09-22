@@ -1283,6 +1283,8 @@
 
   "browse.byOpenAccess.title": "Open access publications",
 
+  "browse.bySourcePul.title": "Presses universitaires de Louvain",
+
   "browse.metadata.author.breadcrumbs": "Browse by Author",
 
   "browse.metadata.dateissued.breadcrumbs": "Browse by Date",
@@ -3743,6 +3745,9 @@
   "item.page.filesection.no-access.explanation.no-email": "This file cannot be downloaded. The request copy is not available because no author email is provided for this publication.",
   "item.page.filesection.no-access.explanation.generic": "This file cannot be downloaded. For an unknown reason, the request copy is not available for this publication.",
   "item.page.filesection.format": "Format:",
+  "item.page.filesection.order-it": "Order it",
+
+  "order-it.description.label": "Order the paper edition from this document directly from the PUL website",
 
   "item.page.filesection.name": "Name:",
 
@@ -6057,6 +6062,9 @@
   "search.filters.filter.show-less": "Collapse",
 
   "search.filters.filter.show-more": "Show more",
+
+  "search.filters.filter.source.head": "Source",
+  "search.filters.applied.f.source": "Source",
 
   "search.filters.filter.subject.head": "Subject",
 

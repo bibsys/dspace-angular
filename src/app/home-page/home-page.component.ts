@@ -97,6 +97,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   searchPath: String;
   openAccessQueryParam: Observable<Params>;
+  pulQueryParam: Observable<Params>;
 
   /**
    * Two-dimensional array (rows and columns) of section components
@@ -151,6 +152,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.searchPath = this.searchService.getSearchLink();
     this.openAccessQueryParam = this.searchConfigService.selectNewAppliedFilterParams("accessType", "openaccess", "equals");
+    this.pulQueryParam = this.searchConfigService.selectNewAppliedFilterParams("source", "PUL", "equals");
 
     this.route.data.pipe(
       map((data) => data.site as Site),
