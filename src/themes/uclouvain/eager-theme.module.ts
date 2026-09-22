@@ -25,10 +25,13 @@ import {
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/host-book-metadata-block.component';
 import {
   IdentifierHandleMetadataBlockComponent
-} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/idenfifier-handle-metadatablock.component';
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-handle-metadata-block.component';
 import {
   IdentifierArxivMetadataBlockComponent
 } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-arxiv-metadata-block.component';
+import {
+  IdentifierGCOIMetadataBlockComponent
+} from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-gcoi-metadata-block.component';
 import { IdentifierDoiMetadataBlockComponent } from './app/entity-groups/publication-entity/item-pages/publication-metadata-block/identifier-doi-metadata-block.component';
 import {
   HostJournalMetadataBlockComponent
@@ -113,6 +116,7 @@ const METADATA_BLOCK_COMPONENTS = [
   HostJournalPeerReviewedBlockComponent,
   IdentifierArxivMetadataBlockComponent,
   IdentifierDoiMetadataBlockComponent,
+  IdentifierGCOIMetadataBlockComponent,
   IdentifierHandleMetadataBlockComponent,
   IdentifierISBNMetadataBlockComponent,
   IdentifierPatentMetadataBlockComponent,

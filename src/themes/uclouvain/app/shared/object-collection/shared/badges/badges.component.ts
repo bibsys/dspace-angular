@@ -10,6 +10,7 @@ import { CustomTypeBadgeComponent } from 'src/themes/uclouvain/app/entity-groups
 import { Context } from '../../../../../../../app/core/shared/context.model';
 import { AccessConditionsComponent } from '../../../access-conditions/access-conditions.component';
 import { SubmitterBadgeComponent } from 'src/themes/uclouvain/app/entity-groups/publication-entity/search-result-list-elements/submitter-badge/submitter-badge.component';
+import { SourceBadge } from './source-badge/source-badge.component';
 
 @Component({
     selector: 'ds-themed-badges',
@@ -17,6 +18,7 @@ import { SubmitterBadgeComponent } from 'src/themes/uclouvain/app/entity-groups/
     template: `<div class="d-flex flex-row align-items-center">
         <div class="d-flex flex-grow-1 gapx-2">
             <ds-custom-type-badge [object]="object" [displayEntityType]="displayType"/>
+            <ds-source-badge [object]="object" [context]="context"/>
             <ng-container *ngIf="isMyDSpaceStatus">
                 <ds-submitter-badge [object]="object"/>
                 <ds-my-dspace-status-badge [context]="context"></ds-my-dspace-status-badge>
@@ -31,6 +33,7 @@ import { SubmitterBadgeComponent } from 'src/themes/uclouvain/app/entity-groups/
         CustomTypeBadgeComponent,
         NgIf,
         ThemedMyDSpaceStatusBadgeComponent,
+        SourceBadge,
         AccessConditionsComponent,
         SubmitterBadgeComponent,
     ],
