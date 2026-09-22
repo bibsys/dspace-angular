@@ -1414,6 +1414,8 @@
 
   "browse.byOpenAccess.title": "Publications en Open Access",
 
+  "browse.bySourcePul.title": "Presses universitaires de Louvain",
+
   // "browse.metadata.author.breadcrumbs": "Browse by Author",
   "browse.metadata.author.breadcrumbs": "Parcourir par Auteur",
 
@@ -4096,6 +4098,10 @@
   // "item.page.filesection.size": "Size:",
   "item.page.filesection.size": "Taille:",
 
+  "item.page.filesection.order-it": "Commander",
+
+  "order-it.description.label": "Commander directement la version papier de ce document sur le site des PUL",
+
   // "item.page.journal.search.title": "Articles in this journal",
   "item.page.journal.search.title": "Articles dans cette revue",
 
@@ -6096,6 +6102,9 @@
 
   // "search.filters.filter.show-more": "Show more",
   "search.filters.filter.show-more": "Afficher plus",
+
+  "search.filters.filter.source.head": "Source",
+  "search.filters.applied.f.source": "Source",
 
   // "search.filters.filter.subject.head": "Subject",
   "search.filters.filter.subject.head": "Sujet",
