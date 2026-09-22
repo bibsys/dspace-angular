@@ -8,6 +8,7 @@ import { PaginatedList } from '../../../../../../../app/core/data/paginated-list
 import { Bitstream } from '../../../../../../../app/core/shared/bitstream.model';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { MetadataFieldWrapperComponent } from 'src/app/shared/metadata-field-wrapper/metadata-field-wrapper.component';
+import { OrderItComponent } from '../../../full/field-components/file-section/order-it/order-it.component';
 import { UploadFileDescriptionComponent } from '../../../full/field-components/file-section/upload-file-description/upload-file-description.component';
 import { ThemedLoadingComponent } from 'src/app/shared/loading/themed-loading.component';
 import { TranslateModule } from '@ngx-translate/core';
@@ -28,9 +29,13 @@ import { VarDirective } from 'src/app/shared/utils/var.directive';
     UploadFileDescriptionComponent,
     ThemedLoadingComponent,
     TranslateModule,
+    OrderItComponent,
   ]
 })
 export class FileSectionComponent extends BaseComponent {
+
+  protected order_it: boolean = false;
+
   protected getBitstreamData(): Observable<RemoteData<PaginatedList<Bitstream>>> {
     return this.bitstreamDataService.findAllByItemAndBundleName(
       this.item,
@@ -44,5 +49,10 @@ export class FileSectionComponent extends BaseComponent {
       followLink('format'),
       followLink('access')
     );
+  }
+
+  ngOnInit() {
+    super.ngOnInit();
+    this.order_it = this.item.firstMetadataValue("dcterms.source") === "PUL";  // TODO : improve this test to be independant of 'dcterms.source' value
   }
 }

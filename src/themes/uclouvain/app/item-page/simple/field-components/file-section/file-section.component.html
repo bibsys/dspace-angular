@@ -1,5 +1,5 @@
 <ng-container *ngVar="(bitstreams$ | async) as bitstreams">
-  <ds-metadata-field-wrapper *ngIf="bitstreams?.length > 0;else noFiles">
+  <ds-metadata-field-wrapper *ngIf="bitstreams?.length > 0 || order_it; else noFiles">
     <div class="file-section">
       <div *ngFor="let file of bitstreams; let last = last" class="mt-1 mb-4 py-1 px-2 shadowy">
         <ds-upload-file-description [bitstream]="file" [item]="item" [showThumbnail]="false" />
@@ -13,6 +13,9 @@
         <button class="bitstream-collapse btn btn-outline-secondary btn-sm"
           (click)="currentPage = undefined; getNextPage();">{{'item.page.bitstreams.collapse' | translate}}</button>
       </div>
+        <div class="mt-1 mb-4 py-1 px-2 shadowy" *ngIf="order_it">
+            <ds-order-it [item]="item"></ds-order-it>
+        </div>
     </div>
   </ds-metadata-field-wrapper>
 </ng-container>

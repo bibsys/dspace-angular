@@ -1,0 +1,28 @@
+<div class="file-section d-flex my-1 p-2">
+    <div class="row mr-0" style="min-width: 0">
+        <ng-container *ngIf="thumbnail$ | async as thumbRD">
+          <div class="col-2" *ngIf="thumbRD?.payload">
+            <ds-thumbnail [thumbnail]="thumbRD" [limitWidth]="true"></ds-thumbnail>
+          </div>
+        </ng-container>
+        <div class="col d-flex align-items-center">
+            <div class="expendable" [innerHTML]="'order-it.description.label' | translate"></div>
+        </div>
+    </div>
+    <div class="ml-auto d-flex flex-column align-items-end justify-content-center text-nowrap">
+        <a *ngIf="pul_url; else no_access"
+           [href]="pul_url"
+           target="pul"
+           class="dont-break-out btn btn-primary" >
+            <i class="fa fa-cart-shopping pr-1"></i>
+            <span class="mr-1">{{ "item.page.filesection.order-it" | translate }}</span>
+        </a>
+        <ng-template #no_access>
+            <a href="javascript:void(0)" class="dont-break-out btn btn-primary disabled">
+                <i class="fa fa-ban pr-1"></i>
+                <span class="mr-1">{{ "item.page.filesection.no-access" | translate }}</span>
+            </a>
+        </ng-template>
+    </div>
+
+</div>
