@@ -14,6 +14,7 @@
             <!-- DRAG ICON ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <div class="drag-handle" tabindex="0" cdkDragHandle>
                 <i class="drag-icon fas fa-grip-vertical fa-fw"></i>
+                <span *ngIf="displayIndex" class="badge badge-pill badge-info ml-1 mr-2 py-1 px-2" >{{ idx +1 }}</span>
             </div>
             <!-- CHIP CONTENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <div class="flex-grow-1 form-control w-auto mr-2" (click)="onChipSelected(idx)" *ngVar="getComponent(chip) as component">
