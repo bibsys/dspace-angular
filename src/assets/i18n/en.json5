@@ -1926,6 +1926,8 @@
 
   "context-menu.actions.edit-item.btn.INVESTIGATOR": "Edit",
 
+  "context-menu.actions.edit-item.btn.PUBLICATION_EDIT": "Edit",
+
   "context-menu.actions.request-correction.btn": "Request a correction",
 
   "context-menu.actions.request-correction.confirm.cancel": "Cancel",
@@ -3512,6 +3514,23 @@
   "item.edit.withdraw.header": "Withdraw item: {{ id }}",
 
   "item.edit.withdraw.success": "The item was withdrawn successfully",
+
+  "item.edit.license.step.commercial": "Commercial",
+  "item.edit.license.step.modifications": "Modifications",
+  "item.edit.license.step.rights": "Rights",
+  "item.edit.license.step.to-choose": "To choose",
+  "item.edit.license.step.no-license": "No license",
+  "item.edit.license.step.selected": "Selected",
+
+  "item.edit.license.question.commercial": "1. Do you allow commercial use of your work?",
+  "item.edit.license.question.modifications": "2. Do you allow modifications of your work?",
+  "item.edit.license.question.rights": "3. Do you wish to waive all your rights (Public Domain)?",
+
+  "item.edit.license.option.yes": "Yes",
+  "item.edit.license.option.no": "No",
+  "item.edit.license.option.share-alike": "ShareAlike",
+  "item.edit.license.option.yes-cc0": "Yes (CC0)",
+  "item.edit.license.option.no-cc-by": "No (CC BY)",
 
   "item.orcid.return": "Back",
 
@@ -6260,6 +6279,10 @@
   "form.other-information.miur.journal.enddate": "End Date",
 
   "form.other-information.dc.identifier.issn": "ISSN",
+
+  "form.other-information.authors-email": "Email",
+
+  "form.other-information.authors-assignment": "Assignment",
 
   "statistics.table.downloadReports.title.TotalVisits": "Most downloaded",
 

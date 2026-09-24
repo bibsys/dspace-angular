@@ -1,0 +1,58 @@
+.license-selector-wrapper {
+  background-color: #fdfdfd;
+
+  .disabled-step {
+    opacity: 0.4;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Style des puces du Stepper */
+  .step-item {
+    min-width: 75px;
+
+    .badge {
+      width: 26px;
+      height: 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      transition: background-color 0.3s ease;
+    }
+  }
+
+  /* Style des cartes d'options */
+  .option-card {
+    cursor: pointer;
+    border: 2px solid #e9ecef !important; /* Force la bordure complète sur les 4 côtés */
+    border-radius: 8px !important;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+    box-sizing: border-box;
+
+    &:hover {
+      border-color: #a5c7fe !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    &.selected {
+      border-color: var(--bs-primary, #0d6efd) !important;
+      background-color: #f0f7ff;
+      font-weight: 600;
+    }
+  }
+
+  .license-banner {
+    background-color: #e7f1ff;
+    border: 1px solid #b6d4fe;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

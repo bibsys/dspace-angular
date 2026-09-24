@@ -2147,6 +2147,9 @@
 
   "context-menu.actions.comment-item.btn": "Commentaires",
 
+  // "context-menu.actions.edit-item.btn.PUBLICATION_EDIT": "Edit",
+  "context-menu.actions.edit-item.btn.PUBLICATION_EDIT": "Modifier",
+
   // "cookies.consent.accept-all": "Accept all",
   "cookies.consent.accept-all": "Accepter tout",
 
@@ -2650,6 +2653,12 @@
 
   // "form.repeatable.sort.tip": "Drop the item in the new position",
   "form.repeatable.sort.tip": "Déposer l'objet dans la nouvelle position",
+
+  // "form.other-information.authors-email": "Email",
+  "form.other-information.authors-email": "Email",
+
+  // "form.other-information.authors-assignment": "Assignment",
+  "form.other-information.authors-assignment": "Affectation",
 
   // "grant-deny-request-copy.deny": "Don't send copy",
   "grant-deny-request-copy.deny": "Ne pas envoyer de copie ",
@@ -3459,6 +3468,23 @@
 
   // "item.edit.withdraw.success": "The item was withdrawn successfully",
   "item.edit.withdraw.success": "L'Item a été retiré avec succès",
+
+  "item.edit.license.step.commercial": "Commercial",
+  "item.edit.license.step.modifications": "Modifications",
+  "item.edit.license.step.rights": "Droits",
+  "item.edit.license.step.to-choose": "À choisir",
+  "item.edit.license.step.no-license": "Pas de licence",
+  "item.edit.license.step.selected": "Sélectionnée",
+
+  "item.edit.license.question.commercial": "1. Autorisez-vous une utilisation commerciale ?",
+  "item.edit.license.question.modifications": "2. Autorisez-vous les modifications de votre œuvre ?",
+  "item.edit.license.question.rights": "3. Souhaitez-vous renoncer à tous vos droits (Domaine public) ?",
+
+  "item.edit.license.option.yes": "Oui",
+  "item.edit.license.option.no": "Non",
+  "item.edit.license.option.share-alike": "Partage à l'identique",
+  "item.edit.license.option.yes-cc0": "Oui (CC0)",
+  "item.edit.license.option.no-cc-by": "Non (CC BY)",
 
   // "item.listelement.badge": "Item",
   "item.listelement.badge": "Item",
