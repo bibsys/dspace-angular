@@ -1,0 +1,159 @@
+<div class="license-selector-wrapper">
+  <div class="row no-gutters">
+
+    <!-- QUESTIONS -->
+    <div class="col-12 col-md-7 px-3">
+
+      <!-- QUESTION 1: COMMERCIAL -->
+      <div class="license-question">
+        <p class="license-question-title">{{ 'item.edit.license.question.commercial' | translate }}</p>
+        <div class="btn-segment" role="group">
+          <button type="button" [class.selected]="commercial === 'yes'" [attr.aria-pressed]="commercial === 'yes'"
+                  (click)="selectCommercial('yes')">{{ 'item.edit.license.option.yes' | translate }}</button>
+          <button type="button" [class.selected]="commercial === 'no'" [attr.aria-pressed]="commercial === 'no'"
+                  (click)="selectCommercial('no')">{{ 'item.edit.license.option.no' | translate }}</button>
+        </div>
+      </div>
+
+      <!-- QUESTION 2: MODIFICATIONS -->
+      <div class="license-question" [class.disabled-step]="!commercial">
+        <p class="license-question-title">{{ 'item.edit.license.question.modifications' | translate }}</p>
+        <div class="btn-segment" role="group">
+          <button type="button" [disabled]="!commercial"
+                  [class.selected]="modification === 'yes'" [attr.aria-pressed]="modification === 'yes'"
+                  (click)="selectModification('yes')">{{ 'item.edit.license.option.yes' | translate }}</button>
+          <button type="button" [disabled]="!commercial"
+                  [class.selected]="modification === 'share'" [attr.aria-pressed]="modification === 'share'"
+                  (click)="selectModification('share')">{{ 'item.edit.license.option.share-alike' | translate }}</button>
+          <button type="button" [disabled]="!commercial"
+                  [class.selected]="modification === 'no'" [attr.aria-pressed]="modification === 'no'"
+                  (click)="selectModification('no')">{{ 'item.edit.license.option.no' | translate }}</button>
+        </div>
+      </div>
+
+      <!-- QUESTION 3: RIGHTS (only when commercial use and modifications are allowed) -->
+      <div class="license-question" [class.disabled-step]="!(commercial === 'yes' && modification === 'yes')">
+        <p class="license-question-title">{{ 'item.edit.license.question.rights' | translate }}</p>
+        <div class="btn-segment" role="group">
+          <button type="button" [disabled]="!(commercial === 'yes' && modification === 'yes')"
+                  [class.selected]="rights === 'yes'" [attr.aria-pressed]="rights === 'yes'"
+                  (click)="selectRights('yes')">{{ 'item.edit.license.option.yes-cc0' | translate }}</button>
+          <button type="button" [disabled]="!(commercial === 'yes' && modification === 'yes')"
+                  [class.selected]="rights === 'no'" [attr.aria-pressed]="rights === 'no'"
+                  (click)="selectRights('no')">{{ 'item.edit.license.option.no-cc-by' | translate }}</button>
+        </div>
+        <p class="license-hint" *ngIf="commercial && modification && !(commercial === 'yes' && modification === 'yes')">
+          {{ 'item.edit.license.hint.rights.unavailable' | translate }}
+        </p>
+      </div>
+
+    </div>
+
+    <!-- SELECTED LICENSE SUMMARY -->
+    <div class="col-12 col-md-5 license-summary p-3" aria-live="polite">
+      <p class="license-summary-heading">{{ 'submission.sections.ccLicense.link' | translate }}</p>
+
+      <ng-container *ngIf="selectedLicense; else noLicense">
+        <a class="license-badge-link d-inline-block mb-2" [href]="selectedLicense" target="_blank" rel="noopener noreferrer"
+           [title]="'item.edit.license.read-summary' | translate"
+           [attr.aria-label]="'item.edit.license.read-summary' | translate">
+          <ds-cc-license [licenseUri]="selectedLicense" [height]="31"></ds-cc-license>
+        </a>
+
+        <!-- License name and title -->
+        <ng-container [ngSwitch]="selectedLicense">
+          <ng-container *ngSwitchCase="'https://creativecommons.org/publicdomain/zero/1.0/'">
+            <p class="font-weight-bold mb-0">CC0 1.0</p>
+            <p class="license-summary-title">{{ 'item.edit.license.title.cc0' | translate }}</p>
+          </ng-container>
+          <ng-container *ngSwitchCase="'https://creativecommons.org/licenses/by/4.0/'">
+            <p class="font-weight-bold mb-0">CC BY 4.0</p>
+            <p class="license-summary-title">{{ 'item.edit.license.title.by' | translate }}</p>
+          </ng-container>
+          <ng-container *ngSwitchCase="'https://creativecommons.org/licenses/by-sa/4.0/'">
+            <p class="font-weight-bold mb-0">CC BY-SA 4.0</p>
+            <p class="license-summary-title">{{ 'item.edit.license.title.by-sa' | translate }}</p>
+          </ng-container>
+          <ng-container *ngSwitchCase="'https://creativecommons.org/licenses/by-nd/4.0/'">
+            <p class="font-weight-bold mb-0">CC BY-ND 4.0</p>
+            <p class="license-summary-title">{{ 'item.edit.license.title.by-nd' | translate }}</p>
+          </ng-container>
+          <ng-container *ngSwitchCase="'https://creativecommons.org/licenses/by-nc/4.0/'">
+            <p class="font-weight-bold mb-0">CC BY-NC 4.0</p>
+            <p class="license-summary-title">{{ 'item.edit.license.title.by-nc' | translate }}</p>
+          </ng-container>
+          <ng-container *ngSwitchCase="'https://creativecommons.org/licenses/by-nc-sa/4.0/'">
+            <p class="font-weight-bold mb-0">CC BY-NC-SA 4.0</p>
+            <p class="license-summary-title">{{ 'item.edit.license.title.by-nc-sa' | translate }}</p>
+          </ng-container>
+          <ng-container *ngSwitchCase="'https://creativecommons.org/licenses/by-nc-nd/4.0/'">
+            <p class="font-weight-bold mb-0">CC BY-NC-ND 4.0</p>
+            <p class="license-summary-title">{{ 'item.edit.license.title.by-nc-nd' | translate }}</p>
+          </ng-container>
+        </ng-container>
+
+        <!-- Rights, deduced from the answers, each with its explanation (questions order) -->
+        <ul class="license-permissions">
+          <!-- Question 1: commercial use -->
+          <li>
+            <span class="permission-icon" aria-hidden="true"
+                  [ngClass]="commercial === 'yes' ? 'permission-allowed' : 'permission-forbidden'">
+              {{ commercial === 'yes' ? '✓' : '✗' }}
+            </span>
+            <div>
+              <span class="sr-only">
+                {{ (commercial === 'yes' ? 'item.edit.license.perm.status.allowed' : 'item.edit.license.perm.status.forbidden') | translate }} :
+              </span>
+              <span class="permission-label">{{ 'item.edit.license.step.commercial' | translate }}</span>
+              <span class="permission-description">{{ 'item.edit.license.hint.commercial.' + commercial | translate }}</span>
+            </div>
+          </li>
+          <!-- Question 2 (and 3): sharing and adaptations -->
+          <li>
+            <span class="permission-icon permission-allowed" aria-hidden="true">✓</span>
+            <div>
+              <span class="sr-only">{{ 'item.edit.license.perm.status.allowed' | translate }} :</span>
+              <span class="permission-label">
+                {{ (modification === 'no' ? 'item.edit.license.perm.share'
+                  : rights === 'yes' ? 'item.edit.license.perm.share-adapt-free'
+                  : 'item.edit.license.perm.share-adapt') | translate }}
+              </span>
+              <span class="permission-description" *ngIf="modification === 'yes'">
+                {{ 'item.edit.license.hint.modifications.yes' | translate }}
+              </span>
+              <span class="permission-description" *ngIf="modification === 'yes' && rights">
+                {{ 'item.edit.license.hint.rights.' + rights | translate }}
+              </span>
+              <!-- Without free modifications ("no" or "share"), the attribution is the condition to explain -->
+              <span class="permission-description" *ngIf="modification === 'no' || modification === 'share'">
+                {{ 'item.edit.license.hint.rights.no' | translate }}
+              </span>
+            </div>
+          </li>
+          <li *ngIf="modification === 'no'">
+            <span class="permission-icon permission-forbidden" aria-hidden="true">✗</span>
+            <div>
+              <span class="sr-only">{{ 'item.edit.license.perm.status.forbidden' | translate }} :</span>
+              <span class="permission-label">{{ 'item.edit.license.step.modifications' | translate }}</span>
+              <span class="permission-description">{{ 'item.edit.license.hint.modifications.no' | translate }}</span>
+            </div>
+          </li>
+          <li *ngIf="modification === 'share'">
+            <span class="permission-icon permission-required" aria-hidden="true">=</span>
+            <div>
+              <span class="sr-only">{{ 'item.edit.license.perm.status.required' | translate }} :</span>
+              <span class="permission-label">{{ 'item.edit.license.option.share-alike' | translate }}</span>
+              <span class="permission-description">{{ 'item.edit.license.hint.modifications.share' | translate }}</span>
+            </div>
+          </li>
+        </ul>
+      </ng-container>
+
+      <ng-template #noLicense>
+        <p class="font-weight-bold mb-1">{{ 'item.edit.license.step.no-license' | translate }}</p>
+        <p class="license-summary-title">{{ 'item.edit.license.no-license-hint' | translate }}</p>
+      </ng-template>
+    </div>
+
+  </div>
+</div>

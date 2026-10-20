@@ -18,5 +18,6 @@ export enum ParserType {
   Link = 'link',
   Year = 'year',
   Checkbox = 'checkbox',
-  Hidden = 'hidden'
+  Hidden = 'hidden',
+  LicenseSelector = 'license-selector',
 }

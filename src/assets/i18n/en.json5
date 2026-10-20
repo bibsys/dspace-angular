@@ -1926,6 +1926,8 @@
 
   "context-menu.actions.edit-item.btn.INVESTIGATOR": "Edit",
 
+  "context-menu.actions.edit-item.btn.PUBLICATION_EDIT": "Edit",
+
   "context-menu.actions.request-correction.btn": "Request a correction",
 
   "context-menu.actions.request-correction.confirm.cancel": "Cancel",
@@ -3512,6 +3514,50 @@
   "item.edit.withdraw.header": "Withdraw item: {{ id }}",
 
   "item.edit.withdraw.success": "The item was withdrawn successfully",
+
+  "item.edit.license.step.commercial": "Commercial",
+  "item.edit.license.step.modifications": "Modifications",
+  "item.edit.license.step.rights": "Rights",
+  "item.edit.license.step.to-choose": "To choose",
+  "item.edit.license.step.no-license": "No license",
+  "item.edit.license.step.selected": "Selected",
+
+  "item.edit.license.question.commercial": "1. Do you allow commercial use of your work?",
+  "item.edit.license.question.modifications": "2. Do you allow modifications of your work?",
+  "item.edit.license.question.rights": "3. Do you wish to waive all your rights (Public Domain)?",
+
+  "item.edit.license.option.yes": "Yes",
+  "item.edit.license.option.no": "No",
+  "item.edit.license.option.share-alike": "ShareAlike",
+  "item.edit.license.option.yes-cc0": "Yes (CC0)",
+  "item.edit.license.option.no-cc-by": "No (CC BY)",
+
+  "item.edit.license.hint.commercial.yes": "Your work may be used for commercial purposes.",
+  "item.edit.license.hint.commercial.no": "Your work may not be used for commercial purposes.",
+  "item.edit.license.hint.modifications.yes": "Your work may be freely modified and adapted.",
+  "item.edit.license.hint.modifications.share": "Adaptations must be shared under the same license.",
+  "item.edit.license.hint.modifications.no": "Your work may only be shared as is, without modifications.",
+  "item.edit.license.hint.rights.yes": "You waive all your rights, your work enters the public domain.",
+  "item.edit.license.hint.rights.no": "You keep your copyright and must be credited.",
+  "item.edit.license.hint.rights.unavailable": "Only available if you allow commercial use and modifications.",
+  "item.edit.license.no-license-hint": "Answer the questions to get your license.",
+
+  "item.edit.license.read-summary": "Read the license summary",
+
+  "item.edit.license.title.cc0": "Public domain dedication",
+  "item.edit.license.title.by": "Attribution",
+  "item.edit.license.title.by-sa": "Attribution – ShareAlike",
+  "item.edit.license.title.by-nd": "Attribution – NoDerivatives",
+  "item.edit.license.title.by-nc": "Attribution – NonCommercial",
+  "item.edit.license.title.by-nc-sa": "Attribution – NonCommercial – ShareAlike",
+  "item.edit.license.title.by-nc-nd": "Attribution – NonCommercial – NoDerivatives",
+
+  "item.edit.license.perm.share-adapt": "Share and adapt, with credit",
+  "item.edit.license.perm.share-adapt-free": "Share and adapt, without credit",
+  "item.edit.license.perm.share": "Share, with credit",
+  "item.edit.license.perm.status.allowed": "Allowed",
+  "item.edit.license.perm.status.forbidden": "Not allowed",
+  "item.edit.license.perm.status.required": "Required",
 
   "item.orcid.return": "Back",
 
@@ -6016,8 +6062,6 @@
 
   "search.sidebar.show.hide.charts.tooltip": "Show/Hide charts",
 
-
-
   "search.view-switch.show-detail": "Show detail",
 
   "search.view-switch.show-grid": "Show as grid",
@@ -6095,19 +6139,6 @@
   "sorting.organisation.address.foundingDate.ASC": "Founding Date Ascending",
 
   "sorting.organisation.address.foundingDate.DESC": "Founding Date Descending",
-
-  "sorting.person.familyName.ASC": "Surname Ascending",
-
-  "sorting.person.familyName.DESC": "Surname Descending",
-
-  "sorting.person.givenName.ASC": "Name Ascending",
-
-  "sorting.person.givenName.DESC": "Name Descending",
-
-  "sorting.person.birthDate.ASC": "Birth Date Ascending",
-
-  "sorting.person.birthDate.DESC": "Birth Date Descending",
-
 
   "statistics": "Statistics",
 
@@ -6260,6 +6291,10 @@
   "form.other-information.miur.journal.enddate": "End Date",
 
   "form.other-information.dc.identifier.issn": "ISSN",
+
+  "form.other-information.authors-email": "Email",
+
+  "form.other-information.authors-assignment": "Assignment",
 
   "statistics.table.downloadReports.title.TotalVisits": "Most downloaded",
 
