@@ -96,7 +96,12 @@ const IIIF_ALLOWED_ORIGINS = environment.rest.allowedOrigins || [];
 (_window as any).screen = { deviceXDPI: 0, logicalXDPI: 0 };
 (global as any).window = _window;
 (global as any).document = _window.document;
-(global as any).navigator = _window.navigator;
+// TODO: This is a temporary fix in order to launch the server in node v22. We need to remove when rebasing to latest DSpace 8 or 9.
+Object.defineProperty(global, 'navigator', {
+  value: _window.navigator,
+  writable: true,
+  configurable: true,
+});
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
