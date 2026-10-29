@@ -5727,14 +5727,6 @@
 
   "search.filters.filter.discoverable.head": "Non-discoverable",
 
-  "search.filters.filter.dc.parentCollection.name.head": "Collection",
-
-  "search.filters.filter.dc.parentCollection.name.label": "Search collection",
-
-  "search.filters.filter.dc.parentCollection.name.placeholder": "Collection",
-
-  "search.filters.applied.f.dc.parentCollection.name": "Collection",
-
   "search.filters.filter.editor.head": "Editor",
 
   "search.filters.filter.editor.placeholder": "Editor",
@@ -5872,6 +5864,12 @@
   "search.filters.filter.subject.placeholder": "Subject",
 
   "search.filters.filter.subject.label": "Search subject",
+
+  "search.filters.filter.collectionName.head": "Collection",
+
+  "search.filters.filter.collectionName.placeholder": "Collection",
+
+  "search.filters.filter.collectionName.label": "Search collection",
 
   "search.filters.filter.submitter.head": "Submitter",
 
@@ -9262,7 +9260,7 @@
 
   "item.page.author.empty": "No author for this publication.",
 
-  "explore.index.dc.parentCollection.name": "Parent collection name",
+  "explore.index.collectionName": "Collection",
 
   "submission-button.add.message": "Add a submission",
 
@@ -9292,8 +9290,10 @@
 
   // --- LANGUAGES ---
   "languages.iso-639-2.nld": "Dutch",
+  "languages.iso-639-2.dut": "Dutch",
   "languages.iso-639-2.eng": "English",
   "languages.iso-639-2.fra": "French",
+  "languages.iso-639-2.fre": "French",
   "languages.iso-639-2.ita": "Italian",
   "languages.iso-639-2.ger": "German",
   "languages.iso-639-2.spa": "Spanish",
@@ -9303,6 +9303,7 @@
   "languages.iso-639-2.por": "Portugais",
   "languages.iso-639-2.rus": "Russe",
   "languages.iso-639-2.mul": "Multiple languages",
+  "languages.iso-639-2.und": "Undetermined",
   "languages.iso-639-2.other": "Other",
 
 }

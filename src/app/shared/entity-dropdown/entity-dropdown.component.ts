@@ -196,7 +196,7 @@ export class EntityDropdownComponent implements OnInit, OnDestroy {
     if (this.isSubmission) {
       // Set the pagination info
       const findOptions: FindListOptions = {
-        elementsPerPage: 10,
+        elementsPerPage: 20,
         currentPage: page,
       };
       searchListEntity$ =
