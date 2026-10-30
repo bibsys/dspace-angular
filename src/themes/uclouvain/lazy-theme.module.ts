@@ -34,6 +34,12 @@ import {FileDownloadLinkComponent} from "./app/shared/file-download-link/file-do
 import {CreativeCommonsLicenseComponent} from "./app/shared/cc-license/creative-commons-licence.component";
 import {ItemVersionsComponent} from "./app/item-page/versions/item-versions.component";
 import {FullItemPageComponent} from "./app/item-page/full/full-item-page.component";
+import {
+  ItemListPreviewComponent
+} from './app/shared/object-list/my-dspace-result-list-element/item-list-preview/item-list-preview.component';
+import {
+  ItemPageTitleFieldComponent
+} from './app/item-page/simple/field-components/specific-field/title/item-page-title-field.component';
 
 const DECLARATIONS = [
     LoginPageComponent,
@@ -54,6 +60,8 @@ const DECLARATIONS = [
     FullFileSectionComponent,
     FileSectionComponent,
     ItemVersionsComponent,
+    ItemListPreviewComponent,
+    ItemPageTitleFieldComponent,
 ];
 
 /**
