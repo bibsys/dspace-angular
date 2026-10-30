@@ -234,7 +234,7 @@ export class CollectionDropdownComponent implements OnInit, OnDestroy {
     this.isLoading.next(true);
     // Set the pagination info
     const findOptions: FindListOptions = {
-      elementsPerPage: 10,
+      elementsPerPage: 20,
       currentPage: page,
     };
     let searchListService$: Observable<RemoteData<PaginatedList<Collection>>>;
