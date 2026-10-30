@@ -5288,18 +5288,6 @@
   // "search.filters.filter.discoverable.head": "Private",
   "search.filters.filter.discoverable.head": "Privé",
 
-  // "search.filters.filter.dc.parentCollection.name.head": "Collection",
-  "search.filters.filter.dc.parentCollection.name.head": "Collection",
-
-  // "search.filters.filter.dc.parentCollection.name.label": "Search collection",
-  "search.filters.filter.dc.parentCollection.name.label": "Recherche d'une collection",
-
-  // "search.filters.filter.dc.parentCollection.name.placeholder": "Collection",
-  "search.filters.filter.dc.parentCollection.name.placeholder": "Collection",
-
-  // "search.filters.applied.f.dc.parentCollection.name": "Collection",
-  "search.filters.applied.f.dc.parentCollection.name": "Collection",
-
   // "search.filters.filter.withdrawn.head": "Withdrawn",
   "search.filters.filter.withdrawn.head": "Retiré",
 
@@ -5413,6 +5401,15 @@
 
   // "search.filters.filter.subject.label": "Search subject",
   "search.filters.filter.subject.label": "Recherche d'un sujet",
+
+  // "search.filters.filter.collectionName.head": "Collection",
+  "search.filters.filter.collectionName.head": "Collection",
+
+  // "search.filters.filter.collectionName.placeholder": "Collection",
+  "search.filters.filter.collectionName.placeholder": "Collection",
+
+  // "search.filters.filter.collectionName.label": "Search collection",
+  "search.filters.filter.collectionName.label": "Recherche d'une collection",
 
   // "search.filters.filter.submitter.head": "Submitter",
   "search.filters.filter.submitter.head": "Déposant",
@@ -8515,8 +8512,8 @@
   // "item.page.author.empty": "No author for this publication",
   "item.page.author.empty": "Aucun auteur pour cette publication.",
 
-  // "explore.index.dc.parentCollection.name": "Parent collection name"
-  "explore.index.dc.parentCollection.name": "Nom de la collection parent",
+  // "explore.index.collectionName": "Collection",
+  "explore.index.collectionName": "Collection",
 
   // "submission-button.add.message": "Add a submission"
   "submission-button.add.message": "Soumettre",
@@ -8579,9 +8576,11 @@
   "item-export.form.btn.close": "Fermer",
 
   // --- LANGUAGES ---
-  "languages.iso-639-2.nld": "Néérlandais",
+  "languages.iso-639-2.nld": "Néerlandais",
+  "languages.iso-639-2.dut": "Néerlandais",
   "languages.iso-639-2.eng": "Anglais",
   "languages.iso-639-2.fra": "Français",
+  "languages.iso-639-2.fre": "Français",
   "languages.iso-639-2.ger": "Allemand",
   "languages.iso-639-2.gre": "Grec",
   "languages.iso-639-2.ita": "Italien",
@@ -8591,6 +8590,7 @@
   "languages.iso-639-2.rus": "Russe",
   "languages.iso-639-2.spa": "Espagnol",
   "languages.iso-639-2.mul": "Multilingue",
+  "languages.iso-639-2.und": "Indéterminée",
   "languages.iso-639-2.other": "Autre",
 
   // "context-menu.actions.statistics.btn": "Statistics"

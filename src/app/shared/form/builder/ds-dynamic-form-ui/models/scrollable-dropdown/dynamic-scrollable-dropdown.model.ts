@@ -42,7 +42,7 @@ export class DynamicScrollableDropdownModel extends DsDynamicInputModel {
 
     this.autoComplete = AUTOCOMPLETE_OFF;
     this.vocabularyOptions = config.vocabularyOptions;
-    this.maxOptions = config.maxOptions || 10;
+    this.maxOptions = config.maxOptions || 20;
     this.displayKey = config.displayKey || 'display';
     this.formatFunction = config.formatFunction;
     this.resourceType = config.resourceType;
