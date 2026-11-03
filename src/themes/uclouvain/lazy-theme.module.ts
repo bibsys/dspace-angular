@@ -40,6 +40,10 @@ import {
 import {
   ItemPageTitleFieldComponent
 } from './app/item-page/simple/field-components/specific-field/title/item-page-title-field.component';
+import {
+  SubmissionSectionUploadFileComponent
+} from "./app/submission/sections/upload/file/section-upload-file.component";
+
 
 const DECLARATIONS = [
     LoginPageComponent,
@@ -52,6 +56,7 @@ const DECLARATIONS = [
     SearchFiltersComponent,
     SearchResultsComponent,
     SearchSidebarComponent,
+    SubmissionSectionUploadFileComponent,
     ObjectListComponent,
     FileDownloadLinkComponent,
     CreativeCommonsLicenseComponent,
