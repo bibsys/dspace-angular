@@ -5673,6 +5673,7 @@
 
 
   // --- FACET TERMS ---
+  "Anonymous" : "Anonymous author",
   "search.filters.accessType.administrator": "Closed",
 
   // -------- ITEM CITATIONS --------

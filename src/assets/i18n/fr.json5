@@ -10789,7 +10789,7 @@
   "Enter the main title of the item.": "Entrez le titre principal du mémoire.",
 
   // --- MISC ---
-  "Anonymous": "Auteur anonyme",
+  "Anonymous": "Auteur·rice anonyme",
 
   // --- FORM VALIDATION ERRORS ---
   "error.validation.authors.missing-degree": "Au moins un des auteurs n'a pas de diplôme associé. Chaque auteur doit être associé à un diplôme.",
