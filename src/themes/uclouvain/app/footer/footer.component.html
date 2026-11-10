@@ -2,22 +2,22 @@
     <div class="d-flex justify-content-center text-white">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-3">
                     <a href="https://www.uclouvain.be">
                         <img src="assets/uclouvain/images/logo-uclouvain-2.webp"
                              alt="UCLouvain"
-                             style="max-width: 300px;"
+                             style="max-width: 200px;"
                         />
                     </a>
                 </div>
-                <div class="col-12 col-lg-4 small text-lg-left">
+                <div class="col-12 col-lg-3 small text-lg-left">
                     <div class="text-uppercase mb-3 list-title">
                         {{ 'Quick links' | translate }}
                     </div>
                     <ul class="list-unstyled">
                         <li>
                             <a class="text-white" href="javascript:void(0);"
-                               (click)="showCookieSettings()">{{ 'footer.link.cookies' | translate}}</a>
+                               (click)="showCookieSettings()">{{ 'footer.link.cookies' | translate }}</a>
                         </li>
                         <li *ngIf="showPrivacyPolicy">
                             <a class="text-white"
@@ -27,11 +27,30 @@
                             <a class="text-white"
                                routerLink="info/end-user-agreement">{{ 'footer.link.end-user-agreement' | translate}}</a>
                         </li>
+                        <li>
+                          <a class="text-white"
+                             routerLink="info/copyright-policy">{{ 'footer.link.copyright-policy' | translate }}</a>
+                        </li>
                     </ul>
                 </div>
-                <div class="col-12 col-lg-4 small text-lg-left">
+                <div class="col-12 col-lg-3 small text-lg-left">
+                  <div class="text-uppercase mb-3 list-title">
+                    {{ 'footer.menu.informations' | translate }}
+                  </div>
+                  <ul class="list-unstyled">
+                    <li>
+                      <a class="text-white"
+                         routerLink="info/what-is-oer">{{ 'footer.link.what-is-oer' | translate }}</a>
+                    </li>
+                    <li>
+                      <a class="text-white"
+                         [href]="getCustomLink('cc-licence')" target="external">{{ 'footer.link.cc-licence' | translate}}</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-12 col-lg-3 small text-lg-left">
                     <div class="text-uppercase mb-3 list-title">
-                        {{ 'Help' | translate }}
+                        {{ 'footer.menu.help' | translate }}
                     </div>
                     <ul class="list-unstyled">
                         <li *ngIf="showSendFeedback$ | async">

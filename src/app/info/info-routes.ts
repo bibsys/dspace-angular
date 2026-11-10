@@ -12,12 +12,16 @@ import { ThemedEndUserAgreementComponent } from './end-user-agreement/themed-end
 import { ThemedFeedbackComponent } from './feedback/themed-feedback.component';
 import {
   COAR_NOTIFY_SUPPORT,
+  COPYRIGHT_POLICY_PATH,
   END_USER_AGREEMENT_PATH,
   FEEDBACK_PATH,
   PRIVACY_PATH,
+  WHAT_IS_OER_PATH,
 } from './info-routing-paths';
 import { NotifyInfoComponent } from './notify-info/notify-info.component';
 import { ThemedPrivacyComponent } from './privacy/themed-privacy.component';
+import { ThemedWhatIsOerComponent } from './what-is-oer/themed-what-is-oer.component';
+import { ThemedCopyrightPolicyComponent } from './copyright-policy/themed-copyright-policy.component';
 
 
 export const ROUTES: Routes = [
@@ -27,6 +31,12 @@ export const ROUTES: Routes = [
     resolve: { breadcrumb: i18nBreadcrumbResolver },
     data: { title: 'info.feedback.title', breadcrumbKey: 'info.feedback' },
     canActivate: [feedbackGuard],
+  },
+  {
+    path: COPYRIGHT_POLICY_PATH,
+    component: ThemedCopyrightPolicyComponent,
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    data: { title: 'info.copyright-policy.title', breadcrumbKey: 'info.copyright-policy' },
   },
   environment.info.enableEndUserAgreement ? {
     path: END_USER_AGREEMENT_PATH,
@@ -40,6 +50,12 @@ export const ROUTES: Routes = [
     resolve: { breadcrumb: i18nBreadcrumbResolver },
     data: { title: 'info.privacy.title', breadcrumbKey: 'info.privacy' },
   } : undefined,
+  {
+    path: WHAT_IS_OER_PATH,
+    component: ThemedWhatIsOerComponent,
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    data: { title: 'info.what-is-oer.title', breadcrumbKey: 'info.what-is-oer' },
+  },
   environment.info.enableCOARNotifySupport ? {
     path: COAR_NOTIFY_SUPPORT,
     component: NotifyInfoComponent,
