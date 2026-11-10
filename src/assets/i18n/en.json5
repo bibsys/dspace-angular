@@ -2664,7 +2664,17 @@
 
   "footer.link.end-user-agreement": "End user agreement",
 
+  "footer.link.copyright-policy": "Copyright policy",
+
+  "footer.link.cc-licence": "About CC licences",
+
+  "footer.link.what-is-oer": "What are OER ?",
+
   "footer.link.feedback": "Send Feedback",
+
+  "footer.menu.help": "Help",
+
+  "footer.menu.informations": "Information",
 
   "footer.developed-by": "Application developed by",
 
@@ -2971,6 +2981,19 @@
   "info.privacy.title": "Privacy policy",
 
   "info.privacy.content.fallback": "In construction...",
+
+  "info.copyright-policy.breadcrumbs": "Copyright Policy",
+  "info.copyright-policy.content.fallback": "In construction...",
+  "info.copyright-policy.head": "Copyright Policy",
+  "info.copyright-policy.title": "Copyright Policy",
+
+  "info.what-is-oer.breadcrumbs": "What are OER?",
+
+  "info.what-is-oer.head": "What are Open Educational Resources (OER)?",
+
+  "info.what-is-oer.title": "What are OER?",
+
+  "info.what-is-oer.content.fallback": "In construction...",
 
   "info.feedback.breadcrumbs": "Feedback",
 
