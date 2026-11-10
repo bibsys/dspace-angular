@@ -2478,7 +2478,7 @@
   "footer.link.dspace-cris": "logiciel DSpace-CRIS",
 
   // "footer.link.cookies": "Cookie settings",
-  "footer.link.cookies": "Paramètres des témoins de connexion",
+  "footer.link.cookies": "Paramètres des cookies",
 
   // "footer.link.privacy-policy": "Privacy policy",
   "footer.link.privacy-policy": "Politique de protection de la vie privée",
@@ -2486,8 +2486,23 @@
   // "footer.link.end-user-agreement": "End User Agreement",
   "footer.link.end-user-agreement": "Mentions légales",
 
+  // "footer.link.copyright-policy": "Copyright policy",
+  "footer.link.copyright-policy": "Licence d’utilisation",
+
+  // "footer.link.cc-licence": "About CC licences",
+  "footer.link.cc-licence": "Licences CC ?",
+
+  // "footer.link.what-is-oer": "What are OER?",
+  "footer.link.what-is-oer": "Qu’est-ce qu’une OER ?",
+
   // "footer.link.feedback":"Send Feedback",
   "footer.link.feedback": "Envoyer un commentaire",
+
+  // "footer.menu.help": "Help",
+  "footer.menu.help": "Aide",
+
+  // "footer.menu.informations": "Information",
+  "footer.menu.informations": "Informations",
 
   // "footer.developed-by": "Application developed by",
   "footer.developed-by": "Application développé par",
@@ -2770,6 +2785,23 @@
 
   // "info.privacy.content.fallback": "In construction.",
   "info.privacy.content.fallback": "En construction...",
+
+  "info.copyright-policy.breadcrumbs": "Licence d’utilisation",
+  "info.copyright-policy.content.fallback": "En construction ...",
+  "info.copyright-policy.head": "Licence d’utilisation",
+  "info.copyright-policy.title": "Licence d’utilisation",
+
+  // "info.what-is-oer.breadcrumbs": "What are OER?",
+  "info.what-is-oer.breadcrumbs": "Qu’est-ce qu’une OER ?",
+
+  // "info.what-is-oer.head": "What are Open Educational Resources (OER)?",
+  "info.what-is-oer.head": "Qu’est-ce qu’une ressource éducative libre (OER) ?",
+
+  // "info.what-is-oer.title": "What are OER?",
+  "info.what-is-oer.title": "Qu’est-ce qu’une OER ?",
+
+  // "info.what-is-oer.content.fallback": "In construction...",
+  "info.what-is-oer.content.fallback": "En construction ...",
 
   // "info.feedback.breadcrumbs": "Feedback",
   "info.feedback.breadcrumbs": "Votre avis",
