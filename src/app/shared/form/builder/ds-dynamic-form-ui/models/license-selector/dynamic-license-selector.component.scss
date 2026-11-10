@@ -1,0 +1,161 @@
+.license-selector-wrapper {
+  width: 85%;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: var(--bs-white);
+
+  /* --- Questions --- */
+  .license-question {
+    padding: var(--bs-spacer-3) 0;
+    border-bottom: 1px solid var(--bs-gray-200);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .license-question-title {
+    font-weight: var(--bs-font-weight-bold);
+    margin-bottom: var(--bs-spacer-2);
+  }
+
+  .disabled-step {
+    opacity: 0.45;
+  }
+
+  /* Groupe de boutons à choix unique */
+  .btn-segment {
+    display: inline-flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--bs-gray-400);
+    border-radius: 0.4rem;
+    overflow: hidden;
+
+    button {
+      border: 0;
+      border-right: 1px solid var(--bs-gray-400);
+      background-color: var(--bs-white);
+      color: var(--bs-body-color);
+      padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+      transition: background-color 0.15s ease-in-out;
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      &:hover:not(:disabled):not(.selected) {
+        background-color: var(--bs-gray-200);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--bs-primary);
+        outline-offset: -2px;
+      }
+
+      &.selected {
+        background-color: var(--bs-primary);
+        color: var(--bs-white);
+        font-weight: var(--bs-font-weight-bold);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .license-hint {
+    font-size: var(--bs-font-size-sm);
+    color: var(--bs-gray-700);
+    margin: var(--bs-spacer-1) 0 0;
+  }
+
+  /* --- Panneau de la licence sélectionnée --- */
+  .license-summary {
+    background-color: var(--bs-light);
+    border-left: 1px solid var(--bs-border-color);
+  }
+
+  .license-summary-heading {
+    font-size: var(--bs-font-size-sm);
+    color: var(--bs-text-muted);
+    margin-bottom: var(--bs-spacer-2);
+  }
+
+  .license-summary-title {
+    font-size: var(--bs-font-size-sm);
+    color: var(--bs-text-muted);
+    margin-bottom: var(--bs-spacer-2);
+  }
+
+  .license-permissions {
+    list-style: none;
+    padding-left: 0;
+    font-size: var(--bs-font-size-sm);
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: var(--bs-spacer-2);
+    }
+  }
+
+  .permission-icon {
+    flex-shrink: 0;
+    width: 1.2em;
+    font-weight: var(--bs-font-weight-bold);
+  }
+
+  .permission-label {
+    display: block;
+    font-weight: var(--bs-font-weight-bold);
+  }
+
+  /* Explication de la réponse, sous le droit concerné */
+  .permission-description {
+    display: block;
+    font-size: var(--bs-small-font-size);
+    color: var(--bs-text-muted);
+    line-height: var(--bs-line-height-sm);
+  }
+
+  .permission-allowed {
+    color: var(--bs-success);
+  }
+
+  .permission-forbidden {
+    color: var(--bs-danger);
+  }
+
+  .permission-required {
+    color: var(--bs-primary);
+  }
+
+  /* Le badge est le lien vers la licence */
+  .license-badge-link {
+    border-radius: 0.2rem;
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: var(--bs-input-btn-focus-box-shadow);
+    }
+  }
+}
+
+/* Sur mobile, le panneau passe sous les questions */
+@media (max-width: 767.98px) {
+  .license-selector-wrapper {
+    width: 100%;
+  }
+
+  .license-selector-wrapper .license-summary {
+    border-left: 0;
+    border-top: 1px solid var(--bs-border-color);
+  }
+}
