@@ -1,9 +1,15 @@
 import { getInfoModulePath } from '../app-routing-paths';
 
+export const COPYRIGHT_POLICY_PATH = 'copyright-policy';
 export const END_USER_AGREEMENT_PATH = 'end-user-agreement';
 export const PRIVACY_PATH = 'privacy';
+export const WHAT_IS_OER_PATH = 'what-is-oer';
 export const FEEDBACK_PATH = 'feedback';
 export const COAR_NOTIFY_SUPPORT = 'coar-notify-support';
+
+export function getCopyrightPolicyPath() {
+  return getSubPath(COPYRIGHT_POLICY_PATH);
+}
 
 export function getEndUserAgreementPath() {
   return getSubPath(END_USER_AGREEMENT_PATH);
