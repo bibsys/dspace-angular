@@ -1,7 +1,7 @@
 :host {
   footer {
     background-color: var(--bs-primary);
-    background-image: url("../../assets/images/footer-background.webp");
+    background-image: linear-gradient(var(--ds-footer-bg-overlay), var(--ds-footer-bg-overlay)), url("../../assets/images/footer-background.webp");
     background-position: bottom center;
     background-repeat: repeat;
     margin-top: 3rem;

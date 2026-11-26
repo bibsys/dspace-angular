@@ -6267,6 +6267,21 @@
   // "submission.sections.submit.progressbar.CClicense": "Creative commons license",
   "submission.sections.submit.progressbar.CClicense": "Licence Creative Commons",
 
+  // "submission.sections.submit.progressbar.describe.publication": "Publication basic information",
+  "submission.sections.submit.progressbar.describe.publication": "Informations de base de la publication",
+
+  // "submission.sections.submit.progressbar.describe.publication_additional": "Additional links",
+  "submission.sections.submit.progressbar.describe.publication_additional": "Liens additionnels",
+
+  // "submission.sections.submit.progressbar.describe.publication_authors": "Authors",
+  "submission.sections.submit.progressbar.describe.publication_authors": "Auteurs",
+
+  // "submission.sections.submit.progressbar.describe.publication_licence": "License",
+  "submission.sections.submit.progressbar.describe.publication_licence": "Licence",
+
+  // "submission.sections.submit.progressbar.describe.publication_lom": "Educational level",
+  "submission.sections.submit.progressbar.describe.publication_lom": "Niveau d'enseignement",
+
   // "submission.sections.submit.progressbar.describe.recycle": "Recycle",
   "submission.sections.submit.progressbar.describe.recycle": "Recycler",
 
@@ -8629,6 +8644,12 @@
 
   // "item.page.heading.files": "Files"
   "item.page.heading.files": "Fichiers",
+
+  // "item.page.heading.additional-link": "Additional link"
+  "item.page.heading.additional-link": "Lien additionnel",
+
+  // "item.page.additional-link.redirect": "Redirect to"
+  "item.page.additional-link.redirect": "Rediriger vers",
 
   // "item.page.heading.details": "Details",
   "item.page.heading.details": "Détails",

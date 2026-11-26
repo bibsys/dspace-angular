@@ -16,6 +16,7 @@ import { MetadataLinkViewComponent } from 'src/app/shared/metadata-link-view/met
 import { listableObjectComponent } from 'src/app/shared/object-collection/shared/listable-object/listable-object.decorator';
 import { ThemedResultsBackButtonComponent } from 'src/app/shared/results-back-button/themed-results-back-button.component';
 import { ThemeService } from '../../../../../../app/shared/theme-support/theme.service';
+import { AdditionalUriSectionComponent } from '../../../item-page/simple/field-components/additional-uri-section/additional-uri-section.component';
 import { ItemPageAbstractCustomFieldComponent } from '../../../item-page/simple/field-components/specific-field/abstract/item-page-abstract-field.component';
 import { ItemPageAuthorListElementComponent } from '../../../item-page/simple/field-components/specific-field/metadata-list/fields/author/item-page-author-list-element.component';
 import { ItemPageMetadataListComponent } from '../../../item-page/simple/field-components/specific-field/metadata-list/item-page-metadata-list.component';
@@ -45,6 +46,7 @@ import {PageDetailSectionComponent} from "../../../shared/page-detail-section.co
     ItemPageAuthorListElementComponent,
     NgComponentOutlet,
     PageDetailSectionComponent,
+    AdditionalUriSectionComponent,
   ],
 })
 export class PublicationPageComponent extends ItemComponent implements OnInit {

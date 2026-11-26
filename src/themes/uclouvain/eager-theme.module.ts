@@ -30,6 +30,9 @@ import {
 import {
   AudienceMetadataBlockComponent
 } from "./app/entity-groups/publication-entity/item-pages/publication-metadata-block/audience-metadata-block.component";
+import {
+  DsDynamicAdditionalLinksComponent
+} from "./app/shared/form/builder/models/additional-links/dynamic-additional-links.component";
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
@@ -55,6 +58,7 @@ const DECLARATIONS = [
   HeaderComponent,
   LangSwitchComponent,
   NavbarComponent,
+  DsDynamicAdditionalLinksComponent,
   ...METADATA_BLOCK_COMPONENTS,
 ];
 

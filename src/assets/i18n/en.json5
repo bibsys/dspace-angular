@@ -7163,9 +7163,17 @@
 
   "submission.sections.submit.progressbar.describe.publication": "Publication basic information",
 
+  "submission.sections.submit.progressbar.describe.publication_additional": "Additional links",
+
+  "submission.sections.submit.progressbar.describe.publication_authors": "Authors",
+
   "submission.sections.submit.progressbar.describe.publication_bibliographic_details": "Publication bibliographic details",
 
   "submission.sections.submit.progressbar.describe.publication_indexing": "Publication indexing",
+
+  "submission.sections.submit.progressbar.describe.publication_licence": "License",
+
+  "submission.sections.submit.progressbar.describe.publication_lom": "Educational level",
 
   "submission.sections.submit.progressbar.describe.publication_references": "Publication references",
 
@@ -9325,6 +9333,10 @@
   "explore.index.itemtype" : "Document type",
 
   "item.page.heading.files": "Files",
+
+  "item.page.heading.additional-link": "Additional link",
+
+  "item.page.additional-link.redirect": "Redirect to",
 
   "item.page.heading.details": "Details",
 
