@@ -1,0 +1,12 @@
+<div class="d-flex align-items-center text-nowrap" style="min-width: 0">
+  <!-- Link icon -->
+  <i class="fas fa-link text-muted mr-2"></i>
+  <!-- Title (falls back to the URL) -->
+  <span class="font-weight-bold">
+    {{ getValue(chip, 'dc.additional.title') || getValue(chip, 'dc.additional.uri') }}
+  </span>
+  <!-- URL -->
+  <span class="font-italic text-muted text-truncate ml-2">
+    ({{ getValue(chip, 'dc.additional.uri') }})
+  </span>
+</div>

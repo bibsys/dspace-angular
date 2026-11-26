@@ -1,0 +1,16 @@
+<div *ngIf="links.length > 0" class="additional-uri-section">
+  <div *ngFor="let link of links" class="mt-1 mb-4 py-1 px-2 shadowy">
+    <div class="d-flex align-items-center my-1 p-2">
+      <div class="flex-grow-1 mr-3" style="min-width: 0">
+        <h5 class="mb-1">{{ link.title }}</h5>
+        <small class="d-block text-muted text-truncate">{{ link.url }}</small>
+      </div>
+      <div class="ml-auto text-nowrap">
+        <a class="btn btn-primary" [href]="link.url" target="_blank" rel="noopener noreferrer"
+           [ngbTooltip]="'item.page.additional-link.redirect' | translate">
+          <i class="fas fa-arrow-up-right-from-square pr-1"></i>{{ 'item.page.additional-link.redirect' | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

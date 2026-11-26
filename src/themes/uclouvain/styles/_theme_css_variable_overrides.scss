@@ -9,10 +9,9 @@
   --ds-home-news-link-color: #{$green};
   --ds-home-news-link-hover-color: #{darken($green, 15%)};
 
-  --ds-header-navbar-border-bottom-color: #{$green};
   --ds-header-icon-color-hover: #{$blue};
   --ds-header-icon-color: #{$dark-turquoise};
-  --ds-header-navbar-border-bottom-color: #{$primary};
+  --ds-header-navbar-border-bottom-color: #{$dark-turquoise};
   --ds-header-navbar-border-bottom-width: 5px;
 
   --ds-admin-sidebar-bg: #{$dark};
@@ -23,11 +22,15 @@
 
   --ds-top-footer-bg: #FFFFFF;
   --ds-footer-bg: #{$dark-turquoise};
+  --ds-footer-bg-overlay: #{rgba($black, .2)};
 
   --ds-navbar-link-color: #{$dark};
   --ds-navbar-link-color-hover: #{$blue};
 
   // Bootstrap variables
   --bs-primary-bg: #{$dark-turquoise};
+
+  // Uclouvain variables
+  --ds-main-theme-color: #{$dark-turquoise};
 }
 

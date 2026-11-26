@@ -20,8 +20,9 @@ $yellow: #f29400 !default;
 $red: #b50030 !default;
 $dark: #1b161a !default;
 $purple: #52489C !default;
-$dark-turquoise: #4A5959 !default;
-$custom-turquoise: #5F7272 !default;
+$dark-turquoise: #41848a !default;
+$custom-turquoise: #52a5ad !default;
+$custom-gray: #84858B !default;
 
 $gray-800: #343a40 !default;
 $gray-700: #495057 !default;
@@ -35,13 +36,13 @@ $table-hover-bg: $gray-400 !default;   // Bootstrap $gray-400
 
 $yiq-contrasted-threshold:  170 !default;
 
-$primary: $dark-turquoise;
-$secondary: $custom-turquoise;
+$primary: $gray-700;
+$secondary: $custom-gray;
 $info: $blue;
 
 $theme-colors: (
   primary: $primary,
-  secondary: $custom-turquoise,
+  secondary: $secondary,
   success: $green,
   info: $blue,
   warning: $yellow,
